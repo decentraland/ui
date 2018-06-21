@@ -1,3 +1,50 @@
 .ui.button {
   color: var(--primary);
+  margin: 0 auto;
+  padding: 10px 22px;
+  font-size: 14px;
+  border-radius: 50px;
+  line-height: 1.42857143;
+  border: 1px solid var(--primary);
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  display: inline-block;
+}
+
+.ui.button.primary,
+.ui.button.primary:focus,
+.ui.button.primary:active {
+  background-color: var(--primary) !important;
+  color: #fff;
+  border: none;
+}
+
+.ui.button.primary:hover,
+.ui.button.primary:focus,
+.ui.button.primary:active {
+  box-shadow: 0 8px 30px var(--primary);
+}
+
+.ui.button:hover,
+.ui.button:visited {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.ui.button.link {
+  border: none;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.ui.button.link:hover,
+.ui.button.link:focus,
+.ui.button.link:active {
+  color: var(--primary);
+  background: transparent;
 }

@@ -11,6 +11,7 @@ import './themes/dark-theme.css'
 import './components/Button/Button.css'
 
 // Decentraland components
+export { CustomComponent } from './components/CustomComponent/CustomComponent'
 
 // Semantic components
 export * from 'semantic-ui-react'

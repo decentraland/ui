@@ -23,6 +23,24 @@ export class MyApp extends React.Component {
 }
 ```
 
+## Alternative themes
+
+You can use one of our alternative themes by importing in after Decentraland UI's styles, like this:
+
+```jsx
+import 'decentraland-ui/lib/decentraland-ui.css'
+import 'decentraland-ui/lib/dark-themes.css'
+```
+
+Or you can create your own theme like this:
+
+```css
+/* my-theme.css */
+:root {
+  --primary: #ff0000;
+}
+```
+
 ## Development
 
 Install dependencies and start Storybook
