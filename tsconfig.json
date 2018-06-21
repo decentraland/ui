@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "diagnostics": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "stripInternal": true,
+    "pretty": true,
+    "declaration": true,
+    "declarationDir": ".",
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "jsx": "react",
+    "plugins": [{ "name": "tslint-language-service" }],
+    "baseUrl": "./packages",
+    "lib": ["es2017", "dom", "esnext.asynciterable"]
+  },
+  "exclude": ["node_modules", "lib"],
+  "include": ["src/**/*", "test/**/*"]
+}

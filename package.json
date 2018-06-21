@@ -2,7 +2,8 @@
   "name": "decentraland-ui",
   "version": "0.1.0",
   "description": "Decentraland's UI components and styles",
-  "main": "lib/decentraland-ui.js",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "rimraf lib && webpack --config webpack.config.js",
@@ -37,6 +38,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "mini-css-extract-plugin": "^0.4.0",
@@ -44,8 +46,11 @@
     "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.1",
+    "typescript": "^2.9.2",
     "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "@types/react": "^16.4.1"
   },
   "dependencies": {
     "semantic-ui-css": "^2.3.2",
@@ -53,6 +58,7 @@
   },
   "peerDependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "@types/react": "^16.4.1"
   }
 }

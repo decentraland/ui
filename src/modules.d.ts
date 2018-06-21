@@ -1,0 +1,2 @@
+// @internal
+declare var module

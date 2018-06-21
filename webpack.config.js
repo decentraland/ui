@@ -1,14 +1,18 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: 'decentraland-ui.js',
+    filename: 'index.js',
     library: 'decentralandUI',
     libraryTarget: 'umd'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   externals: {
     react: {
@@ -25,8 +29,8 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
-        test: /\.jsx?$/,
-        use: ['babel-loader']
+        test: /\.tsx?$/,
+        use: ['ts-loader']
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -41,6 +45,9 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'decentraland-ui.css'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/themes/dark-theme.css', to: 'dark-themes.css' }
+    ])
   ]
 }
