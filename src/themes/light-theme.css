@@ -1,9 +1,10 @@
 :root {
   /* colors */
   --primary: #ff0044;
-  --secondary: #181f33;
+  --secondary: #f2f2f5;
   --accent: #ff9a74;
-  --text: #ffffff;
+  --text: #0a0f1f;
+  --secondary-text: #7d8499;
   --radius: 8px;
 
   /* buttons */
@@ -20,8 +21,10 @@
     var(--primary)
   );
 
-  --secondary-button-text: white;
+  --secondary-button-text: var(--text);
   --secondary-button-background: var(--secondary);
-  --secondary-button-text-active: var(--primary);
-  --secondary-button-background-active: var(--secondary);
+  --secondary-button-text-active: var(--text);
+  --secondary-button-background-active: color-mod(
+    var(--secondary-button-background) l(-5%)
+  );
 }

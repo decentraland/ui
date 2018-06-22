@@ -6,3 +6,8 @@
   --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
 }
+
+/* this is for storybook */
+.sb-show-main {
+  margin: 20px !important;
+}

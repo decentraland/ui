@@ -1,26 +1,52 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { Button } from '../..'
 
 storiesOf('Button', module)
-  .add('primary', () => (
-    <Button primary onClick={action('clicked')}>
-      Primary
-    </Button>
+  .add('Primary', () => (
+    <>
+      <Button primary>Vote Now</Button>
+      <Button primary disabled>
+        Vote Now
+      </Button>
+    </>
   ))
-  .add('primary disabled', () => (
-    <Button primary disabled onClick={action('clicked')}>
-      Primary
-    </Button>
+  .add('Secondary', () => (
+    <>
+      <Button>Cancel</Button>
+      <Button disabled>Cancel</Button>
+    </>
   ))
-  .add('secondary', () => (
-    <Button secondary onClick={action('clicked')}>
-      Secondary
-    </Button>
+  .add('Sizes', () => (
+    <>
+      <Button primary size="massive">
+        Massive
+      </Button>
+      <Button primary size="huge">
+        Huge
+      </Button>
+      <Button primary size="large">
+        Large
+      </Button>
+      <Button primary size="medium">
+        Medium
+      </Button>
+      <Button primary size="small">
+        Small
+      </Button>
+      <Button primary size="tiny">
+        Tiny
+      </Button>
+      <Button primary size="mini">
+        Mini
+      </Button>
+    </>
   ))
-  .add('secondary disabled', () => (
-    <Button secondary onClick={action('clicked')}>
-      Secondary
-    </Button>
+  .add('Actions', () => (
+    <>
+      <Button primary style={{ minWidth: 190 }}>
+        Vote Now
+      </Button>
+      <Button style={{ minWidth: 190 }}>Cancel</Button>
+    </>
   ))

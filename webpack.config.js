@@ -1,5 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const postcssPresetEnv = require('postcss-preset-env')
+const postcssColorMod = require('postcss-color-mod-function')
 const path = require('path')
 
 module.exports = {
@@ -26,7 +28,21 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                postcssPresetEnv({
+                  stage: 2
+                })
+              ]
+            }
+          }
+        ]
       },
       {
         test: /\.tsx?$/,
@@ -38,13 +54,20 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'decentraland-ui.css'
+      filename: 'styles.css'
     }),
     new CopyWebpackPlugin([
       { from: 'src/themes/dark-theme.css', to: 'dark-themes.css' }

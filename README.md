@@ -28,8 +28,8 @@ export class MyApp extends React.Component {
 You can use one of our alternative themes by importing in after Decentraland UI's styles, like this:
 
 ```jsx
-import 'decentraland-ui/lib/decentraland-ui.css'
-import 'decentraland-ui/lib/dark-themes.css'
+import 'decentraland-ui/lib/styles.css'
+import 'decentraland-ui/lib/dark-theme.css'
 ```
 
 Or you can create your own theme like this:
