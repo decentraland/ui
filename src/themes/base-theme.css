@@ -1,3 +1,8 @@
 :root {
+  /* sizes */
   --navbar-height: 94px;
+
+  /* fonts */
+  --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
 }

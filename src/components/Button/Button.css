@@ -1,50 +1,37 @@
-.ui.button {
-  color: var(--primary);
-  margin: 0 auto;
-  padding: 10px 22px;
+.ui.button,
+.ui.button.secondary {
+  background-color: var(--secondary);
+  font-family: var(--font-print);
+  color: var(--button-text);
+  padding: 10px 32px;
+  border-radius: var(--radius);
   font-size: 14px;
-  border-radius: 50px;
-  line-height: 1.42857143;
-  border: 1px solid var(--primary);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: expanded;
+  line-height: 1.71;
+  letter-spacing: normal;
   text-transform: uppercase;
-  background-color: transparent;
-  cursor: pointer;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  background-image: none;
-  display: inline-block;
-}
-
-.ui.button.primary,
-.ui.button.primary:focus,
-.ui.button.primary:active {
-  background-color: var(--primary) !important;
-  color: #fff;
-  border: none;
-}
-
-.ui.button.primary:hover,
-.ui.button.primary:focus,
-.ui.button.primary:active {
-  box-shadow: 0 8px 30px var(--primary);
 }
 
 .ui.button:hover,
-.ui.button:visited {
-  background-color: var(--primary);
-  color: #fff;
-}
-
-.ui.button.link {
-  border: none;
-  padding: 0px;
-  font-weight: bold;
-}
-
-.ui.button.link:hover,
-.ui.button.link:focus,
-.ui.button.link:active {
+.ui.button:active,
+.ui.button.secondary:hover,
+.ui.button.secondary:active {
   color: var(--primary);
-  background: transparent;
+  background-color: var(--secondary);
+}
+
+.ui.button:focus,
+.ui.button.secondary:focus {
+  color: var(--primary);
+  background-color: var(--secondary);
+  opacity: 0.95;
+}
+
+.ui.button:disabled,
+.ui.button.secondary:disabled {
+  opacity: 0.4;
+  color: var(--button-text);
+  background-color: var(--secondary);
 }

@@ -4,9 +4,23 @@ import { action } from '@storybook/addon-actions'
 import { Button } from '../..'
 
 storiesOf('Button', module)
-  .add('simple button', () => <Button onClick={action('clicked')}>Hola</Button>)
-  .add('primary button', () => (
+  .add('primary', () => (
     <Button primary onClick={action('clicked')}>
-      Hola
+      Primary
+    </Button>
+  ))
+  .add('primary disabled', () => (
+    <Button primary disabled onClick={action('clicked')}>
+      Primary
+    </Button>
+  ))
+  .add('secondary', () => (
+    <Button secondary onClick={action('clicked')}>
+      Secondary
+    </Button>
+  ))
+  .add('secondary disabled', () => (
+    <Button secondary onClick={action('clicked')}>
+      Secondary
     </Button>
   ))
