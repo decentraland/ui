@@ -24,17 +24,11 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package-lock.json" }}
       - run: 
-          name: Build static storybook
-          command: npm run build-storybook
-      - run: 
           name: Run coverage tests
           command: npm run test:coverage
       - run: 
           name: Send coverage reports
           command: npm run codecov
-      - run: 
-          name: Run visual tests
-          command: npm run test:visual
 workflows:
   version: 2
   test:
