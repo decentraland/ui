@@ -4,7 +4,7 @@ install: npm install
 script: npm run test:ci
 deploy:
   provider: script
-  script: npm run deploy
+  script: npm install now && npm run deploy
   on:
     branch: master
 node_js:

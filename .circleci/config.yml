@@ -56,12 +56,10 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy-master:
+  test-deploy:
     jobs:
       - test
       - deploy:
-        requires:
-          - test
         filters:
             branches:
               only: master
