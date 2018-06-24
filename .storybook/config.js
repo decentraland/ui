@@ -22,8 +22,6 @@ addDecorator(centered)
 
 // this is to make storyshots work (and jest in general) because it lacks webpack's require.context function
 if (!require.context) {
-  const registerRequireContextHook = require('babel-plugin-require-context-hook/register')
-  registerRequireContextHook()
   require.context = (directory, useSubdirectories, regExp = /^\.\//) =>
     __requireContext('.storybook', directory, useSubdirectories, regExp)
 }
