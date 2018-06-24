@@ -56,7 +56,7 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  test-deploy-master:
     jobs:
       - test
       - deploy:
