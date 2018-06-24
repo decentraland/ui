@@ -8,12 +8,19 @@ const getGotoOptions = ({ context, url }) => {
     waitUntil: 'networkidle0'
   }
 }
+const getMatchOptions = ({ context: { kind, story }, url }) => {
+  return {
+    failureThreshold: 0.5,
+    failureThresholdType: 'percent'
+  }
+}
 const staticStorybookUrl = path.resolve(__dirname, '../../storybook-static')
 const visualTest = {
   suite: 'Decentraland UI - Visual Tests',
   test: imageSnapshot({
     storybookUrl: `file://${staticStorybookUrl}`,
-    getGotoOptions
+    getGotoOptions,
+    getMatchOptions
   }),
   stories2snapsConverter: new Stories2SnapsConverter({
     snapshotsDirName: '__visual_snapshots__',
