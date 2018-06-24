@@ -37,7 +37,7 @@ jobs:
           command: npm run test:visual
       - run:
           name: Deploy to now.sh
-          command: now --token $NOW_TOKEN --public && now alias decentraland-ui --token $NOW_TOKEN
+          command: now --token $NOW_TOKEN --public ./storybook-static && now alias decentraland-ui --token $NOW_TOKEN
 
 workflows:
   version: 2
