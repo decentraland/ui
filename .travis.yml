@@ -9,6 +9,5 @@ install: npm install
 jobs:
   include:
     - stage: test
-    - script: npm run test:coverage
-    - before_script: npm run build-storybook
-    - script: npm run test:visual
+      script: npm run test:coverage && npm run codecov
+      script: npm run build-storybook && npm run test:visual
