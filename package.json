@@ -7,8 +7,8 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:visual": "VISUAL_TEST=true jest",
+    "test:coverage": "npm test -- test/coverage/coverage.test.ts --coverage",
+    "test:visual": "npm test -- test/visual/visual.test.ts",
     "test:ci": "npm run test:coverage && codecov && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
