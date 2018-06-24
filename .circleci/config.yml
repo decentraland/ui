@@ -35,21 +35,6 @@ jobs:
       - run: 
           name: Run visual tests
           command: npm run test:visual
-      - save_cache:
-          paths:
-            - storybook-static
-          key: storybook-static-{{ .Branch }}-{{ .Revision }}
-
-  deploy:
-    docker:
-      - image: circleci/node:8.4.0
-
-    working_directory: /tmp/ui
-
-    steps:
-      - restore_cache:
-          keys:
-          - storybook-static-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Deploy to now.sh
           command: now --token $NOW_TOKEN --public && now alias decentraland-ui --token $NOW_TOKEN
@@ -58,19 +43,4 @@ workflows:
   version: 2
   test:
     jobs:
-      - test:
-        filters:
-            branches:
-              ignore:
-                - master
-                - release
-                - staging
-  test-deploy:
-    jobs:
-      - test:
-          filters:
-            branches:
-              only: master
-      - deploy:
-          requires:
-            - test
+      - test
