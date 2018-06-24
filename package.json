@@ -7,6 +7,7 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "jest",
+    "test:coverage": "jest --coverage && codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
     "build-storybook": "build-storybook"
   },
@@ -35,6 +36,7 @@
     "@storybook/addon-links": "^4.0.0-alpha.9",
     "@storybook/addon-options": "^3.4.8",
     "@storybook/addon-storyshots": "^4.0.0-alpha.10",
+    "@storybook/addon-storyshots-puppeteer": "^4.0.0-alpha.10",
     "@storybook/addons": "^4.0.0-alpha.9",
     "@storybook/react": "^4.0.0-alpha.9",
     "@types/jest": "^23.1.1",
@@ -46,6 +48,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "codecov": "^3.0.2",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
@@ -97,7 +100,6 @@
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/__config__/setup.js",
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/components/**/*.(ts|tsx|js)"
     ]
