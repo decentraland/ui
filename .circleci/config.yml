@@ -13,12 +13,25 @@ jobs:
       - restore_cache:
           keys:
           - dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run: 
+          name: Install dependencies
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: dependencies-{{ checksum "package-lock.json" }}
-      - run: npm run test:coverage
+      - run: 
+          name: Run snapshot tests
+          command: npm run test:coverage
+      - run: 
+          name: Send coverage reports
+          command: npm run codecov
+      - run: 
+          name: Build static storybook
+          command: npm run build:storybook
+      - run: 
+          name: Run visual tests
+          command: npm run test:visual
 workflows:
   version: 2
   test:

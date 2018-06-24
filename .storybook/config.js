@@ -1,6 +1,5 @@
 const { configure, addDecorator } = require('@storybook/react')
 const centered = require('@storybook/addon-centered').default
-console.log(centered)
 const { setOptions } = require('@storybook/addon-options')
 
 setOptions({
