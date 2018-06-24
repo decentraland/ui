@@ -19,3 +19,8 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package-lock.json" }}
       - run: npm run test:coverage
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
