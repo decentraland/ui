@@ -8,5 +8,6 @@ before_install: sudo apt-get -y install gconf-service libasound2 libatk1.0-0 lib
 install: npm install
 jobs:
   include:
-    - script: npm run test:coverage && npm run codecov
-    - script: npm run build-storybook && npm run test:visual
+    - stage: test
+      script: npm run test:coverage && npm run codecov
+      script: npm run build-storybook && npm run test:visual
