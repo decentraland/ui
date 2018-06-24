@@ -37,7 +37,7 @@ jobs:
           command: npm run test:visual
       - run:
           name: Deploy to now.sh
-          command: cd storybook-static && npm install now --no-save && ./node_modules/.bin/now --token $NOW_TOKEN --public && ./node_modules/.bin/now alias dcl-ui --token $NOW_TOKEN
+          command: cd storybook-static && npm install now --no-save && ../node_modules/.bin/now --token $NOW_TOKEN --public && ../node_modules/.bin/now alias dcl-ui --token $NOW_TOKEN
 
 workflows:
   version: 2
