@@ -1,4 +1,4 @@
-# Decentraland UI
+# Decentraland UI [![codecov](https://codecov.io/gh/decentraland/ui/branch/master/graph/badge.svg)](https://codecov.io/gh/decentraland/ui)
 
 `semantic-ui-react` themed with Decentrland's look & feel + some of our own components
 
