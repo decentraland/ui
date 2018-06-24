@@ -1,0 +1,20 @@
+.dcl.mana {
+  display: inline;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.dcl.mana .symbol {
+  color: var(--neon-blue);
+  font-style: normal;
+  padding-right: 0.3em;
+  transform: translateY(-0.1em);
+  display: inline-block;
+}
+
+.dcl.mana.black .symbol {
+  color: black;
+}
+
+.dcl.mana + .dcl.mana {
+  padding-left: 0.3em;
+}

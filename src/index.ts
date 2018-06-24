@@ -1,6 +1,9 @@
 // Semantic css
 import 'semantic-ui-css/semantic.min.css'
 
+// Balloon css
+import 'balloon-css/balloon.min.css'
+
 // Base theme
 import './themes/base-theme.css'
 
@@ -14,7 +17,8 @@ import './components/Radio/Radio.css'
 import './components/Header/Header.css'
 
 // Decentraland components
-export { CustomComponent } from './components/CustomComponent/CustomComponent'
+export { Mana } from './components/Mana/Mana'
+export { Stats } from './components/Stats/Stats'
 
 // Semantic components
 export * from 'semantic-ui-react'

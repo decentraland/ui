@@ -6,6 +6,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "start": "start-storybook -p 6006",
+    "test": "jest",
     "build": "rimraf lib && webpack --config webpack.config.js",
     "build-storybook": "build-storybook"
   },
@@ -30,26 +31,35 @@
   "homepage": "https://github.com/decentraland/ui#readme",
   "devDependencies": {
     "@storybook/addon-actions": "^4.0.0-alpha.9",
+    "@storybook/addon-centered": "^3.4.8",
     "@storybook/addon-links": "^4.0.0-alpha.9",
+    "@storybook/addon-options": "^3.4.8",
+    "@storybook/addon-storyshots": "^4.0.0-alpha.10",
     "@storybook/addons": "^4.0.0-alpha.9",
     "@storybook/react": "^4.0.0-alpha.9",
+    "@types/jest": "^23.1.1",
     "@types/react": "^16.4.1",
+    "@types/react-test-renderer": "^16.0.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
+    "jest": "^23.1.0",
     "mini-css-extract-plugin": "^0.4.0",
     "postcss-color-mod-function": "^2.4.2",
     "postcss-loader": "^2.1.5",
     "postcss-preset-env": "^5.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
+    "ts-jest": "^22.4.6",
     "ts-loader": "^4.4.1",
     "typescript": "^2.9.2",
     "url-loader": "^1.0.1",
@@ -57,6 +67,8 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
+    "balloon-css": "^0.5.0",
+    "ethereum-blockies": "^0.1.1",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.81.1"
   },
@@ -64,5 +76,30 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "@types/react": "^16.4.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "testRegex": "(\\.(test|spec))\\.(ts|tsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test/__config__/setup.js",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/components/**/*.(ts|tsx|js)"
+    ]
   }
 }

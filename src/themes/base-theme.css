@@ -5,9 +5,12 @@
   /* fonts */
   --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
-}
 
-/* this is for storybook */
-.sb-show-main {
-  margin: 20px !important;
+  /* colors */
+  --neon-blue: #00d9ff;
+  --neon-red: #ff0044;
+  --orange-yellow: #ffa900;
+  --orange: #ff9a74;
+  --dark: #181f33;
+  --dark-blue-grey: #0a0f1f;
 }

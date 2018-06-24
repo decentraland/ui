@@ -1,9 +1,9 @@
 :root {
   /* colors */
-  --primary: #ff0044;
-  --secondary: #181f33;
-  --accent: #ff9a74;
-  --text: #ffffff;
+  --primary: var(--neon-red);
+  --secondary: var(--dark);
+  --accent: var(--orange);
+  --text: white;
   --radius: 8px;
 
   /* buttons */
