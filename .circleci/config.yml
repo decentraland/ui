@@ -31,7 +31,7 @@ jobs:
           command: npm run codecov
       - run: 
           name: Build static storybook
-          command: npm run build-storybook
+          command: npm run build:storybook
       - run: 
           name: Run visual tests
           command: npm run test:visual
