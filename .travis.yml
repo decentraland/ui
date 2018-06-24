@@ -5,7 +5,7 @@ script: npm run test:ci
 before_deploy: npm install now --no-save
 deploy:
   - provider: script
-    script: now --token $NOW_TOKEN --public ./storybook-static && now alias decentraland-ui --token $NOW_TOKEN
+    script: cd storybook-static && npm install now --no-save && ./node_modules/.bin/now --token $NOW_TOKEN --public && ./node_modules/.bin/now alias dcl-ui --token $NOW_TOKEN
     skip_cleanup: true
     on:
       master: true
