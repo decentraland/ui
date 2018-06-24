@@ -66,6 +66,4 @@ npm run test:visual
 
 ## CI/CD
 
-We run our coverage tests on CircleCI and send coverage reports to CodeCov
-
-We use TravisCI to run visual tests and deploy to
+We run coverage + visual tests on CircleCI and deploy automatically to https://dcl-ui.now.sh/
