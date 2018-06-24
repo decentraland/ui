@@ -1,5 +1,5 @@
 language: node_js
-script: "npm run test:visual"
+script: "npm i && npm run build-storybook && npm run test:visual"
 node_js:
   - "node"
 cache:
