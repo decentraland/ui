@@ -56,10 +56,21 @@ jobs:
 
 workflows:
   version: 2
-  test_deploy:
+  test:
     jobs:
-      - test
-      - deploy:
+      - test:
         filters:
             branches:
+              ignore:
+                - master
+                - release
+                - staging
+  test-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
               only: master
+      - deploy:
+          requires:
+            - test
