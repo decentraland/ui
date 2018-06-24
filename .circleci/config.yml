@@ -52,7 +52,7 @@ jobs:
           - storybook-static-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Deploy to now.sh
-          command: npm run deploy
+          command: now --token $NOW_TOKEN --public && now alias decentraland-ui --token $NOW_TOKEN
 
 workflows:
   version: 2
