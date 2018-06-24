@@ -1,4 +1,4 @@
-# Decentraland UI [![codecov](https://codecov.io/gh/decentraland/ui/branch/master/graph/badge.svg)](https://codecov.io/gh/decentraland/ui)
+# Decentraland UI [![codecov](https://codecov.io/gh/decentraland/ui/branch/master/graph/badge.svg)](https://codecov.io/gh/decentraland/ui) [![Build Status](https://travis-ci.org/decentraland/ui.svg?branch=master)](https://travis-ci.org/decentraland/ui)
 
 `semantic-ui-react` themed with Decentrland's look & feel + some of our own components
 
@@ -49,3 +49,23 @@ Install dependencies and start Storybook
 $ npm install
 $ npm start
 ```
+
+## Tests
+
+Run coverage tests:
+
+```
+npm run test:coverage
+```
+
+Run visual tests
+
+```
+npm run test:visual
+```
+
+## CI/CD
+
+We run our coverage tests on CircleCI and send coverage reports to CodeCov
+
+We use TravisCI to run visual tests and deploy to

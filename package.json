@@ -8,10 +8,10 @@
     "start": "start-storybook -p 6006",
     "test:coverage": "jest test/coverage/coverage.test.ts --coverage",
     "test:visual": "jest test/visual/visual.test.ts",
-    "test:ci": "npm run test:coverage && codecov && npm run test:visual",
+    "test:ci": "npm run test:coverage && codecov && npm run build:storybook && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
