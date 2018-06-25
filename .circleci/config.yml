@@ -83,6 +83,7 @@ jobs:
     working_directory: /tmp/ui
 
     steps:
+      - checkout
       - restore_cache:
           keys:
           - lib-{{ .Branch }}-{{ .Revision }}
