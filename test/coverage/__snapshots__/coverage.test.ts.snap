@@ -1,5 +1,305 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Decentraland UI - Coverage Tests Address Full length 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="dcl address"
+    >
+      0x68FFc53C43C65C8Dd778969320e21B85b10363cE
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Address In a paragraph 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <p>
+      Your address is 
+      <strong
+        className="dcl address"
+      >
+        0x68...63cE
+      </strong>
+      .
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Address Plain 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="dcl address"
+    >
+      0x68...63cE
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Address Strong 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <strong
+      className="dcl address"
+    >
+      0x68...63cE
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Address Tooltip 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="dcl address"
+      data-balloon="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+      data-balloon-pos="up"
+    >
+      0x68...63cE
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Blockie In a paragraph 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <p>
+      You have transfered 
+      <div
+        className="ui tiny header dcl mana"
+      >
+        <i
+          className="symbol"
+        >
+          ⏣
+        </i>
+        1,000
+      </div>
+       to
+       
+      <span
+        className="dcl blockie-wrapper"
+      >
+        <canvas
+          className="dcl blockie tiny"
+        />
+        <span
+          className="dcl blockie-children"
+        >
+          <strong
+            className="dcl address"
+          >
+            0x68...63cE
+          </strong>
+        </span>
+      </span>
+      .
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Blockie Scales 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <canvas
+      className="dcl blockie mini"
+    />
+    <canvas
+      className="dcl blockie tiny"
+    />
+    <canvas
+      className="dcl blockie small"
+    />
+    <canvas
+      className="dcl blockie"
+    />
+    <canvas
+      className="dcl blockie"
+    />
+    <canvas
+      className="dcl blockie"
+    />
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Blockie Single 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <canvas
+      className="dcl blockie small"
+    />
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Button Actions 1`] = `
 <div
   style={
@@ -794,6 +1094,618 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         1 week
       </div>
     </span>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Stats Single Result 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="dcl stats"
+    >
+      <div
+        className="ui sub header"
+      >
+        Total Voted
+      </div>
+      <div
+        className="ui large header dcl mana"
+      >
+        <i
+          className="symbol"
+        >
+          ⏣
+        </i>
+        1,235,345
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="ui header"
+      >
+        Votes
+      </div>
+      <table
+        className="ui basic table"
+      >
+        <thead
+          className=""
+        >
+          <tr
+            className=""
+          >
+            <th
+              className=""
+            >
+              When
+            </th>
+            <th
+              className=""
+            >
+              Address
+            </th>
+            <th
+              className=""
+            >
+              Amount
+            </th>
+            <th
+              className=""
+            >
+              Vote
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          className=""
+        >
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 10, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0x0a...36ea
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              180
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 11, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0x39...79bc
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              180
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 12, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xba...cc3f
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              120
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 13, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0x82...19a5
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              80
+            </td>
+            <td
+              className=""
+            >
+              No
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 14, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xea...0466
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              120
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 15, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xd2...d28b
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              50
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 16, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0x72...51f6
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              50
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 17, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0x7b...2040
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              30
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 18, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xff...e688
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              160
+            </td>
+            <td
+              className=""
+            >
+              No
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 19, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xce...8b94
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              40
+            </td>
+            <td
+              className=""
+            >
+              No
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 `;

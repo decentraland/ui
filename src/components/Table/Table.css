@@ -1,0 +1,15 @@
+.ui.basic.table tbody tr {
+  border-bottom: none;
+}
+
+.ui.table tr td {
+  border-top: none;
+}
+
+.ui.table thead th {
+  border-bottom: none;
+  color: #7d8499;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+}
