@@ -1,0 +1,26 @@
+.dcl.blockie {
+  border-radius: var(--radius);
+  vertical-align: text-bottom;
+  line-height: 0.5em;
+  margin-left: 0.1em;
+}
+
+.dcl.blockie.small {
+  border-radius: calc(var(--radius) / 1.5);
+}
+
+.dcl.blockie.tiny {
+  border-radius: calc(var(--radius) / 2);
+}
+
+.dcl.blockie.mini {
+  border-radius: calc(var(--radius) / 4);
+}
+
+.dcl.blockie + .dcl.blockie {
+  margin-left: 1em;
+}
+
+.dcl.blockie-wrapper .dcl.blockie-children {
+  margin-left: 0.5em;
+}

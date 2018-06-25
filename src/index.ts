@@ -15,8 +15,11 @@ import './themes/light-theme.css'
 import './components/Button/Button.css'
 import './components/Radio/Radio.css'
 import './components/Header/Header.css'
+import './components/Table/Table.css'
 
 // Decentraland components
+export { Address } from './components/Address/Address'
+export { Blockie } from './components/Blockie/Blockie'
 export { Mana } from './components/Mana/Mana'
 export { Stats } from './components/Stats/Stats'
 
