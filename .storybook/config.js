@@ -1,13 +1,14 @@
 const { configure, addDecorator } = require('@storybook/react')
 const centered = require('@storybook/addon-centered').default
 const { setOptions } = require('@storybook/addon-options')
+const { withInfo } = require('@storybook/addon-info')
 
 setOptions({
   name: 'Decentraland',
   url: 'https://decentraland.org',
   goFullScreen: false,
   showStoriesPanel: true,
-  showAddonPanel: true,
+  showAddonPanel: false,
   showSearchBox: false,
   addonPanelInRight: false,
   sortStoriesByKind: false,
@@ -17,6 +18,8 @@ setOptions({
   selectedAddonPanel: undefined,
   enableShortcuts: false // true by default
 })
+
+addDecorator(withInfo)
 addDecorator(centered)
 
 // this is to make storyshots work (and jest in general) because it lacks webpack's require.context function
