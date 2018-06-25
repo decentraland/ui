@@ -52,6 +52,9 @@ jobs:
           keys:
           - dependencies-{{ checksum "package-lock.json" }}
       - run: 
+          name: Install node dependencies
+          command: npm install
+      - run: 
           name: Build library
           command: npm run build
       - save_cache:
