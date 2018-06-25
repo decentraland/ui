@@ -39,6 +39,26 @@ jobs:
           paths:
             - storybook-static
           key: storybook-static-{{ .Branch }}-{{ .Revision }}
+  
+  build:
+    docker:
+      - image: circleci/node:8.4.0
+
+    working_directory: /tmp/ui
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "package-lock.json" }}
+      - run: 
+          name: Build library
+          command: npm run build
+      - save_cache:
+          paths:
+            - lib
+          key: lib-{{ .Branch }}-{{ .Revision }}
+
   deploy:
     docker:
       - image: circleci/node:8.4.0
@@ -53,14 +73,40 @@ jobs:
           name: Deploy to now.sh
           command: npm init --yes && npm install now --no-save && cd storybook-static &&  ../node_modules/.bin/now --token $NOW_TOKEN --public && ../node_modules/.bin/now alias ui.decentraland.org --token $NOW_TOKEN
 
+  release:
+    docker:
+      - image: circleci/node:8.4.0
+
+    working_directory: /tmp/ui
+
+    steps:
+      - restore_cache:
+          keys:
+          - lib-{{ .Branch }}-{{ .Revision }}
+      - run:
+          name: Semantic release
+          command: npm run semantic-release
+
 workflows:
   version: 2
-  test-deploy:
+  test-build-deploy-release:
     jobs:
       - test
-      - deploy:
+      - build:
           requires:
             - test
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - release:
+          requires:
+            - deploy
           filters:
             branches:
               only: master

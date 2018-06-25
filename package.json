@@ -1,6 +1,6 @@
 {
   "name": "decentraland-ui",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "Decentraland's UI components and styles",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -12,11 +12,13 @@
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
     "build:storybook": "build-storybook",
-    "deploy": "now --token $NOW_TOKEN && now alias decentraland-ui"
+    "deploy": "now --token $NOW_TOKEN && now alias decentraland-ui",
+    "semantic-release": "semantic-release",
+    "commitmsg": "validate-commit-msg"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/decentraland/ui.git"
+    "url": "https://github.com/decentraland/ui.git"
   },
   "keywords": [
     "decentraland",
@@ -67,6 +69,7 @@
     "react-dom": "^16.4.1",
     "react-test-renderer": "^16.4.1",
     "rimraf": "^2.6.2",
+    "semantic-release": "^15.6.0",
     "style-loader": "^0.21.0",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.4.1",
