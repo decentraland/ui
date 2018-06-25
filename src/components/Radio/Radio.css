@@ -13,7 +13,11 @@
 .ui.radio.checkbox input:checked ~ .box:before,
 .ui.radio.checkbox input:checked ~ label:before {
   background-color: var(--primary);
-  background-image: linear-gradient(to top, var(--accent), var(--primary));
+  background-image: linear-gradient(
+    to top,
+    var(--primary-gradient),
+    var(--primary)
+  );
   box-shadow: var(--primary) 0px 0px 20px 0px;
   border: none;
 }

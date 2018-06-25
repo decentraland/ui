@@ -39,20 +39,22 @@ Or you can create your own theme like this:
 ```css
 /* my-theme.css */
 :root {
-  --primary: #ff0000;
-  --secondary: #ff0000;
-  --accent: #ff0000;
-  --text: #ff0000;
-  --secondary-text: #ff0000;
+  /* colors */
+  --primary: #ff0044;
+  --secondary: #f2f2f5;
+  --accent: #00d9ff;
+
+  /* gradients */
+  --primary-gradient: #ff9a74;
+
+  /* text */
+  --text: #0a0f1f;
+  --secondary-text: #7d8499;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #0a0f1f;
+
+  /* borders */
   --radius: 8px;
-  --primary-button-text: #ff0000;
-  --primary-button-background: #ff0000;
-  --primary-button-text-active: #ff0000;
-  --primary-button-background-active: #ff0000;
-  --secondary-button-text: #ff0000;
-  --secondary-button-background: #ff0000;
-  --secondary-button-text-active: #ff0000;
-  --secondary-button-background-active: #ff0000;
 }
 ```
 

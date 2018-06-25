@@ -1,27 +1,18 @@
 :root {
   /* colors */
-  --primary: var(--neon-red);
-  --secondary: var(--dark);
-  --accent: var(--orange);
-  --text: white;
+  --primary: #ff0044;
+  --secondary: #f2f2f5;
+  --accent: #00d9ff;
+
+  /* gradients */
+  --primary-gradient: #ff9a74;
+
+  /* text */
+  --text: #0a0f1f;
+  --secondary-text: #7d8499;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #0a0f1f;
+
+  /* borders */
   --radius: 8px;
-
-  /* buttons */
-  --primary-button-text: white;
-  --primary-button-background: linear-gradient(
-    to top,
-    var(--primary),
-    var(--primary)
-  );
-  --primary-button-text-active: var(--primary-button-text);
-  --primary-button-background-active: linear-gradient(
-    to top,
-    var(--accent),
-    var(--primary)
-  );
-
-  --secondary-button-text: white;
-  --secondary-button-background: var(--secondary);
-  --secondary-button-text-active: var(--primary);
-  --secondary-button-background-active: var(--secondary);
 }

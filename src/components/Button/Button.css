@@ -1,8 +1,8 @@
 .ui.button,
 .ui.button.secondary {
-  background-image: var(--secondary-button-background);
-  background: var(--secondary-button-background);
-  color: var(--secondary-button-text);
+  background-image: var(--secondary);
+  background: var(--secondary);
+  color: var(--text-on-secondary);
   font-family: var(--font-print);
   padding: 0.7em 2em;
   border-radius: var(--radius);
@@ -19,55 +19,73 @@
 .ui.button:active,
 .ui.button.secondary:hover,
 .ui.button.secondary:active {
-  color: var(--secondary-button-text-active);
-  background-image: var(--secondary-button-background-active);
-  background-color: var(--secondary-button-background-active);
-  background: var(--secondary-button-background-active);
+  color: var(--text-on-secondary);
+  background-image: var(--secondary);
+  background-color: var(--secondary);
+  background: var(--secondary);
 }
 
 .ui.button:focus,
 .ui.button.secondary:focus {
-  color: var(--secondary-button-text-active);
-  background-image: var(--secondary-button-background-active);
-  background-color: var(--secondary-button-background-active);
-  background: var(--secondary-button-background-active);
+  color: var(--text-on-secondary);
+  background-image: var(--secondary);
+  background-color: var(--secondary);
+  background: var(--secondary);
   opacity: 0.95;
 }
 
 .ui.button:disabled,
 .ui.button.secondary:disabled {
   opacity: 0.4 !important; /* this !important is due to an important in semantic-ui-css */
-  color: var(--secondary-button-text);
+  color: var(--text-on-secondary);
   background-image: var(
-    --secondary-button-background
+    --secondary
   ) !important; /* this !important is due to an important in semantic-ui-css */
 }
 
 .ui.button.primary {
-  background-image: var(--primary-button-background);
-  background: var(--primary-button-background);
-  color: var(--primary-button-text);
+  background-image: linear-gradient(to top, var(--primary), var(--primary));
+  background: linear-gradient(to top, var(--primary), var(--primary));
+  color: var(--text-on-primary);
 }
 
 .ui.button.primary:hover,
 .ui.button.primary:active {
-  color: var(--primary-button-text-active);
-  background-image: var(--primary-button-background-active);
-  background-color: var(--primary-button-background-active);
-  background: var(--primary-button-background-active);
+  color: var(--text-on-primary);
+  background-image: linear-gradient(
+    to top,
+    var(--primary-gradient),
+    var(--primary)
+  );
+  background-color: linear-gradient(
+    to top,
+    var(--primary-gradient),
+    var(--primary)
+  );
+  background: linear-gradient(to top, var(--primary-gradient), var(--primary));
 }
 
 .ui.button.primary:focus {
-  color: var(--primary-button-text-active);
-  background-image: var(--primary-button-background-active);
-  background-color: var(--primary-button-background-active);
-  background: var(--primary-button-background-active);
+  color: var(--text-on-primary);
+  background-image: linear-gradient(
+    to top,
+    var(--primary-gradient),
+    var(--primary)
+  );
+  background-color: linear-gradient(
+    to top,
+    var(--primary-gradient),
+    var(--primary)
+  );
+  background: linear-gradient(to top, var(--primary-gradient), var(--primary));
 }
 
 .ui.button.primary:disabled {
-  color: var(--primary-button-text);
-  background-image: var(
-    --primary-button-background
+  color: var(--text-on-primary);
+  background-image: linear-gradient(
+    to top,
+    var(--primary),
+    var(--primary)
   ) !important; /* this !important is due to an important in semantic-ui-css */
 }
 
