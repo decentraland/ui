@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Decentraland's UI components and styles",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "typings": "lib/src/index.d.ts",
   "scripts": {
     "start": "start-storybook -p 6006",
     "test:coverage": "jest test/coverage/coverage.test.ts --coverage",
