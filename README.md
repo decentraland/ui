@@ -2,6 +2,8 @@
 
 `semantic-ui-react` themed with Decentrland's look & feel + some of our own components
 
+See: [ui.decentraland.org](https://ui.decentraland.org)
+
 ## Usage
 
 Import Decentraland UI's styles in your App's entry point
@@ -81,4 +83,4 @@ To update the snapshots add `-- -u` after the test you want to update, i.e: `npm
 
 ## CI/CD
 
-We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to `now.sh` and release a new version via `semantic-release`
+We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
