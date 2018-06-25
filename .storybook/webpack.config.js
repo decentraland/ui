@@ -8,7 +8,16 @@ module.exports = {
     rules: [
       {
         test: /\.stories\.(ts|js|jsx|tsx)?$/,
-        loaders: [require.resolve('@storybook/addon-storysource/loader')],
+        loaders: [
+          {
+            loader: require.resolve('@storybook/addon-storysource/loader'),
+            options: {
+              prettierConfig: {
+                parser: 'babylon'
+              }
+            }
+          }
+        ],
         enforce: 'pre'
       },
       ...genDefaultConfig.module.rules
