@@ -10,7 +10,7 @@ const getGotoOptions = ({ context, url }) => {
 }
 const getMatchOptions = ({ context: { kind, story }, url }) => {
   return {
-    failureThreshold: 0.5,
+    failureThreshold: 0.05,
     failureThresholdType: 'percent'
   }
 }
