@@ -87,6 +87,12 @@ jobs:
       - restore_cache:
           keys:
           - lib-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "package-lock.json" }}
+      - run: 
+          name: Install node dependencies
+          command: npm install
       - run:
           name: Semantic release
           command: npm run semantic-release
