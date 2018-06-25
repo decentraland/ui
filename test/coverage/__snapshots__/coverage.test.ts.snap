@@ -1237,7 +1237,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x9f...7d35
+                    0x0a...36ea
                   </span>
                 </span>
               </span>
@@ -1254,7 +1254,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              60
+              180
             </td>
             <td
               className=""
@@ -1286,7 +1286,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x2e...cd5e
+                    0x39...79bc
                   </span>
                 </span>
               </span>
@@ -1303,12 +1303,12 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              70
+              180
             </td>
             <td
               className=""
             >
-              No
+              Yes
             </td>
           </tr>
           <tr
@@ -1335,7 +1335,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0xff...e726
+                    0xba...cc3f
                   </span>
                 </span>
               </span>
@@ -1352,7 +1352,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              140
+              120
             </td>
             <td
               className=""
@@ -1384,7 +1384,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x70...51d0
+                    0x82...19a5
                   </span>
                 </span>
               </span>
@@ -1401,7 +1401,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              40
+              80
             </td>
             <td
               className=""
@@ -1433,7 +1433,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x15...d173
+                    0xea...0466
                   </span>
                 </span>
               </span>
@@ -1450,12 +1450,12 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              100
+              120
             </td>
             <td
               className=""
             >
-              No
+              Yes
             </td>
           </tr>
           <tr
@@ -1482,7 +1482,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x2d...847e
+                    0xd2...d28b
                   </span>
                 </span>
               </span>
@@ -1499,7 +1499,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              150
+              50
             </td>
             <td
               className=""
@@ -1531,7 +1531,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x36...2d97
+                    0x72...51f6
                   </span>
                 </span>
               </span>
@@ -1548,7 +1548,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              170
+              50
             </td>
             <td
               className=""
@@ -1580,7 +1580,56 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x5a...d4f2
+                    0x7b...2040
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui small header dcl mana black"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              30
+            </td>
+            <td
+              className=""
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              Feb 18, 2018
+            </td>
+            <td
+              className=""
+            >
+              <span
+                className="dcl blockie-wrapper"
+              >
+                <canvas
+                  className="dcl blockie tiny"
+                />
+                <span
+                  className="dcl blockie-children"
+                >
+                   
+                  <span
+                    className="dcl address"
+                  >
+                    0xff...e688
                   </span>
                 </span>
               </span>
@@ -1611,55 +1660,6 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
             <td
               className=""
             >
-              Feb 18, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xd1...a936
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana black"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              150
-            </td>
-            <td
-              className=""
-            >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
               Feb 19, 2018
             </td>
             <td
@@ -1678,7 +1678,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   <span
                     className="dcl address"
                   >
-                    0x5c...10af
+                    0xce...8b94
                   </span>
                 </span>
               </span>
