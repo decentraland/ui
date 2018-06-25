@@ -3,8 +3,8 @@ const centered = require('@storybook/addon-centered').default
 const { setOptions } = require('@storybook/addon-options')
 
 setOptions({
-  name: 'Decentraland',
-  url: 'https://decentraland.org',
+  name: 'decentraland-ui',
+  url: 'https://github.com/decentraland/ui',
   goFullScreen: false,
   showStoriesPanel: true,
   showAddonPanel: true,
