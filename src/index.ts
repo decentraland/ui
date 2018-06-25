@@ -20,6 +20,7 @@ import './components/Table/Table.css'
 // Decentraland components
 export { Address } from './components/Address/Address'
 export { Blockie } from './components/Blockie/Blockie'
+export { Logo } from './components/Logo/Logo'
 export { Mana } from './components/Mana/Mana'
 export { Stats } from './components/Stats/Stats'
 
