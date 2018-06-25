@@ -12,7 +12,6 @@
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
     "build:storybook": "build-storybook",
-    "deploy": "now --token $NOW_TOKEN && now alias decentraland-ui",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
