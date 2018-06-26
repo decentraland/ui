@@ -60,6 +60,7 @@
   color: var(--secondary-text);
   border-radius: var(--radius);
   text-transform: uppercase;
+  font-family: var(--font-print);
 }
 
 .dcl.navbar .ui.menu .item:hover,

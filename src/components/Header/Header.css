@@ -1,3 +1,7 @@
+.ui.header {
+  font-family: var(--font-print);
+}
+
 .ui.header.sub + .ui.header {
   margin-top: 0.3em;
 }

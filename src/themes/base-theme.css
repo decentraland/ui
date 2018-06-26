@@ -14,3 +14,16 @@
   --dark: #181f33;
   --dark-blue-grey: #0a0f1f;
 }
+
+body {
+  font-family: var(--font-print);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-print);
+}
