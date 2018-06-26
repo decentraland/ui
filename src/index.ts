@@ -13,8 +13,9 @@ import './themes/light-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
-import './components/Radio/Radio.css'
 import './components/Header/Header.css'
+import './components/Loader/Loader.css'
+import './components/Radio/Radio.css'
 import './components/Table/Table.css'
 
 // Decentraland components

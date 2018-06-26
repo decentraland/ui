@@ -550,6 +550,66 @@ exports[`Decentraland UI - Coverage Tests Header Subheader + Header 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Loader Main Loader 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui massive active loader"
+    />
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Loader Tiny Loader 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui mini active loader"
+    />
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Logo Decentraland 1`] = `
 <div
   style={
