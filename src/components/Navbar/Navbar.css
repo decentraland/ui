@@ -67,3 +67,16 @@
   color: var(--text-on-primary);
   background: var(--primary);
 }
+
+.dcl.hamburger {
+  cursor: pointer;
+}
+
+.dcl.active-page {
+  color: var(--text);
+  display: inline-block;
+  text-transform: uppercase;
+  padding-left: 0.5em;
+  transform: translateY(4px);
+  cursor: pointer;
+}

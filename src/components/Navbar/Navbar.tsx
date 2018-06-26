@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon, Menu, Responsive, Sidebar } from 'semantic-ui-react'
+import { Header, Icon, Menu, Responsive, Sidebar } from 'semantic-ui-react'
 import { Blockie, Logo, Mana } from '../..'
 import './Navbar.css'
 
@@ -119,7 +119,7 @@ export class Navbar extends React.PureComponent<Props, State> {
             onClick={this.handleToggle}
           >
             <Icon name="content" size="large" className="dcl hamburger" />
-            {activePage}
+            <Header className="dcl active-page">{activePage}</Header>
           </Responsive>
           <Responsive {...Responsive.onlyMobile}>
             <Sidebar
