@@ -1,0 +1,8 @@
+node_modules
+storybook-static
+coverage/*
+.circleci
+.storybook
+test
+tsconfig.json
+webpack.config.js
