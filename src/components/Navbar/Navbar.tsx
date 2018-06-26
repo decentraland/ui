@@ -9,7 +9,6 @@ type Props = {
   logo?: React.ReactNode
   activePage?: React.ReactNode
   menuItems?: React.ReactNode
-  account?: React.ReactNode
   connectingMenuItem?: React.ReactNode
   accountMenuItems?: React.ReactNode
   signInMenuItem?: React.ReactNode
