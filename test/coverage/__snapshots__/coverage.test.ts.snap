@@ -850,6 +850,451 @@ exports[`Decentraland UI - Coverage Tests Mana Total voted 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Navbar Connecting... 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+          onClick={[Function]}
+        >
+          <i
+            className="dcl logo"
+          />
+        </div>
+        <div
+          className="dcl navbar-menu"
+        >
+          <div
+            className="ui secondary stackable menu"
+          />
+        </div>
+        <div
+          className="dcl navbar-account"
+        >
+          <div
+            className="ui secondary menu"
+          >
+            <div
+              className="item"
+              onClick={[Function]}
+            >
+              Connecting...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar Logged In 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+          onClick={[Function]}
+        >
+          <i
+            className="dcl logo"
+          />
+        </div>
+        <div
+          className="dcl navbar-menu"
+        >
+          <div
+            className="ui secondary stackable menu"
+          />
+        </div>
+        <div
+          className="dcl navbar-account"
+        >
+          <span
+            className="dcl account-wrapper"
+            onClick={[Function]}
+          >
+            <div
+              className="ui small header dcl mana"
+            >
+              <i
+                className="symbol"
+              >
+                ⏣
+              </i>
+              20,000
+            </div>
+            <canvas
+              className="dcl blockie small"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar Logged Out 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+          onClick={[Function]}
+        >
+          <i
+            className="dcl logo"
+          />
+        </div>
+        <div
+          className="dcl navbar-menu"
+        >
+          <div
+            className="ui secondary stackable menu"
+          />
+        </div>
+        <div
+          className="dcl navbar-account"
+        >
+          <div
+            className="ui secondary menu"
+          >
+            <a
+              className="item"
+              onClick={[Function]}
+            >
+              Sign In
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+        >
+          <span
+            className="dcl navbar-back"
+            onClick={[Function]}
+          >
+            <i
+              aria-hidden="true"
+              className="chevron left large icon back"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+          onClick={[Function]}
+        >
+          <i
+            className="dcl logo"
+          />
+        </div>
+        <div
+          className="dcl navbar-menu"
+        >
+          <div
+            className="ui secondary stackable menu"
+          />
+        </div>
+        <div
+          className="dcl navbar-account"
+        >
+          <span
+            className="dcl account-wrapper"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 1024,
+        }
+      }
+    >
+      <div
+        className="dcl navbar"
+        role="navigation"
+      >
+        <div
+          className="dcl navbar-logo"
+          onClick={[Function]}
+        >
+          <i
+            className="dcl logo"
+          />
+        </div>
+        <div
+          className="dcl navbar-menu"
+        >
+          <div
+            className="ui secondary stackable menu"
+          >
+            <a
+              className="active item"
+              onClick={[Function]}
+            >
+              Atlas
+            </a>
+            <a
+              className="item"
+              onClick={[Function]}
+            >
+              Marketplace
+            </a>
+            <a
+              className="item"
+              onClick={[Function]}
+            >
+              My Land
+            </a>
+          </div>
+        </div>
+        <div
+          className="dcl navbar-account"
+        >
+          <div
+            className="ui secondary dcl navbar-account-menu menu"
+          >
+            <a
+              className="item"
+              onClick={[Function]}
+            >
+              <i
+                aria-hidden="true"
+                className="bell icon"
+              />
+            </a>
+          </div>
+          <span
+            className="dcl account-wrapper"
+            onClick={[Function]}
+          >
+            <div
+              className="ui small header dcl mana"
+            >
+              <i
+                className="symbol"
+              >
+                ⏣
+              </i>
+              20,000
+            </div>
+            <canvas
+              className="dcl blockie small"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Radio Checked 1`] = `
 <div
   style={

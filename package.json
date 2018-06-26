@@ -48,6 +48,7 @@
     "@types/node": "^10.3.5",
     "@types/react": "^16.4.1",
     "@types/react-test-renderer": "^16.0.1",
+    "@types/storybook__react": "^3.0.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-require-context-hook": "^1.0.0",

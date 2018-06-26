@@ -10,12 +10,10 @@ type Props = {
   size?: number
   scale?: number
   className?: string
-  children?: any
+  children?: React.ReactNode
 }
 
-type State = {}
-
-export class Blockie extends React.PureComponent<Props, State> {
+export class Blockie extends React.PureComponent<Props> {
   private shouldRefresh: boolean = false
   public canvas: HTMLCanvasElement = null
   static defaultProps = {

@@ -22,6 +22,7 @@ export { Address } from './components/Address/Address'
 export { Blockie } from './components/Blockie/Blockie'
 export { Logo } from './components/Logo/Logo'
 export { Mana } from './components/Mana/Mana'
+export { Navbar } from './components/Navbar/Navbar'
 export { Stats } from './components/Stats/Stats'
 
 // Semantic components
