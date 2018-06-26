@@ -2,6 +2,7 @@
   display: inline;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: var(--text);
 }
 .dcl.mana .symbol {
   color: var(--neon-blue);

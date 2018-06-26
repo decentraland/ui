@@ -9,9 +9,7 @@ type Props = {
   className?: string
 }
 
-type State = {}
-
-export class Address extends React.Component<Props, State> {
+export class Address extends React.Component<Props> {
   static defaultProps = {
     className: '',
     strong: false,

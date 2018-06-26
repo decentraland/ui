@@ -1,3 +1,11 @@
+.ui.basic.table {
+  border-color: var(--secondary);
+}
+
+.ui.table thead th {
+  color: var(--secondary-text);
+}
+
 .ui.basic.table tbody tr {
   border-bottom: none;
 }

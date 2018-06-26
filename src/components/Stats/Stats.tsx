@@ -4,12 +4,10 @@ import { Header } from 'semantic-ui-react'
 
 type Props = {
   title: string
-  children: React.ReactChild
+  children: React.ReactNode
 }
 
-type State = {}
-
-export class Stats extends React.Component<Props, State> {
+export class Stats extends React.Component<Props> {
   render() {
     const { title, children } = this.props
     return (

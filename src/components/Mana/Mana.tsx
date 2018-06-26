@@ -9,9 +9,7 @@ type Props = {
   children?: React.ReactChild
 }
 
-type State = {}
-
-export class Mana extends React.Component<Props, State> {
+export class Mana extends React.Component<Props> {
   static defaultProps = {
     className: ''
   }
