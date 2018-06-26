@@ -11,7 +11,7 @@
     "test:ci": "npm run test:coverage && codecov && npm run build:storybook && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
-    "build:storybook": "build-storybook",
+    "build:storybook": "build-storybook && cp ./static/favicon.ico ./storybook-static && sed -i -e 's/Storybook/Decentraland UI/' ./storybook-static/index.html",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
