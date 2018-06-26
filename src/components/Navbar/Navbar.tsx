@@ -15,7 +15,6 @@ type Props = {
   isConnected?: boolean
   isConnecting?: boolean
   isModal?: boolean
-  isStatic?: boolean
   onClickAccount?: () => void
   onClickLogo?: () => void
   onBack?: () => void
@@ -38,7 +37,6 @@ export class Navbar extends React.PureComponent<Props, State> {
     isConnected: true,
     isConnecting: false,
     isModal: false,
-    isStatic: false,
     onAccountClick: () => {},
     onClickLogo: () => {},
     onBack: () => {}
