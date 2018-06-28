@@ -190,9 +190,9 @@ exports[`Decentraland UI - Coverage Tests Blockie In a paragraph 1`] = `
     }
   >
     <p>
-      You have transfered 
+      You've transfered 
       <div
-        className="ui tiny header dcl mana"
+        className="ui header dcl mana inline"
       >
         <i
           className="symbol"
@@ -346,6 +346,100 @@ exports[`Decentraland UI - Coverage Tests Button Actions 1`] = `
       }
     >
       Cancel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Button Basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="ui basic button"
+      onClick={[Function]}
+      role="button"
+    >
+      Download
+    </button>
+    <button
+      className="ui basic disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      Download
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Button Icon 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="ui basic button"
+      onClick={[Function]}
+      role="button"
+    >
+      <i
+        aria-hidden="true"
+        className="edit icon"
+      />
+      Edit
+    </button>
+    <button
+      className="ui basic disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      <i
+        aria-hidden="true"
+        className="edit icon"
+      />
+      Edit
     </button>
   </div>
 </div>
@@ -513,6 +607,144 @@ exports[`Decentraland UI - Coverage Tests Button Sizes 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Center On Parent 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story container"
+    />
+    <div
+      className="story container"
+    >
+      <div
+        className="dcl center"
+      >
+        <span
+          className="story hello"
+        >
+          Hello
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Center On Screen 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story container"
+    />
+    <div
+      className="story container"
+    >
+      <div
+        className="dcl center screen"
+      >
+        <span
+          className="story hello"
+        >
+          Hello
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Header Sizes 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui huge header"
+    >
+      Huge
+    </div>
+    <div
+      className="ui large header"
+    >
+      Large
+    </div>
+    <div
+      className="ui medium header"
+    >
+      Medium
+    </div>
+    <div
+      className="ui small header"
+    >
+      Small
+    </div>
+    <div
+      className="ui tiny header"
+    >
+      Tiny
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Header Subheader + Header 1`] = `
 <div
   style={
@@ -542,7 +774,7 @@ exports[`Decentraland UI - Coverage Tests Header Subheader + Header 1`] = `
       Votes
     </div>
     <div
-      className="ui large header"
+      className="ui header"
     >
       20,212
     </div>
@@ -701,9 +933,9 @@ exports[`Decentraland UI - Coverage Tests Mana In a paragraph 1`] = `
     }
   >
     <p>
-      You have voted with 
+      You've voted with 
       <div
-        className="ui small header dcl mana"
+        className="ui header dcl mana inline"
       >
         <i
           className="symbol"
@@ -897,7 +1129,7 @@ exports[`Decentraland UI - Coverage Tests Mana Total voted 1`] = `
       Total voted
     </div>
     <div
-      className="ui large header dcl mana"
+      className="ui header dcl mana"
     >
       <i
         className="symbol"
@@ -936,7 +1168,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting... 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -951,13 +1182,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting... 1`] = `
         >
           <i
             className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-menu"
-        >
-          <div
-            className="ui secondary stackable menu"
           />
         </div>
         <div
@@ -1006,7 +1230,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Logged In 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -1021,13 +1244,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Logged In 1`] = `
         >
           <i
             className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-menu"
-        >
-          <div
-            className="ui secondary stackable menu"
           />
         </div>
         <div
@@ -1084,7 +1300,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Logged Out 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -1099,13 +1314,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Logged Out 1`] = `
         >
           <i
             className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-menu"
-        >
-          <div
-            className="ui secondary stackable menu"
           />
         </div>
         <div
@@ -1154,7 +1362,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -1169,12 +1376,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
           <span
             className="dcl navbar-back"
             onClick={[Function]}
-          >
-            <i
-              aria-hidden="true"
-              className="chevron left large icon back"
-            />
-          </span>
+          />
         </div>
       </div>
     </div>
@@ -1208,7 +1410,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -1223,13 +1424,6 @@ exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
         >
           <i
             className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-menu"
-        >
-          <div
-            className="ui secondary stackable menu"
           />
         </div>
         <div
@@ -1271,7 +1465,6 @@ exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
     <div
       style={
         Object {
-          "borderRadius": 8,
           "width": 1024,
         }
       }
@@ -1321,7 +1514,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
             className="ui secondary dcl navbar-account-menu menu"
           >
             <a
-              className="item"
+              className="icon item"
               onClick={[Function]}
             >
               <i
@@ -1350,6 +1543,118 @@ exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
           </span>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Pagination Five pages one selected 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      aria-label="Pagination Navigation"
+      className="ui pagination menu"
+      role="navigation"
+    >
+      <a
+        aria-current={false}
+        aria-label="Previous item"
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="prevItem"
+        value={1}
+      >
+        ⟨
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={1}
+      >
+        1
+      </a>
+      <a
+        aria-current={true}
+        className="active item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={2}
+      >
+        2
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={3}
+      >
+        3
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={4}
+      >
+        4
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={5}
+      >
+        5
+      </a>
+      <a
+        aria-current={false}
+        aria-label="Next item"
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="nextItem"
+        value={3}
+      >
+        ⟩
+      </a>
     </div>
   </div>
 </div>
@@ -1558,7 +1863,7 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         Token
       </div>
       <div
-        className="ui large header dcl mana"
+        className="ui header dcl mana"
       >
         <i
           className="symbol"
@@ -1577,7 +1882,7 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         Total Voted
       </div>
       <div
-        className="ui large header dcl mana"
+        className="ui header dcl mana"
       >
         <i
           className="symbol"
@@ -1596,7 +1901,7 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         Total Votes
       </div>
       <div
-        className="ui large header"
+        className="ui header"
       >
         20
       </div>
@@ -1610,7 +1915,7 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         Parcial Result
       </div>
       <div
-        className="ui large header"
+        className="ui header"
       >
         Yes
       </div>
@@ -1624,7 +1929,7 @@ exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
         Time Left
       </div>
       <div
-        className="ui large header"
+        className="ui header"
       >
         1 week
       </div>
@@ -1665,7 +1970,7 @@ exports[`Decentraland UI - Coverage Tests Stats Single Result 1`] = `
         Total Voted
       </div>
       <div
-        className="ui large header dcl mana"
+        className="ui header dcl mana"
       >
         <i
           className="symbol"

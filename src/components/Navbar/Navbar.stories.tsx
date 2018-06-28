@@ -4,9 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { Icon, Menu, Navbar } from '../..'
 
 const pageStyle = {
-  width: 1024,
-  borderRadius: 8
-  //border: '1px solid #eee'
+  width: 1024
 }
 
 storiesOf('Navbar', module)
@@ -68,7 +66,7 @@ storiesOf('Navbar', module)
       </>
     )
     const accountMenuItems = (
-      <Menu.Item onClick={action('Activity clicked!')}>
+      <Menu.Item icon onClick={action('Activity clicked!')}>
         <Icon name="bell" />
       </Menu.Item>
     )

@@ -13,14 +13,17 @@ import './themes/light-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
+import './components/Container/Container.css'
 import './components/Header/Header.css'
 import './components/Loader/Loader.css'
+import './components/Pagination/Pagination.css'
 import './components/Radio/Radio.css'
 import './components/Table/Table.css'
 
 // Decentraland components
 export { Address } from './components/Address/Address'
 export { Blockie } from './components/Blockie/Blockie'
+export { Center } from './components/Center/Center'
 export { Logo } from './components/Logo/Logo'
 export { Mana } from './components/Mana/Mana'
 export { Navbar } from './components/Navbar/Navbar'

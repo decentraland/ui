@@ -1,0 +1,21 @@
+.dcl.center {
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0px;
+  right: 0px;
+  bottom: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dcl.center.screen {
+  position: fixed;
+}
+
+@media (max-width: 768px) {
+  .dcl.center.screen {
+    align-items: flex-start;
+    margin-top: 24px;
+  }
+}

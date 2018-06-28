@@ -1,0 +1,26 @@
+.ui.pagination.menu {
+  border: none;
+  box-shadow: none;
+}
+
+.ui.pagination.menu .item:before {
+  width: 0px;
+}
+
+.ui.pagination.menu .item {
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+.ui.pagination.menu .item + .item {
+  margin-left: 16px;
+}
+
+.ui.pagination.menu .item:focus,
+.ui.pagination.menu .item:active {
+  outline: none;
+}
+
+.ui.pagination.menu .item:last-child {
+  border-radius: var(--radius);
+}

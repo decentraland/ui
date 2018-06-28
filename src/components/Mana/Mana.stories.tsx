@@ -8,7 +8,7 @@ storiesOf('Mana', module)
   .add('Total voted', () => (
     <>
       <Header sub>Total voted</Header>
-      <Mana size="large">1,235,345</Mana>
+      <Mana>1,235,345</Mana>
     </>
   ))
   .add('Black', () => (
@@ -27,6 +27,6 @@ storiesOf('Mana', module)
   ))
   .add('In a paragraph', () => (
     <p>
-      You have voted with <Mana size="small">1,000</Mana>.
+      You've voted with <Mana inline>1,000</Mana>.
     </p>
   ))

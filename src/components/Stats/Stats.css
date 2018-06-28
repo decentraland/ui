@@ -13,3 +13,14 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+@media (max-width: 768px) {
+  .dcl.stats {
+    width: 50%;
+    margin-bottom: 24px;
+  }
+
+  .dcl.stats + .dcl.stats {
+    margin-left: 0px;
+  }
+}

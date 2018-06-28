@@ -1,17 +1,17 @@
 :root {
   /* colors */
   --primary: #ff0044;
-  --secondary: #f2f2f5;
+  --secondary: #181f33;
   --accent: #00d9ff;
 
   /* gradients */
   --primary-gradient: #ff9a74;
 
   /* text */
-  --text: #0a0f1f;
+  --text: #ffffff;
   --secondary-text: #7d8499;
   --text-on-primary: #ffffff;
-  --text-on-secondary: #0a0f1f;
+  --text-on-secondary: #ffffff;
 
   /* borders */
   --radius: 8px;
