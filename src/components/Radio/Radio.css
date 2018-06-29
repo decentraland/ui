@@ -19,7 +19,7 @@
     var(--primary-gradient),
     var(--primary)
   );
-  box-shadow: var(--primary) 0px 0px 20px 0px;
+  box-shadow: var(--primary) 0px 0px 10px 0px;
   border: none;
 }
 
