@@ -10,4 +10,30 @@
   text-transform: none;
   color: var(--secondary-text);
   font-size: 17px;
+  font-weight: 400;
+}
+
+.ui.header,
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 22px;
+}
+
+.ui.header.huge {
+  font-size: 56px;
+}
+
+.ui.header.large {
+  font-size: 40px;
+}
+
+.ui.header.medium {
+  font-size: 22px;
+}
+
+.ui.header.small {
+  font-size: 17px;
+}
+
+.ui.header.tiny {
+  font-size: 12px;
 }

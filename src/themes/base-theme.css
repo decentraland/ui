@@ -12,7 +12,13 @@
   --orange-yellow: #ffa900;
   --orange: #ff9a74;
   --dark: #181f33;
+  --gray: #7d8499;
   --dark-blue-grey: #0a0f1f;
+  --pale-strawberry: #ff85a5;
+  --fuchsia: #eb85ff;
+  --purple: #8d85ff;
+  --light-blue: #85c0ff;
+  --sunrise: #ffb485;
 }
 
 body {

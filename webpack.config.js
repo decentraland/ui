@@ -70,7 +70,8 @@ module.exports = {
       filename: 'styles.css'
     }),
     new CopyWebpackPlugin([
-      { from: 'src/themes/dark-theme.css', to: 'dark-themes.css' }
+      { from: 'src/themes/dark-theme.css', to: 'dark-theme.css' },
+      { from: 'src/themes/light-theme.css', to: 'light-theme.css' }
     ])
   ]
 }

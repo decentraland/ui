@@ -4,20 +4,20 @@ import { Header } from 'semantic-ui-react'
 
 type Props = {
   title: string
-  children: React.ReactNode
+  className?: string
 }
 
 export class Stats extends React.Component<Props> {
+  static defaultProps = {
+    className: ''
+  }
   render() {
-    const { title, children } = this.props
+    const { title, className, children } = this.props
+    const classes = `dcl stats ${className}`.trim()
     return (
-      <span className="dcl stats">
+      <span className={classes}>
         <Header sub>{title}</Header>
-        {typeof children === 'string' ? (
-          <Header size="large">{children}</Header>
-        ) : (
-          children
-        )}
+        {typeof children === 'string' ? <Header>{children}</Header> : children}
       </span>
     )
   }

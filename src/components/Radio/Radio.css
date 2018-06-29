@@ -3,6 +3,7 @@
   font-size: 22px;
   margin-right: 4em;
   padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .ui.radio.checkbox .box,
@@ -57,4 +58,11 @@
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
   border-color: color-mod(rgba(125, 132, 153, 0.24) l(-10%));
+}
+
+@media (max-width: 768px) {
+  .ui.radio.checkbox {
+    margin-bottom: 32px;
+    display: block;
+  }
 }

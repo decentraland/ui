@@ -5,6 +5,7 @@ import { Header } from 'semantic-ui-react'
 type Props = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
   black?: boolean
+  inline?: boolean
   className?: string
   children?: React.ReactChild
 }
@@ -15,8 +16,10 @@ export class Mana extends React.Component<Props> {
   }
 
   render() {
-    const { size, className, black, children, ...rest } = this.props
-    const classes = `dcl mana ${black ? 'black ' : ''}${className}`.trim()
+    const { size, className, black, inline, children, ...rest } = this.props
+    const classes = `dcl mana ${black ? 'black ' : ''}${
+      inline ? 'inline ' : ''
+    }${className}`.trim()
     return (
       <Header size={size} className={classes} {...rest}>
         <i className="symbol">⏣</i>

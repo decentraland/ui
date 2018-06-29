@@ -6,17 +6,17 @@ storiesOf('Stats', module)
   .add('Single Result', () => (
     <>
       <Stats title="Total Voted">
-        <Mana size="large">1,235,345</Mana>
+        <Mana>1,235,345</Mana>
       </Stats>
     </>
   ))
   .add('Poll Results', () => (
     <>
       <Stats title="Token">
-        <Mana size="large">MANA</Mana>
+        <Mana>MANA</Mana>
       </Stats>
       <Stats title="Total Voted">
-        <Mana size="large">1,235,345</Mana>
+        <Mana>1,235,345</Mana>
       </Stats>
       <Stats title="Total Votes">20</Stats>
       <Stats title="Parcial Result">Yes</Stats>

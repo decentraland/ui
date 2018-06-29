@@ -19,3 +19,7 @@
 .dcl.mana + .dcl.mana {
   padding-left: 0.3em;
 }
+
+.dcl.mana.inline {
+  font-size: 1em;
+}

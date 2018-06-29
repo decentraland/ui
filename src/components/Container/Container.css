@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  .ui.container {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+}

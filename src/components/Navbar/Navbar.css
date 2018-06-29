@@ -5,6 +5,7 @@
   justify-content: space-between;
   height: var(--navbar-height);
   padding: 0px 30px;
+  margin-bottom: 32px;
 }
 
 .dcl.navbar-logo {
@@ -44,10 +45,13 @@
 .dcl.navbar-back {
   display: inline-block;
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   background-color: var(--secondary);
   border-radius: 100%;
+  background-image: url(../../assets/chevron-dark.svg);
+  background-repeat: no-repeat;
+  background-position: 17px 16px;
 }
 
 .dcl.navbar-back .icon.chevron {
@@ -71,6 +75,7 @@
 
 .dcl.hamburger {
   cursor: pointer;
+  color: var(--primary);
 }
 
 .dcl.active-page {
@@ -78,6 +83,11 @@
   display: inline-block;
   text-transform: uppercase;
   padding-left: 0.5em;
-  transform: translateY(4px);
+  transform: translateY(3px);
   cursor: pointer;
+  margin: 0px;
+}
+
+.dcl.navbar-hamburger-wrapper {
+  transform: translateY(-4px);
 }

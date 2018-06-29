@@ -64,9 +64,7 @@ export class Navbar extends React.PureComponent<Props, State> {
     return (
       <div className="dcl navbar" role="navigation">
         <div className="dcl navbar-logo">
-          <span className="dcl navbar-back" onClick={onBack}>
-            <Icon name="chevron left" size="large" className="back" />
-          </span>
+          <span className="dcl navbar-back" onClick={onBack} />
         </div>
       </div>
     )
@@ -92,44 +90,50 @@ export class Navbar extends React.PureComponent<Props, State> {
       return this.renderModal()
     }
 
+    const hasMenu = !!menuItems
+
     return (
       <div className="dcl navbar" role="navigation">
         <Responsive
-          minWidth={Responsive.onlyTablet.minWidth}
+          minWidth={hasMenu ? Responsive.onlyTablet.minWidth : null}
           className="dcl navbar-logo"
           onClick={onClickLogo}
         >
           {logo}
         </Responsive>
-        <div className="dcl navbar-menu">
-          <Responsive
-            as={Menu}
-            secondary
-            stackable
-            minWidth={Responsive.onlyTablet.minWidth}
-          >
-            {menuItems}
-          </Responsive>
-          <Responsive
-            {...Responsive.onlyMobile}
-            className="dcl navbar-hamburger-wrapper"
-            onClick={this.handleToggle}
-          >
-            <Icon name="content" size="large" className="dcl hamburger" />
-            <Header className="dcl active-page">{activePage}</Header>
-          </Responsive>
-          <Responsive {...Responsive.onlyMobile}>
-            <Sidebar
+        {hasMenu ? (
+          <div className="dcl navbar-menu">
+            <Responsive
               as={Menu}
-              animation="overlay"
-              width="wide"
-              visible={this.state.toggle}
-              vertical
+              secondary
+              stackable
+              minWidth={Responsive.onlyTablet.minWidth}
             >
               {menuItems}
-            </Sidebar>
-          </Responsive>
-        </div>
+            </Responsive>
+            <Responsive
+              {...Responsive.onlyMobile}
+              className="dcl navbar-hamburger-wrapper"
+              onClick={this.handleToggle}
+            >
+              <Icon name="content" size="large" className="dcl hamburger" />
+              <Header size="small" className="dcl active-page">
+                {activePage}
+              </Header>
+            </Responsive>
+            <Responsive {...Responsive.onlyMobile}>
+              <Sidebar
+                as={Menu}
+                animation="overlay"
+                width="wide"
+                visible={this.state.toggle}
+                vertical
+              >
+                {menuItems}
+              </Sidebar>
+            </Responsive>
+          </div>
+        ) : null}
         <div className="dcl navbar-account">
           {isConnected ? (
             <>

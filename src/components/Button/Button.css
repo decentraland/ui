@@ -15,6 +15,11 @@
   text-transform: uppercase;
 }
 
+.ui.button a,
+.ui.button.secondary a {
+  color: var(--text-on-secondary);
+}
+
 .ui.button:hover,
 .ui.button:active,
 .ui.button.secondary:hover,
@@ -23,6 +28,12 @@
   background-image: var(--secondary);
   background-color: var(--secondary);
   background: var(--secondary);
+}
+.ui.button:hover a,
+.ui.button:active a,
+.ui.button.secondary:hover a,
+.ui.button.secondary:active a {
+  color: var(--text-on-secondary);
 }
 
 .ui.button:focus,
@@ -34,6 +45,11 @@
   opacity: 0.95;
 }
 
+.ui.button:focus a,
+.ui.button.secondary:focus a {
+  color: var(--text-on-secondary);
+}
+
 .ui.button:disabled,
 .ui.button.secondary:disabled {
   opacity: 0.4 !important; /* this !important is due to an important in semantic-ui-css */
@@ -43,9 +59,18 @@
   ) !important; /* this !important is due to an important in semantic-ui-css */
 }
 
+.ui.button:disabled a,
+.ui.button.secondary:disabled a {
+  color: var(--text-on-secondary);
+}
+
 .ui.button.primary {
   background-image: linear-gradient(to top, var(--primary), var(--primary));
   background: linear-gradient(to top, var(--primary), var(--primary));
+  color: var(--text-on-primary);
+}
+
+.ui.button.primary a {
   color: var(--text-on-primary);
 }
 
@@ -65,6 +90,11 @@
   background: linear-gradient(to top, var(--primary-gradient), var(--primary));
 }
 
+.ui.button.primary:hover a,
+.ui.button.primary:active a {
+  color: var(--text-on-primary);
+}
+
 .ui.button.primary:focus {
   color: var(--text-on-primary);
   background-image: linear-gradient(
@@ -80,12 +110,54 @@
   background: linear-gradient(to top, var(--primary-gradient), var(--primary));
 }
 
+.ui.button.primary:focus a {
+  color: var(--text-on-primary);
+}
+
 .ui.button.primary:disabled {
   color: var(--text-on-primary);
   background-image: linear-gradient(
     to top,
     var(--primary),
     var(--primary)
+  ) !important; /* this !important is due to an important in semantic-ui-css */
+}
+
+.ui.button.primary:disabled a {
+  color: var(--text-on-primary);
+}
+
+.ui.button.basic {
+  text-transform: uppercase;
+  color: var(
+    --primary
+  ) !important; /* this !important is due to an important in semantic-ui-css */
+  font-weight: 600;
+  box-shadow: none;
+  padding: 8px;
+}
+
+.ui.button.basic a {
+  color: var(
+    --primary
+  ) !important; /* this !important is due to an important in semantic-ui-css */
+}
+
+.ui.button.basic:hover,
+.ui.button.basic:focus,
+.ui.button.basic:active {
+  color: var(
+    --primary
+  ) !important; /* this !important is due to an important in semantic-ui-css */
+  box-shadow: none;
+  background: transparent !important; /* this !important is due to an important in semantic-ui-css */
+}
+
+.ui.button.basic:hover a,
+.ui.button.basic:focus a,
+.ui.button.basic:active a {
+  color: var(
+    --primary
   ) !important; /* this !important is due to an important in semantic-ui-css */
 }
 

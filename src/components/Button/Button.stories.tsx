@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../..'
+import { Button, Icon } from '../..'
 
 storiesOf('Button', module)
   .add('Primary', () => (
@@ -15,6 +15,24 @@ storiesOf('Button', module)
     <>
       <Button>Cancel</Button>
       <Button disabled>Cancel</Button>
+    </>
+  ))
+  .add('Basic', () => (
+    <>
+      <Button basic>Download</Button>
+      <Button basic disabled>
+        Download
+      </Button>
+    </>
+  ))
+  .add('Icon', () => (
+    <>
+      <Button basic>
+        <Icon name="edit" />Edit
+      </Button>
+      <Button basic disabled>
+        <Icon name="edit" />Edit
+      </Button>
     </>
   ))
   .add('Sizes', () => (

@@ -18,7 +18,7 @@ storiesOf('Blockie', module)
   ))
   .add('In a paragraph', () => (
     <p>
-      You have transfered <Mana size="tiny">1,000</Mana> to{' '}
+      You've transfered <Mana inline>1,000</Mana> to{' '}
       <Blockie scale={3} seed={address}>
         <Address value={address} strong />
       </Blockie>.
