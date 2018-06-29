@@ -15,7 +15,9 @@
 
 @media (max-width: 768px) {
   .dcl.center.screen {
+    position: absolute;
     align-items: flex-start;
     margin-top: 24px;
+    bottom: 0px;
   }
 }
