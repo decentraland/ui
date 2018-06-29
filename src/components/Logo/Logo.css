@@ -7,3 +7,10 @@
   background-image: url('../../assets/logo.svg');
   background-size: contain;
 }
+
+@media (max-width: 768px) {
+  .dcl.logo {
+    width: 36px;
+    height: 36px;
+  }
+}

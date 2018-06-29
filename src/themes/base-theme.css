@@ -1,6 +1,7 @@
 :root {
   /* sizes */
   --navbar-height: 94px;
+  --navbar-height-mobile: 68px;
 
   /* fonts */
   --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,

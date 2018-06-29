@@ -37,3 +37,13 @@
 .ui.header.tiny {
   font-size: 12px;
 }
+
+@media (max-width: 768px) {
+  .ui.header.huge {
+    font-size: 44px;
+  }
+
+  .ui.header.large {
+    font-size: 32px;
+  }
+}

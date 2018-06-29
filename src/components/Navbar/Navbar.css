@@ -10,6 +10,8 @@
 
 .dcl.navbar-logo {
   cursor: pointer;
+  width: 48px;
+  height: 48px;
 }
 
 .dcl.account-wrapper {
@@ -54,12 +56,6 @@
   background-position: 17px 16px;
 }
 
-.dcl.navbar-back .icon.chevron {
-  position: absolute;
-  top: 16px;
-  left: 12px;
-}
-
 .dcl.navbar .ui.menu .item {
   color: var(--secondary-text);
   border-radius: var(--radius);
@@ -94,7 +90,25 @@
 
 @media (max-width: 768px) {
   .dcl.navbar {
-    padding: 0px 24px;
+    height: var(--navbar-height-mobile);
+    padding: 0px 16px;
     margin-bottom: 24px;
+  }
+
+  .dcl.navbar-logo {
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+  }
+
+  .dcl.navbar .dcl.account-wrapper {
+    transform: scale(0.889);
+  }
+
+  .dcl.navbar-back {
+    width: 36px;
+    height: 36px;
+    background-position: 13px 12px;
+    background-size: 22%;
   }
 }
