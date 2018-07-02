@@ -9,7 +9,7 @@ See: [ui.decentraland.org](https://ui.decentraland.org)
 Import Decentraland UI's styles in your App's entry point
 
 ```jsx
-import 'decentraland-ui/lib/decentraland-ui.css'
+import 'decentraland-ui/lib/styles.css'
 ```
 
 Now you can use Decentraland UI's components
@@ -24,6 +24,22 @@ export class MyApp extends React.Component {
   }
 }
 ```
+
+### Without React
+
+You can also use `decentraland-ui` as a CSS framework just by adding this tag in your `<head>`:
+
+```html
+<link href="https://ui.decentraland.org/styles.css" rel="stylesheet">
+```
+
+And then using `semantic` classes like this:
+
+```html
+<button class="ui button">Sabe</button>
+```
+
+🏌
 
 ## Alternative themes
 
