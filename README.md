@@ -33,7 +33,7 @@ You can also use `decentraland-ui` as a CSS framework just by adding this tag in
 <link href="https://ui.decentraland.org/styles.css" rel="stylesheet">
 ```
 
-And then using `semantic` classes like this:
+And then using [Semantic UI](https://semantic-ui.com/) classes like this:
 
 ```html
 <button class="ui button">Sabe</button>
