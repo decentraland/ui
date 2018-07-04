@@ -1,20 +1,27 @@
 .ui.basic.table {
-  border-color: var(--secondary);
+  border: 2px solid var(--outline);
+  border-radius: 12px;
 }
 
 .ui.table thead th {
-  color: var(--secondary-text);
+  color: var(--secondary);
+  padding: 18px 24px 10px 24px;
 }
 
 .ui.basic.table tbody tr {
   border-bottom: none;
 }
 
-.ui.table tr td {
+.ui.basic.table tbody tr td {
   border-top: none;
+  padding: 12px 24px;
 }
 
-.ui.table thead th {
+.ui.basic.table tbody tr:last-child td {
+  padding-bottom: 18px;
+}
+
+.ui.basic.table thead th {
   border-bottom: none;
   color: #7d8499;
   text-transform: uppercase;
