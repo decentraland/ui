@@ -6,6 +6,12 @@ See: [ui.decentraland.org](https://ui.decentraland.org)
 
 ## Usage
 
+Install it:
+
+```bash
+npm install --save decentraland-ui
+```
+
 Import Decentraland UI's styles in your App's entry point
 
 ```jsx
