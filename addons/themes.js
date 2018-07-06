@@ -43,23 +43,33 @@ class SwitchTheme extends React.PureComponent {
     }
   }
 
-  handleChange(_, data) {
-    this.toggleStyle(data.checked)
-    this.props.onChange(data.checked)
-    this.setState({ checked: data.checked })
+  handleClick() {
+    const toggle = !this.props.isChecked()
+    this.toggleStyle(toggle)
+    this.props.onChange(toggle)
+    this.setState({ checked: toggle })
   }
 
   render() {
     return React.createElement(
-      Checkbox,
+      'div',
       {
-        style: { margin: 20 },
-        label: 'Dark theme',
-        slider: true,
-        checked: this.state.checked,
-        onChange: this.handleChange.bind(this)
+        style: {
+          zIndex: 1000,
+          position: 'fixed'
+        },
+        onClick: this.handleClick.bind(this)
       },
-      null
+      React.createElement(
+        Checkbox,
+        {
+          style: { margin: 20 },
+          label: 'Dark theme',
+          slider: true,
+          checked: this.state.checked
+        },
+        null
+      )
     )
   }
 }
