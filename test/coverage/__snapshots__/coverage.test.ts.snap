@@ -872,43 +872,6 @@ exports[`Decentraland UI - Coverage Tests Logo Decentraland 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Mana Black 1`] = `
-<div
-  style={
-    Object {
-      "alignItems": "center",
-      "bottom": 0,
-      "display": "flex",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "right": 0,
-      "top": 0,
-    }
-  }
->
-  <div
-    style={
-      Object {
-        "margin": "auto",
-        "maxHeight": "100%",
-      }
-    }
-  >
-    <div
-      className="ui small header dcl mana black"
-    >
-      <i
-        className="symbol"
-      >
-        ⏣
-      </i>
-      20
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Decentraland UI - Coverage Tests Mana In a paragraph 1`] = `
 <div
   style={
@@ -1095,6 +1058,43 @@ exports[`Decentraland UI - Coverage Tests Mana Symbol 1`] = `
       >
         ⏣
       </i>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Mana Text 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui small header dcl mana text"
+    >
+      <i
+        className="symbol"
+      >
+        ⏣
+      </i>
+      20
     </div>
   </div>
 </div>
@@ -1376,7 +1376,12 @@ exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
           <span
             className="dcl navbar-back"
             onClick={[Function]}
-          />
+          >
+            <i
+              aria-hidden="true"
+              className="chevron left icon"
+            />
+          </span>
         </div>
       </div>
     </div>
@@ -2086,7 +2091,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2135,7 +2140,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2184,7 +2189,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2233,7 +2238,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2282,7 +2287,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2331,7 +2336,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2380,7 +2385,7 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               <div
-                className="ui small header dcl mana black"
+                className="ui small header dcl mana text"
               >
                 <i
                   className="symbol"
@@ -2394,153 +2399,6 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
               className=""
             >
               Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 17, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0x7b...2040
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana black"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              30
-            </td>
-            <td
-              className=""
-            >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 18, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xff...e688
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana black"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              160
-            </td>
-            <td
-              className=""
-            >
-              No
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 19, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xce...8b94
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana black"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              40
-            </td>
-            <td
-              className=""
-            >
-              No
             </td>
           </tr>
         </tbody>
