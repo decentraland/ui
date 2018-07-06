@@ -77,6 +77,7 @@ Or you can create your own theme like this:
 
   /* borders */
   --radius: 8px;
+  --outline: #e0e2e8;
 }
 ```
 
