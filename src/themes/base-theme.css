@@ -24,6 +24,7 @@
 
 body {
   font-family: var(--font-print);
+  background: var(--background);
 }
 
 h1,
@@ -33,4 +34,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-print);
+  color: var(--text);
+}
+
+p {
+  color: var(--text);
 }

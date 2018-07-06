@@ -6,6 +6,12 @@
   padding-bottom: 8px;
 }
 
+.ui.checkbox.slider input.hidden + label {
+  padding-top: 0px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
 .ui.radio.checkbox .box,
 .ui.radio.checkbox label {
   padding-left: 48px;
