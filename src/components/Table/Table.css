@@ -15,6 +15,7 @@
 .ui.basic.table tbody tr td {
   border-top: none;
   padding: 12px 24px;
+  color: var(--text);
 }
 
 .ui.basic.table tbody tr:last-child td {

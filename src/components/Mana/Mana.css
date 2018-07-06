@@ -12,8 +12,8 @@
   display: inline-block;
 }
 
-.dcl.mana.black .symbol {
-  color: black;
+.dcl.mana.text .symbol {
+  color: var(--text);
 }
 
 .dcl.mana + .dcl.mana {

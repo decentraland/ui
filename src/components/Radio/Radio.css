@@ -4,6 +4,30 @@
   margin-right: 4em;
   padding-top: 8px;
   padding-bottom: 8px;
+  color: var(--text);
+}
+
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before {
+  background-color: var(--outline);
+}
+
+.ui.slider.checkbox input:focus:checked ~ .box,
+.ui.slider.checkbox input:focus:checked ~ label,
+.ui.slider.checkbox input:checked ~ label,
+.ui.slider.checkbox input:checked ~ .box {
+  color: var(
+    --text
+  ) !important; /* this is due to an !important in semantic-ui */
+}
+
+.ui.slider.checkbox input:focus:checked ~ .box:before,
+.ui.slider.checkbox input:focus:checked ~ label:before,
+.ui.slider.checkbox input:checked ~ .box:before,
+.ui.slider.checkbox input:checked ~ label:before {
+  background-color: var(
+    --primary
+  ) !important; /* this is due to an !important in semantic-ui */
 }
 
 .ui.checkbox.slider input.hidden + label {
@@ -15,6 +39,20 @@
 .ui.radio.checkbox .box,
 .ui.radio.checkbox label {
   padding-left: 48px;
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before,
+.ui.checkbox .box:hover::before,
+.ui.checkbox label:hover::before,
+.ui.checkbox .box:active::before,
+.ui.checkbox label:active::before,
+.ui.checkbox .box:focus::before,
+.ui.checkbox label:focus::before,
+.ui.radio.checkbox input:focus ~ .box:before,
+.ui.radio.checkbox input:focus ~ label:before {
+  background: transparent;
+  background-color: transparent;
 }
 
 .ui.radio.checkbox input:checked ~ .box:before,

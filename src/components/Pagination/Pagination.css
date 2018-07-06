@@ -1,6 +1,7 @@
 .ui.pagination.menu {
   border: none;
   box-shadow: none;
+  background: transparent;
 }
 
 .ui.pagination.menu .item:before {
@@ -10,6 +11,17 @@
 .ui.pagination.menu .item {
   border-radius: var(--radius);
   font-size: 14px;
+  color: var(--text);
+}
+
+.ui.pagination.menu .item:hover {
+  color: var(--text-on-secondary);
+  background: var(--secondary);
+}
+
+.ui.pagination.menu .item.active {
+  color: var(--text-on-primary);
+  background: var(--primary);
 }
 
 .ui.pagination.menu .item + .item {

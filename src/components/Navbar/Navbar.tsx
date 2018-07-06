@@ -64,7 +64,9 @@ export class Navbar extends React.PureComponent<Props, State> {
     return (
       <div className="dcl navbar" role="navigation">
         <div className="dcl navbar-logo">
-          <span className="dcl navbar-back" onClick={onBack} />
+          <span className="dcl navbar-back" onClick={onBack}>
+            <Icon name="chevron left" />
+          </span>
         </div>
       </div>
     )
