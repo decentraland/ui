@@ -6,6 +6,7 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
+  threshold: 2
 
   status:
     project: yes
