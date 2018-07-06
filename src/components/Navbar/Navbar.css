@@ -51,9 +51,12 @@
   height: 48px;
   background-color: var(--secondary);
   border-radius: 100%;
-  background-image: url(../../assets/chevron-dark.svg);
-  background-repeat: no-repeat;
-  background-position: 17px 16px;
+  padding: 15px 12px;
+  color: var(--text-on-secondary);
+}
+
+.dcl.navbar-back .icon.chevron.left {
+  font-size: 18px;
 }
 
 .dcl.navbar .ui.menu .item {
@@ -110,5 +113,10 @@
     height: 36px;
     background-position: 13px 12px;
     background-size: 22%;
+    padding: 9px;
+  }
+
+  .dcl.navbar-back .icon.chevron.left {
+    font-size: 14px;
   }
 }

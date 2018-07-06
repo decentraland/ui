@@ -44,24 +44,6 @@ const rows = [
     address: '0x727dd230d55bf5acc0367323c60d45ada13e51f6',
     amount: 50,
     vote: 'Yes'
-  },
-  {
-    when: 'Feb 17, 2018',
-    address: '0x7b30b4eccdc06455248b796b2df9fbb9ff002040',
-    amount: 30,
-    vote: 'Yes'
-  },
-  {
-    when: 'Feb 18, 2018',
-    address: '0xff394e3c2d41f66d40cfbd566216bcfc4936e688',
-    amount: 160,
-    vote: 'No'
-  },
-  {
-    when: 'Feb 19, 2018',
-    address: '0xcef9f82783c0cce9b632fbe9bbcf97abe5178b94',
-    amount: 40,
-    vote: 'No'
   }
 ]
 
@@ -88,7 +70,7 @@ storiesOf('Table', module).add('Votes', () => (
               </Blockie>
             </Table.Cell>
             <Table.Cell>
-              <Mana size="small" black />
+              <Mana size="small" text />
               {amount}
             </Table.Cell>
             <Table.Cell>{vote}</Table.Cell>

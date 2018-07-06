@@ -1,5 +1,6 @@
 .ui.header {
   font-family: var(--font-print);
+  color: var(--text);
 }
 
 .ui.header.sub + .ui.header {

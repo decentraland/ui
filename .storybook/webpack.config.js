@@ -1,5 +1,6 @@
 // load the default config generator.
 const genDefaultConfig = require('../webpack.config.js')
+const cssRule = genDefaultConfig.module.rules[0]
 module.exports = {
   ...genDefaultConfig,
   externals: {},
@@ -20,7 +21,22 @@ module.exports = {
         ],
         enforce: 'pre'
       },
-      ...genDefaultConfig.module.rules
+      {
+        oneOf: [
+          // add themes here so they are loaded using the raw-loader
+          {
+            test: /alternative\/.*\.css$/,
+            use: ['raw-loader']
+          },
+          // everything else should be loaded using style-loader, css-loader and postcss-loader
+          {
+            test: /\.css$/,
+            use: ['style-loader', ...cssRule.use.slice(1)]
+          }
+        ]
+      },
+      ...genDefaultConfig.module.rules.slice(1)
     ]
-  }
+  },
+  plugins: []
 }

@@ -8,8 +8,7 @@ import 'balloon-css/balloon.min.css'
 import './themes/base-theme.css'
 
 // Default theme
-//import './themes/dark-theme.css'
-import './themes/light-theme.css'
+import './themes/alternative/light-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'

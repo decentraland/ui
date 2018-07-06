@@ -69,9 +69,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new CopyWebpackPlugin([
-      { from: 'src/themes/dark-theme.css', to: 'dark-theme.css' },
-      { from: 'src/themes/light-theme.css', to: 'light-theme.css' }
-    ])
+    new CopyWebpackPlugin([{ from: 'src/themes/alternative', to: '.' }])
   ]
 }

@@ -11,8 +11,8 @@ storiesOf('Mana', module)
       <Mana>1,235,345</Mana>
     </>
   ))
-  .add('Black', () => (
-    <Mana size="small" black>
+  .add('Text', () => (
+    <Mana size="small" text>
       20
     </Mana>
   ))

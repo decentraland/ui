@@ -2,6 +2,15 @@ const { configure, addDecorator } = require('@storybook/react')
 const centered = require('@storybook/addon-centered').default
 const { setOptions } = require('@storybook/addon-options')
 
+let themeSwitcher
+let darkTheme
+let lightTheme
+if (process.env.NODE_ENV !== 'test') {
+  themeSwitcher = require('../addons/themes').default
+  darkTheme = require('../src/themes/alternative/dark-theme.css')
+  lightTheme = require('../src/themes/alternative/light-theme.css')
+}
+
 setOptions({
   name: 'decentraland-ui',
   url: 'https://github.com/decentraland/ui',
@@ -19,6 +28,17 @@ setOptions({
 })
 
 addDecorator(centered)
+if (process.env.NODE_ENV !== 'test') {
+  let checked = false
+  addDecorator(
+    themeSwitcher(
+      darkTheme,
+      lightTheme,
+      () => checked,
+      value => (checked = value)
+    )
+  )
+}
 
 // this is to make storyshots work (and jest in general) because it lacks webpack's require.context function
 if (!require.context) {
@@ -31,4 +51,5 @@ const req = require.context('../src/components', true, /.stories.tsx?$/)
 function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
+
 configure(loadStories, module)
