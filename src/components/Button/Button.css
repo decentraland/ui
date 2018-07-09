@@ -79,15 +79,15 @@
   color: var(--text-on-primary);
   background-image: linear-gradient(
     to top,
-    var(--primary-gradient),
+    var(--primary-light),
     var(--primary)
   );
   background-color: linear-gradient(
     to top,
-    var(--primary-gradient),
+    var(--primary-light),
     var(--primary)
   );
-  background: linear-gradient(to top, var(--primary-gradient), var(--primary));
+  background: linear-gradient(to top, var(--primary-light), var(--primary));
 }
 
 .ui.button.primary:hover a,
@@ -99,15 +99,15 @@
   color: var(--text-on-primary);
   background-image: linear-gradient(
     to top,
-    var(--primary-gradient),
+    var(--primary-light),
     var(--primary)
   );
   background-color: linear-gradient(
     to top,
-    var(--primary-gradient),
+    var(--primary-light),
     var(--primary)
   );
-  background: linear-gradient(to top, var(--primary-gradient), var(--primary));
+  background: linear-gradient(to top, var(--primary-light), var(--primary));
 }
 
 .ui.button.primary:focus a {
