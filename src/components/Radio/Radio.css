@@ -60,7 +60,7 @@
   background-color: var(--primary);
   background-image: linear-gradient(
     to top,
-    var(--primary-gradient),
+    var(--primary-light),
     var(--primary)
   );
   box-shadow: var(--primary) 0px 0px 10px 0px;

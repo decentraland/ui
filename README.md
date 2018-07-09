@@ -63,11 +63,10 @@ Or you can create your own theme like this:
 :root {
   /* colors */
   --primary: #ff0044;
+  --primary-light: #ff9a74;
+  --primary-dark: #d10038;
   --secondary: #f2f2f5;
   --accent: #00d9ff;
-
-  /* gradients */
-  --primary-gradient: #ff9a74;
 
   /* text */
   --text: #0a0f1f;

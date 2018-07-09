@@ -40,3 +40,10 @@ h6 {
 p {
   color: var(--text);
 }
+
+a {
+  color: var(--primary);
+}
+a:hover {
+  color: var(--primary-dark);
+}
