@@ -42,8 +42,9 @@ p {
 }
 
 a {
-  color: var(--primary);
+  color: var(--text);
+  font-weight: 500;
 }
 a:hover {
-  color: var(--primary-dark);
+  color: var(--primary);
 }
