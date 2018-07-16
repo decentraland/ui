@@ -2,12 +2,12 @@ import * as React from 'react'
 import './Stats.css'
 import { Header } from 'semantic-ui-react'
 
-type Props = {
+export type StatsProps = {
   title: string
   className?: string
 }
 
-export class Stats extends React.Component<Props> {
+export class Stats extends React.Component<StatsProps> {
   static defaultProps = {
     className: ''
   }
