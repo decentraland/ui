@@ -2,7 +2,7 @@ import * as React from 'react'
 import './Mana.css'
 import { Header } from 'semantic-ui-react'
 
-type Props = {
+export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
   black?: boolean
   text?: boolean
@@ -11,7 +11,7 @@ type Props = {
   children?: React.ReactChild
 }
 
-export class Mana extends React.Component<Props> {
+export class Mana extends React.Component<ManaProps> {
   static defaultProps = {
     className: ''
   }

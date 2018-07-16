@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as blockies from 'ethereum-blockies/blockies'
 import './Blockie.css'
 
-type Props = {
+export type BlockieProps = {
   seed: string
   color?: string
   spotcolor?: string
@@ -13,7 +13,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-export class Blockie extends React.PureComponent<Props> {
+export class Blockie extends React.PureComponent<BlockieProps> {
   private shouldRefresh: boolean = false
   public canvas: HTMLCanvasElement = null
   static defaultProps = {

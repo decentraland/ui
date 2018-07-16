@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './Address.css'
 
-type Props = {
+export type AddressProps = {
   value: string
   strong?: boolean
   shorten?: boolean
@@ -9,7 +9,7 @@ type Props = {
   className?: string
 }
 
-export class Address extends React.Component<Props> {
+export class Address extends React.Component<AddressProps> {
   static defaultProps = {
     className: '',
     strong: false,

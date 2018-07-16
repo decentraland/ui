@@ -20,13 +20,13 @@ import './components/Radio/Radio.css'
 import './components/Table/Table.css'
 
 // Decentraland components
-export { Address } from './components/Address/Address'
-export { Blockie } from './components/Blockie/Blockie'
-export { Center } from './components/Center/Center'
-export { Logo } from './components/Logo/Logo'
-export { Mana } from './components/Mana/Mana'
-export { Navbar } from './components/Navbar/Navbar'
-export { Stats } from './components/Stats/Stats'
+export * from './components/Address/Address'
+export * from './components/Blockie/Blockie'
+export * from './components/Center/Center'
+export * from './components/Logo/Logo'
+export * from './components/Mana/Mana'
+export * from './components/Navbar/Navbar'
+export * from './components/Stats/Stats'
 
 // Semantic components
 export * from 'semantic-ui-react'

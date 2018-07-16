@@ -3,7 +3,7 @@ import { Header, Icon, Menu, Responsive, Sidebar } from 'semantic-ui-react'
 import { Blockie, Logo, Mana } from '../..'
 import './Navbar.css'
 
-type Props = {
+export type NavbarProps = {
   mana?: number
   address?: string
   logo?: React.ReactNode
@@ -20,11 +20,11 @@ type Props = {
   onBack?: () => void
 }
 
-type State = {
+export type NavbarState = {
   toggle: boolean
 }
 
-export class Navbar extends React.PureComponent<Props, State> {
+export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   static defaultProps = {
     mana: null,
     address: null,
