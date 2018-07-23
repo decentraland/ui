@@ -67,6 +67,8 @@ Or you can create your own theme like this:
   --primary-dark: #d10038;
   --secondary: #f2f2f5;
   --accent: #00d9ff;
+  --background: #ffffff;
+  --danger: #ffa900;
 
   /* text */
   --text: #0a0f1f;

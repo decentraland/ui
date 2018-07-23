@@ -1,0 +1,89 @@
+/* Normal */
+
+.dcl.field {
+  min-width: 400px;
+  position: relative;
+}
+
+.dcl.field .ui.input {
+  width: 100%;
+}
+
+.dcl.field .ui.input input {
+  padding: 0px;
+  padding-bottom: 12px;
+  padding-top: 4px;
+  font-size: 22px;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid var(--outline);
+  border-radius: 0px;
+  color: var(--text);
+  background: transparent;
+}
+
+.dcl.field .ui.input input:focus,
+.dcl.field .ui.input input:active {
+  border-bottom: 2px solid var(--text);
+}
+
+.dcl.field .message {
+  margin-top: 8px;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+/* Loading */
+
+.dcl.field .ui.input.loading > i.icon {
+  opacity: 1;
+  height: 36px;
+}
+.dcl.field .ui.input.loading > i.icon:before {
+  border-color: var(--outline);
+  border-width: 2px;
+}
+.dcl.field .ui.input.loading > i.icon:after {
+  border-color: var(--primary) transparent transparent;
+  border-width: 2px;
+}
+
+/* Error */
+
+.dcl.field.error .ui.input input {
+  border-bottom: 2px solid var(--danger);
+}
+
+.dcl.field.error .message {
+  color: var(--danger);
+}
+
+.dcl.field.error .ui.header.sub {
+  color: var(--danger);
+}
+
+.dcl.field.error .ui.input > i.icon {
+  opacity: 1;
+  background: url('../../assets/alert.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 36px;
+}
+.dcl.field.error .ui.input > i.icon:before {
+  content: '';
+  display: none;
+}
+
+/* Adress */
+
+.dcl.field.address .ui.input input {
+  padding-right: 2.67142857em !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dcl.field.address .dcl.blockie {
+  position: absolute;
+  right: 0px;
+  top: 28px;
+}
