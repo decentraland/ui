@@ -46,7 +46,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     const { seed, color, spotcolor, bgcolor, size, scale } = this.props
 
     return {
-      seed,
+      seed: seed ? seed.toLowerCase() : '',
       color,
       spotcolor,
       bgcolor,

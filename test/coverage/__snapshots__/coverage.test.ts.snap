@@ -693,6 +693,421 @@ exports[`Decentraland UI - Coverage Tests Center On Screen 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Field Address 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field address"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+        />
+      </div>
+      <canvas
+        className="dcl blockie tiny"
+      />
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Disabled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui disabled input"
+      >
+        <input
+          disabled={true}
+          onChange={[Function]}
+          tabIndex={-1}
+          type="text"
+          value="This is disabled"
+        />
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Error 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field error"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui icon input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Input Value"
+        />
+        <i
+          aria-hidden="true"
+          className="warning circle icon"
+        />
+      </div>
+      <p
+        className="message"
+      >
+        Some warning
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Loading 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui loading icon input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Input Value"
+        />
+        <i
+          aria-hidden="true"
+          className="spinner icon"
+        />
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Message 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Input Value"
+        />
+      </div>
+      <p
+        className="message"
+      >
+        Additional comment
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Numeric 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="1,000"
+          type="number"
+        />
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Placeholder 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Placeholder"
+          type="text"
+        />
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Field Value 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Input Value"
+        />
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Header Sizes 1`] = `
 <div
   style={
