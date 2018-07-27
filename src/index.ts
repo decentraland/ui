@@ -17,6 +17,7 @@ import './components/Header/Header.css'
 import './components/Loader/Loader.css'
 import './components/Pagination/Pagination.css'
 import './components/Radio/Radio.css'
+import './components/Segment/Segment.css'
 import './components/Table/Table.css'
 
 // Decentraland components
