@@ -77,10 +77,7 @@ jobs:
           - storybook-static-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Copy styles from lib
-          command: cp ./lib/styles.css ./storybook-static
-    - run:
-          name: Copy alternative themes from lib
-          command: cp ./lib/*-themes.css ./storybook-static
+          command: cp ./lib/*.css ./storybook-static
       - run:
           name: Deploy to now.sh
           command: npm init --yes && npm install now --no-save && cd storybook-static &&  ../node_modules/.bin/now --token $NOW_TOKEN --public && ../node_modules/.bin/now alias ui.decentraland.org --token $NOW_TOKEN
