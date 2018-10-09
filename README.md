@@ -114,3 +114,4 @@ You need to `npm run build:storybook` before running `npm run test:visual`!
 ## CI/CD
 
 We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release` 
+ 
