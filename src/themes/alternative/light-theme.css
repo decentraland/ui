@@ -9,12 +9,22 @@
   --danger: #ffa900;
 
   /* text */
-  --text: #0a0f1f;
-  --secondary-text: #7d8499;
+  --text: #0d0d17;
+  --secondary-text: #5c5c6e;
+  --disabled-text: #a2a2a6;
   --text-on-primary: #ffffff;
   --text-on-secondary: #0a0f1f;
 
   /* borders */
   --radius: 8px;
-  --outline: #e0e2e8;
+  --outline: #e2e2e6;
+
+  /* shadows */
+  --shadow: #f2f2f5;
+
+  /* cards */
+  --card-background: #ffffff;
+
+  /* hover */
+  --hover: #f2f2f5;
 }

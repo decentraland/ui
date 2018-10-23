@@ -1,0 +1,69 @@
+import * as React from 'react'
+import { storiesOf } from '@storybook/react'
+import { Card, Container, HeaderMenu, Header, Mana, Button, Icon } from '../..'
+
+const cards = [
+  {
+    poll: 'Proposal Acceptance for Aetheria District',
+    weight: '20.5M',
+    voters: 160,
+    status: '2 days left',
+    outcome: 'Pending'
+  },
+  {
+    poll: 'Proposal Acceptance for Chobury',
+    voters: 80,
+    weight: '250.2K',
+    status: '1 days left',
+    outcome: 'Pending'
+  },
+  {
+    poll: 'Proposal Acceptance for VR Shopping District',
+    voters: 172,
+    weight: '50.1K',
+    status: '12 hours left',
+    outcome: 'Pending'
+  },
+  {
+    poll: 'Proposal Acceptance for The Movement',
+    voters: 0,
+    weight: '0',
+    status: 'Closed',
+    outcome: 'Yes'
+  },
+  {
+    poll: 'Proposal Acceptance for NEXUS',
+    voters: 20,
+    weight: '100K',
+    status: 'Closed',
+    outcome: 'No'
+  }
+]
+
+storiesOf('Card', module).add('Polls', () => (
+  <Container>
+    <HeaderMenu>
+      <HeaderMenu.Left>
+        <Header>District polls</Header>
+      </HeaderMenu.Left>
+      <HeaderMenu.Right>
+        <Button basic size="small">
+          View More
+          <Icon name="chevron right" />
+        </Button>
+      </HeaderMenu.Right>
+    </HeaderMenu>
+    <Card.Group>
+      {cards.map(card => (
+        <Card link>
+          <Card.Content>
+            <Card.Header>{card.poll}</Card.Header>
+            <Card.Meta>
+              Weight {card.weight} <Mana inline black />
+            </Card.Meta>
+          </Card.Content>
+        </Card>
+      ))}
+    </Card.Group>
+  </Container>
+))

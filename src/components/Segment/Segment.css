@@ -1,7 +1,9 @@
 .ui.segment {
-  background: var(--secondary);
+  background: var(--card-background);
   margin: 36px 0px;
   padding: 24px;
   border: none;
   border-radius: var(--radius);
+  border: 1px solid var(--shadow);
+  box-shadow: 0 10px 20px 0 var(--shadow);
 }

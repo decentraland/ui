@@ -1,29 +1,56 @@
 .dcl.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--navbar-height);
+  padding: 0px 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--outline);
+  width: 100%;
+}
+
+.dcl.navbar.has-children {
+  border-bottom: none;
+}
+
+.dcl.navbar .navbar-menu {
+  position: relative;
+}
+
+.dcl.navbar .ui.container {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  height: var(--navbar-height);
-  padding: 0px 32px;
-  margin-bottom: 32px;
 }
 
 .dcl.navbar-logo {
   cursor: pointer;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
 }
 
 .dcl.account-wrapper {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+.dcl.account-wrapper.clickable {
   cursor: pointer;
 }
 
 .dcl.account-wrapper .dcl.mana {
   display: inline-block;
-  margin: 0em 1em 0em 0em;
+  margin: 0px 20px 0px 0px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.dcl.account-wrapper .dcl.blockie {
+  width: 32px;
+  height: 32px;
 }
 
 .dcl.account-wrapper .dcl.blockie {
@@ -36,40 +63,44 @@
   align-items: center;
 }
 
-.dcl.navbar-account .ui.menu.navbar-account-menu {
-  margin: 0em 1em 0em 0em;
+.dcl.navbar-account .ui.menu.ui.menu.secondary.navbar-account-menu {
+  margin: 0px 24px 0px 0px;
 }
 
 .dcl.navbar-account .ui.menu.navbar-account-menu .item .icon {
   margin: 0em;
 }
 
-.dcl.navbar-back {
-  display: inline-block;
-  position: relative;
-  width: 48px;
-  height: 48px;
-  background-color: var(--secondary);
-  border-radius: 100%;
-  padding: 15px 12px;
-  color: var(--text-on-secondary);
-}
-
-.dcl.navbar-back .icon.chevron.left {
-  font-size: 18px;
+.dcl.navbar .ui.menu.secondary {
+  margin: 0px;
 }
 
 .dcl.navbar .ui.menu .item {
+  font-weight: normal;
   color: var(--secondary-text);
   border-radius: var(--radius);
   text-transform: uppercase;
   font-family: var(--font-print);
+  margin-left: 24px;
+  padding: 0px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.dcl.navbar .ui.menu .item.disabled {
+  color: var(--secondary-text) !important;
+  opacity: 0.5;
 }
 
 .dcl.navbar .ui.menu .item:hover,
 .dcl.navbar .ui.menu .item.active {
-  color: var(--text-on-primary);
-  background: var(--primary);
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.dcl.navbar .ui.menu .item.active {
+  font-weight: 500;
 }
 
 .dcl.hamburger {
@@ -91,6 +122,13 @@
   transform: translateY(-4px);
 }
 
+.dcl.navbar .children-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 @media (max-width: 768px) {
   .dcl.navbar {
     height: var(--navbar-height-mobile);
@@ -106,17 +144,5 @@
 
   .dcl.navbar .dcl.account-wrapper {
     transform: scale(0.889);
-  }
-
-  .dcl.navbar-back {
-    width: 36px;
-    height: 36px;
-    background-position: 13px 12px;
-    background-size: 22%;
-    padding: 9px;
-  }
-
-  .dcl.navbar-back .icon.chevron.left {
-    font-size: 14px;
   }
 }

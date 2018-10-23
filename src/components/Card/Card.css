@@ -1,0 +1,79 @@
+.ui.cards > .ui.card {
+  width: calc(33.3% - 25px);
+  margin-right: 25px;
+  margin-bottom: 24px;
+  margin-top: 0px;
+}
+
+.ui.cards > .ui.card:nth-child(3n) {
+  margin-right: 0px;
+}
+
+.ui.cards > .ui.card,
+.ui.card {
+  box-shadow: 0 2px 4px 0 var(--shadow);
+  border: solid 1px var(--shadow);
+  background-color: var(--card-background);
+}
+
+.ui.cards > .ui.card.link,
+.ui.card.link {
+  transform: translateY(0px);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.ui.cards > .ui.card.link:hover,
+.ui.card.link:hover {
+  box-shadow: 0 10px 20px 0 var(--shadow);
+  transform: translateY(-16px);
+  cursor: pointer;
+}
+
+.ui.card > .content,
+.ui.cards > .card > .content {
+  padding: 16px 20px;
+}
+
+.ui.card > .content > .header:not(.ui),
+.ui.cards > .card > .content > .header:not(.ui) {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  margin-bottom: 20px;
+}
+
+.ui.card .meta,
+.ui.cards > .card .meta {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: var(--secondary-text);
+  font-family: var(--font-family);
+}
+
+.ui.cards > .ui.card.link:hover .meta,
+.ui.card.link:hover .meta {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .ui.cards > .ui.card {
+    width: calc(50% - 25px);
+  }
+
+  .ui.cards > .ui.card:nth-child(3n) {
+    margin-right: 25px;
+  }
+
+  .ui.cards > .ui.card:nth-child(2n) {
+    margin-right: 0px;
+  }
+}

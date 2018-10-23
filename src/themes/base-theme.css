@@ -1,6 +1,6 @@
 :root {
   /* sizes */
-  --navbar-height: 94px;
+  --navbar-height: 64px;
   --navbar-height-mobile: 68px;
 
   /* fonts */
@@ -13,7 +13,7 @@
   --orange-yellow: #ffa900;
   --orange: #ff9a74;
   --dark: #181f33;
-  --gray: #7d8499;
+  --gray: #5c5c6e;
   --dark-blue-grey: #0a0f1f;
   --pale-strawberry: #ff85a5;
   --fuchsia: #eb85ff;

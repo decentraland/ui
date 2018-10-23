@@ -1,0 +1,9 @@
+.ui.table tr td.closed,
+.ui.table tr td a.link-closed {
+  color: var(--disabled-text);
+  font-weight: normal;
+}
+
+.ui.table tr td a.link-closed:hover {
+  color: var(--primary);
+}

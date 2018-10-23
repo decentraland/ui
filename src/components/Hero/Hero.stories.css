@@ -1,0 +1,27 @@
+.story {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 442px;
+}
+
+.story .hero-pyramid {
+  background: url('../../assets/pyramid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.story .hero-pyramid.small {
+  width: 400px;
+  height: 400px;
+  margin-left: -100px;
+  margin-top: 250px;
+}
+
+.story .hero-pyramid.large {
+  width: 1000px;
+  height: 1000px;
+  margin-top: -200px;
+  margin-left: 300px;
+}

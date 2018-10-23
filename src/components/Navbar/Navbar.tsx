@@ -1,23 +1,40 @@
 import * as React from 'react'
-import { Header, Icon, Menu, Responsive, Sidebar } from 'semantic-ui-react'
-import { Blockie, Logo, Mana } from '../..'
+import {
+  Blockie,
+  Container,
+  Mana,
+  Logo,
+  Header,
+  Icon,
+  Menu,
+  Responsive,
+  Sidebar
+} from '../..'
 import './Navbar.css'
+
+export type NavbarI18N = {
+  menu: {
+    marketplace: string
+    docs: string
+    agora: string
+    blog: string
+  }
+  account: {
+    signIn: string
+    connecting: string
+  }
+}
 
 export type NavbarProps = {
   mana?: number
   address?: string
-  logo?: React.ReactNode
-  activePage?: React.ReactNode
+  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog'
   menuItems?: React.ReactNode
-  connectingMenuItem?: React.ReactNode
-  accountMenuItems?: React.ReactNode
-  signInMenuItem?: React.ReactNode
+  i18n?: NavbarI18N
   isConnected?: boolean
   isConnecting?: boolean
-  isModal?: boolean
+  onSignIn?: () => void
   onClickAccount?: () => void
-  onClickLogo?: () => void
-  onBack?: () => void
 }
 
 export type NavbarState = {
@@ -25,21 +42,27 @@ export type NavbarState = {
 }
 
 export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
-  static defaultProps = {
+  static defaultProps: Partial<NavbarProps> = {
     mana: null,
     address: null,
-    logo: <Logo />,
     activePage: null,
     menuItems: null,
-    accountMenuItems: null,
-    connectingMenuItem: null,
-    signInMenuItem: null,
-    isConnected: true,
+    i18n: {
+      menu: {
+        marketplace: 'Marketplace',
+        docs: 'Docs',
+        agora: 'Agora',
+        blog: 'Blog'
+      },
+      account: {
+        signIn: 'Sign In',
+        connecting: 'Connecting...'
+      }
+    },
+    isConnected: false,
     isConnecting: false,
-    isModal: false,
-    onAccountClick: () => {},
-    onClickLogo: () => {},
-    onBack: () => {}
+    onSignIn: null,
+    onClickAccount: null
   }
   public state = {
     toggle: false
@@ -59,51 +82,27 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   handleDocumentClick = () => {
     this.setState({ toggle: false })
   }
-  renderModal() {
-    const { onBack } = this.props
-    return (
-      <div className="dcl navbar" role="navigation">
-        <div className="dcl navbar-logo">
-          <span className="dcl navbar-back" onClick={onBack}>
-            <Icon name="chevron left" />
-          </span>
-        </div>
-      </div>
-    )
-  }
   render() {
     const {
-      logo,
       mana,
       address,
       activePage,
+      i18n,
       menuItems,
-      accountMenuItems,
-      connectingMenuItem,
-      signInMenuItem,
       isConnected,
       isConnecting,
-      isModal,
+      onSignIn,
       onClickAccount,
-      onClickLogo
+      children
     } = this.props
 
-    if (isModal) {
-      return this.renderModal()
-    }
-
-    const hasMenu = !!menuItems
-
     return (
-      <div className="dcl navbar" role="navigation">
-        <Responsive
-          minWidth={hasMenu ? Responsive.onlyTablet.minWidth : null}
-          className="dcl navbar-logo"
-          onClick={onClickLogo}
-        >
-          {logo}
-        </Responsive>
-        {hasMenu ? (
+      <div
+        className={`dcl navbar ${children ? 'has-children' : ''}`}
+        role="navigation"
+      >
+        <Container>
+          {children ? <div className="children-wrapper">{children}</div> : null}
           <div className="dcl navbar-menu">
             <Responsive
               as={Menu}
@@ -111,7 +110,33 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
               stackable
               minWidth={Responsive.onlyTablet.minWidth}
             >
-              {menuItems}
+              <a className="dcl navbar-logo" href="https://decentraland.org">
+                <Logo />
+              </a>
+              <Menu.Item
+                active={activePage === 'marketplace'}
+                href="https://market.decentraland.org"
+              >
+                {i18n.menu.marketplace}
+              </Menu.Item>
+              <Menu.Item
+                active={activePage === 'docs'}
+                href="https://docs.decentraland.org"
+              >
+                {i18n.menu.docs}
+              </Menu.Item>
+              <Menu.Item
+                active={activePage === 'agora'}
+                href="https://agora.decentraland.org"
+              >
+                {i18n.menu.agora}
+              </Menu.Item>
+              <Menu.Item
+                active={activePage === 'blog'}
+                href="https://decentraland.org/blog"
+              >
+                {i18n.menu.blog}
+              </Menu.Item>
             </Responsive>
             <Responsive
               {...Responsive.onlyMobile}
@@ -129,39 +154,55 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                 animation="overlay"
                 width="wide"
                 visible={this.state.toggle}
-                vertical
+                horizontal
               >
                 {menuItems}
               </Sidebar>
             </Responsive>
           </div>
-        ) : null}
-        <div className="dcl navbar-account">
-          {isConnected ? (
-            <>
-              {accountMenuItems ? (
-                <Responsive
-                  as={Menu}
-                  secondary
-                  className="dcl navbar-account-menu"
-                  minWidth={Responsive.onlyTablet.minWidth}
-                >
-                  {accountMenuItems}
-                </Responsive>
-              ) : null}
-              <span className="dcl account-wrapper" onClick={onClickAccount}>
-                {mana != null ? (
-                  <Mana size="small">{mana.toLocaleString()}</Mana>
+
+          <div className="dcl navbar-account">
+            {isConnected ? (
+              <>
+                {menuItems ? (
+                  <Responsive
+                    as={Menu}
+                    secondary
+                    className="dcl navbar-account-menu"
+                    minWidth={Responsive.onlyTablet.minWidth}
+                  >
+                    {menuItems}
+                  </Responsive>
                 ) : null}
-                {address != null ? <Blockie seed={address} /> : null}
-              </span>
-            </>
-          ) : isConnecting ? (
-            <Menu secondary>{connectingMenuItem}</Menu>
-          ) : (
-            <Menu secondary>{signInMenuItem}</Menu>
-          )}
-        </div>
+                <span
+                  className={`dcl account-wrapper ${
+                    onClickAccount ? 'clickable' : ''
+                  }`}
+                  onClick={onClickAccount}
+                >
+                  {mana != null ? (
+                    <Mana
+                      text
+                      size="small"
+                      title={`${mana.toLocaleString()} MANA`}
+                    >
+                      {mana.toLocaleString()}
+                    </Mana>
+                  ) : null}
+                  {address != null ? <Blockie seed={address} /> : null}
+                </span>
+              </>
+            ) : isConnecting ? (
+              <Menu secondary>
+                <Menu.Item disabled>{i18n.account.connecting}</Menu.Item>
+              </Menu>
+            ) : onSignIn ? (
+              <Menu secondary>
+                <Menu.Item onClick={onSignIn}>{i18n.account.signIn}</Menu.Item>
+              </Menu>
+            ) : null}
+          </div>
+        </Container>
       </div>
     )
   }

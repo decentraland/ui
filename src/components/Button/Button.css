@@ -132,7 +132,7 @@
   color: var(
     --primary
   ) !important; /* this !important is due to an important in semantic-ui-css */
-  font-weight: 600;
+  font-weight: 500;
   box-shadow: none;
   padding: 8px;
 }

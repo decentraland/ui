@@ -12,6 +12,14 @@
   border-radius: var(--radius);
   font-size: 14px;
   color: var(--text);
+  padding: 11.5px;
+  min-width: 32px;
+  height: 32px;
+}
+
+/* fixes a semantic-ui bug, see the "1000 pages story" */
+.ui.pagination.menu .item[value*='NaN'] {
+  display: none;
 }
 
 .ui.pagination.menu .item:hover {
