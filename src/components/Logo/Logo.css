@@ -1,7 +1,7 @@
 .dcl.logo {
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 5px 3px;
   border-radius: 100%;
   background-image: url('../../assets/logo.svg');
@@ -10,7 +10,7 @@
 
 @media (max-width: 768px) {
   .dcl.logo {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 }

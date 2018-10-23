@@ -1,0 +1,72 @@
+.dcl.footer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.dcl.footer .main-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.dcl.footer .main-footer .links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.dcl.footer .main-footer .links a {
+  color: var(--secondary-text);
+  font-weight: normal;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+.dcl.footer .dcl.language-dropdown {
+  margin-bottom: 18px;
+}
+
+.dcl.footer .social-links {
+  margin-bottom: 12px;
+}
+
+.dcl.footer .social-links .social-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: var(--secondary-text);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: content-box;
+}
+
+.dcl.footer .social-links .social-icon:hover {
+  color: var(--primary);
+}
+
+.dcl.footer .social-links a + a {
+  margin-left: 26px;
+}
+
+.dcl.footer .social-links .social-icon.discord {
+  background-image: url('../../assets/discord.svg');
+}
+
+.dcl.footer .social-links .social-icon.reddit {
+  background-image: url('../../assets/reddit.svg');
+}
+
+.dcl.footer .social-links .social-icon.github {
+  background-image: url('../../assets/github.svg');
+}
+
+.dcl.footer .social-links .social-icon.twitter {
+  background-image: url('../../assets/twitter.svg');
+}
+
+.dcl.footer .copyright {
+  color: var(--secondary-text);
+}

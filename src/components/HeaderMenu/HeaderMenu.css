@@ -1,0 +1,18 @@
+.dcl.header-menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.dcl.header-menu .dcl.header-menu-left {
+  flex: 1 0 auto;
+}
+
+.dcl.header-menu .ui.header {
+  margin-bottom: 0px;
+}
+
+.dcl.header-menu .ui.dropdown + .ui.dropdown {
+  margin-left: 24px;
+}

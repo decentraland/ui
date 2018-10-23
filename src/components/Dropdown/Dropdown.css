@@ -1,0 +1,44 @@
+.ui.dropdown {
+  transform: translateY(-4px);
+}
+
+.ui.menu {
+  font-family: var(--font-family);
+}
+
+.ui.dropdown > .dropdown.icon {
+  color: var(--primary);
+}
+
+.ui.dropdown > .text {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.ui.dropdown .menu,
+.ui.upward.dropdown > .menu {
+  background-color: var(--card-background);
+  border: solid 1px var(--shadow);
+  box-shadow: 0 16px 32px 0 var(--shadow);
+  margin-top: 13px;
+  padding: 8px 0px;
+  border-radius: 6px;
+}
+
+.ui.dropdown .menu > .item {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 24px;
+  padding: 10px 16px !important;
+  font-weight: normal;
+  min-width: 210px;
+}
+
+.ui.dropdown .menu > .item:hover {
+  color: var(--text);
+  background-color: var(--hover);
+}
+
+.ui.dropdown .menu > .item > .description {
+  color: var(--secondary-text);
+}

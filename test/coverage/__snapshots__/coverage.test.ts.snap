@@ -607,6 +607,219 @@ exports[`Decentraland UI - Coverage Tests Button Sizes 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui container"
+    >
+      <div
+        className="dcl header-menu"
+      >
+        <div
+          className="dcl header-menu-left"
+        >
+          <div
+            className="ui header"
+          >
+            District polls
+          </div>
+        </div>
+        <div
+          className="dcl header-menu-right"
+        >
+          <button
+            className="ui small basic button"
+            onClick={[Function]}
+            role="button"
+          >
+            View More
+            <i
+              aria-hidden="true"
+              className="chevron right icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="ui cards"
+      >
+        <div
+          className="ui link card"
+          onClick={[Function]}
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Proposal Acceptance for Aetheria District
+            </div>
+            <div
+              className="meta"
+            >
+              Weight 
+              20.5M
+               
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ui link card"
+          onClick={[Function]}
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Proposal Acceptance for Chobury
+            </div>
+            <div
+              className="meta"
+            >
+              Weight 
+              250.2K
+               
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ui link card"
+          onClick={[Function]}
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Proposal Acceptance for VR Shopping District
+            </div>
+            <div
+              className="meta"
+            >
+              Weight 
+              50.1K
+               
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ui link card"
+          onClick={[Function]}
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Proposal Acceptance for The Movement
+            </div>
+            <div
+              className="meta"
+            >
+              Weight 
+              0
+               
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ui link card"
+          onClick={[Function]}
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Proposal Acceptance for NEXUS
+            </div>
+            <div
+              className="meta"
+            >
+              Weight 
+              100K
+               
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Center On Parent 1`] = `
 <div
   style={
@@ -687,6 +900,94 @@ exports[`Decentraland UI - Coverage Tests Center On Screen 1`] = `
         >
           Hello
         </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Dropdown Filters 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      className="ui top pointing dropdown"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      role="listbox"
+      tabIndex={0}
+    >
+      <div
+        aria-live="polite"
+        className="text"
+        role="alert"
+      >
+        All polls
+      </div>
+      <i
+        aria-hidden="true"
+        className="dropdown icon"
+        onClick={[Function]}
+      />
+      <div
+        className="menu transition right"
+      >
+        <div
+          className="item"
+          onClick={[Function]}
+          role="option"
+        >
+          <span
+            className="text"
+          >
+            All polls
+          </span>
+        </div>
+        <div
+          className="item"
+          onClick={[Function]}
+          role="option"
+        >
+          <span
+            className="text"
+          >
+            Ongoing polls
+          </span>
+        </div>
+        <div
+          className="item"
+          onClick={[Function]}
+          role="option"
+        >
+          <span
+            className="text"
+          >
+            Closed polls
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -1108,6 +1409,459 @@ exports[`Decentraland UI - Coverage Tests Field Value 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Footer Controlled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui container"
+    >
+      <div
+        className="dcl footer"
+      >
+        <div
+          className="main-footer"
+        >
+          <div
+            aria-expanded={false}
+            className="ui upward dropdown dcl language-dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              <div
+                className="dcl language-icon-wrapper"
+              >
+                <i
+                  className="dcl language-icon en"
+                />
+                <div
+                  className="language-icon-label"
+                >
+                  English
+                </div>
+              </div>
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="right menu transition"
+            >
+              <div
+                aria-checked={true}
+                aria-selected={true}
+                className="active selected item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon en"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    English
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="links"
+          >
+            <a
+              href="https://decentraland.org"
+            >
+              Home
+            </a>
+            <a
+              href="https://decentraland.org/privacy"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://decentraland.org/content"
+            >
+              Content Policy
+            </a>
+            <a
+              href="https://decentraland.org/terms"
+            >
+              Terms & Conditions
+            </a>
+          </div>
+        </div>
+        <div
+          className="social-links"
+        >
+          <a
+            href="https://discordapp.com/invite/9EcuFgC"
+          >
+            <i
+              className="social-icon discord"
+            />
+          </a>
+          <a
+            href="https://reddit.com/r/decentraland"
+          >
+            <i
+              className="social-icon reddit"
+            />
+          </a>
+          <a
+            href="https://github.com/decentraland"
+          >
+            <i
+              className="social-icon github"
+            />
+          </a>
+          <a
+            href="https://twitter.com/decentraland"
+          >
+            <i
+              className="social-icon twitter"
+            />
+          </a>
+        </div>
+        <div
+          className="copyright"
+        >
+          © 2018 Decentraland
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Footer Uncontrolled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui container"
+    >
+      <div
+        className="dcl footer"
+      >
+        <div
+          className="main-footer"
+        >
+          <div
+            aria-expanded={false}
+            className="ui upward dropdown dcl language-dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              <div
+                className="dcl language-icon-wrapper"
+              >
+                <i
+                  className="dcl language-icon en"
+                />
+                <div
+                  className="language-icon-label"
+                >
+                  English
+                </div>
+              </div>
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="right menu transition"
+            >
+              <div
+                aria-checked={true}
+                aria-selected={true}
+                className="active selected item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon en"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    English
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-checked={false}
+                aria-selected={false}
+                className="item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon es"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    Spanish
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-checked={false}
+                aria-selected={false}
+                className="item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon fr"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    French
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-checked={false}
+                aria-selected={false}
+                className="item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon ja"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    Japanese
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-checked={false}
+                aria-selected={false}
+                className="item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon zh"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    Chinese
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-checked={false}
+                aria-selected={false}
+                className="item"
+                onClick={[Function]}
+                role="option"
+                style={
+                  Object {
+                    "pointerEvents": "all",
+                  }
+                }
+              >
+                <div
+                  className="dcl language-icon-wrapper"
+                >
+                  <i
+                    className="dcl language-icon ko"
+                  />
+                  <div
+                    className="language-icon-label"
+                  >
+                    Korean
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="links"
+          >
+            <a
+              href="https://decentraland.org"
+            >
+              Home
+            </a>
+            <a
+              href="https://decentraland.org/privacy"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://decentraland.org/content"
+            >
+              Content Policy
+            </a>
+            <a
+              href="https://decentraland.org/terms"
+            >
+              Terms & Conditions
+            </a>
+          </div>
+        </div>
+        <div
+          className="social-links"
+        >
+          <a
+            href="https://discordapp.com/invite/9EcuFgC"
+          >
+            <i
+              className="social-icon discord"
+            />
+          </a>
+          <a
+            href="https://reddit.com/r/decentraland"
+          >
+            <i
+              className="social-icon reddit"
+            />
+          </a>
+          <a
+            href="https://github.com/decentraland"
+          >
+            <i
+              className="social-icon github"
+            />
+          </a>
+          <a
+            href="https://twitter.com/decentraland"
+          >
+            <i
+              className="social-icon twitter"
+            />
+          </a>
+        </div>
+        <div
+          className="copyright"
+        >
+          © 2018 Decentraland
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Header Sizes 1`] = `
 <div
   style={
@@ -1193,6 +1947,852 @@ exports[`Decentraland UI - Coverage Tests Header Subheader + Header 1`] = `
     >
       20,212
     </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests HeaderMenu With Button 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui container"
+    >
+      <div
+        className="dcl header-menu"
+      >
+        <div
+          className="dcl header-menu-left"
+        >
+          <div
+            className="ui header"
+          >
+            District polls
+          </div>
+        </div>
+        <div
+          className="dcl header-menu-right"
+        >
+          <button
+            className="ui small basic button"
+            onClick={[Function]}
+            role="button"
+          >
+            View More
+            <i
+              aria-hidden="true"
+              className="chevron right icon"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests HeaderMenu With Dropdown 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="ui container"
+    >
+      <div
+        className="dcl header-menu"
+      >
+        <div
+          className="dcl header-menu-left"
+        >
+          <div
+            className="ui header"
+          >
+            District polls
+          </div>
+        </div>
+        <div
+          className="dcl header-menu-right"
+        >
+          <div
+            aria-expanded={false}
+            className="ui dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              Newest
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="menu transition left"
+            >
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Newest
+                </span>
+              </div>
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Closest to end
+                </span>
+              </div>
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Highest weight
+                </span>
+              </div>
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Most voted
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-expanded={false}
+            className="ui dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              All polls
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="menu transition left"
+            >
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  All polls
+                </span>
+              </div>
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Ongoing polls
+                </span>
+              </div>
+              <div
+                className="item"
+                onClick={[Function]}
+                role="option"
+              >
+                <span
+                  className="text"
+                >
+                  Closed polls
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl hero"
+        style={null}
+      >
+        <div
+          className="ui huge header title"
+        >
+          Help us build Decentraland
+        </div>
+        <div
+          className="ui header subtitle"
+        >
+          Join the discussion
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Hero With content 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl hero"
+        style={null}
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="dcl parallax"
+          >
+            <div
+              className="layer"
+              data-depth={0.3}
+            >
+              <div
+                className="hero-pyramid small"
+              />
+            </div>
+            <div
+              className="layer"
+              data-depth={1.5}
+            >
+              <div
+                className="hero-pyramid large"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="ui huge header title"
+        >
+          Help us build Decentraland
+        </div>
+        <div
+          className="ui header subtitle"
+        >
+          Join the discussion
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests LanguageDropdown Controlled right upward 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      className="ui upward dropdown dcl language-dropdown"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      role="listbox"
+      tabIndex={0}
+    >
+      <div
+        aria-live="polite"
+        className="text"
+        role="alert"
+      >
+        <div
+          className="dcl language-icon-wrapper"
+        >
+          <i
+            className="dcl language-icon zh"
+          />
+          <div
+            className="language-icon-label"
+          >
+            Chinese
+          </div>
+        </div>
+      </div>
+      <i
+        aria-hidden="true"
+        className="dropdown icon"
+        onClick={[Function]}
+      />
+      <div
+        className="right menu transition"
+      >
+        <div
+          aria-checked={true}
+          aria-selected={true}
+          className="active selected item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon zh"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Chinese
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon ko"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Korean
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon ja"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Japanese
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests LanguageDropdown Uncontrolled left downward 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      className="ui dropdown dcl language-dropdown"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      role="listbox"
+      tabIndex={0}
+    >
+      <div
+        aria-live="polite"
+        className="text"
+        role="alert"
+      >
+        <div
+          className="dcl language-icon-wrapper"
+        >
+          <i
+            className="dcl language-icon en"
+          />
+          <div
+            className="language-icon-label"
+          >
+            English
+          </div>
+        </div>
+      </div>
+      <i
+        aria-hidden="true"
+        className="dropdown icon"
+        onClick={[Function]}
+      />
+      <div
+        className="left menu transition"
+      >
+        <div
+          aria-checked={true}
+          aria-selected={true}
+          className="active selected item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon en"
+            />
+            <div
+              className="language-icon-label"
+            >
+              English
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon es"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Spanish
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon fr"
+            />
+            <div
+              className="language-icon-label"
+            >
+              French
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon ja"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Japanese
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon zh"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Chinese
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon ko"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Korean
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests LanguageIcon Options 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon en"
+        />
+        <div
+          className="language-icon-label"
+        >
+          English
+        </div>
+      </div>
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon es"
+        />
+        <div
+          className="language-icon-label"
+        >
+          Spanish
+        </div>
+      </div>
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon fr"
+        />
+        <div
+          className="language-icon-label"
+        >
+          French
+        </div>
+      </div>
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon ja"
+        />
+        <div
+          className="language-icon-label"
+        >
+          Japanese
+        </div>
+      </div>
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon zh"
+        />
+        <div
+          className="language-icon-label"
+        >
+          Chinese
+        </div>
+      </div>
+      <div
+        className="dcl language-icon-wrapper"
+      >
+        <i
+          className="dcl language-icon ko"
+        />
+        <div
+          className="language-icon-label"
+        >
+          Korean
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests LanguageIcon Single 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <i
+      className="dcl language-icon en"
+    />
   </div>
 </div>
 `;
@@ -1557,7 +3157,7 @@ exports[`Decentraland UI - Coverage Tests Mana Total voted 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Navbar Connecting... 1`] = `
+exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
 <div
   style={
     Object {
@@ -1583,166 +3183,83 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting... 1`] = `
     <div
       style={
         Object {
-          "width": 1024,
+          "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar"
+        className="dcl navbar "
         role="navigation"
       >
         <div
-          className="dcl navbar-logo"
-          onClick={[Function]}
-        >
-          <i
-            className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-account"
+          className="ui container"
         >
           <div
-            className="ui secondary menu"
+            className="dcl navbar-menu"
           >
             <div
-              className="item"
-              onClick={[Function]}
+              className="ui secondary stackable menu"
             >
-              Connecting...
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Decentraland UI - Coverage Tests Navbar Logged In 1`] = `
-<div
-  style={
-    Object {
-      "alignItems": "center",
-      "bottom": 0,
-      "display": "flex",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "right": 0,
-      "top": 0,
-    }
-  }
->
-  <div
-    style={
-      Object {
-        "margin": "auto",
-        "maxHeight": "100%",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "width": 1024,
-        }
-      }
-    >
-      <div
-        className="dcl navbar"
-        role="navigation"
-      >
-        <div
-          className="dcl navbar-logo"
-          onClick={[Function]}
-        >
-          <i
-            className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-account"
-        >
-          <span
-            className="dcl account-wrapper"
-            onClick={[Function]}
-          >
-            <div
-              className="ui small header dcl mana"
-            >
-              <i
-                className="symbol"
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
               >
-                ⏣
-              </i>
-              20,000
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
             </div>
-            <canvas
-              className="dcl blockie small"
-            />
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Decentraland UI - Coverage Tests Navbar Logged Out 1`] = `
-<div
-  style={
-    Object {
-      "alignItems": "center",
-      "bottom": 0,
-      "display": "flex",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "right": 0,
-      "top": 0,
-    }
-  }
->
-  <div
-    style={
-      Object {
-        "margin": "auto",
-        "maxHeight": "100%",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "width": 1024,
-        }
-      }
-    >
-      <div
-        className="dcl navbar"
-        role="navigation"
-      >
-        <div
-          className="dcl navbar-logo"
-          onClick={[Function]}
-        >
-          <i
-            className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-account"
-        >
+          </div>
           <div
-            className="ui secondary menu"
+            className="dcl navbar-account"
           >
-            <a
-              className="item"
-              onClick={[Function]}
+            <span
+              className="dcl account-wrapper "
+              onClick={null}
             >
-              Sign In
-            </a>
+              <div
+                className="ui small header dcl mana text"
+                title="200,000 MANA"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+                200,000
+              </div>
+              <canvas
+                className="dcl blockie small"
+              />
+            </span>
           </div>
         </div>
       </div>
@@ -1751,7 +3268,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Logged Out 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
+exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
 <div
   style={
     Object {
@@ -1777,26 +3294,288 @@ exports[`Decentraland UI - Coverage Tests Navbar Modal 1`] = `
     <div
       style={
         Object {
-          "width": 1024,
+          "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar"
+        className="dcl navbar "
         role="navigation"
       >
         <div
-          className="dcl navbar-logo"
+          className="ui container"
         >
-          <span
-            className="dcl navbar-back"
-            onClick={[Function]}
+          <div
+            className="dcl navbar-menu"
           >
-            <i
-              aria-hidden="true"
-              className="chevron left icon"
-            />
-          </span>
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <div
+              className="ui secondary menu"
+            >
+              <div
+                className="disabled item"
+                onClick={[Function]}
+              >
+                Connecting...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": 1200,
+        }
+      }
+    >
+      <div
+        className="dcl navbar "
+        role="navigation"
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <span
+              className="dcl account-wrapper clickable"
+              onClick={[Function]}
+            >
+              <div
+                className="ui small header dcl mana text"
+                title="200,000 MANA"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+                200,000
+              </div>
+              <canvas
+                className="dcl blockie small"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": 1200,
+        }
+      }
+    >
+      <div
+        className="dcl navbar "
+        role="navigation"
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <div
+              className="ui secondary menu"
+            >
+              <a
+                className="item"
+                onClick={[Function]}
+              >
+                Sign In
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1830,27 +3609,63 @@ exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
     <div
       style={
         Object {
-          "width": 1024,
+          "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar"
+        className="dcl navbar "
         role="navigation"
       >
         <div
-          className="dcl navbar-logo"
-          onClick={[Function]}
+          className="ui container"
         >
-          <i
-            className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-account"
-        >
-          <span
-            className="dcl account-wrapper"
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
           />
         </div>
       </div>
@@ -1859,7 +3674,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
+exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
 <div
   style={
     Object {
@@ -1885,82 +3700,146 @@ exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
     <div
       style={
         Object {
-          "width": 1024,
+          "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar"
+        className="dcl navbar has-children"
         role="navigation"
       >
         <div
-          className="dcl navbar-logo"
-          onClick={[Function]}
-        >
-          <i
-            className="dcl logo"
-          />
-        </div>
-        <div
-          className="dcl navbar-menu"
+          className="ui container"
         >
           <div
-            className="ui secondary stackable menu"
-          >
-            <a
-              className="active item"
-              onClick={[Function]}
-            >
-              Atlas
-            </a>
-            <a
-              className="item"
-              onClick={[Function]}
-            >
-              Marketplace
-            </a>
-            <a
-              className="item"
-              onClick={[Function]}
-            >
-              My Land
-            </a>
-          </div>
-        </div>
-        <div
-          className="dcl navbar-account"
-        >
-          <div
-            className="ui secondary dcl navbar-account-menu menu"
-          >
-            <a
-              className="icon item"
-              onClick={[Function]}
-            >
-              <i
-                aria-hidden="true"
-                className="bell icon"
-              />
-            </a>
-          </div>
-          <span
-            className="dcl account-wrapper"
-            onClick={[Function]}
+            className="children-wrapper"
           >
             <div
-              className="ui small header dcl mana"
+              className="dcl hero"
+              style={
+                Object {
+                  "height": 442,
+                  "width": undefined,
+                }
+              }
             >
-              <i
-                className="symbol"
+              <div
+                className="content"
               >
-                ⏣
-              </i>
-              20,000
+                <div
+                  className="dcl parallax"
+                >
+                  <div
+                    className="layer"
+                    data-depth={0.3}
+                  >
+                    <div
+                      className="homepage-pyramid small"
+                    />
+                  </div>
+                  <div
+                    className="layer"
+                    data-depth={1.5}
+                  >
+                    <div
+                      className="homepage-pyramid large"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="ui huge header title"
+              >
+                Help us build Decentraland
+              </div>
+              <div
+                className="ui header subtitle"
+              >
+                Join the discussion
+              </div>
             </div>
-            <canvas
-              className="dcl blockie small"
-            />
-          </span>
+          </div>
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <div
+              className="ui secondary dcl navbar-account-menu menu"
+            >
+              <div
+                className="item"
+                onClick={[Function]}
+              >
+                <i
+                  aria-hidden="true"
+                  className="bell icon"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+            <span
+              className="dcl account-wrapper clickable"
+              onClick={[Function]}
+            >
+              <div
+                className="ui small header dcl mana text"
+                title="200,000 MANA"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+                200,000
+              </div>
+              <canvas
+                className="dcl blockie small"
+              />
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -1968,7 +3847,132 @@ exports[`Decentraland UI - Coverage Tests Navbar With Menu 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Pagination Five pages one selected 1`] = `
+exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": 1200,
+        }
+      }
+    >
+      <div
+        className="dcl navbar "
+        role="navigation"
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="active item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <div
+              className="ui secondary dcl navbar-account-menu menu"
+            >
+              <div
+                className="item"
+                onClick={[Function]}
+              >
+                <i
+                  aria-hidden="true"
+                  className="bell icon"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+            <span
+              className="dcl account-wrapper clickable"
+              onClick={[Function]}
+            >
+              <div
+                className="ui small header dcl mana text"
+                title="200,000 MANA"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+                200,000
+              </div>
+              <canvas
+                className="dcl blockie small"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
 <div
   style={
     Object {
@@ -2075,6 +4079,191 @@ exports[`Decentraland UI - Coverage Tests Pagination Five pages one selected 1`]
       >
         ⟩
       </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      aria-label="Pagination Navigation"
+      className="ui pagination menu"
+      role="navigation"
+    >
+      <a
+        aria-current={false}
+        aria-label="Previous item"
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="prevItem"
+        value={76}
+      >
+        ⟨
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={1}
+      >
+        1
+      </a>
+      <a
+        aria-current={false}
+        className="disabled item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="ellipsisItem"
+        value={75}
+      >
+        ...
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={76}
+      >
+        76
+      </a>
+      <a
+        aria-current={true}
+        className="active item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={77}
+      >
+        77
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={78}
+      >
+        78
+      </a>
+      <a
+        aria-current={false}
+        className="disabled item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+        type="ellipsisItem"
+        value={79}
+      >
+        ...
+      </a>
+      <a
+        aria-current={false}
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="pageItem"
+        value={1000}
+      >
+        1000
+      </a>
+      <a
+        aria-current={false}
+        aria-label="Next item"
+        className="item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="nextItem"
+        value={78}
+      >
+        ⟩
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Parallax Pyramids 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl parallax"
+      >
+        <div
+          className="layer"
+          data-depth={2}
+        >
+          <div
+            className="pyramid small"
+          />
+        </div>
+        <div
+          className="layer"
+          data-depth={4}
+        >
+          <div
+            className="pyramid large"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -2448,7 +4637,7 @@ exports[`Decentraland UI - Coverage Tests Stats Single Result 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
+exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
 <div
   style={
     Object {
@@ -2472,19 +4661,81 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
     }
   >
     <div
-      style={
-        Object {
-          "width": 1024,
-        }
-      }
+      className="ui container"
     >
       <div
-        className="ui header"
+        className="dcl header-menu"
       >
-        Votes
+        <div
+          className="dcl header-menu-left"
+        >
+          <div
+            className="ui large header"
+          >
+            District polls
+          </div>
+        </div>
+        <div
+          className="dcl header-menu-right"
+        >
+          <div
+            aria-expanded={false}
+            className="ui dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              Newest
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="left menu transition"
+            />
+          </div>
+          <div
+            aria-expanded={false}
+            className="ui dropdown"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <div
+              aria-live="polite"
+              className="text"
+              role="alert"
+            >
+              All polls
+            </div>
+            <i
+              aria-hidden="true"
+              className="dropdown icon"
+              onClick={[Function]}
+            />
+            <div
+              className="left menu transition"
+            />
+          </div>
+        </div>
       </div>
       <table
-        className="ui basic table"
+        className="ui very basic table"
       >
         <thead
           className=""
@@ -2495,22 +4746,27 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
             <th
               className=""
             >
-              When
+              Poll
             </th>
             <th
               className=""
             >
-              Address
+              Weight
             </th>
             <th
               className=""
             >
-              Amount
+              Voters
             </th>
             <th
               className=""
             >
-              Vote
+              Status
+            </th>
+            <th
+              className=""
+            >
+              Outcome
             </th>
           </tr>
         </thead>
@@ -2523,34 +4779,18 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
             <td
               className=""
             >
-              Feb 10, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
+              <a
+                className={null}
+                href="#"
               >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0x0a...36ea
-                  </span>
-                </span>
-              </span>
+                Proposal Acceptance for Aetheria District
+              </a>
             </td>
             <td
               className=""
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui header dcl mana text inline"
               >
                 <i
                   className="symbol"
@@ -2558,12 +4798,22 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              180
+              20.5M
             </td>
             <td
               className=""
             >
-              Yes
+              160
+            </td>
+            <td
+              className=""
+            >
+              2 days left
+            </td>
+            <td
+              className=""
+            >
+              Pending
             </td>
           </tr>
           <tr
@@ -2572,34 +4822,18 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
             <td
               className=""
             >
-              Feb 11, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
+              <a
+                className={null}
+                href="#"
               >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0x39...79bc
-                  </span>
-                </span>
-              </span>
+                Proposal Acceptance for Chobury
+              </a>
             </td>
             <td
               className=""
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui header dcl mana text inline"
               >
                 <i
                   className="symbol"
@@ -2607,257 +4841,151 @@ exports[`Decentraland UI - Coverage Tests Table Votes 1`] = `
                   ⏣
                 </i>
               </div>
-              180
+              250.2K
             </td>
             <td
               className=""
             >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 12, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xba...cc3f
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana text"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              120
-            </td>
-            <td
-              className=""
-            >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 13, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0x82...19a5
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana text"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
               80
             </td>
             <td
               className=""
             >
+              1 days left
+            </td>
+            <td
+              className=""
+            >
+              Pending
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              <a
+                className={null}
+                href="#"
+              >
+                Proposal Acceptance for VR Shopping District
+              </a>
+            </td>
+            <td
+              className=""
+            >
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              50.1K
+            </td>
+            <td
+              className=""
+            >
+              172
+            </td>
+            <td
+              className=""
+            >
+              12 hours left
+            </td>
+            <td
+              className=""
+            >
+              Pending
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              <a
+                className="link-closed"
+                href="#"
+              >
+                Proposal Acceptance for The Movement
+              </a>
+            </td>
+            <td
+              className="closed"
+            >
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              0
+            </td>
+            <td
+              className="closed"
+            >
+              0
+            </td>
+            <td
+              className="closed"
+            >
+              Closed
+            </td>
+            <td
+              className="closed"
+            >
+              Yes
+            </td>
+          </tr>
+          <tr
+            className=""
+          >
+            <td
+              className=""
+            >
+              <a
+                className="link-closed"
+                href="#"
+              >
+                Proposal Acceptance for NEXUS
+              </a>
+            </td>
+            <td
+              className="closed"
+            >
+              <div
+                className="ui header dcl mana text inline"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+              </div>
+              100K
+            </td>
+            <td
+              className="closed"
+            >
+              20
+            </td>
+            <td
+              className="closed"
+            >
+              Closed
+            </td>
+            <td
+              className="closed"
+            >
               No
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 14, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xea...0466
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana text"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              120
-            </td>
-            <td
-              className=""
-            >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 15, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0xd2...d28b
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana text"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              50
-            </td>
-            <td
-              className=""
-            >
-              Yes
-            </td>
-          </tr>
-          <tr
-            className=""
-          >
-            <td
-              className=""
-            >
-              Feb 16, 2018
-            </td>
-            <td
-              className=""
-            >
-              <span
-                className="dcl blockie-wrapper"
-              >
-                <canvas
-                  className="dcl blockie tiny"
-                />
-                <span
-                  className="dcl blockie-children"
-                >
-                   
-                  <span
-                    className="dcl address"
-                  >
-                    0x72...51f6
-                  </span>
-                </span>
-              </span>
-            </td>
-            <td
-              className=""
-            >
-              <div
-                className="ui small header dcl mana text"
-              >
-                <i
-                  className="symbol"
-                >
-                  ⏣
-                </i>
-              </div>
-              50
-            </td>
-            <td
-              className=""
-            >
-              Yes
             </td>
           </tr>
         </tbody>

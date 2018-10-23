@@ -48,6 +48,12 @@
   border-width: 2px;
 }
 
+/* Disabled */
+
+.dcl.field .ui.input.disabled input {
+  color: var(--disabled-text);
+}
+
 /* Error */
 
 .dcl.field.error .ui.input input {
@@ -74,7 +80,7 @@
   display: none;
 }
 
-/* Adress */
+/* Address */
 
 .dcl.field.address .ui.input input {
   padding-right: 2.67142857em !important;

@@ -1,31 +1,37 @@
-.ui.basic.table {
-  border: 2px solid var(--outline);
-  border-radius: 12px;
+.ui.table {
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.ui[class*='very basic'].table:not(.sortable):not(.striped)
+  thead
+  tr:first-child
+  th {
+  padding-top: 11px;
 }
 
 .ui.table thead th {
-  color: var(--secondary);
-  padding: 18px 24px 10px 24px;
+  padding: 11px 0px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
 }
 
-.ui.basic.table tbody tr {
-  border-bottom: none;
+.ui.table td {
+  padding: 18px 0px;
 }
 
-.ui.basic.table tbody tr td {
-  border-top: none;
-  padding: 12px 24px;
-  color: var(--text);
+.ui.table thead th {
+  border-bottom: 1px solid var(--outline);
 }
 
-.ui.basic.table tbody tr:last-child td {
-  padding-bottom: 18px;
-}
-
-.ui.basic.table thead th {
-  border-bottom: none;
-  color: #7d8499;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 12px;
+.ui.table tr td {
+  border-top: 1px solid var(--outline);
 }

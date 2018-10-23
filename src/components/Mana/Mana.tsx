@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './Mana.css'
-import { Header } from 'semantic-ui-react'
+import { Header, HeaderProps } from 'semantic-ui-react'
 
 export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
@@ -11,7 +11,7 @@ export type ManaProps = {
   children?: React.ReactChild
 }
 
-export class Mana extends React.Component<ManaProps> {
+export class Mana extends React.Component<ManaProps & HeaderProps> {
   static defaultProps = {
     className: ''
   }

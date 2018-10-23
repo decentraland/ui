@@ -1,93 +1,121 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { Icon, Menu, Navbar } from '../..'
+import { storiesOf } from '@storybook/react'
+import { Navbar, Menu, Icon, Parallax, Hero } from '../..'
+import './Navbar.stories.css'
 
-const pageStyle = {
-  width: 1024
+const width = {
+  width: 1200
 }
 
 storiesOf('Navbar', module)
   .add('Static', () => {
     return (
-      <div style={pageStyle}>
-        <Navbar />
+      <div style={width}>
+        <Navbar activePage="marketplace" />
       </div>
     )
   })
-  .add('Connecting...', () => {
+  .add('Sign In', () => {
     return (
-      <div style={pageStyle}>
+      <div style={width}>
         <Navbar
-          isConnected={false}
-          isConnecting
-          connectingMenuItem={<Menu.Item>Connecting...</Menu.Item>}
+          activePage="marketplace"
+          onSignIn={action('Clicked on sign in')}
         />
       </div>
     )
   })
-  .add('Logged In', () => {
-    const address = '0x0a7a3b5d56470f7d4bd481da3038c9b3508836ea'
+  .add('Connecting', () => {
     return (
-      <div style={pageStyle}>
+      <div style={width}>
         <Navbar
-          mana={20000}
-          address={address}
-          onClickAccount={action('Account clicked!')}
-          onClickLogo={action('Logo clicked!')}
+          activePage="marketplace"
+          onSignIn={action('Clicked on sign in')}
+          isConnecting
         />
       </div>
     )
   })
-  .add('Logged Out', () => {
+  .add('Connected', () => {
     return (
-      <div style={pageStyle}>
+      <div style={width}>
         <Navbar
-          isConnected={false}
-          isConnecting
-          connectingMenuItem={
-            <Menu.Item onClick={action('Sign In clicked!')}>Sign In</Menu.Item>
+          activePage="marketplace"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+        />
+      </div>
+    )
+  })
+  .add('On click account', () => {
+    return (
+      <div style={width}>
+        <Navbar
+          activePage="marketplace"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={action('Clicked on account menu')}
+        />
+      </div>
+    )
+  })
+  .add('With menu items', () => {
+    return (
+      <div style={width}>
+        <Navbar
+          activePage="marketplace"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={action('Clicked on account menu')}
+          menuItems={
+            <Menu.Item>
+              <Icon
+                name="bell"
+                onClick={action('Clicked on notification bell')}
+              />
+            </Menu.Item>
           }
         />
       </div>
     )
   })
-  .add('With Menu', () => {
-    const address = '0x0a7a3b5d56470f7d4bd481da3038c9b3508836ea'
-    const menuItems = (
-      <>
-        <Menu.Item active onClick={action('Atlas clicked')}>
-          Atlas
-        </Menu.Item>
-        <Menu.Item onClick={action('Marketplace clicked!')}>
-          Marketplace
-        </Menu.Item>
-        <Menu.Item onClick={action('My Land clicked!')}>My Land</Menu.Item>
-      </>
-    )
-    const accountMenuItems = (
-      <Menu.Item icon onClick={action('Activity clicked!')}>
-        <Icon name="bell" />
-      </Menu.Item>
-    )
+  .add('With hero', () => {
     return (
-      <div style={pageStyle}>
+      <div style={width}>
         <Navbar
-          mana={20000}
-          address={address}
-          menuItems={menuItems}
-          accountMenuItems={accountMenuItems}
-          activePage="Atlas" /* this is for the mobile navbar */
-          onClickAccount={action('Account clicked!')}
-          onClickLogo={action('Logo clicked!')}
-        />
-      </div>
-    )
-  })
-  .add('Modal', () => {
-    return (
-      <div style={pageStyle}>
-        <Navbar isModal onBack={action('Go Back clicked!')} />
+          activePage="marketplace"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={action('Clicked on account menu')}
+          menuItems={
+            <Menu.Item>
+              <Icon
+                name="bell"
+                onClick={action('Clicked on notification bell')}
+              />
+            </Menu.Item>
+          }
+        >
+          <Hero
+            title="Help us build Decentraland"
+            subtitle="Join the discussion"
+            height={442}
+          >
+            <Parallax>
+              <Parallax.Layer depth={0.3}>
+                <div className="homepage-pyramid small" />
+              </Parallax.Layer>
+              <Parallax.Layer depth={1.5}>
+                <div className="homepage-pyramid large" />
+              </Parallax.Layer>
+            </Parallax>
+          </Hero>
+        </Navbar>
       </div>
     )
   })

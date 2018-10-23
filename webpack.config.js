@@ -37,7 +37,7 @@ module.exports = {
               ident: 'postcss',
               plugins: () => [
                 postcssPresetEnv({
-                  stage: 2
+                  stage: 4
                 })
               ]
             }

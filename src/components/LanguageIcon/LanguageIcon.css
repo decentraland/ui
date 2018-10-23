@@ -1,0 +1,42 @@
+.dcl.language-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.dcl.language-icon.en {
+  background-image: url('../../assets/en.svg');
+}
+
+.dcl.language-icon.es {
+  background-image: url('../../assets/es.svg');
+}
+
+.dcl.language-icon.fr {
+  background-image: url('../../assets/fr.svg');
+}
+
+.dcl.language-icon.ja {
+  background-image: url('../../assets/ja.svg');
+}
+
+.dcl.language-icon.zh {
+  background-image: url('../../assets/zh.svg');
+}
+
+.dcl.language-icon.ko {
+  background-image: url('../../assets/ko.svg');
+}
+
+.dcl.language-icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.dcl.language-icon-wrapper .language-icon-label {
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 8px;
+  font-weight: 500;
+  color: var(--text);
+}

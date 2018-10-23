@@ -1,0 +1,19 @@
+.story .pyramid {
+  background: url('../../assets/pyramid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.story .pyramid.small {
+  width: 400px;
+  height: 400px;
+  margin-left: -100px;
+  margin-top: 250px;
+}
+
+.story .pyramid.large {
+  width: 1000px;
+  height: 1000px;
+  margin-top: -200px;
+  margin-left: 300px;
+}

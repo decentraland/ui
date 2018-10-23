@@ -1,38 +1,51 @@
 .ui.header {
   font-family: var(--font-print);
   color: var(--text);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
 }
 
 .ui.header.sub + .ui.header {
-  margin-top: 0.3em;
+  margin-top: 4px;
 }
 
 .ui.sub.header {
   text-transform: none;
   color: var(--secondary-text);
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .ui.header,
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .ui.header.huge {
-  font-size: 56px;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 0.4px;
 }
 
 .ui.header.large {
-  font-size: 40px;
+  font-size: 34px;
+  line-height: 42px;
+  margin-bottom: 28px;
+  letter-spacing: 0.4px;
 }
 
 .ui.header.medium {
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
 }
 
 .ui.header.small {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .ui.header.tiny {

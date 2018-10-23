@@ -11,10 +11,20 @@
   /* text */
   --text: #ffffff;
   --secondary-text: #7d8499;
+  --disabled-text: #7d8499;
   --text-on-primary: #ffffff;
   --text-on-secondary: #ffffff;
 
   /* borders */
   --radius: 8px;
   --outline: #181f33;
+
+  /* shadows */
+  --shadow: #0b0e17;
+
+  /* cards */
+  --card-background: #181f33;
+
+  /* hover */
+  --hover: #2a3246;
 }

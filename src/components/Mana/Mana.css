@@ -12,8 +12,12 @@
   display: inline-block;
 }
 
+.dcl.mana.text {
+  color: inherit;
+}
+
 .dcl.mana.text .symbol {
-  color: var(--text);
+  color: inherit;
 }
 
 .dcl.mana + .dcl.mana {
