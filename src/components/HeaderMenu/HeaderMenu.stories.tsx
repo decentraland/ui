@@ -18,9 +18,9 @@ storiesOf('HeaderMenu', module)
       </HeaderMenu>
     </Container>
   ))
-  .add('With Dropdown', () => (
+  .add('With Dropdown and stacked', () => (
     <Container>
-      <HeaderMenu>
+      <HeaderMenu stackable>
         <HeaderMenu.Left>
           <Header>District polls</Header>
         </HeaderMenu.Left>

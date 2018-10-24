@@ -16,3 +16,14 @@
 .dcl.header-menu .ui.dropdown + .ui.dropdown {
   margin-left: 24px;
 }
+
+@media (max-width: 768px) {
+  .dcl.header-menu.stackable {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
+
+  .dcl.header-menu.stackable .dcl.header-menu-left {
+    margin-bottom: 14px;
+  }
+}

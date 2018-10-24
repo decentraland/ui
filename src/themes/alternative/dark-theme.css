@@ -27,4 +27,7 @@
 
   /* hover */
   --hover: #2a3246;
+
+  /* svgs */
+  --brightness: brightness(100); /* white svgs */
 }

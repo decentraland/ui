@@ -634,7 +634,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
       className="ui container"
     >
       <div
-        className="dcl header-menu"
+        className="dcl header-menu "
       >
         <div
           className="dcl header-menu-left"
@@ -1978,7 +1978,7 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Button 1`] = `
       className="ui container"
     >
       <div
-        className="dcl header-menu"
+        className="dcl header-menu "
       >
         <div
           className="dcl header-menu-left"
@@ -2010,7 +2010,7 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Button 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests HeaderMenu With Dropdown 1`] = `
+exports[`Decentraland UI - Coverage Tests HeaderMenu With Dropdown and stacked 1`] = `
 <div
   style={
     Object {
@@ -2037,7 +2037,7 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Dropdown 1`] = `
       className="ui container"
     >
       <div
-        className="dcl header-menu"
+        className="dcl header-menu stackable"
       >
         <div
           className="dcl header-menu-left"
@@ -3157,6 +3157,130 @@ exports[`Decentraland UI - Coverage Tests Mana Total voted 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Navbar Agora 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 450,
+          "width": 1200,
+        }
+      }
+    >
+      <div
+        className="dcl navbar  "
+        role="navigation"
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://developers.decentraland.org"
+                onClick={[Function]}
+              >
+                Developers
+              </a>
+              <a
+                className="active item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          />
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
 <div
   style={
@@ -3183,12 +3307,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
     <div
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar "
+        className="dcl navbar  "
         role="navigation"
       >
         <div
@@ -3209,7 +3334,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3217,13 +3342,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3262,6 +3387,38 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
             </span>
           </div>
         </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -3294,12 +3451,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
     <div
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar "
+        className="dcl navbar  "
         role="navigation"
       >
         <div
@@ -3320,7 +3478,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3328,13 +3486,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3363,6 +3521,38 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
               </div>
             </div>
           </div>
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
         </div>
       </div>
     </div>
@@ -3396,12 +3586,13 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
     <div
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar "
+        className="dcl navbar  "
         role="navigation"
       >
         <div
@@ -3422,7 +3613,7 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3430,13 +3621,13 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3474,6 +3665,38 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
               />
             </span>
           </div>
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
         </div>
       </div>
     </div>
@@ -3507,12 +3730,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
     <div
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar "
+        className="dcl navbar  "
         role="navigation"
       >
         <div
@@ -3533,7 +3757,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3541,13 +3765,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3577,96 +3801,37 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Decentraland UI - Coverage Tests Navbar Static 1`] = `
-<div
-  style={
-    Object {
-      "alignItems": "center",
-      "bottom": 0,
-      "display": "flex",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "right": 0,
-      "top": 0,
-    }
-  }
->
-  <div
-    style={
-      Object {
-        "margin": "auto",
-        "maxHeight": "100%",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "width": 1200,
-        }
-      }
-    >
-      <div
-        className="dcl navbar "
-        role="navigation"
-      >
         <div
-          className="ui container"
+          className="mobile-menu"
         >
-          <div
-            className="dcl navbar-menu"
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
           >
-            <div
-              className="ui secondary stackable menu"
-            >
-              <a
-                className="dcl navbar-logo"
-                href="https://decentraland.org"
-              >
-                <i
-                  className="dcl logo"
-                />
-              </a>
-              <a
-                className="active item"
-                href="https://market.decentraland.org"
-                onClick={[Function]}
-              >
-                Marketplace
-              </a>
-              <a
-                className="item"
-                href="https://docs.decentraland.org"
-                onClick={[Function]}
-              >
-                Docs
-              </a>
-              <a
-                className="item"
-                href="https://agora.decentraland.org"
-                onClick={[Function]}
-              >
-                Agora
-              </a>
-              <a
-                className="item"
-                href="https://decentraland.org/blog"
-                onClick={[Function]}
-              >
-                Blog
-              </a>
-            </div>
-          </div>
-          <div
-            className="dcl navbar-account"
-          />
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
         </div>
       </div>
     </div>
@@ -3698,67 +3863,69 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
     }
   >
     <div
+      className="navbar-story"
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar has-children"
+        className="dcl navbar has-children "
         role="navigation"
       >
         <div
-          className="ui container"
+          className="children-wrapper"
         >
           <div
-            className="children-wrapper"
+            className="dcl hero"
+            style={
+              Object {
+                "height": 442,
+                "width": undefined,
+              }
+            }
           >
             <div
-              className="dcl hero"
-              style={
-                Object {
-                  "height": 442,
-                  "width": undefined,
-                }
-              }
+              className="content"
             >
               <div
-                className="content"
+                className="dcl parallax"
               >
                 <div
-                  className="dcl parallax"
+                  className="layer"
+                  data-depth={0.3}
                 >
                   <div
-                    className="layer"
-                    data-depth={0.3}
-                  >
-                    <div
-                      className="homepage-pyramid small"
-                    />
-                  </div>
+                    className="homepage-pyramid small"
+                  />
+                </div>
+                <div
+                  className="layer"
+                  data-depth={1.5}
+                >
                   <div
-                    className="layer"
-                    data-depth={1.5}
-                  >
-                    <div
-                      className="homepage-pyramid large"
-                    />
-                  </div>
+                    className="homepage-pyramid large"
+                  />
                 </div>
               </div>
-              <div
-                className="ui huge header title"
-              >
-                Help us build Decentraland
-              </div>
-              <div
-                className="ui header subtitle"
-              >
-                Join the discussion
-              </div>
+            </div>
+            <div
+              className="ui huge header title"
+            >
+              Help us build Decentraland
+            </div>
+            <div
+              className="ui header subtitle"
+            >
+              Join the discussion
             </div>
           </div>
+        </div>
+        <div
+          className="ui container"
+        >
           <div
             className="dcl navbar-menu"
           >
@@ -3774,7 +3941,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3782,13 +3949,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3840,6 +4007,38 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
               />
             </span>
           </div>
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
         </div>
       </div>
     </div>
@@ -3873,12 +4072,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
     <div
       style={
         Object {
+          "height": 450,
           "width": 1200,
         }
       }
     >
       <div
-        className="dcl navbar "
+        className="dcl navbar  "
         role="navigation"
       >
         <div
@@ -3899,7 +4099,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
                 />
               </a>
               <a
-                className="active item"
+                className="item"
                 href="https://market.decentraland.org"
                 onClick={[Function]}
               >
@@ -3907,13 +4107,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
               </a>
               <a
                 className="item"
-                href="https://docs.decentraland.org"
+                href="https://developers.decentraland.org"
                 onClick={[Function]}
               >
-                Docs
+                Developers
               </a>
               <a
-                className="item"
+                className="active item"
                 href="https://agora.decentraland.org"
                 onClick={[Function]}
               >
@@ -3965,6 +4165,38 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
               />
             </span>
           </div>
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://developers.decentraland.org"
+            onClick={[Function]}
+          >
+            Developers
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
         </div>
       </div>
     </div>
@@ -4664,7 +4896,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
       className="ui container"
     >
       <div
-        className="dcl header-menu"
+        className="dcl header-menu "
       >
         <div
           className="dcl header-menu-left"

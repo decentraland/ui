@@ -11,6 +11,7 @@
 .dcl.hero .ui.header.title {
   margin-bottom: 12px;
   position: relative;
+  text-align: center;
 }
 
 .dcl.hero .ui.header.subtitle {

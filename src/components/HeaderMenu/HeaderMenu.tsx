@@ -1,7 +1,15 @@
 import * as React from 'react'
 import './HeaderMenu.css'
 
-export class HeaderMenu extends React.PureComponent {
+export type HeaderMenuProps = {
+  stackable?: boolean
+}
+
+export class HeaderMenu extends React.PureComponent<HeaderMenuProps> {
+  static defaultProps: Partial<HeaderMenuProps> = {
+    stackable: false
+  }
+
   static Left = ({ children }) => (
     <div className="dcl header-menu-left">{children}</div>
   )
@@ -11,7 +19,11 @@ export class HeaderMenu extends React.PureComponent {
   )
 
   render() {
-    const { children } = this.props
-    return <div className="dcl header-menu">{children}</div>
+    const { stackable, children } = this.props
+    return (
+      <div className={`dcl header-menu ${stackable ? 'stackable' : ''}`}>
+        {children}
+      </div>
+    )
   }
 }

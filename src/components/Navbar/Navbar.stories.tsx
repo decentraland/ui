@@ -5,24 +5,22 @@ import { Navbar, Menu, Icon, Parallax, Hero } from '../..'
 import './Navbar.stories.css'
 
 const width = {
-  width: 1200
+  width: 1200,
+  height: 450
 }
 
 storiesOf('Navbar', module)
-  .add('Static', () => {
+  .add('Agora', () => {
     return (
       <div style={width}>
-        <Navbar activePage="marketplace" />
+        <Navbar activePage="agora">{undefined}</Navbar>
       </div>
     )
   })
   .add('Sign In', () => {
     return (
       <div style={width}>
-        <Navbar
-          activePage="marketplace"
-          onSignIn={action('Clicked on sign in')}
-        />
+        <Navbar activePage="agora" onSignIn={action('Clicked on sign in')} />
       </div>
     )
   })
@@ -30,7 +28,7 @@ storiesOf('Navbar', module)
     return (
       <div style={width}>
         <Navbar
-          activePage="marketplace"
+          activePage="agora"
           onSignIn={action('Clicked on sign in')}
           isConnecting
         />
@@ -41,7 +39,7 @@ storiesOf('Navbar', module)
     return (
       <div style={width}>
         <Navbar
-          activePage="marketplace"
+          activePage="agora"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -53,7 +51,7 @@ storiesOf('Navbar', module)
     return (
       <div style={width}>
         <Navbar
-          activePage="marketplace"
+          activePage="agora"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -66,7 +64,7 @@ storiesOf('Navbar', module)
     return (
       <div style={width}>
         <Navbar
-          activePage="marketplace"
+          activePage="agora"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -85,9 +83,9 @@ storiesOf('Navbar', module)
   })
   .add('With hero', () => {
     return (
-      <div style={width}>
+      <div style={width} className="navbar-story">
         <Navbar
-          activePage="marketplace"
+          activePage="agora"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}

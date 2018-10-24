@@ -27,4 +27,7 @@
 
   /* hover */
   --hover: #f2f2f5;
+
+  /* svgs */
+  --brightness: brightness(0.1); /* black svgs */
 }

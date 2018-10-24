@@ -1,21 +1,11 @@
 import * as React from 'react'
-import {
-  Blockie,
-  Container,
-  Mana,
-  Logo,
-  Header,
-  Icon,
-  Menu,
-  Responsive,
-  Sidebar
-} from '../..'
+import { Blockie, Mana, Logo, Header, Container, Menu, Responsive } from '../..'
 import './Navbar.css'
 
 export type NavbarI18N = {
   menu: {
     marketplace: string
-    docs: string
+    developers: string
     agora: string
     blog: string
   }
@@ -28,7 +18,7 @@ export type NavbarI18N = {
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog'
+  activePage?: 'marketplace' | 'developers' | 'agora' | 'blog'
   menuItems?: React.ReactNode
   i18n?: NavbarI18N
   isConnected?: boolean
@@ -50,7 +40,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     i18n: {
       menu: {
         marketplace: 'Marketplace',
-        docs: 'Docs',
+        developers: 'Developers',
         agora: 'Agora',
         blog: 'Blog'
       },
@@ -82,6 +72,39 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   handleDocumentClick = () => {
     this.setState({ toggle: false })
   }
+
+  renderMenu() {
+    const { activePage, i18n } = this.props
+    return (
+      <>
+        <Menu.Item
+          active={activePage === 'marketplace'}
+          href="https://market.decentraland.org"
+        >
+          {i18n.menu.marketplace}
+        </Menu.Item>
+        <Menu.Item
+          active={activePage === 'developers'}
+          href="https://developers.decentraland.org"
+        >
+          {i18n.menu.developers}
+        </Menu.Item>
+        <Menu.Item
+          active={activePage === 'agora'}
+          href="https://agora.decentraland.org"
+        >
+          {i18n.menu.agora}
+        </Menu.Item>
+        <Menu.Item
+          active={activePage === 'blog'}
+          href="https://decentraland.org/blog"
+        >
+          {i18n.menu.blog}
+        </Menu.Item>
+      </>
+    )
+  }
+
   render() {
     const {
       mana,
@@ -98,11 +121,13 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
 
     return (
       <div
-        className={`dcl navbar ${children ? 'has-children' : ''}`}
+        className={`dcl navbar ${children ? 'has-children' : ''} ${
+          this.state.toggle ? 'open' : ''
+        }`}
         role="navigation"
       >
+        {children ? <div className="children-wrapper">{children}</div> : null}
         <Container>
-          {children ? <div className="children-wrapper">{children}</div> : null}
           <div className="dcl navbar-menu">
             <Responsive
               as={Menu}
@@ -113,51 +138,24 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
               <a className="dcl navbar-logo" href="https://decentraland.org">
                 <Logo />
               </a>
-              <Menu.Item
-                active={activePage === 'marketplace'}
-                href="https://market.decentraland.org"
-              >
-                {i18n.menu.marketplace}
-              </Menu.Item>
-              <Menu.Item
-                active={activePage === 'docs'}
-                href="https://docs.decentraland.org"
-              >
-                {i18n.menu.docs}
-              </Menu.Item>
-              <Menu.Item
-                active={activePage === 'agora'}
-                href="https://agora.decentraland.org"
-              >
-                {i18n.menu.agora}
-              </Menu.Item>
-              <Menu.Item
-                active={activePage === 'blog'}
-                href="https://decentraland.org/blog"
-              >
-                {i18n.menu.blog}
-              </Menu.Item>
+              {this.renderMenu()}
             </Responsive>
             <Responsive
               {...Responsive.onlyMobile}
-              className="dcl navbar-hamburger-wrapper"
-              onClick={this.handleToggle}
+              className="dcl navbar-mobile-menu"
             >
-              <Icon name="content" size="large" className="dcl hamburger" />
-              <Header size="small" className="dcl active-page">
+              <a className="dcl navbar-logo" href="https://decentraland.org">
+                <Logo />
+              </a>
+              <Header
+                size="small"
+                className={`dcl active-page ${
+                  this.state.toggle ? 'caret-up' : 'caret-down'
+                }`}
+                onClick={this.handleToggle}
+              >
                 {activePage}
               </Header>
-            </Responsive>
-            <Responsive {...Responsive.onlyMobile}>
-              <Sidebar
-                as={Menu}
-                animation="overlay"
-                width="wide"
-                visible={this.state.toggle}
-                horizontal
-              >
-                {menuItems}
-              </Sidebar>
             </Responsive>
           </div>
 
@@ -203,6 +201,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             ) : null}
           </div>
         </Container>
+        <div className="mobile-menu">{this.renderMenu()}</div>
       </div>
     )
   }

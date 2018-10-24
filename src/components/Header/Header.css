@@ -45,7 +45,8 @@
 }
 
 .ui.header.small {
-  font-size: 16px;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 .ui.header.tiny {
@@ -54,10 +55,12 @@
 
 @media (max-width: 768px) {
   .ui.header.huge {
-    font-size: 44px;
+    font-size: 34px;
+    line-height: 42px;
   }
 
   .ui.header.large {
-    font-size: 32px;
+    font-size: 28px;
+    line-height: 36px;
   }
 }
