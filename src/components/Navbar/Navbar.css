@@ -162,7 +162,7 @@
 @media (max-width: 768px) {
   .dcl.navbar {
     height: var(--navbar-height-mobile);
-    margin-bottom: 24px;
+    margin-bottom: 44px;
   }
 
   .dcl.navbar-logo {
