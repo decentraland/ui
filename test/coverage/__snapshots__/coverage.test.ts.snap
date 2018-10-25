@@ -931,7 +931,7 @@ exports[`Decentraland UI - Coverage Tests Dropdown Filters 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui top pointing dropdown"
+      className="ui dropdown"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
