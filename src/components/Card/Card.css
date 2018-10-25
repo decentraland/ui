@@ -22,16 +22,23 @@
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.ui.cards a.card:hover,
+.ui.link.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover,
 .ui.cards > .ui.card.link:hover,
 .ui.card.link:hover {
   box-shadow: 0 10px 20px 0 var(--shadow);
   transform: translateY(-16px);
   cursor: pointer;
+  border: solid 1px var(--shadow);
 }
 
 .ui.card > .content,
 .ui.cards > .card > .content {
   padding: 16px 20px;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .ui.card > .content > .header:not(.ui),
@@ -45,6 +52,7 @@
   font-style: normal;
   font-stretch: normal;
   margin-bottom: 20px;
+  flex: 1 0 auto;
 }
 
 .ui.card .meta,
@@ -66,14 +74,11 @@
 
 @media (max-width: 768px) {
   .ui.cards > .ui.card {
-    width: calc(50% - 25px);
+    width: 100%;
+    margin-right: 10px;
   }
 
   .ui.cards > .ui.card:nth-child(3n) {
-    margin-right: 25px;
-  }
-
-  .ui.cards > .ui.card:nth-child(2n) {
-    margin-right: 0px;
+    margin-right: 10px;
   }
 }
