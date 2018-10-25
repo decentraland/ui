@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { Dropdown } from '../..'
 
 storiesOf('Dropdown', module).add('Filters', () => (
-  <Dropdown text="All polls" direction="right" pointing="top">
+  <Dropdown text="All polls" direction="right">
     <Dropdown.Menu>
       <Dropdown.Item text="All polls" />
       <Dropdown.Item text="Ongoing polls" />
