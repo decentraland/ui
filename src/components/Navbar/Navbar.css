@@ -1,7 +1,7 @@
 .dcl.navbar {
   position: relative;
   height: var(--navbar-height);
-  margin-bottom: 32px;
+  margin-bottom: 44px;
   border-bottom: 1px solid var(--outline);
   width: 100%;
 }
