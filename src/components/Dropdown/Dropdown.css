@@ -1,7 +1,3 @@
-.ui.dropdown {
-  transform: translateY(-4px);
-}
-
 .ui.menu {
   font-family: var(--font-family);
 }

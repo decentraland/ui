@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  Container,
   Locale,
   LanguageDropdown,
   LanguageDropdownI18N,
@@ -50,7 +51,7 @@ export class Footer extends React.PureComponent<FooterProps> {
     const { locale, locales, onChange, i18n } = this.props
 
     return (
-      <div className="dcl footer">
+      <Container className="dcl footer">
         <div className="main-footer">
           <LanguageDropdown
             locale={locale}
@@ -88,7 +89,7 @@ export class Footer extends React.PureComponent<FooterProps> {
           </a>
         </div>
         <div className="copyright">© 2018 Decentraland</div>
-      </div>
+      </Container>
     )
   }
 }

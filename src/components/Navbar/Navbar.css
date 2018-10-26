@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.dcl.navbar.open {
+  z-index: var(--z-index-navbar);
+}
+
 .dcl.navbar.open .ui.container {
   background-color: var(--background);
 }
@@ -114,7 +118,7 @@
 }
 
 .dcl.navbar .ui.menu .item.active {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .dcl.active-page {
@@ -194,7 +198,7 @@
 
   .dcl.navbar.open .mobile-menu {
     height: var(--menu-height-mobile);
-    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 48px 48px 0 rgba(0, 0, 0, 0.16);
   }
 
   .dcl.navbar .mobile-menu .item {

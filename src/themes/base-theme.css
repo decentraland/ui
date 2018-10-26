@@ -4,6 +4,9 @@
   --navbar-height-mobile: 56px;
   --menu-height-mobile: 240px;
 
+  /* z-indexes */
+  --z-index-navbar: 1000;
+
   /* fonts */
   --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;

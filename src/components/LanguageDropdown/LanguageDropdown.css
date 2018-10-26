@@ -1,3 +1,7 @@
+.dcl.language-dropdown.ui.dropdown {
+  transform: translateY(-4px);
+}
+
 .dcl.language-dropdown.ui.dropdown > .text {
   transform: translateY(4px);
 }
