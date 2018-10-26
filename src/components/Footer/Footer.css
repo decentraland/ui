@@ -9,6 +9,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  height: 20px;
 }
 
 .dcl.footer .main-footer .links {
@@ -70,6 +71,7 @@
 
   .dcl.footer .main-footer {
     margin-bottom: 48px;
+    height: auto;
   }
 
   .dcl.footer .social-links {

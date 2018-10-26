@@ -1433,29 +1433,59 @@ exports[`Decentraland UI - Coverage Tests Footer Controlled 1`] = `
     }
   >
     <div
-      className="ui container"
+      className="ui container dcl footer"
     >
       <div
-        className="dcl footer"
+        className="main-footer"
       >
         <div
-          className="main-footer"
+          aria-expanded={false}
+          className="ui upward dropdown dcl language-dropdown"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          role="listbox"
+          tabIndex={0}
         >
           <div
-            aria-expanded={false}
-            className="ui upward dropdown dcl language-dropdown"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            role="listbox"
-            tabIndex={0}
+            aria-live="polite"
+            className="text"
+            role="alert"
           >
             <div
-              aria-live="polite"
-              className="text"
-              role="alert"
+              className="dcl language-icon-wrapper"
+            >
+              <i
+                className="dcl language-icon en"
+              />
+              <div
+                className="language-icon-label"
+              >
+                English
+              </div>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            className="dropdown icon"
+            onClick={[Function]}
+          />
+          <div
+            className="right menu transition"
+          >
+            <div
+              aria-checked={true}
+              aria-selected={true}
+              className="active selected item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
+                }
+              }
             >
               <div
                 className="dcl language-icon-wrapper"
@@ -1470,103 +1500,69 @@ exports[`Decentraland UI - Coverage Tests Footer Controlled 1`] = `
                 </div>
               </div>
             </div>
-            <i
-              aria-hidden="true"
-              className="dropdown icon"
-              onClick={[Function]}
-            />
-            <div
-              className="right menu transition"
-            >
-              <div
-                aria-checked={true}
-                aria-selected={true}
-                className="active selected item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
-                }
-              >
-                <div
-                  className="dcl language-icon-wrapper"
-                >
-                  <i
-                    className="dcl language-icon en"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    English
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="links"
-          >
-            <a
-              href="https://decentraland.org"
-            >
-              Home
-            </a>
-            <a
-              href="https://decentraland.org/privacy"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="https://decentraland.org/content"
-            >
-              Content Policy
-            </a>
-            <a
-              href="https://decentraland.org/terms"
-            >
-              Terms & Conditions
-            </a>
           </div>
         </div>
         <div
-          className="social-links"
+          className="links"
         >
           <a
-            href="https://discordapp.com/invite/9EcuFgC"
+            href="https://decentraland.org"
           >
-            <i
-              className="social-icon discord"
-            />
+            Home
           </a>
           <a
-            href="https://reddit.com/r/decentraland"
+            href="https://decentraland.org/privacy"
           >
-            <i
-              className="social-icon reddit"
-            />
+            Privacy Policy
           </a>
           <a
-            href="https://github.com/decentraland"
+            href="https://decentraland.org/content"
           >
-            <i
-              className="social-icon github"
-            />
+            Content Policy
           </a>
           <a
-            href="https://twitter.com/decentraland"
+            href="https://decentraland.org/terms"
           >
-            <i
-              className="social-icon twitter"
-            />
+            Terms & Conditions
           </a>
         </div>
-        <div
-          className="copyright"
+      </div>
+      <div
+        className="social-links"
+      >
+        <a
+          href="https://discordapp.com/invite/9EcuFgC"
         >
-          © 2018 Decentraland
-        </div>
+          <i
+            className="social-icon discord"
+          />
+        </a>
+        <a
+          href="https://reddit.com/r/decentraland"
+        >
+          <i
+            className="social-icon reddit"
+          />
+        </a>
+        <a
+          href="https://github.com/decentraland"
+        >
+          <i
+            className="social-icon github"
+          />
+        </a>
+        <a
+          href="https://twitter.com/decentraland"
+        >
+          <i
+            className="social-icon twitter"
+          />
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        © 2018 Decentraland
       </div>
     </div>
   </div>
@@ -1597,29 +1593,59 @@ exports[`Decentraland UI - Coverage Tests Footer Uncontrolled 1`] = `
     }
   >
     <div
-      className="ui container"
+      className="ui container dcl footer"
     >
       <div
-        className="dcl footer"
+        className="main-footer"
       >
         <div
-          className="main-footer"
+          aria-expanded={false}
+          className="ui upward dropdown dcl language-dropdown"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          role="listbox"
+          tabIndex={0}
         >
           <div
-            aria-expanded={false}
-            className="ui upward dropdown dcl language-dropdown"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            role="listbox"
-            tabIndex={0}
+            aria-live="polite"
+            className="text"
+            role="alert"
           >
             <div
-              aria-live="polite"
-              className="text"
-              role="alert"
+              className="dcl language-icon-wrapper"
+            >
+              <i
+                className="dcl language-icon en"
+              />
+              <div
+                className="language-icon-label"
+              >
+                English
+              </div>
+            </div>
+          </div>
+          <i
+            aria-hidden="true"
+            className="dropdown icon"
+            onClick={[Function]}
+          />
+          <div
+            className="right menu transition"
+          >
+            <div
+              aria-checked={true}
+              aria-selected={true}
+              className="active selected item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
+                }
+              }
             >
               <div
                 className="dcl language-icon-wrapper"
@@ -1634,228 +1660,194 @@ exports[`Decentraland UI - Coverage Tests Footer Uncontrolled 1`] = `
                 </div>
               </div>
             </div>
-            <i
-              aria-hidden="true"
-              className="dropdown icon"
-              onClick={[Function]}
-            />
             <div
-              className="right menu transition"
+              aria-checked={false}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
+                }
+              }
             >
               <div
-                aria-checked={true}
-                aria-selected={true}
-                className="active selected item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
-                }
+                className="dcl language-icon-wrapper"
               >
+                <i
+                  className="dcl language-icon es"
+                />
                 <div
-                  className="dcl language-icon-wrapper"
+                  className="language-icon-label"
                 >
-                  <i
-                    className="dcl language-icon en"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    English
-                  </div>
+                  Spanish
                 </div>
               </div>
-              <div
-                aria-checked={false}
-                aria-selected={false}
-                className="item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
+            </div>
+            <div
+              aria-checked={false}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
                 }
+              }
+            >
+              <div
+                className="dcl language-icon-wrapper"
               >
+                <i
+                  className="dcl language-icon fr"
+                />
                 <div
-                  className="dcl language-icon-wrapper"
+                  className="language-icon-label"
                 >
-                  <i
-                    className="dcl language-icon es"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    Spanish
-                  </div>
+                  French
                 </div>
               </div>
-              <div
-                aria-checked={false}
-                aria-selected={false}
-                className="item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
+            </div>
+            <div
+              aria-checked={false}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
                 }
+              }
+            >
+              <div
+                className="dcl language-icon-wrapper"
               >
+                <i
+                  className="dcl language-icon ja"
+                />
                 <div
-                  className="dcl language-icon-wrapper"
+                  className="language-icon-label"
                 >
-                  <i
-                    className="dcl language-icon fr"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    French
-                  </div>
+                  Japanese
                 </div>
               </div>
-              <div
-                aria-checked={false}
-                aria-selected={false}
-                className="item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
+            </div>
+            <div
+              aria-checked={false}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
                 }
+              }
+            >
+              <div
+                className="dcl language-icon-wrapper"
               >
+                <i
+                  className="dcl language-icon zh"
+                />
                 <div
-                  className="dcl language-icon-wrapper"
+                  className="language-icon-label"
                 >
-                  <i
-                    className="dcl language-icon ja"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    Japanese
-                  </div>
+                  Chinese
                 </div>
               </div>
-              <div
-                aria-checked={false}
-                aria-selected={false}
-                className="item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
+            </div>
+            <div
+              aria-checked={false}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
                 }
-              >
-                <div
-                  className="dcl language-icon-wrapper"
-                >
-                  <i
-                    className="dcl language-icon zh"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    Chinese
-                  </div>
-                </div>
-              </div>
+              }
+            >
               <div
-                aria-checked={false}
-                aria-selected={false}
-                className="item"
-                onClick={[Function]}
-                role="option"
-                style={
-                  Object {
-                    "pointerEvents": "all",
-                  }
-                }
+                className="dcl language-icon-wrapper"
               >
+                <i
+                  className="dcl language-icon ko"
+                />
                 <div
-                  className="dcl language-icon-wrapper"
+                  className="language-icon-label"
                 >
-                  <i
-                    className="dcl language-icon ko"
-                  />
-                  <div
-                    className="language-icon-label"
-                  >
-                    Korean
-                  </div>
+                  Korean
                 </div>
               </div>
             </div>
           </div>
-          <div
-            className="links"
-          >
-            <a
-              href="https://decentraland.org"
-            >
-              Home
-            </a>
-            <a
-              href="https://decentraland.org/privacy"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="https://decentraland.org/content"
-            >
-              Content Policy
-            </a>
-            <a
-              href="https://decentraland.org/terms"
-            >
-              Terms & Conditions
-            </a>
-          </div>
         </div>
         <div
-          className="social-links"
+          className="links"
         >
           <a
-            href="https://discordapp.com/invite/9EcuFgC"
+            href="https://decentraland.org"
           >
-            <i
-              className="social-icon discord"
-            />
+            Home
           </a>
           <a
-            href="https://reddit.com/r/decentraland"
+            href="https://decentraland.org/privacy"
           >
-            <i
-              className="social-icon reddit"
-            />
+            Privacy Policy
           </a>
           <a
-            href="https://github.com/decentraland"
+            href="https://decentraland.org/content"
           >
-            <i
-              className="social-icon github"
-            />
+            Content Policy
           </a>
           <a
-            href="https://twitter.com/decentraland"
+            href="https://decentraland.org/terms"
           >
-            <i
-              className="social-icon twitter"
-            />
+            Terms & Conditions
           </a>
         </div>
-        <div
-          className="copyright"
+      </div>
+      <div
+        className="social-links"
+      >
+        <a
+          href="https://discordapp.com/invite/9EcuFgC"
         >
-          © 2018 Decentraland
-        </div>
+          <i
+            className="social-icon discord"
+          />
+        </a>
+        <a
+          href="https://reddit.com/r/decentraland"
+        >
+          <i
+            className="social-icon reddit"
+          />
+        </a>
+        <a
+          href="https://github.com/decentraland"
+        >
+          <i
+            className="social-icon github"
+          />
+        </a>
+        <a
+          href="https://twitter.com/decentraland"
+        >
+          <i
+            className="social-icon twitter"
+          />
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        © 2018 Decentraland
       </div>
     </div>
   </div>
