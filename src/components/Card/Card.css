@@ -12,7 +12,8 @@
 .ui.cards > .ui.card,
 .ui.card {
   box-shadow: 0 2px 4px 0 var(--shadow);
-  border: solid 1px var(--shadow);
+  border: solid 1px var(--border);
+  border-radius: 8px;
   background-color: var(--card-background);
 }
 
@@ -29,9 +30,9 @@ a.ui.card:hover,
 .ui.cards > .ui.card.link:hover,
 .ui.card.link:hover {
   box-shadow: 0 10px 20px 0 var(--shadow);
-  transform: translateY(-16px);
+  transform: translateY(-4px);
   cursor: pointer;
-  border: solid 1px var(--shadow);
+  border: solid 1px var(--border) !important;
 }
 
 .ui.card > .content,

@@ -3,6 +3,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  height: var(--footer-height);
 }
 
 .dcl.footer .main-footer {
@@ -63,10 +64,11 @@
   color: var(--secondary-text);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   .dcl.footer {
     flex-flow: column nowrap;
     justify-content: center;
+    margin-bottom: 48px;
   }
 
   .dcl.footer .main-footer {
@@ -80,5 +82,11 @@
 
   .dcl.footer .dcl.language-dropdown {
     margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dcl.footer {
+    margin-bottom: 80px;
   }
 }

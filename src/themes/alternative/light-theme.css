@@ -18,15 +18,16 @@
   /* borders */
   --radius: 8px;
   --outline: #e2e2e6;
-
-  /* shadows */
-  --shadow: #f2f2f5;
+  --border: #00000005;
 
   /* cards */
   --card-background: #ffffff;
 
   /* hover */
-  --hover: #f2f2f5;
+  --hover: #f5f5f5;
+
+  /* shadows */
+  --shadow: #0000001f;
 
   /* svgs */
   --brightness: brightness(0.1); /* black svgs */

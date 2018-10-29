@@ -38,3 +38,8 @@
 .ui.dropdown .menu > .item > .description {
   color: var(--secondary-text);
 }
+
+.ui.dropdown .menu .active.item {
+  font-weight: 500;
+  background-color: var(--hover);
+}
