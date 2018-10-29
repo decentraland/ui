@@ -4,6 +4,6 @@
   padding: 24px;
   border: none;
   border-radius: var(--radius);
-  border: 1px solid var(--shadow);
+  border: 1px solid var(--border);
   box-shadow: 0 10px 20px 0 var(--shadow);
 }

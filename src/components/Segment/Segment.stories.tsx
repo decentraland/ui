@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Header, Segment } from '../..'
 
-storiesOf('Segment', module).add('Just a segment', () => (
+storiesOf('Segment', module).add('Single segment', () => (
   <Segment style={{ width: 400 }}>
     <Header>Title</Header>
     <p>
