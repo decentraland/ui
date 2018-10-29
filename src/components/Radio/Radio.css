@@ -105,3 +105,12 @@
     display: block;
   }
 }
+
+/* Slider */
+
+.ui.slider.checkbox .box:before,
+.ui.slider.checkbox label:before,
+.ui.slider.checkbox .box:after,
+.ui.slider.checkbox label:after {
+  margin-top: 5px;
+}
