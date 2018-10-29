@@ -4664,7 +4664,7 @@ exports[`Decentraland UI - Coverage Tests Radio Unchecked 1`] = `
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Segment Just a segment 1`] = `
+exports[`Decentraland UI - Coverage Tests Segment Single segment 1`] = `
 <div
   style={
     Object {
