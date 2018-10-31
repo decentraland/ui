@@ -10,9 +10,10 @@ import './Footer.css'
 
 export type LinksI18N = {
   home: string
-  privacyPolicy: string
-  contentPolicy: string
-  termsAndConditions: string
+  privacy: string
+  terms: string
+  content: string
+  ethics: string
 }
 
 export type FooterI18N = {
@@ -40,9 +41,10 @@ export class Footer extends React.PureComponent<FooterProps> {
       },
       links: {
         home: 'Home',
-        privacyPolicy: 'Privacy Policy',
-        contentPolicy: 'Content Policy',
-        termsAndConditions: 'Terms & Conditions'
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Use',
+        content: 'Content Policy',
+        ethics: 'Code of Ethics'
       }
     }
   }
@@ -63,32 +65,29 @@ export class Footer extends React.PureComponent<FooterProps> {
           />
           <div className="links">
             <a href="https://decentraland.org">{i18n.links.home}</a>
-            <a href="https://decentraland.org/privacy">
-              {i18n.links.privacyPolicy}
-            </a>
-            <a href="https://decentraland.org/content">
-              {i18n.links.contentPolicy}
-            </a>
-            <a href="https://decentraland.org/terms">
-              {i18n.links.termsAndConditions}
-            </a>
+            <a href="https://decentraland.org/privacy">{i18n.links.privacy}</a>
+            <a href="https://decentraland.org/terms">{i18n.links.terms}</a>
+            <a href="https://decentraland.org/content">{i18n.links.content}</a>
+            <a href="https://decentraland.org/ethics">{i18n.links.ethics}</a>
           </div>
         </div>
-        <div className="social-links">
-          <a href="https://discordapp.com/invite/9EcuFgC">
-            <i className="social-icon discord" />
-          </a>
-          <a href="https://reddit.com/r/decentraland">
-            <i className="social-icon reddit" />
-          </a>
-          <a href="https://github.com/decentraland">
-            <i className="social-icon github" />
-          </a>
-          <a href="https://twitter.com/decentraland">
-            <i className="social-icon twitter" />
-          </a>
+        <div className="secondary-footer">
+          <div className="social-links">
+            <a href="https://discordapp.com/invite/9EcuFgC">
+              <i className="social-icon discord" />
+            </a>
+            <a href="https://reddit.com/r/decentraland">
+              <i className="social-icon reddit" />
+            </a>
+            <a href="https://github.com/decentraland">
+              <i className="social-icon github" />
+            </a>
+            <a href="https://twitter.com/decentraland">
+              <i className="social-icon twitter" />
+            </a>
+          </div>
+          <div className="copyright">© 2018 Decentraland</div>
         </div>
-        <div className="copyright">© 2018 Decentraland</div>
       </Container>
     )
   }

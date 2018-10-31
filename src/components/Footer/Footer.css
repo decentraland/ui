@@ -26,6 +26,14 @@
   margin-bottom: 8px;
 }
 
+.dcl.footer .secondary-footer {
+  display: flex;
+}
+
+.dcl.footer .social-links {
+  margin-right: 24px;
+}
+
 .dcl.footer .social-links .social-icon {
   display: inline-block;
   width: 20px;
@@ -69,6 +77,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     margin-bottom: 48px;
+    height: auto;
   }
 
   .dcl.footer .main-footer {
@@ -77,11 +86,20 @@
   }
 
   .dcl.footer .social-links {
+    margin-right: 0px;
+  }
+
+  .dcl.footer .social-links {
     margin-bottom: 12px;
   }
 
   .dcl.footer .dcl.language-dropdown {
     margin-bottom: 18px;
+  }
+
+  .dcl.footer .secondary-footer {
+    flex-flow: column;
+    align-items: center;
   }
 }
 
