@@ -24,6 +24,18 @@ storiesOf('Navbar', module)
       </div>
     )
   })
+
+  .add('Sign In Page', () => {
+    return (
+      <div style={width}>
+        <Navbar
+          activePage="agora"
+          isSignIn
+          onSignIn={action('Clicked on sign in')}
+        />
+      </div>
+    )
+  })
   .add('Connecting', () => {
     return (
       <div style={width}>

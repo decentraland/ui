@@ -5,7 +5,7 @@ import './Navbar.css'
 export type NavbarI18N = {
   menu: {
     marketplace: string
-    developers: string
+    docs: string
     agora: string
     blog: string
   }
@@ -18,11 +18,12 @@ export type NavbarI18N = {
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?: 'marketplace' | 'developers' | 'agora' | 'blog'
+  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog'
   menuItems?: React.ReactNode
   i18n?: NavbarI18N
   isConnected?: boolean
   isConnecting?: boolean
+  isSignIn?: boolean
   onSignIn?: () => void
   onClickAccount?: () => void
 }
@@ -40,7 +41,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     i18n: {
       menu: {
         marketplace: 'Marketplace',
-        developers: 'Developers',
+        docs: 'Docs',
         agora: 'Agora',
         blog: 'Blog'
       },
@@ -51,6 +52,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     },
     isConnected: false,
     isConnecting: false,
+    isSignIn: false,
     onSignIn: null,
     onClickAccount: null
   }
@@ -84,10 +86,10 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           {i18n.menu.marketplace}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'developers'}
-          href="https://developers.decentraland.org"
+          active={activePage === 'docs'}
+          href="https://docs.decentraland.org"
         >
-          {i18n.menu.developers}
+          {i18n.menu.docs}
         </Menu.Item>
         <Menu.Item
           active={activePage === 'agora'}
@@ -114,18 +116,26 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       menuItems,
       isConnected,
       isConnecting,
+      isSignIn,
       onSignIn,
       onClickAccount,
       children
     } = this.props
 
+    let classes = `dcl navbar`
+
+    if (children) {
+      classes += ' has-children'
+    }
+    if (this.state.toggle) {
+      classes += ' open'
+    }
+    if (isSignIn) {
+      classes += ' sign-in'
+    }
+
     return (
-      <div
-        className={`dcl navbar ${children ? 'has-children' : ''} ${
-          this.state.toggle ? 'open' : ''
-        }`}
-        role="navigation"
-      >
+      <div className={classes} role="navigation">
         {children ? <div className="children-wrapper">{children}</div> : null}
         <Container>
           <div className="dcl navbar-menu">
@@ -194,9 +204,11 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
               <Menu secondary>
                 <Menu.Item disabled>{i18n.account.connecting}</Menu.Item>
               </Menu>
-            ) : onSignIn ? (
+            ) : onSignIn || isSignIn ? (
               <Menu secondary>
-                <Menu.Item onClick={onSignIn}>{i18n.account.signIn}</Menu.Item>
+                <Menu.Item className="sign-in-button" onClick={onSignIn}>
+                  {i18n.account.signIn}
+                </Menu.Item>
               </Menu>
             ) : null}
           </div>

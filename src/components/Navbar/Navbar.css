@@ -4,6 +4,7 @@
   margin-bottom: 44px;
   border-bottom: 1px solid var(--outline);
   width: 100%;
+  box-sizing: content-box;
 }
 
 .dcl.navbar.open {
@@ -11,7 +12,7 @@
 }
 
 .dcl.navbar.open .ui.container {
-  background-color: var(--background);
+  background-color: var(--card-background);
 }
 
 .dcl.navbar.has-children {
@@ -39,6 +40,8 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  background-color: transparent;
+  transition: background-color 0.25s ease;
 }
 
 .dcl.navbar-logo {
@@ -133,19 +136,21 @@
   content: ' ';
   width: 12px;
   height: 7px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   display: inline-block;
   margin-left: 8px;
-  transform: translateY(-1px);
   filter: var(--brightness);
+  background-image: url('../../assets/arrow-down.svg');
+  transition: transform 0.25s ease;
 }
 
 .dcl.active-page.caret-down::after {
-  background-image: url('../../assets/arrow-down.svg');
+  transform: rotateZ(0deg) translateY(-1px);
 }
 
 .dcl.active-page.caret-up::after {
-  background-image: url('../../assets/arrow-up.svg');
+  transform: rotateZ(180deg) translateY(1px);
 }
 
 .dcl.navbar .children-wrapper {
@@ -159,8 +164,17 @@
   position: relative;
   display: none;
   padding-top: 0px;
-  transition: height 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  transform: translateY(-16px);
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+  padding-bottom: 16px;
+}
+
+.dcl.navbar.sign-in .ui.menu .item.sign-in-button {
+  color: var(--primary);
+  font-weight: bold;
+  cursor: default;
 }
 
 @media (max-width: 768px) {
@@ -191,13 +205,13 @@
   .dcl.navbar .mobile-menu {
     display: flex;
     flex-flow: column;
-    height: 0px;
     overflow: hidden;
-    background-color: var(--background);
+    background-color: var(--card-background);
   }
 
   .dcl.navbar.open .mobile-menu {
-    height: var(--menu-height-mobile);
+    opacity: 1;
+    transform: translateY(0px);
     box-shadow: 0 48px 48px 0 rgba(0, 0, 0, 0.16);
   }
 
