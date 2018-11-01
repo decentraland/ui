@@ -200,7 +200,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                   {address != null ? <Blockie seed={address} /> : null}
                 </span>
               </>
-            ) : isConnecting ? (
+            ) : isConnecting && !isSignIn ? (
               <Menu secondary>
                 <Menu.Item disabled>{i18n.account.connecting}</Menu.Item>
               </Menu>
