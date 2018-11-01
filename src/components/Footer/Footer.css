@@ -76,7 +76,7 @@
   .dcl.footer {
     flex-flow: column nowrap;
     justify-content: center;
-    margin-bottom: 48px;
+    padding-bottom: 48px;
     height: auto;
   }
 
@@ -105,6 +105,6 @@
 
 @media (max-width: 768px) {
   .dcl.footer {
-    margin-bottom: 80px;
+    padding-bottom: 80px;
   }
 }
