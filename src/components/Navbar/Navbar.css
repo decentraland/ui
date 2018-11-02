@@ -205,11 +205,12 @@
   .dcl.navbar .mobile-menu {
     display: flex;
     flex-flow: column;
-    overflow: hidden;
+    pointer-events: none;
     background-color: var(--card-background);
   }
 
   .dcl.navbar.open .mobile-menu {
+    pointer-events: all;
     opacity: 1;
     transform: translateY(0px);
     box-shadow: 0 48px 48px 0 rgba(0, 0, 0, 0.16);
