@@ -4,12 +4,12 @@ import { Dropdown, LanguageIconProps, DropdownProps, Locale } from '../..'
 import { LanguageIcon } from '../LanguageIcon/LanguageIcon'
 
 export type LanguageDropdownI18N = {
-  en: string
-  es: string
-  fr: string
-  ja: string
-  zh: string
-  ko: string
+  en: React.ReactNode
+  es: React.ReactNode
+  fr: React.ReactNode
+  ja: React.ReactNode
+  zh: React.ReactNode
+  ko: React.ReactNode
 }
 
 export type LanguageDropdownProps = Partial<LanguageIconProps> & {

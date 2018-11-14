@@ -5,7 +5,7 @@ export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'zh' | 'ko'
 
 export type LanguageIconProps = {
   locale: Locale
-  label?: string
+  label?: React.ReactNode
 }
 
 export class LanguageIcon extends React.PureComponent<LanguageIconProps> {

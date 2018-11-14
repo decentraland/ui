@@ -3,12 +3,12 @@ import { Header, Button, WalletIcon } from '../..'
 import './SignIn.css'
 
 export type SignInI18N = {
-  header: string
+  header: React.ReactNode
   message: React.ReactNode
-  connect: string
-  connecting: string
-  connected: string
-  error: string
+  connect: React.ReactNode
+  connecting: React.ReactNode
+  connected: React.ReactNode
+  error: React.ReactNode
 }
 
 export type SignInProps = {

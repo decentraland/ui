@@ -9,11 +9,11 @@ import {
 import './Footer.css'
 
 export type LinksI18N = {
-  home: string
-  privacy: string
-  terms: string
-  content: string
-  ethics: string
+  home: React.ReactNode
+  privacy: React.ReactNode
+  terms: React.ReactNode
+  content: React.ReactNode
+  ethics: React.ReactNode
 }
 
 export type FooterI18N = {

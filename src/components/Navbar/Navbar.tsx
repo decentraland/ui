@@ -4,14 +4,14 @@ import './Navbar.css'
 
 export type NavbarI18N = {
   menu: {
-    marketplace: string
-    docs: string
-    agora: string
-    blog: string
+    marketplace: React.ReactNode
+    docs: React.ReactNode
+    agora: React.ReactNode
+    blog: React.ReactNode
   }
   account: {
-    signIn: string
-    connecting: string
+    signIn: React.ReactNode
+    connecting: React.ReactNode
   }
 }
 
