@@ -37,7 +37,9 @@ export * from './components/Field/Field'
 export * from './components/Mana/Mana'
 export * from './components/Navbar/Navbar'
 export * from './components/Parallax/Parallax'
+export * from './components/SignIn/SignIn'
 export * from './components/Stats/Stats'
+export * from './components/WalletIcon/WalletIcon'
 
 // Semantic components
 export * from 'semantic-ui-react'

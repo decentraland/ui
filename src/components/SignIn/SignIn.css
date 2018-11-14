@@ -1,0 +1,57 @@
+.SignIn {
+  display: flex;
+  flex-flow: column;
+}
+
+.SignIn.center {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.SignIn .WalletIcon {
+  margin-top: 40px;
+  width: 180px;
+  height: 180px;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 90px;
+}
+
+.SignIn .WalletIcon svg {
+  fill: var(--text);
+}
+
+.SignIn .ui.header {
+  font-size: 28px;
+  line-height: 34px;
+  margin-top: 40px;
+}
+
+.SignIn .message {
+  padding: 0px 38px;
+  text-align: center;
+}
+
+.SignIn .ui.button {
+  margin-top: 40px;
+}
+
+.SignIn .error {
+  opacity: 0;
+  user-select: none;
+  color: var(--primary);
+  margin-top: 20px;
+}
+
+.SignIn .error.visible {
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  user-select: auto;
+}
