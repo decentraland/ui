@@ -4817,6 +4817,366 @@ exports[`Decentraland UI - Coverage Tests Radio Unchecked 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests SignIn Connect 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="SignIn center"
+    >
+      <div
+        className="WalletIcon"
+      >
+        <svg
+          height="59"
+          viewBox="0 0 64 59"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 27.125h-5V10H7.5A2.503 2.503 0 0 1 5 7.5C5 6.121 6.121 5 7.5 5H54V0H7.5C3.365 0 0 3.364 0 7.5v44C0 55.635 3.365 59 7.5 59H59V42.125h5v-15zM54 54H7.5A2.503 2.503 0 0 1 5 51.5V14.57c.782.277 1.624.43 2.5.43H54v12.125h-5.75c-4.135 0-7.5 3.365-7.5 7.5s3.365 7.5 7.5 7.5H54V54zm5-16.875H48.25a2.503 2.503 0 0 1-2.5-2.5c0-1.379 1.121-2.5 2.5-2.5H59v5z"
+            fillRule="nonzero"
+          />
+        </svg>
+      </div>
+      <div
+        className="ui header"
+      >
+        Get Started
+      </div>
+      <p
+        className="message"
+      >
+        <span>
+          You can use the
+           
+          <a
+            href="https://metamask.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            MetaMask
+          </a>
+           
+          extension or a hardware wallet like
+           
+          <a
+            href="https://www.ledger.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Ledger Nano S
+          </a>
+          .
+        </span>
+      </p>
+      <button
+        className="ui primary button"
+        onClick={[Function]}
+        role="button"
+      >
+        Connect
+      </button>
+      <p
+        className="error"
+      >
+        Could not connect to wallet.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests SignIn Connected 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="SignIn center"
+    >
+      <div
+        className="WalletIcon"
+      >
+        <svg
+          height="59"
+          viewBox="0 0 64 59"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 27.125h-5V10H7.5A2.503 2.503 0 0 1 5 7.5C5 6.121 6.121 5 7.5 5H54V0H7.5C3.365 0 0 3.364 0 7.5v44C0 55.635 3.365 59 7.5 59H59V42.125h5v-15zM54 54H7.5A2.503 2.503 0 0 1 5 51.5V14.57c.782.277 1.624.43 2.5.43H54v12.125h-5.75c-4.135 0-7.5 3.365-7.5 7.5s3.365 7.5 7.5 7.5H54V54zm5-16.875H48.25a2.503 2.503 0 0 1-2.5-2.5c0-1.379 1.121-2.5 2.5-2.5H59v5z"
+            fillRule="nonzero"
+          />
+        </svg>
+      </div>
+      <div
+        className="ui header"
+      >
+        Get Started
+      </div>
+      <p
+        className="message"
+      >
+        <span>
+          You can use the
+           
+          <a
+            href="https://metamask.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            MetaMask
+          </a>
+           
+          extension or a hardware wallet like
+           
+          <a
+            href="https://www.ledger.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Ledger Nano S
+          </a>
+          .
+        </span>
+      </p>
+      <button
+        className="ui primary disabled button"
+        disabled={true}
+        onClick={[Function]}
+        role="button"
+        tabIndex={-1}
+      >
+        Connected
+      </button>
+      <p
+        className="error"
+      >
+        Could not connect to wallet.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests SignIn Connecting 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="SignIn center"
+    >
+      <div
+        className="WalletIcon"
+      >
+        <svg
+          height="59"
+          viewBox="0 0 64 59"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 27.125h-5V10H7.5A2.503 2.503 0 0 1 5 7.5C5 6.121 6.121 5 7.5 5H54V0H7.5C3.365 0 0 3.364 0 7.5v44C0 55.635 3.365 59 7.5 59H59V42.125h5v-15zM54 54H7.5A2.503 2.503 0 0 1 5 51.5V14.57c.782.277 1.624.43 2.5.43H54v12.125h-5.75c-4.135 0-7.5 3.365-7.5 7.5s3.365 7.5 7.5 7.5H54V54zm5-16.875H48.25a2.503 2.503 0 0 1-2.5-2.5c0-1.379 1.121-2.5 2.5-2.5H59v5z"
+            fillRule="nonzero"
+          />
+        </svg>
+      </div>
+      <div
+        className="ui header"
+      >
+        Get Started
+      </div>
+      <p
+        className="message"
+      >
+        <span>
+          You can use the
+           
+          <a
+            href="https://metamask.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            MetaMask
+          </a>
+           
+          extension or a hardware wallet like
+           
+          <a
+            href="https://www.ledger.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Ledger Nano S
+          </a>
+          .
+        </span>
+      </p>
+      <button
+        className="ui primary disabled button"
+        disabled={true}
+        onClick={[Function]}
+        role="button"
+        tabIndex={-1}
+      >
+        Connecting...
+      </button>
+      <p
+        className="error"
+      >
+        Could not connect to wallet.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests SignIn Error 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="SignIn center"
+    >
+      <div
+        className="WalletIcon"
+      >
+        <svg
+          height="59"
+          viewBox="0 0 64 59"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 27.125h-5V10H7.5A2.503 2.503 0 0 1 5 7.5C5 6.121 6.121 5 7.5 5H54V0H7.5C3.365 0 0 3.364 0 7.5v44C0 55.635 3.365 59 7.5 59H59V42.125h5v-15zM54 54H7.5A2.503 2.503 0 0 1 5 51.5V14.57c.782.277 1.624.43 2.5.43H54v12.125h-5.75c-4.135 0-7.5 3.365-7.5 7.5s3.365 7.5 7.5 7.5H54V54zm5-16.875H48.25a2.503 2.503 0 0 1-2.5-2.5c0-1.379 1.121-2.5 2.5-2.5H59v5z"
+            fillRule="nonzero"
+          />
+        </svg>
+      </div>
+      <div
+        className="ui header"
+      >
+        Get Started
+      </div>
+      <p
+        className="message"
+      >
+        <span>
+          You can use the
+           
+          <a
+            href="https://metamask.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            MetaMask
+          </a>
+           
+          extension or a hardware wallet like
+           
+          <a
+            href="https://www.ledger.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Ledger Nano S
+          </a>
+          .
+        </span>
+      </p>
+      <button
+        className="ui primary button"
+        onClick={[Function]}
+        role="button"
+      >
+        Connect
+      </button>
+      <p
+        className="error visible"
+      >
+        Could not connect to wallet.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Stats Poll Results 1`] = `
 <div
   style={
