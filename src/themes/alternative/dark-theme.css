@@ -3,28 +3,28 @@
   --primary: #ff0044;
   --primary-light: #ff9a74;
   --primary-dark: #d10038;
-  --secondary: #181f33;
+  --secondary: #272329;
   --accent: #00d9ff;
-  --background: #0a0f1f;
+  --background: #18141a;
   --danger: #ffa900;
 
   /* text */
   --text: #ffffff;
-  --secondary-text: #7d8499;
-  --disabled-text: #7d8499;
+  --secondary-text: #676370;
+  --disabled-text: #676370;
   --text-on-primary: #ffffff;
   --text-on-secondary: #ffffff;
 
   /* borders */
   --radius: 6px;
-  --outline: #181f33;
+  --outline: #272329;
   --border: #00000005;
 
   /* cards */
-  --card-background: #181f33;
+  --card-background: #272329;
 
   /* hover */
-  --hover: #2a3246;
+  --hover: #353135;
 
   /* shadows */
   --shadow: #0000001f;

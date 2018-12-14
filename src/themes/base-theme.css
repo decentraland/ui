@@ -12,7 +12,7 @@
     'Helvetica Neue', Arial, sans-serif;
 
   /* colors */
-  --neon-blue: #00d9ff;
+  --neon-blue: #00d3ff;
   --neon-red: #ff0044;
   --orange-yellow: #ffa900;
   --orange: #ff9a74;
@@ -46,7 +46,7 @@ p {
 }
 
 a {
-  color: var(--text);
+  color: var(--primary);
   font-weight: 500;
 }
 a:hover {

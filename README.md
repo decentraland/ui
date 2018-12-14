@@ -36,7 +36,7 @@ export class MyApp extends React.Component {
 You can also use `decentraland-ui` as a CSS framework just by adding this tag in your `<head>`:
 
 ```html
-<link href="https://ui.decentraland.org/styles.css" rel="stylesheet">
+<link href="https://ui.decentraland.org/styles.css" rel="stylesheet" />
 ```
 
 And then using [Semantic UI](https://semantic-ui.com/) classes like this:
@@ -65,20 +65,34 @@ Or you can create your own theme like this:
   --primary: #ff0044;
   --primary-light: #ff9a74;
   --primary-dark: #d10038;
-  --secondary: #f2f2f5;
+  --secondary: #272329;
   --accent: #00d9ff;
-  --background: #ffffff;
+  --background: #18141a;
   --danger: #ffa900;
 
   /* text */
-  --text: #0a0f1f;
-  --secondary-text: #7d8499;
+  --text: #ffffff;
+  --secondary-text: #676370;
+  --disabled-text: #676370;
   --text-on-primary: #ffffff;
-  --text-on-secondary: #0a0f1f;
+  --text-on-secondary: #ffffff;
 
   /* borders */
-  --radius: 8px;
-  --outline: #e0e2e8;
+  --radius: 6px;
+  --outline: #272329;
+  --border: #00000005;
+
+  /* cards */
+  --card-background: #272329;
+
+  /* hover */
+  --hover: #353135;
+
+  /* shadows */
+  --shadow: #0000001f;
+
+  /* svgs */
+  --brightness: brightness(100); /* white svgs */
 }
 ```
 
@@ -113,5 +127,4 @@ You need to `npm run build:storybook` before running `npm run test:visual`!
 
 ## CI/CD
 
-We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release` 
- 
+We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
