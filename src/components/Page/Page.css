@@ -1,0 +1,10 @@
+.Page {
+  padding: 10px 20px;
+  min-height: calc(100vh - 165px);
+}
+
+@media (max-width: 768px) {
+  .Page {
+    padding: 0px 0px 48px 0px;
+  }
+}
