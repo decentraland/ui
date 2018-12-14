@@ -35,3 +35,7 @@
 .ui.table tr td {
   border-top: 1px solid var(--outline);
 }
+
+.ui.table td a {
+  color: var(--text);
+}

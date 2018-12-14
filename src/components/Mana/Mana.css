@@ -2,21 +2,13 @@
   display: inline;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: var(--text);
+  color: inherit;
 }
 .dcl.mana .symbol {
-  color: var(--neon-blue);
   font-style: normal;
   padding-right: 0.3em;
   transform: translateY(-0.06em);
   display: inline-block;
-}
-
-.dcl.mana.text {
-  color: inherit;
-}
-
-.dcl.mana.text .symbol {
   color: inherit;
 }
 
