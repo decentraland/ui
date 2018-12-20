@@ -1669,131 +1669,6 @@ exports[`Decentraland UI - Coverage Tests Footer Uncontrolled 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              aria-checked={false}
-              aria-selected={false}
-              className="item"
-              onClick={[Function]}
-              role="option"
-              style={
-                Object {
-                  "pointerEvents": "all",
-                }
-              }
-            >
-              <div
-                className="dcl language-icon-wrapper"
-              >
-                <i
-                  className="dcl language-icon es"
-                />
-                <div
-                  className="language-icon-label"
-                >
-                  Spanish
-                </div>
-              </div>
-            </div>
-            <div
-              aria-checked={false}
-              aria-selected={false}
-              className="item"
-              onClick={[Function]}
-              role="option"
-              style={
-                Object {
-                  "pointerEvents": "all",
-                }
-              }
-            >
-              <div
-                className="dcl language-icon-wrapper"
-              >
-                <i
-                  className="dcl language-icon fr"
-                />
-                <div
-                  className="language-icon-label"
-                >
-                  French
-                </div>
-              </div>
-            </div>
-            <div
-              aria-checked={false}
-              aria-selected={false}
-              className="item"
-              onClick={[Function]}
-              role="option"
-              style={
-                Object {
-                  "pointerEvents": "all",
-                }
-              }
-            >
-              <div
-                className="dcl language-icon-wrapper"
-              >
-                <i
-                  className="dcl language-icon ja"
-                />
-                <div
-                  className="language-icon-label"
-                >
-                  Japanese
-                </div>
-              </div>
-            </div>
-            <div
-              aria-checked={false}
-              aria-selected={false}
-              className="item"
-              onClick={[Function]}
-              role="option"
-              style={
-                Object {
-                  "pointerEvents": "all",
-                }
-              }
-            >
-              <div
-                className="dcl language-icon-wrapper"
-              >
-                <i
-                  className="dcl language-icon zh"
-                />
-                <div
-                  className="language-icon-label"
-                >
-                  Chinese
-                </div>
-              </div>
-            </div>
-            <div
-              aria-checked={false}
-              aria-selected={false}
-              className="item"
-              onClick={[Function]}
-              role="option"
-              style={
-                Object {
-                  "pointerEvents": "all",
-                }
-              }
-            >
-              <div
-                className="dcl language-icon-wrapper"
-              >
-                <i
-                  className="dcl language-icon ko"
-                />
-                <div
-                  className="language-icon-label"
-                >
-                  Korean
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div
@@ -2609,31 +2484,6 @@ exports[`Decentraland UI - Coverage Tests LanguageDropdown Uncontrolled left dow
             className="dcl language-icon-wrapper"
           >
             <i
-              className="dcl language-icon ja"
-            />
-            <div
-              className="language-icon-label"
-            >
-              Japanese
-            </div>
-          </div>
-        </div>
-        <div
-          aria-checked={false}
-          aria-selected={false}
-          className="item"
-          onClick={[Function]}
-          role="option"
-          style={
-            Object {
-              "pointerEvents": "all",
-            }
-          }
-        >
-          <div
-            className="dcl language-icon-wrapper"
-          >
-            <i
               className="dcl language-icon zh"
             />
             <div
@@ -2665,6 +2515,31 @@ exports[`Decentraland UI - Coverage Tests LanguageDropdown Uncontrolled left dow
               className="language-icon-label"
             >
               Korean
+            </div>
+          </div>
+        </div>
+        <div
+          aria-checked={false}
+          aria-selected={false}
+          className="item"
+          onClick={[Function]}
+          role="option"
+          style={
+            Object {
+              "pointerEvents": "all",
+            }
+          }
+        >
+          <div
+            className="dcl language-icon-wrapper"
+          >
+            <i
+              className="dcl language-icon ja"
+            />
+            <div
+              className="language-icon-label"
+            >
+              Japanese
             </div>
           </div>
         </div>
