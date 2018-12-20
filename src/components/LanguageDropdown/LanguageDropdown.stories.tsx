@@ -3,7 +3,9 @@ import { storiesOf } from '@storybook/react'
 import { LanguageDropdown } from '../..'
 
 storiesOf('LanguageDropdown', module)
-  .add('Uncontrolled left downward', () => <LanguageDropdown />)
+  .add('Uncontrolled left downward', () => (
+    <LanguageDropdown locales={['en', 'es', 'fr', 'zh', 'ko', 'ja']} />
+  ))
   .add('Controlled right upward', () => (
     <LanguageDropdown
       locale="zh"
