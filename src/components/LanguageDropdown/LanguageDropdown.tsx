@@ -30,7 +30,7 @@ export class LanguageDropdown extends React.PureComponent<
     onChange: () => {},
     direction: 'left',
     upward: false,
-    locales: ['en', 'es', 'fr', 'ja', 'zh', 'ko'],
+    locales: ['en'],
     i18n: {
       en: 'English',
       es: 'Spanish',
