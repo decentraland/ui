@@ -21,7 +21,7 @@ export class Page extends React.PureComponent<PageProps> {
       marginTop: hasHero ? heroHeight : 0
     }
     return (
-      <div className="Page" style={style}>
+      <div className="dcl page" style={style}>
         <Container>{children}</Container>
       </div>
     )
