@@ -168,7 +168,6 @@
   opacity: 0;
   transform: translateY(-16px);
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
-  padding-bottom: 16px;
 }
 
 .dcl.navbar.sign-in .ui.menu .item.sign-in-button {
@@ -222,6 +221,7 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 18px;
+    color: var(--text);
   }
 
   .dcl.navbar .mobile-menu .item.active {
