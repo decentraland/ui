@@ -76,7 +76,7 @@ storiesOf('Table', module).add('Polls', () => (
                 </a>
               </Table.Cell>
               <Table.Cell className={noLinkClass}>
-                <Mana inline text />
+                <Mana inline />
                 {weight}
               </Table.Cell>
               <Table.Cell className={noLinkClass}>{voters}</Table.Cell>

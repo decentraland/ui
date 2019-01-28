@@ -189,11 +189,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                   onClick={onClickAccount}
                 >
                   {mana != null ? (
-                    <Mana
-                      text
-                      size="small"
-                      title={`${mana.toLocaleString()} MANA`}
-                    >
+                    <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
                       {mana.toLocaleString()}
                     </Mana>
                   ) : null}

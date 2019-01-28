@@ -59,7 +59,7 @@ storiesOf('Card', module).add('Polls', () => (
           <Card.Content>
             <Card.Header>{card.poll}</Card.Header>
             <Card.Meta>
-              Weight {card.weight} <Mana inline text />
+              Weight {card.weight} <Mana inline />
             </Card.Meta>
           </Card.Content>
         </Card>
