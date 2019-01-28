@@ -131,9 +131,9 @@ Each test suite has a `blacklist` array with component names that should be skip
 
 They can be found here:
 
-Coverage Test Suite: `test/coverage/coverage.test.ts`
+- Coverage Test Suite: `test/coverage/coverage.test.ts`
 
-Visual Test Suite: `test/visual/visual.test.ts`
+- Visual Test Suite: `test/visual/visual.test.ts`
 
 This is an example:
 
