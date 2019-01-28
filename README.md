@@ -62,7 +62,7 @@ Or you can create your own theme like this:
 /* my-theme.css */
 :root {
   /* colors */
-  --primary: #ff0044;
+  --primary: #ff2d55;
   --primary-light: #ff9a74;
   --primary-dark: #d10038;
   --secondary: #272329;

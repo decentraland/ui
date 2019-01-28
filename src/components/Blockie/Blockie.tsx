@@ -17,7 +17,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
   private shouldRefresh: boolean = false
   public canvas: HTMLCanvasElement = null
   static defaultProps = {
-    color: '#ff0044',
+    color: '#ff2d55',
     bgcolor: '#d10038',
     spotcolor: '#00dbef',
     size: 6,
