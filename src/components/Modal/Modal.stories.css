@@ -1,0 +1,8 @@
+.ui.dimmer {
+  /* Keep the theme chooser visible */
+  top: 60px !important;
+}
+
+.ui.modal > .header {
+  margin-bottom: 0;
+}
