@@ -1,0 +1,16 @@
+.ui.modal {
+  color: var(--text);
+}
+.ui.modal > .actions,
+.ui.modal > .content {
+  background: var(--background);
+}
+.ui.modal > .header {
+  background: var(--background);
+  color: var(--text);
+  border-bottom: none;
+}
+.ui.modal > .actions {
+  background: var(--background);
+  border-top: none;
+}

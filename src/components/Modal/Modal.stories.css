@@ -1,0 +1,4 @@
+.ui.dimmer {
+  /* Keep the theme chooser visible */
+  top: 60px !important;
+}
