@@ -683,7 +683,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
               20.5M
                
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -713,7 +713,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
               250.2K
                
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -743,7 +743,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
               50.1K
                
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -773,7 +773,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
               0
                
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -803,7 +803,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
               100K
                
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -2987,7 +2987,8 @@ exports[`Decentraland UI - Coverage Tests Mana Text 1`] = `
     }
   >
     <div
-      className="ui small header dcl mana text"
+      className="ui small header dcl mana"
+      text={true}
     >
       <i
         className="symbol"
@@ -3256,7 +3257,7 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
               onClick={null}
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui small header dcl mana"
                 title="200,000 MANA"
               >
                 <i
@@ -3535,7 +3536,7 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
               onClick={[Function]}
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui small header dcl mana"
                 title="200,000 MANA"
               >
                 <i
@@ -4012,7 +4013,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
               onClick={[Function]}
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui small header dcl mana"
                 title="200,000 MANA"
               >
                 <i
@@ -4170,7 +4171,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
               onClick={[Function]}
             >
               <div
-                className="ui small header dcl mana text"
+                className="ui small header dcl mana"
                 title="200,000 MANA"
               >
                 <i
@@ -5358,7 +5359,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
               className=""
             >
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -5401,7 +5402,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
               className=""
             >
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -5444,7 +5445,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
               className=""
             >
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -5487,7 +5488,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
               className="closed"
             >
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
@@ -5530,7 +5531,7 @@ exports[`Decentraland UI - Coverage Tests Table Polls 1`] = `
               className="closed"
             >
               <div
-                className="ui header dcl mana text inline"
+                className="ui header dcl mana inline"
               >
                 <i
                   className="symbol"
