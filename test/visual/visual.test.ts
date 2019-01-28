@@ -3,6 +3,12 @@ import initStoryshots, {
 } from '@storybook/addon-storyshots'
 import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer'
 import * as path from 'path'
+
+/*
+  Components that should be skipped from this test suite
+*/
+const blacklist = []
+
 const getGotoOptions = ({ context, url }) => {
   return {
     waitUntil: 'networkidle0'
@@ -26,6 +32,10 @@ const visualTest = {
     snapshotsDirName: '__visual_snapshots__',
     snapshotExtension: '.storyshot',
     storiesExtensions: ['.js', '.jsx', '.ts', '.tsx']
-  })
+  }),
+  storyKindRegex:
+    blacklist.length === 0
+      ? undefined
+      : new RegExp(`^(?!(${blacklist.join('|')}))`)
 }
 initStoryshots(visualTest)
