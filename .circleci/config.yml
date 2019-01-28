@@ -105,7 +105,7 @@ jobs:
 
 workflows:
   version: 2
-  test-build-deploy-release:
+  test-build-release:
     jobs:
       - test
       - build:
