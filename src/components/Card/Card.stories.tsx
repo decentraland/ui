@@ -54,12 +54,12 @@ storiesOf('Card', module).add('Polls', () => (
       </HeaderMenu.Right>
     </HeaderMenu>
     <Card.Group>
-      {cards.map(card => (
-        <Card link>
+      {cards.map((card, index) => (
+        <Card link key={index}>
           <Card.Content>
             <Card.Header>{card.poll}</Card.Header>
             <Card.Meta>
-              Weight {card.weight} <Mana inline black />
+              Weight {card.weight} <Mana inline text />
             </Card.Meta>
           </Card.Content>
         </Card>
