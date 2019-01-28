@@ -53,7 +53,7 @@ export class LanguageDropdown extends React.PureComponent<
         className="dcl language-dropdown"
         direction={direction}
         upward={upward}
-        defaultValue="en"
+        defaultValue={locale == null ? 'en' : undefined}
         value={locale}
         options={locales.map(key => ({
           key,
