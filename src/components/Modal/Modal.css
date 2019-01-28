@@ -1,6 +1,7 @@
 .ui.modal {
   color: var(--text);
 }
+.ui.modal,
 .ui.modal > .actions,
 .ui.modal > .content {
   background: var(--background);
