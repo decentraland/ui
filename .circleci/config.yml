@@ -121,8 +121,8 @@ workflows:
       #         branches:
       #           only: master
       - release:
-          requires:
-            - deploy
+          #   requires:
+          #     - deploy
           filters:
             branches:
               only: master
