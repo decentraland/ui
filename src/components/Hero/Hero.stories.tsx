@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import { Parallax } from '../Parallax/Parallax'
 import { Hero } from '../..'
 import './Hero.stories.css'
-import { Parallax } from '../Parallax/Parallax'
 
 storiesOf('Hero', module)
   .add('Text only', () => (

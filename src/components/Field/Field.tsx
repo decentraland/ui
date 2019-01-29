@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Header, Input, InputProps } from 'semantic-ui-react'
-import './Field.css'
 import { Blockie } from '../..'
+import './Field.css'
 
 export type FieldProps = InputProps & {
   label?: string

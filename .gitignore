@@ -1,3 +1,5 @@
+.DS_Store
+.vscode
 node_modules
 lib
 storybook-static

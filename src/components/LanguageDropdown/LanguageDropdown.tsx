@@ -1,7 +1,7 @@
 import * as React from 'react'
-import './LanguageDropdown.css'
-import { Dropdown, LanguageIconProps, DropdownProps, Locale } from '../..'
 import { LanguageIcon } from '../LanguageIcon/LanguageIcon'
+import { Dropdown, LanguageIconProps, DropdownProps, Locale } from '../..'
+import './LanguageDropdown.css'
 
 export type LanguageDropdownI18N = {
   en: React.ReactNode
