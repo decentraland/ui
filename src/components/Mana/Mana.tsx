@@ -1,6 +1,6 @@
 import * as React from 'react'
-import './Mana.css'
 import { Header, HeaderProps } from 'semantic-ui-react'
+import './Mana.css'
 
 export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'

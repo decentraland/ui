@@ -1,6 +1,6 @@
 import * as React from 'react'
-import './Stats.css'
 import { Header } from 'semantic-ui-react'
+import './Stats.css'
 
 export type StatsProps = {
   title: string
