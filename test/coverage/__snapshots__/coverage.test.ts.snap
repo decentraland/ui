@@ -326,7 +326,6 @@ exports[`Decentraland UI - Coverage Tests Button Actions 1`] = `
     <button
       className="ui primary button"
       onClick={[Function]}
-      role="button"
       style={
         Object {
           "minWidth": 190,
@@ -338,7 +337,6 @@ exports[`Decentraland UI - Coverage Tests Button Actions 1`] = `
     <button
       className="ui button"
       onClick={[Function]}
-      role="button"
       style={
         Object {
           "minWidth": 190,
@@ -377,7 +375,6 @@ exports[`Decentraland UI - Coverage Tests Button Basic 1`] = `
     <button
       className="ui basic button"
       onClick={[Function]}
-      role="button"
     >
       Download
     </button>
@@ -385,7 +382,6 @@ exports[`Decentraland UI - Coverage Tests Button Basic 1`] = `
       className="ui basic disabled button"
       disabled={true}
       onClick={[Function]}
-      role="button"
       tabIndex={-1}
     >
       Download
@@ -420,7 +416,6 @@ exports[`Decentraland UI - Coverage Tests Button Icon 1`] = `
     <button
       className="ui basic button"
       onClick={[Function]}
-      role="button"
     >
       <i
         aria-hidden="true"
@@ -432,7 +427,6 @@ exports[`Decentraland UI - Coverage Tests Button Icon 1`] = `
       className="ui basic disabled button"
       disabled={true}
       onClick={[Function]}
-      role="button"
       tabIndex={-1}
     >
       <i
@@ -471,7 +465,6 @@ exports[`Decentraland UI - Coverage Tests Button Primary 1`] = `
     <button
       className="ui primary button"
       onClick={[Function]}
-      role="button"
     >
       Vote Now
     </button>
@@ -479,7 +472,6 @@ exports[`Decentraland UI - Coverage Tests Button Primary 1`] = `
       className="ui primary disabled button"
       disabled={true}
       onClick={[Function]}
-      role="button"
       tabIndex={-1}
     >
       Vote Now
@@ -514,7 +506,6 @@ exports[`Decentraland UI - Coverage Tests Button Secondary 1`] = `
     <button
       className="ui button"
       onClick={[Function]}
-      role="button"
     >
       Cancel
     </button>
@@ -522,7 +513,6 @@ exports[`Decentraland UI - Coverage Tests Button Secondary 1`] = `
       className="ui disabled button"
       disabled={true}
       onClick={[Function]}
-      role="button"
       tabIndex={-1}
     >
       Cancel
@@ -557,49 +547,42 @@ exports[`Decentraland UI - Coverage Tests Button Sizes 1`] = `
     <button
       className="ui massive primary button"
       onClick={[Function]}
-      role="button"
     >
       Massive
     </button>
     <button
       className="ui huge primary button"
       onClick={[Function]}
-      role="button"
     >
       Huge
     </button>
     <button
       className="ui large primary button"
       onClick={[Function]}
-      role="button"
     >
       Large
     </button>
     <button
       className="ui medium primary button"
       onClick={[Function]}
-      role="button"
     >
       Medium
     </button>
     <button
       className="ui small primary button"
       onClick={[Function]}
-      role="button"
     >
       Small
     </button>
     <button
       className="ui tiny primary button"
       onClick={[Function]}
-      role="button"
     >
       Tiny
     </button>
     <button
       className="ui mini primary button"
       onClick={[Function]}
-      role="button"
     >
       Mini
     </button>
@@ -651,7 +634,6 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
           <button
             className="ui small basic button"
             onClick={[Function]}
-            role="button"
           >
             View More
             <i
@@ -1880,7 +1862,6 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Button 1`] = `
           <button
             className="ui small basic button"
             onClick={[Function]}
-            role="button"
           >
             View More
             <i
@@ -4255,6 +4236,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
     >
       <a
         aria-current={false}
+        aria-disabled={false}
         aria-label="Previous item"
         className="item"
         onClick={[Function]}
@@ -4267,6 +4249,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4278,6 +4261,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={true}
+        aria-disabled={false}
         className="active item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4289,6 +4273,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4300,6 +4285,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4311,6 +4297,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4322,6 +4309,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 5 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         aria-label="Next item"
         className="item"
         onClick={[Function]}
@@ -4367,6 +4355,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
     >
       <a
         aria-current={false}
+        aria-disabled={false}
         aria-label="Previous item"
         className="item"
         onClick={[Function]}
@@ -4379,6 +4368,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4390,7 +4380,8 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
-        className="disabled item"
+        aria-disabled={true}
+        className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
@@ -4401,6 +4392,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4412,6 +4404,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={true}
+        aria-disabled={false}
         className="active item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4423,6 +4416,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4434,7 +4428,8 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
-        className="disabled item"
+        aria-disabled={true}
+        className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
@@ -4445,6 +4440,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         className="item"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -4456,6 +4452,7 @@ exports[`Decentraland UI - Coverage Tests Pagination 1000 pages 1`] = `
       </a>
       <a
         aria-current={false}
+        aria-disabled={false}
         aria-label="Next item"
         className="item"
         onClick={[Function]}
@@ -4550,11 +4547,11 @@ exports[`Decentraland UI - Coverage Tests Radio Checked 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseUp={[Function]}
     >
       <input
         checked={true}
         className="hidden"
-        onClick={[Function]}
         readOnly={true}
         tabIndex={0}
         type="radio"
@@ -4595,11 +4592,11 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseUp={[Function]}
     >
       <input
         checked={true}
         className="hidden"
-        onClick={[Function]}
         readOnly={true}
         tabIndex={0}
         type="radio"
@@ -4613,11 +4610,11 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseUp={[Function]}
     >
       <input
         checked={false}
         className="hidden"
-        onClick={[Function]}
         readOnly={true}
         tabIndex={0}
         type="radio"
@@ -4631,11 +4628,11 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseUp={[Function]}
     >
       <input
         checked={false}
         className="hidden"
-        onClick={[Function]}
         readOnly={true}
         tabIndex={0}
         type="radio"
@@ -4676,11 +4673,11 @@ exports[`Decentraland UI - Coverage Tests Radio Unchecked 1`] = `
       onChange={[Function]}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseUp={[Function]}
     >
       <input
         checked={false}
         className="hidden"
-        onClick={[Function]}
         readOnly={true}
         tabIndex={0}
         type="radio"
@@ -4768,7 +4765,6 @@ exports[`Decentraland UI - Coverage Tests SignIn Connect 1`] = `
       <button
         className="ui primary button"
         onClick={[Function]}
-        role="button"
       >
         Connect
       </button>
@@ -4858,7 +4854,6 @@ exports[`Decentraland UI - Coverage Tests SignIn Connected 1`] = `
         className="ui primary disabled button"
         disabled={true}
         onClick={[Function]}
-        role="button"
         tabIndex={-1}
       >
         Connected
@@ -4949,7 +4944,6 @@ exports[`Decentraland UI - Coverage Tests SignIn Connecting 1`] = `
         className="ui primary disabled button"
         disabled={true}
         onClick={[Function]}
-        role="button"
         tabIndex={-1}
       >
         Connecting...
@@ -5039,7 +5033,6 @@ exports[`Decentraland UI - Coverage Tests SignIn Error 1`] = `
       <button
         className="ui primary button"
         onClick={[Function]}
-        role="button"
       >
         Connect
       </button>
