@@ -80,7 +80,7 @@ jobs:
           command: cp ./lib/*.css ./storybook-static
       - run:
           name: Deploy to now.sh
-          command: npm init --yes && npm install now --no-save && cd storybook-static &&  ../node_modules/.bin/now --token $NOW_TOKEN --public && ../node_modules/.bin/now alias ui.decentraland.org --token $NOW_TOKEN
+          command: npm init --yes && npm install now --no-save && cd storybook-static && ../node_modules/.bin/now switch decentraland --token $NOW_TOKEN && ../node_modules/.bin/now --token $NOW_TOKEN --public && ../node_modules/.bin/now alias ui.decentraland.org --token $NOW_TOKEN
 
   release:
     docker:
@@ -114,12 +114,12 @@ workflows:
           filters:
             branches:
               only: master
-      #   - deploy:
-      #       requires:
-      #         - build
-      #       filters:
-      #         branches:
-      #           only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
       - release:
           requires:
             - build
