@@ -1552,7 +1552,7 @@ exports[`Decentraland UI - Coverage Tests Footer Controlled 1`] = `
         <div
           className="copyright"
         >
-          © 2018 Decentraland
+          © 2019 Decentraland
         </div>
       </div>
     </div>
@@ -1721,7 +1721,7 @@ exports[`Decentraland UI - Coverage Tests Footer Uncontrolled 1`] = `
         <div
           className="copyright"
         >
-          © 2018 Decentraland
+          © 2019 Decentraland
         </div>
       </div>
     </div>
