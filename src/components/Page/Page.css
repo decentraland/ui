@@ -3,7 +3,7 @@
   padding: var(--page-vertical-padding) var(--page-horizontal-padding);
   min-height: calc(
     100vh - var(--navbar-height) - var(--footer-height) -
-      var(--navbar-margin-bottom) - 2 * var(--page-vertical-padding)
+      var(--navbar-margin-bottom) - 1px
   );
 }
 
