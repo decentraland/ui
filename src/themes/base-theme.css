@@ -2,14 +2,17 @@
   /* sizes */
   --navbar-height: 64px;
   --navbar-height-mobile: 56px;
+  --navbar-margin-bottom: 44px;
   --footer-height: 56px;
+  --page-vertical-padding: 10px;
+  --page-horizontal-padding: 20px;
 
   /* z-indexes */
   --z-index-navbar: 1000;
 
   /* fonts */
-  --font-print: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+  --font-print: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 
   /* colors */
   --neon-blue: #00d3ff;

@@ -133,7 +133,7 @@
 }
 
 .dcl.active-page::after {
-  content: ' ';
+  content: " ";
   width: 12px;
   height: 7px;
   background-size: contain;
@@ -141,7 +141,7 @@
   display: inline-block;
   margin-left: 8px;
   filter: var(--brightness);
-  background-image: url('../../assets/arrow-down.svg');
+  background-image: url("../../assets/arrow-down.svg");
   transition: transform 0.25s ease;
 }
 
@@ -179,7 +179,7 @@
 @media (max-width: 768px) {
   .dcl.navbar {
     height: var(--navbar-height-mobile);
-    margin-bottom: 44px;
+    margin-bottom: var(--navbar-margin-bottom);
   }
 
   .dcl.navbar-logo {

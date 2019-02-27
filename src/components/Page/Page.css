@@ -1,10 +1,18 @@
 .dcl.page {
-  padding: 10px 20px;
-  min-height: calc(100vh - 165px);
+  position: relative;
+  padding: var(--page-vertical-padding) var(--page-horizontal-padding);
+  min-height: calc(
+    100vh - var(--navbar-height) - var(--footer-height) -
+      var(--navbar-margin-bottom) - 1px
+  );
 }
 
 @media (max-width: 768px) {
   .dcl.page {
     padding: 0px 0px 48px 0px;
+    min-height: calc(
+      100vh - var(--navbar-height-mobile) - var(--footer-height) -
+        var(--navbar-margin-bottom)
+    );
   }
 }
