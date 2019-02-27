@@ -11,7 +11,7 @@
   .dcl.page {
     padding: 0px 0px 48px 0px;
     min-height: calc(
-      100vh - var(--navbar-height-mobile) - var(--footer-height-mobile) -
+      100vh - var(--navbar-height-mobile) - var(--footer-height) -
         var(--navbar-margin-bottom)
     );
   }
