@@ -1,4 +1,5 @@
 .dcl.page {
+  position: relative;
   padding: var(--page-vertical-padding) var(--page-horizontal-padding);
   min-height: calc(
     100vh - var(--navbar-height) - var(--footer-height) -
