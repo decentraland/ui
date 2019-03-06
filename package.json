@@ -60,7 +60,7 @@
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "husky": "^0.14.3",
-    "jest": "^23.1.0",
+    "jest": "^24.0.0",
     "mini-css-extract-plugin": "^0.4.0",
     "now": "^11.2.4",
     "postcss-color-mod-function": "^2.4.2",
@@ -72,7 +72,7 @@
     "rimraf": "^2.6.2",
     "semantic-release": "^15.6.0",
     "style-loader": "^0.21.0",
-    "ts-jest": "^22.4.6",
+    "ts-jest": "^24.0.0",
     "ts-loader": "^4.4.1",
     "typescript": "^2.9.2",
     "url-loader": "^1.0.1",
@@ -84,8 +84,8 @@
     "balloon-css": "^0.5.0",
     "ethereum-blockies": "^0.1.1",
     "parallax-js": "^3.1.0",
-    "semantic-ui-css": "^2.3.2",
-    "semantic-ui-react": "^0.84.0"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.85.0"
   },
   "peerDependencies": {
     "react": "^16.4.1",
