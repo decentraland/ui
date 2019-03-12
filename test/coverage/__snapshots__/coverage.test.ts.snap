@@ -979,6 +979,66 @@ exports[`Decentraland UI - Coverage Tests Dropdown Filters 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Field Action 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="dcl field"
+    >
+      <div
+        className="ui sub header"
+      >
+        Label
+      </div>
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Input value"
+        />
+      </div>
+      <div
+        className="overlay"
+      >
+        <button
+          className="ui basic button"
+          onClick={[Function]}
+        >
+          submit
+        </button>
+      </div>
+      <p
+        className="message"
+      >
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Field Address 1`] = `
 <div
   style={
