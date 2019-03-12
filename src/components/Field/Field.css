@@ -93,3 +93,13 @@
   right: 0px;
   top: 28px;
 }
+
+.dcl.field .overlay {
+  position: absolute;
+  bottom: 30px;
+  right: 0px;
+}
+
+.dcl.field .overlay .ui.button {
+  height: 44px;
+}
