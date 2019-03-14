@@ -12,11 +12,33 @@ export type FieldProps = InputProps & {
 }
 
 export class Field extends React.PureComponent<FieldProps> {
+  hasAction() {
+    let { loading, error, action, onAction } = this.props
+    return !this.isAddress() && !loading && !error && action && onAction
+  }
+
+  isAddress() {
+    const { type } = this.props
+    return type === 'address'
+  }
+
   render() {
-    let { value, label, error, message, type, loading, action, onAction, disabled, ...rest } = this.props
-    const isAddress = type === 'address'
+    let {
+      value,
+      label,
+      error,
+      message,
+      type,
+      loading,
+      action,
+      onAction,
+      disabled,
+      ...rest
+    } = this.props
+    const isAddress = this.isAddress()
     let classes = 'dcl field'
     let icon
+
     if (error) {
       classes += ' error'
       if (!isAddress) {
@@ -25,6 +47,12 @@ export class Field extends React.PureComponent<FieldProps> {
     }
     if (isAddress) {
       classes += ' address'
+    }
+
+    if (isAddress && action) {
+      console.warn(
+        `The address fields don't support actions, "${action}" will be ignored`
+      )
     }
 
     return (
@@ -38,15 +66,18 @@ export class Field extends React.PureComponent<FieldProps> {
           disabled={disabled}
           {...rest as any}
         />
-        {!loading && action && onAction && (
+        {this.hasAction() && (
           <div className="overlay">
             <Button onClick={onAction} disabled={disabled} basic>
               {action}
             </Button>
           </div>
         )}
-        {isAddress && value ? <Blockie seed={value} scale={4} /> : null}
-        <p className="message">{message}&nbsp;</p>
+        {this.isAddress() && value ? <Blockie seed={value} scale={4} /> : null}
+        <p className="message">
+          {message}
+          &nbsp;
+        </p>
       </div>
     )
   }
