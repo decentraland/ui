@@ -3151,6 +3151,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Agora 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3185,6 +3192,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Agora 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -3275,6 +3289,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3329,6 +3350,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connected 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -3419,6 +3447,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3464,6 +3499,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Connecting 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -3554,6 +3596,13 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3608,6 +3657,13 @@ exports[`Decentraland UI - Coverage Tests Navbar On click account 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -3698,6 +3754,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3743,6 +3806,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -3833,6 +3903,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In Page 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -3878,6 +3955,13 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In Page 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -4017,6 +4101,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -4085,6 +4176,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
@@ -4175,6 +4273,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
               </a>
               <a
                 className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
                 href="https://docs.decentraland.org"
                 onClick={[Function]}
               >
@@ -4243,6 +4348,13 @@ exports[`Decentraland UI - Coverage Tests Navbar With menu items 1`] = `
             onClick={[Function]}
           >
             Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
           </a>
           <a
             className="item"
