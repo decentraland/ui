@@ -420,6 +420,7 @@ exports[`Decentraland UI - Coverage Tests Button Icon 1`] = `
       <i
         aria-hidden="true"
         className="edit icon"
+        onClick={[Function]}
       />
       Edit
     </button>
@@ -432,6 +433,7 @@ exports[`Decentraland UI - Coverage Tests Button Icon 1`] = `
       <i
         aria-hidden="true"
         className="edit icon"
+        onClick={[Function]}
       />
       Edit
     </button>
@@ -639,6 +641,7 @@ exports[`Decentraland UI - Coverage Tests Card Polls 1`] = `
             <i
               aria-hidden="true"
               className="chevron right icon"
+              onClick={[Function]}
             />
           </button>
         </div>
@@ -1183,6 +1186,7 @@ exports[`Decentraland UI - Coverage Tests Field Error 1`] = `
         <i
           aria-hidden="true"
           className="warning circle icon"
+          onClick={[Function]}
         />
       </div>
       <p
@@ -1238,6 +1242,7 @@ exports[`Decentraland UI - Coverage Tests Field Loading 1`] = `
         <i
           aria-hidden="true"
           className="spinner icon"
+          onClick={[Function]}
         />
       </div>
       <p
@@ -1927,6 +1932,7 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Button 1`] = `
             <i
               aria-hidden="true"
               className="chevron right icon"
+              onClick={[Function]}
             />
           </button>
         </div>
@@ -4717,7 +4723,6 @@ exports[`Decentraland UI - Coverage Tests Radio Checked 1`] = `
     <div
       className="ui checked radio checkbox"
       onChange={[Function]}
-      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
     >
@@ -4762,7 +4767,6 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
     <div
       className="ui checked radio checkbox"
       onChange={[Function]}
-      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
     >
@@ -4780,7 +4784,6 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
     <div
       className="ui radio checkbox"
       onChange={[Function]}
-      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
     >
@@ -4798,7 +4801,6 @@ exports[`Decentraland UI - Coverage Tests Radio Options 1`] = `
     <div
       className="ui radio checkbox"
       onChange={[Function]}
-      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
     >
@@ -4843,7 +4845,6 @@ exports[`Decentraland UI - Coverage Tests Radio Unchecked 1`] = `
     <div
       className="ui radio checkbox"
       onChange={[Function]}
-      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
     >
