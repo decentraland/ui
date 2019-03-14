@@ -8,6 +8,7 @@ export type NavbarI18N = {
     docs: React.ReactNode
     agora: React.ReactNode
     blog: React.ReactNode
+    builder: React.ReactNode
   }
   account: {
     signIn: React.ReactNode
@@ -18,7 +19,7 @@ export type NavbarI18N = {
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog'
+  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog' | 'builder'
   menuItems?: React.ReactNode
   i18n?: NavbarI18N
   isConnected?: boolean
@@ -43,7 +44,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         marketplace: 'Marketplace',
         docs: 'Docs',
         agora: 'Agora',
-        blog: 'Blog'
+        blog: 'Blog',
+        builder: 'Builder'
       },
       account: {
         signIn: 'Sign In',
@@ -84,6 +86,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           href="https://market.decentraland.org"
         >
           {i18n.menu.marketplace}
+        </Menu.Item>
+        <Menu.Item
+          active={activePage === 'builder'}
+          href="https://builder.decentraland.org"
+        >
+          {i18n.menu.builder}
         </Menu.Item>
         <Menu.Item
           active={activePage === 'docs'}
