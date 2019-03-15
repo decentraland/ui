@@ -9,7 +9,7 @@
 }
 
 .ui.pagination.menu .item {
-  border-radius: var(--radius);
+  border-radius: 6px;
   font-size: 14px;
   color: var(--text);
   padding: 11.5px;
@@ -42,5 +42,5 @@
 }
 
 .ui.pagination.menu .item:last-child {
-  border-radius: var(--radius);
+  border-radius: 6px;
 }

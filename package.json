@@ -7,11 +7,12 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test:coverage": "jest test/coverage/coverage.test.ts --coverage",
-    "test:visual": "jest test/visual/visual.test.ts",
-    "test:ci": "npm run test:coverage && codecov && npm run build:storybook && npm run test:visual",
+    "test:visual": "npm run build:storybook && jest test/visual/visual.test.ts",
+    "test:visual:without-build": "jest test/visual/visual.test.ts",
+    "test": "npm run test:coverage && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
-    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && sed -i -e 's/Storybook/UI | Decentraland/' ./storybook-static/index.html",
+    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && node postbuild",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
@@ -94,7 +95,7 @@
   },
   "jest": {
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "ts-jest"
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
@@ -111,7 +112,9 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/test/__config__/setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/__config__/setup.js"
+    ],
     "collectCoverageFrom": [
       "src/components/**/*.(ts|tsx|js)"
     ]

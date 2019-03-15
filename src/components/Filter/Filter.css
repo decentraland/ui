@@ -1,0 +1,38 @@
+.dcl.filter {
+  font-size: 13px;
+  line-height: 18px;
+  padding: 5px 12px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.dcl.filter + .dcl.filter {
+  margin-left: 12px;
+}
+
+.dcl.filter .filter-background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: var(--secondary-text);
+  border-radius: 14px;
+  opacity: 0.08;
+}
+
+.dcl.filter > span {
+  position: relative;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+}
+
+.dcl.filter.active .filter-background {
+  background: var(--primary);
+  opacity: 0.16;
+}
+
+.dcl.filter.active > span {
+  color: var(--primary);
+}

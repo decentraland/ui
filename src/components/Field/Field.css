@@ -13,10 +13,11 @@
   padding: 0px;
   padding-bottom: 12px;
   padding-top: 4px;
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 28px;
   font-weight: 500;
   border: none;
-  border-bottom: 2px solid var(--outline);
+  border-bottom: 2px solid var(--divider);
   border-radius: 0px;
   color: var(--text);
   background: transparent;
@@ -40,7 +41,7 @@
   height: 36px;
 }
 .dcl.field .ui.input.loading > i.icon:before {
-  border-color: var(--outline);
+  border-color: var(--divider);
   border-width: 2px;
 }
 .dcl.field .ui.input.loading > i.icon:after {
@@ -50,8 +51,13 @@
 
 /* Disabled */
 
-.dcl.field .ui.input.disabled input {
-  color: var(--disabled-text);
+.dcl.field.disabled .ui.header.sub,
+.dcl.field.disabled .ui.input {
+  opacity: 0.5;
+}
+
+.dcl.field.disabled .ui.input {
+  opacity: 0.5;
 }
 
 /* Error */

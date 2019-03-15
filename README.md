@@ -109,23 +109,31 @@ $ npm start
 
 ## Tests
 
-Run coverage tests:
+Run all tests
+
+```
+npm run test
+```
+
+Run coverage only tests:
 
 ```
 npm run test:coverage
 ```
 
-Run visual tests
+Build and run visual tests
 
 ```
 npm run test:visual
 ```
 
+Only run visual tests without building (you must do `npm run build:storybook` at least once before this)
+
+```
+npm run test:visual:without-build
+```
+
 To update the snapshots add `-- -u` after the test you want to update, i.e: `npm run test:visual -- -u`
-
-**IMPORTANT**
-
-You need to `npm run build:storybook` before running `npm run test:visual`!
 
 **BLACKLIST**
 

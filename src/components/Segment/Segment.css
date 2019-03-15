@@ -1,9 +1,28 @@
 .ui.segment {
-  background: var(--card-background);
+  background: var(--card);
   margin: 36px 0px;
   padding: 24px;
   border: none;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 20px 0 var(--shadow);
+  border-radius: 6px;
+  border: var(--outline);
+  box-shadow: var(--shadow-2);
+}
+
+.ui.segment .ui.button:not(.primary) {
+  background-color: var(--secondary-on-modal);
+}
+
+.ui.segment .ui.button:not(.primary):hover {
+  background-color: var(--secondary-on-modal-hover);
+}
+
+.ui.segment .field .ui.input input {
+  border-bottom-color: var(--secondary-on-modal);
+}
+
+/* radio */
+
+.ui.segment .ui.checkbox .box:hover::before,
+.ui.segment .ui.checkbox label:hover::before {
+  border-color: var(--secondary-on-modal);
 }

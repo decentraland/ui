@@ -11,11 +11,6 @@ storiesOf('Mana', module)
       <Mana>1,235,345</Mana>
     </>
   ))
-  .add('Text', () => (
-    <Mana size="small" text>
-      20
-    </Mana>
-  ))
   .add('Sizes', () => (
     <>
       <Mana size="huge">1,000</Mana>

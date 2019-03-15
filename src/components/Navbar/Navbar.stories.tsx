@@ -4,22 +4,17 @@ import { storiesOf } from '@storybook/react'
 import { Navbar, Menu, Icon, Parallax, Hero } from '../..'
 import './Navbar.stories.css'
 
-const width = {
-  width: 1200,
-  height: 450
-}
-
 storiesOf('Navbar', module)
   .add('Agora', () => {
     return (
-      <div style={width}>
-        <Navbar activePage="agora">{undefined}</Navbar>
+      <div className="Navbar-story-container">
+        <Navbar activePage="agora" />
       </div>
     )
   })
   .add('Sign In', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar activePage="agora" onSignIn={action('Clicked on sign in')} />
       </div>
     )
@@ -27,7 +22,7 @@ storiesOf('Navbar', module)
 
   .add('Sign In Page', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           isSignIn
@@ -38,7 +33,7 @@ storiesOf('Navbar', module)
   })
   .add('Connecting', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           onSignIn={action('Clicked on sign in')}
@@ -49,7 +44,7 @@ storiesOf('Navbar', module)
   })
   .add('Connected', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           isConnected
@@ -61,7 +56,7 @@ storiesOf('Navbar', module)
   })
   .add('On click account', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           isConnected
@@ -74,7 +69,7 @@ storiesOf('Navbar', module)
   })
   .add('With menu items', () => {
     return (
-      <div style={width}>
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           isConnected
@@ -93,9 +88,24 @@ storiesOf('Navbar', module)
       </div>
     )
   })
+  .add('Fullscreen', () => {
+    return (
+      <div className="Navbar-story-container">
+        <div className="background" />
+        <Navbar
+          activePage="agora"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={action('Clicked on account menu')}
+          isFullscreen
+        />
+      </div>
+    )
+  })
   .add('With hero', () => {
     return (
-      <div style={width} className="navbar-story">
+      <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
           isConnected
@@ -110,22 +120,22 @@ storiesOf('Navbar', module)
               />
             </Menu.Item>
           }
+          isFullscreen
+        />
+        <Hero
+          title="Help us build Decentraland"
+          subtitle="Join the discussion"
+          height={442}
         >
-          <Hero
-            title="Help us build Decentraland"
-            subtitle="Join the discussion"
-            height={442}
-          >
-            <Parallax>
-              <Parallax.Layer depth={0.3}>
-                <div className="homepage-pyramid small" />
-              </Parallax.Layer>
-              <Parallax.Layer depth={1.5}>
-                <div className="homepage-pyramid large" />
-              </Parallax.Layer>
-            </Parallax>
-          </Hero>
-        </Navbar>
+          <Parallax>
+            <Parallax.Layer depth={0.3}>
+              <div className="homepage-pyramid small" />
+            </Parallax.Layer>
+            <Parallax.Layer depth={1.5}>
+              <div className="homepage-pyramid large" />
+            </Parallax.Layer>
+          </Parallax>
+        </Hero>
       </div>
     )
   })

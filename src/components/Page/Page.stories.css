@@ -1,0 +1,15 @@
+.Page-story-container {
+  position: relative;
+  border: 1px solid var(--divider);
+  overflow: auto;
+  width: 1196px;
+  height: 450px;
+}
+
+.Page-story-container .dcl.hero {
+  background: var(--luisxvi-violet);
+}
+
+.Page-story-container .dcl.hero .ui.header {
+  color: white;
+}

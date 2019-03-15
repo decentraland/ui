@@ -29,11 +29,11 @@
 }
 
 .ui.table thead th {
-  border-bottom: 1px solid var(--outline);
+  border-bottom: 1px solid var(--divider);
 }
 
 .ui.table tr td {
-  border-top: 1px solid var(--outline);
+  border-top: 1px solid var(--divider);
 }
 
 .ui.table td a {

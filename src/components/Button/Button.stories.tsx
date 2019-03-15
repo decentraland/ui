@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button, Icon } from '../..'
+import './Button.stories.css'
 
 storiesOf('Button', module)
   .add('Primary', () => (
@@ -25,39 +26,89 @@ storiesOf('Button', module)
       </Button>
     </>
   ))
+  .add('Link', () => (
+    <>
+      <Button href="https://google.com" primary>
+        google.com
+      </Button>
+    </>
+  ))
   .add('Icon', () => (
     <>
       <Button basic>
-        <Icon name="edit" />Edit
-      </Button>
-      <Button basic disabled>
-        <Icon name="edit" />Edit
+        <Icon name="edit" />
+        Edit
       </Button>
     </>
   ))
   .add('Sizes', () => (
     <>
-      <Button primary size="massive">
-        Massive
-      </Button>
-      <Button primary size="huge">
-        Huge
-      </Button>
-      <Button primary size="large">
-        Large
-      </Button>
-      <Button primary size="medium">
-        Medium
-      </Button>
-      <Button primary size="small">
-        Small
-      </Button>
-      <Button primary size="tiny">
-        Tiny
-      </Button>
-      <Button primary size="mini">
-        Mini
-      </Button>
+      <div className="button-story-row">
+        <Button primary size="large">
+          Really Long Label
+        </Button>
+        <Button primary size="large">
+          Min Width
+        </Button>
+        <Button primary disabled size="large">
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button size="large">Really Long Label</Button>
+        <Button size="large">Min Width</Button>
+        <Button disabled size="large">
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button primary>Really Long Label</Button>
+        <Button primary>Min Width</Button>
+        <Button primary disabled>
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button>Really Long Label</Button>
+        <Button>Min Width</Button>
+        <Button disabled>Disabled</Button>
+      </div>
+      <div className="button-story-row">
+        <Button primary size="small">
+          Really Long Label
+        </Button>
+        <Button primary size="small">
+          Min Width
+        </Button>
+        <Button primary disabled size="small">
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button size="small">Really Long Label</Button>
+        <Button size="small">Min Width</Button>
+        <Button disabled size="small">
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button primary size="tiny">
+          Really Long Label
+        </Button>
+        <Button primary size="tiny">
+          Min Width
+        </Button>
+        <Button primary disabled size="tiny">
+          Disabled
+        </Button>
+      </div>
+      <div className="button-story-row">
+        <Button size="tiny">Really Long Label</Button>
+        <Button size="tiny">Min Width</Button>
+        <Button disabled size="tiny">
+          Disabled
+        </Button>
+      </div>
     </>
   ))
   .add('Actions', () => (

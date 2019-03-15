@@ -9,6 +9,12 @@
   flex: 1 0 auto;
 }
 
+.dcl.header-menu .dcl.header-menu-left,
+.dcl.header-menu .dcl.header-menu-right {
+  display: flex;
+  align-items: center;
+}
+
 .dcl.header-menu .ui.header {
   margin-bottom: 0px;
 }

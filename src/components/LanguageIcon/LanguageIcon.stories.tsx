@@ -6,7 +6,7 @@ import './LanguageIcon.stories.css'
 storiesOf('LanguageIcon', module)
   .add('Single', () => <LanguageIcon locale="en" />)
   .add('Options', () => (
-    <div className="story">
+    <div className="LanguageIcon-story">
       <LanguageIcon locale="en" label="English" />
       <LanguageIcon locale="es" label="Spanish" />
       <LanguageIcon locale="fr" label="French" />
