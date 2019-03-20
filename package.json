@@ -94,7 +94,7 @@
   },
   "jest": {
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "ts-jest"
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
@@ -111,7 +111,9 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/test/__config__/setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/__config__/setup.js"
+    ],
     "collectCoverageFrom": [
       "src/components/**/*.(ts|tsx|js)"
     ]

@@ -60,7 +60,7 @@ exports[`Decentraland UI - Coverage Tests Address In a paragraph 1`] = `
       <strong
         className="dcl address"
       >
-        0x68...63cE
+        0x68FF…63cE
       </strong>
       .
     </p>
@@ -94,7 +94,7 @@ exports[`Decentraland UI - Coverage Tests Address Plain 1`] = `
     <span
       className="dcl address"
     >
-      0x68...63cE
+      0x68FF…63cE
     </span>
   </div>
 </div>
@@ -126,7 +126,7 @@ exports[`Decentraland UI - Coverage Tests Address Strong 1`] = `
     <strong
       className="dcl address"
     >
-      0x68...63cE
+      0x68FF…63cE
     </strong>
   </div>
 </div>
@@ -160,7 +160,7 @@ exports[`Decentraland UI - Coverage Tests Address Tooltip 1`] = `
       data-balloon="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
       data-balloon-pos="up"
     >
-      0x68...63cE
+      0x68FF…63cE
     </span>
   </div>
 </div>
@@ -215,7 +215,7 @@ exports[`Decentraland UI - Coverage Tests Blockie In a paragraph 1`] = `
           <strong
             className="dcl address"
           >
-            0x68...63cE
+            0x68FF…63cE
           </strong>
         </span>
       </span>

@@ -1,6 +1,6 @@
 const { configure, addDecorator } = require('@storybook/react')
 const centered = require('@storybook/addon-centered').default
-const { setOptions } = require('@storybook/addon-options')
+const { withOptions } = require('@storybook/addon-options')
 
 let themeSwitcher
 let darkTheme
@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== 'test') {
   lightTheme = require('../src/themes/alternative/light-theme.css')
 }
 
-setOptions({
+withOptions({
   name: 'decentraland-ui',
   url: 'https://github.com/decentraland/ui',
   goFullScreen: false,
