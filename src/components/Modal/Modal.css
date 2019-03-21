@@ -6,7 +6,11 @@
 .ui.modal > .content,
 .ui.modal > .header,
 .ui.modal > .description,
-.ui.modal > .actions {
+.ui.modal > .actions,
+.ui.modal > .ui.form > .content,
+.ui.modal > .ui.form > .header,
+.ui.modal > .ui.form > .description,
+.ui.modal > .ui.form > .actions {
   background: var(--modal);
 }
 
@@ -17,16 +21,19 @@
   font-size: 17px;
 }
 
-.ui.modal > .header {
+.ui.modal > .header,
+.ui.modal > .ui.form > .header {
   color: var(--text);
   border-bottom: none;
 }
-.ui.modal > .actions {
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
   border-top: none;
   display: flex;
 }
 
-.ui.modal > .actions > .ui.button {
+.ui.modal > .actions > .ui.button,
+.ui.modal > .ui.form > .actions > .ui.button {
   flex: 1 0 auto;
 }
 
@@ -35,7 +42,9 @@
 }
 
 .ui.modal > .header:not(.ui),
-.ui.modal > .content {
+.ui.modal > .ui.form > .header:not(.ui),
+.ui.modal > .content,
+.ui.modal > .ui.form > .content {
   margin-bottom: 20px;
   margin-top: 28px;
   margin-left: 32px;
@@ -43,11 +52,13 @@
   padding: 0px;
 }
 
-.ui.modal > .content {
+.ui.modal > .content,
+.ui.modal > .ui.form > .content {
   width: auto;
 }
 
-.ui.modal > .actions {
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
   margin-bottom: 32px;
   margin-top: 28px;
   margin-left: 32px;
@@ -60,14 +71,16 @@
 }
 
 .ui.modal > .header:not(.ui),
-.ui.small.modal > .header:not(.ui) {
+.ui.small.modal > .header:not(.ui),
+.ui.small.modal > .ui.form > .header:not(.ui) {
   font-family: var(--font-print);
   font-size: 28px;
   line-height: 34px;
   font-weight: 400;
 }
 
-.ui.modal > .description {
+.ui.modal > .description,
+.ui.modal > .ui.form > .description {
   font-family: var(--font-print);
   margin-left: 32px;
   margin-right: 32px;
@@ -81,7 +94,9 @@
 }
 
 .ui.modal > :last-child.content,
-.ui.modal > .actions {
+.ui.modal > .ui.form > :last-child.content,
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
   border-bottom-left-radius: var(--modal-border-radius);
   border-bottom-right-radius: var(--modal-border-radius);
 }
@@ -105,11 +120,15 @@
 
 /* buttons */
 
-.ui.modal > .actions > .ui.button:not(.primary) {
+.ui.modal > .actions > .ui.button:not(.primary),
+.ui.modal > .ui.form > .actions > .ui.button:not(.primary),
+.ui.modal .ui.button:not(.primary) {
   background-color: var(--secondary-on-modal);
 }
 
-.ui.modal > .actions > .ui.button:not(.primary):hover {
+.ui.modal > .actions > .ui.button:not(.primary):hover,
+.ui.modal > .ui.form > .actions > .ui.button:not(.primary):hover,
+.ui.modal .ui.button:not(.primary):hover {
   background-color: var(--secondary-on-modal-hover);
 }
 

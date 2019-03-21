@@ -29,7 +29,7 @@
   --card: #242129;
   --outline: 1px solid #00000005;
   --modal: #242129;
-  --dimmer: #18141add;
+  --dimmer: #000000dd;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);

@@ -3,15 +3,25 @@ import './Row.css'
 
 export type RowProps = {
   center?: boolean
+  className?: string
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 export class Row extends React.PureComponent<RowProps> {
   static defaultProps: Partial<RowProps> = {
-    center: false
+    center: false,
+    className: ''
   }
 
   render() {
-    const { children, center } = this.props
-    return <div className={`dcl row ${center ? 'center' : ''}`}>{children}</div>
+    const { children, className, onClick, center } = this.props
+    return (
+      <div
+        className={`dcl row ${center ? 'center' : ''} ${className}`}
+        onClick={onClick}
+      >
+        {children}
+      </div>
+    )
   }
 }

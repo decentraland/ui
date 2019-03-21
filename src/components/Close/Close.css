@@ -37,7 +37,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/close-mini.svg);
+  background-image: url(../../assets/close-small.svg);
   background-repeat: no-repeat;
   background-position: center;
   filter: var(--brightness);

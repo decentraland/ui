@@ -3,17 +3,25 @@ import './Column.css'
 
 export type ColumnProps = {
   center?: boolean
+  className?: string
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 export class Column extends React.PureComponent<ColumnProps> {
   static defaultProps: Partial<ColumnProps> = {
-    center: false
+    center: false,
+    className: ''
   }
 
   render() {
-    const { children, center } = this.props
+    const { children, className, center, onClick } = this.props
     return (
-      <div className={`dcl column ${center ? 'center' : ''}`}>{children}</div>
+      <div
+        className={`dcl column ${center ? 'center' : ''} ${className}`}
+        onClick={onClick}
+      >
+        {children}
+      </div>
     )
   }
 }

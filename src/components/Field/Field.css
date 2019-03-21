@@ -109,3 +109,9 @@
 .dcl.field .overlay .ui.button {
   height: 44px;
 }
+
+/* Icon */
+
+.dcl.field .ui.input .icon {
+  color: var(--text);
+}
