@@ -17,6 +17,7 @@
   height: 400px;
   margin-left: -100px;
   margin-top: 250px;
+  filter: var(--pyramid-small-brightness);
 }
 
 .story .hero-pyramid.large {
@@ -24,4 +25,5 @@
   height: 1000px;
   margin-top: -200px;
   margin-left: 300px;
+  filter: var(--pyramid-large-brightness);
 }

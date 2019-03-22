@@ -20,3 +20,8 @@ storiesOf('Radio', module)
       <Radio label="Abstain" />
     </>
   ))
+  .add('Toggle', () => (
+    <>
+      <Radio toggle label="On Sale" />
+    </>
+  ))

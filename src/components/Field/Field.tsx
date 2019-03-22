@@ -48,6 +48,9 @@ export class Field extends React.PureComponent<FieldProps> {
     if (isAddress) {
       classes += ' address'
     }
+    if (disabled) {
+      classes += ' disabled'
+    }
 
     if (isAddress && action) {
       console.warn(
@@ -61,7 +64,7 @@ export class Field extends React.PureComponent<FieldProps> {
         <Input
           value={value}
           type={isAddress ? 'text' : type}
-          icon={icon}
+          icon={icon ? icon : void 0}
           loading={loading && !isAddress}
           disabled={disabled}
           {...rest as any}

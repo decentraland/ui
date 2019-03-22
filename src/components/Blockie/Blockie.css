@@ -1,20 +1,20 @@
 .dcl.blockie {
-  border-radius: var(--radius);
+  border-radius: 6px;
   vertical-align: text-bottom;
   line-height: 0.5em;
   margin-left: 0.1em;
 }
 
 .dcl.blockie.small {
-  border-radius: calc(var(--radius) / 1.5);
+  border-radius: 4px;
 }
 
 .dcl.blockie.tiny {
-  border-radius: calc(var(--radius) / 2);
+  border-radius: 3px;
 }
 
 .dcl.blockie.mini {
-  border-radius: calc(var(--radius) / 4);
+  border-radius: 1.5px;
 }
 
 .dcl.blockie + .dcl.blockie {

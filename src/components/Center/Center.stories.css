@@ -1,18 +1,18 @@
-.story.container {
+.story-container {
   position: relative;
   display: inline-block;
   width: 300px;
   height: 300px;
-  border: 1px solid #eee;
+  border: 1px solid var(--text);
 }
 
-.story.container + .story.container {
+.story-container + .story-container {
   border-left: none;
 }
 
-.story.hello {
+.story-container .hello {
   display: inline-block;
-  background: white;
-  border: 1px solid #eee;
+  background: var(--background);
+  border: 1px solid var(--text);
   padding: 10px;
 }

@@ -1,0 +1,74 @@
+:root {
+  --popup-outline: 1px solid #0000000a;
+}
+
+.ui.popup,
+.ui.inverted.popup {
+  color: var(--popup-text);
+  background-color: var(--popup);
+  border: var(--popup-outline);
+}
+
+.ui.top.center.popup:before,
+.ui.top.left.popup:before,
+.ui.top.right.popup:before,
+.ui.inverted.top.center.popup:before,
+.ui.inverted.top.left.popup:before,
+.ui.inverted.top.right.popup:before {
+  box-shadow: var(--shadow-1);
+}
+
+.ui.bottom.center.popup:before,
+.ui.bottom.left.popup:before,
+.ui.bottom.right.popup:before,
+.ui.inverted.bottom.center.popup:before,
+.ui.inverted.bottom.left.popup:before,
+.ui.inverted.bottom.right.popup:before {
+  box-shadow: none;
+}
+
+.ui.bottom.popup:before,
+.ui.top.popup:before,
+.ui.inverted.bottom.popup:before,
+.ui.inverted.top.popup:before {
+  background-color: var(--popup);
+}
+
+.ui.popup,
+.ui.inverted.popup {
+  box-shadow: var(--shadow-1);
+  height: 32px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.38;
+  padding: 7px 12px;
+}
+
+.ui.popup .content,
+.ui.inverted.popup .content {
+  color: var(--popup-text);
+}
+
+.ui.top.center.popup:before,
+.ui.top.left.popup:before,
+.ui.top.right.popup:before,
+.ui.inverted.top.center.popup:before,
+.ui.inverted.top.left.popup:before,
+.ui.inverted.top.right.popup:before {
+  bottom: -6px;
+  border-bottom: var(--popup-outline);
+  border-right: var(--popup-outline);
+}
+
+.ui.bottom.center.popup:before,
+.ui.bottom.left.popup:before,
+.ui.bottom.right.popup:before,
+.ui.inverted.bottom.center.popup:before,
+.ui.inverted.bottom.left.popup:before,
+.ui.inverted.bottom.right.popup:before {
+  top: -6px;
+  border-top: var(--popup-outline);
+  border-left: var(--popup-outline);
+}

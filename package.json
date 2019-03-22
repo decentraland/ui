@@ -7,11 +7,12 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test:coverage": "jest test/coverage/coverage.test.ts --coverage",
-    "test:visual": "jest test/visual/visual.test.ts",
-    "test:ci": "npm run test:coverage && codecov && npm run build:storybook && npm run test:visual",
+    "test:visual": "npm run build:storybook && jest test/visual/visual.test.ts",
+    "test:visual:without-build": "jest test/visual/visual.test.ts",
+    "test": "npm run test:coverage && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
-    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && sed -i -e 's/Storybook/UI | Decentraland/' ./storybook-static/index.html",
+    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && cp now.json ./storybook-static && node postbuild",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },

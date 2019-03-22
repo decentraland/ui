@@ -1,0 +1,10 @@
+.dcl.row {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.dcl.row.center {
+  justify-content: center;
+}

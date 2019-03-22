@@ -13,9 +13,9 @@
 
 .ui.dropdown .menu,
 .ui.upward.dropdown > .menu {
-  background-color: var(--card-background);
-  border: solid 1px var(--border);
-  box-shadow: 0 16px 32px 0 var(--shadow);
+  background-color: var(--dropdown);
+  border: var(--outline);
+  box-shadow: var(--shadow-2);
   margin-top: 13px;
   padding: 8px 0px;
   border-radius: 6px;
@@ -32,7 +32,7 @@
 
 .ui.dropdown .menu > .item:hover {
   color: var(--text);
-  background-color: var(--hover);
+  background-color: var(--dropdown-hover);
 }
 
 .ui.dropdown .menu > .item > .description {
@@ -41,5 +41,5 @@
 
 .ui.dropdown .menu .active.item {
   font-weight: 500;
-  background-color: var(--hover);
+  background-color: var(--dropdown-hover);
 }

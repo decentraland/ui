@@ -11,21 +11,23 @@ if (process.env.NODE_ENV !== 'test') {
   lightTheme = require('../src/themes/alternative/light-theme.css')
 }
 
-withOptions({
-  name: 'decentraland-ui',
-  url: 'https://github.com/decentraland/ui',
-  goFullScreen: false,
-  showStoriesPanel: true,
-  showAddonPanel: true,
-  showSearchBox: false,
-  addonPanelInRight: false,
-  sortStoriesByKind: false,
-  hierarchySeparator: null,
-  hierarchyRootSeparator: null,
-  sidebarAnimations: true,
-  selectedAddonPanel: undefined,
-  enableShortcuts: false // true by default
-})
+addDecorator(
+  withOptions({
+    name: 'decentraland-ui',
+    url: 'https://github.com/decentraland/ui',
+    goFullScreen: false,
+    showStoriesPanel: true,
+    showAddonPanel: true,
+    showSearchBox: false,
+    addonPanelInRight: false,
+    sortStoriesByKind: false,
+    hierarchySeparator: null,
+    hierarchyRootSeparator: null,
+    sidebarAnimations: true,
+    selectedAddonPanel: undefined,
+    enableShortcuts: false // true by default
+  })
+)
 
 addDecorator(centered)
 if (process.env.NODE_ENV !== 'test') {

@@ -5,7 +5,7 @@ import initStoryshots, {
 /*
   Components that should be skipped from this test suite
 */
-const blacklist = ['Modal']
+const blacklist = ['Modal', 'Popup']
 
 const coverageTest = {
   suite: 'Decentraland UI - Coverage Tests',

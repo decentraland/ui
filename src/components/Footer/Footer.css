@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   height: var(--footer-height);
+  margin-top: var(--footer-margin-top);
 }
 
 .dcl.footer .main-footer {

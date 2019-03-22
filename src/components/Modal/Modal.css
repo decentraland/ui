@@ -1,17 +1,146 @@
+:root {
+  --modal-border-radius: 16px;
+}
+
+.ui.modal,
+.ui.modal > .content,
+.ui.modal > .header,
+.ui.modal > .description,
+.ui.modal > .actions,
+.ui.modal > .ui.form > .content,
+.ui.modal > .ui.form > .header,
+.ui.modal > .ui.form > .description,
+.ui.modal > .ui.form > .actions {
+  background: var(--modal);
+}
+
 .ui.modal {
   color: var(--text);
+  border: var(--outline);
+  box-shadow: var(--shadow-3);
+  font-size: 17px;
 }
-.ui.modal,
-.ui.modal > .actions,
-.ui.modal > .content {
-  background: var(--background);
-}
-.ui.modal > .header {
-  background: var(--background);
+
+.ui.modal > .header,
+.ui.modal > .ui.form > .header {
   color: var(--text);
   border-bottom: none;
 }
-.ui.modal > .actions {
-  background: var(--background);
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
   border-top: none;
+  display: flex;
+}
+
+.ui.modal > .actions > .ui.button,
+.ui.modal > .ui.form > .actions > .ui.button {
+  flex: 1 0 auto;
+}
+
+.ui.modal {
+  border-radius: var(--modal-border-radius);
+}
+
+.ui.modal > .header:not(.ui),
+.ui.modal > .ui.form > .header:not(.ui),
+.ui.modal > .content,
+.ui.modal > .ui.form > .content {
+  margin-bottom: 20px;
+  margin-top: 28px;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 0px;
+}
+
+.ui.modal > .content,
+.ui.modal > .ui.form > .content {
+  width: auto;
+}
+
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
+  margin-bottom: 32px;
+  margin-top: 28px;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 0px;
+}
+
+.ui.modal .actions > .button:first-child {
+  margin-left: 0px;
+}
+
+.ui.modal > .header:not(.ui),
+.ui.small.modal > .header:not(.ui),
+.ui.small.modal > .ui.form > .header:not(.ui) {
+  font-family: var(--font-print);
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 400;
+}
+
+.ui.modal > .description,
+.ui.modal > .ui.form > .description {
+  font-family: var(--font-print);
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  font-weight: 200;
+  padding: 0px;
+}
+
+.ui.modal > :last-child.content,
+.ui.modal > .ui.form > :last-child.content,
+.ui.modal > .actions,
+.ui.modal > .ui.form > .actions {
+  border-bottom-left-radius: var(--modal-border-radius);
+  border-bottom-right-radius: var(--modal-border-radius);
+}
+
+.ui.modal > .header ~ .content {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.ui.modal .header,
+.ui.modal > :first-child:not(.icon),
+.ui.modal > :first-child.dcl.close + .content {
+  border-top-left-radius: var(--modal-border-radius);
+  border-top-right-radius: var(--modal-border-radius);
+}
+
+.ui.modal .header:last-child {
+  border-bottom-left-radius: var(--modal-border-radius);
+  border-bottom-right-radius: var(--modal-border-radius);
+}
+
+/* buttons */
+
+.ui.modal > .actions > .ui.button:not(.primary),
+.ui.modal > .ui.form > .actions > .ui.button:not(.primary),
+.ui.modal .ui.button:not(.primary) {
+  background-color: var(--secondary-on-modal);
+}
+
+.ui.modal > .actions > .ui.button:not(.primary):hover,
+.ui.modal > .ui.form > .actions > .ui.button:not(.primary):hover,
+.ui.modal .ui.button:not(.primary):hover {
+  background-color: var(--secondary-on-modal-hover);
+}
+
+/* input */
+
+.ui.modal .field .ui.input input {
+  border-bottom-color: var(--secondary-on-modal);
+}
+
+/* radio */
+
+.ui.modal .ui.checkbox .box:hover::before,
+.ui.modal .ui.checkbox label:hover::before {
+  border-color: var(--secondary-on-modal);
 }

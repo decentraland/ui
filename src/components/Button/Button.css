@@ -1,131 +1,119 @@
-.ui.button,
-.ui.button.secondary {
-  background-image: var(--secondary);
-  background: var(--secondary);
-  color: var(--text-on-secondary);
-  font-family: var(--font-print);
-  padding: 0.7em 2em;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 500;
+.ui.button {
   font-style: normal;
   font-stretch: expanded;
-  line-height: 1.71;
   letter-spacing: normal;
   text-transform: uppercase;
+  font-family: var(--font-family);
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-.ui.button a,
-.ui.button.secondary a {
-  color: var(--text-on-secondary);
+/* hover */
+.ui.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06);
 }
 
-.ui.button:hover,
-.ui.button:active,
-.ui.button.secondary:hover,
-.ui.button.secondary:active {
-  color: var(--text-on-secondary);
-  background-image: var(--secondary);
+/* sizes */
+
+.ui.button.mini {
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+  line-height: 14px;
+  min-width: 60px;
+}
+
+.ui.button.tiny {
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 16px;
+  min-width: 80px;
+}
+
+.ui.button.small {
+  padding: 7px 20px;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 18px;
+  min-width: 128px;
+}
+
+.ui.button.medium,
+.ui.button {
+  padding: 13px 32px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  min-width: 128px;
+}
+
+.ui.button.large,
+.ui.button.huge,
+.ui.button.massive {
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 24px;
+  min-width: 160px;
+}
+
+/* disabled */
+
+.ui.button.disabled {
+  opacity: 0.5;
+}
+
+/* primary and secondary */
+
+.ui.button,
+.ui.button.secondary {
   background-color: var(--secondary);
-  background: var(--secondary);
-}
-.ui.button:hover a,
-.ui.button:active a,
-.ui.button.secondary:hover a,
-.ui.button.secondary:active a {
-  color: var(--text-on-secondary);
-}
-
-.ui.button:focus,
-.ui.button.secondary:focus {
-  color: var(--text-on-secondary);
-  background-image: var(--secondary);
-  background-color: var(--secondary);
-  background: var(--secondary);
-  opacity: 0.95;
-}
-
-.ui.button:focus a,
-.ui.button.secondary:focus a {
-  color: var(--text-on-secondary);
-}
-
-.ui.button:disabled,
-.ui.button.secondary:disabled {
-  opacity: 0.4 !important; /* this !important is due to an important in semantic-ui-css */
-  color: var(--text-on-secondary);
-  background-image: var(
-    --secondary
-  ) !important; /* this !important is due to an important in semantic-ui-css */
-}
-
-.ui.button:disabled a,
-.ui.button.secondary:disabled a {
   color: var(--text-on-secondary);
 }
 
 .ui.button.primary {
-  background-image: linear-gradient(to top, var(--primary), var(--primary));
-  background: linear-gradient(to top, var(--primary), var(--primary));
+  background-color: var(--primary);
   color: var(--text-on-primary);
+}
+
+.ui.button:hover,
+.ui.button.secondary:hover,
+.ui.button:active,
+.ui.button.secondary:active,
+.ui.button:focus,
+.ui.button.secondary:focus {
+  background-color: var(--secondary-hover);
+  color: var(--text-on-secondary);
+}
+
+.ui.button.primary:hover,
+.ui.button.primary:active,
+.ui.button.primary:focus {
+  background-color: var(--primary-hover);
+  color: var(--text-on-primary);
+}
+
+/* links */
+
+.ui.button a,
+.ui.button.secondary a,
+.ui.button:hover a,
+.ui.button.secondary:hover a,
+.ui.button:active a,
+.ui.button.secondary:active a,
+.ui.button:focus a,
+.ui.button.secondary:focus a {
+  color: var(--text-on-secondary);
 }
 
 .ui.button.primary a {
   color: var(--text-on-primary);
 }
 
-.ui.button.primary:hover,
-.ui.button.primary:active {
-  color: var(--text-on-primary);
-  background-image: linear-gradient(
-    to top,
-    var(--primary-light),
-    var(--primary)
-  );
-  background-color: linear-gradient(
-    to top,
-    var(--primary-light),
-    var(--primary)
-  );
-  background: linear-gradient(to top, var(--primary-light), var(--primary));
-}
-
-.ui.button.primary:hover a,
-.ui.button.primary:active a {
-  color: var(--text-on-primary);
-}
-
-.ui.button.primary:focus {
-  color: var(--text-on-primary);
-  background-image: linear-gradient(
-    to top,
-    var(--primary-light),
-    var(--primary)
-  );
-  background-color: linear-gradient(
-    to top,
-    var(--primary-light),
-    var(--primary)
-  );
-  background: linear-gradient(to top, var(--primary-light), var(--primary));
-}
-
-.ui.button.primary:focus a {
-  color: var(--text-on-primary);
-}
-
-.ui.button.primary:disabled {
-  color: var(--text-on-primary);
-  background-image: linear-gradient(
-    to top,
-    var(--primary),
-    var(--primary)
-  ) !important; /* this !important is due to an important in semantic-ui-css */
-}
-
-.ui.button.primary:disabled a {
-  color: var(--text-on-primary);
-}
+/* basic */
 
 .ui.button.basic {
   text-transform: uppercase;
@@ -135,6 +123,7 @@
   font-weight: 500;
   box-shadow: none;
   padding: 8px;
+  min-width: auto;
 }
 
 .ui.button.basic a {
@@ -151,16 +140,19 @@
   ) !important; /* this !important is due to an important in semantic-ui-css */
   box-shadow: none;
   background: transparent !important; /* this !important is due to an important in semantic-ui-css */
+  transform: translateY(0px);
 }
 
 .ui.button.basic:hover a,
 .ui.button.basic:focus a,
 .ui.button.basic:active a {
   color: var(
-    --primary
+    --primary-hover
   ) !important; /* this !important is due to an important in semantic-ui-css */
 }
 
+/* button group */
+
 .ui.button + .ui.button {
-  margin-left: 1em;
+  margin-left: 16px;
 }

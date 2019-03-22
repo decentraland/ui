@@ -1,38 +1,52 @@
 :root {
   /* sizes */
   --navbar-height: 64px;
-  --navbar-height-mobile: 56px;
   --navbar-margin-bottom: 44px;
   --footer-height: 56px;
-  --page-vertical-padding: 10px;
-  --page-horizontal-padding: 20px;
+  --footer-margin-top: 96px;
 
   /* z-indexes */
   --z-index-navbar: 1000;
 
   /* fonts */
-  --font-print: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-monospace: "Inconsolata", "Consolas", "Droid Sans Mono", "Monaco",
     "Courier New", monospace;
 
   /* colors */
   --neon-blue: #00d3ff;
-  --neon-red: #ff2d55;
-  --orange-yellow: #ffa900;
-  --orange: #ff9a74;
-  --dark: #181f33;
-  --gray: #5c5c6e;
-  --dark-blue-grey: #0a0f1f;
-  --pale-strawberry: #ff85a5;
-  --fuchsia: #eb85ff;
-  --purple: #8d85ff;
-  --light-blue: #85c0ff;
-  --sunrise: #ffb485;
+  --summer-red: #ff2d55;
+  --void: #16141a;
+  --luisxvi-violet: #a524b3;
+  --idontfeelthatwell: #f3f2f5;
+  --shadows: #242129;
+  --night-time: #691fa9;
+  --bluish-steel: #676370;
+  --innocence: #ffffff;
+  --candy-purple: #c640cd;
+  --sunish: #ffbc5b;
+  --millenial-orange: #fc9965;
+  --oj-not-simpson: #ff7439;
+
+  /* raw colors */
+  --neon-blue-raw: 0, 211, 255;
+  --summer-red-raw: 255, 45, 85;
+  --void-raw: 22, 20, 26;
+  --luisxvi-violet-raw: 165, 36, 179;
+  --idontfeelthatwell-raw: 243, 242, 245;
+  --shadows-raw: 36, 33, 41;
+  --night-time-raw: 105, 31, 169;
+  --bluish-steel-raw: 103, 99, 112;
+  --innocence-raw: 255, 255, 255;
+  --candy-purple-raw: 198, 64, 205;
+  --sunish-raw: 255, 188, 91;
+  --millenial-orange-raw: 252, 153, 101;
+  --oj-not-simpson-raw: 255, 116, 57;
 }
 
 body {
-  font-family: var(--font-print);
+  font-family: var(--font-family);
   background: var(--background);
   color: var(--text);
 }
@@ -43,7 +57,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-print);
+  font-family: var(--font-family);
   color: var(--text);
 }
 
@@ -57,4 +71,18 @@ a {
 }
 a:hover {
   color: var(--primary);
+}
+
+.text {
+  color: var(--text);
+}
+
+.secondary-text {
+  color: var(--secondary-text);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 56px;
+  }
 }

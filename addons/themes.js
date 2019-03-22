@@ -1,6 +1,20 @@
 const React = require('react')
 const { Checkbox } = require('semantic-ui-react')
 
+/* pyramids */
+
+const darkPyramids = `
+:root {
+  --pyramid-large-brightness: brightness(0.3);
+  --pyramid-small-brightness: brightness(0.2);
+}`
+
+const lightPyramids = `
+:root {
+  --pyramid-large-brightness: brightness(1);
+  --pyramid-small-brightness: brightness(1);
+}`
+
 function addStyle(id, css) {
   removeStyle('switch-theme')
   const head = document.head || document.getElementsByTagName('head')[0]
@@ -37,9 +51,9 @@ class SwitchTheme extends React.PureComponent {
 
   toggleStyle(toggle) {
     if (toggle) {
-      addStyle('switch-theme', this.props.themeA)
+      addStyle('switch-theme', this.props.themeA + darkPyramids)
     } else {
-      addStyle('switch-theme', this.props.themeB)
+      addStyle('switch-theme', this.props.themeB + lightPyramids)
     }
   }
 
@@ -56,7 +70,8 @@ class SwitchTheme extends React.PureComponent {
       {
         style: {
           zIndex: 1000,
-          position: 'fixed'
+          position: 'fixed',
+          bottom: 0
         },
         onClick: this.handleClick.bind(this)
       },
