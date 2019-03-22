@@ -1,8 +1,23 @@
-.ui.dimmer {
-  /* Keep the theme chooser visible */
-  top: 60px !important;
+.Modal-story {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 24px;
 }
 
-.ui.modal > .header {
-  margin-bottom: 0;
+.Modal-custom-header {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: var(--luisxvi-violet);
+}
+
+.Modal-custom-header .ui.header,
+.Modal-custom-header p {
+  color: white;
+}
+
+.ui.dimmer {
+  /* Keep the theme chooser visible */
+  height: calc(100% - 85px);
 }

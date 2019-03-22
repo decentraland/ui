@@ -1,23 +1,46 @@
-.homepage-pyramid {
+.Navbar-story-container {
+  position: relative;
+  border: 1px solid var(--divider);
+  overflow: hidden;
+  width: 1196px;
+  height: 450px;
+}
+
+.Navbar-story-container .homepage-pyramid {
   background: url('../../assets/pyramid.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.homepage-pyramid.small {
+.Navbar-story-container .homepage-pyramid.small {
   width: 400px;
   height: 400px;
   margin-left: -100px;
   margin-top: 250px;
+  filter: var(--pyramid-small-brightness);
 }
 
-.homepage-pyramid.large {
+.Navbar-story-container .homepage-pyramid.large {
   width: 1000px;
   height: 1000px;
   margin-top: -200px;
   margin-left: 300px;
+  filter: var(--pyramid-large-brightness);
 }
 
-.navbar-story .dcl.navbar .dcl.hero {
+.Navbar-story-container .dcl.navbar .dcl.hero {
   background-color: #f2f2f5;
+}
+
+.Navbar-story-container .background {
+  background-image: url(../../assets/background.png);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }

@@ -1,0 +1,4 @@
+.ui.dimmer {
+  z-index: 3000;
+  background-color: var(--dimmer);
+}

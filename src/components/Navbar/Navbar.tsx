@@ -25,6 +25,7 @@ export type NavbarProps = {
   isConnected?: boolean
   isConnecting?: boolean
   isSignIn?: boolean
+  isFullscreen?: boolean
   onSignIn?: () => void
   onClickAccount?: () => void
 }
@@ -54,6 +55,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     },
     isConnected: false,
     isConnecting: false,
+    isFullscreen: false,
     isSignIn: false,
     onSignIn: null,
     onClickAccount: null
@@ -125,26 +127,25 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       isConnected,
       isConnecting,
       isSignIn,
+      isFullscreen,
       onSignIn,
-      onClickAccount,
-      children
+      onClickAccount
     } = this.props
 
     let classes = `dcl navbar`
 
-    if (children) {
-      classes += ' has-children'
-    }
     if (this.state.toggle) {
       classes += ' open'
     }
     if (isSignIn) {
       classes += ' sign-in'
     }
+    if (isFullscreen) {
+      classes += ' fullscreen'
+    }
 
     return (
       <div className={classes} role="navigation">
-        {children ? <div className="children-wrapper">{children}</div> : null}
         <Container>
           <div className="dcl navbar-menu">
             <Responsive

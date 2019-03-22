@@ -1,0 +1,7 @@
+.Tabs-story-container {
+  position: relative;
+  border: 1px solid var(--divider);
+  overflow: hidden;
+  width: 1196px;
+  height: 450px;
+}

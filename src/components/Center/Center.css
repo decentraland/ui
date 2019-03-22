@@ -1,16 +1,19 @@
 .dcl.center {
   position: absolute;
-  top: var(--navbar-height);
+  top: 0px;
   left: 0px;
   right: 0px;
-  bottom: var(--navbar-height);
+  bottom: 0px;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
 }
 
 .dcl.center.screen {
   position: fixed;
+  top: var(--navbar-height);
+  bottom: var(--footer-height);
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,7 @@
+.Popup-story-row {
+  margin-bottom: 20px;
+}
+
+.Popup-story-row b + b {
+  margin-left: 20px;
+}

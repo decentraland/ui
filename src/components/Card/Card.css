@@ -11,10 +11,10 @@
 
 .ui.cards > .ui.card,
 .ui.card {
-  box-shadow: 0 2px 4px 0 var(--shadow);
-  border: solid 1px var(--border);
+  box-shadow: var(--shadow-1);
+  border: var(--outline);
   border-radius: 8px;
-  background-color: var(--card-background);
+  background-color: var(--card);
 }
 
 .ui.cards > .ui.card.link,
@@ -29,10 +29,10 @@
 a.ui.card:hover,
 .ui.cards > .ui.card.link:hover,
 .ui.card.link:hover {
-  box-shadow: 0 10px 20px 0 var(--shadow);
+  box-shadow: var(--shadow-2);
   transform: translateY(-4px);
   cursor: pointer;
-  border: solid 1px var(--border) !important;
+  border: var(--outline) !important;
 }
 
 .ui.card > .content,

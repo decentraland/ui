@@ -1,5 +1,5 @@
 .ui.header {
-  font-family: var(--font-print);
+  font-family: var(--font-family);
   color: var(--text);
   font-weight: 500;
   font-style: normal;

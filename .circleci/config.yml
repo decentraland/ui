@@ -4,7 +4,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:8.4.0
+      - image: circleci/node:10
 
     working_directory: /tmp/ui
 
@@ -32,9 +32,9 @@ jobs:
       - run:
           name: Build static storybook
           command: npm run build:storybook
-      - run:
-          name: Run visual tests
-          command: npm run test:visual
+      # - run:
+      #     name: Run visual tests
+      #     command: npm run test:visual:without-build
       - save_cache:
           paths:
             - storybook-static

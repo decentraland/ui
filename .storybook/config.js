@@ -1,6 +1,6 @@
 const { configure, addDecorator } = require('@storybook/react')
 const centered = require('@storybook/addon-centered').default
-const { setOptions } = require('@storybook/addon-options')
+const { withOptions } = require('@storybook/addon-options')
 
 let themeSwitcher
 let darkTheme
@@ -11,21 +11,23 @@ if (process.env.NODE_ENV !== 'test') {
   lightTheme = require('../src/themes/alternative/light-theme.css')
 }
 
-setOptions({
-  name: 'decentraland-ui',
-  url: 'https://github.com/decentraland/ui',
-  goFullScreen: false,
-  showStoriesPanel: true,
-  showAddonPanel: true,
-  showSearchBox: false,
-  addonPanelInRight: false,
-  sortStoriesByKind: false,
-  hierarchySeparator: null,
-  hierarchyRootSeparator: null,
-  sidebarAnimations: true,
-  selectedAddonPanel: undefined,
-  enableShortcuts: false // true by default
-})
+addDecorator(
+  withOptions({
+    name: 'decentraland-ui',
+    url: 'https://github.com/decentraland/ui',
+    goFullScreen: false,
+    showStoriesPanel: true,
+    showAddonPanel: true,
+    showSearchBox: false,
+    addonPanelInRight: false,
+    sortStoriesByKind: false,
+    hierarchySeparator: null,
+    hierarchyRootSeparator: null,
+    sidebarAnimations: true,
+    selectedAddonPanel: undefined,
+    enableShortcuts: false // true by default
+  })
+)
 
 addDecorator(centered)
 if (process.env.NODE_ENV !== 'test') {

@@ -1,33 +1,44 @@
 :root {
-  /* colors */
-  --primary: #ff2d55;
-  --primary-light: #ff9a74;
-  --primary-dark: #d10038;
-  --secondary: #f2f2f5;
-  --accent: #00d9ff;
+  /* global */
   --background: #ffffff;
   --danger: #ffa900;
+  --error: #ff0000;
+
+  /* buttons */
+  --primary: #ff2d55;
+  --secondary: #f3f2f5;
+  --primary-hover: #ff3d61;
+  --secondary-hover: #ecebed;
+  --secondary-on-modal: #f3f2f5;
+  --secondary-on-modal-hover: #ecebed;
 
   /* text */
-  --text: #0d0d17;
-  --secondary-text: #7d8499;
-  --disabled-text: #a2a2a6;
+  --text: #16141a;
+  --secondary-text: #676370;
   --text-on-primary: #ffffff;
-  --text-on-secondary: #0a0f1f;
+  --text-on-secondary: #16141a;
 
-  /* borders */
-  --radius: 6px;
-  --outline: #e2e2e6;
-  --border: #00000005;
-
-  /* cards */
-  --card-background: #ffffff;
-
-  /* hover */
-  --hover: #f5f5f5;
+  /* ui */
+  --divider: #67637033;
+  --dropdown: #ffffff;
+  --dropdown-hover: #f3f2f5;
+  --popup: #16141a;
+  --popup-text: #ffffff;
+  --navbar-popup: #ffffff;
+  --navbar-popup-hover: #f3f2f5;
+  --card: #ffffff;
+  --outline: 1px solid #00000005;
+  --modal: #ffffff;
+  --dimmer: #ffffffdd;
 
   /* shadows */
-  --shadow: #0000001f;
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.16);
+
+  --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+  --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 
   /* svgs */
   --brightness: brightness(0.1); /* black svgs */

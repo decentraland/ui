@@ -3,12 +3,21 @@ import './Center.css'
 
 export type CenterProps = {
   screen?: boolean
+  className?: string
 }
 
 export class Center extends React.PureComponent<CenterProps> {
   render() {
-    const { screen, children } = this.props
-    const classes = `dcl center ${screen ? 'screen' : ''}`.trim()
-    return <div className={classes}>{children}</div>
+    const { screen, className, children } = this.props
+    let style: any = {}
+    let classes = `dcl center ${screen ? 'screen' : ''}`.trim()
+    if (className) {
+      classes += ' ' + className
+    }
+    return (
+      <div className={classes} style={style}>
+        {children}
+      </div>
+    )
   }
 }
