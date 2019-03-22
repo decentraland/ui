@@ -1,3 +1,4 @@
 .dcl.address {
   color: var(--text);
+  font-family: var(--font-monospace);
 }
