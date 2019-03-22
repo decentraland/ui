@@ -80,7 +80,7 @@ jobs:
           command: cp ./lib/*.css ./storybook-static
       - run:
           name: Deploy to now.sh
-          command: npm init --yes && npm install now --no-save && cp now.json storybook-static && cd storybook-static && ../node_modules/.bin/now --token $NOW_TOKEN --scope=decentraland --target=production
+          command: npm init --yes && npm install now --no-save && cd storybook-static && ../node_modules/.bin/now --token $NOW_TOKEN --scope=decentraland --target=production
 
   release:
     docker:

@@ -12,7 +12,7 @@
     "test": "npm run test:coverage && npm run test:visual",
     "codecov": "codecov",
     "build": "rimraf lib && webpack --config webpack.config.js",
-    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && node postbuild",
+    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && cp now.json ./storybook-static && node postbuild",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
