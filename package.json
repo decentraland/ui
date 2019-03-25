@@ -118,5 +118,9 @@
     "collectCoverageFrom": [
       "src/components/**/*.(ts|tsx|js)"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }

@@ -2489,7 +2489,7 @@ exports[`Decentraland UI - Coverage Tests HeaderMenu With Dropdown and stacked 1
 </div>
 `;
 
-exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
+exports[`Decentraland UI - Coverage Tests Hero Left alignment 1`] = `
 <div
   style={
     Object {
@@ -2520,14 +2520,147 @@ exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
         style={null}
       >
         <div
-          className="ui huge header title"
+          className="ui container"
         >
-          Help us build Decentraland
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
         </div>
         <div
-          className="ui header subtitle"
+          className="ui container"
         >
-          Join the discussion
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl hero centered"
+        style={null}
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
+        </div>
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Decentraland UI - Coverage Tests Hero With actions 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="story"
+    >
+      <div
+        className="dcl hero centered"
+        style={null}
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
+        </div>
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+        <div
+          0={Object {}}
+          className="ui container hero-actions"
+        >
+          <button
+            className="ui primary button"
+            onClick={[Function]}
+          >
+            Do Something
+          </button>
         </div>
       </div>
     </div>
@@ -2562,11 +2695,32 @@ exports[`Decentraland UI - Coverage Tests Hero With content 1`] = `
       className="story"
     >
       <div
-        className="dcl hero"
+        className="dcl hero centered"
         style={null}
       >
         <div
-          className="content"
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
+        </div>
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+        <div
+          0={Object {}}
+          className="hero-content"
         >
           <div
             className="dcl parallax"
@@ -2588,16 +2742,6 @@ exports[`Decentraland UI - Coverage Tests Hero With content 1`] = `
               />
             </div>
           </div>
-        </div>
-        <div
-          className="ui huge header title"
-        >
-          Help us build Decentraland
-        </div>
-        <div
-          className="ui header subtitle"
-        >
-          Join the discussion
         </div>
       </div>
     </div>
@@ -4445,6 +4589,211 @@ exports[`Decentraland UI - Coverage Tests Navbar Sign In Page 1`] = `
 </div>
 `;
 
+exports[`Decentraland UI - Coverage Tests Navbar With Overlay over Hero 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="Navbar-story-container"
+    >
+      <div
+        className="dcl navbar fullscreen overlay"
+        role="navigation"
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            className="dcl navbar-menu"
+          >
+            <div
+              className="ui secondary stackable menu"
+            >
+              <a
+                className="dcl navbar-logo"
+                href="https://decentraland.org"
+              >
+                <i
+                  className="dcl logo"
+                />
+              </a>
+              <a
+                className="item"
+                href="https://market.decentraland.org"
+                onClick={[Function]}
+              >
+                Marketplace
+              </a>
+              <a
+                className="item"
+                href="https://builder.decentraland.org"
+                onClick={[Function]}
+              >
+                Builder
+              </a>
+              <a
+                className="item"
+                href="https://docs.decentraland.org"
+                onClick={[Function]}
+              >
+                Docs
+              </a>
+              <a
+                className="active item"
+                href="https://agora.decentraland.org"
+                onClick={[Function]}
+              >
+                Agora
+              </a>
+              <a
+                className="item"
+                href="https://decentraland.org/blog"
+                onClick={[Function]}
+              >
+                Blog
+              </a>
+            </div>
+          </div>
+          <div
+            className="dcl navbar-account"
+          >
+            <div
+              className="ui secondary dcl navbar-account-menu menu"
+            >
+              <div
+                className="item"
+                onClick={[Function]}
+              >
+                <i
+                  aria-hidden="true"
+                  className="bell icon"
+                  onClick={[Function]}
+                />
+              </div>
+            </div>
+            <span
+              className="dcl account-wrapper clickable"
+              onClick={[Function]}
+            >
+              <div
+                className="ui small header dcl mana"
+                title="200,000 MANA"
+              >
+                <i
+                  className="symbol"
+                >
+                  ⏣
+                </i>
+                200,000
+              </div>
+              <canvas
+                className="dcl blockie small"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          className="mobile-menu"
+        >
+          <a
+            className="item"
+            href="https://market.decentraland.org"
+            onClick={[Function]}
+          >
+            Marketplace
+          </a>
+          <a
+            className="item"
+            href="https://builder.decentraland.org"
+            onClick={[Function]}
+          >
+            Builder
+          </a>
+          <a
+            className="item"
+            href="https://docs.decentraland.org"
+            onClick={[Function]}
+          >
+            Docs
+          </a>
+          <a
+            className="active item"
+            href="https://agora.decentraland.org"
+            onClick={[Function]}
+          >
+            Agora
+          </a>
+          <a
+            className="item"
+            href="https://decentraland.org/blog"
+            onClick={[Function]}
+          >
+            Blog
+          </a>
+        </div>
+      </div>
+      <div
+        className="dcl hero centered over-gradient"
+        style={
+          Object {
+            "height": 442,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
+        </div>
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+        <div
+          0={Object {}}
+          className="hero-content"
+        >
+          <div
+            className="color-layer"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
 <div
   style={
@@ -4608,7 +4957,7 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
         </div>
       </div>
       <div
-        className="dcl hero"
+        className="dcl hero centered"
         style={
           Object {
             "height": 442,
@@ -4617,7 +4966,28 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
         }
       >
         <div
-          className="content"
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui huge header hero-title"
+          >
+            Help us build Decentraland
+          </div>
+        </div>
+        <div
+          className="ui container"
+        >
+          <div
+            0={Object {}}
+            className="ui header hero-subtitle"
+          >
+            Join the discussion
+          </div>
+        </div>
+        <div
+          0={Object {}}
+          className="hero-content"
         >
           <div
             className="dcl parallax"
@@ -4639,16 +5009,6 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
               />
             </div>
           </div>
-        </div>
-        <div
-          className="ui huge header title"
-        >
-          Help us build Decentraland
-        </div>
-        <div
-          className="ui header subtitle"
-        >
-          Join the discussion
         </div>
       </div>
     </div>
@@ -4953,11 +5313,6 @@ exports[`Decentraland UI - Coverage Tests Page Fullscreen page 1`] = `
       </div>
       <div
         className="dcl page fullscreen"
-        style={
-          Object {
-            "marginTop": 0,
-          }
-        }
       >
         <div
           className="dcl center"
@@ -5250,30 +5605,30 @@ exports[`Decentraland UI - Coverage Tests Page Hero page 1`] = `
       </div>
       <div
         className="dcl page fullscreen"
-        style={
-          Object {
-            "marginTop": 0,
-          }
-        }
       >
         <div
-          className="dcl hero"
-          style={
-            Object {
-              "height": 320,
-              "width": undefined,
-            }
-          }
+          className="dcl hero centered"
+          style={null}
         >
           <div
-            className="ui huge header title"
+            className="ui container"
           >
-            ATLAS
+            <div
+              0={Object {}}
+              className="ui huge header hero-title"
+            >
+              ATLAS
+            </div>
           </div>
           <div
-            className="ui header subtitle"
+            className="ui container"
           >
-            or something else
+            <div
+              0={Object {}}
+              className="ui header hero-subtitle"
+            >
+              Or something like that
+            </div>
           </div>
         </div>
         <div
@@ -5566,11 +5921,6 @@ exports[`Decentraland UI - Coverage Tests Page Menu and submenu page 1`] = `
       </div>
       <div
         className="dcl page fullscreen"
-        style={
-          Object {
-            "marginTop": 0,
-          }
-        }
       >
         <div
           className="dcl tabs divider"
@@ -6022,11 +6372,6 @@ exports[`Decentraland UI - Coverage Tests Page Menu page 1`] = `
       </div>
       <div
         className="dcl page fullscreen"
-        style={
-          Object {
-            "marginTop": 0,
-          }
-        }
       >
         <div
           className="dcl tabs divider"
@@ -6341,11 +6686,6 @@ exports[`Decentraland UI - Coverage Tests Page Regular page 1`] = `
       </div>
       <div
         className="dcl page"
-        style={
-          Object {
-            "marginTop": 0,
-          }
-        }
       >
         <div
           className="ui container"

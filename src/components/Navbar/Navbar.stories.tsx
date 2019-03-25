@@ -122,19 +122,49 @@ storiesOf('Navbar', module)
           }
           isFullscreen
         />
-        <Hero
-          title="Help us build Decentraland"
-          subtitle="Join the discussion"
-          height={442}
-        >
-          <Parallax>
-            <Parallax.Layer depth={0.3}>
-              <div className="homepage-pyramid small" />
-            </Parallax.Layer>
-            <Parallax.Layer depth={1.5}>
-              <div className="homepage-pyramid large" />
-            </Parallax.Layer>
-          </Parallax>
+        <Hero height={442} centered>
+          <Hero.Header>Help us build Decentraland</Hero.Header>
+          <Hero.Description>Join the discussion</Hero.Description>
+          <Hero.Content>
+            <Parallax>
+              <Parallax.Layer depth={0.3}>
+                <div className="homepage-pyramid small" />
+              </Parallax.Layer>
+              <Parallax.Layer depth={1.5}>
+                <div className="homepage-pyramid large" />
+              </Parallax.Layer>
+            </Parallax>
+          </Hero.Content>
+        </Hero>
+      </div>
+    )
+  })
+  .add('With Overlay over Hero', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage="agora"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={action('Clicked on account menu')}
+          menuItems={
+            <Menu.Item>
+              <Icon
+                name="bell"
+                onClick={action('Clicked on notification bell')}
+              />
+            </Menu.Item>
+          }
+          isFullscreen
+          isOverlay
+        />
+        <Hero className="over-gradient" height={442} centered>
+          <Hero.Header>Help us build Decentraland</Hero.Header>
+          <Hero.Description>Join the discussion</Hero.Description>
+          <Hero.Content>
+            <div className="color-layer" />
+          </Hero.Content>
         </Hero>
       </div>
     )

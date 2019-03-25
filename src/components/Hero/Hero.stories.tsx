@@ -1,26 +1,53 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Parallax } from '../Parallax/Parallax'
-import { Hero } from '../..'
+import { Hero, Button } from '../..'
 import './Hero.stories.css'
 
 storiesOf('Hero', module)
   .add('Text only', () => (
     <div className="story">
-      <Hero title="Help us build Decentraland" subtitle="Join the discussion" />
+      <Hero centered>
+        <Hero.Header>Help us build Decentraland</Hero.Header>
+        <Hero.Description>Join the discussion</Hero.Description>
+      </Hero>
+    </div>
+  ))
+  .add('Left alignment', () => (
+    <div className="story">
+      <Hero>
+        <Hero.Header>Help us build Decentraland</Hero.Header>
+        <Hero.Description>Join the discussion</Hero.Description>
+      </Hero>
     </div>
   ))
   .add('With content', () => (
     <div className="story">
-      <Hero title="Help us build Decentraland" subtitle="Join the discussion">
-        <Parallax>
-          <Parallax.Layer depth={0.3}>
-            <div className="hero-pyramid small" />
-          </Parallax.Layer>
-          <Parallax.Layer depth={1.5}>
-            <div className="hero-pyramid large" />
-          </Parallax.Layer>
-        </Parallax>
+      <Hero centered>
+        <Hero.Header>Help us build Decentraland</Hero.Header>
+        <Hero.Description>Join the discussion</Hero.Description>
+        <Hero.Content>
+          <Parallax>
+            <Parallax.Layer depth={0.3}>
+              <div className="hero-pyramid small" />
+            </Parallax.Layer>
+            <Parallax.Layer depth={1.5}>
+              <div className="hero-pyramid large" />
+            </Parallax.Layer>
+          </Parallax>
+        </Hero.Content>
+      </Hero>
+    </div>
+  ))
+
+  .add('With actions', () => (
+    <div className="story">
+      <Hero centered>
+        <Hero.Header>Help us build Decentraland</Hero.Header>
+        <Hero.Description>Join the discussion</Hero.Description>
+        <Hero.Actions>
+          <Button primary>Do Something</Button>
+        </Hero.Actions>
       </Hero>
     </div>
   ))

@@ -26,6 +26,8 @@ export type NavbarProps = {
   isConnecting?: boolean
   isSignIn?: boolean
   isFullscreen?: boolean
+  isOverlay?: boolean
+  className?: string
   onSignIn?: () => void
   onClickAccount?: () => void
 }
@@ -56,6 +58,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     isConnected: false,
     isConnecting: false,
     isFullscreen: false,
+    isOverlay: false,
     isSignIn: false,
     onSignIn: null,
     onClickAccount: null
@@ -124,10 +127,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       activePage,
       i18n,
       menuItems,
+      className,
       isConnected,
       isConnecting,
       isSignIn,
       isFullscreen,
+      isOverlay,
       onSignIn,
       onClickAccount
     } = this.props
@@ -137,11 +142,21 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     if (this.state.toggle) {
       classes += ' open'
     }
+
     if (isSignIn) {
       classes += ' sign-in'
     }
+
     if (isFullscreen) {
       classes += ' fullscreen'
+    }
+
+    if (isOverlay) {
+      classes += ' overlay'
+    }
+
+    if (className) {
+      classes += ` ${className}`
     }
 
     return (
