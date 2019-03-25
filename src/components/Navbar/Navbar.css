@@ -5,11 +5,16 @@
   border-bottom: 1px solid var(--divider);
   width: 100%;
   box-sizing: content-box;
+  z-index: 20;
 }
 
 .dcl.navbar.fullscreen {
   margin-bottom: 0px;
   border-bottom: none;
+}
+
+.dcl.navbar.overlay {
+  position: absolute;
 }
 
 .dcl.navbar.open {

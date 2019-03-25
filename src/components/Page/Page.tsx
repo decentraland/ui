@@ -5,8 +5,7 @@ import { Container } from '../..'
 import './Page.css'
 
 export type PageProps = {
-  hasHero?: boolean
-  heroHeight?: 302
+  className?: string
   isFullscreen?: boolean
 }
 
@@ -18,17 +17,19 @@ export class Page extends React.PureComponent<PageProps> {
   }
 
   render() {
-    const { hasHero, heroHeight, isFullscreen, children } = this.props
-    const style = {
-      marginTop: hasHero ? heroHeight : 0
-    }
+    const { isFullscreen, className, children } = this.props
     let classes = 'dcl page'
+
     if (isFullscreen) {
       classes += ' fullscreen'
     }
 
+    if (className) {
+      classes += ` ${className}`
+    }
+
     return (
-      <div className={classes} style={style}>
+      <div className={classes}>
         {isFullscreen ? children : <Container>{children}</Container>}
       </div>
     )

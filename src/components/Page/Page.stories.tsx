@@ -92,11 +92,15 @@ storiesOf('Page', module)
       <div className="Page-story-container">
         <Navbar isFullscreen activePage="marketplace" />
         <Page isFullscreen>
-          <Hero title="ATLAS" subtitle="or something else" height={320} />
-          <Container>
-            <Header>Hello Wolrd</Header>
-            <p>This page has a hero</p>
-          </Container>
+          <Hero height={320} />
+          <Hero.Header>ATLAS</Hero.Header>
+          <Hero.Content>
+            {' '}
+            <Container>
+              <Header>Hello Wolrd</Header>
+              <p>This page has a hero</p>
+            </Container>
+          </Hero.Content>
         </Page>
         <Footer />
       </div>
