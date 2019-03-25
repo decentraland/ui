@@ -8,6 +8,7 @@
   border-bottom: 1px solid var(--divider);
   overflow: hidden;
   padding: 64px;
+  margin-bottom: var(--navbar-margin-bottom);
 }
 
 .dcl.hero.centered {
