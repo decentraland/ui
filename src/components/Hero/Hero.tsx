@@ -10,7 +10,7 @@ export type HeroProps = {
 }
 
 export class Hero extends React.PureComponent<HeroProps> {
-  static Header = ({ children }, ...props) => (
+  static Header = ({ children, ...props }) => (
     <Container>
       <Header className="hero-title" size="huge" {...props}>
         {children}
@@ -18,7 +18,7 @@ export class Hero extends React.PureComponent<HeroProps> {
     </Container>
   )
 
-  static Description = ({ children }, ...props) => (
+  static Description = ({ children, ...props }) => (
     <Container>
       <Header className="hero-subtitle" {...props}>
         {children}
@@ -26,13 +26,13 @@ export class Hero extends React.PureComponent<HeroProps> {
     </Container>
   )
 
-  static Content = ({ children }, ...props) => (
+  static Content = ({ children, ...props }) => (
     <div className="hero-content" {...props}>
       {children}
     </div>
   )
 
-  static Actions = ({ children }, ...props) => (
+  static Actions = ({ children, ...props }) => (
     <Container className="hero-actions" {...props}>
       {children}
     </Container>

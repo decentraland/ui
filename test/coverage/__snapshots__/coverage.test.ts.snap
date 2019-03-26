@@ -2523,7 +2523,6 @@ exports[`Decentraland UI - Coverage Tests Hero Left alignment 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -2533,7 +2532,6 @@ exports[`Decentraland UI - Coverage Tests Hero Left alignment 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
@@ -2579,7 +2577,6 @@ exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -2589,7 +2586,6 @@ exports[`Decentraland UI - Coverage Tests Hero Text only 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
@@ -2635,7 +2631,6 @@ exports[`Decentraland UI - Coverage Tests Hero With actions 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -2645,14 +2640,12 @@ exports[`Decentraland UI - Coverage Tests Hero With actions 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
           </div>
         </div>
         <div
-          0={Object {}}
           className="ui container hero-actions"
         >
           <button
@@ -2702,7 +2695,6 @@ exports[`Decentraland UI - Coverage Tests Hero With content 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -2712,14 +2704,12 @@ exports[`Decentraland UI - Coverage Tests Hero With content 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
           </div>
         </div>
         <div
-          0={Object {}}
           className="hero-content"
         >
           <div
@@ -4764,7 +4754,6 @@ exports[`Decentraland UI - Coverage Tests Navbar With Overlay over Hero 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -4774,14 +4763,12 @@ exports[`Decentraland UI - Coverage Tests Navbar With Overlay over Hero 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
           </div>
         </div>
         <div
-          0={Object {}}
           className="hero-content"
         >
           <div
@@ -4969,7 +4956,6 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui huge header hero-title"
           >
             Help us build Decentraland
@@ -4979,14 +4965,12 @@ exports[`Decentraland UI - Coverage Tests Navbar With hero 1`] = `
           className="ui container"
         >
           <div
-            0={Object {}}
             className="ui header hero-subtitle"
           >
             Join the discussion
           </div>
         </div>
         <div
-          0={Object {}}
           className="hero-content"
         >
           <div
@@ -5614,7 +5598,6 @@ exports[`Decentraland UI - Coverage Tests Page Hero page 1`] = `
             className="ui container"
           >
             <div
-              0={Object {}}
               className="ui huge header hero-title"
             >
               ATLAS
@@ -5624,7 +5607,6 @@ exports[`Decentraland UI - Coverage Tests Page Hero page 1`] = `
             className="ui container"
           >
             <div
-              0={Object {}}
               className="ui header hero-subtitle"
             >
               Or something like that
