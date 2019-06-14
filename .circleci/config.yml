@@ -41,7 +41,7 @@ jobs:
             - dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Install node dependencies
-          command: npm installv
+          command: npm install
       - restore_cache:
           keys:
             - lib-{{ .Branch }}-{{ .Revision }}
