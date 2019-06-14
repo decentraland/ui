@@ -9,7 +9,7 @@ addParameters({
 
       brandTitle: 'UI | Decentraland',
       brandUrl: 'https://decentraland.org',
-      brandImage: 'https://i.imgur.com/lCurOg0.png'
+      brandImage: 'https://ui.decentraland.org/color_dark_text.png'
     })
   }
 })
