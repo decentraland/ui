@@ -14,8 +14,21 @@
   );
 }
 
+.dcl.navbar.fullscreen + .dcl.page.fullscreen {
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 1px);
+}
+
 @media (max-width: 768px) {
   .dcl.page {
     padding: 0px 0px 48px 0px;
+  }
+  .dcl.page.fullscreen {
+    padding: 0px;
+  }
+  .dcl.navbar.fullscreen + .dcl.page.fullscreen {
+    min-height: calc(
+      100vh - var(--navbar-height) - var(--footer-height) -
+        var(--footer-margin-top) - 1px
+    );
   }
 }

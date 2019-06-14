@@ -4,6 +4,9 @@ import 'semantic-ui-css/semantic.min.css'
 // Balloon css
 import 'balloon-css/balloon.min.css'
 
+// TileMap css
+import 'react-tile-map/lib/styles.css'
+
 // Base theme
 import './themes/base-theme.css'
 
@@ -28,6 +31,7 @@ import './components/Table/Table.css'
 
 // Decentraland components
 export * from './components/Address/Address'
+export * from './components/Atlas/Atlas'
 export * from './components/Blockie/Blockie'
 export * from './components/Center/Center'
 export * from './components/Close/Close'

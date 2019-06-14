@@ -7,6 +7,10 @@
   margin-top: var(--footer-margin-top);
 }
 
+.dcl.footer.fullscreen {
+  margin-top: 0px;
+}
+
 .dcl.footer .main-footer {
   display: flex;
   flex-flow: row wrap;
@@ -102,10 +106,18 @@
     flex-flow: column;
     align-items: center;
   }
+
+  .dcl.footer.fullscreen {
+    padding: 20px 0px;
+  }
 }
 
 @media (max-width: 768px) {
   .dcl.footer {
+    margin-top: var(--footer-margin-top);
     padding-bottom: 80px;
+  }
+  .dcl.footer.fullscreen {
+    padding: var(--footer-margin-top) 0px;
   }
 }

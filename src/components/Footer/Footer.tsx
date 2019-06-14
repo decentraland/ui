@@ -26,6 +26,7 @@ export type FooterProps = {
   locales?: Locale[]
   i18n?: FooterI18N
   onChange?: LanguageDropdownProps['onChange']
+  isFullscreen?: boolean
 }
 
 export class Footer extends React.PureComponent<FooterProps> {
@@ -50,10 +51,15 @@ export class Footer extends React.PureComponent<FooterProps> {
   }
 
   render() {
-    const { locale, locales, onChange, i18n } = this.props
+    const { locale, locales, onChange, i18n, isFullscreen } = this.props
+
+    let classes = 'dcl footer'
+    if (isFullscreen) {
+      classes += ' fullscreen'
+    }
 
     return (
-      <Container className="dcl footer">
+      <Container className={classes}>
         <div className="main-footer">
           <LanguageDropdown
             locale={locale}

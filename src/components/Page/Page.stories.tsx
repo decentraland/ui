@@ -115,7 +115,7 @@ storiesOf('Page', module)
             <p>Nothing to do here.</p>
           </Center>
         </Page>
-        <Footer />
+        <Footer isFullscreen />
       </div>
     )
   })

@@ -11,8 +11,8 @@
   /* fonts */
   --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-monospace: "Inconsolata", "Consolas", "Droid Sans Mono", "Monaco",
-    "Courier New", monospace;
+  --font-monospace: 'Inconsolata', 'Consolas', 'Droid Sans Mono', 'Monaco',
+    'Courier New', monospace;
 
   /* colors */
   --neon-blue: #00d3ff;
@@ -28,6 +28,7 @@
   --sunish: #ffbc5b;
   --millenial-orange: #fc9965;
   --oj-not-simpson: #ff7439;
+  --dark: #18141a;
 
   /* raw colors */
   --neon-blue-raw: 0, 211, 255;
@@ -43,6 +44,7 @@
   --sunish-raw: 255, 188, 91;
   --millenial-orange-raw: 252, 153, 101;
   --oj-not-simpson-raw: 255, 116, 57;
+  --dark-raw: 24, 20, 26;
 }
 
 body {
@@ -84,5 +86,6 @@ a:hover {
 @media (max-width: 768px) {
   :root {
     --navbar-height: 56px;
+    --footer-margin-top: 48px;
   }
 }

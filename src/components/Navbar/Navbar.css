@@ -190,7 +190,7 @@
   }
 
   .dcl.navbar .ui.container {
-    width: 100% !important;
+    width: calc(100% - 32px) !important;
     padding: 0px 16px;
     margin: 0px !important;
   }
