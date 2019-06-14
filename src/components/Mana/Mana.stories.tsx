@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Header, Mana } from '../..'
 
 storiesOf('Mana', module)
+  .addDecorator(centered)
   .add('Symbol', () => <Mana />)
   .add('Symbol + MANA', () => <Mana>MANA</Mana>)
   .add('Total voted', () => (

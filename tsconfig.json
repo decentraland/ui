@@ -9,8 +9,9 @@
     "moduleResolution": "node",
     "stripInternal": true,
     "pretty": true,
+    "rootDirs": ["src", ".storybook"],
     "declaration": true,
-    "declarationDir": ".",
+    "declarationDir": "lib",
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -22,5 +23,5 @@
     "lib": ["es2017", "dom", "esnext.asynciterable"]
   },
   "exclude": ["node_modules", "lib"],
-  "include": ["src/**/*", "test/**/*"]
+  "include": ["src/**/*", ".storybook"]
 }

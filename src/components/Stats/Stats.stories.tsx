@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Mana, Stats } from '../..'
 
 storiesOf('Stats', module)
+  .addDecorator(centered)
   .add('Single Result', () => (
     <>
       <Stats title="Total Voted">

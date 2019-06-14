@@ -22,6 +22,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 90px;
+  flex: 1 0 auto;
 }
 
 .SignIn .WalletIcon svg {
@@ -44,6 +45,7 @@
 
 .SignIn .ui.button {
   margin-top: 40px;
+  flex: 1 0 auto;
 }
 
 .SignIn .error {

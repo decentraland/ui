@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Address, Mana, Blockie } from '../..'
 
 const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
 
 storiesOf('Blockie', module)
+  .addDecorator(centered)
   .add('Single', () => <Blockie seed={address} />)
   .add('Scales', () => (
     <>
@@ -21,6 +23,7 @@ storiesOf('Blockie', module)
       You've transfered <Mana inline>1,000</Mana> to{' '}
       <Blockie scale={3} seed={address}>
         <Address value={address} strong />
-      </Blockie>.
+      </Blockie>
+      .
     </p>
   ))

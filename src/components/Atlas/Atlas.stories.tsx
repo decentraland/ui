@@ -50,7 +50,7 @@ let hover
 const isValid = () => {
   if (!hover) return false
   // only valid if it fits in central plaza
-  return hover.x >= -5 && hover.x <= 6 && hover.y >= -5 && hover.y <= 6
+  return hover.x >= -5 && hover.x <= 6 && hover.y >= -5 && hover.y <= 5
 }
 
 const isHighlighted = (x: number, y: number) => {
@@ -89,57 +89,45 @@ const hoverFillLayer: Layer = (x, y) => {
   return null
 }
 
+const App = ({ children }) => (
+  <>
+    <Navbar activePage="marketplace" isFullscreen />
+    <Page isFullscreen>{children}</Page>
+    <Footer isFullscreen />
+  </>
+)
+
 storiesOf('Atlas', module)
   .add('Uncontrolled', () => (
-    <>
-      <Navbar activePage="builder" isFullscreen />
-      <Page isFullscreen>
-        <Atlas />
-      </Page>
-      <Footer isFullscreen />
-    </>
+    <App>
+      <Atlas />
+    </App>
   ))
   .add('Controlled', () => (
-    <>
-      <Navbar activePage="builder" isFullscreen />
-      <Page isFullscreen>
-        <Atlas tiles={tiles} />
-      </Page>
-      <Footer isFullscreen />
-    </>
+    <App>
+      <Atlas tiles={tiles} />
+    </App>
   ))
   .add('For Sale', () => (
-    <>
-      <Navbar activePage="builder" isFullscreen />
-      <Page isFullscreen>
-        <Atlas tiles={tiles} layers={[forSaleLayer]} />
-      </Page>
-      <Footer isFullscreen />
-    </>
+    <App>
+      <Atlas tiles={tiles} layers={[forSaleLayer]} />
+    </App>
   ))
   .add('Click to select', () => (
-    <>
-      <Navbar activePage="builder" isFullscreen />
-      <Page isFullscreen>
-        <Atlas
-          tiles={tiles}
-          layers={[selectedStrokeLayer, selectedFillLayer]}
-          onClick={handleClick}
-        />
-      </Page>
-      <Footer isFullscreen />
-    </>
+    <App>
+      <Atlas
+        tiles={tiles}
+        layers={[selectedStrokeLayer, selectedFillLayer]}
+        onClick={handleClick}
+      />
+    </App>
   ))
   .add('Hover to highlight', () => (
-    <>
-      <Navbar activePage="builder" isFullscreen />
-      <Page isFullscreen>
-        <Atlas
-          tiles={tiles}
-          layers={[hoverStrokeLayer, hoverFillLayer]}
-          onHover={handleHover}
-        />
-      </Page>
-      <Footer isFullscreen />
-    </>
+    <App>
+      <Atlas
+        tiles={tiles}
+        layers={[hoverStrokeLayer, hoverFillLayer]}
+        onHover={handleHover}
+      />
+    </App>
   ))

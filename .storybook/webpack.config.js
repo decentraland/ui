@@ -1,42 +1,25 @@
-// load the default config generator.
-const genDefaultConfig = require('../webpack.config.js')
-const cssRule = genDefaultConfig.module.rules[0]
-module.exports = {
-  ...genDefaultConfig,
-  externals: {},
-  module: {
-    ...genDefaultConfig.module,
-    rules: [
+const webpackConfig = require('../webpack.config')
+const cssRule = webpackConfig.module.rules[0]
+
+module.exports = ({ config }) => {
+  config.module.rules = [
+    // replace mini-css-extract-plugin with style-loader
+    {
+      test: /\.css$/,
+      use: ['style-loader', ...cssRule.use.slice(1)]
+    },
+    ...webpackConfig.module.rules.slice(1)
+  ]
+  config.resolve.extensions.push('.ts', '.tsx')
+  config.module.rules.push({
+    test: /\.stories\.tsx?$/,
+    loaders: [
       {
-        test: /\.stories\.(ts|js|jsx|tsx)?$/,
-        loaders: [
-          {
-            loader: require.resolve('@storybook/addon-storysource/loader'),
-            options: {
-              prettierConfig: {
-                parser: 'babylon'
-              }
-            }
-          }
-        ],
-        enforce: 'pre'
-      },
-      {
-        oneOf: [
-          // add themes here so they are loaded using the raw-loader
-          {
-            test: /alternative\/.*\.css$/,
-            use: ['raw-loader']
-          },
-          // everything else should be loaded using style-loader, css-loader and postcss-loader
-          {
-            test: /\.css$/,
-            use: ['style-loader', ...cssRule.use.slice(1)]
-          }
-        ]
-      },
-      ...genDefaultConfig.module.rules.slice(1)
-    ]
-  },
-  plugins: []
+        loader: require.resolve('@storybook/addon-storysource/loader'),
+        options: { parser: 'typescript' }
+      }
+    ],
+    enforce: 'pre'
+  })
+  return config
 }

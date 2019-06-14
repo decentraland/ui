@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { LanguageDropdown } from '../..'
 
 storiesOf('LanguageDropdown', module)
+  .addDecorator(centered)
   .add('Uncontrolled left downward', () => (
     <LanguageDropdown locales={['en', 'es', 'fr', 'zh', 'ko', 'ja']} />
   ))

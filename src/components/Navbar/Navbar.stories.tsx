@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Navbar, Menu, Icon, Parallax, Hero } from '../..'
 import './Navbar.stories.css'
 
 storiesOf('Navbar', module)
+  .addDecorator(centered)
   .add('Agora', () => {
     return (
       <div className="Navbar-story-container">
@@ -15,7 +16,10 @@ storiesOf('Navbar', module)
   .add('Sign In', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar activePage="agora" onSignIn={action('Clicked on sign in')} />
+        <Navbar
+          activePage="agora"
+          onSignIn={() => console.log('Clicked on sign in')}
+        />
       </div>
     )
   })
@@ -26,7 +30,7 @@ storiesOf('Navbar', module)
         <Navbar
           activePage="agora"
           isSignIn
-          onSignIn={action('Clicked on sign in')}
+          onSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
@@ -36,7 +40,7 @@ storiesOf('Navbar', module)
       <div className="Navbar-story-container">
         <Navbar
           activePage="agora"
-          onSignIn={action('Clicked on sign in')}
+          onSignIn={() => console.log('Clicked on sign in')}
           isConnecting
         />
       </div>
@@ -62,7 +66,7 @@ storiesOf('Navbar', module)
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
-          onClickAccount={action('Clicked on account menu')}
+          onClickAccount={() => console.log('Clicked on account menu')}
         />
       </div>
     )
@@ -75,12 +79,12 @@ storiesOf('Navbar', module)
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
-          onClickAccount={action('Clicked on account menu')}
+          onClickAccount={() => console.log('Clicked on account menu')}
           menuItems={
             <Menu.Item>
               <Icon
                 name="bell"
-                onClick={action('Clicked on notification bell')}
+                onClick={() => console.log('Clicked on notification bell')}
               />
             </Menu.Item>
           }
@@ -97,7 +101,7 @@ storiesOf('Navbar', module)
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
-          onClickAccount={action('Clicked on account menu')}
+          onClickAccount={() => console.log('Clicked on account menu')}
           isFullscreen
         />
       </div>
@@ -111,12 +115,12 @@ storiesOf('Navbar', module)
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
-          onClickAccount={action('Clicked on account menu')}
+          onClickAccount={() => console.log('Clicked on account menu')}
           menuItems={
             <Menu.Item>
               <Icon
                 name="bell"
-                onClick={action('Clicked on notification bell')}
+                onClick={() => console.log('Clicked on notification bell')}
               />
             </Menu.Item>
           }
@@ -147,12 +151,12 @@ storiesOf('Navbar', module)
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
-          onClickAccount={action('Clicked on account menu')}
+          onClickAccount={() => console.log('Clicked on account menu')}
           menuItems={
             <Menu.Item>
               <Icon
                 name="bell"
-                onClick={action('Clicked on notification bell')}
+                onClick={() => console.log('Clicked on notification bell')}
               />
             </Menu.Item>
           }

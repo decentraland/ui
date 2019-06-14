@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Container, HeaderMenu, Header, Button, Icon, Dropdown } from '../..'
 
 storiesOf('HeaderMenu', module)
+  .addDecorator(centered)
   .add('With Button', () => (
     <Container>
       <HeaderMenu>

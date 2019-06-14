@@ -2,7 +2,7 @@
 #
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/node:10
 
@@ -14,9 +14,6 @@ jobs:
           keys:
             - dependencies-{{ checksum "package-lock.json" }}
       - run:
-          name: Install system dependencies
-          command: sudo apt-get update && sudo apt-get -y install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget libxext6
-      - run:
           name: Install node dependencies
           command: npm install
       - save_cache:
@@ -24,25 +21,16 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package-lock.json" }}
       - run:
-          name: Run coverage tests
-          command: npm run test:coverage
-      - run:
-          name: Send coverage reports
-          command: npm run codecov
-      - run:
-          name: Build static storybook
-          command: npm run build:storybook
-      # - run:
-      #     name: Run visual tests
-      #     command: npm run test:visual:without-build
+        name: Build library
+        command: npm run build
       - save_cache:
           paths:
-            - storybook-static
-          key: storybook-static-{{ .Branch }}-{{ .Revision }}
+            - lib
+          key: lib-{{ .Branch }}-{{ .Revision }}
 
-  build:
+  deploy:
     docker:
-      - image: circleci/node:8.4.0
+      - image: circleci/node:10
 
     working_directory: /tmp/ui
 
@@ -55,26 +43,8 @@ jobs:
           name: Install node dependencies
           command: npm install
       - run:
-          name: Build library
-          command: npm run build
-      - save_cache:
-          paths:
-            - lib
-          key: lib-{{ .Branch }}-{{ .Revision }}
-
-  deploy:
-    docker:
-      - image: circleci/node:8.4.0
-
-    working_directory: /tmp/ui
-
-    steps:
-      - restore_cache:
-          keys:
-            - lib-{{ .Branch }}-{{ .Revision }}
-      - restore_cache:
-          keys:
-            - storybook-static-{{ .Branch }}-{{ .Revision }}
+          name: Build storybook
+          command: npm run build:storybook
       - run:
           name: Copy styles from lib
           command: cp ./lib/*.css ./storybook-static
@@ -84,7 +54,7 @@ jobs:
 
   release:
     docker:
-      - image: circleci/node:8.4.0
+      - image: circleci/node:10
 
     working_directory: /tmp/ui
 
@@ -105,15 +75,9 @@ jobs:
 
 workflows:
   version: 2
-  test-build-deploy-release:
+  build-deploy-release:
     jobs:
-      - test
-      - build:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+      - build
       - deploy:
           requires:
             - build

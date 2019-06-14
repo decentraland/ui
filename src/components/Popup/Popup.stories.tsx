@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Popup, Close, Row } from '../..'
 
 import './Popup.stories.css'
 
 storiesOf('Popup', module)
+  .addDecorator(centered)
   .add('On hover', () => (
     <span>
       If you want to see it&nbsp;

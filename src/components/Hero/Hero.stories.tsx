@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { Parallax } from '../Parallax/Parallax'
 import { Hero, Button } from '../..'
 import './Hero.stories.css'
 
 storiesOf('Hero', module)
+  .addDecorator(centered)
   .add('Text only', () => (
     <div className="story">
       <Hero centered>

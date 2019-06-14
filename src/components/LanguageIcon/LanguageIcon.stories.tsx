@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import centered from '@storybook/addon-centered/react'
 import { LanguageIcon } from '../..'
 import './LanguageIcon.stories.css'
 
 storiesOf('LanguageIcon', module)
+  .addDecorator(centered)
   .add('Single', () => <LanguageIcon locale="en" />)
   .add('Options', () => (
     <div className="LanguageIcon-story">
