@@ -3,12 +3,13 @@ import './Tabs.css'
 import { Container, Responsive } from '../..'
 
 export type TabsProps = {
-  hasDivider?: boolean
+  isFullscreen?: boolean
+  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 export class Tabs extends React.PureComponent<TabsProps> {
   static defaultProps: Partial<TabsProps> = {
-    hasDivider: true
+    isFullscreen: false
   }
   static Left = ({ children }) => (
     <div className="dcl tabs-left">{children}</div>
@@ -20,16 +21,25 @@ export class Tabs extends React.PureComponent<TabsProps> {
 
   static Tab = ({
     active,
+    onClick,
     children
   }: {
     active?: boolean
+    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     children: React.ReactNode
-  }) => <div className={`dcl tab ${active ? 'active' : ''}`}>{children}</div>
+  }) => (
+    <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
+      {children}
+    </div>
+  )
 
   render() {
-    const { children, hasDivider } = this.props
+    const { children, isFullscreen, onClick } = this.props
     return (
-      <div className={`dcl tabs ${hasDivider ? 'divider' : ''}`}>
+      <div
+        className={`dcl tabs ${isFullscreen ? 'fullscreen' : ''}`}
+        onClick={onClick}
+      >
         <Responsive as={Container} minWidth={Responsive.onlyTablet.minWidth}>
           {children}
         </Responsive>

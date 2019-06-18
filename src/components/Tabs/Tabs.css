@@ -4,10 +4,12 @@
   width: 100%;
   margin-bottom: 24px;
   height: 65px;
+  border-bottom: 1px solid var(--divider);
 }
 
-.dcl.tabs.divider {
-  border-bottom: 1px solid var(--divider);
+.dcl.tabs.fullscreen {
+  border-bottom: none;
+  margin-bottom: 0px;
 }
 
 .dcl.tabs .dcl.tabs-left {
@@ -30,9 +32,11 @@
 }
 
 @media (max-width: 768px) {
-  .dcl.tabs {
+  .dcl.tabs,
+  .dcl.tabs.fullscreen {
     height: auto;
     margin-top: calc(var(--navbar-margin-bottom) / 2);
+    margin-bottom: calc(var(--navbar-margin-bottom) / 2);
   }
 
   .dcl.tab {
@@ -40,14 +44,11 @@
     font-size: 15px;
     padding: 0px 0px 0px 16px;
     margin-bottom: 8px;
+    border-bottom: none;
   }
 
   .dcl.tab.active {
     border-bottom: none;
     border-left: 2px solid var(--primary);
-  }
-
-  .dcl.tabs.divider {
-    border-bottom: none;
   }
 }

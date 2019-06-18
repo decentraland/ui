@@ -7,7 +7,7 @@ import './Tabs.stories.css'
 
 storiesOf('Tabs', module)
   .addDecorator(centered)
-  .add('One active', () => (
+  .add('Basic', () => (
     <div className="Tabs-story-container">
       <Tabs>
         <Tabs.Tab active>Atlas</Tabs.Tab>
@@ -16,9 +16,9 @@ storiesOf('Tabs', module)
       </Tabs>
     </div>
   ))
-  .add('No divider', () => (
+  .add('Fullscreen', () => (
     <div className="Tabs-story-container">
-      <Tabs hasDivider={false}>
+      <Tabs isFullscreen>
         <Tabs.Tab active>Atlas</Tabs.Tab>
         <Tabs.Tab>Market</Tabs.Tab>
         <Tabs.Tab>My Assets</Tabs.Tab>

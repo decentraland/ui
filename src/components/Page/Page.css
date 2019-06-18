@@ -18,6 +18,20 @@
   min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 1px);
 }
 
+.dcl.navbar.fullscreen + .dcl.tabs + .dcl.page.dcl.page.fullscreen {
+  min-height: calc(
+    100vh - var(--navbar-height) - var(--tabs-height) -
+      var(--tabs-margin-bottom) - var(--footer-height) - 1px
+  );
+}
+
+.dcl.navbar.fullscreen + .dcl.tabs.fullscreen + .dcl.page.dcl.page.fullscreen {
+  min-height: calc(
+    100vh - var(--navbar-height) - var(--tabs-height) - var(--footer-height) -
+      1px
+  );
+}
+
 @media (max-width: 768px) {
   .dcl.page {
     padding: 0px 0px 48px 0px;

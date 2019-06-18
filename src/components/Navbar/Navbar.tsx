@@ -19,7 +19,7 @@ export type NavbarI18N = {
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog' | 'builder'
+  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog' | 'builder' | string
   menuItems?: React.ReactNode
   i18n?: NavbarI18N
   isConnected?: boolean

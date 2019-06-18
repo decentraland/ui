@@ -4,6 +4,8 @@
   --navbar-margin-bottom: 44px;
   --footer-height: 56px;
   --footer-margin-top: 96px;
+  --tabs-height: 65px;
+  --tabs-margin-bottom: 24px;
 
   /* z-indexes */
   --z-index-navbar: 1000;
