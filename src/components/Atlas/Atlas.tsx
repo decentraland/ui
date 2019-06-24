@@ -90,7 +90,7 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   }
 
   componentWillReceiveProps(nextProps: AtlasProps) {
-    if (nextProps.tiles !== this.state.tiles) {
+    if (nextProps.tiles && nextProps.tiles !== this.state.tiles) {
       this.setState({ tiles: nextProps.tiles })
     }
   }
