@@ -50,6 +50,8 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
     tiles: this.props.tiles
   }
 
+  mounted: boolean = true
+
   layer: Layer = (x, y) => {
     const { tiles } = this.state
     const id = x + ',' + y
@@ -79,13 +81,27 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
 
   componentWillMount() {
     if (!this.state.tiles) {
-      Atlas.fetchTiles().then(tiles => this.setState({ tiles }))
+      Atlas.fetchTiles().then(this.handleUpdateTiles)
     }
+  }
+
+  componentDidMount() {
+    this.mounted = true
   }
 
   componentWillReceiveProps(nextProps: AtlasProps) {
     if (nextProps.tiles !== this.state.tiles) {
       this.setState({ tiles: nextProps.tiles })
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
+  }
+
+  handleUpdateTiles = (tiles: Record<string, AtlasTile>) => {
+    if (this.mounted) {
+      this.setState({ tiles })
     }
   }
 
