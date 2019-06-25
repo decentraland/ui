@@ -60,7 +60,7 @@
     "balloon-css": "^0.5.0",
     "ethereum-blockies": "^0.1.1",
     "parallax-js": "^3.1.0",
-    "react-tile-map": "^0.1.1",
+    "react-tile-map": "^0.2.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.85.0"
   },

@@ -12,7 +12,8 @@ if (window) {
 // For Sale
 
 const forSaleLayer: Layer = (x, y) => {
-  if (tiles && 'price' in tiles[x + ',' + y]) {
+  const key = x + ',' + y
+  if (tiles && tiles[key] && 'price' in tiles[key]) {
     return { color: '#00d3ff' }
   }
   return null
