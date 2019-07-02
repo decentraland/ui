@@ -23,6 +23,7 @@
 
 .dcl.navbar.open .ui.container {
   background-color: var(--navbar-popup);
+  z-index: calc(var(--z-index-navbar) + 10);
 }
 
 .dcl.navbar .navbar-menu {

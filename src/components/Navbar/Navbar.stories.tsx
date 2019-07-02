@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Navbar, Menu, Icon, Parallax, Hero } from '../..'
+import { Navbar, Menu, Icon, Parallax, Hero, Button } from '../..'
 import './Navbar.stories.css'
 
 storiesOf('Navbar', module)
@@ -71,27 +71,7 @@ storiesOf('Navbar', module)
       </div>
     )
   })
-  .add('With menu items', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar
-          activePage="agora"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          menuItems={
-            <Menu.Item>
-              <Icon
-                name="bell"
-                onClick={() => console.log('Clicked on notification bell')}
-              />
-            </Menu.Item>
-          }
-        />
-      </div>
-    )
-  })
+
   .add('Fullscreen', () => {
     return (
       <div className="Navbar-story-container">
@@ -110,22 +90,7 @@ storiesOf('Navbar', module)
   .add('With hero', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar
-          activePage="agora"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          menuItems={
-            <Menu.Item>
-              <Icon
-                name="bell"
-                onClick={() => console.log('Clicked on notification bell')}
-              />
-            </Menu.Item>
-          }
-          isFullscreen
-        />
+        <Navbar activePage="agora" isFullscreen />
         <Hero height={442} centered>
           <Hero.Header>Help us build Decentraland</Hero.Header>
           <Hero.Description>Join the discussion</Hero.Description>
@@ -146,23 +111,7 @@ storiesOf('Navbar', module)
   .add('With Overlay over Hero', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar
-          activePage="agora"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          menuItems={
-            <Menu.Item>
-              <Icon
-                name="bell"
-                onClick={() => console.log('Clicked on notification bell')}
-              />
-            </Menu.Item>
-          }
-          isFullscreen
-          isOverlay
-        />
+        <Navbar activePage="agora" isFullscreen isOverlay />
         <Hero className="over-gradient" height={442} centered>
           <Hero.Header>Help us build Decentraland</Hero.Header>
           <Hero.Description>Join the discussion</Hero.Description>
@@ -170,6 +119,65 @@ storiesOf('Navbar', module)
             <div className="color-layer" />
           </Hero.Content>
         </Hero>
+      </div>
+    )
+  })
+  .add('Custom middle menu', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage="agora"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={() => console.log('Clicked on account menu')}
+          middleMenu={
+            <Menu.Item>
+              <Icon
+                name="bell"
+                onClick={() => console.log('Clicked on notification bell')}
+              />
+            </Menu.Item>
+          }
+        />
+      </div>
+    )
+  })
+  .add('Custom left menu', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage="agora"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={() => console.log('Clicked on account menu')}
+          leftMenu={
+            <>
+              <Menu.Item>Home</Menu.Item>
+              <Menu.Item>About</Menu.Item>
+              <Menu.Item>Contact Us</Menu.Item>
+            </>
+          }
+        />
+      </div>
+    )
+  })
+  .add('Custom right menu', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage="agora"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={() => console.log('Clicked on account menu')}
+          rightMenu={
+            <Button primary size="small" style={{ minWidth: 100 }}>
+              Get Started
+            </Button>
+          }
+        />
       </div>
     )
   })

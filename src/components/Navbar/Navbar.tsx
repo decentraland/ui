@@ -9,6 +9,7 @@ export type NavbarI18N = {
     agora: React.ReactNode
     blog: React.ReactNode
     builder: React.ReactNode
+    avatars: React.ReactNode
   }
   account: {
     signIn: React.ReactNode
@@ -19,8 +20,17 @@ export type NavbarI18N = {
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?: 'marketplace' | 'docs' | 'agora' | 'blog' | 'builder' | string
-  menuItems?: React.ReactNode
+  activePage?:
+    | 'marketplace'
+    | 'docs'
+    | 'agora'
+    | 'blog'
+    | 'builder'
+    | 'avatars'
+    | string
+  leftMenu?: React.ReactNode
+  middleMenu?: React.ReactNode
+  rightMenu?: React.ReactNode
   i18n?: NavbarI18N
   isConnected?: boolean
   isConnecting?: boolean
@@ -41,14 +51,16 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     mana: null,
     address: null,
     activePage: null,
-    menuItems: null,
+    leftMenu: null,
+    middleMenu: null,
     i18n: {
       menu: {
         marketplace: 'Marketplace',
         docs: 'Docs',
         agora: 'Agora',
         blog: 'Blog',
-        builder: 'Builder'
+        builder: 'Builder',
+        avatars: 'Avatars'
       },
       account: {
         signIn: 'Sign In',
@@ -82,10 +94,19 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     this.setState({ toggle: false })
   }
 
-  renderMenu() {
-    const { activePage, i18n } = this.props
+  renderLeftMenu() {
+    const { activePage, i18n, leftMenu } = this.props
+    if (leftMenu) {
+      return leftMenu
+    }
     return (
       <>
+        <Menu.Item
+          active={activePage === 'avatars'}
+          href="https://avatars.decentraland.org"
+        >
+          {i18n.menu.avatars}
+        </Menu.Item>
         <Menu.Item
           active={activePage === 'marketplace'}
           href="https://market.decentraland.org"
@@ -120,21 +141,75 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     )
   }
 
-  render() {
+  renderRightMenu() {
     const {
+      rightMenu,
+      middleMenu,
+      isConnected,
+      onClickAccount,
       mana,
       address,
-      activePage,
-      i18n,
-      menuItems,
-      className,
-      isConnected,
       isConnecting,
       isSignIn,
+      i18n,
+      onSignIn
+    } = this.props
+    if (rightMenu) {
+      return rightMenu
+    } else if (isConnected) {
+      return (
+        <>
+          {middleMenu ? (
+            <Responsive
+              as={Menu}
+              secondary
+              className="dcl navbar-account-menu"
+              minWidth={Responsive.onlyTablet.minWidth}
+            >
+              {middleMenu}
+            </Responsive>
+          ) : null}
+          <span
+            className={`dcl account-wrapper ${
+              onClickAccount ? 'clickable' : ''
+            }`}
+            onClick={onClickAccount}
+          >
+            {mana != null ? (
+              <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
+                {mana.toLocaleString()}
+              </Mana>
+            ) : null}
+            {address != null ? <Blockie seed={address} /> : null}
+          </span>
+        </>
+      )
+    } else if (isConnecting && !isSignIn) {
+      return (
+        <Menu secondary>
+          <Menu.Item disabled>{i18n.account.connecting}</Menu.Item>
+        </Menu>
+      )
+    } else if (onSignIn || isSignIn) {
+      return (
+        <Menu secondary>
+          <Menu.Item className="sign-in-button" onClick={onSignIn}>
+            {i18n.account.signIn}
+          </Menu.Item>
+        </Menu>
+      )
+    } else {
+      return null
+    }
+  }
+
+  render() {
+    const {
+      activePage,
+      className,
+      isSignIn,
       isFullscreen,
-      isOverlay,
-      onSignIn,
-      onClickAccount
+      isOverlay
     } = this.props
 
     let classes = `dcl navbar`
@@ -172,7 +247,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
               <a className="dcl navbar-logo" href="https://decentraland.org">
                 <Logo />
               </a>
-              {this.renderMenu()}
+              {this.renderLeftMenu()}
             </Responsive>
             <Responsive
               {...Responsive.onlyMobile}
@@ -193,47 +268,9 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             </Responsive>
           </div>
 
-          <div className="dcl navbar-account">
-            {isConnected ? (
-              <>
-                {menuItems ? (
-                  <Responsive
-                    as={Menu}
-                    secondary
-                    className="dcl navbar-account-menu"
-                    minWidth={Responsive.onlyTablet.minWidth}
-                  >
-                    {menuItems}
-                  </Responsive>
-                ) : null}
-                <span
-                  className={`dcl account-wrapper ${
-                    onClickAccount ? 'clickable' : ''
-                  }`}
-                  onClick={onClickAccount}
-                >
-                  {mana != null ? (
-                    <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
-                      {mana.toLocaleString()}
-                    </Mana>
-                  ) : null}
-                  {address != null ? <Blockie seed={address} /> : null}
-                </span>
-              </>
-            ) : isConnecting && !isSignIn ? (
-              <Menu secondary>
-                <Menu.Item disabled>{i18n.account.connecting}</Menu.Item>
-              </Menu>
-            ) : onSignIn || isSignIn ? (
-              <Menu secondary>
-                <Menu.Item className="sign-in-button" onClick={onSignIn}>
-                  {i18n.account.signIn}
-                </Menu.Item>
-              </Menu>
-            ) : null}
-          </div>
+          <div className="dcl navbar-account">{this.renderRightMenu()}</div>
         </Container>
-        <div className="mobile-menu">{this.renderMenu()}</div>
+        <div className="mobile-menu">{this.renderLeftMenu()}</div>
       </div>
     )
   }
