@@ -32,21 +32,21 @@
 .dcl.hero .ui.header.hero-title {
   margin: calc(2rem - 0.14285714em) 0 1rem;
   position: relative;
-  z-index: 20;
+  z-index: 15;
 }
 
 .dcl.hero .ui.header.hero-subtitle {
   margin-top: 0px;
   position: relative;
   font-weight: normal;
-  z-index: 20;
+  z-index: 15;
 }
 
 .dcl.hero .hero-actions {
   margin-top: 16px;
   position: relative;
   font-weight: normal;
-  z-index: 20;
+  z-index: 15;
 }
 
 .dcl.hero .hero-content {
