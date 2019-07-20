@@ -196,6 +196,10 @@
     margin: 0px !important;
   }
 
+  .dcl.navbar.overlay {
+    width: calc(100%) !important;
+  }
+
   .dcl.navbar-logo {
     cursor: pointer;
     width: 32px;
