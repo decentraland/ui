@@ -196,7 +196,7 @@
     margin: 0px !important;
   }
 
-  .dcl.navbar.overlay {
+  .dcl.navbar.overlay .ui.container {
     width: calc(100%) !important;
   }
 
