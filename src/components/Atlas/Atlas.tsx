@@ -24,20 +24,21 @@ export type AtlasState = {
 }
 
 const COLOR_BY_TYPE = Object.freeze({
-  0: '#ff9990',
-  1: '#ff4053',
-  2: '#ff9990',
-  3: '#ff4053',
-  4: '#5054D4',
-  5: '#563db8',
-  6: '#716C7A',
-  7: '#70AC76',
-  8: '#3D3A46',
-  9: '#3D3A46',
-  10: '#09080A',
-  11: '#18141a',
-  12: '#110e13',
-  13: '#0d0b0e'
+  0: '#ff9990', // my parcels
+  1: '#ff4053', // my parcels on sale
+  2: '#ff9990', // my estates
+  3: '#ff4053', // my estates on sale
+  4: '#ffbd33', // parcels/estates where I have permissions
+  5: '#5054D4', // districts
+  6: '#563db8', // contributions
+  7: '#716C7A', // roads
+  8: '#70AC76', // plazas
+  9: '#3D3A46', // owned parcel/estate
+  10: '#3D3A46', // parcels on sale (we show them as owned parcels)
+  11: '#09080A', // unowned pacel/estate
+  12: '#18141a', // background
+  13: '#110e13', // loading odd
+  14: '#0d0b0e' // loading even
 })
 
 export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
@@ -65,7 +66,7 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
       }
     } else {
       return {
-        color: (x + y) % 2 === 0 ? COLOR_BY_TYPE[12] : COLOR_BY_TYPE[13]
+        color: (x + y) % 2 === 0 ? COLOR_BY_TYPE[13] : COLOR_BY_TYPE[14]
       }
     }
   }
