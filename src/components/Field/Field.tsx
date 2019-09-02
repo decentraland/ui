@@ -23,7 +23,7 @@ export class Field extends React.PureComponent<FieldProps> {
   }
 
   render() {
-    let {
+    const {
       value,
       label,
       error,
