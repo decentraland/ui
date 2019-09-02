@@ -53,6 +53,7 @@ export * from './components/SignIn/SignIn'
 export * from './components/Stats/Stats'
 export * from './components/Tabs/Tabs'
 export * from './components/WalletIcon/WalletIcon'
+export * from './components/SelectField/SelectField'
 
 // Semantic components
 export * from 'semantic-ui-react'
