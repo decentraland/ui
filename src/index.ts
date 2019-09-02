@@ -11,7 +11,7 @@ import 'react-tile-map/lib/styles.css'
 import './themes/base-theme.css'
 
 // Default theme
-import './themes/alternative/dark-theme.css'
+import './themes/alternative/light-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
