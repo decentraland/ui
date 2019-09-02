@@ -8,8 +8,8 @@ export type SelectFieldProps = DropdownProps & {
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
   render() {
-    let { label, ...rest } = this.props
-    let classes = 'dcl select-field'
+    const { label, ...rest } = this.props
+    const classes = 'dcl select-field'
 
     return (
       <div className={classes}>
