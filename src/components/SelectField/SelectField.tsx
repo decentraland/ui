@@ -7,16 +7,6 @@ export type SelectFieldProps = DropdownProps & {
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
-  hasAction() {
-    let { loading, error, action, onAction } = this.props
-    return !this.isAddress() && !loading && !error && action && onAction
-  }
-
-  isAddress() {
-    const { type } = this.props
-    return type === 'address'
-  }
-
   render() {
     let { label, ...rest } = this.props
     let classes = 'dcl select-field'

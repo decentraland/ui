@@ -13,7 +13,7 @@ export type FieldProps = InputProps & {
 
 export class Field extends React.PureComponent<FieldProps> {
   hasAction() {
-    let { loading, error, action, onAction } = this.props
+    const { loading, error, action, onAction } = this.props
     return !this.isAddress() && !loading && !error && action && onAction
   }
 
@@ -67,7 +67,7 @@ export class Field extends React.PureComponent<FieldProps> {
           icon={icon ? icon : void 0}
           loading={loading && !isAddress}
           disabled={disabled}
-          {...rest as any}
+          {...(rest as any)}
         />
         {this.hasAction() && (
           <div className="overlay">
