@@ -24,10 +24,11 @@
   font-size: 20px;
   font-weight: 500;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 18px;
 }
 
 .dcl.select-field .ui.dropdown > .default.text {
-  opacity: 0.45;
+  opacity: 0.6;
 }
 
 .dcl.select-field .ui.selection.active.dropdown,
@@ -52,12 +53,12 @@
   border-radius: 6px;
   padding: 8px 0px;
   border-color: transparent;
-  box-shadow: none;
+  box-shadow: var(--shadow-2);
 }
 
-.dcl.select-field .ui.selection.active.dropdown:hover .menu {
+.dcl.select-field .ui.dropdown:hover .menu {
   border-color: transparent;
-  box-shadow: none;
+  box-shadow: var(--shadow-2);
 }
 
 .dcl.select-field .ui.dropdown .item {
@@ -72,4 +73,8 @@
   margin-top: 8px;
   color: var(--secondary-text);
   font-size: 15px;
+}
+
+.dcl.select-field .ui.selection.active.dropdown {
+  box-shadow: none;
 }
