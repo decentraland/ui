@@ -11,7 +11,7 @@ import 'react-tile-map/lib/styles.css'
 import './themes/base-theme.css'
 
 // Default theme
-import './themes/alternative/light-theme.css'
+import './themes/alternative/dark-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
@@ -53,6 +53,7 @@ export * from './components/SignIn/SignIn'
 export * from './components/Stats/Stats'
 export * from './components/Tabs/Tabs'
 export * from './components/WalletIcon/WalletIcon'
+export * from './components/SelectField/SelectField'
 
 // Semantic components
 export * from 'semantic-ui-react'
