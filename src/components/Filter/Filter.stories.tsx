@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Filter } from '../..'
 
-storiesOf('Field', module)
+storiesOf('Filter', module)
   .addDecorator(centered)
   .add('One active', () => (
     <>
