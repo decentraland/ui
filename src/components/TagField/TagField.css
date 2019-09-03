@@ -1,0 +1,83 @@
+.dcl.tag-field {
+  min-width: 400px;
+}
+
+.dcl.tag-field .ui.dropdown {
+  background: transparent;
+  border-radius: 0px;
+  border: none;
+  padding: 2px 0px 2px 0px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.dcl.tag-field .ui.search.dropdown > input.search {
+  padding: 0px 0px 10px 0px;
+}
+
+.dcl.tag-field .ui.dropdown > .text,
+.dcl.tag-field .ui.dropdown > .default.text,
+.dcl.tag-field .ui.dropdown > .text:not(.default),
+.dcl.tag-field .ui.search.dropdown > input.search {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: bolder;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 18px;
+  margin-left: 0px;
+}
+
+.dcl.tag-field .ui.dropdown > .default.text {
+  opacity: 0.6;
+  margin-left: 0px;
+}
+
+.dcl.tag-field .ui.selection.active.dropdown,
+.dcl.tag-field .ui.selection.active.dropdown:hover {
+  border: none;
+}
+
+.dcl.tag-field .ui.dropdown .dropdown.icon {
+  display: none;
+}
+
+.dcl.tag-field .ui.dropdown .text,
+.dcl.tag-field .ui.dropdown .default.text {
+  color: var(--text);
+}
+
+.dcl.tag-field .ui.dropdown .menu {
+  display: none !important;
+}
+
+.dcl.tag-field .message {
+  margin-top: 8px;
+  color: var(--secondary-text);
+  font-size: 15px;
+}
+
+.dcl.tag-field .ui.selection.active.dropdown {
+  box-shadow: none;
+}
+
+.dcl.tag-field .ui.multiple.dropdown > .label {
+  background: transparent;
+  color: var(--secondary-text);
+  border: 2px solid var(--divider);
+  transition: none;
+  box-shadow: none;
+}
+
+.dcl.tag-field .ui.multiple.dropdown > .label:hover {
+  background: var(--primary);
+  color: var(--text-on-primary);
+  border: 2px solid var(--primary);
+}
+
+.dcl.tag-field.error .message {
+  color: var(--danger);
+}
+
+.dcl.tag-field.error .ui.header.sub {
+  color: var(--danger);
+}
