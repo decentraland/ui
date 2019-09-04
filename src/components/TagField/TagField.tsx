@@ -20,12 +20,23 @@ export class TagField extends React.PureComponent<
     options: []
   }
 
+  containerRef = React.createRef<HTMLDivElement>()
+
   handleAddition = (_, dropdownProps) => {
     const { value } = dropdownProps
 
     this.setState(prevState => ({
       options: [...prevState.options, { text: value, value }]
     }))
+  }
+
+  handleScrollToEnd = () => {
+    const el = this.containerRef.current
+    if (el) {
+      setTimeout(() => {
+        el.scrollLeft = el.scrollWidth
+      }, 100)
+    }
   }
 
   handleChange = (e, dropdownProps) => {
@@ -44,6 +55,8 @@ export class TagField extends React.PureComponent<
       })
     }
 
+    this.handleScrollToEnd()
+
     if (onChange) {
       onChange(e, dropdownProps)
     }
@@ -60,18 +73,20 @@ export class TagField extends React.PureComponent<
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
-        <Dropdown
-          onAddItem={this.handleAddition}
-          options={this.state.options}
-          allowAdditions
-          selection
-          multiple
-          search
-          fluid
-          on
-          {...rest}
-          onChange={this.handleChange}
-        />
+        <div className="container" ref={this.containerRef}>
+          <Dropdown
+            onAddItem={this.handleAddition}
+            options={this.state.options}
+            allowAdditions
+            selection
+            multiple
+            search
+            fluid
+            on
+            {...rest}
+            onChange={this.handleChange}
+          />
+        </div>
         <p className="message">
           {message}
           &nbsp;

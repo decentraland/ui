@@ -2,13 +2,16 @@
   min-width: 400px;
 }
 
-.dcl.tag-field .ui.dropdown {
+.dcl.tag-field .ui.dropdown,
+.dcl.tag-field .ui.dropdown.active {
   background: transparent;
   border-radius: 0px;
   border: none;
   padding: 2px 0px 2px 0px;
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   margin-top: 8px;
+  border-bottom: 2px solid var(--divider);
 }
 
 .dcl.tag-field .ui.search.dropdown > input.search {
@@ -20,11 +23,20 @@
 .dcl.tag-field .ui.dropdown > .text:not(.default),
 .dcl.tag-field .ui.search.dropdown > input.search {
   color: var(--text);
-  font-size: 16px;
   font-weight: bolder;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 18px;
   margin-left: 0px;
+}
+
+.dcl.tag-field .ui.dropdown > .text,
+.dcl.tag-field .ui.dropdown > .default.text,
+.dcl.tag-field .ui.dropdown > .text:not(.default) {
+  font-size: 16px;
+}
+
+.dcl.tag-field .ui.search.dropdown > input.search {
+  font-size: 13px;
 }
 
 .dcl.tag-field .ui.dropdown > .default.text {
@@ -34,7 +46,7 @@
 
 .dcl.tag-field .ui.selection.active.dropdown,
 .dcl.tag-field .ui.selection.active.dropdown:hover {
-  border: none;
+  border-bottom: 2px solid var(--text);
 }
 
 .dcl.tag-field .ui.dropdown .dropdown.icon {
@@ -66,6 +78,8 @@
   border: 2px solid var(--divider);
   transition: none;
   box-shadow: none;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .dcl.tag-field .ui.multiple.dropdown > .label:hover {

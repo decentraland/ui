@@ -49,3 +49,18 @@ storiesOf('SelectField', module)
       />
     </>
   ))
+  .add('Default option', () => (
+    <>
+      <SelectField
+        label="Label"
+        placeholder="Placeholder"
+        options={[
+          { key: 1, text: 'Choice 1', value: 8 },
+          { key: 2, text: 'Choice 2', value: 2, disabled: true },
+          { key: 3, text: 'Choice 3', value: 3 },
+          { key: 4, text: 'Choice 4', value: 4, disabled: true }
+        ]}
+        defaultValue={8}
+      />
+    </>
+  ))
