@@ -13,9 +13,11 @@ export type BlockieProps = {
   children?: React.ReactNode
 }
 
+export type CanvasStateStore = {
+  canvas?: HTMLCanvasElement
+}
+
 export class Blockie extends React.PureComponent<BlockieProps> {
-  private shouldRefresh: boolean = false
-  public canvas: HTMLCanvasElement = null
   static defaultProps = {
     color: '#ff2d55',
     bgcolor: '#d10038',
@@ -25,21 +27,13 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     className: ''
   }
 
+  canvas = React.createRef<HTMLCanvasElement>()
+
   componentDidMount() {
     this.draw()
   }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.seed !== nextProps.seed) {
-      this.shouldRefresh = true
-    }
-  }
-
   componentDidUpdate() {
-    if (this.shouldRefresh) {
-      this.shouldRefresh = false
-      this.draw()
-    }
+    this.draw()
   }
 
   getOpts() {
@@ -56,13 +50,13 @@ export class Blockie extends React.PureComponent<BlockieProps> {
   }
 
   draw() {
-    if (!this.canvas) {
+    if (!this.canvas || !this.canvas.current) {
       return '🦄'
     }
     const { size, scale } = this.props
-    const ctx = this.canvas.getContext('2d')
+    const ctx = this.canvas.current.getContext('2d')
     ctx.clearRect(0, 0, size * scale, size * scale)
-    blockies.render(this.getOpts(), this.canvas)
+    blockies.render(this.getOpts(), this.canvas.current)
   }
 
   render() {
@@ -75,15 +69,13 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     } else if (scale * size <= 36) {
       classes += ' small'
     }
-    const canvas = React.createElement('canvas', {
-      className: classes,
-      ref: canvas => (this.canvas = canvas as HTMLCanvasElement)
-    })
+
+    const canvas = <canvas className={classes} ref={this.canvas} />
 
     if (children) {
       return (
         <span className="dcl blockie-wrapper">
-          {canvas}
+          { canvas }
           <span className="dcl blockie-children">{children}</span>
         </span>
       )

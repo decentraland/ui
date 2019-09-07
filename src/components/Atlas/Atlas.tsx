@@ -21,6 +21,7 @@ export type AtlasProps = Omit<TileMapProps, 'layers'> & {
 
 export type AtlasState = {
   tiles?: Record<string, AtlasTile>
+  newTiles?: Record<string, AtlasTile>
 }
 
 const COLOR_BY_TYPE = Object.freeze({
@@ -48,7 +49,8 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   }
 
   state = {
-    tiles: this.props.tiles
+    tiles: this.props.tiles,
+    newTiles: undefined
   }
 
   mounted: boolean = true
@@ -80,19 +82,23 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
     return json.data as Record<string, AtlasTile>
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.state.tiles) {
       Atlas.fetchTiles().then(this.handleUpdateTiles)
     }
-  }
-
-  componentDidMount() {
     this.mounted = true
   }
 
-  componentWillReceiveProps(nextProps: AtlasProps) {
-    if (nextProps.tiles && nextProps.tiles !== this.state.tiles) {
-      this.setState({ tiles: nextProps.tiles })
+  static getDerivedStateFromProps(props) {
+    return { newTiles: props.tiles }
+  }
+
+  componentDidUpdate() {
+    if (!this.state.tiles) {
+      Atlas.fetchTiles().then(this.handleUpdateTiles)
+    }
+    if (this.state.newTiles && this.state.newTiles !== this.state.tiles) {
+      this.setState({ newTiles: undefined, tiles: this.state.newTiles })
     }
   }
 
@@ -103,12 +109,14 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   handleUpdateTiles = (tiles: Record<string, AtlasTile>) => {
     if (this.mounted) {
       this.setState({ tiles })
+      this.forceUpdate()
     }
   }
 
   render() {
     const { layers, className, ...rest } = this.props
     let classes = 'dcl atlas ' + className
+
     return (
       <TileMap
         {...rest}
