@@ -54,6 +54,7 @@ export * from './components/Stats/Stats'
 export * from './components/Tabs/Tabs'
 export * from './components/WalletIcon/WalletIcon'
 export * from './components/SelectField/SelectField'
+export * from './components/TagField/TagField'
 
 // Semantic components
 export * from 'semantic-ui-react'
