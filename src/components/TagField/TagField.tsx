@@ -8,52 +8,26 @@ export type TagFieldProps = DropdownProps & {
   message?: string
 }
 
-export type TagFieldState = {
-  options: { key?: number; text: string; value: string }[]
-}
-
-export class TagField extends React.PureComponent<
-  TagFieldProps,
-  TagFieldState
-> {
-  state = {
-    options: []
-  }
-
+export class TagField extends React.PureComponent<TagFieldProps> {
   containerRef = React.createRef<HTMLDivElement>()
 
-  handleAddition = (_, dropdownProps) => {
-    const { value } = dropdownProps
-
-    this.setState(prevState => ({
-      options: [...prevState.options, { text: value, value }]
-    }))
+  getOptions = () => {
+    const value = (this.props.value || []) as string[]
+    return value.map(value => ({ text: value, value }))
   }
 
   handleScrollToEnd = () => {
     const el = this.containerRef.current
     if (el) {
-      setTimeout(() => {
-        el.scrollLeft = el.scrollWidth
-      }, 100)
+      setTimeout(() => (el.scrollLeft = el.scrollWidth), 0)
     }
   }
 
-  handleChange = (e, dropdownProps) => {
-    const { options } = this.state
+  handleChange = (
+    e: React.SyntheticEvent<HTMLElement, Event>,
+    dropdownProps: DropdownProps
+  ) => {
     const { onChange } = this.props
-
-    if (e.code === 'Backspace') {
-      this.setState({
-        options: options.slice(0, options.length - 1)
-      })
-    } else if (!(e instanceof KeyboardEvent)) {
-      this.setState({
-        options: options.filter(option =>
-          dropdownProps.value.includes(option.value)
-        )
-      })
-    }
 
     this.handleScrollToEnd()
 
@@ -75,8 +49,7 @@ export class TagField extends React.PureComponent<
         {label ? <Header sub>{label}</Header> : null}
         <div className="container" ref={this.containerRef}>
           <Dropdown
-            onAddItem={this.handleAddition}
-            options={this.state.options}
+            options={this.getOptions()}
             allowAdditions
             selection
             multiple
