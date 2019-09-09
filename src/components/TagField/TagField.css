@@ -89,9 +89,9 @@
 }
 
 .dcl.tag-field.error .message {
-  color: var(--danger);
+  color: var(--error);
 }
 
 .dcl.tag-field.error .ui.header.sub {
-  color: var(--danger);
+  color: var(--error);
 }

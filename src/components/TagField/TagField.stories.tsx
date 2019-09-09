@@ -33,3 +33,13 @@ storiesOf('TagField', module)
       />
     </>
   ))
+
+  .add('Default values', () => (
+    <>
+      <TagField
+        label="Tags (optional)"
+        placeholder="e.g. (outdoors furniture floor)"
+        value={['genesis', 'city', 'town']}
+      />
+    </>
+  ))

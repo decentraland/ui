@@ -63,15 +63,15 @@
 /* Error */
 
 .dcl.field.error .ui.input input {
-  border-bottom: 2px solid var(--danger);
+  border-bottom: 2px solid var(--error);
 }
 
 .dcl.field.error .message {
-  color: var(--danger);
+  color: var(--error);
 }
 
 .dcl.field.error .ui.header.sub {
-  color: var(--danger);
+  color: var(--error);
 }
 
 .dcl.field.error .ui.input > i.icon {
