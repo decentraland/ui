@@ -24,7 +24,7 @@
 .dcl.tag-field .ui.search.dropdown > input.search {
   color: var(--text);
   font-weight: bolder;
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
   line-height: 18px;
   margin-left: 0px;
 }

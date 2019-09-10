@@ -24,7 +24,7 @@
   color: var(--text);
   font-size: 20px;
   font-weight: 500;
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
   line-height: 18px;
 }
 
