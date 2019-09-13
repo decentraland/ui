@@ -63,38 +63,49 @@ Or you can create your own theme like this:
 ```css
 /* my-theme.css */
 :root {
-  /* colors */
-  --primary: #ff2d55;
-  --primary-light: #ff9a74;
-  --primary-dark: #d10038;
-  --secondary: #272329;
-  --accent: #00d9ff;
-  --background: #18141a;
+  /* global */
+  --background: #ffffff;
   --danger: #ffa900;
+  --error: #ff0000;
+
+  /* buttons */
+  --primary: #ff2d55;
+  --secondary: #f3f2f5;
+  --primary-hover: #ff3d61;
+  --secondary-hover: #ecebed;
+  --secondary-on-modal: #f3f2f5;
+  --secondary-on-modal-hover: #ecebed;
 
   /* text */
-  --text: #ffffff;
+  --text: #16141a;
   --secondary-text: #676370;
-  --disabled-text: #676370;
   --text-on-primary: #ffffff;
-  --text-on-secondary: #ffffff;
+  --text-on-secondary: #16141a;
 
-  /* borders */
-  --radius: 6px;
-  --outline: #272329;
-  --border: #00000005;
-
-  /* cards */
-  --card-background: #272329;
-
-  /* hover */
-  --hover: #353135;
+  /* ui */
+  --divider: #67637033;
+  --dropdown: #ffffff;
+  --dropdown-hover: #f3f2f5;
+  --popup: #16141a;
+  --popup-text: #ffffff;
+  --navbar-popup: #ffffff;
+  --navbar-popup-hover: #f3f2f5;
+  --card: #ffffff;
+  --outline: 1px solid #00000005;
+  --modal: #ffffff;
+  --dimmer: #ffffffdd;
 
   /* shadows */
-  --shadow: #0000001f;
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.16);
+
+  --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+  --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 
   /* svgs */
-  --brightness: brightness(100); /* white svgs */
+  --brightness: brightness(0.1); /* black svgs */
 }
 ```
 
