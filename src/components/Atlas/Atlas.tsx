@@ -80,19 +80,16 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
     return json.data as Record<string, AtlasTile>
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.state.tiles) {
       Atlas.fetchTiles().then(this.handleUpdateTiles)
     }
-  }
-
-  componentDidMount() {
     this.mounted = true
   }
 
-  componentWillReceiveProps(nextProps: AtlasProps) {
-    if (nextProps.tiles && nextProps.tiles !== this.state.tiles) {
-      this.setState({ tiles: nextProps.tiles })
+  componentDidUpdate() {
+    if (this.props.tiles && this.props.tiles !== this.state.tiles) {
+      this.setState({ tiles: this.props.tiles })
     }
   }
 
@@ -109,6 +106,7 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   render() {
     const { layers, className, ...rest } = this.props
     let classes = 'dcl atlas ' + className
+
     return (
       <TileMap
         {...rest}
