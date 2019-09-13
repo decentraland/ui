@@ -107,53 +107,6 @@ $ npm install
 $ npm start
 ```
 
-## Tests
-
-Run all tests
-
-```
-npm run test
-```
-
-Run coverage only tests:
-
-```
-npm run test:coverage
-```
-
-Build and run visual tests
-
-```
-npm run test:visual
-```
-
-Only run visual tests without building (you must do `npm run build:storybook` at least once before this)
-
-```
-npm run test:visual:without-build
-```
-
-To update the snapshots add `-- -u` after the test you want to update, i.e: `npm run test:visual -- -u`
-
-**BLACKLIST**
-
-Each test suite has a `blacklist` array with component names that should be skipped from the test. If you add a component that for some reason needs to be skipped (ie. `Modal`, because `react-test-renderer` doesn't support refs) you can add them to one of the blacklists.
-
-They can be found here:
-
-- Coverage Test Suite: `test/coverage/coverage.test.ts`
-
-- Visual Test Suite: `test/visual/visual.test.ts`
-
-This is an example:
-
-```tsx
-/*
-  Components that should be skipped from this test suite
-*/
-const blacklist = ['Modal']
-```
-
 ## CI/CD
 
-We run coverage + visual tests on CircleCI for every PR. When merged to master we send coverage reports to CodeCov, deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
+We deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
