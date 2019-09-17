@@ -11,7 +11,7 @@ import 'react-tile-map/lib/styles.css'
 import './themes/base-theme.css'
 
 // Default theme
-import './themes/alternative/light-theme.css'
+import './themes/alternative/dark-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
@@ -45,6 +45,7 @@ export * from './components/LanguageDropdown/LanguageDropdown'
 export * from './components/Logo/Logo'
 export * from './components/Field/Field'
 export * from './components/Mana/Mana'
+export * from './components/ModalNavigation/ModalNavigation'
 export * from './components/Navbar/Navbar'
 export * from './components/Page/Page'
 export * from './components/Parallax/Parallax'

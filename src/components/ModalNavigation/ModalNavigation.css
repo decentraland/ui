@@ -1,0 +1,43 @@
+.dcl.modal-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 24px 0px 24px;
+  position: relative;
+}
+
+.dcl.modal-navigation-title {
+  color: var(--text);
+  font-size: 21px;
+  line-height: 30px;
+  letter-spacing: 0.3px;
+}
+
+.dcl.modal-navigation-subtitle {
+  color: var(--secondary-text);
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  margin-top: 8px;
+}
+
+.dcl.modal-navigation-button {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  filter: var(--brightness);
+}
+
+.dcl.modal-navigation-button.modal-navigation-close {
+  right: 24px;
+  background-image: url(../../assets/close.svg);
+}
+
+.dcl.modal-navigation-button.modal-navigation-back {
+  left: 24px;
+  background-image: url(../../assets/back.svg);
+}

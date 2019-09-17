@@ -1,7 +1,17 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Modal, Button, Mana, Header, Center, Radio, Field, Close } from '../..'
+import {
+  Modal,
+  ModalNavigation,
+  Button,
+  Mana,
+  Header,
+  Center,
+  Radio,
+  Field,
+  Close
+} from '../..'
 import './Modal.stories.css'
 
 const lipsum = (
@@ -142,6 +152,20 @@ storiesOf('Modal', module)
           <p>This is an alert or something like that.</p>
           <p>It doesn't have any actions but you can dismiss it.</p>
         </Modal.Content>
+      </Modal>
+    </div>
+  ))
+  .add('Navigation', () => (
+    <div className="Modal-story">
+      {lipsum}
+      <Modal open={true}>
+        <ModalNavigation
+          title="Edit BMX Pack"
+          subtitle="Edit your Asset Pack details and manage your objects"
+          onBack={() => alert('Back!')}
+          onClose={() => alert('Close!')}
+        />
+        <Modal.Content>Bla bla bla</Modal.Content>
       </Modal>
     </div>
   ))
