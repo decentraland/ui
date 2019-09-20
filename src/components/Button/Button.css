@@ -156,3 +156,31 @@
 .ui.button + .ui.button {
   margin-left: 16px;
 }
+
+.ui.button.inverted {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  box-shadow: none !important;
+}
+
+.ui.button.inverted:hover {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  box-shadow: none !important;
+}
+
+.ui.button.inverted.primary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: none !important;
+}
+
+.ui.button.inverted.primary:hover {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: none !important;
+}

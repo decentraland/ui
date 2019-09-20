@@ -28,6 +28,20 @@ storiesOf('Button', module)
       </Button>
     </>
   ))
+  .add('Inverted', () => (
+    <>
+      <Button inverted>Download</Button>
+      <Button inverted disabled>
+        Download
+      </Button>
+      <Button inverted primary>
+        Download
+      </Button>
+      <Button inverted primary disabled>
+        Download
+      </Button>
+    </>
+  ))
   .add('Link', () => (
     <>
       <Button href="https://google.com" primary>
