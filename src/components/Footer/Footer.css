@@ -77,11 +77,22 @@
   color: var(--secondary-text);
 }
 
+@media (max-width: 1200px) {
+  .dcl.footer {
+    flex-flow: column nowrap;
+    margin-bottom: 12px;
+  }
+
+  .dcl.footer .main-footer {
+    margin-bottom: 12px;
+  }
+}
+
 @media (max-width: 1024px) {
   .dcl.footer {
     flex-flow: column nowrap;
     justify-content: center;
-    padding-bottom: 48px;
+    margin-bottom: 48px;
     height: auto;
   }
 
