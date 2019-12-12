@@ -21,7 +21,13 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
             {header}
             <Dropdown.Menu scrolling className="options-wrapper">
               {options.map((opt, i) => (
-                <Dropdown.Item key={i} {...opt} />
+                <Dropdown.Item
+                  key={i}
+                  {...opt}
+                  onClick={e =>
+                    this.props.onChange(e, { ...this.props, value: opt.value })
+                  }
+                />
               ))}
             </Dropdown.Menu>
           </Dropdown.Menu>
