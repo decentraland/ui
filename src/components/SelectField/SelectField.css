@@ -57,6 +57,18 @@
   box-shadow: var(--shadow-2);
 }
 
+.dcl.select-field .ui.dropdown.visible .menu.wrapper {
+  overflow-y: hidden;
+  height: auto;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.dcl.select-field .ui.dropdown .options-wrapper {
+  flex: 1;
+  width: 100% !important;
+}
+
 .dcl.select-field .ui.dropdown:hover .menu {
   border-color: transparent;
   box-shadow: var(--shadow-2);
