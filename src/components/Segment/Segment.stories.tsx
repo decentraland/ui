@@ -1,9 +1,13 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Header, Segment, HeaderMenu, Button, Radio } from '../..'
 import { Field } from '../Field/Field'
+import { Header } from '../Header/Header'
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { Button } from '../Button/Button'
+import { Radio } from '../Radio/Radio'
 
+import { Segment } from './Segment'
 import './Segment.stories.css'
 
 storiesOf('Segment', module)

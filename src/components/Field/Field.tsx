@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { Header, Input, InputProps } from 'semantic-ui-react'
-import { Blockie, Button } from '../..'
+import { Input, InputProps } from 'semantic-ui-react'
+import { Blockie } from '../Blockie/Blockie'
+import { Button } from '../Button/Button'
+import { Header } from '../Header/Header'
 import './Field.css'
 
 export type FieldProps = InputProps & {

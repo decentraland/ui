@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { TileMapProps, Layer, TileMap, Coord } from 'react-tile-map'
-
 import './Atlas.css'
 
 export type AtlasTile = {

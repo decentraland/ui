@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { LanguageIcon } from '../LanguageIcon/LanguageIcon'
-import { Dropdown, LanguageIconProps, DropdownProps, Locale } from '../..'
+import { DropdownProps, Dropdown } from '../Dropdown/Dropdown'
+import { LanguageIcon, LanguageIconProps, Locale } from '../LanguageIcon/LanguageIcon'
 import './LanguageDropdown.css'
 
 export type LanguageDropdownI18N = {
@@ -25,9 +25,9 @@ export type LanguageDropdownProps = Partial<LanguageIconProps> & {
 
 export class LanguageDropdown extends React.PureComponent<
   LanguageDropdownProps
-> {
+  > {
   static defaultProps: Partial<LanguageDropdownProps> = {
-    onChange: () => {},
+    onChange: () => { },
     direction: 'left',
     upward: false,
     locales: ['en'],

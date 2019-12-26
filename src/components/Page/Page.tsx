@@ -1,7 +1,5 @@
 import * as React from 'react'
-
-import { Container } from '../..'
-
+import { Container } from '../Container/Container'
 import './Page.css'
 
 export type PageProps = {
