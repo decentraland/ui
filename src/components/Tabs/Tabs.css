@@ -17,6 +17,7 @@
 }
 
 .dcl.tab {
+  position: relative;
   display: inline-block;
   padding: 19px 0px;
   margin-right: 32px;
@@ -26,9 +27,15 @@
   cursor: pointer;
 }
 
-.dcl.tab.active {
-  border-bottom: 1px solid var(--primary);
+.dcl.tab .active {
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  right: 0px;
+  border-bottom: 3px solid var(--primary);
+  border-radius: 10px;
   font-weight: 600;
+  z-index: 10;
 }
 
 @media (max-width: 768px) {
