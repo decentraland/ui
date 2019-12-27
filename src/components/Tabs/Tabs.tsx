@@ -28,9 +28,9 @@ export class Tabs extends React.PureComponent<TabsProps> {
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     children: React.ReactNode
   }) => (
-    <div className="dcl tab" onClick={onClick}>
+    <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
       {children}
-      {active ? <div className="active"></div> : null}
+      {active ? <div className="active-bar"></div> : null}
     </div>
   )
 
