@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Address, Mana, Blockie } from '../..'
 
-const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
+const address = Math.random().toString()
 
 storiesOf('Blockie', module)
   .addDecorator(centered)

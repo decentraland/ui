@@ -19,9 +19,9 @@ export type CanvasStateStore = {
 
 export class Blockie extends React.PureComponent<BlockieProps> {
   static defaultProps = {
-    color: '#ff2d55',
-    bgcolor: '#d10038',
-    spotcolor: '#00dbef',
+    color: '#e449c2',
+    bgcolor: '#3149de',
+    spotcolor: '#e449c2',
     size: 6,
     scale: 6,
     className: ''
@@ -75,7 +75,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     if (children) {
       return (
         <span className="dcl blockie-wrapper">
-          { canvas }
+          {canvas}
           <span className="dcl blockie-children">{children}</span>
         </span>
       )
