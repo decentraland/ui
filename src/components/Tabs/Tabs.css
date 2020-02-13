@@ -60,4 +60,8 @@
     border-bottom: none;
     border-left: 2px solid var(--primary);
   }
+
+  .dcl.tab .active-bar {
+    display: none;
+  }
 }
