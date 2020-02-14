@@ -177,7 +177,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           >
             {mana != null ? (
               <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
-                {mana.toLocaleString()}
+                {parseInt(mana.toFixed(0), 10).toLocaleString()}
               </Mana>
             ) : null}
             {address != null ? <Blockie seed={address} /> : null}
