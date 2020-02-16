@@ -103,7 +103,9 @@ export class Footer extends React.PureComponent<FooterProps> {
               <i className="social-icon twitter" />
             </a>
           </div>
-          <div className="copyright">© 2019 Decentraland</div>
+          <div className="copyright">
+            © {new Date().getFullYear()} Decentraland
+          </div>
         </div>
       </Container>
     )
