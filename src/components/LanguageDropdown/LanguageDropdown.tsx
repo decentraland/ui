@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { DropdownProps, Dropdown } from '../Dropdown/Dropdown'
-import { LanguageIcon, LanguageIconProps, Locale } from '../LanguageIcon/LanguageIcon'
+import { LanguageIcon, LanguageIconProps } from '../LanguageIcon/LanguageIcon'
+import { Locale } from '../Language/Language'
 import './LanguageDropdown.css'
 
 export type LanguageDropdownI18N = {
