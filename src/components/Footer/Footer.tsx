@@ -90,7 +90,7 @@ export class Footer extends React.PureComponent<FooterProps> {
         </div>
         <div className="secondary-footer">
           <div className="social-links">
-            <a href="https://discordapp.com/invite/9EcuFgC">
+            <a href="https://dcl.gg/discord">
               <i className="social-icon discord" />
             </a>
             <a href="https://reddit.com/r/decentraland">
