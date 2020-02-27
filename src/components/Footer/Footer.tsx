@@ -1,11 +1,7 @@
 import * as React from 'react'
-import {
-  Container,
-  Locale,
-  LanguageDropdown,
-  LanguageDropdownI18N,
-  LanguageDropdownProps
-} from '../..'
+import { Container } from '../Container/Container'
+import { LanguageDropdownI18N, LanguageDropdownProps, LanguageDropdown } from '../LanguageDropdown/LanguageDropdown'
+import { Locale } from '../Language/Language'
 import './Footer.css'
 
 export type LinksI18N = {

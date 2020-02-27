@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Header, Dropdown, DropdownProps } from 'semantic-ui-react'
+import { Dropdown, DropdownProps } from '../Dropdown/Dropdown'
+import { Header } from '../Header/Header'
 import './SelectField.css'
 
 export type SelectFieldProps = DropdownProps & {

@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { Responsive } from 'semantic-ui-react'
+import { Container } from '../Container/Container'
 import './Tabs.css'
-import { Container, Responsive } from '../..'
 
 export type TabsProps = {
   isFullscreen?: boolean
@@ -28,11 +29,11 @@ export class Tabs extends React.PureComponent<TabsProps> {
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     children: React.ReactNode
   }) => (
-    <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
-      {children}
-      {active ? <div className="active-bar"></div> : null}
-    </div>
-  )
+      <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
+        {children}
+        {active ? <div className="active-bar"></div> : null}
+      </div>
+    )
 
   render() {
     const { children, isFullscreen, onClick } = this.props

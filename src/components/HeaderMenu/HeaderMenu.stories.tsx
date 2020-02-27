@@ -1,7 +1,12 @@
 import * as React from 'react'
+import { Icon } from 'semantic-ui-react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Container, HeaderMenu, Header, Button, Icon, Dropdown } from '../..'
+import { Button } from '../Button/Button'
+import { Container } from '../Container/Container'
+import { Dropdown } from '../Dropdown/Dropdown'
+import { Header } from '../Header/Header'
+import { HeaderMenu } from './HeaderMenu'
 
 storiesOf('HeaderMenu', module)
   .addDecorator(centered)

@@ -1,7 +1,9 @@
 import * as React from 'react'
+import { Icon } from 'semantic-ui-react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Button, Icon } from '../..'
+
+import { Button } from './Button'
 import './Button.stories.css'
 
 storiesOf('Button', module)

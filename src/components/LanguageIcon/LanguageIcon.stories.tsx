@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { LanguageIcon } from '../..'
+
+import { LanguageIcon } from './LanguageIcon'
 import './LanguageIcon.stories.css'
 
 storiesOf('LanguageIcon', module)

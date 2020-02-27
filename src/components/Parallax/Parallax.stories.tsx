@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Parallax } from '../..'
+
+import { Parallax } from './Parallax'
 import './Parallax.stories.css'
 
 storiesOf('Parallax', module)

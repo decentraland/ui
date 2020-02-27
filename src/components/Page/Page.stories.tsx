@@ -1,22 +1,20 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import {
-  Navbar,
-  Page,
-  Header,
-  Footer,
-  Container,
-  Hero,
-  Center,
-  Tabs,
-  Filter,
-  Dropdown,
-  Radio,
-  Atlas
-} from '../..'
-
-import './Page.stories.css'
+import { Atlas } from '../Atlas/Atlas'
+import { Center } from '../Center/Center'
+import { Container } from '../Container/Container'
+import { Dropdown } from '../Dropdown/Dropdown'
+import { Filter } from '../Filter/Filter'
+import { Footer } from '../Footer/Footer'
+import { Header } from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { Hero } from '../Hero/Hero'
+import { Navbar } from '../Navbar/Navbar'
+import { Radio } from '../Radio/Radio'
+import { Tabs } from '../Tabs/Tabs'
+
+import { Page } from './Page'
+import './Page.stories.css'
 
 storiesOf('Page', module)
   .add('Regular page', () => {

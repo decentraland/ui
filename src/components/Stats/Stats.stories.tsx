@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Mana, Stats } from '../..'
+import { Mana } from '../Mana/Mana'
+import { Stats } from './Stats'
 
 storiesOf('Stats', module)
   .addDecorator(centered)

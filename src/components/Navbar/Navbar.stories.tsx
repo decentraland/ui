@@ -1,7 +1,12 @@
 import * as React from 'react'
+import { Menu, Icon } from 'semantic-ui-react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Navbar, Menu, Icon, Parallax, Hero, Button } from '../..'
+import { Button } from '../Button/Button'
+import { Hero } from '../Hero/Hero'
+import { Parallax } from '../Parallax/Parallax'
+
+import { Navbar } from './Navbar'
 import './Navbar.stories.css'
 
 storiesOf('Navbar', module)

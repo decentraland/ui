@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Popup, Close, Row } from '../..'
+import { Close } from '../Close/Close'
+import { Row } from '../Row/Row'
 
+import { Popup } from './Popup'
 import './Popup.stories.css'
 
 storiesOf('Popup', module)
