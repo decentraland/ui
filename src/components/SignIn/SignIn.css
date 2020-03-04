@@ -13,19 +13,19 @@
   bottom: 0px;
 }
 
-.SignIn .WalletIcon {
-  margin-top: 40px;
+.SignIn .StartWalletIcon {
+  margin-bottom: 25px;
   width: 180px;
   height: 180px;
   background-color: var(--secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 90px;
+  border-radius: 100%;
 }
 
-.SignIn .WalletIcon svg {
-  fill: var(--text);
+.SignIn .StartWalletIcon svg {
+  fill: var(--background);
 }
 
 .SignIn .ui.header {
