@@ -4,14 +4,11 @@ import 'semantic-ui-css/semantic.min.css'
 // Balloon css
 import 'balloon-css/balloon.min.css'
 
-// TileMap css
-import 'react-tile-map/lib/styles.css'
-
 // Base theme
 import './themes/base-theme.css'
 
 // Default theme
-import './themes/alternative/light-theme.css'
+import './themes/alternative/dark-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'

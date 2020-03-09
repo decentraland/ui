@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Atlas, Navbar, Page, Footer, Layer, Coord } from '../..'
+import { Footer } from '../Footer/Footer'
+import { Navbar } from '../Navbar/Navbar'
+import { Page } from '../Page/Page'
+import { Atlas, Layer, Coord } from './Atlas'
 
 // Controlled
 

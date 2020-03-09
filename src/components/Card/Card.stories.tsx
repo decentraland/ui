@@ -1,7 +1,13 @@
 import * as React from 'react'
+import { Icon } from 'semantic-ui-react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Card, Container, HeaderMenu, Header, Mana, Button, Icon } from '../..'
+import { Button } from '../Button/Button'
+import { Container } from '../Container/Container'
+import { Header } from '../Header/Header'
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { Mana } from '../Mana/Mana'
+import { Card } from './Card'
 
 const cards = [
   {

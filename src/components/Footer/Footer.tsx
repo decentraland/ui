@@ -1,11 +1,7 @@
 import * as React from 'react'
-import {
-  Container,
-  Locale,
-  LanguageDropdown,
-  LanguageDropdownI18N,
-  LanguageDropdownProps
-} from '../..'
+import { Container } from '../Container/Container'
+import { LanguageDropdownI18N, LanguageDropdownProps, LanguageDropdown } from '../LanguageDropdown/LanguageDropdown'
+import { Locale } from '../Language/Language'
 import './Footer.css'
 
 export type LinksI18N = {
@@ -90,7 +86,7 @@ export class Footer extends React.PureComponent<FooterProps> {
         </div>
         <div className="secondary-footer">
           <div className="social-links">
-            <a href="https://discordapp.com/invite/9EcuFgC">
+            <a href="https://dcl.gg/discord">
               <i className="social-icon discord" />
             </a>
             <a href="https://reddit.com/r/decentraland">

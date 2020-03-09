@@ -1,17 +1,16 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import {
-  Modal,
-  ModalNavigation,
-  Button,
-  Mana,
-  Header,
-  Center,
-  Radio,
-  Field,
-  Close
-} from '../..'
+import { Button } from '../Button/Button'
+import { Center } from '../Center/Center'
+import { Close } from '../Close/Close'
+import { Field } from '../Field/Field'
+import { Header } from '../Header/Header'
+import { Mana } from '../Mana/Mana'
+import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
+import { Radio } from '../Radio/Radio'
+
+import { Modal } from './Modal'
 import './Modal.stories.css'
 
 const lipsum = (

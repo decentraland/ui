@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Container, HeaderMenu, Dropdown, Mana, Header, Table } from '../..'
+import { Container } from '../Container/Container'
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { Header } from '../Header/Header'
+import { Dropdown } from '../Dropdown/Dropdown'
+import { Mana } from '../Mana/Mana'
+
+import { Table } from './Table'
 import './Table.stories.css'
 
 const rows = [

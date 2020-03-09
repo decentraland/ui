@@ -1,7 +1,8 @@
 import * as React from 'react'
+import { Locale } from '../Language/Language'
 import './LanguageIcon.css'
 
-export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'zh' | 'ko'
+export { Locale }
 
 export type LanguageIconProps = {
   locale: Locale
@@ -20,7 +21,7 @@ export class LanguageIcon extends React.PureComponent<LanguageIconProps> {
         <div className="language-icon-label">{this.props.label}</div>
       </div>
     ) : (
-      this.renderIcon()
-    )
+        this.renderIcon()
+      )
   }
 }

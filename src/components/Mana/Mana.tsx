@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Header, HeaderProps } from 'semantic-ui-react'
+import { Header, HeaderProps } from '../Header/Header'
 import './Mana.css'
 
 export type ManaProps = {

@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Address, Mana, Blockie } from '../..'
+import { Address } from '../Address/Address'
+import { Mana } from '../Mana/Mana'
+import { Blockie } from './Blockie'
 
 const address = '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942'
 

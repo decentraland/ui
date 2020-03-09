@@ -1,5 +1,10 @@
 import * as React from 'react'
-import { Blockie, Mana, Logo, Header, Container, Menu, Responsive } from '../..'
+import { Menu, Responsive } from 'semantic-ui-react'
+import { Mana } from '../Mana/Mana'
+import { Blockie } from '../Blockie/Blockie'
+import { Container } from '../Container/Container'
+import { Header } from '../Header/Header'
+import { Logo } from '../Logo/Logo'
 import './Navbar.css'
 
 export type NavbarI18N = {
@@ -21,13 +26,13 @@ export type NavbarProps = {
   mana?: number
   address?: string
   activePage?:
-    | 'marketplace'
-    | 'docs'
-    | 'agora'
-    | 'blog'
-    | 'builder'
-    | 'avatars'
-    | string
+  | 'marketplace'
+  | 'docs'
+  | 'agora'
+  | 'blog'
+  | 'builder'
+  | 'avatars'
+  | string
   leftMenu?: React.ReactNode
   middleMenu?: React.ReactNode
   rightMenu?: React.ReactNode
@@ -172,7 +177,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <span
             className={`dcl account-wrapper ${
               onClickAccount ? 'clickable' : ''
-            }`}
+              }`}
             onClick={onClickAccount}
           >
             {mana != null ? (
@@ -260,7 +265,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                 size="small"
                 className={`dcl active-page ${
                   this.state.toggle ? 'caret-up' : 'caret-down'
-                }`}
+                  }`}
                 onClick={this.handleToggle}
               >
                 {activePage}

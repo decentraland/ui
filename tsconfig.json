@@ -17,6 +17,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
+    "skipLibCheck": true,
     "jsx": "react",
     "plugins": [{ "name": "tslint-language-service" }],
     "baseUrl": "./packages",

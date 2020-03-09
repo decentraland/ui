@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Header, Container } from '../..'
+import { Container } from '../Container/Container'
+import { Header } from '../Header/Header'
 import './Hero.css'
 
 export type HeroProps = {
