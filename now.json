@@ -1,4 +1,14 @@
 {
   "version": 2,
-  "alias": "ui.decentraland.org"
+  "name": "ui",
+  "alias": "ui.decentraland.org",
+  "build": {
+    "env": {
+      
+    }
+  },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
 }
