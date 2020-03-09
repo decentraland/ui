@@ -14,6 +14,7 @@
 }
 
 .SignIn .StartWalletIcon {
+  flex: none;
   margin-bottom: 25px;
   width: 180px;
   height: 180px;
@@ -43,6 +44,7 @@
 }
 
 .SignIn .ui.button {
+  flex: none;
   margin-top: 40px;
 }
 
