@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
-import { WalletIcon } from '../WalletIcon/WalletIcon'
+import { StartWalletIcon } from '../WalletIcon/StartWalletIcon'
 import './SignIn.css'
 
 export type SignInI18N = {
@@ -78,8 +78,8 @@ export class SignIn extends React.PureComponent<SignInProps> {
     }
     return (
       <div className={classes}>
-        <WalletIcon />
         <Header>{i18n.header}</Header>
+        <StartWalletIcon />
         <p className="message">{i18n.message}</p>
 
         <Button
