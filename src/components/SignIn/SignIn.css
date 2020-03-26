@@ -13,7 +13,8 @@
   bottom: 0px;
 }
 
-.SignIn .StartWalletIcon {
+.SignIn .WalletIcon,
+.SignIn .StarWalletIcon {
   flex: none;
   margin-bottom: 25px;
   width: 180px;
@@ -25,7 +26,7 @@
   border-radius: 100%;
 }
 
-.SignIn .StartWalletIcon svg {
+.SignIn .StarWalletIcon svg {
   fill: var(--background);
 }
 

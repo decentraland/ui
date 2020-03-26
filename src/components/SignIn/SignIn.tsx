@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
-import { StartWalletIcon } from '../WalletIcon/StartWalletIcon'
+import { StarWalletIcon } from '../StarWalletIcon/StarWalletIcon'
 import './SignIn.css'
 
 export type SignInI18N = {
@@ -28,7 +28,7 @@ export class SignIn extends React.PureComponent<SignInProps> {
     isConnected: false,
     isConnecting: false,
     hasError: false,
-    onConnect: () => { },
+    onConnect: () => {},
     i18n: {
       header: 'Get Started',
       message: (
@@ -79,7 +79,7 @@ export class SignIn extends React.PureComponent<SignInProps> {
     return (
       <div className={classes}>
         <Header>{i18n.header}</Header>
-        <StartWalletIcon />
+        <StarWalletIcon />
         <p className="message">{i18n.message}</p>
 
         <Button
@@ -90,8 +90,8 @@ export class SignIn extends React.PureComponent<SignInProps> {
           {isConnecting
             ? i18n.connecting
             : isConnected
-              ? i18n.connected
-              : i18n.connect}
+            ? i18n.connected
+            : i18n.connect}
         </Button>
 
         <p className={errorClasses}>{i18n.error}</p>

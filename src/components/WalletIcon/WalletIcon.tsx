@@ -1,4 +1,5 @@
 import * as React from 'react'
+import './WalletIcon.css'
 
 export const WalletIcon = () => (
   <div className="WalletIcon">
