@@ -1,0 +1,28 @@
+.switch-theme {
+  z-index: 10000;
+  position: fixed;
+  cursor: pointer;
+  margin: 24px;
+  right: 0px;
+}
+
+.switch-theme .ui.toggle.checkbox input:checked ~ label:before,
+.switch-theme .ui.toggle.checkbox input:focus:checked ~ label:before {
+  background-color: var(--primary) !important;
+}
+
+.switch-theme .icon {
+  position: absolute;
+  color: var(--secondary-text);
+  transition: all 0.3s ease;
+  top: 2px;
+  z-index: 10001;
+}
+
+.switch-theme .icon.sun {
+  left: 1px;
+}
+
+.switch-theme .icon.moon {
+  left: 32px;
+}

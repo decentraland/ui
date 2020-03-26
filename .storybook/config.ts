@@ -1,6 +1,7 @@
 // @ts-ignore
 import { addParameters, configure, addDecorator } from '@storybook/react'
 import { create } from '@storybook/theming'
+import theme from './theme'
 
 // import global css
 import 'semantic-ui-css/semantic.min.css'
@@ -18,6 +19,8 @@ addParameters({
     })
   }
 })
+
+addDecorator(theme)
 
 // automatically import all files ending in *.stories.tsx in /stories
 const req = require.context('../src/components', true, /.stories.tsx?$/)
