@@ -8,7 +8,7 @@ import 'balloon-css/balloon.min.css'
 import './themes/base-theme.css'
 
 // Default theme
-import './themes/alternative/dark-theme.css'
+import './themes/alternative/light-theme.css'
 
 // Semantic components themes
 import './components/Button/Button.css'
@@ -48,6 +48,7 @@ export * from './components/Page/Page'
 export * from './components/Parallax/Parallax'
 export * from './components/Row/Row'
 export * from './components/SignIn/SignIn'
+export * from './components/StarWalletIcon/StarWalletIcon'
 export * from './components/Stats/Stats'
 export * from './components/Tabs/Tabs'
 export * from './components/WalletIcon/WalletIcon'
