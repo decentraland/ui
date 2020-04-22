@@ -11,10 +11,10 @@ import './Navbar.stories.css'
 
 storiesOf('Navbar', module)
   .addDecorator(centered)
-  .add('Agora', () => {
+  .add('DAO', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar activePage="agora" />
+        <Navbar activePage="dao" />
       </div>
     )
   })
@@ -22,7 +22,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           onSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
@@ -33,7 +33,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isSignIn
           onSignIn={() => console.log('Clicked on sign in')}
         />
@@ -44,7 +44,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           onSignIn={() => console.log('Clicked on sign in')}
           isConnecting
         />
@@ -55,7 +55,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -67,7 +67,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -82,7 +82,7 @@ storiesOf('Navbar', module)
       <div className="Navbar-story-container">
         <div className="background" />
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -95,7 +95,7 @@ storiesOf('Navbar', module)
   .add('With hero', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar activePage="agora" isFullscreen />
+        <Navbar activePage="dao" isFullscreen />
         <Hero height={442} centered>
           <Hero.Header>Help us build Decentraland</Hero.Header>
           <Hero.Description>Join the discussion</Hero.Description>
@@ -116,7 +116,7 @@ storiesOf('Navbar', module)
   .add('With Overlay over Hero', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar activePage="agora" isFullscreen isOverlay />
+        <Navbar activePage="dao" isFullscreen isOverlay />
         <Hero className="over-gradient" height={442} centered>
           <Hero.Header>Help us build Decentraland</Hero.Header>
           <Hero.Description>Join the discussion</Hero.Description>
@@ -131,7 +131,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -152,7 +152,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
@@ -172,7 +172,7 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="agora"
+          activePage="dao"
           isConnected
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
