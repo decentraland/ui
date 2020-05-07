@@ -1,0 +1,133 @@
+.dcl.user-menu {
+  display: flex;
+  position: relative;
+  text-align: left;
+  outline: none;
+}
+
+.dcl.user-menu .menu .avatar-face {
+  background: rgba(var(--dark-raw), 0.3);
+}
+
+.dcl.user-menu .toggle {
+  cursor: pointer;
+}
+
+.dcl.user-menu .ui.button {
+  font-size: 12px;
+  line-height: 18px;
+  padding: 9px 14px;
+  min-width: 0;
+}
+
+.dcl.user-menu .menu {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  z-index: 1;
+  background: var(--dropdown);
+  box-shadow: var(--shadow-2);
+  border-radius: 6px;
+  display: inline-block;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0, -4px);
+  min-width: 180px;
+  overflow: hidden;
+}
+
+.dcl.user-menu .menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, 0);
+}
+
+.dcl.user-menu .info {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--dropdown-hover);
+  padding: 12px 16px;
+}
+
+.dcl.user-menu .info.clickable {
+  cursor: pointer;
+}
+
+.dcl.user-menu .info.clickable:hover {
+  background-color: var(--dropdown-hover);
+}
+
+.dcl.user-menu .image {
+  margin-right: 10px;
+}
+
+.dcl.user-menu .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.19px;
+}
+
+.dcl.user-menu .email {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.dcl.user-menu .actions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.dcl.user-menu .actions li,
+.dcl.user-menu .actions .item {
+  cursor: pointer;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dcl.user-menu .actions li:hover,
+.dcl.user-menu .actions .item:hover {
+  background-color: var(--dropdown-hover);
+}
+
+.dcl.user-menu .actions li img {
+  margin-right: 12px;
+  display: block;
+  filter: var(--brightness);
+}
+
+.dcl.user-menu .actions .sign-out-icon {
+  width: 12px;
+  height: 12px;
+  filter: var(--brightness);
+  background: url(../../assets/signout.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 12px;
+}
+
+.dcl.user-menu .toggle {
+  width: 46px;
+  height: 46px;
+}
+
+.dcl.user-menu .menu .AvatarFace {
+  background-color: #f3f2f5;
+}
+
+@media (max-width: 768px) {
+  .dcl.user-menu.authed {
+    width: 36px;
+    height: 36px;
+  }
+
+  .dcl.navbar .dcl.user-menu.authed .AvatarFace.medium {
+    width: 36px;
+    height: 36px;
+  }
+}
