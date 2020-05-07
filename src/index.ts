@@ -29,6 +29,7 @@ import './components/Table/Table.css'
 // Decentraland components
 export * from './components/Address/Address'
 export * from './components/Atlas/Atlas'
+export * from './components/AvatarFace/AvatarFace'
 export * from './components/Blockie/Blockie'
 export * from './components/Center/Center'
 export * from './components/Close/Close'
@@ -61,3 +62,6 @@ export * from 'semantic-ui-react'
 
 // Colors
 export * from './colors'
+
+// Types
+export * from './types/avatar'
