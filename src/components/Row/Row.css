@@ -3,6 +3,15 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  flex: 1 0 auto;
+}
+
+.dcl.row.left {
+  justify-content: flex-start;
+}
+
+.dcl.row.right {
+  justify-content: flex-end;
 }
 
 .dcl.row.center {

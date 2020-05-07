@@ -2,9 +2,18 @@
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
 }
 
-.dcl.column.center {
-  justify-content: center;
+.dcl.row.left {
+  align-items: flex-start;
+}
+
+.dcl.row.right {
+  align-items: flex-end;
+}
+
+.dcl.row.center {
+  align-items: center;
 }
