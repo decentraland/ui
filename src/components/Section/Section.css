@@ -1,0 +1,15 @@
+.dcl.section.small {
+  margin-bottom: 24px;
+}
+
+.dcl.section.medium {
+  margin-bottom: 32px;
+}
+
+.dcl.section.large {
+  margin-bottom: 48px;
+}
+
+.dcl.section .ui.header.sub {
+  margin-bottom: 8px;
+}
