@@ -57,3 +57,6 @@ export * from './components/TagField/TagField'
 
 // Semantic components
 export * from 'semantic-ui-react'
+
+// Colors
+export * from './colors'
