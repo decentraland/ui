@@ -7,6 +7,7 @@
   text-align: center;
   font-weight: 600;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin: 0px;
 }
 
 /* hover */
@@ -152,10 +153,6 @@
 }
 
 /* button group */
-
-.ui.button + .ui.button {
-  margin-left: 16px;
-}
 
 .ui.button.inverted {
   background-color: transparent;

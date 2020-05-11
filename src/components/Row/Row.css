@@ -17,3 +17,34 @@
 .dcl.row.center {
   justify-content: center;
 }
+
+.dcl.row .ui.header {
+  margin: 0px !important;
+}
+
+.dcl.row .ui.button.basic {
+  padding: 0px;
+}
+
+.dcl.row > .ui.button + .ui.button,
+.dcl.row > .ui.dropdown + .ui.button,
+.dcl.row > .ui.dropdown + .ui.dropdown,
+.dcl.row > .ui.button + .ui.dropdown,
+.dcl.row > .ui.checkbox + .ui.checkbox {
+  margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+  .dcl.row.stacked {
+    flex-direction: column;
+  }
+
+  .dcl.row.stacked > .ui.button + .ui.button,
+  .dcl.row.stacked > .ui.dropdown + .ui.button,
+  .dcl.row.stacked > .ui.dropdown + .ui.dropdown,
+  .dcl.row.stacked > .ui.button + .ui.dropdown,
+  .dcl.row > .ui.checkbox + .ui.checkbox {
+    margin-top: 16px;
+    margin-left: 0px;
+  }
+}

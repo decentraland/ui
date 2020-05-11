@@ -1,3 +1,11 @@
+.dcl.section {
+  position: relative;
+}
+
+.dcl.section.tiny {
+  margin-bottom: 8px;
+}
+
 .dcl.section.small {
   margin-bottom: 24px;
 }

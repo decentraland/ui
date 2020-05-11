@@ -3,7 +3,7 @@ import './Section.css'
 
 export type SectionProps = {
   className?: string
-  size?: 'small' | 'medium' | 'large'
+  size?: 'tiny' | 'small' | 'medium' | 'large'
 }
 
 export class Section extends React.PureComponent<SectionProps> {
@@ -17,10 +17,6 @@ export class Section extends React.PureComponent<SectionProps> {
     if (className) {
       classes.push(className)
     }
-    return (
-      <div className={classes.join(' ')}>
-        {children} {size}
-      </div>
-    )
+    return <div className={classes.join(' ')}>{children}</div>
   }
 }

@@ -6,6 +6,7 @@ export type RowProps = {
   align?: 'left' | 'center' | 'right'
   width?: number
   height?: number
+  stacked?: boolean
   className?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
@@ -25,7 +26,8 @@ export class Row extends React.PureComponent<RowProps> {
       align,
       center,
       width,
-      height
+      height,
+      stacked
     } = this.props
 
     const classes = ['dcl', 'row']
@@ -39,6 +41,9 @@ export class Row extends React.PureComponent<RowProps> {
     }
     if (className) {
       classes.push(className)
+    }
+    if (stacked) {
+      classes.push('stacked')
     }
 
     let style: React.CSSProperties = {}

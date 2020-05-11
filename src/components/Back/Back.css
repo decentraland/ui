@@ -1,0 +1,38 @@
+.dcl.back {
+  background-image: url(../../assets/back.svg);
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: 9px;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: solid 1px var(--divider);
+  background-size: 7px;
+  cursor: pointer;
+  margin: 0px 2px;
+  filter: var(--brightness);
+  padding: 8px;
+}
+
+.dcl.back:hover {
+  border: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.dcl.back.absolute {
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .dcl.back {
+    width: 28px;
+    height: 28px;
+    background-size: 6px;
+    background-position-x: 8px;
+    background-position-y: 8px;
+  }
+
+  .dcl.back.absolute {
+    position: relative;
+    margin-right: 16px;
+  }
+}

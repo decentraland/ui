@@ -6,14 +6,14 @@
   flex: 1 0 auto;
 }
 
-.dcl.row.left {
+.dcl.column.left {
   align-items: flex-start;
 }
 
-.dcl.row.right {
+.dcl.column.right {
   align-items: flex-end;
 }
 
-.dcl.row.center {
+.dcl.column.center {
   align-items: center;
 }

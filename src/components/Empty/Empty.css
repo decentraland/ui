@@ -1,12 +1,18 @@
 .dcl.empty {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  position: relative;
   border: 1px solid var(--secondary-text);
   border-radius: 8px;
   color: var(--secondary-text);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
+}
+
+.dcl.empty.expand {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }

@@ -6,6 +6,10 @@
   color: var(--primary);
 }
 
+.ui.dropdown.inline > .dropdown.icon {
+  display: none;
+}
+
 .ui.dropdown > .text {
   color: var(--primary);
   font-weight: 500;

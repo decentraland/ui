@@ -1,0 +1,24 @@
+.dcl.narrow {
+  position: relative;
+  width: 944px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+  .dcl.narrow {
+    width: 820px;
+  }
+}
+
+@media (max-width: 991px) {
+  .dcl.narrow {
+    width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dcl.narrow {
+    width: 100%;
+  }
+}

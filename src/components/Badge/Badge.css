@@ -1,0 +1,26 @@
+.dcl.badge {
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 5px;
+  padding: 7px 12px;
+  font-weight: 600;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: default;
+  flex: none;
+}
+
+.dcl.badge a {
+  /* Link to "enter world" looking oddly at line-height: 18px */
+  line-height: 22px;
+}
+
+.ui.header + .dcl.badge {
+  margin-left: 16px;
+}
+
+.dcl.badge i.icon {
+  line-height: 1;
+}

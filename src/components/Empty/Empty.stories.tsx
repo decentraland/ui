@@ -6,7 +6,7 @@ import { Page } from '../..'
 
 storiesOf('Empty', module)
   .addDecorator(centered)
-  .add('No results', () => (
+  .add('Expand to fill parent', () => (
     <Page>
       <Empty>No results...</Empty>
     </Page>
@@ -24,5 +24,12 @@ storiesOf('Empty', module)
   .add('Fixed height', () => (
     <Page>
       <Empty height={100}>This has a fixed height.</Empty>
+    </Page>
+  ))
+  .add('Expand', () => (
+    <Page>
+      <Empty expand>
+        <span>This expands to fill the parent.</span>
+      </Empty>
     </Page>
   ))

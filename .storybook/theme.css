@@ -13,16 +13,17 @@
 
 .switch-theme .icon {
   position: absolute;
-  color: var(--secondary-text);
+  color: var(--text);
   transition: all 0.3s ease;
-  top: 2px;
+  top: 0px;
   z-index: 10001;
+  font-size: 9px;
 }
 
 .switch-theme .icon.sun {
-  left: 1px;
+  left: 2.5px;
 }
 
 .switch-theme .icon.moon {
-  left: 32px;
+  left: 20px;
 }
