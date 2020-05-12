@@ -5,6 +5,12 @@
   outline: none;
 }
 
+.dcl.user-menu .toggle,
+.dcl.user-menu .toggle .avatar-face {
+  width: 42px;
+  height: 42px;
+}
+
 .dcl.user-menu .menu .avatar-face {
   background: rgba(var(--dark-raw), 0.3);
 }
@@ -116,17 +122,13 @@
   height: 46px;
 }
 
-.dcl.user-menu .menu .AvatarFace {
-  background-color: #f3f2f5;
-}
-
 @media (max-width: 768px) {
-  .dcl.user-menu.authed {
+  .dcl.user-menu .toggle {
     width: 36px;
     height: 36px;
   }
 
-  .dcl.navbar .dcl.user-menu.authed .AvatarFace.medium {
+  .dcl.user-menu .toggle .avatar-face {
     width: 36px;
     height: 36px;
   }
