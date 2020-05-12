@@ -3,7 +3,18 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+.dcl.row.grow {
   flex: 1 0 auto;
+}
+
+.dcl.row.shrink {
+  flex: 0 1 auto;
+}
+
+.dcl.row.grow.shrink {
+  flex: 1 1 auto;
 }
 
 .dcl.row.left {

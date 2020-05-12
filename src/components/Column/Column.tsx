@@ -4,6 +4,8 @@ import './Column.css'
 export type ColumnProps = {
   align: 'left' | 'center' | 'right'
   center?: boolean
+  grow?: boolean
+  shrink?: boolean
   width?: number
   height?: number
   className?: string
@@ -14,6 +16,8 @@ export class Column extends React.PureComponent<ColumnProps> {
   static defaultProps: Partial<ColumnProps> = {
     align: 'left',
     center: false,
+    grow: true,
+    shrink: true,
     className: ''
   }
 
@@ -25,6 +29,8 @@ export class Column extends React.PureComponent<ColumnProps> {
       align,
       width,
       height,
+      grow,
+      shrink,
       onClick
     } = this.props
     const classes = ['dcl', 'row']
@@ -39,6 +45,12 @@ export class Column extends React.PureComponent<ColumnProps> {
     if (className) {
       classes.push(className)
     }
+    if (grow) {
+      classes.push('grow')
+    }
+    if (shrink) {
+      classes.push('shrink')
+    }
 
     let style: React.CSSProperties = {}
     if (width) {
@@ -47,7 +59,6 @@ export class Column extends React.PureComponent<ColumnProps> {
     if (height) {
       style.height = height
     }
-
     return (
       <div className={classes.join(' ')} onClick={onClick} style={style}>
         {children}

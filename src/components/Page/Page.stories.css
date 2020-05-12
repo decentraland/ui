@@ -13,3 +13,9 @@
 .Page-story-container .dcl.hero .ui.header {
   color: white;
 }
+
+.dcl.page.table-story .ui.table .dcl.atlas {
+  margin-top: -22px;
+  border-radius: 8px;
+  overflow: hidden;
+}

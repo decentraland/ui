@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Atlas } from '../Atlas/Atlas'
+import { Atlas, Layer, Coord } from '../Atlas/Atlas'
 import { Center } from '../Center/Center'
 import { Container } from '../Container/Container'
 import { Dropdown } from '../Dropdown/Dropdown'
@@ -12,7 +12,7 @@ import { Hero } from '../Hero/Hero'
 import { Navbar } from '../Navbar/Navbar'
 import { Radio } from '../Radio/Radio'
 import { Tabs } from '../Tabs/Tabs'
-import { Row, Section, Empty, Narrow, Icon } from '../..'
+import { Row, Section, Empty, Narrow, Icon, Table } from '../..'
 import { Column } from '../Column/Column'
 import { Button } from '../Button/Button'
 import { Badge } from '../Badge/Badge'
@@ -21,6 +21,20 @@ import { Color } from '../../colors'
 
 import { Page } from './Page'
 import './Page.stories.css'
+
+let selected: Coord[] = [{ x: 22, y: 22 }]
+
+function isSelected(x: number, y: number) {
+  return selected.some(coord => coord.x === x && coord.y === y)
+}
+
+const selectedStrokeLayer: Layer = (x, y) => {
+  return isSelected(x, y) ? { color: '#ff0044', scale: 1.4 } : null
+}
+
+const selectedFillLayer: Layer = (x, y) => {
+  return isSelected(x, y) ? { color: '#ff9990', scale: 1.2 } : null
+}
 
 storiesOf('Page', module)
   .add('Regular page', () => {
@@ -199,6 +213,184 @@ storiesOf('Page', module)
           </Section>
           <Empty height={80}>Deployments go here...</Empty>
         </Narrow>
+      </Page>
+      <Footer />
+    </>
+  ))
+  .add('Table page', () => (
+    <>
+      <Navbar isFullscreen />
+      <Tabs>
+        <Tabs.Tab active>Land</Tabs.Tab>
+        <Tabs.Tab>Scenes</Tabs.Tab>
+      </Tabs>
+      <Page className="table-story">
+        <Row height={30}>
+          <Column>
+            <Row>
+              <Header sub>120 ITEMS</Header>
+            </Row>
+          </Column>
+          <Column align="right">
+            <Radio checked={true} label="Owner" />
+            <Radio checked={true} label="Operator" />
+            <Radio checked={true} label="Host" />
+          </Column>
+        </Row>
+
+        <Table basic="very">
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Coordinates</Table.HeaderCell>
+              <Table.HeaderCell>Role</Table.HeaderCell>
+              <Table.HeaderCell>Operated By</Table.HeaderCell>
+              <Table.HeaderCell>Type</Table.HeaderCell>
+              <Table.HeaderCell>Current Scene</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Row>
+                  <Column>
+                    <Atlas
+                      x={22}
+                      y={22}
+                      width={45}
+                      height={45}
+                      layers={[selectedStrokeLayer, selectedFillLayer]}
+                      isDraggable={false}
+                      size={9}
+                    />
+                  </Column>
+                  <Column>Delta City</Column>
+                </Row>
+              </Table.Cell>
+              <Table.Cell>66,66</Table.Cell>
+              <Table.Cell>Owner</Table.Cell>
+              <Table.Cell>Kyllian</Table.Cell>
+              <Table.Cell>Parcel</Table.Cell>
+              <Table.Cell>Magic Forrest</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
       </Page>
       <Footer />
     </>

@@ -3,7 +3,6 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  flex: 1 0 auto;
 }
 
 .dcl.column.left {
@@ -16,4 +15,16 @@
 
 .dcl.column.center {
   align-items: center;
+}
+
+.dcl.column.grow {
+  flex: 1 0 auto;
+}
+
+.dcl.column.shrink {
+  flex: 0 1 auto;
+}
+
+.dcl.column.grow.shrink {
+  flex: 1 1 auto;
 }

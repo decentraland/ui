@@ -7,6 +7,8 @@ export type RowProps = {
   width?: number
   height?: number
   stacked?: boolean
+  grow?: boolean
+  shrink?: boolean
   className?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
@@ -15,6 +17,8 @@ export class Row extends React.PureComponent<RowProps> {
   static defaultProps: Partial<RowProps> = {
     align: 'left',
     center: false,
+    grow: true,
+    shrink: true,
     className: ''
   }
 
@@ -27,7 +31,9 @@ export class Row extends React.PureComponent<RowProps> {
       center,
       width,
       height,
-      stacked
+      stacked,
+      grow,
+      shrink
     } = this.props
 
     const classes = ['dcl', 'row']
@@ -44,6 +50,12 @@ export class Row extends React.PureComponent<RowProps> {
     }
     if (stacked) {
       classes.push('stacked')
+    }
+    if (grow) {
+      classes.push('grow')
+    }
+    if (shrink) {
+      classes.push('shrink')
     }
 
     let style: React.CSSProperties = {}
