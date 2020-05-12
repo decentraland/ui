@@ -37,7 +37,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
   }
 
   state: UserMenuState = {
-    isOpen: true
+    isOpen: false
   }
 
   ref: HTMLElement | null = null
