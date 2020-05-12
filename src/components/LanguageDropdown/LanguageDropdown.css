@@ -4,6 +4,7 @@
 
 .dcl.language-dropdown.ui.dropdown > .text {
   transform: translateY(4px);
+  text-transform: none;
 }
 
 .dcl.language-dropdown.ui.dropdown > .dropdown.icon {
