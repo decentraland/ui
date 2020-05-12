@@ -5,33 +5,34 @@ import centered from '@storybook/addon-centered/react'
 
 import { Button } from './Button'
 import './Button.stories.css'
+import { Row } from '../Row/Row'
 
 storiesOf('Button', module)
   .addDecorator(centered)
   .add('Primary', () => (
-    <>
+    <Row>
       <Button primary>Vote Now</Button>
       <Button primary disabled>
         Vote Now
       </Button>
-    </>
+    </Row>
   ))
   .add('Secondary', () => (
-    <>
+    <Row>
       <Button>Cancel</Button>
       <Button disabled>Cancel</Button>
-    </>
+    </Row>
   ))
   .add('Basic', () => (
-    <>
+    <Row>
       <Button basic>Download</Button>
       <Button basic disabled>
         Download
       </Button>
-    </>
+    </Row>
   ))
   .add('Inverted', () => (
-    <>
+    <Row>
       <Button inverted>Download</Button>
       <Button inverted disabled>
         Download
@@ -42,7 +43,7 @@ storiesOf('Button', module)
       <Button inverted primary disabled>
         Download
       </Button>
-    </>
+    </Row>
   ))
   .add('Link', () => (
     <>
@@ -61,7 +62,7 @@ storiesOf('Button', module)
   ))
   .add('Sizes', () => (
     <>
-      <div className="button-story-row">
+      <Row className="button-story-row">
         <Button primary size="large">
           Really Long Label
         </Button>
@@ -71,27 +72,27 @@ storiesOf('Button', module)
         <Button primary disabled size="large">
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button size="large">Really Long Label</Button>
         <Button size="large">Min Width</Button>
         <Button disabled size="large">
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button primary>Really Long Label</Button>
         <Button primary>Min Width</Button>
         <Button primary disabled>
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button>Really Long Label</Button>
         <Button>Min Width</Button>
         <Button disabled>Disabled</Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button primary size="small">
           Really Long Label
         </Button>
@@ -101,15 +102,15 @@ storiesOf('Button', module)
         <Button primary disabled size="small">
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button size="small">Really Long Label</Button>
         <Button size="small">Min Width</Button>
         <Button disabled size="small">
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button primary size="tiny">
           Really Long Label
         </Button>
@@ -119,21 +120,21 @@ storiesOf('Button', module)
         <Button primary disabled size="tiny">
           Disabled
         </Button>
-      </div>
-      <div className="button-story-row">
+      </Row>
+      <Row className="button-story-row">
         <Button size="tiny">Really Long Label</Button>
         <Button size="tiny">Min Width</Button>
         <Button disabled size="tiny">
           Disabled
         </Button>
-      </div>
+      </Row>
     </>
   ))
   .add('Actions', () => (
-    <>
+    <Row>
       <Button primary style={{ minWidth: 190 }}>
         Vote Now
       </Button>
       <Button style={{ minWidth: 190 }}>Cancel</Button>
-    </>
+    </Row>
   ))
