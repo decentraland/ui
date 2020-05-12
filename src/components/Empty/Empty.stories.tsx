@@ -6,7 +6,7 @@ import { Page } from '../..'
 
 storiesOf('Empty', module)
   .addDecorator(centered)
-  .add('Expand to fill parent', () => (
+  .add('Example', () => (
     <Page>
       <Empty>No results...</Empty>
     </Page>
