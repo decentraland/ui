@@ -168,7 +168,7 @@ storiesOf('Page', module)
                     </Badge>
                   </Row>
                 </Column>
-                <Column>
+                <Column align="right">
                   <Row align="right">
                     <Button basic>Transfer</Button>
                     <Button basic>Edit</Button>
@@ -232,9 +232,11 @@ storiesOf('Page', module)
             </Row>
           </Column>
           <Column align="right">
-            <Radio checked={true} label="Owner" />
-            <Radio checked={true} label="Operator" />
-            <Radio checked={true} label="Host" />
+            <Row align="right">
+              <Radio checked={true} label="Owner" />
+              <Radio checked={true} label="Operator" />
+              <Radio checked={true} label="Host" />
+            </Row>
           </Column>
         </Row>
 
