@@ -23,9 +23,9 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
 
-        <Dropdown search selection {...rest}>
-          <Dropdown.Menu className="wrapper">
-            {header}
+        <Dropdown search selection options={options} {...rest}>
+          {header && <Dropdown.Menu className="wrapper">
+            <Dropdown.Header content={header} />
             <Dropdown.Menu scrolling className="options-wrapper">
               {options.map((opt, i) => (
                 <Dropdown.Item
@@ -37,7 +37,7 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
                 />
               ))}
             </Dropdown.Menu>
-          </Dropdown.Menu>
+          </Dropdown.Menu>}
         </Dropdown>
         <p className="message">
           {message}
