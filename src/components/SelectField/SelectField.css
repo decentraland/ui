@@ -91,3 +91,32 @@
 .dcl.select-field .ui.selection.active.dropdown {
   box-shadow: none;
 }
+
+/* Error */
+
+.dcl.select-field.error .ui.selection.dropdown {
+  border-bottom: 2px solid var(--error);
+}
+
+.dcl.select-field.error .message {
+  color: var(--error);
+}
+
+.dcl.select-field.error .ui.header.sub {
+  color: var(--error);
+}
+
+.dcl.select-field.error .ui.selection.dropdown > i.icon {
+  opacity: 1;
+  background: url('../../assets/alert.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 32px;
+  height: 36px;
+}
+
+.dcl.select-field.error .ui.selection.dropdown > i.icon:before {
+  /* content: '';
+  display: none; */
+  color: var(--error);
+}

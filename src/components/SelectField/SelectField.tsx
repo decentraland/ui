@@ -5,13 +5,19 @@ import './SelectField.css'
 
 export type SelectFieldProps = DropdownProps & {
   label?: string
+  error?: boolean
+  message?: string
   header?: JSX.Element
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
   render() {
-    const { label, header, options, ...rest } = this.props
-    const classes = 'dcl select-field'
+    const { label, header, options, message, error, ...rest } = this.props
+    let classes = 'dcl select-field'
+
+    if (error) {
+      classes += ' error warning circle'
+    }
 
     return (
       <div className={classes}>
@@ -33,7 +39,10 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
             </Dropdown.Menu>
           </Dropdown.Menu>
         </Dropdown>
-        <p className="message">&nbsp;</p>
+        <p className="message">
+          {message}
+          &nbsp;
+        </p>
       </div>
     )
   }
