@@ -4,11 +4,12 @@ import './Back.css'
 export type BackProps = {
   className?: string
   absolute?: boolean
+  onClick?: () => void
 }
 
 export class Back extends React.PureComponent<BackProps> {
   render() {
-    const { children, className, absolute } = this.props
+    const { children, className, absolute, onClick } = this.props
 
     const classes = ['dcl', 'back']
     if (className) {
@@ -19,6 +20,10 @@ export class Back extends React.PureComponent<BackProps> {
       classes.push('absolute')
     }
 
-    return <div className={classes.join(' ')}>{children}</div>
+    return (
+      <div className={classes.join(' ')} onClick={onClick}>
+        {children}
+      </div>
+    )
   }
 }
