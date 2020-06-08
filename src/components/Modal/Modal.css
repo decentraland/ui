@@ -140,7 +140,7 @@
 
 /* radio */
 
-.ui.modal .ui.checkbox .box:hover::before,
-.ui.modal .ui.checkbox label:hover::before {
+.ui.modal .ui.radio.checkbox input.hidden ~ label:before,
+.ui.modal .ui.radio.checkbox input.hidden:focus ~ label:before {
   border-color: var(--secondary-on-modal);
 }
