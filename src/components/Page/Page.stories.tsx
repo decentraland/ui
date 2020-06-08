@@ -175,9 +175,11 @@ storiesOf('Page', module)
                     <Button basic>Permissions</Button>
                     <Dropdown
                       trigger={
-                        <Button basic>
-                          <Icon name="ellipsis horizontal" />
-                        </Button>
+                        <Row>
+                          <Button basic>
+                            <Icon name="ellipsis horizontal" />
+                          </Button>
+                        </Row>
                       }
                       inline
                       direction="left"
@@ -204,10 +206,14 @@ storiesOf('Page', module)
           <Section size="tiny">
             <Row height={32}>
               <Column>
-                <Header sub>Deployments</Header>
+                <Row>
+                  <Header sub>Deployments</Header>
+                </Row>
               </Column>
               <Column align="right">
-                <Button basic>Publish</Button>
+                <Row>
+                  <Button basic>Publish</Button>
+                </Row>
               </Column>
             </Row>
           </Section>

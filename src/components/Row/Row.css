@@ -29,11 +29,11 @@
   justify-content: center;
 }
 
-.dcl.row .ui.header {
+.dcl.row > .ui.header {
   margin: 0px !important;
 }
 
-.dcl.row .ui.button.basic {
+.dcl.row > .ui.button.basic {
   padding: 0px;
 }
 
