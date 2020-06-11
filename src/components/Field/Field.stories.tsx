@@ -14,13 +14,7 @@ storiesOf('Field', module)
     <Field label="Label" value="Input Value" message="Additional comment" />
   ))
   .add('Error', () => (
-    <Field
-      type="address"
-      label="Label"
-      value="Input Value"
-      message="Some warning"
-      error
-    />
+    <Field label="Label" value="Input Value" message="Some warning" error />
   ))
   .add('Loading', () => <Field label="Label" value="Input Value" loading />)
   .add('Address', () => <Field label="Label" value={address} type="address" />)

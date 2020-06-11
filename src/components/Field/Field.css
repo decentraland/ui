@@ -114,6 +114,11 @@
 .ui.form .dcl.field.address .dcl.blockie {
   position: absolute;
   right: 0px;
+  top: 8px;
+}
+
+.dcl.field.address.has-label .dcl.blockie,
+.ui.form .dcl.field.address.has-label .dcl.blockie {
   top: 28px;
 }
 

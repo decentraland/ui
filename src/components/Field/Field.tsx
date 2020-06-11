@@ -53,6 +53,9 @@ export class Field extends React.PureComponent<FieldProps> {
     if (disabled) {
       classes += ' disabled'
     }
+    if (label) {
+      classes += ' has-label'
+    }
 
     if (isAddress && action) {
       console.warn(
