@@ -85,6 +85,14 @@ a:hover {
   color: var(--secondary-text);
 }
 
+.danger-text {
+  color: var(--danger);
+}
+
+.error-text {
+  color: var(--error);
+}
+
 @media (max-width: 768px) {
   :root {
     --navbar-height: 56px;
