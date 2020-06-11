@@ -9,7 +9,8 @@
   width: 100%;
 }
 
-.dcl.field .ui.input input {
+.dcl.field .ui.input input,
+.ui.form .dcl.field .ui.input input {
   padding: 0px;
   padding-bottom: 12px;
   padding-top: 4px;
@@ -24,11 +25,14 @@
 }
 
 .dcl.field .ui.input input:focus,
-.dcl.field .ui.input input:active {
+.dcl.field .ui.input input:active,
+.ui.form .dcl.field .ui.input input:focus,
+.ui.form .dcl.field .ui.input input:active {
   border-bottom: 2px solid var(--text);
 }
 
-.dcl.field .message {
+.dcl.field .message,
+.ui.form .dcl.field .message {
   margin-top: 8px;
   color: var(--secondary-text);
   font-size: 15px;
@@ -36,15 +40,18 @@
 
 /* Loading */
 
-.dcl.field .ui.input.loading > i.icon {
+.dcl.field .ui.input.loading > i.icon,
+.ui.form .dcl.field .ui.input.loading > i.icon {
   opacity: 1;
   height: 36px;
 }
-.dcl.field .ui.input.loading > i.icon:before {
+.dcl.field .ui.input.loading > i.icon:before,
+.ui.form .dcl.field .ui.input.loading > i.icon:before {
   border-color: var(--divider);
   border-width: 2px;
 }
-.dcl.field .ui.input.loading > i.icon:after {
+.dcl.field .ui.input.loading > i.icon:after,
+.ui.form .dcl.field .ui.input.loading > i.icon:after {
   border-color: var(--primary) transparent transparent;
   border-width: 2px;
 }
@@ -52,66 +59,79 @@
 /* Disabled */
 
 .dcl.field.disabled .ui.header.sub,
-.dcl.field.disabled .ui.input {
+.dcl.field.disabled .ui.input,
+.ui.form .dcl.field.disabled .ui.header.sub,
+.ui.form .dcl.field.disabled .ui.input {
   opacity: 0.5;
 }
 
-.dcl.field.disabled .ui.input {
+.dcl.field.disabled .ui.input,
+.ui.form .dcl.field.disabled .ui.input {
   opacity: 0.5;
 }
 
 /* Error */
 
-.dcl.field.error .ui.input input {
+.dcl.field.error .ui.input input,
+.ui.form .dcl.field.error .ui.input input {
   border-bottom: 2px solid var(--error);
 }
 
-.dcl.field.error .message {
+.dcl.field.error .message,
+.ui.form .dcl.field.error .message {
   color: var(--error);
 }
 
-.dcl.field.error .ui.header.sub {
+.dcl.field.error .ui.header.sub,
+.ui.form .dcl.field.error .ui.header.sub {
   color: var(--error);
 }
 
-.dcl.field.error .ui.input > i.icon {
+.dcl.field.error .ui.input > i.icon,
+.ui.form .dcl.field.error .ui.input > i.icon {
   opacity: 1;
   background: url('../../assets/alert.svg');
   background-repeat: no-repeat;
   background-position: center;
   height: 36px;
 }
-.dcl.field.error .ui.input > i.icon:before {
+.dcl.field.error .ui.input > i.icon:before,
+.ui.form .dcl.field.error .ui.input > i.icon:before {
   content: '';
   display: none;
 }
 
 /* Address */
 
-.dcl.field.address .ui.input input {
+.dcl.field.address .ui.input input,
+.ui.form .dcl.field.address .ui.input input {
   padding-right: 2.67142857em !important;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.dcl.field.address .dcl.blockie {
+.dcl.field.address .dcl.blockie,
+.ui.form .dcl.field.address .dcl.blockie {
   position: absolute;
   right: 0px;
   top: 28px;
 }
 
-.dcl.field .overlay {
+.dcl.field .overlay,
+.ui.form .dcl.field .overlay {
   position: absolute;
   bottom: 30px;
   right: 0px;
 }
 
-.dcl.field .overlay .ui.button {
+.dcl.field .overlay .ui.button,
+.ui.form .dcl.field .overlay .ui.button {
   height: 44px;
 }
 
 /* Icon */
 
-.dcl.field .ui.input .icon {
+.dcl.field .ui.input .icon,
+.ui.form .dcl.field .ui.input .icon {
   color: var(--text);
 }
