@@ -8,6 +8,52 @@
   display: inline-block;
 }
 
+.dcl.avatar-face.avatar-color-0,
+.dcl.avatar-face.avatar-color-1 {
+  background-color: var(--tableau--01);
+}
+
+.dcl.avatar-face.avatar-color-2,
+.dcl.avatar-face.avatar-color-3 {
+  background-color: var(--tableau--02);
+}
+
+.dcl.avatar-face.avatar-color-4,
+.dcl.avatar-face.avatar-color-5 {
+  background-color: var(--tableau--03);
+}
+
+.dcl.avatar-face.avatar-color-6,
+.dcl.avatar-face.avatar-color-7 {
+  background-color: var(--tableau--04);
+}
+
+.dcl.avatar-face.avatar-color-8,
+.dcl.avatar-face.avatar-color-9 {
+  background-color: var(--tableau--05);
+}
+
+.dcl.avatar-face.avatar-color-a,
+.dcl.avatar-face.avatar-color-A,
+.dcl.avatar-face.avatar-color-b,
+.dcl.avatar-face.avatar-color-B {
+  background-color: var(--tableau--06);
+}
+
+.dcl.avatar-face.avatar-color-c,
+.dcl.avatar-face.avatar-color-C,
+.dcl.avatar-face.avatar-color-d,
+.dcl.avatar-face.avatar-color-D {
+  background-color: var(--tableau--07);
+}
+
+.dcl.avatar-face.avatar-color-e,
+.dcl.avatar-face.avatar-color-E,
+.dcl.avatar-face.avatar-color-f,
+.dcl.avatar-face.avatar-color-F {
+  background-color: var(--tableau--08);
+}
+
 .dcl.avatar-face.responsive {
   width: 93px;
   height: 93px;

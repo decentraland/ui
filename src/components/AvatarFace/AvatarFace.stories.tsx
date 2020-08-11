@@ -5,19 +5,19 @@ import { AvatarFace } from './AvatarFace'
 import { Avatar } from '../../types/avatar'
 import { Mana } from '../..'
 
-const avatar: Avatar = {
-  userId: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',
+const createAvatar = (address: string = '0xffffffffffffffffffffffffffffffffffffffff', name: string = '', face: string = 'QmVfTSvEJBtmaHrnmZtpoVCSpv2J69M1wqA97dc53DgbWG'): Avatar => ({
+  userId: address,
   email: '',
-  name: 'cazala',
+  name: name,
   hasClaimedName: true,
   description: 'javascript sexmachine',
-  ethAddress: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',
+  ethAddress: address,
   version: 46,
   avatar: {
     bodyShape: 'dcl://base-avatars/BaseMale',
     snapshots: {
       face:
-        'https://peer.decentraland.org/content/contents/QmQtAtwR4DyrCiP7tHpdUiJXbNKmUJo2JrbMhHkwNZjs3y',
+      `https://peer.decentraland.org/content/contents/${face}`,
       body:
         'https://peer.decentraland.org/content/contents/QmYchnHPEdeeNWnUJik6hKV3vELtzUrfK5QvUhgywoUpFG'
     },
@@ -94,7 +94,9 @@ const avatar: Avatar = {
     'dcl://stay_safe/protection_mask_hot_mask'
   ],
   tutorialStep: 99
-}
+})
+
+const avatar: Avatar = createAvatar('0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c', 'cazala', 'QmQtAtwR4DyrCiP7tHpdUiJXbNKmUJo2JrbMhHkwNZjs3y')
 
 storiesOf('AvatarFace', module)
   .addDecorator(centered)
@@ -105,6 +107,18 @@ storiesOf('AvatarFace', module)
       <AvatarFace size="small" avatar={avatar} />
       <AvatarFace size="medium" avatar={avatar} />
       <AvatarFace size="large" avatar={avatar} />
+    </>
+  ))
+  .add('Colors', () => (
+    <>
+      <AvatarFace size="medium" avatar={createAvatar('0x0fffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0x2fffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0x4fffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0x6fffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0x8fffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0xafffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0xcfffffffffffffffffffffffffffffffffffffff')} />
+      <AvatarFace size="medium" avatar={createAvatar('0xefffffffffffffffffffffffffffffffffffffff')} />
     </>
   ))
   .add('In a paragraph', () => (
