@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "ui.decentraland.org",
   "build": {
     "env": {}
   },
