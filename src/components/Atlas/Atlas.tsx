@@ -10,6 +10,9 @@ export type AtlasTile = {
   left?: number
   top?: number
   topLeft?: number
+  owner: string
+  name?: string
+  estate_id?: string
 }
 
 export { Layer, Coord }
