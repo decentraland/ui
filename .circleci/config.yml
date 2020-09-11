@@ -60,7 +60,7 @@ jobs:
           command: cp ./lib/*.css ./storybook-static
       - run:
           name: Deploy to now.sh
-          command: npm init --yes && npm install vercel --no-save && cd storybook-static && ../node_modules/.bin/vercel --token $NOW_TOKEN --scope=decentraland --target=production --confirm
+          command: npm init --yes && npm install vercel --no-save && cd storybook-static && ../node_modules/.bin/vercel --token $NOW_TOKEN --scope=decentraland --prod --confirm
 
   release:
     docker:
