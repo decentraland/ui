@@ -59,19 +59,21 @@ jobs:
           name: Copy styles from lib
           command: cp ./lib/*.css ./storybook-static
       - run:
-          name: Deploy to Vercel
+          name: Init NPM
           command: |
             npm init --yes
-            npm install vercel --no-save
+            npm install vercel gh-pages --no-save
+            git config user.name "decentraland-bot"
+            git config user.email "developers@decentraland.org"
+      - run:
+          name: Deploy to Vercel
+          command: |
             cd storybook-static
             ../node_modules/.bin/vercel --token $NOW_TOKEN --scope=decentraland --target=production --confirm
+            cd ..
       - run:
           name: Deploy to Github Pages
           command: |
-            npm init --yes
-            npm install gh-pages --no-save
-            git config user.name "decentraland-bot"
-            git config user.email "developers@decentraland.org"
             ../node_modules/.bin/gh-pages --dist storybook-static
 
   release:
