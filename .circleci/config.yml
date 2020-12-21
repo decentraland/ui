@@ -68,6 +68,7 @@ jobs:
             npm install gh-pages --no-save
             git config user.name "decentraland-bot"
             git config user.email "developers@decentraland.org"
+            echo 'ui.decentraland.org' > storybook-static/CNAME
             ./node_modules/.bin/gh-pages --dist storybook-static
 
   release:
