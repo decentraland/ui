@@ -1,0 +1,45 @@
+:root {
+  /* global */
+  --background: #ffffff;
+  --danger: #ffa900;
+  --error: #ff0000;
+
+  /* buttons */
+  --primary: #ff2d55;
+  --secondary: #f3f2f5;
+  --primary-hover: #ff3d61;
+  --secondary-hover: #ecebed;
+  --secondary-on-modal: #f3f2f5;
+  --secondary-on-modal-hover: #ecebed;
+
+  /* text */
+  --text: #16141a;
+  --secondary-text: #676370;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #16141a;
+
+  /* ui */
+  --divider: #67637033;
+  --dropdown: #ffffff;
+  --dropdown-hover: #f3f2f5;
+  --popup: #16141a;
+  --popup-text: #ffffff;
+  --navbar-popup: #ffffff;
+  --navbar-popup-hover: #f3f2f5;
+  --card: #ffffff;
+  --outline: 1px solid #00000005;
+  --modal: #ffffff;
+  --dimmer: #ffffffdd;
+
+  /* shadows */
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.16);
+
+  --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+  --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
+
+  /* svgs */
+  --brightness: brightness(0.1); /* black svgs */
+}

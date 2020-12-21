@@ -1,0 +1,45 @@
+:root {
+  /* global */
+  --background: #18141a;
+  --danger: #ffa900;
+  --error: #ff0000;
+
+  /* buttons */
+  --primary: #ff2d55;
+  --secondary: #242129;
+  --primary-hover: #ff3d61;
+  --secondary-hover: #28262c;
+  --secondary-on-modal: #67637033;
+  --secondary-on-modal-hover: #6763704d;
+
+  /* text */
+  --text: #ffffff;
+  --secondary-text: #676370;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #ffffff;
+
+  /* ui */
+  --divider: #67637033;
+  --dropdown: #676370;
+  --dropdown-hover: #24212933;
+  --popup: #676370;
+  --popup-text: #ffffff;
+  --navbar-popup: #242129;
+  --navbar-popup-hover: #67637033;
+  --card: #242129;
+  --outline: 1px solid #00000005;
+  --modal: #242129;
+  --dimmer: #000000dd;
+
+  /* shadows */
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+  --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.24);
+  --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.32);
+
+  --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+  --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.24);
+  --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.32);
+
+  /* svgs */
+  --brightness: brightness(100); /* black svgs */
+}
