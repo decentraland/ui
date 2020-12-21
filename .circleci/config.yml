@@ -70,6 +70,9 @@ jobs:
           command: |
             cd storybook-static
             ../node_modules/.bin/vercel --token $NOW_TOKEN --scope=decentraland --target=production --confirm
+      - add_ssh_keys:
+          fingerprints:
+            - "7d:bf:98:9c:fa:d8:d5:9c:38:5c:4d:59:fe:8e:01:72"
       - run:
           name: Deploy to Github Pages
           command: |
