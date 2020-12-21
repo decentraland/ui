@@ -61,7 +61,6 @@ jobs:
       - run:
           name: Init NPM
           command: |
-            cd storybook-static
             npm init --yes
             npm install vercel gh-pages --no-save
             git config user.name "decentraland-bot"
@@ -69,11 +68,12 @@ jobs:
       - run:
           name: Deploy to Vercel
           command: |
+            cd storybook-static
             ../node_modules/.bin/vercel --token $NOW_TOKEN --scope=decentraland --target=production --confirm
       - run:
           name: Deploy to Github Pages
           command: |
-            ../node_modules/.bin/gh-pages --dist storybook-static
+            ./node_modules/.bin/gh-pages --dist storybook-static
 
   release:
     docker:
