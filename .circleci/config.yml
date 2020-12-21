@@ -66,9 +66,13 @@ jobs:
           command: |
             npm init --yes
             npm install gh-pages --no-save
+
+            mkdir .circleci
+            touch .circleci/config.yml
+            echo 'ui.decentraland.org' > storybook-static/CNAME
+
             git config user.name "decentraland-bot"
             git config user.email "developers@decentraland.org"
-            echo 'ui.decentraland.org' > storybook-static/CNAME
             ./node_modules/.bin/gh-pages --dist storybook-static
 
   release:
