@@ -9,8 +9,11 @@
   --secondary: #242129;
   --primary-hover: #ff3d61;
   --secondary-hover: #28262c;
+
+  /* within modals */
   --secondary-on-modal: #67637033;
   --secondary-on-modal-hover: #6763704d;
+  --card-on-modal: #67637033;
 
   /* text */
   --text: #ffffff;

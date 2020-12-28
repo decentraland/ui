@@ -18,8 +18,11 @@ const LIGHT_THEME = `
   --secondary: #f3f2f5;
   --primary-hover: #ff3d61;
   --secondary-hover: #ecebed;
+
+  /* on modals */
   --secondary-on-modal: #f3f2f5;
   --secondary-on-modal-hover: #ecebed;
+  --card-on-modal: #ffffff;
 
   /* text */
   --text: #16141a;
@@ -66,8 +69,11 @@ const DARK_THEME = `
   --secondary: #242129;
   --primary-hover: #ff3d61;
   --secondary-hover: #28262c;
+
+  /* within modals */
   --secondary-on-modal: #67637033;
   --secondary-on-modal-hover: #6763704d;
+  --card-on-modal: #67637033;
 
   /* text */
   --text: #ffffff;

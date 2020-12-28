@@ -1,0 +1,72 @@
+.dcl.login-modal {
+  width: 520px;
+}
+
+.dcl.option {
+  width: 360px;
+  height: 80px;
+  box-shadow: var(--shadow-1);
+  border-radius: 8px;
+  border: var(--outline);
+  background-color: var(--card-on-modal);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dcl.option:hover {
+  background-color: var(--secondary-on-modal-hover);
+}
+
+.dcl.option .image {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  background-position: center;
+  background-size: contain;
+}
+
+.dcl.option.metamask .image {
+  background-image: url(./images/metamask.svg);
+}
+
+.dcl.option.dapper .image {
+  background-image: url(./images/dapper.png);
+}
+
+.dcl.option.fortmatic .image {
+  background-image: url(./images/fortmatic.png);
+}
+
+.dcl.option.wallet-connect .image {
+  background-image: url(./images/wallet-connect.png);
+}
+
+.dcl.option .info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.dcl.option .info .title {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.dcl.option .info .subtitle {
+  color: var(--secondary-text);
+  margin-top: 4px;
+}
+
+.dcl.login-modal .dcl.option + .dcl.option {
+  margin-top: 16px;
+}
+
+.dcl.login-modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
