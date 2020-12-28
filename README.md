@@ -73,8 +73,11 @@ Or you can create your own theme like this:
   --secondary: #f3f2f5;
   --primary-hover: #ff3d61;
   --secondary-hover: #ecebed;
+
+  /* on modals */
   --secondary-on-modal: #f3f2f5;
   --secondary-on-modal-hover: #ecebed;
+  --card-on-modal: #ffffff;
 
   /* text */
   --text: #16141a;

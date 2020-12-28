@@ -16,8 +16,3 @@
 .Modal-custom-header p {
   color: white;
 }
-
-.ui.dimmer {
-  /* Keep the theme chooser visible */
-  height: calc(100% - 85px);
-}
