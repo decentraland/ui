@@ -2,8 +2,8 @@ import * as React from 'react'
 import './ModalNavigation.css'
 
 export type ModalNavigationProps = {
-  title: string
-  subtitle?: string
+  title: React.ReactNode
+  subtitle?: React.ReactNode
   onBack?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onClose?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }

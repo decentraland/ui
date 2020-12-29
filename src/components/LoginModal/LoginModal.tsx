@@ -14,16 +14,12 @@ export enum LoginModalOptionType {
 export type LoginModalProps = {
   className?: string
   open?: boolean
-  title?: string
-  subtitle?: string
   i18n?: LoginModalI18N
   onClose?: () => void
 }
 
 export type LoginModalOptionProps = {
   type: LoginModalOptionType
-  title?: string
-  subtitle?: string
   i18n?: LoginModalOptionI18N
   onClick?: () => void
 }
@@ -49,27 +45,27 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
   }
 
   render() {
-    const { type, title, subtitle, onClick, i18n } = this.props
+    const { type, onClick, i18n } = this.props
 
-    let defaultTitle: React.ReactNode = ''
-    let defaultSubtitle: React.ReactNode = ''
+    let title: React.ReactNode = ''
+    let subtitle: React.ReactNode = ''
     switch (type) {
       case LoginModalOptionType.METAMASK:
-        defaultTitle = 'MetaMask'
-        defaultSubtitle = i18n.browser_extension
+        title = 'MetaMask'
+        subtitle = i18n.browser_extension
         break
       case LoginModalOptionType.DAPPER:
-        defaultTitle = 'Dapper'
-        defaultSubtitle = i18n.browser_extension
+        title = 'Dapper'
+        subtitle = i18n.browser_extension
         break
 
       case LoginModalOptionType.FORTMATIC:
-        defaultTitle = 'Fortmatic'
-        defaultSubtitle = i18n.email
+        title = 'Fortmatic'
+        subtitle = i18n.email
         break
       case LoginModalOptionType.WALLET_CONNECT:
-        defaultTitle = 'WalletConnect'
-        defaultSubtitle = i18n.mobile
+        title = 'WalletConnect'
+        subtitle = i18n.mobile
         break
     }
 
@@ -77,8 +73,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       <div className={`dcl option ${type}`} onClick={onClick}>
         <div className="image" />
         <div className="info">
-          <div className="title">{title || defaultTitle}</div>
-          <div className="subtitle">{subtitle || defaultSubtitle}</div>
+          <div className="title">{title}</div>
+          <div className="subtitle">{subtitle}</div>
         </div>
       </div>
     )
@@ -97,10 +93,14 @@ export class LoginModal extends React.Component<LoginModalProps> {
   static Option = LoginModalOption
 
   render() {
-    const { open, title, subtitle, className, onClose, children } = this.props
+    const { open, className, onClose, i18n, children } = this.props
     return (
       <Modal open={open} className={`dcl login-modal ${className}`.trim()}>
-        <ModalNavigation title={title} subtitle={subtitle} onClose={onClose} />
+        <ModalNavigation
+          title={i18n.title}
+          subtitle={i18n.subtitle}
+          onClose={onClose}
+        />
         <ModalContent>{children}</ModalContent>
       </Modal>
     )
