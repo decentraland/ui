@@ -29,14 +29,14 @@ export type LoginModalOptionProps = {
 }
 
 export type LoginModalI18N = {
-  title: string
-  subtitle: string
+  title: React.ReactNode
+  subtitle: React.ReactNode
 }
 
 export type LoginModalOptionI18N = {
-  browser_extension: string
-  email: string
-  mobile: string
+  browser_extension: React.ReactNode
+  email: React.ReactNode
+  mobile: React.ReactNode
 }
 
 class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
@@ -51,8 +51,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
   render() {
     const { type, title, subtitle, onClick, i18n } = this.props
 
-    let defaultTitle = ''
-    let defaultSubtitle = ''
+    let defaultTitle: React.ReactNode = ''
+    let defaultSubtitle: React.ReactNode = ''
     switch (type) {
       case LoginModalOptionType.METAMASK:
         defaultTitle = 'MetaMask'
