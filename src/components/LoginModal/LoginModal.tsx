@@ -16,6 +16,7 @@ export type LoginModalProps = {
   open?: boolean
   title?: string
   subtitle?: string
+  i18n?: LoginModalI18N
   onClose?: () => void
 }
 
@@ -23,43 +24,55 @@ export type LoginModalOptionProps = {
   type: LoginModalOptionType
   title?: string
   subtitle?: string
+  i18n?: LoginModalOptionI18N
   onClick?: () => void
 }
 
-export class LoginModal extends React.Component<LoginModalProps> {
+export type LoginModalI18N = {
+  title: string
+  subtitle: string
+}
+
+export type LoginModalOptionI18N = {
+  browser_extension: string
+  email: string
+  mobile: string
+}
+
+class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
   static defaultProps = {
-    className: '',
-    title: 'Sign In',
-    subtitle: 'Choose a method to sign in'
+    i18n: {
+      browser_extension: 'Using a browser extension',
+      email: 'Using you email',
+      mobile: 'Using your mobile wallet'
+    }
   }
 
-  static Option = ({
-    type,
-    title,
-    subtitle,
-    onClick
-  }: LoginModalOptionProps) => {
+  render() {
+    const { type, title, subtitle, onClick, i18n } = this.props
+
     let defaultTitle = ''
     let defaultSubtitle = ''
     switch (type) {
       case LoginModalOptionType.METAMASK:
-        title = 'MetaMask'
-        subtitle = 'Using a browser extension'
+        defaultTitle = 'MetaMask'
+        defaultSubtitle = i18n.browser_extension
         break
       case LoginModalOptionType.DAPPER:
-        title = 'Dapper'
-        subtitle = 'Using a browser extension'
+        defaultTitle = 'Dapper'
+        defaultSubtitle = i18n.browser_extension
         break
 
       case LoginModalOptionType.FORTMATIC:
-        title = 'Fortmatic'
-        subtitle = 'Using your email'
+        defaultTitle = 'Fortmatic'
+        defaultSubtitle = i18n.email
         break
       case LoginModalOptionType.WALLET_CONNECT:
-        title = 'WalletConnect'
-        subtitle = 'Using your mobile wallet'
+        defaultTitle = 'WalletConnect'
+        defaultSubtitle = i18n.mobile
         break
     }
+
     return (
       <div className={`dcl option ${type}`} onClick={onClick}>
         <div className="image" />
@@ -70,6 +83,18 @@ export class LoginModal extends React.Component<LoginModalProps> {
       </div>
     )
   }
+}
+
+export class LoginModal extends React.Component<LoginModalProps> {
+  static defaultProps = {
+    className: '',
+    i18n: {
+      title: 'Sign In',
+      subtitle: 'Choose a method to connect'
+    }
+  }
+
+  static Option = LoginModalOption
 
   render() {
     const { open, title, subtitle, className, onClose, children } = this.props
