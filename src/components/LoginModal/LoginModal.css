@@ -28,19 +28,19 @@
 }
 
 .dcl.option.metamask .image {
-  background-image: url(./images/metamask.svg);
+  background-image: url('./images/metamask.svg');
 }
 
 .dcl.option.dapper .image {
-  background-image: url(./images/dapper.png);
+  background-image: inline('./images/dapper.png');
 }
 
 .dcl.option.fortmatic .image {
-  background-image: url(./images/fortmatic.png);
+  background-image: inline('./images/fortmatic.png');
 }
 
 .dcl.option.wallet-connect .image {
-  background-image: url(./images/wallet-connect.png);
+  background-image: inline('./images/wallet-connect.png');
 }
 
 .dcl.option .info {

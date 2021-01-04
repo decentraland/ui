@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
+const postcssAssets = require('postcss-assets')
 const path = require('path')
 
 module.exports = {
@@ -37,7 +38,8 @@ module.exports = {
               plugins: () => [
                 postcssPresetEnv({
                   stage: 4
-                })
+                }),
+                postcssAssets()
               ]
             }
           }
