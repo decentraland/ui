@@ -69,3 +69,14 @@ storiesOf('LoginModal', module)
       </LoginModal>
     </div>
   ))
+  .add('Loading', () => (
+    <div className="LoginModal-story">
+      {lipsum}
+      <LoginModal open loading onClose={() => {}}>
+        <LoginModal.Option type={LoginModalOptionType.METAMASK} />
+        <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+      </LoginModal>
+    </div>
+  ))

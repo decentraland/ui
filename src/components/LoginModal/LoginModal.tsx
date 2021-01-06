@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ModalContent } from 'semantic-ui-react'
-import { Modal } from '../..'
-import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
+import { Modal, ModalNavigation, Loader } from '../..'
 import './LoginModal.css'
 
 export enum LoginModalOptionType {
@@ -15,6 +14,7 @@ export type LoginModalProps = {
   className?: string
   hasError?: boolean
   open?: boolean
+  loading?: boolean
   i18n?: LoginModalI18N
   onClose?: () => void
 }
@@ -87,6 +87,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
   static defaultProps = {
     className: '',
     hasError: false,
+    loading: false,
     i18n: {
       title: 'Sign In',
       subtitle: 'Choose a method to connect',
@@ -97,7 +98,15 @@ export class LoginModal extends React.Component<LoginModalProps> {
   static Option = LoginModalOption
 
   render() {
-    const { open, className, hasError, onClose, i18n, children } = this.props
+    const {
+      open,
+      className,
+      hasError,
+      loading,
+      onClose,
+      i18n,
+      children
+    } = this.props
 
     let errorClasses = 'error'
     if (hasError) {
@@ -113,6 +122,12 @@ export class LoginModal extends React.Component<LoginModalProps> {
         />
         <ModalContent>{children}</ModalContent>
         <p className={errorClasses}>{i18n.error}</p>
+        {loading ? (
+          <>
+            <Loader size="big" active />
+            <div className="loader-background"></div>
+          </>
+        ) : null}
       </Modal>
     )
   }

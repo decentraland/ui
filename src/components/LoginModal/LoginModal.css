@@ -84,3 +84,13 @@
   opacity: 1;
   user-select: auto;
 }
+
+.dcl.login-modal .loader-background {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
