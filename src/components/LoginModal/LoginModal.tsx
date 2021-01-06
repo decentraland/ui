@@ -13,6 +13,7 @@ export enum LoginModalOptionType {
 
 export type LoginModalProps = {
   className?: string
+  hasError?: boolean
   open?: boolean
   i18n?: LoginModalI18N
   onClose?: () => void
@@ -27,6 +28,7 @@ export type LoginModalOptionProps = {
 export type LoginModalI18N = {
   title: React.ReactNode
   subtitle: React.ReactNode
+  error: React.ReactNode
 }
 
 export type LoginModalOptionI18N = {
@@ -84,16 +86,24 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
 export class LoginModal extends React.Component<LoginModalProps> {
   static defaultProps = {
     className: '',
+    hasError: false,
     i18n: {
       title: 'Sign In',
-      subtitle: 'Choose a method to connect'
+      subtitle: 'Choose a method to connect',
+      error: 'Could not connect wallet'
     }
   }
 
   static Option = LoginModalOption
 
   render() {
-    const { open, className, onClose, i18n, children } = this.props
+    const { open, className, hasError, onClose, i18n, children } = this.props
+
+    let errorClasses = 'error'
+    if (hasError) {
+      errorClasses += ' visible'
+    }
+
     return (
       <Modal open={open} className={`dcl login-modal ${className}`.trim()}>
         <ModalNavigation
@@ -102,6 +112,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
           onClose={onClose}
         />
         <ModalContent>{children}</ModalContent>
+        <p className={errorClasses}>{i18n.error}</p>
       </Modal>
     )
   }
