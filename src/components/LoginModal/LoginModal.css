@@ -2,7 +2,7 @@
   width: 520px;
 }
 
-.dcl.option {
+.dcl.login-modal .dcl.option {
   width: 360px;
   height: 80px;
   box-shadow: var(--shadow-1);
@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.dcl.option:hover {
+.dcl.login-modal .dcl.option:hover {
   background-color: var(--secondary-on-modal-hover);
 }
 
-.dcl.option .image {
+.dcl.login-modal .dcl.option .image {
   flex: none;
   width: 64px;
   height: 64px;
@@ -43,19 +43,19 @@
   background-image: inline('./images/wallet-connect.png');
 }
 
-.dcl.option .info {
+.dcl.login-modal .dcl.option .info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   margin-left: 16px;
 }
 
-.dcl.option .info .title {
+.dcl.login-modal .dcl.option .info .title {
   font-weight: bold;
   color: var(--text);
 }
 
-.dcl.option .info .subtitle {
+.dcl.login-modal .dcl.option .info .subtitle {
   color: var(--secondary-text);
   margin-top: 4px;
 }
@@ -68,5 +68,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.dcl.login-modal .error {
+  opacity: 0;
+  user-select: none;
+  color: var(--primary);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dcl.login-modal .error.visible {
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  user-select: auto;
 }

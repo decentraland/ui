@@ -58,3 +58,14 @@ storiesOf('LoginModal', module)
       </LoginModal>
     </div>
   ))
+  .add('Login error', () => (
+    <div className="LoginModal-story">
+      {lipsum}
+      <LoginModal open hasError onClose={() => {}}>
+        <LoginModal.Option type={LoginModalOptionType.METAMASK} />
+        <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+      </LoginModal>
+    </div>
+  ))
