@@ -122,6 +122,47 @@
   height: 46px;
 }
 
+.dcl.user-menu-wrapper .activity-bell.item {
+  margin-right: 24px;
+}
+
+.dcl.user-menu-wrapper .activity-bell.item .bell {
+  color: var(--text);
+  position: relative;
+  cursor: pointer;
+}
+
+.dcl.user-menu-wrapper .activity-bell.item.active .bell {
+  color: var(--primary);
+}
+
+.dcl.user-menu-wrapper .activity-bell.item .bell.pending:after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary);
+  position: absolute;
+  border-radius: 100%;
+  top: -5px;
+  right: -5px;
+}
+
+.dcl.user-menu .menu .item {
+  color: var(--text);
+}
+
+.dcl.user-menu .menu li .icon,
+.dcl.user-menu .menu .item .icon {
+  font-size: 13px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.dcl.user-menu .dcl.mana .symbol {
+  font-weight: bold;
+  color: var(--primary);
+}
+
 @media (max-width: 768px) {
   .dcl.user-menu .toggle {
     width: 36px;
