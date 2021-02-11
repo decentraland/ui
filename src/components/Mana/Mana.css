@@ -19,3 +19,13 @@
 .dcl.mana.inline {
   font-size: 1em;
 }
+
+.dcl.mana .l2 {
+  width: 1em;
+  height: 1em;
+  background-image: url(../../assets/mana-l2.svg);
+  display: inline-block;
+  background-size: contain;
+  filter: var(--brightness);
+  transform: translateY(0.2em);
+}

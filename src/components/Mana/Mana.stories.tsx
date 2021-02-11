@@ -28,3 +28,31 @@ storiesOf('Mana', module)
       You've voted with <Mana inline>1,000</Mana>.
     </p>
   ))
+  .add('L2', () => (
+    <p>
+      You deposited{' '}
+      <Mana inline l2>
+        1,000
+      </Mana>{' '}
+      into Matic Network.
+    </p>
+  ))
+  .add('L2 Sizes', () => (
+    <>
+      <Mana l2 size="huge">
+        1,000
+      </Mana>
+      <Mana l2 size="large">
+        1,000
+      </Mana>
+      <Mana l2 size="medium">
+        1,000
+      </Mana>
+      <Mana l2 size="small">
+        1,000
+      </Mana>
+      <Mana l2 size="tiny">
+        1,000
+      </Mana>
+    </>
+  ))

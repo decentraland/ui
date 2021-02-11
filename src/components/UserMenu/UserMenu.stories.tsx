@@ -17,9 +17,9 @@ const avatar: Avatar = {
     bodyShape: 'dcl://base-avatars/BaseMale',
     snapshots: {
       face:
-        'https://peer.decentraland.org/content/contents/QmQtAtwR4DyrCiP7tHpdUiJXbNKmUJo2JrbMhHkwNZjs3y',
+        'https://peer.decentraland.org/content/contents/QmaV5H69RMcm49proWHTpMHRForP5FoVFt31PcDHUYkK4J',
       body:
-        'https://peer.decentraland.org/content/contents/QmYchnHPEdeeNWnUJik6hKV3vELtzUrfK5QvUhgywoUpFG'
+        'https://peer.decentraland.org/content/contents/QmYyprchWpLTicofp16rKzQadmDLu4epmbxfji6LH9xHzp'
     },
     eyes: {
       color: { r: 0.37109375, g: 0.22265625, b: 0.1953125, a: 1 }
@@ -96,7 +96,7 @@ const avatar: Avatar = {
   tutorialStep: 99
 }
 
-storiesOf('AvatarFace', module)
+storiesOf('UserMenu', module)
   .addDecorator(centered)
   .add('Signed out', () => <UserMenu />)
   .add('Signed in', () => <UserMenu isSignedIn avatar={avatar} />)
@@ -104,19 +104,68 @@ storiesOf('AvatarFace', module)
   .add('Clickable profile', () => (
     <UserMenu isSignedIn avatar={avatar} onClickProfile={() => {}} />
   ))
+  .add('Sign Out', () => (
+    <UserMenu isSignedIn avatar={avatar} onSignOut={() => {}} />
+  ))
+  .add('Settings', () => (
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      onSignOut={() => {}}
+      onClickSettings={() => {}}
+    />
+  ))
   .add('Extra actions', () => (
     <UserMenu
       isSignedIn
       avatar={avatar}
+      onClickSettings={() => {}}
       menuItems={
         <>
           <MenuItem>
             <Icon name="users" />
             &nbsp;Friends
           </MenuItem>
+        </>
+      }
+    />
+  ))
+  .add('Mana', () => <UserMenu isSignedIn avatar={avatar} mana={1000} />)
+  .add('Mana L2', () => (
+    <UserMenu isSignedIn avatar={avatar} mana={1000} manaL2={2500} />
+  ))
+  .add('Activity', () => (
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      onClickSettings={() => {}}
+      onClickActivity={() => {}}
+      mana={1000}
+      manaL2={2500}
+      menuItems={
+        <>
           <MenuItem>
-            <Icon name="cog" />
-            &nbsp;Settings
+            <Icon name="users" />
+            &nbsp;Friends
+          </MenuItem>
+        </>
+      }
+    />
+  ))
+  .add('Activity pending', () => (
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      onClickSettings={() => {}}
+      onClickActivity={() => {}}
+      mana={1000}
+      manaL2={2500}
+      hasActivity
+      menuItems={
+        <>
+          <MenuItem>
+            <Icon name="users" />
+            &nbsp;Friends
           </MenuItem>
         </>
       }
