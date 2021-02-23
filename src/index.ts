@@ -71,4 +71,5 @@ export * from 'semantic-ui-react'
 export * from './colors'
 
 // Types
+export { Network } from '@dcl/schemas'
 export * from './types/avatar'

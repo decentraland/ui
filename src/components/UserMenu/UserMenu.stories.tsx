@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { UserMenu } from './UserMenu'
 import { Avatar } from '../../types/avatar'
+import { Network } from '../..'
 
 const avatar: Avatar = {
   userId: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',
@@ -130,9 +131,19 @@ storiesOf('UserMenu', module)
       }
     />
   ))
-  .add('Mana', () => <UserMenu isSignedIn avatar={avatar} mana={1000} />)
+  .add('Mana', () => (
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      manaBalances={{ [Network.ETHEREUM]: 1000 }}
+    />
+  ))
   .add('Mana L2', () => (
-    <UserMenu isSignedIn avatar={avatar} mana={1000} manaL2={2500} />
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+    />
   ))
   .add('Activity', () => (
     <UserMenu
@@ -140,8 +151,7 @@ storiesOf('UserMenu', module)
       avatar={avatar}
       onClickSettings={() => {}}
       onClickActivity={() => {}}
-      mana={1000}
-      manaL2={2500}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       menuItems={
         <>
           <MenuItem>
@@ -158,8 +168,7 @@ storiesOf('UserMenu', module)
       avatar={avatar}
       onClickSettings={() => {}}
       onClickActivity={() => {}}
-      mana={1000}
-      manaL2={2500}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       hasActivity
       menuItems={
         <>
