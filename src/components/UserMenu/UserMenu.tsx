@@ -1,6 +1,7 @@
+import { Network } from '@dcl/schemas'
 import * as React from 'react'
 import { Avatar } from '../../types/avatar'
-import { AvatarFace, Mana, Button, Menu, Icon, Row, Network } from '../..'
+import { AvatarFace, Mana, Button, Menu, Icon, Row } from '../..'
 import './UserMenu.css'
 
 export type UserMenuI18N = {

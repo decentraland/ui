@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
+import { Network } from '@dcl/schemas'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
-import { Network } from '../..'
 
 storiesOf('Mana', module)
   .addDecorator(centered)

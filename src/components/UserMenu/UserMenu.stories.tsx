@@ -1,10 +1,10 @@
+import { Network } from '@dcl/schemas'
 import * as React from 'react'
 import { MenuItem, Icon } from 'semantic-ui-react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { UserMenu } from './UserMenu'
 import { Avatar } from '../../types/avatar'
-import { Network } from '../..'
 
 const avatar: Avatar = {
   userId: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',
