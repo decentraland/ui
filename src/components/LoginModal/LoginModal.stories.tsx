@@ -53,6 +53,7 @@ storiesOf('LoginModal', module)
       <LoginModal open onClose={() => {}}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
       </LoginModal>
@@ -64,6 +65,7 @@ storiesOf('LoginModal', module)
       <LoginModal open hasError onClose={() => {}}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
       </LoginModal>
@@ -75,6 +77,7 @@ storiesOf('LoginModal', module)
       <LoginModal open loading onClose={() => {}}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
       </LoginModal>
