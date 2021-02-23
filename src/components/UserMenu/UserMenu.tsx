@@ -1,3 +1,4 @@
+import { Network } from '@dcl/schemas'
 import * as React from 'react'
 import { Avatar } from '../../types/avatar'
 import { AvatarFace, Mana, Button, Menu, Icon, Row } from '../..'
@@ -16,8 +17,7 @@ export type UserMenuProps = {
   isActivity: boolean
   hasActivity: boolean
   address?: string
-  mana?: number
-  manaL2?: number
+  manaBalances?: Partial<Record<Network, number>>
   avatar?: Avatar
   menuItems?: React.ReactNode
   i18n: UserMenuI18N
@@ -34,6 +34,7 @@ export type UserMenuState = {
 
 export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
   static defaultProps: Partial<UserMenuProps> = {
+    manaBalances: {},
     i18n: {
       signIn: 'Sign In',
       signOut: 'Sign Out',
@@ -59,8 +60,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
   render() {
     const {
       avatar,
-      mana,
-      manaL2,
+      manaBalances,
       isSignedIn,
       isSigningIn,
       isActivity,
@@ -95,20 +95,18 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
           {isSignedIn && (
             <>
               <span className="dcl account-wrapper">
-                {mana !== undefined ? (
-                  <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
-                    {parseInt(mana.toFixed(0), 10).toLocaleString()}
-                  </Mana>
-                ) : null}
-                {manaL2 !== undefined ? (
+                {Object.keys(manaBalances).map(network => (
                   <Mana
-                    l2
+                    network={network as Network}
                     size="small"
-                    title={`${manaL2.toLocaleString()} MANA L2`}
+                    title={`${manaBalances[network].toLocaleString()} MANA`}
                   >
-                    {parseInt(manaL2.toFixed(0), 10).toLocaleString()}
+                    {parseInt(
+                      manaBalances[network].toFixed(0),
+                      10
+                    ).toLocaleString()}
                   </Mana>
-                ) : null}
+                ))}
               </span>
               <div className="toggle" onClick={this.handleToggle}>
                 <AvatarFace size="medium" avatar={avatar} />

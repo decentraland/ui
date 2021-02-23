@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
+import { Network } from '@dcl/schemas'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
 
@@ -28,30 +29,30 @@ storiesOf('Mana', module)
       You've voted with <Mana inline>1,000</Mana>.
     </p>
   ))
-  .add('L2', () => (
+  .add('Matic', () => (
     <p>
       You deposited{' '}
-      <Mana inline l2>
+      <Mana inline network={Network.MATIC}>
         1,000
       </Mana>{' '}
       into Matic Network.
     </p>
   ))
-  .add('L2 Sizes', () => (
+  .add('Matic Sizes', () => (
     <>
-      <Mana l2 size="huge">
+      <Mana network={Network.MATIC} size="huge">
         1,000
       </Mana>
-      <Mana l2 size="large">
+      <Mana network={Network.MATIC} size="large">
         1,000
       </Mana>
-      <Mana l2 size="medium">
+      <Mana network={Network.MATIC} size="medium">
         1,000
       </Mana>
-      <Mana l2 size="small">
+      <Mana network={Network.MATIC} size="small">
         1,000
       </Mana>
-      <Mana l2 size="tiny">
+      <Mana network={Network.MATIC} size="tiny">
         1,000
       </Mana>
     </>
