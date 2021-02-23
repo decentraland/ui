@@ -7,6 +7,7 @@ export enum LoginModalOptionType {
   METAMASK = 'metamask',
   DAPPER = 'dapper',
   FORTMATIC = 'fortmatic',
+  SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect'
 }
 
@@ -65,6 +66,12 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
         title = 'Fortmatic'
         subtitle = i18n.email
         break
+
+      case LoginModalOptionType.SAMSUNG:
+        title = 'Samsung Blockchain Wallet'
+        subtitle = i18n.mobile
+        break
+
       case LoginModalOptionType.WALLET_CONNECT:
         title = 'WalletConnect'
         subtitle = i18n.mobile

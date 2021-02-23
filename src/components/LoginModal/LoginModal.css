@@ -43,6 +43,10 @@
   background-image: inline('./images/wallet-connect.png');
 }
 
+.dcl.option.samsung-blockchain-wallet .image {
+  background-image: inline('./images/samsung-blockchain-wallet.svg');
+}
+
 .dcl.login-modal .dcl.option .info {
   flex: 1 1 auto;
   display: flex;
