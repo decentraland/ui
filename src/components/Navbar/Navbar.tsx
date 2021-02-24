@@ -16,7 +16,6 @@ export type NavbarI18N = {
     dao: React.ReactNode
     blog: React.ReactNode
     builder: React.ReactNode
-    avatars: React.ReactNode
   }
   account: {
     signIn: React.ReactNode
@@ -35,7 +34,6 @@ export type NavbarProps = {
   | 'dao'
   | 'blog'
   | 'builder'
-  | 'avatars'
   | string
   leftMenu?: React.ReactNode
   middleMenu?: React.ReactNode
@@ -71,7 +69,6 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         dao: 'DAO',
         blog: 'Blog',
         builder: 'Builder',
-        avatars: 'Avatars'
       },
       account: {
         signIn: 'Sign In',
@@ -112,12 +109,6 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     }
     return (
       <>
-        <Menu.Item
-          active={activePage === 'avatars'}
-          href="https://avatars.decentraland.org"
-        >
-          {i18n.menu.avatars}
-        </Menu.Item>
         <Menu.Item
           active={activePage === 'marketplace'}
           href="https://market.decentraland.org"
