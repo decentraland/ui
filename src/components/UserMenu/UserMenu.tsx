@@ -97,6 +97,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
               <span className="dcl account-wrapper">
                 {Object.keys(manaBalances).map(network => (
                   <Mana
+                    key={network}
                     network={network as Network}
                     size="small"
                     title={`${manaBalances[network].toLocaleString()} MANA`}
