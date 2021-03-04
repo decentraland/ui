@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { AvatarFace } from './AvatarFace'
 import { Avatar } from '../../types/avatar'
-import { Mana } from '../..'
+import { Mana } from '../Mana/Mana'
 
 const avatar: Avatar = {
   userId: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',

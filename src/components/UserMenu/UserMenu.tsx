@@ -1,7 +1,12 @@
 import { Network } from '@dcl/schemas'
 import * as React from 'react'
 import { Avatar } from '../../types/avatar'
-import { AvatarFace, Mana, Button, Menu, Icon, Row } from '../..'
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
+import { AvatarFace } from '../AvatarFace/AvatarFace'
+import { Mana } from '../Mana/Mana'
+import { Button } from '../Button/Button'
+import { Row } from '../Row/Row'
 import './UserMenu.css'
 
 export type UserMenuI18N = {
