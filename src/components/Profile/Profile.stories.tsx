@@ -2,7 +2,8 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Profile } from './Profile'
-import { Avatar, Mana } from '../..'
+import { Mana } from '../Mana/Mana'
+import { Avatar } from '../../types/avatar'
 
 const avatar: Avatar = {
   userId: '0xec6e6c0841a2ba474e92bf42baf76bfe80e8657c',

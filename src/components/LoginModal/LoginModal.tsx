@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { ModalContent } from 'semantic-ui-react'
-import { Modal, ModalNavigation, Loader } from '../..'
+import { Modal,  } from '../Modal/Modal'
+import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
+import { Loader } from '../Loader/Loader'
 import './LoginModal.css'
 
 export enum LoginModalOptionType {

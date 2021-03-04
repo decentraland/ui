@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
+import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
 import { Field } from './Field'
-import { Form } from '../../index'
 
 const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
 

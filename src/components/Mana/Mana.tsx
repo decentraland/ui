@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Network } from '@dcl/schemas'
-import { Header, HeaderProps } from '../..'
+import { Header, HeaderProps } from '../Header/Header'
 import './Mana.css'
 
 export type ManaProps = {

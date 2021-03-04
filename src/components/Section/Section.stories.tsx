@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Section } from './Section'
-import { Header } from '../../index'
+import { Header } from '../Header/Header'
 
 storiesOf('Section', module)
   .addDecorator(centered)
