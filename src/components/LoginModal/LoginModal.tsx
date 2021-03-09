@@ -44,7 +44,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
   static defaultProps = {
     i18n: {
       browser_extension: 'Using a browser extension',
-      email: 'Using you email',
+      email: 'Using your email',
       mobile: 'Using your mobile wallet'
     }
   }
