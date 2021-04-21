@@ -62,7 +62,7 @@ storiesOf('Modal', module)
         <Modal.Header>Are you sure?</Modal.Header>
         <Modal.Content>
           You are about to sell your soul for{' '}
-          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you wan to proceed?
+          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you want to proceed?
         </Modal.Content>
         <Modal.Actions>
           <Button primary>Proceed</Button>
@@ -78,7 +78,7 @@ storiesOf('Modal', module)
         <Modal.Header>Are you sure?</Modal.Header>
         <Modal.Content>
           You are about to sell your soul for{' '}
-          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you wan to proceed?
+          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you want to proceed?
         </Modal.Content>
         <Modal.Actions>
           <Button primary>Proceed</Button>
@@ -94,7 +94,7 @@ storiesOf('Modal', module)
         <Modal.Header>Are you sure?</Modal.Header>
         <Modal.Content>
           You are about to sell your soul for{' '}
-          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you wan to proceed?
+          <Mana inline>{(2500).toLocaleString()}</Mana>. Do you want to proceed?
         </Modal.Content>
         <Modal.Actions>
           <Button primary>Proceed</Button>
