@@ -8,7 +8,7 @@ import { Atlas, Layer, Coord } from './Atlas'
 // Controlled
 
 let tiles
-if (window) {
+if (typeof window !== undefined) {
   Atlas.fetchTiles().then(_tiles => (tiles = _tiles))
 }
 
