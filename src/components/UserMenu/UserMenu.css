@@ -163,6 +163,10 @@
   color: var(--primary);
 }
 
+.dcl.user-menu-wrapper .dcl.mana.clickable {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .dcl.user-menu .toggle {
     width: 36px;

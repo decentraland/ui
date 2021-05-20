@@ -31,6 +31,7 @@ export type UserMenuProps = {
   onClickProfile: () => void
   onClickActivity: () => void
   onClickSettings: () => void
+  onClickBalance: (network: Network) => void
 }
 
 export type UserMenuState = {
@@ -75,6 +76,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       onClickProfile,
       onClickActivity,
       onClickSettings,
+      onClickBalance,
       i18n,
       menuItems
     } = this.props
@@ -105,7 +107,13 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     key={network}
                     network={network as Network}
                     size="small"
+                    className={onClickBalance ? 'clickable' : undefined}
                     title={`${manaBalances[network].toLocaleString()} MANA`}
+                    onClick={
+                      onClickBalance
+                        ? () => onClickBalance(network as Network)
+                        : undefined
+                    }
                   >
                     {parseInt(
                       manaBalances[network].toFixed(0),

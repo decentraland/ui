@@ -180,3 +180,22 @@ storiesOf('UserMenu', module)
       }
     />
   ))
+  .add('Clickable balance', () => (
+    <UserMenu
+      isSignedIn
+      avatar={avatar}
+      onClickSettings={() => {}}
+      onClickActivity={() => {}}
+      onClickBalance={() => {}}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+      hasActivity
+      menuItems={
+        <>
+          <MenuItem>
+            <Icon name="users" />
+            &nbsp;Friends
+          </MenuItem>
+        </>
+      }
+    />
+  ))
