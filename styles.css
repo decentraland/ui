@@ -385,8 +385,8 @@ button[data-balloon]{overflow:visible}[data-balloon]{position:relative;cursor:po
   --z-index-navbar: 1000;
 
   /* fonts */
-  --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   --font-monospace: 'Inconsolata', 'Consolas', 'Droid Sans Mono', 'Monaco',
     'Courier New', monospace;
 
