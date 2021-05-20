@@ -32,6 +32,18 @@
   --oj-not-simpson: #ff7439;
   --dark: #18141a;
 
+  /* tableau 10 */
+  --tableau--01: #4e79a7;
+  --tableau--02: #f28e2c;
+  --tableau--03: #e15759;
+  --tableau--04: #76b7b2;
+  --tableau--05: #59a14f;
+  --tableau--06: #edc949;
+  --tableau--07: #af7aa1;
+  --tableau--08: #ff9da7;
+  --tableau--09: #9c755f;
+  --tableau--10: #bab0ab;
+
   /* raw colors */
   --neon-blue-raw: 0, 211, 255;
   --summer-red-raw: 255, 45, 85;
