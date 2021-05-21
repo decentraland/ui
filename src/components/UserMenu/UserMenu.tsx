@@ -14,6 +14,7 @@ export type UserMenuI18N = {
   signOut: React.ReactNode
   guest: React.ReactNode
   settings: React.ReactNode
+  account: React.ReactNode
 }
 
 export type UserMenuProps = {
@@ -45,7 +46,8 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       signIn: 'Sign In',
       signOut: 'Sign Out',
       guest: 'Guest',
-      settings: 'Settings'
+      settings: 'Settings',
+      account: 'Account'
     }
   }
 
@@ -109,11 +111,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     size="small"
                     className={onClickBalance ? 'clickable' : undefined}
                     title={`${manaBalances[network].toLocaleString()} MANA`}
-                    onClick={
-                      onClickBalance
-                        ? () => onClickBalance(network as Network)
-                        : undefined
-                    }
+                    href="https://account.decentraland.org"
                   >
                     {parseInt(
                       manaBalances[network].toFixed(0),
@@ -138,6 +136,12 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                   </div>
                 </div>
                 <ul className="actions">
+                  <a href="https://account.decentraland.org">
+                    <li>
+                      <Icon name="user"></Icon>
+                      {i18n.account}
+                    </li>
+                  </a>
                   {menuItems}
                   {onClickSettings ? (
                     <li onClick={onClickSettings}>

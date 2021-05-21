@@ -37,7 +37,7 @@
   display: inline-block;
   transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
   opacity: 0;
-  pointer-events: none;
+  user-select: none;
   transform: translate(0, -4px);
   min-width: 180px;
   overflow: hidden;
@@ -147,8 +147,10 @@
   right: -5px;
 }
 
-.dcl.user-menu .menu .item {
+.dcl.user-menu .menu .item,
+.dcl.user-menu .menu a {
   color: var(--text);
+  font-weight: normal;
 }
 
 .dcl.user-menu .menu li .icon,
@@ -163,7 +165,7 @@
   color: var(--primary);
 }
 
-.dcl.user-menu-wrapper .dcl.mana.clickable {
+.dcl.user-menu-wrapper .dcl.mana {
   cursor: pointer;
 }
 

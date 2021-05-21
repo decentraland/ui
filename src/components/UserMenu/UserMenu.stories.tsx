@@ -18,7 +18,7 @@ const avatar: Avatar = {
     bodyShape: 'dcl://base-avatars/BaseMale',
     snapshots: {
       face:
-        'https://peer.decentraland.org/content/contents/QmaV5H69RMcm49proWHTpMHRForP5FoVFt31PcDHUYkK4J',
+        'https://peer.decentraland.org/content/contents/QmSwtgWEuCUC1eEDww69h3eDk8qUhsuwhq9e44UX2JThLY',
       body:
         'https://peer.decentraland.org/content/contents/QmYyprchWpLTicofp16rKzQadmDLu4epmbxfji6LH9xHzp'
     },
@@ -168,25 +168,6 @@ storiesOf('UserMenu', module)
       avatar={avatar}
       onClickSettings={() => {}}
       onClickActivity={() => {}}
-      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
-      hasActivity
-      menuItems={
-        <>
-          <MenuItem>
-            <Icon name="users" />
-            &nbsp;Friends
-          </MenuItem>
-        </>
-      }
-    />
-  ))
-  .add('Clickable balance', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      onClickSettings={() => {}}
-      onClickActivity={() => {}}
-      onClickBalance={() => {}}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       hasActivity
       menuItems={
