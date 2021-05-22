@@ -37,6 +37,7 @@
   display: inline-block;
   transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
   opacity: 0;
+  pointer-events: none;
   user-select: none;
   transform: translate(0, -4px);
   min-width: 180px;
