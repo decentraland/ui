@@ -3182,14 +3182,18 @@ a.ui.card:hover,
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  pointer-events: none;
   transform: translate(0, -4px);
   min-width: 180px;
   overflow: hidden;
 }
 
+.dcl.user-menu .menu.clickable {
+  pointer-events: auto;
+}
+
 .dcl.user-menu .menu.open {
   opacity: 1;
-  pointer-events: auto;
   transform: translate(0, 0);
 }
 
