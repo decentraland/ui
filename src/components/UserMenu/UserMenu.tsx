@@ -37,6 +37,7 @@ export type UserMenuProps = {
 
 export type UserMenuState = {
   isOpen: boolean
+  isClickable: boolean
 }
 
 export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
@@ -52,17 +53,37 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
   }
 
   state: UserMenuState = {
-    isOpen: false
+    isOpen: false,
+    isClickable: false
   }
+
+  mounted: boolean = false
 
   ref: HTMLElement | null = null
 
   handleClose = () => {
-    this.setState({ isOpen: false })
+    this.toggle(false)
   }
 
   handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen })
+    this.toggle(!this.state.isOpen)
+  }
+
+  toggle(value: boolean) {
+    this.setState({ isOpen: value })
+    setTimeout(() => {
+      if (this.mounted) {
+        this.setState({ isClickable: value })
+      }
+    }, 250)
+  }
+
+  componentDidMount() {
+    this.mounted = true
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   render() {
@@ -83,7 +104,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       menuItems
     } = this.props
 
-    const { isOpen } = this.state
+    const { isOpen, isClickable } = this.state
 
     const name = avatar ? avatar.name : null
 
@@ -123,7 +144,11 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
               <div className="toggle" onClick={this.handleToggle}>
                 <AvatarFace size="medium" avatar={avatar} />
               </div>
-              <div className={`menu ${isOpen ? 'open' : ''}`}>
+              <div
+                className={`menu ${isOpen ? 'open' : ''} ${
+                  isClickable ? 'clickable' : ''
+                }`}
+              >
                 <div
                   className={`info ${onClickProfile ? 'clickable' : ''}`}
                   onClick={onClickProfile}
