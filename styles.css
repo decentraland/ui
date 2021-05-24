@@ -2382,7 +2382,7 @@ a.ui.card:hover,
   padding-right: 0.3em;
   transform: translateY(-0.06em);
   display: inline-block;
-  color: inherit;
+  color: var(--primary);
 }
 
 .dcl.mana + .dcl.mana {
