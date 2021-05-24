@@ -27,14 +27,14 @@ export type NavbarProps = {
   mana?: number
   address?: string
   activePage?:
-  | 'marketplace'
-  | 'docs'
-  | 'events'
-  | 'agora'
-  | 'dao'
-  | 'blog'
-  | 'builder'
-  | string
+    | 'marketplace'
+    | 'docs'
+    | 'events'
+    | 'agora'
+    | 'dao'
+    | 'blog'
+    | 'builder'
+    | string
   leftMenu?: React.ReactNode
   middleMenu?: React.ReactNode
   rightMenu?: React.ReactNode
@@ -68,7 +68,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         agora: 'Agora',
         dao: 'DAO',
         blog: 'Blog',
-        builder: 'Builder',
+        builder: 'Builder'
       },
       account: {
         signIn: 'Sign In',
@@ -180,12 +180,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <span
             className={`dcl account-wrapper ${
               onClickAccount ? 'clickable' : ''
-              }`}
+            }`}
             onClick={onClickAccount}
           >
             {mana != null ? (
               <Mana size="small" title={`${mana.toLocaleString()} MANA`}>
-                {parseInt(mana.toFixed(0), 10).toLocaleString()}
+                {Math.floor(mana).toLocaleString()}
               </Mana>
             ) : null}
             {address != null ? <Blockie seed={address} /> : null}
@@ -268,7 +268,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                 size="small"
                 className={`dcl active-page ${
                   this.state.toggle ? 'caret-up' : 'caret-down'
-                  }`}
+                }`}
                 onClick={this.handleToggle}
               >
                 {activePage}

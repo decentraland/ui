@@ -134,10 +134,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     title={`${manaBalances[network].toLocaleString()} MANA`}
                     href="https://account.decentraland.org"
                   >
-                    {parseInt(
-                      manaBalances[network].toFixed(0),
-                      10
-                    ).toLocaleString()}
+                    {Math.floor(manaBalances[network]).toLocaleString()}
                   </Mana>
                 ))}
               </span>
