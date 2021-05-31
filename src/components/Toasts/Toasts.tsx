@@ -5,7 +5,7 @@ import './Toasts.css'
 
 export default class Toasts extends React.PureComponent<Props> {
   render() {
-    const { position = 'bottom right', children } = this.props
+    const { position = 'top right', children } = this.props
 
     const className = ['dcl', 'toasts', ...position.split(' ')]
 
