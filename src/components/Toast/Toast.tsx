@@ -1,9 +1,23 @@
 import * as React from 'react'
 import { Close } from '../Close/Close'
-import { Props, ToastType } from './Toast.types'
 import './Toast.css'
 
-export class Toast extends React.PureComponent<Props> {
+export enum ToastType {
+  INFO = 'info',
+  WARN = 'warn',
+  ERROR = 'error'
+}
+
+export type ToastProps = {
+  type?: ToastType
+  title: string | JSX.Element
+  body: string | JSX.Element
+  closable?: boolean
+  timeout?: number
+  onClose?: () => void
+}
+
+export class Toast extends React.PureComponent<ToastProps> {
   mounted: boolean = false
   closeTimeoutId: number | null = null
 
