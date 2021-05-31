@@ -1,4 +1,4 @@
-.Toast {
+.dcl.toast {
   margin: 10px;
   padding: 15px 25px;
   min-width: 200px;
@@ -10,14 +10,14 @@
   color: var(--toast-text);
 }
 
-.Toast .dcl.close {
+.dcl.toast .dcl.close {
   position: absolute;
   top: 18px;
   right: 12px;
   cursor: pointer;
 }
 
-.Toast .title {
+.dcl.toast .title {
   margin-bottom: 10px;
   font-size: 17px;
   font-weight: 700;

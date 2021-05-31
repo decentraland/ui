@@ -42,7 +42,7 @@ export class Toast extends React.PureComponent<Props> {
   render() {
     const { type = ToastType.INFO, title, body, closable } = this.props
     return (
-      <div className={`Toast ${type.toLowerCase()}`}>
+      <div className={`dcl toast ${type.toLowerCase()}`}>
         {closable ? <Close small onClick={this.handleClose} /> : null}
         <div className="title">{title}</div>
         <div className="body">{body}</div>
