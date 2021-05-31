@@ -1,0 +1,4 @@
+.Toast .title h1,
+.Toast .body p {
+  color: var(--toast-text);
+}

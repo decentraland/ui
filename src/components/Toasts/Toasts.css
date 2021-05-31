@@ -1,0 +1,19 @@
+.dcl.toasts {
+  position: fixed;
+}
+
+.dcl.toasts.top {
+  top: 0;
+}
+
+.dcl.toasts.bottom {
+  bottom: 0;
+}
+
+.dcl.toasts.left {
+  left: 0;
+}
+
+.dcl.toasts.right {
+  right: 0;
+}

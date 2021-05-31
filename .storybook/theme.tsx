@@ -40,6 +40,8 @@ const LIGHT_THEME = `
   --navbar-popup-hover: #f3f2f5;
   --card: #ffffff;
   --outline: 1px solid #00000005;
+  --toast: #16141a;
+  --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
 
@@ -91,6 +93,8 @@ const DARK_THEME = `
   --navbar-popup-hover: #67637033;
   --card: #242129;
   --outline: 1px solid #00000005;
+  --toast: #676370;
+  --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
 
