@@ -4,18 +4,39 @@ import { Props, ToastType } from './Toast.types'
 import './Toast.css'
 
 export class Toast extends React.PureComponent<Props> {
+  isMounted: boolean = false
   closeTimeoutId: number | null = null
+
+  componentDidMount() {
+    this.isMounted = true
+
+    if (this.shouldCloseAfterTimeout()) {
+      this.closeAfterTimeout()
+    }
+  }
+
+  componentWillUnmount() {
+    this.isMounted = false
+  }
 
   handleClose = () => {
     this.props.onClose()
-    this.closeTimeoutId = null
   }
 
-  componentDidMount() {
+  closeAfterTimeout() {
     const { timeout } = this.props
-    if (timeout !== undefined && this.closeTimeoutId !== null) {
-      this.closeTimeoutId = window.setTimeout(this.handleClose, timeout)
-    }
+
+    this.closeTimeoutId = window.setTimeout(() => {
+      if (this.isMounted) {
+        this.handleClose()
+      }
+      this.closeTimeoutId = null
+    }, timeout)
+  }
+
+  shouldCloseAfterTimeout(): boolean {
+    const { timeout } = this.props
+    return timeout !== undefined && this.closeTimeoutId !== null
   }
 
   render() {
