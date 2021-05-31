@@ -12,7 +12,7 @@ export type ToastsProps = {
   children: React.ReactNode
 }
 
-export default class Toasts extends React.PureComponent<ToastsProps> {
+export class Toasts extends React.PureComponent<ToastsProps> {
   render() {
     const { position = 'top right', children } = this.props
 

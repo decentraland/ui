@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 
 import { Toast } from '../Toast/Toast'
-import Toasts from './Toasts'
+import { Toasts } from './Toasts'
 
 storiesOf('Toasts', module)
   .addDecorator(centered)
