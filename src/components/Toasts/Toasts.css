@@ -1,5 +1,6 @@
 .dcl.toasts {
   position: fixed;
+  z-index: 3001; /* Appear over modals */
 }
 
 .dcl.toasts.top {
