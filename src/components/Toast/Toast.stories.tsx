@@ -2,8 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 
-import { Toast } from './Toast'
-import { ToastType } from './Toast.types'
+import { Toast, ToastType } from './Toast'
 import './Toast.stories.css'
 
 storiesOf('Toast', module)
