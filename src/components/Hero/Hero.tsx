@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ContainerProps, HeaderProps } from "semantic-ui-react"
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import './Hero.css'
@@ -11,7 +12,7 @@ export type HeroProps = {
 }
 
 export class Hero extends React.PureComponent<HeroProps> {
-  static Header = ({ children, ...props }) => (
+  static Header = ({ children, ...props }: HeaderProps): JSX.Element => (
     <Container>
       <Header className="hero-title" size="huge" {...props}>
         {children}
@@ -19,7 +20,7 @@ export class Hero extends React.PureComponent<HeroProps> {
     </Container>
   )
 
-  static Description = ({ children, ...props }) => (
+  static Description = ({ children, ...props }: HeaderProps): JSX.Element => (
     <Container>
       <Header className="hero-subtitle" {...props}>
         {children}
@@ -27,19 +28,19 @@ export class Hero extends React.PureComponent<HeroProps> {
     </Container>
   )
 
-  static Content = ({ children, ...props }) => (
+  static Content = ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
     <div className="hero-content" {...props}>
       {children}
     </div>
   )
 
-  static Actions = ({ children, ...props }) => (
+  static Actions = ({ children, ...props }: ContainerProps): JSX.Element => (
     <Container className="hero-actions" {...props}>
       {children}
     </Container>
   )
 
-  render() {
+  render(): JSX.Element {
     const { centered = false, width, height, className, children } = this.props
     let style = null
     let classes = ''

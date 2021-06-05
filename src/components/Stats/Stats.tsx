@@ -11,7 +11,7 @@ export class Stats extends React.Component<StatsProps> {
   static defaultProps = {
     className: ''
   }
-  render() {
+  render(): JSX.Element {
     const { title, className, children } = this.props
     const classes = `dcl stats ${className}`.trim()
     return (

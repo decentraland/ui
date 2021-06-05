@@ -7,7 +7,7 @@ export type BadgeProps = {
   children: React.ReactNode
 }
 
-export const Badge = (props: BadgeProps) => {
+export const Badge = (props: BadgeProps): JSX.Element => {
   const { color, className, children } = props
 
   const classes = ['dcl', 'badge']

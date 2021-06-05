@@ -17,7 +17,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
     network: Network.ETHEREUM
   }
 
-  render() {
+  render(): JSX.Element {
     const { size, className, inline, children, network, ...rest } = this.props
     const classes = `dcl mana ${inline ? 'inline ' : ''}${className}`.trim()
     return (

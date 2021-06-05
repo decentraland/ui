@@ -54,7 +54,7 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
     tiles: this.props.tiles
   }
 
-  mounted: boolean = true
+  mounted = true
 
   layer: Layer = (x, y) => {
     const { tiles } = this.state
@@ -76,39 +76,39 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
 
   static TILES_URL = 'https://api.decentraland.org/v1/tiles'
 
-  static fetchTiles = async (url: string = Atlas.TILES_URL) => {
+  static fetchTiles = async (url: string = Atlas.TILES_URL): Promise<Record<string, AtlasTile>> => {
     if (!window.fetch) return {}
     const resp = await window.fetch(url)
     const json = await resp.json()
     return json.data as Record<string, AtlasTile>
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (!this.state.tiles) {
       Atlas.fetchTiles().then(this.handleUpdateTiles)
     }
     this.mounted = true
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     if (this.props.tiles && this.props.tiles !== this.state.tiles) {
       this.setState({ tiles: this.props.tiles })
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.mounted = false
   }
 
-  handleUpdateTiles = (tiles: Record<string, AtlasTile>) => {
+  handleUpdateTiles = (tiles: Record<string, AtlasTile>): void => {
     if (this.mounted) {
       this.setState({ tiles })
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const { layers, className, ...rest } = this.props
-    let classes = 'dcl atlas ' + className
+    const classes = 'dcl atlas ' + className
 
     return (
       <TileMap

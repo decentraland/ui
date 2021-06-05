@@ -23,7 +23,7 @@ export class Profile extends React.PureComponent<ProfileProps> {
     size: 'normal'
   }
 
-  render() {
+  render(): React.ReactNode {
     const {
       address,
       avatar,

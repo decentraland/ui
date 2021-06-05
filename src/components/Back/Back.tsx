@@ -8,7 +8,7 @@ export type BackProps = {
 }
 
 export class Back extends React.PureComponent<BackProps> {
-  render() {
+  render(): JSX.Element {
     const { children, className, absolute, onClick } = this.props
 
     const classes = ['dcl', 'back']

@@ -13,7 +13,7 @@ export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
     size: 'medium'
   }
 
-  render() {
+  render(): JSX.Element {
     const { avatar, size, inline } = this.props
     const classes = ['dcl', 'avatar-face', size]
     let face

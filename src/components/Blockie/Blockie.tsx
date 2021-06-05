@@ -29,14 +29,14 @@ export class Blockie extends React.PureComponent<BlockieProps> {
 
   canvas = React.createRef<HTMLCanvasElement>()
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.draw()
   }
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     this.draw()
   }
 
-  getOpts() {
+  getOpts(): Pick<BlockieProps, "seed" | "color" | "spotcolor" | "bgcolor" | "size" | "scale"> {
     const { seed, color, spotcolor, bgcolor, size, scale } = this.props
 
     return {
@@ -49,7 +49,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     }
   }
 
-  draw() {
+  draw(): string | undefined {
     if (!this.canvas || !this.canvas.current) {
       return '🦄'
     }
@@ -59,7 +59,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     blockies.render(this.getOpts(), this.canvas.current)
   }
 
-  render() {
+  render(): JSX.Element {
     const { size, scale, children, className } = this.props
     let classes = `dcl blockie ${className}`.trim()
     if (scale * size <= 16) {
