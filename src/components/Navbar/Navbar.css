@@ -9,7 +9,7 @@
 }
 
 .dcl.navbar.fullscreen {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border-bottom: none;
 }
 
@@ -70,7 +70,7 @@
 
 .dcl.account-wrapper .dcl.mana {
   display: inline-block;
-  margin: 0px 20px 0px 0px;
+  margin: 0 20px 0 0;
   color: var(--text);
   font-size: 13px;
   line-height: 18px;
@@ -92,15 +92,15 @@
 }
 
 .dcl.navbar-account .ui.menu.ui.menu.secondary.navbar-account-menu {
-  margin: 0px 24px 0px 0px;
+  margin: 0 24px 0 0;
 }
 
 .dcl.navbar-account .ui.menu.navbar-account-menu .item .icon {
-  margin: 0em;
+  margin: 0;
 }
 
 .dcl.navbar .ui.menu.secondary {
-  margin: 0px;
+  margin: 0;
 }
 
 .dcl.navbar .ui.menu .item {
@@ -110,7 +110,7 @@
   text-transform: uppercase;
   font-family: var(--font-family);
   margin-left: 24px;
-  padding: 0px;
+  padding: 0;
   font-size: 13px;
   line-height: 18px;
 }
@@ -136,7 +136,7 @@
   display: inline-block;
   text-transform: uppercase;
   cursor: pointer;
-  margin: 0px;
+  margin: 0;
 }
 
 .dcl.active-page::after {
@@ -162,19 +162,19 @@
 
 .dcl.navbar .children-wrapper {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .dcl.navbar .mobile-menu {
   position: relative;
   display: none;
-  padding-top: 0px;
+  padding-top: 0;
   transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   opacity: 0;
   transform: translateY(-16px);
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .dcl.navbar.sign-in .ui.menu .item.sign-in-button {
@@ -192,8 +192,8 @@
 
   .dcl.navbar .ui.container {
     width: calc(100% - 32px) !important;
-    padding: 0px 16px;
-    margin: 0px !important;
+    padding: 0 16px;
+    margin: 0 !important;
   }
 
   .dcl.navbar.overlay .ui.container {
@@ -204,7 +204,7 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
-    margin-top: 0px;
+    margin-top: 0;
   }
 
   .dcl.navbar .mobile-menu {
@@ -217,7 +217,7 @@
   .dcl.navbar.open .mobile-menu {
     pointer-events: all;
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0);
     box-shadow: var(--shadow-3);
   }
 

@@ -15,7 +15,7 @@
 }
 
 .ui.table thead th {
-  padding: 11px 0px;
+  padding: 11px 0;
   color: var(--secondary-text);
   font-size: 13px;
   line-height: 18px;
@@ -25,7 +25,7 @@
 }
 
 .ui.table td {
-  padding: 18px 0px;
+  padding: 18px 0;
 }
 
 .ui.table thead th {

@@ -7,7 +7,7 @@
   text-align: center;
   font-weight: 600;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  margin: 0px;
+  margin: 0;
 }
 
 /* hover */
@@ -121,6 +121,7 @@
   color: var(
     --primary
   ) !important; /* this !important is due to an important in semantic-ui-css */
+
   font-weight: 500;
   box-shadow: none;
   padding: 8px;
@@ -139,9 +140,10 @@
   color: var(
     --primary
   ) !important; /* this !important is due to an important in semantic-ui-css */
+
   box-shadow: none;
   background: transparent !important; /* this !important is due to an important in semantic-ui-css */
-  transform: translateY(0px);
+  transform: translateY(0);
 }
 
 .ui.button.basic:hover a,

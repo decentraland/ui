@@ -22,7 +22,7 @@
   border: var(--outline);
   box-shadow: var(--shadow-2);
   margin-top: 13px;
-  padding: 8px 0px;
+  padding: 8px 0;
   border-radius: 6px;
 }
 

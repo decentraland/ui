@@ -11,8 +11,8 @@
   --z-index-navbar: 1000;
 
   /* fonts */
-  --font-family: system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+  --font-family: system-ui, blinkmacsystemfont, 'Segoe UI', roboto,
+    'Helvetica Neue', arial, sans-serif;
   --font-monospace: 'Inconsolata', 'Consolas', 'Droid Sans Mono', 'Monaco',
     'Courier New', monospace;
 

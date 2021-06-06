@@ -21,6 +21,6 @@
   }
 
   .dcl.stats + .dcl.stats {
-    margin-left: 0px;
+    margin-left: 0;
   }
 }

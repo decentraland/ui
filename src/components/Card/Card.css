@@ -2,11 +2,11 @@
   width: calc(33.3% - 25px);
   margin-right: 25px;
   margin-bottom: 24px;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .ui.cards > .ui.card:nth-child(3n) {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .ui.cards > .ui.card,
@@ -19,7 +19,7 @@
 
 .ui.cards > .ui.card.link,
 .ui.card.link {
-  transform: translateY(0px);
+  transform: translateY(0);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 

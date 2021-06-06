@@ -30,11 +30,11 @@
 }
 
 .dcl.row > .ui.header {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .dcl.row > .ui.button.basic {
-  padding: 0px;
+  padding: 0;
 }
 
 .dcl.row > .ui.button + .ui.button,
@@ -56,6 +56,6 @@
   .dcl.row.stacked > .ui.button + .ui.dropdown,
   .dcl.row > .ui.checkbox + .ui.checkbox {
     margin-top: 16px;
-    margin-left: 0px;
+    margin-left: 0;
   }
 }

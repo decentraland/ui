@@ -1,6 +1,6 @@
 .dcl.page {
   position: relative;
-  padding: 0px 0px;
+  padding: 0 0;
   min-height: calc(
     100vh - var(--navbar-height) - var(--footer-height) -
       var(--navbar-margin-bottom) - var(--footer-margin-top) - 1px
@@ -34,10 +34,10 @@
 
 @media (max-width: 768px) {
   .dcl.page {
-    padding: 0px 0px 48px 0px;
+    padding: 0 0 48px 0;
   }
   .dcl.page.fullscreen {
-    padding: 0px;
+    padding: 0;
   }
   .dcl.navbar.fullscreen + .dcl.page.fullscreen {
     min-height: calc(

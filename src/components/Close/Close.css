@@ -11,7 +11,7 @@
   justify-content: center;
   z-index: 99;
   transition: background-color 0.2s ease-in-out;
-  padding: 0px;
+  padding: 0;
 }
 
 .dcl.close:hover {
