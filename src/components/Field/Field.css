@@ -11,7 +11,7 @@
 
 .dcl.field .ui.input input,
 .ui.form .dcl.field .ui.input input {
-  padding: 0px;
+  padding: 0;
   padding-bottom: 12px;
   padding-top: 4px;
   font-size: 20px;
@@ -19,7 +19,7 @@
   font-weight: 500;
   border: none;
   border-bottom: 2px solid var(--divider);
-  border-radius: 0px;
+  border-radius: 0;
   color: var(--text);
   background: transparent;
 }
@@ -45,13 +45,13 @@
   opacity: 1;
   height: 36px;
 }
-.dcl.field .ui.input.loading > i.icon:before,
-.ui.form .dcl.field .ui.input.loading > i.icon:before {
+.dcl.field .ui.input.loading > i.icon::before,
+.ui.form .dcl.field .ui.input.loading > i.icon::before {
   border-color: var(--divider);
   border-width: 2px;
 }
-.dcl.field .ui.input.loading > i.icon:after,
-.ui.form .dcl.field .ui.input.loading > i.icon:after {
+.dcl.field .ui.input.loading > i.icon::after,
+.ui.form .dcl.field .ui.input.loading > i.icon::after {
   border-color: var(--primary) transparent transparent;
   border-width: 2px;
 }
@@ -95,8 +95,8 @@
   background-position: center;
   height: 36px;
 }
-.dcl.field.error .ui.input > i.icon:before,
-.ui.form .dcl.field.error .ui.input > i.icon:before {
+.dcl.field.error .ui.input > i.icon::before,
+.ui.form .dcl.field.error .ui.input > i.icon::before {
   content: '';
   display: none;
 }
@@ -113,7 +113,7 @@
 .dcl.field.address .dcl.blockie,
 .ui.form .dcl.field.address .dcl.blockie {
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 8px;
 }
 
@@ -126,7 +126,7 @@
 .ui.form .dcl.field .overlay {
   position: absolute;
   bottom: 30px;
-  right: 0px;
+  right: 0;
 }
 
 .dcl.field .overlay .ui.button,

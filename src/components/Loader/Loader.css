@@ -1,7 +1,7 @@
-.ui.loader:before {
+.ui.loader::before {
   border-color: var(--secondary) !important;
 }
 
-.ui.loader:after {
+.ui.loader::after {
   border-color: var(--primary) transparent transparent !important;
 }

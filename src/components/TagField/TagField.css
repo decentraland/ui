@@ -5,9 +5,9 @@
 .dcl.tag-field .ui.dropdown,
 .dcl.tag-field .ui.dropdown.active {
   background: transparent;
-  border-radius: 0px;
+  border-radius: 0;
   border: none;
-  padding: 2px 0px 2px 0px;
+  padding: 2px 0 2px 0;
   width: max-content;
   min-width: 100%;
   margin-top: 8px;
@@ -15,7 +15,7 @@
 }
 
 .dcl.tag-field .ui.search.dropdown > input.search {
-  padding: 0px 0px 10px 0px;
+  padding: 0 0 10px 0;
 }
 
 .dcl.tag-field .ui.dropdown > .text,
@@ -26,8 +26,8 @@
   font-size: 16px !important;
   font-family: var(--font-family);
   line-height: 18px;
-  margin-left: 0px;
-  margin-bottom: 0px;
+  margin-left: 0;
+  margin-bottom: 0;
 }
 
 .dcl.tag-field .ui.dropdown > .text,
@@ -42,7 +42,7 @@
 
 .dcl.tag-field .ui.dropdown > .default.text {
   opacity: 0.6;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .dcl.tag-field .ui.selection.active.dropdown,

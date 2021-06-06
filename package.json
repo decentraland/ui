@@ -11,6 +11,12 @@
     "build:lib": "rimraf lib && webpack --config webpack.config.js",
     "build:storybook": "build-storybook && cp ./static/* ./storybook-static && cp now.json ./storybook-static && node postbuild",
     "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css'",
+    "check:prettier": "prettier -c '**/*.{js,ts,json,yml,md,tsx,html,css}'",
+    "check:style": "stylelint '**/*.css'",
+    "check:code": "eslint . --max-warnings=0",
+    "fix:code": "npm run check:code -- --fix",
+    "fix:prettier": "prettier --write .",
+    "fix:style": "stylelint '**/*.css' --fix",
     "now-build": "build-storybook && cp ./static/* ./storybook-static && mv ./storybook-static ./public",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
@@ -40,11 +46,15 @@
     "@storybook/react": "^5.3.13",
     "@types/react": "^16.4.1",
     "@types/react-test-renderer": "^16.0.1",
+    "@typescript-eslint/eslint-plugin": "4.26.0",
+    "@typescript-eslint/parser": "4.26.0",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
+    "eslint": "7.28.0",
+    "eslint-config-prettier": "8.3.0",
     "mini-css-extract-plugin": "^0.7.0",
     "postcss-assets": "^5.0.0",
     "postcss-cli": "^7.1.0",
@@ -52,12 +62,16 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "postcss-svg": "^3.0.0",
+    "prettier": "^2.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rimraf": "^2.6.3",
     "semantic-release": "^15.13.24",
     "storybook": "^5.3.13",
     "style-loader": "^0.23.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
     "ts-loader": "^6.0.2",
     "typescript": "^4.1.5",
     "url-loader": "^2.0.0",
@@ -110,9 +124,5 @@
     "collectCoverageFrom": [
       "src/components/**/*.(ts|tsx|js)"
     ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
   }
 }

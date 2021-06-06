@@ -28,7 +28,7 @@ export class SignIn extends React.PureComponent<SignInProps> {
     isConnected: false,
     isConnecting: false,
     hasError: false,
-    onConnect: () => {},
+    onConnect: () => undefined,
     i18n: {
       header: 'Get Started',
       message: (
@@ -59,15 +59,9 @@ export class SignIn extends React.PureComponent<SignInProps> {
     }
   }
 
-  render() {
-    const {
-      center,
-      isConnecting,
-      isConnected,
-      onConnect,
-      hasError,
-      i18n
-    } = this.props
+  render(): JSX.Element {
+    const { center, isConnecting, isConnected, onConnect, hasError, i18n } =
+      this.props
     let classes = 'SignIn'
     if (center) {
       classes += ' center'

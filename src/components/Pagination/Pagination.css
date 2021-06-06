@@ -4,8 +4,8 @@
   background: transparent;
 }
 
-.ui.pagination.menu .item:before {
-  width: 0px;
+.ui.pagination.menu .item::before {
+  width: 0;
 }
 
 .ui.pagination.menu .item {

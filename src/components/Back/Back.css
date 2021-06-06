@@ -9,7 +9,7 @@
   border: solid 1px var(--divider);
   background-size: 7px;
   cursor: pointer;
-  margin: 0px 2px;
+  margin: 0 2px;
   filter: var(--brightness);
   padding: 8px;
 }

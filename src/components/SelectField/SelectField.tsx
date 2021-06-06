@@ -11,7 +11,7 @@ export type SelectFieldProps = DropdownProps & {
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
-  render() {
+  render(): JSX.Element {
     const { label, header, options, message, error, ...rest } = this.props
     let classes = 'dcl select-field'
 
@@ -24,20 +24,25 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
         {label ? <Header sub>{label}</Header> : null}
 
         <Dropdown search selection options={options} {...rest}>
-          {header && <Dropdown.Menu className="wrapper">
-            <Dropdown.Header content={header} />
-            <Dropdown.Menu scrolling className="options-wrapper">
-              {options.map((opt, i) => (
-                <Dropdown.Item
-                  key={i}
-                  {...opt}
-                  onClick={e =>
-                    this.props.onChange(e, { ...this.props, value: opt.value })
-                  }
-                />
-              ))}
+          {header && (
+            <Dropdown.Menu className="wrapper">
+              <Dropdown.Header content={header} />
+              <Dropdown.Menu scrolling className="options-wrapper">
+                {options.map((opt, i) => (
+                  <Dropdown.Item
+                    key={i}
+                    {...opt}
+                    onClick={(e) =>
+                      this.props.onChange(e, {
+                        ...this.props,
+                        value: opt.value
+                      })
+                    }
+                  />
+                ))}
+              </Dropdown.Menu>
             </Dropdown.Menu>
-          </Dropdown.Menu>}
+          )}
         </Dropdown>
         <p className="message">
           {message}

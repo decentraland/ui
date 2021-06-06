@@ -140,7 +140,7 @@
   color: var(--primary);
 }
 
-.dcl.user-menu-wrapper .activity-bell.item .bell.pending:after {
+.dcl.user-menu-wrapper .activity-bell.item .bell.pending::after {
   content: '';
   width: 5px;
   height: 5px;

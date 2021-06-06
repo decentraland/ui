@@ -13,7 +13,7 @@ export type ToastsProps = {
 }
 
 export class Toasts extends React.PureComponent<ToastsProps> {
-  render() {
+  render(): JSX.Element {
     const { position = 'top right', children } = this.props
 
     const className = ['dcl', 'toasts', ...position.split(' ')]

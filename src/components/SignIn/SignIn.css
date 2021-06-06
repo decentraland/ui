@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .SignIn .WalletIcon,
@@ -38,7 +38,7 @@
 }
 
 .SignIn .message {
-  padding: 0px 38px;
+  padding: 0 38px;
   text-align: center;
   color: var(--secondary-text);
   font-size: 16px;
