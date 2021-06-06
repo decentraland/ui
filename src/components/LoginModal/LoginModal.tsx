@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ModalContent } from 'semantic-ui-react'
-import { Modal,  } from '../Modal/Modal'
+import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
 import './LoginModal.css'
@@ -49,7 +49,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const { type, onClick, i18n } = this.props
 
     let title: React.ReactNode = ''
@@ -106,16 +106,9 @@ export class LoginModal extends React.Component<LoginModalProps> {
 
   static Option = LoginModalOption
 
-  render() {
-    const {
-      open,
-      className,
-      hasError,
-      loading,
-      onClose,
-      i18n,
-      children
-    } = this.props
+  render(): JSX.Element {
+    const { open, className, hasError, loading, onClose, i18n, children } =
+      this.props
 
     let errorClasses = 'error'
     if (hasError) {

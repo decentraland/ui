@@ -8,7 +8,7 @@ export type EmptyProps = {
 }
 
 export class Empty extends React.PureComponent<EmptyProps> {
-  render() {
+  render(): JSX.Element {
     const { children, className, height, expand } = this.props
 
     const classes = ['dcl', 'empty']
@@ -20,7 +20,7 @@ export class Empty extends React.PureComponent<EmptyProps> {
       classes.push('expand')
     }
 
-    let style: React.CSSProperties = {}
+    const style: React.CSSProperties = {}
     if (height) {
       style.height = height
     }

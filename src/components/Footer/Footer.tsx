@@ -1,6 +1,10 @@
 import * as React from 'react'
 import { Container } from '../Container/Container'
-import { LanguageDropdownI18N, LanguageDropdownProps, LanguageDropdown } from '../LanguageDropdown/LanguageDropdown'
+import {
+  LanguageDropdownI18N,
+  LanguageDropdownProps,
+  LanguageDropdown
+} from '../LanguageDropdown/LanguageDropdown'
 import { Locale } from '../Language/Language'
 import './Footer.css'
 
@@ -47,15 +51,9 @@ export class Footer extends React.PureComponent<FooterProps> {
     }
   }
 
-  render() {
-    const {
-      locale,
-      locales,
-      onChange,
-      i18n,
-      isFullscreen,
-      className
-    } = this.props
+  render(): JSX.Element {
+    const { locale, locales, onChange, i18n, isFullscreen, className } =
+      this.props
 
     let classes = 'dcl footer'
     if (isFullscreen) {

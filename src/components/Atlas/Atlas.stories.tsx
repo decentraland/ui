@@ -9,7 +9,7 @@ import { Atlas, Layer, Coord } from './Atlas'
 
 let tiles
 if (window) {
-  Atlas.fetchTiles().then(_tiles => (tiles = _tiles))
+  Atlas.fetchTiles().then((_tiles) => (tiles = _tiles))
 }
 
 // For Sale
@@ -27,7 +27,7 @@ const forSaleLayer: Layer = (x, y) => {
 let selected: Coord[] = []
 
 function isSelected(x: number, y: number) {
-  return selected.some(coord => coord.x === x && coord.y === y)
+  return selected.some((coord) => coord.x === x && coord.y === y)
 }
 
 const selectedStrokeLayer: Layer = (x, y) => {
@@ -41,7 +41,7 @@ const selectedFillLayer: Layer = (x, y) => {
 const handleClick = (x: number, y: number) => {
   console.log(x, y)
   if (isSelected(x, y)) {
-    selected = selected.filter(coord => coord.x !== x || coord.y !== y)
+    selected = selected.filter((coord) => coord.x !== x || coord.y !== y)
   } else {
     selected.push({ x, y })
   }

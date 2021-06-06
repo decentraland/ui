@@ -22,7 +22,7 @@ export class Row extends React.PureComponent<RowProps> {
     className: ''
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       children,
       className,
@@ -58,7 +58,7 @@ export class Row extends React.PureComponent<RowProps> {
       classes.push('shrink')
     }
 
-    let style: React.CSSProperties = {}
+    const style: React.CSSProperties = {}
     if (width) {
       style.width = width
     }

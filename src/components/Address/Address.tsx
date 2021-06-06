@@ -16,7 +16,7 @@ export class Address extends React.Component<AddressProps> {
     shorten: true
   }
 
-  render() {
+  render(): JSX.Element {
     const { className, strong, shorten, tooltip, value } = this.props
     const classes = `dcl address ${className}`.trim()
     const address = shorten

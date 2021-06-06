@@ -50,7 +50,7 @@ storiesOf('LoginModal', module)
   .add('Login options', () => (
     <div className="LoginModal-story">
       {lipsum}
-      <LoginModal open onClose={() => {}}>
+      <LoginModal open onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
@@ -62,7 +62,7 @@ storiesOf('LoginModal', module)
   .add('Login error', () => (
     <div className="LoginModal-story">
       {lipsum}
-      <LoginModal open hasError onClose={() => {}}>
+      <LoginModal open hasError onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
@@ -74,7 +74,7 @@ storiesOf('LoginModal', module)
   .add('Loading', () => (
     <div className="LoginModal-story">
       {lipsum}
-      <LoginModal open loading onClose={() => {}}>
+      <LoginModal open loading onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
