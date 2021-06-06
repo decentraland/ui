@@ -17,10 +17,8 @@ const avatar: Avatar = {
   avatar: {
     bodyShape: 'dcl://base-avatars/BaseMale',
     snapshots: {
-      face:
-        'https://peer.decentraland.org/content/contents/QmSwtgWEuCUC1eEDww69h3eDk8qUhsuwhq9e44UX2JThLY',
-      body:
-        'https://peer.decentraland.org/content/contents/QmYyprchWpLTicofp16rKzQadmDLu4epmbxfji6LH9xHzp'
+      face: 'https://peer.decentraland.org/content/contents/QmSwtgWEuCUC1eEDww69h3eDk8qUhsuwhq9e44UX2JThLY',
+      body: 'https://peer.decentraland.org/content/contents/QmYyprchWpLTicofp16rKzQadmDLu4epmbxfji6LH9xHzp'
     },
     eyes: {
       color: { r: 0.37109375, g: 0.22265625, b: 0.1953125, a: 1 }

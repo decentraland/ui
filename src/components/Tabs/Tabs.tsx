@@ -29,11 +29,11 @@ export class Tabs extends React.PureComponent<TabsProps> {
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     children: React.ReactNode
   }): JSX.Element => (
-      <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
-        {children}
-        {active ? <div className="active-bar"></div> : null}
-      </div>
-    )
+    <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
+      {children}
+      {active ? <div className="active-bar"></div> : null}
+    </div>
+  )
 
   render(): JSX.Element {
     const { children, isFullscreen, onClick } = this.props

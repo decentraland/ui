@@ -36,7 +36,10 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     this.draw()
   }
 
-  getOpts(): Pick<BlockieProps, "seed" | "color" | "spotcolor" | "bgcolor" | "size" | "scale"> {
+  getOpts(): Pick<
+    BlockieProps,
+    'seed' | 'color' | 'spotcolor' | 'bgcolor' | 'size' | 'scale'
+  > {
     const { seed, color, spotcolor, bgcolor, size, scale } = this.props
 
     return {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ModalContent } from 'semantic-ui-react'
-import { Modal,  } from '../Modal/Modal'
+import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
 import './LoginModal.css'
@@ -107,15 +107,8 @@ export class LoginModal extends React.Component<LoginModalProps> {
   static Option = LoginModalOption
 
   render(): JSX.Element {
-    const {
-      open,
-      className,
-      hasError,
-      loading,
-      onClose,
-      i18n,
-      children
-    } = this.props
+    const { open, className, hasError, loading, onClose, i18n, children } =
+      this.props
 
     let errorClasses = 'error'
     if (hasError) {

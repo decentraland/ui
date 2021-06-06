@@ -30,7 +30,7 @@ import './Page.stories.css'
 const selected: Coord[] = [{ x: 22, y: 22 }]
 
 function isSelected(x: number, y: number) {
-  return selected.some(coord => coord.x === x && coord.y === y)
+  return selected.some((coord) => coord.x === x && coord.y === y)
 }
 
 const selectedStrokeLayer: Layer = (x, y) => {
