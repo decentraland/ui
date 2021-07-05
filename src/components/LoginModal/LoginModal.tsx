@@ -132,8 +132,10 @@ export class LoginModal extends React.Component<LoginModalProps> {
           subtitle={i18n.subtitle}
           onClose={onClose}
         />
-        <ModalContent>{children}</ModalContent>
-        {message ? <small className="message">{message}</small> : null}
+        <ModalContent>
+          {children}
+          {message ? <small className="message">{message}</small> : null}
+        </ModalContent>
         {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
         {loading ? (
           <>

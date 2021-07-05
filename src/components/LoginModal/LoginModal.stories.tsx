@@ -65,7 +65,6 @@ storiesOf('LoginModal', module)
       <LoginModal
         open
         message="This is a custom persistent message"
-        hasError
         onClose={() => {}}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
@@ -92,6 +91,24 @@ storiesOf('LoginModal', module)
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open loading onClose={() => {}}>
+        <LoginModal.Option type={LoginModalOptionType.METAMASK} />
+        <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
+        <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+      </LoginModal>
+    </div>
+  ))
+  .add('Full example', () => (
+    <div className="LoginModal-story">
+      {lipsum}
+      <LoginModal
+        open
+        message="This is a custom persistent message"
+        hasError
+        loading
+        onClose={() => {}}
+      >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
