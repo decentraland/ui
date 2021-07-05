@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ModalContent } from 'semantic-ui-react'
-import { Modal,  } from '../Modal/Modal'
+import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
 import './LoginModal.css'
@@ -15,6 +15,7 @@ export enum LoginModalOptionType {
 
 export type LoginModalProps = {
   className?: string
+  message?: React.ReactNode
   hasError?: boolean
   open?: boolean
   loading?: boolean
@@ -100,6 +101,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
     i18n: {
       title: 'Sign In',
       subtitle: 'Choose a method to connect',
+      message: '',
       error: 'Could not connect wallet'
     }
   }
@@ -110,6 +112,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
     const {
       open,
       className,
+      message,
       hasError,
       loading,
       onClose,
@@ -130,7 +133,8 @@ export class LoginModal extends React.Component<LoginModalProps> {
           onClose={onClose}
         />
         <ModalContent>{children}</ModalContent>
-        <p className={errorClasses}>{i18n.error}</p>
+        {message ? <small className="message">{message}</small> : null}
+        {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
         {loading ? (
           <>
             <Loader size="big" active />

@@ -72,7 +72,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.dcl.login-modal .message {
+  text-align: center;
+  display: block;
+  color: var(--secondary-text);
+  line-height: 1.4;
 }
 
 .dcl.login-modal .error {
