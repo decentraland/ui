@@ -2181,7 +2181,15 @@ a.ui.card:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.dcl.login-modal .message {
+  margin-top: 28px;
+  text-align: center;
+  display: block;
+  color: var(--secondary-text);
+  line-height: 1.4;
 }
 
 .dcl.login-modal .error {
