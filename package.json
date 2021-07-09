@@ -55,7 +55,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^17.2.3",
     "storybook": "^5.3.13",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.2",
