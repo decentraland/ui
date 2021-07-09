@@ -14,3 +14,33 @@ export enum Color {
   OJ_NOT_SIMPSON = '#FF7439',
   DARK = '#18141A'
 }
+
+export enum AtlasColor {
+  OWNED = '#3D3A46',
+  UNOWNED = '#09080A',
+  PLAZA = '#70AC76',
+  ROAD = '#716C7A',
+  DISTRICT = '#5054D4',
+  ODD = '#110E13',
+  EVEN = '#0D0B0E'
+}
+
+export enum RarityColor {
+  UNIQUE = '#FFB626',
+  MYTHIC = '#FF63E1',
+  LEGENDARY = '#842DDA',
+  EPIC = '#3D85E6',
+  RARE = '#36CF75',
+  UNCOMMON = '#ED6D4F',
+  COMMON = '#ABC1C1'
+}
+
+export enum RarityColorLight {
+  UNIQUE = '#FFE617',
+  MYTHIC = '#FB7DE3',
+  LEGENDARY = '#A657ED',
+  EPIC = '#6397F2',
+  RARE = '#3AD682',
+  UNCOMMON = '#FF8563',
+  COMMON = '#D4E0E0'
+}
