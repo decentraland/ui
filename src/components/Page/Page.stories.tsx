@@ -27,7 +27,7 @@ import { Color } from '../../colors'
 import { Page } from './Page'
 import './Page.stories.css'
 
-let selected: Coord[] = [{ x: 22, y: 22 }]
+const selected: Coord[] = [{ x: 22, y: 22 }]
 
 function isSelected(x: number, y: number) {
   return selected.some(coord => coord.x === x && coord.y === y)

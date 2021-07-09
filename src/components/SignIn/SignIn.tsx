@@ -28,7 +28,7 @@ export class SignIn extends React.PureComponent<SignInProps> {
     isConnected: false,
     isConnecting: false,
     hasError: false,
-    onConnect: () => {},
+    onConnect: () => undefined,
     i18n: {
       header: 'Get Started',
       message: (
@@ -59,7 +59,7 @@ export class SignIn extends React.PureComponent<SignInProps> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       center,
       isConnecting,

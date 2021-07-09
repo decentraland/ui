@@ -11,7 +11,7 @@ export class Section extends React.PureComponent<SectionProps> {
     size: 'medium'
   }
 
-  render() {
+  render(): JSX.Element {
     const { size, className, children } = this.props
     const classes = ['dcl', 'section', size]
     if (className) {

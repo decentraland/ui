@@ -14,17 +14,18 @@ export type FieldProps = InputProps & {
 }
 
 export class Field extends React.PureComponent<FieldProps> {
-  hasAction() {
-    const { loading, error, action, onAction } = this.props
-    return !this.isAddress() && !loading && !error && action && onAction
+  hasAction(): boolean {
+    const { loading, error, action } = this.props
+    const hasOnAction = this.props.onAction !== null && this.props.onAction !== undefined
+    return !this.isAddress() && !loading && !error && action && hasOnAction
   }
 
-  isAddress() {
+  isAddress(): boolean {
     const { type } = this.props
     return type === 'address'
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       value,
       label,
@@ -72,7 +73,7 @@ export class Field extends React.PureComponent<FieldProps> {
           icon={icon ? icon : void 0}
           loading={loading && !isAddress}
           disabled={disabled}
-          {...(rest as any)}
+          {...rest}
         />
         {this.hasAction() && (
           <div className="overlay">

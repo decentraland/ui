@@ -9,7 +9,7 @@ export type ModalNavigationProps = {
 }
 
 export class ModalNavigation extends React.PureComponent<ModalNavigationProps> {
-  render() {
+  render(): JSX.Element {
     const { title, subtitle, onBack, onClose } = this.props
     return (
       <div className="dcl modal-navigation">

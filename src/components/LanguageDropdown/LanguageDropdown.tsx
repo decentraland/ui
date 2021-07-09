@@ -28,7 +28,7 @@ export class LanguageDropdown extends React.PureComponent<
   LanguageDropdownProps
   > {
   static defaultProps: Partial<LanguageDropdownProps> = {
-    onChange: () => { },
+    onChange: () => undefined,
     direction: 'left',
     upward: false,
     locales: ['en'],
@@ -42,12 +42,12 @@ export class LanguageDropdown extends React.PureComponent<
     }
   }
 
-  renderOption = (locale: Locale): any => {
+  renderOption = (locale: Locale): JSX.Element => {
     const { i18n } = this.props
     return <LanguageIcon locale={locale} label={i18n[locale]} />
   }
 
-  render() {
+  render(): JSX.Element {
     const { locale, locales, direction, upward, onChange } = this.props
     return (
       <Dropdown

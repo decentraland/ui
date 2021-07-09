@@ -21,6 +21,9 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package-lock.json" }}
       - run:
+          name: Check linting
+          command: npm run check:code
+      - run:
           name: Build library
           command: npm run build
       - save_cache:

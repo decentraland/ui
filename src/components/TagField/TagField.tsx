@@ -7,17 +7,18 @@ export type TagFieldProps = DropdownProps & {
   label?: string
   error?: boolean
   message?: string
+  value?: (string | number | boolean)[]
 }
 
 export class TagField extends React.PureComponent<TagFieldProps> {
   containerRef = React.createRef<HTMLDivElement>()
 
-  getOptions = () => {
-    const value = (this.props.value || []) as string[]
-    return value.map(value => ({ text: value, value }))
+  getOptions = (): Array<{ text: string, value: string }> => {
+    const value = this.props.value ?? []
+    return value.map(value => ({ text: value.toString(), value: value.toString() }))
   }
 
-  handleScrollToEnd = () => {
+  handleScrollToEnd = (): void => {
     const el = this.containerRef.current
     if (el) {
       setTimeout(() => (el.scrollLeft = el.scrollWidth), 0)
@@ -27,7 +28,7 @@ export class TagField extends React.PureComponent<TagFieldProps> {
   handleChange = (
     e: React.SyntheticEvent<HTMLElement, Event>,
     dropdownProps: DropdownProps
-  ) => {
+  ): void => {
     const { onChange } = this.props
 
     this.handleScrollToEnd()
@@ -37,7 +38,7 @@ export class TagField extends React.PureComponent<TagFieldProps> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const { label, error, message, ...rest } = this.props
     let classes = 'dcl tag-field'
 

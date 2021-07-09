@@ -3,17 +3,15 @@ import './Close.css'
 
 export type CloseProps = {
   small?: boolean
-  onClick?: (event: React.MouseEvent<HTMLElement>) => any
+  onClick?: (event: React.MouseEvent<HTMLElement>) => unknown
 }
 
 export class Close extends React.PureComponent<CloseProps> {
   static defaultProps: CloseProps = {
-    onClick: (_: React.MouseEvent<HTMLElement>) => {
-      /* noop */
-    }
+    onClick: () => undefined
   }
 
-  render() {
+  render(): JSX.Element {
     const { small, onClick } = this.props
 
     return (

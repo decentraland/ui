@@ -103,24 +103,24 @@ storiesOf('UserMenu', module)
   .add('Signed in', () => <UserMenu isSignedIn avatar={avatar} />)
   .add('Guest', () => <UserMenu isSignedIn />)
   .add('Clickable profile', () => (
-    <UserMenu isSignedIn avatar={avatar} onClickProfile={() => {}} />
+    <UserMenu isSignedIn avatar={avatar} onClickProfile={() => undefined} />
   ))
   .add('Sign Out', () => (
-    <UserMenu isSignedIn avatar={avatar} onSignOut={() => {}} />
+    <UserMenu isSignedIn avatar={avatar} onSignOut={() => undefined} />
   ))
   .add('Settings', () => (
     <UserMenu
       isSignedIn
       avatar={avatar}
-      onSignOut={() => {}}
-      onClickSettings={() => {}}
+      onSignOut={() => undefined}
+      onClickSettings={() => undefined}
     />
   ))
   .add('Extra actions', () => (
     <UserMenu
       isSignedIn
       avatar={avatar}
-      onClickSettings={() => {}}
+      onClickSettings={() => undefined}
       menuItems={
         <>
           <MenuItem>
@@ -149,8 +149,8 @@ storiesOf('UserMenu', module)
     <UserMenu
       isSignedIn
       avatar={avatar}
-      onClickSettings={() => {}}
-      onClickActivity={() => {}}
+      onClickSettings={() => undefined}
+      onClickActivity={() => undefined}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       menuItems={
         <>
@@ -166,8 +166,8 @@ storiesOf('UserMenu', module)
     <UserMenu
       isSignedIn
       avatar={avatar}
-      onClickSettings={() => {}}
-      onClickActivity={() => {}}
+      onClickSettings={() => undefined}
+      onClickActivity={() => undefined}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       hasActivity
       menuItems={

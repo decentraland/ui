@@ -47,7 +47,7 @@ export class Footer extends React.PureComponent<FooterProps> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       locale,
       locales,
