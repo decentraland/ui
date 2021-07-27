@@ -15,7 +15,6 @@
 .TextArea > textarea {
   font-family: var(--font-family);
   resize: none;
-  /* border: 1px solid var(--divider); */
   border: 1px solid var(--text-area-border);
   border-radius: 6px;
   padding: 10px;
