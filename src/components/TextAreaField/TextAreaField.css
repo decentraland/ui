@@ -1,0 +1,30 @@
+.TextArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.TextArea > .label {
+  margin-bottom: 8px;
+  color: #736e7d;
+  font-family: var(--font-family);
+  color: var(--secondary-text);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.TextArea > textarea {
+  font-family: var(--font-family);
+  resize: none;
+  border: 1px solid var(--text-area-border);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text);
+  background: none;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.TextArea > textarea:focus {
+  border: 1px solid var(--text);
+  outline: none !important;
+}
