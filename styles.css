@@ -511,6 +511,7 @@ a:hover {
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
+  --text-area-border: #67637033;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
@@ -2414,6 +2415,27 @@ a.ui.card:hover,
   transform: translateY(0.2em);
 }
 
+.ui.message {
+  font-style: normal;
+  font-weight: normal;
+  font-family: var(--font-family);
+  border: none;
+  box-shadow: none !important;
+  border-radius: 6px;
+}
+
+.ui.message.error {
+  background-color: rgba(254, 230, 230);
+}
+
+.ui.error.message > .content > .header {
+  color: #ff0000;
+}
+
+.ui.message > .content > p {
+  color: #16141a;
+}
+
 .dcl.narrow {
   position: relative;
   width: 944px;
@@ -3147,6 +3169,37 @@ a.ui.card:hover,
 
 .dcl.tag-field.error .ui.header.sub {
   color: var(--error);
+}
+
+.TextArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.TextArea > .label {
+  margin-bottom: 8px;
+  color: #736e7d;
+  font-family: var(--font-family);
+  color: var(--secondary-text);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.TextArea > textarea {
+  font-family: var(--font-family);
+  resize: none;
+  border: 1px solid var(--text-area-border);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text);
+  background: none;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.TextArea > textarea:focus {
+  border: 1px solid var(--text);
+  outline: none !important;
 }
 
 .dcl.toast {
