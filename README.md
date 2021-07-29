@@ -2,7 +2,7 @@
 
 # Decentraland UI [![CircleCI](https://circleci.com/gh/decentraland/ui.svg?style=svg)](https://circleci.com/gh/decentraland/ui) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-This is basically `semantic-ui-react` themed with Decentrland's look & feel + some of our own components
+This is basically `semantic-ui-react` themed with Decentrland's look & feel + some of our own components 
 
 See: [ui.decentraland.org](https://ui.decentraland.org)
 
