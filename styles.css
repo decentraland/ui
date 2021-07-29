@@ -3185,6 +3185,7 @@ a.ui.card:hover,
   text-transform: uppercase;
 }
 
+.ui.form textarea,
 .TextArea > textarea {
   font-family: var(--font-family);
   resize: none;
@@ -3197,6 +3198,7 @@ a.ui.card:hover,
   line-height: 24px;
 }
 
+.ui.form textarea:focus,
 .TextArea > textarea:focus {
   border: 1px solid var(--text);
   outline: none !important;
