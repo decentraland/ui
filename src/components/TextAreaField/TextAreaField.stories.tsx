@@ -2,6 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { TextAreaField } from './TextAreaField'
+import { Form } from 'semantic-ui-react'
 
 const textAreaValue =
   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +
@@ -13,6 +14,11 @@ storiesOf('TextArea', module)
   .add('Text area without label', () => (
     <TextAreaField value={textAreaValue} rows="10" cols="50" />
   ))
+  .add('Text area without label in form', () => (
+    <Form>
+      <TextAreaField value={textAreaValue} rows="10" cols="50" />
+    </Form>
+  ))
   .add('Text area with label', () => (
     <TextAreaField
       value={textAreaValue}
@@ -20,4 +26,14 @@ storiesOf('TextArea', module)
       rows="10"
       cols="50"
     />
+  ))
+  .add('Text area with label in form', () => (
+    <Form>
+      <TextAreaField
+        value={textAreaValue}
+        label="Description"
+        rows="10"
+        cols="50"
+      />
+    </Form>
   ))
