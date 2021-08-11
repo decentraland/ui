@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Menu, Responsive } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { Mana } from '../Mana/Mana'
 import { Blockie } from '../Blockie/Blockie'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import { Logo } from '../Logo/Logo'
+import { Responsive } from '../Responsive'
 import './Navbar.css'
 
 export type NavbarI18N = {
