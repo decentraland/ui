@@ -1,41 +1,66 @@
 import { useMediaQuery } from 'react-responsive'
 
+const useDesktopMediaQuery = (): boolean => useMediaQuery({ minWidth: 992 })
+
+const useTabletMediaQuery = (): boolean =>
+  useMediaQuery({ minWidth: 768, maxWidth: 991 })
+
+const useTabletAndBelowMediaQuery = (): boolean =>
+  useMediaQuery({ maxWidth: 991 })
+
+const useMobileMediaQuery = (): boolean => useMediaQuery({ maxWidth: 767 })
+
+const useNotMobileMediaQuery = (): boolean => useMediaQuery({ minWidth: 768 })
+
+/**
+ * Renders a component if the screen suits the desktop size.
+ */
 const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: 992 })
+  const isDesktop = useDesktopMediaQuery()
   return isDesktop ? children : null
 }
 
+/**
+ * Renders a component if the screen suits the tablet size.
+ */
 const Tablet = ({ children }) => {
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  const isTablet = useTabletMediaQuery()
   return isTablet ? children : null
 }
 
+/**
+ * Renders a component if the screen suits the tablet or mobile size.
+ */
+const TabletAndBelow = ({ children }) => {
+  const isTablet = useTabletAndBelowMediaQuery()
+  return isTablet ? children : null
+}
+
+/**
+ * Renders a component if the screen suits the mobile size.
+ */
 const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isMobile = useMobileMediaQuery()
   return isMobile ? children : null
 }
 
+/**
+ * Renders a component if the screen doesn't have the size of a mobile device.
+ */
 const NotMobile = ({ children }) => {
-  const isNotMobile = useMediaQuery({ minWidth: 768 })
+  const isNotMobile = useNotMobileMediaQuery()
   return isNotMobile ? children : null
 }
-
-const useIsDesktop = (): boolean => useMediaQuery({ minWidth: 992 })
-
-const useIsTablet = (): boolean =>
-  useMediaQuery({ minWidth: 768, maxWidth: 991 })
-
-const useIsMobile = (): boolean => useMediaQuery({ maxWidth: 767 })
-
-const useIsNotMobile = (): boolean => useMediaQuery({ minWidth: 768 })
 
 export {
   Desktop,
   Tablet,
+  TabletAndBelow,
   Mobile,
   NotMobile,
-  useIsDesktop,
-  useIsTablet,
-  useIsMobile,
-  useIsNotMobile
+  useDesktopMediaQuery,
+  useTabletMediaQuery,
+  useTabletAndBelowMediaQuery,
+  useMobileMediaQuery,
+  useNotMobileMediaQuery
 }
