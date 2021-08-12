@@ -68,6 +68,7 @@ export * from './components/UserMenu/UserMenu'
 export * from './components/WalletIcon/WalletIcon'
 export * from './components/SelectField/SelectField'
 export * from './components/Responsive'
+export * from './components/Media'
 
 // Semantic components
 export * from 'semantic-ui-react'
