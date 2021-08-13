@@ -9,7 +9,7 @@ export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
   delete textAreaProps['label']
 
   return (
-    <div className="dcl textArea">
+    <div className="dcl text-area">
       {props.label && <div className="label">{props.label}</div>}
       <TextArea {...textAreaProps} />
     </div>
