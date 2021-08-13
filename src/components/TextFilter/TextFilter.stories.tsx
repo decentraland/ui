@@ -21,14 +21,14 @@ storiesOf('TextFilter', module)
   .addDecorator(centered)
   .add('Basic filter', () => (
     <TextFilter
-      placeholder="This is a place holder"
+      placeholder="This is a placeholder"
       value={firstExample.value}
       onChange={firstExample.onChange}
     />
   ))
   .add('Basic filter with a name', () => (
     <TextFilter
-      placeholder="This is a place holder"
+      placeholder="This is a placeholder"
       label="This is a label"
       value={firstExample.value}
       onChange={firstExample.onChange}

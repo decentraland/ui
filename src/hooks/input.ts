@@ -20,7 +20,6 @@ export const useInput = (
   // should update internal value and skip debounce
   useEffect(() => {
     if (value !== text) {
-      console.log('It is')
       skip.current = true
       setText(value)
     }

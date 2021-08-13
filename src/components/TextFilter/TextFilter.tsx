@@ -23,7 +23,7 @@ export const TextFilter = (props: TextFilterProps) => {
   }, [])
 
   return (
-    <div className="TextFilter Filter">
+    <div className="dcl textFilter">
       {label ? (
         <Header sub className="name">
           {label}
