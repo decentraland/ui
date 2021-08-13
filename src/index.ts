@@ -67,6 +67,7 @@ export * from './components/Toasts/Toasts'
 export * from './components/UserMenu/UserMenu'
 export * from './components/WalletIcon/WalletIcon'
 export * from './components/SelectField/SelectField'
+export * from './components/TextFilter'
 
 // Semantic components
 export * from 'semantic-ui-react'
