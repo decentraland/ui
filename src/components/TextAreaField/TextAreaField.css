@@ -1,9 +1,9 @@
-.TextArea {
+.dcl.text-area {
   display: flex;
   flex-direction: column;
 }
 
-.TextArea > .label {
+.dcl.text-area > .label {
   margin-bottom: 8px;
   color: #736e7d;
   font-family: var(--font-family);
@@ -13,7 +13,7 @@
 }
 
 .ui.form textarea,
-.TextArea > textarea {
+.dcl.text-area > textarea {
   font-family: var(--font-family);
   resize: none;
   border: 1px solid var(--text-area-border);
@@ -26,7 +26,9 @@
 }
 
 .ui.form textarea:focus,
-.TextArea > textarea:focus {
+.dcl.text-area > textarea:focus {
   border: 1px solid var(--text);
+  background: none;
+  color: var(--text);
   outline: none !important;
 }
