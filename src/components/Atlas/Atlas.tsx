@@ -2,17 +2,29 @@ import * as React from 'react'
 import { TileMapProps, Layer, TileMap, Coord } from 'react-tile-map'
 import 'react-tile-map/lib/styles.css'
 import './Atlas.css'
+import { AtlasColor } from '../../colors'
+
+export enum AtlasTileType {
+  OWNED = 'owned',
+  UNOWNED = 'unowned',
+  PLAZA = 'plaza',
+  ROAD = 'road',
+  DISTRICT = 'district'
+}
 
 export type AtlasTile = {
+  id: string
   x: number
   y: number
-  type: number
-  left?: number
-  top?: number
-  topLeft?: number
-  owner: string
+  type: AtlasTileType
+  top: boolean
+  left: boolean
+  topLeft: boolean
   name?: string
-  estate_id?: string
+  owner?: string
+  estateId?: string
+  tokenId?: string
+  price?: number
 }
 
 export { Layer, Coord }
@@ -26,24 +38,6 @@ export type AtlasState = {
   tiles?: Record<string, AtlasTile>
 }
 
-const COLOR_BY_TYPE = Object.freeze({
-  0: '#ff9990', // my parcels
-  1: '#ff4053', // my parcels on sale
-  2: '#ff9990', // my estates
-  3: '#ff4053', // my estates on sale
-  4: '#ffbd33', // parcels/estates where I have permissions
-  5: '#5054D4', // districts
-  6: '#563db8', // contributions
-  7: '#716C7A', // roads
-  8: '#70AC76', // plazas
-  9: '#3D3A46', // owned parcel/estate
-  10: '#3D3A46', // parcels on sale (we show them as owned parcels)
-  11: '#09080A', // unowned pacel/estate
-  12: '#18141a', // background
-  13: '#110e13', // loading odd
-  14: '#0d0b0e' // loading even
-})
-
 export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   static defaultProps = {
     ...TileMap.defaultProps,
@@ -56,31 +50,45 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
 
   mounted: boolean = true
 
-  layer: Layer = (x, y) => {
-    const { tiles } = this.state
+  static getLayer = (tiles: Record<string, AtlasTile>): Layer => (x, y) => {
     const id = x + ',' + y
     if (tiles && id in tiles) {
       const tile = tiles[id]
       return {
-        color: COLOR_BY_TYPE[tile.type],
-        top: !!tile.top,
-        left: !!tile.left,
-        topLeft: !!tile.topLeft
+        color: Atlas.getColorByType(tile.type),
+        top: tile.top,
+        left: tile.left,
+        topLeft: tile.topLeft
       }
     } else {
       return {
-        color: (x + y) % 2 === 0 ? COLOR_BY_TYPE[13] : COLOR_BY_TYPE[14]
+        color: (x + y) % 2 === 0 ? AtlasColor.EVEN : AtlasColor.ODD
       }
     }
   }
 
-  static TILES_URL = 'https://api.decentraland.org/v1/tiles'
+  static TILES_URL = 'https://api.decentraland.org/v2/tiles?exclude=updatedAt'
 
   static fetchTiles = async (url: string = Atlas.TILES_URL) => {
     if (!window.fetch) return {}
     const resp = await window.fetch(url)
     const json = await resp.json()
     return json.data as Record<string, AtlasTile>
+  }
+
+  static getColorByType(type: AtlasTileType) {
+    switch (type) {
+      case AtlasTileType.OWNED:
+        return AtlasColor.OWNED
+      case AtlasTileType.UNOWNED:
+        return AtlasColor.UNOWNED
+      case AtlasTileType.PLAZA:
+        return AtlasColor.PLAZA
+      case AtlasTileType.ROAD:
+        return AtlasColor.ROAD
+      case AtlasTileType.DISTRICT:
+        return AtlasColor.DISTRICT
+    }
   }
 
   componentDidMount() {
@@ -114,7 +122,7 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
       <TileMap
         {...rest}
         className={classes.trim()}
-        layers={[this.layer, ...layers]}
+        layers={[Atlas.getLayer(this.state.tiles), ...layers]}
       />
     )
   }
