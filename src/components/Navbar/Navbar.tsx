@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Menu, Responsive } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { Mana } from '../Mana/Mana'
 import { Blockie } from '../Blockie/Blockie'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import { Logo } from '../Logo/Logo'
+import { Mobile, NotMobile } from '../Media'
 import './Navbar.css'
 
 export type NavbarI18N = {
@@ -168,14 +169,11 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       return (
         <>
           {middleMenu ? (
-            <Responsive
-              as={Menu}
-              secondary
-              className="dcl navbar-account-menu"
-              minWidth={Responsive.onlyTablet.minWidth}
-            >
-              {middleMenu}
-            </Responsive>
+            <NotMobile>
+              <Menu secondary className="dcl navbar-account-menu">
+                {middleMenu}
+              </Menu>
+            </NotMobile>
           ) : null}
           <span
             className={`dcl account-wrapper ${
@@ -246,34 +244,30 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <div className={classes} role="navigation">
         <Container>
           <div className="dcl navbar-menu">
-            <Responsive
-              as={Menu}
-              secondary
-              stackable
-              minWidth={Responsive.onlyTablet.minWidth}
-            >
-              <a className="dcl navbar-logo" href="https://decentraland.org">
-                <Logo />
-              </a>
-              {this.renderLeftMenu()}
-            </Responsive>
-            <Responsive
-              {...Responsive.onlyMobile}
-              className="dcl navbar-mobile-menu"
-            >
-              <a className="dcl navbar-logo" href="https://decentraland.org">
-                <Logo />
-              </a>
-              <Header
-                size="small"
-                className={`dcl active-page ${
-                  this.state.toggle ? 'caret-up' : 'caret-down'
-                }`}
-                onClick={this.handleToggle}
-              >
-                {activePage}
-              </Header>
-            </Responsive>
+            <NotMobile>
+              <Menu secondary stackable>
+                <a className="dcl navbar-logo" href="https://decentraland.org">
+                  <Logo />
+                </a>
+                {this.renderLeftMenu()}
+              </Menu>
+            </NotMobile>
+            <Mobile>
+              <div className="dcl navbar-mobile-menu">
+                <a className="dcl navbar-logo" href="https://decentraland.org">
+                  <Logo />
+                </a>
+                <Header
+                  size="small"
+                  className={`dcl active-page ${
+                    this.state.toggle ? 'caret-up' : 'caret-down'
+                  }`}
+                  onClick={this.handleToggle}
+                >
+                  {activePage}
+                </Header>
+              </div>
+            </Mobile>
           </div>
 
           <div className="dcl navbar-account">{this.renderRightMenu()}</div>
