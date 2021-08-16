@@ -65,7 +65,7 @@ storiesOf('LoginModal', module)
       <LoginModal
         open
         message="This is a custom persistent message"
-        onClose={() => {}}
+        onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
@@ -107,7 +107,7 @@ storiesOf('LoginModal', module)
         message="This is a custom persistent message"
         hasError
         loading
-        onClose={() => {}}
+        onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />

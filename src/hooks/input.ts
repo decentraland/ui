@@ -11,10 +11,10 @@ export const useInput = (
     [setText]
   )
 
-  let timeout = useRef<ReturnType<typeof setTimeout>>()
+  const timeout = useRef<ReturnType<typeof setTimeout>>()
 
   // flag to skip debounce
-  let skip = useRef(false)
+  const skip = useRef(false)
 
   // when value is changed from outside (controlled prop)
   // should update internal value and skip debounce
