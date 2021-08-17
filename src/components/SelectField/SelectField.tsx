@@ -11,7 +11,7 @@ export type SelectFieldProps = DropdownProps & {
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
-  render() {
+  render(): JSX.Element {
     const { label, header, options, message, error, ...rest } = this.props
     let classes = 'dcl select-field'
 

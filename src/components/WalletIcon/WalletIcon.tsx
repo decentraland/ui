@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './WalletIcon.css'
 
-export const WalletIcon = () => (
+export const WalletIcon = (): JSX.Element => (
   <div className="WalletIcon">
     <svg
       xmlns="http://www.w3.org/2000/svg"

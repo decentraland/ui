@@ -14,7 +14,7 @@ export class Page extends React.PureComponent<PageProps> {
     isFullscreen: false
   }
 
-  render() {
+  render(): JSX.Element {
     const { isFullscreen, className, children } = this.props
     let classes = 'dcl page'
 

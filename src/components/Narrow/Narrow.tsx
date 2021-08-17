@@ -6,7 +6,7 @@ export type NarrowProps = {
 }
 
 export class Narrow extends React.PureComponent<NarrowProps> {
-  render() {
+  render(): JSX.Element {
     const { children, className } = this.props
 
     const classes = ['dcl', 'narrow']

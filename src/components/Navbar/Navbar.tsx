@@ -87,23 +87,23 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   public state = {
     toggle: false
   }
-  componentDidMount() {
+  componentDidMount(): void {
     document.addEventListener('click', this.handleDocumentClick)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     document.removeEventListener('click', this.handleDocumentClick)
   }
-  handleToggle = event => {
+  handleToggle = (event: React.MouseEvent): void => {
     this.setState({ toggle: !this.state.toggle })
     event.stopPropagation()
     event.nativeEvent.stopImmediatePropagation()
   }
-  handleDocumentClick = () => {
+  handleDocumentClick = (): void => {
     this.setState({ toggle: false })
   }
 
-  renderLeftMenu() {
+  renderLeftMenu(): React.ReactNode {
     const { activePage, i18n, leftMenu } = this.props
     if (leftMenu) {
       return leftMenu
@@ -150,7 +150,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     )
   }
 
-  renderRightMenu() {
+  renderRightMenu(): React.ReactNode {
     const {
       rightMenu,
       middleMenu,
@@ -209,7 +209,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       activePage,
       className,

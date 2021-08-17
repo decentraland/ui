@@ -15,6 +15,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "strictFunctionTypes": true,
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,

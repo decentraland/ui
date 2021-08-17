@@ -50,7 +50,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const { type, onClick, i18n } = this.props
 
     let title: React.ReactNode = ''
@@ -108,7 +108,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
 
   static Option = LoginModalOption
 
-  render() {
+  render(): JSX.Element {
     const {
       open,
       className,

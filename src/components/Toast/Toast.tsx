@@ -18,10 +18,10 @@ export type ToastProps = {
 }
 
 export class Toast extends React.PureComponent<ToastProps> {
-  mounted: boolean = false
+  mounted = false
   closeTimeoutId: number | null = null
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.mounted = true
 
     if (this.shouldCloseAfterTimeout()) {
@@ -29,15 +29,15 @@ export class Toast extends React.PureComponent<ToastProps> {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.mounted = false
   }
 
-  handleClose = () => {
+  handleClose = (): void => {
     this.props.onClose()
   }
 
-  closeAfterTimeout() {
+  closeAfterTimeout(): void {
     const { timeout } = this.props
 
     this.closeTimeoutId = window.setTimeout(() => {
@@ -53,7 +53,7 @@ export class Toast extends React.PureComponent<ToastProps> {
     return timeout !== undefined && this.closeTimeoutId !== null
   }
 
-  render() {
+  render(): JSX.Element {
     const { type = ToastType.INFO, title, body, closable } = this.props
     return (
       <div className={`dcl toast ${type.toLowerCase()}`}>

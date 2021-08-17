@@ -6,7 +6,7 @@ export type FilterProps = {
 }
 
 export class Filter extends React.PureComponent<FilterProps> {
-  render() {
+  render(): JSX.Element {
     const { active, children } = this.props
     return (
       <div className={`dcl filter ${active ? 'active' : ''}`}>

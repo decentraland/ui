@@ -1,2 +1,2 @@
 // @internal
-declare var module
+declare const module

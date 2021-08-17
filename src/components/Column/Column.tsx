@@ -21,7 +21,7 @@ export class Column extends React.PureComponent<ColumnProps> {
     className: ''
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       children,
       className,
@@ -52,7 +52,7 @@ export class Column extends React.PureComponent<ColumnProps> {
       classes.push('shrink')
     }
 
-    let style: React.CSSProperties = {}
+    const style: React.CSSProperties = {}
     if (width) {
       style.width = width
     }

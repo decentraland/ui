@@ -57,19 +57,19 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
     isClickable: false
   }
 
-  mounted: boolean = false
+  mounted = false
 
   ref: HTMLElement | null = null
 
-  handleClose = () => {
+  handleClose = (): void => {
     this.toggle(false)
   }
 
-  handleToggle = () => {
+  handleToggle = (): void => {
     this.toggle(!this.state.isOpen)
   }
 
-  toggle(value: boolean) {
+  toggle(value: boolean): void {
     this.setState({ isOpen: value })
     setTimeout(() => {
       if (this.mounted) {
@@ -78,15 +78,15 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
     }, 250)
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.mounted = true
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.mounted = false
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       avatar,
       manaBalances,

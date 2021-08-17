@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './StarWalletIcon.css'
 
-export const StarWalletIcon = () => (
+export const StarWalletIcon = (): JSX.Element => (
   <div className="StarWalletIcon">
     <svg
       xmlns="http://www.w3.org/2000/svg"
