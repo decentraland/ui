@@ -2112,10 +2112,6 @@ a.ui.card:hover,
   width: 520px;
 }
 
-.dcl.login-modal .modal-navigation-subtitle {
-  color: var(--text);
-}
-
 .dcl.login-modal .dcl.option {
   width: 360px;
   height: 80px;
@@ -2174,7 +2170,7 @@ a.ui.card:hover,
 }
 
 .dcl.login-modal .dcl.option .info .subtitle {
-  color: var(--text);
+  color: var(--secondary-text);
   margin-top: 4px;
 }
 
@@ -2195,6 +2191,7 @@ a.ui.card:hover,
   display: block;
   color: var(--text);
   line-height: 1.5;
+  opacity: 0.9;
 }
 
 .dcl.login-modal .error {
