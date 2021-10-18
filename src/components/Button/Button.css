@@ -1,6 +1,6 @@
 .ui.button {
   font-style: normal;
-  font-stretch: expanded;
+  font-stretch: normal;
   letter-spacing: normal;
   text-transform: uppercase;
   font-family: var(--font-family);
