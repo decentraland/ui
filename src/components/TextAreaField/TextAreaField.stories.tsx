@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { TextAreaField } from './TextAreaField'
-import { Form } from 'semantic-ui-react'
+import Form from 'semantic-ui-react/dist/commonjs/collections/Form/Form'
 
 const textAreaValue =
   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +

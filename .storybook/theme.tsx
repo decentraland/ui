@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { makeDecorator } from '@storybook/addons'
 import { Radio } from '../src/components/Radio/Radio'
-import { Icon } from 'semantic-ui-react'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import './theme.css'
 
 const { useState, useCallback, useEffect } = React

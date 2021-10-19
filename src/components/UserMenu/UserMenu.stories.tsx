@@ -1,6 +1,7 @@
 import { Network } from '@dcl/schemas'
 import * as React from 'react'
-import { MenuItem, Icon } from 'semantic-ui-react'
+import MenuItem from 'semantic-ui-react/dist/commonjs/collections/Menu/MenuItem'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { UserMenu } from './UserMenu'
