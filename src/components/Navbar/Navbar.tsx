@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Menu } from 'semantic-ui-react'
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import { Mana } from '../Mana/Mana'
 import { Blockie } from '../Blockie/Blockie'
 import { Container } from '../Container/Container'

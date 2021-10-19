@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ModalContent } from 'semantic-ui-react'
+import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'

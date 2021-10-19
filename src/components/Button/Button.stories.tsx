@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon } from 'semantic-ui-react'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 
