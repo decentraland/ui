@@ -18,6 +18,7 @@ module.exports = {
       files: ['*.ts', '*.tsx', '*.js'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+        "no-restricted-imports": ["error", "semantic-ui-react"]
       },
     },
     {
