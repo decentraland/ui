@@ -15,6 +15,7 @@ export enum LoginModalOptionType {
 
 export type LoginModalProps = {
   className?: string
+  message?: React.ReactNode
   hasError?: boolean
   open?: boolean
   loading?: boolean
@@ -100,15 +101,24 @@ export class LoginModal extends React.Component<LoginModalProps> {
     i18n: {
       title: 'Sign In',
       subtitle: 'Choose a method to connect',
+      message: '',
       error: 'Could not connect wallet'
     }
   }
 
   static Option = LoginModalOption
 
-  render(): JSX.Element {
-    const { open, className, hasError, loading, onClose, i18n, children } =
-      this.props
+  render() {
+    const {
+      open,
+      className,
+      message,
+      hasError,
+      loading,
+      onClose,
+      i18n,
+      children
+    } = this.props
 
     let errorClasses = 'error'
     if (hasError) {
@@ -122,8 +132,11 @@ export class LoginModal extends React.Component<LoginModalProps> {
           subtitle={i18n.subtitle}
           onClose={onClose}
         />
-        <ModalContent>{children}</ModalContent>
-        <p className={errorClasses}>{i18n.error}</p>
+        <ModalContent>
+          {children}
+          {message ? <small className="message">{message}</small> : null}
+        </ModalContent>
+        {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
         {loading ? (
           <>
             <Loader size="big" active />

@@ -1,0 +1,34 @@
+.dcl.text-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.dcl.text-area > .label {
+  margin-bottom: 8px;
+  color: #736e7d;
+  font-family: var(--font-family);
+  color: var(--secondary-text);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.ui.form textarea,
+.dcl.text-area > textarea {
+  font-family: var(--font-family);
+  resize: none;
+  border: 1px solid var(--text-area-border);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text);
+  background: none;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.ui.form textarea:focus,
+.dcl.text-area > textarea:focus {
+  border: 1px solid var(--text);
+  background: none;
+  color: var(--text);
+  outline: none !important;
+}

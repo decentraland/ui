@@ -55,15 +55,14 @@
     "eslint-config-prettier": "8.3.0",
     "mini-css-extract-plugin": "^0.7.0",
     "postcss-assets": "^5.0.0",
-    "postcss-cli": "^7.1.0",
-    "postcss-css-variables": "^0.14.0",
+    "postcss-cli": "^7.1.2",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "postcss-svg": "^3.0.0",
     "prettier": "^2.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "rimraf": "^2.6.3",
+    "rimraf": "^2.7.1",
     "semantic-release": "^15.13.24",
     "storybook": "^5.3.13",
     "style-loader": "^0.23.1",
@@ -78,13 +77,16 @@
     "balloon-css": "^0.5.0",
     "ethereum-blockies": "^0.1.1",
     "parallax-js": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-responsive": "^9.0.0-beta.3",
     "react-tile-map": "^0.3.2",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.0"
+    "semantic-ui-react": "^2.0.3"
   },
   "peerDependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
   },
   "peerDependenciesMeta": {
     "react": {

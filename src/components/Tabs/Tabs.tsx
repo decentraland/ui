@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Responsive } from 'semantic-ui-react'
+import { Mobile, NotMobile } from '../Media'
 import { Container } from '../Container/Container'
 import './Tabs.css'
 
@@ -28,7 +28,7 @@ export class Tabs extends React.PureComponent<TabsProps> {
     active?: boolean
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     children: React.ReactNode
-  }): JSX.Element => (
+  }) => (
     <div className={`dcl tab ${active ? 'active' : ''}`} onClick={onClick}>
       {children}
       {active ? <div className="active-bar"></div> : null}
@@ -42,10 +42,10 @@ export class Tabs extends React.PureComponent<TabsProps> {
         className={`dcl tabs ${isFullscreen ? 'fullscreen' : ''}`}
         onClick={onClick}
       >
-        <Responsive as={Container} minWidth={Responsive.onlyTablet.minWidth}>
-          {children}
-        </Responsive>
-        <Responsive {...Responsive.onlyMobile}>{children}</Responsive>
+        <NotMobile>
+          <Container>{children}</Container>
+        </NotMobile>
+        <Mobile>{children}</Mobile>
       </div>
     )
   }
