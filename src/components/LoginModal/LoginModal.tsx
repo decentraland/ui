@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ModalContent } from 'semantic-ui-react'
+import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
@@ -9,6 +9,7 @@ export enum LoginModalOptionType {
   METAMASK = 'metamask',
   DAPPER = 'dapper',
   FORTMATIC = 'fortmatic',
+  COINBASE = 'coinbase',
   SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect'
 }
@@ -60,8 +61,14 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
         title = 'MetaMask'
         subtitle = i18n.browser_extension
         break
+
       case LoginModalOptionType.DAPPER:
         title = 'Dapper'
+        subtitle = i18n.browser_extension
+        break
+
+      case LoginModalOptionType.COINBASE:
+        title = 'Coinbase'
         subtitle = i18n.browser_extension
         break
 
@@ -108,7 +115,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
 
   static Option = LoginModalOption
 
-  render() {
+  render(): JSX.Element {
     const {
       open,
       className,

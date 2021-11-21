@@ -2,6 +2,7 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['lib/**/*', 'dist/**/*'],
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
@@ -13,6 +14,13 @@ module.exports = {
     es6: true
   },
   overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*.js'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'no-restricted-imports': ['error', 'semantic-ui-react']
+      }
+    },
     {
       files: ['*.js'],
       rules: {

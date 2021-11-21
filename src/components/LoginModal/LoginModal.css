@@ -47,6 +47,10 @@
   background-image: inline('./images/samsung-blockchain-wallet.svg');
 }
 
+.dcl.option.coinbase .image {
+  background-image: inline('./images/coinbase.svg');
+}
+
 .dcl.login-modal .dcl.option .info {
   flex: 1 1 auto;
   display: flex;
@@ -79,8 +83,9 @@
   margin-top: 28px;
   text-align: center;
   display: block;
-  color: var(--secondary-text);
-  line-height: 1.4;
+  color: var(--text);
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 .dcl.login-modal .error {

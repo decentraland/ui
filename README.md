@@ -49,6 +49,24 @@ And then using [Semantic UI](https://semantic-ui.com/) classes like this:
 
 🏌
 
+## Minimizing bundle size
+
+You can import just the essential component and reduce the size of your bundles, like this:
+
+```jsx
+// import css
+import 'semantic-ui-css/semantic.min.css'
+import 'balloon-css/balloon.min.css'
+import 'decentraland-ui/dist/themes/base-theme.css'
+import 'decentraland-ui/dist/themes/alternative/light-theme.css'
+// or import 'decentraland-ui/dist/themes/alternative/dark-theme.css'
+
+// Then import just the components you will use
+import Grid from 'semantic-ui-react/dist/commonjs/collections/Grid/Grid'
+import { Button } from 'decentraland-ui/dist/components/Button/Button'
+import { Card } from 'decentraland-ui/dist/components/Card/Card'
+```
+
 ## Alternative themes
 
 You can use one of our alternative themes by importing in after Decentraland UI's styles, like this:
@@ -126,4 +144,3 @@ $ npm start
 ## CI/CD
 
 We deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
-

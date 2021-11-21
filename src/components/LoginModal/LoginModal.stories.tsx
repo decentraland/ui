@@ -53,6 +53,7 @@ storiesOf('LoginModal', module)
       <LoginModal open onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
@@ -65,10 +66,11 @@ storiesOf('LoginModal', module)
       <LoginModal
         open
         message="This is a custom persistent message"
-        onClose={() => {}}
+        onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
@@ -81,6 +83,7 @@ storiesOf('LoginModal', module)
       <LoginModal open hasError onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
@@ -107,10 +110,11 @@ storiesOf('LoginModal', module)
         message="This is a custom persistent message"
         hasError
         loading
-        onClose={() => {}}
+        onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
+        <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />

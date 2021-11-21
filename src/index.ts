@@ -72,6 +72,7 @@ export * from './components/Responsive'
 export * from './components/Media'
 
 // Semantic components
+/* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
 
 // Colors

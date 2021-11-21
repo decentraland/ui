@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { TextArea, TextAreaProps } from 'semantic-ui-react'
+import TextArea, { TextAreaProps } from 'semantic-ui-react/dist/commonjs/addons/TextArea/TextArea'
 import './TextAreaField.css'
 
 export type TextAreaFieldProps = TextAreaProps & { label?: string }

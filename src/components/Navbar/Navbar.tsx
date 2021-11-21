@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Menu } from 'semantic-ui-react'
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import { Mana } from '../Mana/Mana'
 import { Blockie } from '../Blockie/Blockie'
 import { Container } from '../Container/Container'
@@ -210,8 +210,18 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   render(): JSX.Element {
+<<<<<<< HEAD
     const { activePage, className, isSignIn, isFullscreen, isOverlay } =
       this.props
+=======
+    const {
+      activePage,
+      className,
+      isSignIn,
+      isFullscreen,
+      isOverlay
+    } = this.props
+>>>>>>> master
 
     let classes = `dcl navbar`
 

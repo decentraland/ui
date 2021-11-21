@@ -1,11 +1,13 @@
 import * as React from 'react'
 
 export interface ResponsiveProps extends StrictResponsiveProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
 export interface StrictResponsiveProps {
   /** An element type to render as (string or function). */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   as?: any
 
   /** Primary content. */

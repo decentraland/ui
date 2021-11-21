@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { Input, InputProps } from 'semantic-ui-react'
+import Input, {
+  InputProps
+} from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
