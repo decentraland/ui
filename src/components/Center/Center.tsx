@@ -13,10 +13,6 @@ export class Center extends React.PureComponent<CenterProps> {
     if (className) {
       classes += ' ' + className
     }
-    return (
-      <div className={classes}>
-        {children}
-      </div>
-    )
+    return <div className={classes}>{children}</div>
   }
 }

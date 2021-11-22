@@ -13,9 +13,12 @@ export type TagFieldProps = DropdownProps & {
 export class TagField extends React.PureComponent<TagFieldProps> {
   containerRef = React.createRef<HTMLDivElement>()
 
-  getOptions = (): Array<{ text: string, value: string }> => {
+  getOptions = (): Array<{ text: string; value: string }> => {
     const value = this.props.value ?? []
-    return value.map(value => ({ text: value.toString(), value: value.toString() }))
+    return value.map((value) => ({
+      text: value.toString(),
+      value: value.toString()
+    }))
   }
 
   handleScrollToEnd = (): void => {

@@ -125,7 +125,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
           {isSignedIn && (
             <>
               <span className="dcl account-wrapper">
-                {Object.keys(manaBalances).map(network => (
+                {Object.keys(manaBalances).map((network) => (
                   <Mana
                     key={network}
                     network={network as Network}

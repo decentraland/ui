@@ -1,5 +1,7 @@
 import * as React from 'react'
-import Input, { InputProps } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
+import Input, {
+  InputProps
+} from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
@@ -16,7 +18,8 @@ export type FieldProps = InputProps & {
 export class Field extends React.PureComponent<FieldProps> {
   hasAction(): boolean {
     const { loading, error, action } = this.props
-    const hasOnAction = this.props.onAction !== null && this.props.onAction !== undefined
+    const hasOnAction =
+      this.props.onAction !== null && this.props.onAction !== undefined
     return !this.isAddress() && !loading && !error && action && hasOnAction
   }
 

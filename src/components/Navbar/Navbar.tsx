@@ -210,13 +210,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   render(): JSX.Element {
-    const {
-      activePage,
-      className,
-      isSignIn,
-      isFullscreen,
-      isOverlay
-    } = this.props
+    const { activePage, className, isSignIn, isFullscreen, isOverlay } =
+      this.props
 
     let classes = `dcl navbar`
 

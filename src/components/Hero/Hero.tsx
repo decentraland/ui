@@ -29,7 +29,10 @@ export class Hero extends React.PureComponent<HeroProps> {
     </Container>
   )
 
-  static Content = ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
+  static Content = ({
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
     <div className="hero-content" {...props}>
       {children}
     </div>

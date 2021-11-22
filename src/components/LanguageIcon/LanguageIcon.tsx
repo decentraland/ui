@@ -21,7 +21,7 @@ export class LanguageIcon extends React.PureComponent<LanguageIconProps> {
         <div className="language-icon-label">{this.props.label}</div>
       </div>
     ) : (
-        this.renderIcon()
-      )
+      this.renderIcon()
+    )
   }
 }

@@ -18,7 +18,11 @@ export class Parallax extends React.PureComponent {
     }
   }
 
-  static Layer = ({ depth, children, ...rest }: React.HTMLAttributes<HTMLDivElement> & { depth: number }): JSX.Element => {
+  static Layer = ({
+    depth,
+    children,
+    ...rest
+  }: React.HTMLAttributes<HTMLDivElement> & { depth: number }): JSX.Element => {
     const props = {
       'data-depth': depth,
       ...rest
@@ -31,7 +35,7 @@ export class Parallax extends React.PureComponent {
   }
   render(): JSX.Element {
     return (
-      <div className="dcl parallax" ref={scene => (this.scene = scene)}>
+      <div className="dcl parallax" ref={(scene) => (this.scene = scene)}>
         {this.props.children}
       </div>
     )

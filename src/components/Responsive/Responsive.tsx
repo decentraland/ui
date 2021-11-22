@@ -70,7 +70,7 @@ export default class Responsive extends React.Component<ResponsiveProps> {
   // Event handlers
   // ----------------------------------------
 
-  handleResize = e => {
+  handleResize = (e) => {
     if (this.ticking) return
 
     this.ticking = true
@@ -96,7 +96,7 @@ export default class Responsive extends React.Component<ResponsiveProps> {
     delete newProps['maxWidth']
     delete newProps['minWidth']
     delete newProps['onUpdate']
-    return newProps;
+    return newProps
   }
 
   // ----------------------------------------
