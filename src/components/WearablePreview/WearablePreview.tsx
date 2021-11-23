@@ -8,7 +8,7 @@ export type WearablePreviewProps = {
 }
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
-  static baseUrl = 'http://localhost:3000'
+  static baseUrl = 'https://wearable-preview.decentraland.org'
   render() {
     const { contractAddress, tokenId, itemId } = this.props
     const contract = `?contract=${contractAddress}`
