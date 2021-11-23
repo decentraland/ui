@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import { WearablePreview } from './WearablePreview'
 import './WearablePreview.stories.css'
-import { Container, Footer, Header, Hero, Navbar, Page } from '../..'
+import { Container, Footer, Header, Hero, Navbar, Page, Tabs } from '../..'
 
 storiesOf('WearablePreview', module)
   .add('Preview an item', () => (
@@ -33,6 +33,11 @@ storiesOf('WearablePreview', module)
   .add('Use as Hero', () => (
     <div className="WearablePreview-story-container">
       <Navbar isFullscreen activePage="marketplace" />
+      <Tabs isFullscreen>
+        <Tabs.Tab active>Atlas</Tabs.Tab>
+        <Tabs.Tab>Market</Tabs.Tab>
+        <Tabs.Tab>My Assets</Tabs.Tab>
+      </Tabs>
       <Page isFullscreen>
         <Hero height={420}>
           <WearablePreview
