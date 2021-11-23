@@ -14,7 +14,7 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
-  .add('Preview an token', () => (
+  .add('Preview a token', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview
         contractAddress="0xee8ae4c668edd43b34b98934d6d2ff82e41e6488"
@@ -22,7 +22,7 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
-  .add('Preview an texture wearable', () => (
+  .add('Preview a texture wearable', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview
         contractAddress="0xfeb52cbf71b9adac957c6f948a6cf9980ac8c907"
