@@ -1,13 +1,25 @@
 import * as React from 'react'
 import './WearablePreview.css'
 
-export type WearablePreviewProps = {
+type WearablePreviewBaseProps = {
   contractAddress: string
-  tokenId?: string
-  itemId?: string
   dev?: boolean
   onLoad?: () => void
 }
+
+type WearablePreviewTokenProps = WearablePreviewBaseProps & {
+  tokenId: string
+  itemId?: never
+}
+
+type WearablePreviewItemProps = WearablePreviewBaseProps & {
+  tokenId?: never
+  itemId: string
+}
+
+export type WearablePreviewProps =
+  | WearablePreviewTokenProps
+  | WearablePreviewItemProps
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static baseUrl = 'https://wearable-preview.decentraland.org'
