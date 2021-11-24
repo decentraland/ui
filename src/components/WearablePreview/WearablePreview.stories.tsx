@@ -1,9 +1,16 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-
-import { WearablePreview } from './WearablePreview'
+import {
+  Container,
+  Footer,
+  Header,
+  Hero,
+  Navbar,
+  Page,
+  Tabs,
+  WearablePreview,
+} from '../..'
 import './WearablePreview.stories.css'
-import { Container, Footer, Header, Hero, Navbar, Page, Tabs } from '../..'
 
 storiesOf('WearablePreview', module)
   .add('Preview an item', () => (
