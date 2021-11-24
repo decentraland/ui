@@ -8,7 +8,7 @@ import {
   Navbar,
   Page,
   Tabs,
-  WearablePreview,
+  WearablePreview
 } from '../..'
 import './WearablePreview.stories.css'
 
