@@ -3454,6 +3454,10 @@ a.ui.card:hover,
   fill: var(--text);
 }
 
+.WearablePreview {
+  background: var(--secondary);
+}
+
 .dcl.select-field {
   min-width: 400px;
 }
