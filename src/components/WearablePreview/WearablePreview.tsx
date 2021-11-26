@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-empty-function */
 import * as React from 'react'
 import './WearablePreview.css'
 
@@ -37,7 +38,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     if (origin === baseUrl) {
       let event = null
       try {
-        event = JSON.parse(msgEvent.data || (msgEvent as any).message)
+        event = JSON.parse(
+          msgEvent.data || (msgEvent as { message?: string }).message
+        )
       } catch (error) {
         console.error('Could not parse message event', msgEvent)
         onError(new Error('Could not parse message event'))
