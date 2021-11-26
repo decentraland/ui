@@ -55,6 +55,15 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
+  .add('Using onError callback', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="invalidAddress"
+        itemId="invalidItem"
+        onError={(error) => console.error(error.message)}
+      />
+    </div>
+  ))
   .add('Use as Hero', () => (
     <div className="WearablePreview-story-container">
       <Navbar isFullscreen activePage="marketplace" />

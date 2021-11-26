@@ -4,7 +4,9 @@ import './WearablePreview.css'
 type WearablePreviewBaseProps = {
   contractAddress: string
   dev?: boolean
+  baseUrl?: string
   onLoad?: () => void
+  onError?: (error: Error) => void
 }
 
 type WearablePreviewTokenProps = WearablePreviewBaseProps & {
@@ -22,12 +24,35 @@ export type WearablePreviewProps =
   | WearablePreviewItemProps
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
-  static baseUrl = 'https://wearable-preview.decentraland.org'
-  handleMessage = (event: MessageEvent<string>) => {
-    const { onLoad } = this.props
-    const { origin } = event
-    if (origin === WearablePreview.baseUrl && onLoad) {
-      onLoad()
+  static defaultProps = {
+    dev: false,
+    baseUrl: 'https://wearable-preview.decentraland.org',
+    onLoad: () => {},
+    onError: () => {}
+  }
+
+  handleMessage = (msgEvent: MessageEvent<string>) => {
+    const { baseUrl, onLoad, onError } = this.props
+    const { origin } = msgEvent
+    if (origin === baseUrl) {
+      let event = null
+      try {
+        event = JSON.parse(msgEvent.data || (msgEvent as any).message)
+      } catch (error) {
+        console.error('Could not parse message event', msgEvent)
+        onError(new Error('Could not parse message event'))
+      }
+      if (event) {
+        switch (event.type) {
+          case 'load': {
+            onLoad()
+            break
+          }
+          case 'error': {
+            onError(new Error(event.message))
+          }
+        }
+      }
     }
   }
   componentDidMount() {
@@ -37,12 +62,12 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     window.removeEventListener('message', this.handleMessage, false)
   }
   render() {
-    const { contractAddress, tokenId, itemId, dev } = this.props
+    const { contractAddress, tokenId, itemId, dev, baseUrl } = this.props
     const contract = `?contract=${contractAddress}`
     const token = tokenId ? `&token=${tokenId}` : ''
     const item = itemId ? `&item=${itemId}` : ''
     const env = dev ? `&env=dev` : ''
-    const url = WearablePreview.baseUrl + contract + token + item + env
+    const url = baseUrl + contract + token + item + env
     return (
       <iframe
         className="WearablePreview"
