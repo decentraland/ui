@@ -46,6 +46,34 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
+  .add('Using custom skin', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="0x994684b980d6faff06ff36b13c243c31d1b3aa0e"
+        itemId="0"
+        skin="ff0000"
+      />
+    </div>
+  ))
+  .add('Using custom hair', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="0xe3d2c4ec777fb88dd219905cd896f79a592adf30"
+        itemId="0"
+        hair="00ff00"
+      />
+    </div>
+  ))
+  .add('Using custom shape', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="0xe3d2c4ec777fb88dd219905cd896f79a592adf30"
+        itemId="0"
+        hair="00ff00"
+        shape="female"
+      />
+    </div>
+  ))
   .add('Using onLoad callback', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview

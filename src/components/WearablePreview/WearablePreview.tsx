@@ -2,27 +2,18 @@
 import * as React from 'react'
 import './WearablePreview.css'
 
-type WearablePreviewBaseProps = {
+type WearablePreviewProps = {
   contractAddress: string
+  tokenId?: string
+  itemId?: string
+  skin?: string
+  hair?: string
+  shape?: 'male' | 'female'
   dev?: boolean
   baseUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
 }
-
-type WearablePreviewTokenProps = WearablePreviewBaseProps & {
-  tokenId: string
-  itemId?: never
-}
-
-type WearablePreviewItemProps = WearablePreviewBaseProps & {
-  tokenId?: never
-  itemId: string
-}
-
-export type WearablePreviewProps =
-  | WearablePreviewTokenProps
-  | WearablePreviewItemProps
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
@@ -65,12 +56,38 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     window.removeEventListener('message', this.handleMessage, false)
   }
   render() {
-    const { contractAddress, tokenId, itemId, dev, baseUrl } = this.props
+    const {
+      contractAddress,
+      tokenId,
+      itemId,
+      skin,
+      hair,
+      shape,
+      dev,
+      baseUrl
+    } = this.props
     const contract = `?contract=${contractAddress}`
     const token = tokenId ? `&token=${tokenId}` : ''
     const item = itemId ? `&item=${itemId}` : ''
+    const skinColor = skin ? `&skin=${skin}` : ''
+    const hairColor = hair ? `&hair=${hair}` : ''
+    const bodyShape = shape ? `&shape=${shape}` : ''
     const env = dev ? `&env=dev` : ''
-    const url = baseUrl + contract + token + item + env
+    const url =
+      baseUrl +
+      contract +
+      token +
+      item +
+      env +
+      skinColor +
+      hairColor +
+      bodyShape
+
+    if (tokenId && itemId) {
+      console.warn(
+        'You should NOT use `tokenId` and `itemId` props simultaneously'
+      )
+    }
     return (
       <iframe
         className="WearablePreview"
