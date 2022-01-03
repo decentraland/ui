@@ -9,16 +9,22 @@ storiesOf('Loader', module)
   .addDecorator(centered)
   .add('Main Loader', () => <Loader active size="massive" />)
   .add('Tiny Loader', () => <Loader active size="mini" />)
-  .add('With Provider', () => <Grid stackable container centered>
-    <Grid.Row>
-      <Grid.Column tablet={4}>
-        <Loader active size="massive" provider={ProviderType.INJECTED} />
-      </Grid.Column>
-      <Grid.Column tablet={4}>
-        <Loader active size="massive" provider={ProviderType.WALLET_CONNECT} />
-      </Grid.Column>
-      <Grid.Column tablet={4}>
-        <Loader active size="massive" provider={ProviderType.FORTMATIC} />
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>)
+  .add('With Provider', () => (
+    <Grid stackable container centered>
+      <Grid.Row>
+        <Grid.Column tablet={4}>
+          <Loader active size="massive" provider={ProviderType.INJECTED} />
+        </Grid.Column>
+        <Grid.Column tablet={4}>
+          <Loader
+            active
+            size="massive"
+            provider={ProviderType.WALLET_CONNECT}
+          />
+        </Grid.Column>
+        <Grid.Column tablet={4}>
+          <Loader active size="massive" provider={ProviderType.FORTMATIC} />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  ))
