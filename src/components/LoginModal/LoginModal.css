@@ -28,27 +28,27 @@
 }
 
 .dcl.option.metamask .image {
-  background-image: url('./images/metamask.svg');
+  background-image: url('../../images/metamask.svg');
 }
 
 .dcl.option.dapper .image {
-  background-image: inline('./images/dapper.png');
+  background-image: inline('../../images/dapper.png');
 }
 
 .dcl.option.fortmatic .image {
-  background-image: inline('./images/fortmatic.png');
+  background-image: inline('../../images/fortmatic.png');
 }
 
 .dcl.option.wallet-connect .image {
-  background-image: inline('./images/wallet-connect.png');
+  background-image: inline('../../images/wallet-connect.png');
 }
 
 .dcl.option.samsung-blockchain-wallet .image {
-  background-image: inline('./images/samsung-blockchain-wallet.svg');
+  background-image: inline('../../images/samsung-blockchain-wallet.svg');
 }
 
 .dcl.option.coinbase .image {
-  background-image: inline('./images/coinbase.svg');
+  background-image: inline('../../images/coinbase.svg');
 }
 
 .dcl.login-modal .dcl.option .info {

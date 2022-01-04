@@ -5,3 +5,23 @@
 .ui.loader:after {
   border-color: var(--primary) transparent transparent !important;
 }
+
+.ui.loader.injected,
+.ui.loader.formatic,
+.ui.loader.wallet_connect {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+}
+
+.ui.loader.injected {
+  background-image: url('../../images/metamask.svg');
+}
+
+.ui.loader.formatic {
+  background-image: url('../../images/fortmatic.png');
+}
+
+.ui.loader.wallet_connect {
+  background-image: url('../../images/wallet-connect.png');
+}
