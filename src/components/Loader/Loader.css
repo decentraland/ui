@@ -15,13 +15,13 @@
 }
 
 .ui.loader.injected {
-  background-image: url('../../images/metamask.svg');
+  background-image: inline('../../images/metamask.svg');
 }
 
 .ui.loader.formatic {
-  background-image: url('../../images/fortmatic.png');
+  background-image: inline('../../images/fortmatic.png');
 }
 
 .ui.loader.wallet_connect {
-  background-image: url('../../images/wallet-connect.png');
+  background-image: inline('../../images/wallet-connect.png');
 }
