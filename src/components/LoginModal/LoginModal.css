@@ -28,7 +28,7 @@
 }
 
 .dcl.option.metamask .image {
-  background-image: url('../../images/metamask.svg');
+  background-image: inline('../../images/metamask.svg');
 }
 
 .dcl.option.dapper .image {
