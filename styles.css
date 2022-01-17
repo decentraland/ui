@@ -3000,6 +3000,19 @@ a.ui.card:hover,
           user-select: auto;
 }
 
+.dcl.smart-icon {
+  position: relative;
+  display: inline-block;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik01LjMzMzI1IDE2TDcuMzMzMjUgMTBIMS4zMzMyNUwxMC42NjY2IDBMOC42NjY1OSA2SDE0LjY2NjZMNS4zMzMyNSAxNloiLz4KPC9zdmc+Cg==);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+  -webkit-filter: var(--brightness);
+          filter: var(--brightness);
+}
+
 .dcl.stats {
   display: inline-flex;
   flex-flow: column nowrap;
