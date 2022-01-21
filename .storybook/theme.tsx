@@ -93,7 +93,7 @@ const DARK_THEME = `
   --navbar-popup-hover: #67637033;
   --card: #242129;
   --outline: 1px solid #00000005;
-  --toast: #676370;
+  --toast: #38333d;
   --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
