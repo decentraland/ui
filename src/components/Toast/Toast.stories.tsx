@@ -23,6 +23,15 @@ storiesOf('Toast', module)
   .add('Closable', () => (
     <Toast title="Toast title" body="Toast body" closable />
   ))
+  .add('Timeout', () => (
+    <Toast
+      title="Timeout"
+      body="I will call onClose after 1 second"
+      closable
+      timeout={1000}
+      onClose={() => console.log('I should be closing now')}
+    />
+  ))
   .add('Info toast', () => (
     <Toast type={ToastType.INFO} title="Info Toast" body="INFO" />
   ))

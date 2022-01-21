@@ -34,23 +34,25 @@ export class Toast extends React.PureComponent<ToastProps> {
   }
 
   handleClose = (): void => {
-    this.props.onClose()
+    this.props.onClose && this.props.onClose()
   }
 
   closeAfterTimeout(): void {
     const { timeout } = this.props
 
-    this.closeTimeoutId = window.setTimeout(() => {
-      if (this.mounted) {
-        this.handleClose()
-      }
-      this.closeTimeoutId = null
-    }, timeout)
+    this.closeTimeoutId = window
+      ? window.setTimeout(() => {
+          if (this.mounted) {
+            this.handleClose()
+          }
+          this.closeTimeoutId = null
+        }, timeout)
+      : null
   }
 
   shouldCloseAfterTimeout(): boolean {
     const { timeout } = this.props
-    return timeout !== undefined && this.closeTimeoutId !== null
+    return timeout !== undefined && this.closeTimeoutId === null
   }
 
   render(): JSX.Element {
