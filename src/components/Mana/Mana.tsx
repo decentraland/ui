@@ -19,6 +19,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
 
   render(): JSX.Element {
     const { size, className, inline, children, network, ...rest } = this.props
+    console.log(this.props)
     const classes = `dcl mana ${inline ? 'inline ' : ''}${className}`.trim()
     return (
       <Header size={size} className={classes} {...rest}>
@@ -26,7 +27,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
           {network !== Network.ETHEREUM ? (
             <i className={network.toLowerCase()} />
           ) : (
-            '⏣'
+            <img className='mana-svg' src='https://user-images.githubusercontent.com/2781777/150567170-9559151d-0b37-4026-b2b3-ced7e79dbe4f.svg'/>
           )}
         </i>
         {children}

@@ -6,8 +6,8 @@
 }
 .dcl.mana .symbol {
   font-style: normal;
-  padding-right: 0.3em;
-  transform: translateY(-0.06em);
+  padding-right: 0.4em;
+  transform: translateY(0em);
   display: inline-block;
   color: var(--primary);
 }
@@ -28,4 +28,28 @@
   background-size: contain;
   filter: var(--brightness);
   transform: translateY(0.2em);
+}
+
+.mana img{
+  height: 1rem;
+}
+
+.svg-huge img{
+  height: 2rem;
+}
+
+.svg-large img{
+  height: 1.7rem;
+}
+
+.svg-medium img{
+  height: 1rem;
+}
+
+.svg-small img{
+  height: 0.8rem;
+}
+
+.svg-tiny img{
+  height: 0.6rem;
 }

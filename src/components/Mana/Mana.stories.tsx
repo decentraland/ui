@@ -17,16 +17,16 @@ storiesOf('Mana', module)
   ))
   .add('Sizes', () => (
     <>
-      <Mana size="huge">1,000</Mana>
-      <Mana size="large">1,000</Mana>
-      <Mana size="medium">1,000</Mana>
-      <Mana size="small">1,000</Mana>
-      <Mana size="tiny">1,000</Mana>
+      <Mana size="huge" className='svg-huge'>1,000</Mana>
+      <Mana size="large" className='svg-large'>1,000</Mana>
+      <Mana size="medium" className='svg-medium'>1,000</Mana>
+      <Mana size="small" className='svg-small'>1,000</Mana>
+      <Mana size="tiny" className='svg-tiny'>1,000</Mana>
     </>
   ))
   .add('In a paragraph', () => (
     <p>
-      You've voted with <Mana inline>1,000</Mana>.
+      You've voted with <Mana inline className='svg-small'>1,000</Mana>.
     </p>
   ))
   .add('Matic', () => (
