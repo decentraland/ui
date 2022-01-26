@@ -2414,11 +2414,17 @@ a.ui.card:hover,
   color: inherit;
 }
 .dcl.mana .symbol {
-  font-style: normal;
   padding-right: 0.3em;
-  transform: translateY(-0.06em);
   display: inline-block;
-  color: var(--primary);
+}
+
+.dcl.mana .symbol .ethereum {
+  display: inline-block;
+  width: 0.8125em;
+  height: 0.875em;
+  transform: translateY(0.15em);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkuODY0IDYuOTUyQzkuODY0IDQuOTY4IDguMjY0IDMuMzIgNi4yOCAzLjMyQzQuMjk2IDMuMzIgMi42OTYgNC45NjggMi42OTYgNi45NTJDMi42OTYgOC45MiA0LjI5NiAxMC41MiA2LjI4IDEwLjUyQzguMjY0IDEwLjUyIDkuODY0IDguOTIgOS44NjQgNi45NTJaTTkuMDMyIDYuOTUyQzkuMDMyIDguNDU2IDcuNjg4IDkuNjg4IDYuMjggOS42ODhDNC43MjggOS42ODggMy41MjggOC40ODggMy41MjggNi45NTJDMy41MjggNS40MzIgNC43MjggNC4xNTIgNi4yOCA0LjE1MkM3LjcwNCA0LjE1MiA5LjAzMiA1LjQzMiA5LjAzMiA2Ljk1MlpNMTIuMjQ4IDEwLjQyNFYzLjU0NEw2LjI4IDAuMTJMMC4zMTIgMy41NDRWMTAuNDI0TDYuMjggMTMuODQ4TDEyLjI0OCAxMC40MjRaTTExLjE5MiA5LjgzMkw2LjI5NiAxMi42MzJMMS4zNjggOS44MzJWNC4xODRMNi4yOCAxLjMzNkwxMS4xOTIgNC4xODRWOS44MzJaIiBmaWxsPSIjRkYyRDU1Ii8+Cjwvc3ZnPgo=);
+  background-size: cover;
 }
 
 .dcl.mana + .dcl.mana {
@@ -2562,6 +2568,10 @@ a.ui.card:hover,
   color: var(--text);
   font-size: 13px;
   line-height: 18px;
+}
+
+.dcl.account-wrapper .dcl.mana .symbol .ethereum {
+  font-size: 14px;
 }
 
 .dcl.account-wrapper .dcl.blockie {
