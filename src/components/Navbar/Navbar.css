@@ -76,6 +76,10 @@
   line-height: 18px;
 }
 
+.dcl.account-wrapper .dcl.mana .symbol .ethereum {
+  font-size: 14px;
+}
+
 .dcl.account-wrapper .dcl.blockie {
   width: 32px;
   height: 32px;
