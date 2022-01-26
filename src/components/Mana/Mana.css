@@ -5,11 +5,17 @@
   color: inherit;
 }
 .dcl.mana .symbol {
-  font-style: normal;
   padding-right: 0.3em;
-  transform: translateY(-0.06em);
   display: inline-block;
-  color: var(--primary);
+}
+
+.dcl.mana .symbol .ethereum {
+  display: inline-block;
+  width: 0.8125em;
+  height: 0.875em;
+  transform: translateY(0.15em);
+  background-image: url('../../assets/symbol.svg');
+  background-size: cover;
 }
 
 .dcl.mana + .dcl.mana {

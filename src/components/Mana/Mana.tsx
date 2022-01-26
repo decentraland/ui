@@ -23,11 +23,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
     return (
       <Header size={size} className={classes} {...rest}>
         <i className="symbol">
-          {network !== Network.ETHEREUM ? (
-            <i className={network.toLowerCase()} />
-          ) : (
-            '⏣'
-          )}
+          <i className={network.toLowerCase()} />
         </i>
         {children}
       </Header>
