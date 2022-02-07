@@ -25,6 +25,9 @@ storiesOf('Loader', module)
         <Grid.Column tablet={4}>
           <Loader active size="massive" provider={ProviderType.FORTMATIC} />
         </Grid.Column>
+        <Grid.Column tablet={4}>
+          <Loader active size="massive" provider={ProviderType.WALLET_LINK} />
+        </Grid.Column>
       </Grid.Row>
     </Grid>
   ))

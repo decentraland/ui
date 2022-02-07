@@ -57,6 +57,7 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
   ))
@@ -74,6 +75,7 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
   ))
@@ -87,6 +89,7 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
   ))
@@ -99,6 +102,7 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
   ))
@@ -118,6 +122,7 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
+        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
   ))

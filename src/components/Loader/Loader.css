@@ -25,3 +25,7 @@
 .ui.loader.wallet_connect {
   background-image: inline('../../images/wallet-connect.png');
 }
+
+.ui.loader.wallet_link {
+  background-image: inline('../../images/coinbase.svg');
+}
