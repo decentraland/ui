@@ -70,7 +70,38 @@ storiesOf('WearablePreview', module)
         contractAddress="0xe3d2c4ec777fb88dd219905cd896f79a592adf30"
         itemId="0"
         hair="00ff00"
-        shape="female"
+        bodyShape="female"
+      />
+    </div>
+  ))
+  .add('Using a profile', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6" />
+    </div>
+  ))
+  .add('Using a profile + emote', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+        emote="fashion"
+      />
+    </div>
+  ))
+  .add('Using a wearable preview + profile + emote', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
+        itemId="0"
+        profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+        emote="fashion"
+      />
+    </div>
+  ))
+  .add('Using static camera', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+        camera="static"
       />
     </div>
   ))
