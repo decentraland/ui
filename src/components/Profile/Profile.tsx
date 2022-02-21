@@ -1,10 +1,10 @@
 import * as React from 'react'
-import './Profile.css'
-import { Avatar } from '../../types/avatar'
+import { Avatar } from '@dcl/schemas'
 import { Logo } from '../Logo/Logo'
 import { Popup } from '../Popup/Popup'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Blockie } from '../Blockie/Blockie'
+import './Profile.css'
 
 export type ProfileProps = {
   address: string

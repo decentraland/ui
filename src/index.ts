@@ -79,6 +79,3 @@ export * from 'semantic-ui-react'
 
 // Colors
 export * from './colors'
-
-// Types
-export * from './types/avatar'
