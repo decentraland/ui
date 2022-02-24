@@ -1,6 +1,5 @@
-import { Network } from '@dcl/schemas'
+import { Avatar, Network } from '@dcl/schemas'
 import * as React from 'react'
-import { Avatar } from '../../types/avatar'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import { AvatarFace } from '../AvatarFace/AvatarFace'

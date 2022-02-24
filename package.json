@@ -71,7 +71,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^3.1.1",
+    "@dcl/schemas": "^3.8.0",
     "balloon-css": "^0.5.0",
     "ethereum-blockies": "^0.1.1",
     "parallax-js": "^3.1.0",

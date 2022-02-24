@@ -1,5 +1,5 @@
+import { Avatar } from '@dcl/schemas'
 import * as React from 'react'
-import { Avatar } from '../../types/avatar'
 import './AvatarFace.css'
 
 export type AvatarFaceProps = {
@@ -18,7 +18,7 @@ export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
     const classes = ['dcl', 'avatar-face', size]
     let face
     if (avatar) {
-      face = <img src={avatar.avatar.snapshots.face} alt="" />
+      face = <img src={avatar.avatar.snapshots.face256} alt="" />
     } else {
       face = <div className="guest-face" />
     }
