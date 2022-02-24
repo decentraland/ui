@@ -61,7 +61,7 @@
     "postcss-svg": "^3.0.0",
     "prettier": "^2.3.1",
     "rimraf": "^2.7.1",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^17.2.3",
     "storybook": "^5.3.13",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.2",
