@@ -47,7 +47,8 @@
   background-image: inline('../../images/samsung-blockchain-wallet.svg');
 }
 
-.dcl.option.coinbase .image {
+.dcl.option.coinbase .image,
+.dcl.option.wallet-link .image {
   background-image: inline('../../images/coinbase.svg');
 }
 
