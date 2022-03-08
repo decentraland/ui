@@ -11,7 +11,15 @@ type WearablePreviewProps = {
   skin?: string
   hair?: string
   eyes?: string
-  emote?: `idle` | `clap` | `dab` | `dance` | `fashion` | `love` | `money`
+  emote?:
+    | `idle`
+    | `clap`
+    | `dab`
+    | `dance`
+    | `fashion`
+    | `fashion-2`
+    | `love`
+    | `money`
   bodyShape?: 'male' | 'female'
   zoom?: number
   camera?: 'static' | 'interactive'
