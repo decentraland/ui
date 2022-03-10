@@ -2,7 +2,19 @@
 import * as React from 'react'
 import './WearablePreview.css'
 
-type WearablePreviewProps = {
+export enum AvatarEmote {
+  IDLE = 'idle',
+  CLAP = 'clap',
+  DAB = 'dab',
+  DANCE = 'dance',
+  FASHION = 'fashion',
+  FASHION_2 = 'fashion-2',
+  FASHION_3 = 'fashion-3',
+  LOVE = 'love',
+  MONEY = 'money'
+}
+
+export type WearablePreviewProps = {
   contractAddress?: string
   tokenId?: string
   itemId?: string
@@ -11,15 +23,7 @@ type WearablePreviewProps = {
   skin?: string
   hair?: string
   eyes?: string
-  emote?:
-    | `idle`
-    | `clap`
-    | `dab`
-    | `dance`
-    | `fashion`
-    | `fashion-2`
-    | `love`
-    | `money`
+  emote?: AvatarEmote
   bodyShape?: 'male' | 'female'
   zoom?: number
   camera?: 'static' | 'interactive'

@@ -8,7 +8,8 @@ import {
   Navbar,
   Page,
   Tabs,
-  WearablePreview
+  WearablePreview,
+  AvatarEmote
 } from '../..'
 import './WearablePreview.stories.css'
 
@@ -83,7 +84,7 @@ storiesOf('WearablePreview', module)
     <div className="WearablePreview-story-container">
       <WearablePreview
         profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        emote="fashion"
+        emote={AvatarEmote.FASHION}
       />
     </div>
   ))
@@ -93,7 +94,7 @@ storiesOf('WearablePreview', module)
         contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
         itemId="0"
         profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        emote="fashion"
+        emote={AvatarEmote.FASHION}
       />
     </div>
   ))
