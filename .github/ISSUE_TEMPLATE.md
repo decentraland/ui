@@ -1,6 +1,6 @@
 ## 🎉 Description
 
-<!-- Briefly describe the issue you are experiencing (or the feature you want to see added to the Dapp). Tell us what you were trying to do and what happened instead. **Remember, this is _not_ a place to ask for help debugging code; for that, we welcome you in the [Decentraland Discord channels](https://discordapp.com/invite/9EcuFgC).** -->
+<!-- Briefly describe the issue you are experiencing (or the feature you want to see added to the Dapp). Tell us what you were trying to do and what happened instead. **Remember, this is _not_ a place to ask for help debugging code; for that, we welcome you in the [Decentraland Discord channels](https://dcl.gg/discord).** -->
 
 <!-- Please check one of by placing an x in the box. -->
 
