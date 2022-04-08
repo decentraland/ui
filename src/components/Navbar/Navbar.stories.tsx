@@ -203,3 +203,10 @@ storiesOf('Navbar', module)
       </div>
     )
   })
+  .add('Full width inner container', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar isFullWidth activePage="dao" />
+      </div>
+    )
+  })
