@@ -53,8 +53,15 @@ export class Footer extends React.PureComponent<FooterProps> {
   }
 
   render(): JSX.Element {
-    const { locale, locales, onChange, i18n, isFullscreen, className, isFullWidth } =
-      this.props
+    const {
+      locale,
+      locales,
+      onChange,
+      i18n,
+      isFullscreen,
+      className,
+      isFullWidth
+    } = this.props
 
     let classes = 'dcl footer'
     if (isFullscreen) {

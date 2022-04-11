@@ -212,8 +212,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   render(): JSX.Element {
-    const { activePage, className, isSignIn, isFullscreen, isOverlay, isFullWidth } =
-      this.props
+    const {
+      activePage,
+      className,
+      isSignIn,
+      isFullscreen,
+      isOverlay,
+      isFullWidth
+    } = this.props
 
     let classes = `dcl navbar`
 
@@ -239,7 +245,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
 
     return (
       <div className={classes} role="navigation">
-        <Container className={isFullWidth && "full-width"}>
+        <Container className={isFullWidth && 'full-width'}>
           <div className="dcl navbar-menu">
             <NotMobile>
               <Menu secondary stackable>
