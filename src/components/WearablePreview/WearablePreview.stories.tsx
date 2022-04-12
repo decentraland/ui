@@ -8,10 +8,28 @@ import {
   Navbar,
   Page,
   Tabs,
-  WearablePreview,
-  AvatarEmote
+  WearablePreview
 } from '../..'
 import './WearablePreview.stories.css'
+import { PreviewCamera, PreviewEmote, WearableBodyShape } from '@dcl/schemas'
+
+const getRandomHex = () => {
+  return '#' + Math.random().toString(16).slice(2, 8)
+}
+
+const RandomConfigProvider = (props: {
+  children: (hair: string, skin: string) => React.ReactElement
+}) => {
+  const [hair, setHair] = React.useState(getRandomHex())
+  const [skin, setSkin] = React.useState(getRandomHex())
+  React.useEffect(() => {
+    setInterval(() => {
+      setHair(getRandomHex())
+      setSkin(getRandomHex())
+    }, 5000)
+  }, [])
+  return props.children(hair, skin)
+}
 
 storiesOf('WearablePreview', module)
   .add('Preview an item', () => (
@@ -71,7 +89,7 @@ storiesOf('WearablePreview', module)
         contractAddress="0xe3d2c4ec777fb88dd219905cd896f79a592adf30"
         itemId="0"
         hair="00ff00"
-        bodyShape="female"
+        bodyShape={WearableBodyShape.FEMALE}
       />
     </div>
   ))
@@ -84,7 +102,7 @@ storiesOf('WearablePreview', module)
     <div className="WearablePreview-story-container">
       <WearablePreview
         profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        emote={AvatarEmote.FASHION}
+        emote={PreviewEmote.FASHION}
       />
     </div>
   ))
@@ -94,7 +112,7 @@ storiesOf('WearablePreview', module)
         contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
         itemId="0"
         profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        emote={AvatarEmote.FASHION}
+        emote={PreviewEmote.FASHION}
       />
     </div>
   ))
@@ -102,7 +120,7 @@ storiesOf('WearablePreview', module)
     <div className="WearablePreview-story-container">
       <WearablePreview
         profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        camera="static"
+        camera={PreviewCamera.STATIC}
       />
     </div>
   ))
@@ -145,5 +163,19 @@ storiesOf('WearablePreview', module)
         </Container>
       </Page>
       <Footer />
+    </div>
+  ))
+  .add('With hot reload', () => (
+    <div className="WearablePreview-story-container">
+      <RandomConfigProvider>
+        {(hair, skin) => (
+          <WearablePreview
+            profile="default"
+            hair={hair}
+            skin={skin}
+            onLoad={() => console.log('loaded!')}
+          />
+        )}
+      </RandomConfigProvider>
     </div>
   ))

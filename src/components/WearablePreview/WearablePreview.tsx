@@ -1,20 +1,19 @@
 /* eslint-disable  @typescript-eslint/no-empty-function */
+import {
+  PreviewCamera,
+  PreviewEmote,
+  PreviewEnv,
+  PreviewOptions,
+  WearableBodyShape
+} from '@dcl/schemas'
 import * as React from 'react'
+import { createDebounce } from '../../lib/debounce'
 import './WearablePreview.css'
 
-export enum AvatarEmote {
-  IDLE = 'idle',
-  CLAP = 'clap',
-  DAB = 'dab',
-  DANCE = 'dance',
-  FASHION = 'fashion',
-  FASHION_2 = 'fashion-2',
-  FASHION_3 = 'fashion-3',
-  LOVE = 'love',
-  MONEY = 'money'
-}
+const debounce = createDebounce()
 
 export type WearablePreviewProps = {
+  id?: string
   contractAddress?: string
   tokenId?: string
   itemId?: string
@@ -23,14 +22,23 @@ export type WearablePreviewProps = {
   skin?: string
   hair?: string
   eyes?: string
-  emote?: AvatarEmote
-  bodyShape?: 'male' | 'female'
+  emote?: PreviewEmote
+  bodyShape?: WearableBodyShape
+  camera?: PreviewCamera
+  autoRotateSpeed?: number
   zoom?: number
-  camera?: 'static' | 'interactive'
+  offsetX?: number
+  offsetY?: number
+  offsetZ?: number
+  transparentBackground?: boolean
   dev?: boolean
   baseUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
+}
+
+export type WearablePreviewState = {
+  url?: string
 }
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
@@ -40,6 +48,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     onLoad: () => {},
     onError: () => {}
   }
+
+  state: WearablePreviewState = {}
 
   iframe: HTMLIFrameElement | null = null
 
@@ -95,8 +105,23 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       ]
         .filter((param) => !!param)
         .join('&')
-
     return url
+  }
+
+  getOptions = () => {
+    const { dev, ...rest } = this.props
+
+    const options: PreviewOptions = {
+      env: dev ? PreviewEnv.DEV : PreviewEnv.PROD
+    }
+
+    for (const key in rest) {
+      if (typeof rest[key] !== 'function') {
+        options[key] = rest[key]
+      }
+    }
+
+    return options
   }
 
   handleMessage = (msgEvent: MessageEvent<string>) => {
@@ -126,12 +151,32 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     }
   }
 
+  sendUpdate = () => {
+    if (this.iframe) {
+      // SSR check
+      if (window) {
+        const options = this.getOptions()
+        this.iframe.contentWindow.postMessage({ type: 'update', options }, '*')
+      }
+    } else {
+      console.warn(`Could not send update, iframe is not referenced`)
+    }
+  }
+
   componentDidMount() {
     window.addEventListener('message', this.handleMessage, false)
+    this.setState({ url: this.getUrl() })
   }
 
   componentWillUnmount() {
     window.removeEventListener('message', this.handleMessage, false)
+  }
+
+  componentDidUpdate() {
+    const newUrl = this.getUrl()
+    if (newUrl !== this.state.url) {
+      debounce(this.sendUpdate, 500)
+    }
   }
 
   refIframe = (iframe: HTMLIFrameElement | null) => {
@@ -147,8 +192,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
 
     return (
       <iframe
+        id={this.props.id}
         className="WearablePreview"
-        src={this.getUrl()}
+        src={this.state.url}
         width="100%"
         height="100%"
         frameBorder="0"
