@@ -3,11 +3,11 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  padding: 22px 20px 8px;
+  padding: 13px 20px 8px;
 }
 
 .dcl.box .dcl.box-header {
-  margin-bottom: 19px;
+  margin-bottom: 13px;
   text-transform: uppercase;
   color: #736e7d;
   font-weight: 600;

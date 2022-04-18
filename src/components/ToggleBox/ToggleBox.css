@@ -2,12 +2,13 @@
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-right: -12px;
+  margin-bottom: 8px;
+  margin-left: -12px;
   padding-top: 9px;
-  padding-right: 10px;
+  padding-right: 12px;
   padding-bottom: 9px;
-  padding-left: 10px;
+  padding-left: 12px;
   cursor: pointer;
 }
 
@@ -45,5 +46,5 @@
   font-weight: normal;
   font-size: 15px;
   line-height: 24px;
-  color: var(--secondary-text);
+  color: #736e7d;
 }
