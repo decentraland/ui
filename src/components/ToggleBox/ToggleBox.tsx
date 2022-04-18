@@ -8,18 +8,21 @@ export type ToggleBoxItem = {
   description: string
   active?: boolean
   disabled?: boolean
-  onClick?: (item: ToggleBoxItem, index: number) => unknown
 }
 
 export type ToggleBoxProps = {
   header: string
   className?: string
   items: ToggleBoxItem[]
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement>,
+    data: ToggleBoxItem
+  ) => void
 }
 
 export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
   render(): JSX.Element {
-    const { header, className, items } = this.props
+    const { header, className, items, onClick } = this.props
 
     return (
       <Box header={header} className={className}>
@@ -30,7 +33,7 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
               ['active']: !!item.active,
               ['disabled']: !!item.disabled
             })}
-            onClick={() => !item.disabled && item.onClick(item, index)}
+            onClick={(event) => !item.disabled && onClick(event, item)}
           >
             <div className={'dcl togglebox-item-title'}>{item.title}</div>
             <div className={'dcl togglebox-item-description'}>
