@@ -14,9 +14,9 @@ export class Box extends React.PureComponent<BoxProps> {
     const { className, header, children, childrenClassName } = this.props
 
     return (
-      <div className={classNames("dcl box", className)}>
-        {header && <div className={"dcl box-header"}>{header}</div>}
-        <div className={classNames("dcl box-children", childrenClassName)}>
+      <div className={classNames('dcl box', className)}>
+        {header && <div className={'dcl box-header'}>{header}</div>}
+        <div className={classNames('dcl box-children', childrenClassName)}>
           {children}
         </div>
       </div>

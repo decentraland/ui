@@ -19,22 +19,23 @@ export type ToggleBoxProps = {
 
 export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
   render(): JSX.Element {
-
     const { header, className, items } = this.props
-    
+
     return (
       <Box header={header} className={className}>
         {items.map((item, index) => (
           <div
             key={index}
-            className={classNames("dcl togglebox-item", {
-              ["active"]: !!item.active,
-              ["disabled"]: !!item.disabled
+            className={classNames('dcl togglebox-item', {
+              ['active']: !!item.active,
+              ['disabled']: !!item.disabled
             })}
             onClick={() => !item.disabled && item.onClick(item, index)}
           >
-            <div className={"dcl togglebox-item-title"}>{item.title}</div>
-            <div className={"dcl togglebox-item-description"}>{item.description}</div>
+            <div className={'dcl togglebox-item-title'}>{item.title}</div>
+            <div className={'dcl togglebox-item-description'}>
+              {item.description}
+            </div>
           </div>
         ))}
       </Box>

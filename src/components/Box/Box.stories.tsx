@@ -9,13 +9,17 @@ const address = '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942'
 
 storiesOf('Box', module)
   .addDecorator(centered)
-  .add('Without header', () => <Box >
-    <Blockie seed={address}>
-      <Address value={address} strong />
-    </Blockie>
-  </Box>)
-  .add('With header', () => <Box header='Children with header' >
-    <Blockie seed={address}>
-      <Address value={address} strong />
-    </Blockie>
-  </Box>)
+  .add('Without header', () => (
+    <Box>
+      <Blockie seed={address}>
+        <Address value={address} strong />
+      </Blockie>
+    </Box>
+  ))
+  .add('With header', () => (
+    <Box header="Children with header">
+      <Blockie seed={address}>
+        <Address value={address} strong />
+      </Blockie>
+    </Box>
+  ))
