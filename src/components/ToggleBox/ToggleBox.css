@@ -38,7 +38,7 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--text);
 }
 
 .dcl.togglebox-item .dcl.togglebox-item-description {
@@ -46,5 +46,5 @@
   font-weight: normal;
   font-size: 15px;
   line-height: 24px;
-  color: #736e7d;
+  color: var(--secondary-text);
 }
