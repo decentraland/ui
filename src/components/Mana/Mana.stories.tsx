@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Network } from '@dcl/schemas'
+import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
 

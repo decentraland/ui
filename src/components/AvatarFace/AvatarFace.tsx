@@ -1,5 +1,5 @@
-import { Avatar } from '@dcl/schemas'
 import * as React from 'react'
+import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import './AvatarFace.css'
 
 export type AvatarFaceProps = {

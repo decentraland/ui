@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Network } from '@dcl/schemas'
+import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header, HeaderProps } from '../Header/Header'
 import './Mana.css'
 
