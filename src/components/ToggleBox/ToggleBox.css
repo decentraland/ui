@@ -1,0 +1,50 @@
+.dcl.togglebox-item {
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  margin-right: -12px;
+  margin-bottom: 8px;
+  margin-left: -12px;
+  padding-top: 9px;
+  padding-right: 12px;
+  padding-bottom: 9px;
+  padding-left: 12px;
+  cursor: pointer;
+}
+
+.dcl.togglebox-item:last-child {
+  margin-bottom: 0px;
+}
+
+.dcl.togglebox-item:hover {
+  background: var(--secondary);
+}
+
+.dcl.togglebox-item.active {
+  background: var(--secondary);
+}
+
+.dcl.togglebox-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: none;
+}
+
+.dcl.togglebox-item .dcl.togglebox-item-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.dcl.togglebox-item .dcl.togglebox-item-description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  color: #736e7d;
+}
