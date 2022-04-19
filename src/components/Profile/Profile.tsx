@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Avatar } from '@dcl/schemas'
+import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import { Logo } from '../Logo/Logo'
 import { Popup } from '../Popup/Popup'
 import { AvatarFace } from '../AvatarFace/AvatarFace'

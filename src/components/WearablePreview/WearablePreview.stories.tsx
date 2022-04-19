@@ -1,17 +1,16 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import {
-  Container,
-  Footer,
-  Header,
-  Hero,
-  Navbar,
-  Page,
-  Tabs,
-  WearablePreview
-} from '../..'
+import { PreviewCamera, PreviewEmote } from '@dcl/schemas/dist/dapps/preview'
+import { WearableBodyShape } from '@dcl/schemas/dist/platform/wearables'
+import { WearablePreview } from './WearablePreview'
+import { Navbar } from '../Navbar/Navbar'
+import { Tabs } from '../Tabs/Tabs'
+import { Page } from '../Page/Page'
+import { Hero } from '../Hero/Hero'
+import { Container } from '../Container/Container'
+import { Header } from '../Header/Header'
+import { Footer } from '../Footer/Footer'
 import './WearablePreview.stories.css'
-import { PreviewCamera, PreviewEmote, WearableBodyShape } from '@dcl/schemas'
 
 const getRandomHex = () => {
   return '#' + Math.random().toString(16).slice(2, 8)

@@ -1,4 +1,4 @@
-import { Avatar } from '@dcl/schemas'
+import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 
 export const avatar: Avatar = {
   userId: '0xb6e9c0a25aa6b10fa4fe0aa8d1097d2a6136bf98',
