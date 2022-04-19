@@ -1,6 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-empty-function */
 import * as React from 'react'
-import { PreviewCamera, PreviewEmote, PreviewEnv, PreviewOptions } from '@dcl/schemas/dist/dapps/preview'
+import {
+  PreviewCamera,
+  PreviewEmote,
+  PreviewEnv,
+  PreviewOptions
+} from '@dcl/schemas/dist/dapps/preview'
 import { WearableBodyShape } from '@dcl/schemas/dist/platform/wearables'
 import { createDebounce } from '../../lib/debounce'
 import './WearablePreview.css'
