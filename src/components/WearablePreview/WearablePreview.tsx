@@ -37,6 +37,7 @@ export type WearablePreviewProps = {
   offsetZ?: number
   transparentBackground?: boolean
   dev?: boolean
+  hotreload?: boolean
   baseUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
@@ -124,7 +125,13 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   }
 
   getOptions = () => {
-    const { dev, ...rest } = this.props
+    const { dev, hotreload, ...rest } = this.props
+
+    if (!hotreload) {
+      throw new Error(
+        'Should not generate options if hotreload is not turned on'
+      )
+    }
 
     const options: PreviewOptions = {
       env: dev ? PreviewEnv.DEV : PreviewEnv.PROD
@@ -187,9 +194,11 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   }
 
   componentDidUpdate() {
-    const newUrl = this.getUrl()
-    if (newUrl !== this.state.url) {
-      debounce(this.sendUpdate, 500)
+    if (this.props.hotreload) {
+      const newUrl = this.getUrl()
+      if (newUrl !== this.state.url) {
+        debounce(this.sendUpdate, 500)
+      }
     }
   }
 
@@ -208,7 +217,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       <iframe
         id={this.props.id}
         className="WearablePreview"
-        src={this.state.url}
+        src={this.props.hotreload ? this.state.url : this.getUrl()}
         width="100%"
         height="100%"
         frameBorder="0"
