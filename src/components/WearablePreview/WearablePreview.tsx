@@ -4,7 +4,10 @@ import {
   PreviewCamera,
   PreviewEmote,
   PreviewEnv,
-  PreviewOptions
+  PreviewOptions,
+  PreviewMessageType,
+  PreviewMessagePayload,
+  sendMessage
 } from '@dcl/schemas/dist/dapps/preview'
 import { WearableBodyShape } from '@dcl/schemas/dist/platform/wearables'
 import { createDebounce } from '../../lib/debounce'
@@ -19,6 +22,8 @@ export type WearablePreviewProps = {
   itemId?: string
   profile?: string
   urns?: string[]
+  urls?: string[]
+  base64s?: string[]
   skin?: string
   hair?: string
   eyes?: string
@@ -60,6 +65,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       itemId,
       profile,
       urns,
+      urls,
+      base64s,
       skin,
       hair,
       eyes,
@@ -77,6 +84,12 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const profileParam = profile ? `profile=${profile}` : ''
     const urnParams =
       urns && urns.length > 0 ? urns.map((urn) => `urn=${urn}`).join('&') : ''
+    const urlsParams =
+      urls && urls.length > 0 ? urls.map((url) => `url=${url}`).join('&') : ''
+    const base64sParams =
+      base64s && base64s.length > 0
+        ? base64s.map((base64) => `base64=${base64}`).join('&')
+        : ''
     const skinParam = skin ? `skin=${skin}` : ''
     const hairParam = hair ? `hair=${hair}` : ''
     const eyesParam = eyes ? `eyes=${eyes}` : ''
@@ -94,6 +107,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         itemParam,
         profileParam,
         urnParams,
+        urlsParams,
+        base64sParams,
         envParam,
         skinParam,
         hairParam,
@@ -124,28 +139,25 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     return options
   }
 
-  handleMessage = (msgEvent: MessageEvent<string>) => {
+  handleMessage = (event: MessageEvent) => {
     const { baseUrl, onLoad, onError } = this.props
-    const { origin } = msgEvent
+    const { origin } = event
     if (origin === baseUrl) {
-      let event = null
-      try {
-        event = JSON.parse(
-          msgEvent.data || (msgEvent as { message?: string }).message
-        )
-      } catch (error) {
-        console.error('Could not parse message event', msgEvent)
-        onError(new Error('Could not parse message event'))
-      }
-      if (event) {
-        switch (event.type) {
-          case 'load': {
+      if (event.data && event.data.type) {
+        const type: PreviewMessageType = event.data.type
+        switch (type) {
+          case PreviewMessageType.LOAD: {
             onLoad()
             break
           }
-          case 'error': {
-            onError(new Error(event.message))
+          case PreviewMessageType.ERROR: {
+            const payload = event.data
+              .payload as PreviewMessagePayload<PreviewMessageType.ERROR>
+            onError(new Error(payload.message))
+            break
           }
+          default:
+          // do nothing
         }
       }
     }
@@ -156,7 +168,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       // SSR check
       if (window) {
         const options = this.getOptions()
-        this.iframe.contentWindow.postMessage({ type: 'update', options }, '*')
+        sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
+          options
+        })
       }
     } else {
       console.warn(`Could not send update, iframe is not referenced`)

@@ -178,3 +178,21 @@ storiesOf('WearablePreview', module)
       </RandomConfigProvider>
     </div>
   ))
+  .add('From URL', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        urls={[
+          'https://gist.githubusercontent.com/cazala/7e66253d2b86f018ee599cf9da007b81/raw/dfb411a0cff38d1b128efe4f7eca80fa2e04e84d/wearable.json'
+        ]}
+      />
+    </div>
+  ))
+  .add('From base64', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        base64s={[
+          'eyJpZCI6InVybjpkZWNlbnRyYWxhbmQ6bWF0aWM6Y29sbGVjdGlvbnMtdjI6MHhlNzkzODAxODI5ZTBlMGY5YWE1YmFmOTg3NzMyMDA1OWQ5ZjRhNjU0OjAiLCJuYW1lIjoiV2Fja3kgQWxpZW4gQnVja2V0IEhhdCIsImRlc2NyaXB0aW9uIjoiU2xpbXkgSGFpciBpcyBhIGZpeGVkIGNvbG91ci4uLiIsImNvbGxlY3Rpb25BZGRyZXNzIjoiMHhlNzkzODAxODI5ZTBlMGY5YWE1YmFmOTg3NzMyMDA1OWQ5ZjRhNjU0IiwicmFyaXR5IjoibGVnZW5kYXJ5IiwiaTE4biI6W3siY29kZSI6ImVuIiwidGV4dCI6IldhY2t5IEFsaWVuIEJ1Y2tldCBIYXQifV0sImRhdGEiOnsicmVwbGFjZXMiOltdLCJoaWRlcyI6WyJoYWlyIl0sInRhZ3MiOlsid2Fja3lhbGllbiIsIndhY2t5IiwiYWxpZW4iLCJidWNrZXRoYXQiLCJzbGltZSIsIjE2MjAiLCJqdWRhc2p1ZGFzIl0sImNhdGVnb3J5IjoiaGF0IiwicmVwcmVzZW50YXRpb25zIjpbeyJib2R5U2hhcGVzIjpbInVybjpkZWNlbnRyYWxhbmQ6b2ZmLWNoYWluOmJhc2UtYXZhdGFyczpCYXNlTWFsZSJdLCJtYWluRmlsZSI6Im1hbGUvZnJvZ2dseU1BTEVfYmFzZS5nbGIiLCJjb250ZW50cyI6W3sia2V5IjoibWFsZS9mcm9nZ2x5TUFMRV9iYXNlLmdsYiIsInVybCI6Imh0dHBzOi8vcGVlci1lYzEuZGVjZW50cmFsYW5kLm9yZy9jb250ZW50L2NvbnRlbnRzL1FtZUNxNzV2TE1EdGtYeWFXWTNKejc3RmdEQ2paaTNGSFQxWjVKbTR6VG9HcG0ifV0sIm92ZXJyaWRlSGlkZXMiOlsiaGFpciJdLCJvdmVycmlkZVJlcGxhY2VzIjpbXX0seyJib2R5U2hhcGVzIjpbInVybjpkZWNlbnRyYWxhbmQ6b2ZmLWNoYWluOmJhc2UtYXZhdGFyczpCYXNlRmVtYWxlIl0sIm1haW5GaWxlIjoiZmVtYWxlL2Zyb2dnbHlGRU1BTEVfYmFzZS5nbGIiLCJjb250ZW50cyI6W3sia2V5IjoiZmVtYWxlL2Zyb2dnbHlGRU1BTEVfYmFzZS5nbGIiLCJ1cmwiOiJodHRwczovL3BlZXItZWMxLmRlY2VudHJhbGFuZC5vcmcvY29udGVudC9jb250ZW50cy9RbVFGa0xHczUzMnhjZUZjb0NKYm5xWXExVlBzOGRleDVLMXdrWm8yQXhqajdZIn1dLCJvdmVycmlkZUhpZGVzIjpbImhhaXIiXSwib3ZlcnJpZGVSZXBsYWNlcyI6W119XX0sImltYWdlIjoiaHR0cHM6Ly9wZWVyLWVjMS5kZWNlbnRyYWxhbmQub3JnL2NvbnRlbnQvY29udGVudHMvUW1XUEczY0phVmMxaEVCa0tpZ2E2NWtVeGIzZ2g0cFp6RDN3Y0pWb1laR0VwQiIsInRodW1ibmFpbCI6Imh0dHBzOi8vcGVlci1lYzEuZGVjZW50cmFsYW5kLm9yZy9jb250ZW50L2NvbnRlbnRzL1FtWUY3OXZZNkNFamVyUlFEOU1Hd01WWTV0NWJlWjY5UjlEMmQ5U0tKRFNQNzUiLCJtZXRyaWNzIjp7InRyaWFuZ2xlcyI6MTQ4NywibWF0ZXJpYWxzIjoyLCJ0ZXh0dXJlcyI6MiwibWVzaGVzIjoyLCJib2RpZXMiOjIsImVudGl0aWVzIjoxfX0='
+        ]}
+      />
+    </div>
+  ))
