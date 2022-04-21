@@ -195,10 +195,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
 
   componentDidUpdate() {
     if (this.props.hotreload) {
-      const newUrl = this.getUrl()
-      if (newUrl !== this.state.url) {
-        debounce(this.sendUpdate, 500)
-      }
+      debounce(this.sendUpdate, 500)
     }
   }
 
