@@ -196,3 +196,23 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
+  .add('Without auto rotation', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview profile="default" autoRotateSpeed={0} />
+    </div>
+  ))
+  .add('With offset and zoom', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        profile="default"
+        zoom={100}
+        offsetY={0.5}
+        offsetZ={-0.1}
+      />
+    </div>
+  ))
+  .add('With transparent background', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview profile="default" transparentBackground />
+    </div>
+  ))

@@ -73,8 +73,13 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       eyes,
       bodyShape,
       emote,
-      zoom,
       camera,
+      zoom,
+      autoRotateSpeed,
+      offsetX,
+      offsetY,
+      offsetZ,
+      transparentBackground,
       dev,
       baseUrl
     } = this.props
@@ -96,8 +101,17 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const eyesParam = eyes ? `eyes=${eyes}` : ''
     const bodyShapeParam = bodyShape ? `bodyShape=${bodyShape}` : ''
     const emoteParam = emote ? `emote=${emote}` : ''
-    const zoomParam = zoom ? `zoom=${zoom}` : ''
     const cameraParam = camera ? `camera=${camera}` : ''
+    const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
+    const autoRotateSpeedParam = !isNaN(autoRotateSpeed)
+      ? `autoRotateSpeed=${autoRotateSpeed}`
+      : ''
+    const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
+    const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
+    const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
+    const transparentBackgroundParam = transparentBackground
+      ? `transparentBackground`
+      : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -110,14 +124,19 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         urnParams,
         urlsParams,
         base64sParams,
-        envParam,
         skinParam,
         hairParam,
         eyesParam,
         bodyShapeParam,
         emoteParam,
+        cameraParam,
         zoomParam,
-        cameraParam
+        autoRotateSpeedParam,
+        offsetXParam,
+        offsetYParam,
+        offsetZParam,
+        transparentBackgroundParam,
+        envParam
       ]
         .filter((param) => !!param)
         .join('&')
