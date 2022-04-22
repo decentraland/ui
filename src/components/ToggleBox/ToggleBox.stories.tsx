@@ -18,21 +18,22 @@ storiesOf('ToggleBox', module)
   .add('With active item', () => (
     <ToggleBox
       header="Header text"
+      value={1}
       items={[
         {
           title: 'Item 1',
           description: 'Description of the item 1',
-          active: false
+          value: 1
         },
         {
           title: 'Item 2',
           description: 'Description of the Active item 2',
-          active: true
+          value: 2
         },
         {
           title: 'Item 3',
           description: 'Description of the item 3',
-          active: false
+          value: 3
         }
       ]}
     />
@@ -40,21 +41,24 @@ storiesOf('ToggleBox', module)
   .add('With disable items', () => (
     <ToggleBox
       header="Header text with disabled items"
+      value={3}
       items={[
         {
           title: 'Item 1',
           description: 'Description of the active item 1',
-          active: true,
+          value: 1,
           disabled: false
         },
         {
           title: 'Item 2',
           description: 'Description of the disabled item 2',
+          value: 2,
           disabled: true
         },
         {
           title: 'Item 3',
           description: 'Description of the item 3',
+          value: 3,
           disabled: false
         }
       ]}

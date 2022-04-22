@@ -5,14 +5,15 @@ import './ToggleBox.css'
 export type ToggleBoxItem = {
   title: string
   description: string
-  active?: boolean
   disabled?: boolean
+  value?: string | number | boolean
 }
 
 export type ToggleBoxProps = {
   header: string
   className?: string
   items: ToggleBoxItem[]
+  value?: string | number | boolean
   onClick?: (
     event: React.MouseEvent<HTMLDivElement>,
     data: ToggleBoxItem
@@ -21,7 +22,7 @@ export type ToggleBoxProps = {
 
 export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
   render(): JSX.Element {
-    const { header, className, items, onClick } = this.props
+    const { header, className, items, onClick, value } = this.props
 
     const classes = ['dcl', 'togglebox-item']
     if (className) {
@@ -32,7 +33,7 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
       <Box header={header} className={className}>
         {items.map((item, index) => {
           const classesItem = [...classes]
-          if (item.active) {
+          if (value && value === item.value) {
             classesItem.push('active')
           }
           if (item.disabled) {
