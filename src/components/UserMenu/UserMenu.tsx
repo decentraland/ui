@@ -125,7 +125,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
           {isSignedIn && (
             <>
               <span className="dcl account-wrapper">
-                {Object.keys(manaBalances).map((network) => (
+                {Object.keys(manaBalances).map(network => (
                   <Mana
                     key={network}
                     network={network as Network}
@@ -134,7 +134,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     title={`${manaBalances[network].toLocaleString()} MANA`}
                     href="https://account.decentraland.org"
                   >
-                    {Math.floor(manaBalances[network]).toLocaleString()}
+                    {manaBalances[network].toFixed(2).toLocaleString()}
                   </Mana>
                 ))}
               </span>
