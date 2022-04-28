@@ -134,7 +134,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     title={`${manaBalances[network].toLocaleString()} MANA`}
                     href="https://account.decentraland.org"
                   >
-                    {manaBalances[network].toFixed(2).toLocaleString()}
+                    {Number(manaBalances[network].toFixed(2)).toLocaleString()}
                   </Mana>
                 ))}
               </span>
