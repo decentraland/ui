@@ -18,11 +18,12 @@ export type ToggleBoxProps = {
     event: React.MouseEvent<HTMLDivElement>,
     data: ToggleBoxItem
   ) => void
+  borderless?: boolean
 }
 
 export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
   render(): JSX.Element {
-    const { header, className, items, onClick, value } = this.props
+    const { header, className, items, onClick, value, borderless } = this.props
 
     const classes = ['dcl', 'togglebox-item']
     if (className) {
@@ -30,7 +31,7 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
     }
 
     return (
-      <Box header={header} className={className}>
+      <Box header={header} className={className} borderless={!!borderless}>
         {items.map((item, index) => {
           const classesItem = [...classes]
           if (value && value === item.value) {

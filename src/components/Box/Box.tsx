@@ -5,15 +5,19 @@ export type BoxProps = {
   header?: string
   className?: string
   children: React.ReactNode
+  borderless?: boolean
 }
 
 export class Box extends React.PureComponent<BoxProps> {
   render(): JSX.Element {
-    const { className, header, children } = this.props
+    const { className, header, children, borderless } = this.props
 
     const classes = ['dcl', 'box']
     if (className) {
       classes.push(className)
+    }
+    if (borderless) {
+      classes.push('borderless')
     }
 
     return (
