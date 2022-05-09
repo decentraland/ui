@@ -31,7 +31,7 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
     }
 
     return (
-      <Box header={header} className={className} borderless={!!borderless}>
+      <Box header={header} className={className} borderless={borderless}>
         {items.map((item, index) => {
           const classesItem = [...classes]
           if (value && value === item.value) {
