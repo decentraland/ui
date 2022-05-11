@@ -29,17 +29,9 @@ storiesOf('RangeField', module)
   .add('Default Value', () => (
     <RangeField
       header="Default value set to 20 - 70"
-      min={10}
-      max={90}
+      min={0}
+      max={100}
       defaultValue={[20, 70]}
-    />
-  ))
-  .add('Label', () => (
-    <RangeField
-      header="RangeField Header"
-      min={10}
-      max={90}
-      label='Label to use'
     />
   ))
   .add('With onMouseUp', () => (
