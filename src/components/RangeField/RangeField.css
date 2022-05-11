@@ -62,7 +62,7 @@
   border: 0;
 }
 
-.dcl.rangefield-wrapper>input[type=range] {
+.dcl.rangefield-wrapper > input[type='range'] {
   position: absolute;
   pointer-events: none;
   -webkit-appearance: none;
@@ -74,25 +74,17 @@
   left: 0;
   cursor: pointer;
 }
-.dcl.rangefield-wrapper>input[type=range]:focus::-webkit-slider-runnable-track {
+.dcl.rangefield-wrapper
+  > input[type='range']:focus::-webkit-slider-runnable-track {
   background: transparent;
   border: transparent;
 }
 
-.dcl.rangefield-wrapper>input[type=range]:focus {
+.dcl.rangefield-wrapper > input[type='range']:focus {
   outline: none;
 }
 
-.dcl.rangefield-wrapper>input[type=range]::-webkit-slider-thumb{
-  pointer-events: all;
-  width: 28px;
-  height: 28px;
-  border-radius: 0px;
-  border: 0 none;
-  -webkit-appearance: none;
-  }
-
-.dcl.rangefield-wrapper>input[type=range]::-moz-range-thumb {
+.dcl.rangefield-wrapper > input[type='range']::-webkit-slider-thumb {
   pointer-events: all;
   width: 28px;
   height: 28px;
@@ -101,16 +93,25 @@
   -webkit-appearance: none;
 }
 
-.dcl.rangefield-wrapper>input[type=range]::-ms-fill-lower {
+.dcl.rangefield-wrapper > input[type='range']::-moz-range-thumb {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  border-radius: 0px;
+  border: 0 none;
+  -webkit-appearance: none;
+}
+
+.dcl.rangefield-wrapper > input[type='range']::-ms-fill-lower {
   background: transparent;
   border: 0 none;
 }
 
-.dcl.rangefield-wrapper>input[type=range]::-ms-fill-upper {
+.dcl.rangefield-wrapper > input[type='range']::-ms-fill-upper {
   background: transparent;
   border: 0 none;
 }
 
-.dcl.rangefield-wrapper>input[type=range]::-ms-tooltip {
+.dcl.rangefield-wrapper > input[type='range']::-ms-tooltip {
   display: none;
 }

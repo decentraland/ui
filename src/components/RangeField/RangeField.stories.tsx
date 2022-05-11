@@ -3,14 +3,9 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { RangeField } from './RangeField'
 
-
 storiesOf('RangeField', module)
   .addDecorator(centered)
-  .add('Simple', () => (
-    <RangeField
-      header="RangeField Simple"
-    />
-  ))
+  .add('Simple', () => <RangeField header="RangeField Simple" />)
   .add('With Label', () => (
     <RangeField
       header="RangeField Label"
@@ -20,11 +15,7 @@ storiesOf('RangeField', module)
     />
   ))
   .add('With Max and Min set', () => (
-    <RangeField
-      header="Min set at 200 and Max at 500"
-      min={200}
-      max={500}
-    />
+    <RangeField header="Min set at 200 and Max at 500" min={200} max={500} />
   ))
   .add('Default Value', () => (
     <RangeField

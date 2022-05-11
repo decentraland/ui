@@ -3,14 +3,9 @@ import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { SliderField } from './SliderField'
 
-
 storiesOf('SliderField', module)
   .addDecorator(centered)
-  .add('Simple', () => (
-    <SliderField
-      header="SliderField Simple"
-    />
-  ))
+  .add('Simple', () => <SliderField header="SliderField Simple" />)
   .add('With Label', () => (
     <SliderField
       header="SliderField Label"
@@ -20,11 +15,7 @@ storiesOf('SliderField', module)
     />
   ))
   .add('With Max and Min set', () => (
-    <SliderField
-      header="Min set at 200 and Max at 500"
-      min={200}
-      max={500}
-    />
+    <SliderField header="Min set at 200 and Max at 500" min={200} max={500} />
   ))
   .add('Default Value', () => (
     <SliderField
