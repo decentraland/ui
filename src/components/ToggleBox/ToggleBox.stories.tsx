@@ -64,3 +64,30 @@ storiesOf('ToggleBox', module)
       ]}
     />
   ))
+  .add('Without border (borderless)', () => (
+    <ToggleBox
+      header="Without border"
+      borderless
+      value={3}
+      items={[
+        {
+          title: 'Item 1',
+          description: 'Description of the active item 1',
+          value: 1,
+          disabled: false
+        },
+        {
+          title: 'Item 2',
+          description: 'Description of the disabled item 2',
+          value: 2,
+          disabled: true
+        },
+        {
+          title: 'Item 3',
+          description: 'Description of the item 3',
+          value: 3,
+          disabled: false
+        }
+      ]}
+    />
+  ))

@@ -23,3 +23,10 @@ storiesOf('Box', module)
       </Blockie>
     </Box>
   ))
+  .add('Without border', () => (
+    <Box header="Without border" borderless>
+      <Blockie seed={address}>
+        <Address value={address} strong />
+      </Blockie>
+    </Box>
+  ))

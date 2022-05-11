@@ -13,3 +13,7 @@
   font-weight: 600;
   font-size: 13px;
 }
+
+.dcl.box.borderless {
+  border-color: transparent;
+}
