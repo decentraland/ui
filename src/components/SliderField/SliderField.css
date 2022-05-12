@@ -5,7 +5,7 @@
   min-width: 200px;
 }
 
-.dcl.sliderfield .dcl.Slider-header {
+.dcl.sliderfield .dcl.sliderfield-header {
   margin-bottom: 13px;
   text-transform: uppercase;
   color: #736e7d;
@@ -93,7 +93,7 @@
   -webkit-appearance: none;
 }
 
-.dcl.sliderfield-wrapper > input[type='range']::-moz-slider-thumb {
+.dcl.sliderfield-wrapper > input[type='range']::-moz-range-thumb {
   pointer-events: all;
   width: 28px;
   height: 28px;
