@@ -46,7 +46,7 @@
   background-color: var(--primary);
 }
 
-.dcl.sliderfield-wrapper .dcl.sliderfield-handle {
+.dcl.sliderfield-wrapper .dcl.sliderfield-mark {
   position: absolute;
   top: -5px;
   z-index: 2;
@@ -102,12 +102,8 @@
   -webkit-appearance: none;
 }
 
-.dcl.sliderfield-wrapper > input[type='range']::-ms-fill-lower {
-  background: transparent;
-  border: 0 none;
-}
-
-.dcl.sliderfield-wrapper > input[type='range']::-ms-fill-upper {
+.dcl.sliderfield-wrapper > input[type='range']::-ms-fill-lower,
+.dcl.sliderfield-wrapper>input[type='range']::-ms-fill-upper {
   background: transparent;
   border: 0 none;
 }
