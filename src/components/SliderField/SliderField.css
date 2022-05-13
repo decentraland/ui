@@ -103,7 +103,7 @@
 }
 
 .dcl.sliderfield-wrapper > input[type='range']::-ms-fill-lower,
-.dcl.sliderfield-wrapper>input[type='range']::-ms-fill-upper {
+.dcl.sliderfield-wrapper > input[type='range']::-ms-fill-upper {
   background: transparent;
   border: 0 none;
 }

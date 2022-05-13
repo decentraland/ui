@@ -36,9 +36,9 @@ export type SliderFieldState = {
   lastInteraction: SliderLastInteraction
 }
 
-export type SliderFieldLeftRightStyle = { 
-  left: string | number, 
-  right: string 
+export type SliderFieldLeftRightStyle = {
+  left: string | number
+  right: string
 }
 
 export class SliderField extends React.PureComponent<
@@ -76,8 +76,6 @@ export class SliderField extends React.PureComponent<
     }
   }
 
-
-
   handleChangeFrom = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target
     const { onChange } = this.props
@@ -112,10 +110,7 @@ export class SliderField extends React.PureComponent<
       },
       () => {
         if (onChange) {
-          onChange(
-            e,
-            range ? [this.state.from, this.state.to] : this.state.to
-          )
+          onChange(e, range ? [this.state.from, this.state.to] : this.state.to)
         }
       }
     )
@@ -133,15 +128,13 @@ export class SliderField extends React.PureComponent<
     const { from, to } = this.state
 
     const diffMaxMin = max - min
-    const trackLeft = range
-      ? `${((from - min) * 100) / diffMaxMin}%`
-      : 0
+    const trackLeft = range ? `${((from - min) * 100) / diffMaxMin}%` : 0
     const trackRight = range
       ? `${((max - to) * 100) / diffMaxMin}%`
       : `${100 - ((to - min) * 100) / diffMaxMin}%`
 
     return {
-      left: trackLeft, 
+      left: trackLeft,
       right: trackRight
     }
   }
