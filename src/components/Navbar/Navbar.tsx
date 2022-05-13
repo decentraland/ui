@@ -245,7 +245,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
 
     return (
       <div className={classes} role="navigation">
-        <Container className={isFullWidth && 'full-width'}>
+        <Container className={isFullWidth ? 'full-width' : ''}>
           <div className="dcl navbar-menu">
             <NotMobile>
               <Menu secondary stackable>
