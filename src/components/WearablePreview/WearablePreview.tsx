@@ -45,6 +45,8 @@ export type WearablePreviewProps = {
 
 export type WearablePreviewState = {
   url?: string
+  isReady: boolean
+  pendingOptions: PreviewOptions | null
 }
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
@@ -55,7 +57,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     onError: () => {}
   }
 
-  state: WearablePreviewState = {}
+  state: WearablePreviewState = {
+    isReady: false,
+    pendingOptions: null
+  }
 
   iframe: HTMLIFrameElement | null = null
 
@@ -182,6 +187,24 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
             onError(new Error(payload.message))
             break
           }
+          case PreviewMessageType.READY: {
+            const { pendingOptions } = this.state
+            if (pendingOptions != null) {
+              // if there were pending options, flush them and flag as ready
+              sendMessage(
+                this.iframe.contentWindow,
+                PreviewMessageType.UPDATE,
+                {
+                  options: pendingOptions
+                }
+              )
+              this.setState({ isReady: true, pendingOptions: null })
+            } else {
+              // otherwise just flag as ready
+              this.setState({ isReady: true })
+            }
+            break
+          }
           default:
           // do nothing
         }
@@ -194,9 +217,15 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       // SSR check
       if (window) {
         const options = this.getOptions()
-        sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
-          options
-        })
+        if (this.state.isReady) {
+          // if the iframe is ready, send the update
+          sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
+            options
+          })
+        } else {
+          // otherwise store last update in state until it's ready
+          this.setState({ pendingPreviewOptions: options })
+        }
       }
     } else {
       console.warn(`Could not send update, iframe is not referenced`)
