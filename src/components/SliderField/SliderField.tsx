@@ -1,33 +1,46 @@
 import * as React from 'react'
 import './SliderField.css'
 
-export type SliderFieldProps = {
-  header: string
-  className?: string
-  min?: number
-  max?: number
-  defaultValue?: number | readonly [number, number]
-  label?: string | React.PureComponent<{ value: number | [number, number] }>
-  range?: boolean
-  onChange?: (
-    ev: React.ChangeEvent<HTMLInputElement>,
-    data: number | [number, number]
-  ) => void
-  onMouseUp?: (
-    ev: React.MouseEvent<HTMLInputElement>,
-    data: number | [number, number]
-  ) => void
-}
+export type SliderFieldProps =
+  | {
+      range?: false
+      header: string
+      className?: string
+      min?: number
+      max?: number
+      defaultValue?: number
+      label?: string | React.PureComponent<{ value: number }>
+      onChange?: (ev: React.ChangeEvent<HTMLInputElement>, data: number) => void
+      onMouseUp?: (ev: React.MouseEvent<HTMLInputElement>, data: number) => void
+    }
+  | {
+      range: true
+      header: string
+      className?: string
+      min?: number
+      max?: number
+      defaultValue?: readonly [number, number]
+      label?: string | React.PureComponent<{ value: readonly [number, number] }>
+      onChange?: (
+        ev: React.ChangeEvent<HTMLInputElement>,
+        data: readonly [number, number]
+      ) => void
+      onMouseUp?: (
+        ev: React.MouseEvent<HTMLInputElement>,
+        data: readonly [number, number]
+      ) => void
+    }
 
 export enum SliderLastInteraction {
   'from',
   'to'
 }
-export enum SliderDefault {
-  MIN = 0,
-  MAX = 100,
-  FROM = 0,
-  TO = 100
+
+export const SliderDefault = {
+  MIN: 0,
+  MAX: 100,
+  FROM: 0,
+  TO: 100
 }
 
 export type SliderFieldState = {
@@ -78,8 +91,10 @@ export class SliderField extends React.PureComponent<
 
   handleChangeFrom = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target
-    const { onChange } = this.props
-
+    const { onChange, range } = this.props
+    if (!range) {
+      return
+    }
     this.setState(
       (prevState) => {
         return {
@@ -90,7 +105,7 @@ export class SliderField extends React.PureComponent<
       },
       () => {
         if (onChange) {
-          onChange(e, [this.state.from, this.state.to])
+          onChange(e, [this.state.from, this.state.to] as const)
         }
       }
     )
@@ -110,7 +125,12 @@ export class SliderField extends React.PureComponent<
       },
       () => {
         if (onChange) {
-          onChange(e, range ? [this.state.from, this.state.to] : this.state.to)
+          onChange(
+            e,
+            (range
+              ? [this.state.from, this.state.to]
+              : this.state.to) as number & readonly [number, number]
+          )
         }
       }
     )
@@ -119,7 +139,11 @@ export class SliderField extends React.PureComponent<
   handleMouseUp = (e: React.MouseEvent<HTMLInputElement>) => {
     const { onMouseUp, range } = this.props
     if (onMouseUp) {
-      onMouseUp(e, range ? [this.state.from, this.state.to] : this.state.to)
+      onMouseUp(
+        e,
+        (range ? [this.state.from, this.state.to] : this.state.to) as number &
+          readonly [number, number]
+      )
     }
   }
 
