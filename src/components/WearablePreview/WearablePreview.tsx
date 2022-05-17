@@ -193,7 +193,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
             if (isReady) {
               return
             }
-            if (pendingOptions != null) {
+            if (pendingOptions !== null) {
               // if there were pending options, flush them and flag as ready
               sendMessage(
                 this.iframe.contentWindow,
