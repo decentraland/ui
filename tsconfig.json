@@ -19,6 +19,7 @@
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
     "jsx": "react",
     "plugins": [{ "name": "tslint-language-service" }],
     "baseUrl": "./packages",

@@ -1,5 +1,6 @@
 /* eslint-disable  @typescript-eslint/no-empty-function */
 import * as React from 'react'
+import equal from 'deep-equal'
 import {
   PreviewCamera,
   PreviewEmote,
@@ -41,12 +42,14 @@ export type WearablePreviewProps = {
   baseUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
+  onUpdate?: (options: PreviewOptions) => void
 }
 
 type WearablePreviewState = {
   url?: string
   isReady: boolean
   pendingOptions: PreviewOptions | null
+  lastOptions: PreviewOptions | null
 }
 
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
@@ -59,7 +62,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
 
   state: WearablePreviewState = {
     isReady: false,
-    pendingOptions: null
+    pendingOptions: null,
+    lastOptions: null
   }
 
   iframe: HTMLIFrameElement | null = null
@@ -195,13 +199,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
             }
             if (pendingOptions !== null) {
               // if there were pending options, flush them and flag as ready
-              sendMessage(
-                this.iframe.contentWindow,
-                PreviewMessageType.UPDATE,
-                {
-                  options: pendingOptions
-                }
-              )
+              this.sendUpdate(pendingOptions)
               this.setState({ isReady: true, pendingOptions: null })
             } else {
               // otherwise just flag as ready
@@ -216,16 +214,14 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     }
   }
 
-  sendUpdate = () => {
+  handleUpdate = () => {
     if (this.iframe) {
       // SSR check
       if (window) {
         const options = this.getOptions()
         if (this.state.isReady) {
           // if the iframe is ready, send the update
-          sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
-            options
-          })
+          this.sendUpdate(options)
         } else {
           // otherwise store last update in state until it's ready
           this.setState({ pendingPreviewOptions: options })
@@ -233,6 +229,24 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       }
     } else {
       console.warn(`Could not send update, iframe is not referenced`)
+    }
+  }
+
+  sendUpdate = (options: PreviewOptions) => {
+    const { lastOptions } = this.state
+    // only send update if new options are different
+    if (!lastOptions || !equal(options, lastOptions)) {
+      // send message to iframe
+      sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
+        options
+      })
+      // callback
+      const { onUpdate } = this.props
+      if (onUpdate) {
+        onUpdate(options)
+      }
+      // store options on state
+      this.setState({ lastOptions: options })
     }
   }
 
@@ -247,7 +261,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
 
   componentDidUpdate() {
     if (this.props.hotreload) {
-      debounce(this.sendUpdate, 500)
+      debounce(this.handleUpdate, 500)
     }
   }
 
