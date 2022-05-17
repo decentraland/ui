@@ -43,7 +43,7 @@ export type WearablePreviewProps = {
   onError?: (error: Error) => void
 }
 
-export type WearablePreviewState = {
+type WearablePreviewState = {
   url?: string
   isReady: boolean
   pendingOptions: PreviewOptions | null
