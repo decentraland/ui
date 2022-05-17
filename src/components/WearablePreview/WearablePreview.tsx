@@ -188,7 +188,11 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
             break
           }
           case PreviewMessageType.READY: {
-            const { pendingOptions } = this.state
+            const { isReady, pendingOptions } = this.state
+            // ignore if already flagged as ready
+            if (isReady) {
+              return
+            }
             if (pendingOptions != null) {
               // if there were pending options, flush them and flag as ready
               sendMessage(
