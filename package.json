@@ -42,6 +42,7 @@
     "@storybook/addon-centered": "^5.3.13",
     "@storybook/addon-storysource": "^5.3.13",
     "@storybook/react": "^5.3.13",
+    "@types/deep-equal": "^1.0.1",
     "@types/react": "^16.4.1",
     "@types/react-test-renderer": "^16.0.1",
     "@typescript-eslint/eslint-plugin": "4.26.0",
@@ -73,6 +74,7 @@
   "dependencies": {
     "@dcl/schemas": "^4.8.0",
     "balloon-css": "^0.5.0",
+    "deep-equal": "^2.0.5",
     "ethereum-blockies": "^0.1.1",
     "parallax-js": "^3.1.0",
     "react": "^17.0.2",
