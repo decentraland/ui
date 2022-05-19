@@ -36,6 +36,9 @@ export type WearablePreviewProps = {
   offsetX?: number
   offsetY?: number
   offsetZ?: number
+  wheelZoom?: number
+  wheelPrecision?: number
+  wheelStart?: number
   transparentBackground?: boolean
   dev?: boolean
   hotreload?: boolean
@@ -88,6 +91,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       offsetX,
       offsetY,
       offsetZ,
+      wheelZoom,
+      wheelPrecision,
+      wheelStart,
       transparentBackground,
       dev,
       baseUrl
@@ -118,6 +124,11 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
     const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
     const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
+    const wheelZoomParam = !isNaN(wheelZoom) ? `wheelZoom=${wheelZoom}` : ''
+    const wheelPrecisionParam = !isNaN(wheelPrecision)
+      ? `wheelPrecision=${wheelPrecision}`
+      : ''
+    const wheelStartParam = !isNaN(wheelStart) ? `wheelStart=${wheelStart}` : ''
     const transparentBackgroundParam = transparentBackground
       ? `transparentBackground`
       : ''
@@ -144,6 +155,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         offsetXParam,
         offsetYParam,
         offsetZParam,
+        wheelZoomParam,
+        wheelPrecisionParam,
+        wheelStartParam,
         transparentBackgroundParam,
         envParam
       ]
