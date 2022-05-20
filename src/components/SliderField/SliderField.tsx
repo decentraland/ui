@@ -199,61 +199,59 @@ export class SliderField extends React.PureComponent<
     const label = this.getLabel()
 
     return (
-      <div>
-        <div className={classes.join(' ')}>
-          <div className="dcl sliderfield-header">{header}</div>
-          <p>{label}</p>
-          <div className="dcl sliderfield-wrapper">
-            <div className="dcl sliderfield-rail">
-              <div
-                className="dcl sliderfield-track"
-                style={{ left: trackStyle.left, right: trackStyle.right }}
-              ></div>
-              {range && (
-                <span
-                  className="dcl sliderfield-mark"
-                  style={{ left: markStyle.left }}
-                ></span>
-              )}
-
+      <div className={classes.join(' ')}>
+        <div className="dcl sliderfield-header">{header}</div>
+        <p>{label}</p>
+        <div className="dcl sliderfield-wrapper">
+          <div className="dcl sliderfield-rail">
+            <div
+              className="dcl sliderfield-track"
+              style={{ left: trackStyle.left, right: trackStyle.right }}
+            ></div>
+            {range && (
               <span
                 className="dcl sliderfield-mark"
-                style={{ left: markStyle.right }}
+                style={{ left: markStyle.left }}
               ></span>
-            </div>
-
-            {range && (
-              <input
-                type="range"
-                value={from}
-                max={max}
-                min={min}
-                step="1"
-                onChange={this.handleChangeFrom}
-                style={{
-                  zIndex:
-                    this.state.lastInteraction == SliderLastInteraction.from
-                      ? 4
-                      : 3
-                }}
-                onMouseUp={this.handleMouseUp}
-              />
             )}
 
+            <span
+              className="dcl sliderfield-mark"
+              style={{ left: markStyle.right }}
+            ></span>
+          </div>
+
+          {range && (
             <input
               type="range"
-              value={to}
+              value={from}
               max={max}
               min={min}
               step="1"
-              onChange={this.handleChangeTo}
+              onChange={this.handleChangeFrom}
               style={{
                 zIndex:
-                  this.state.lastInteraction == SliderLastInteraction.to ? 4 : 3
+                  this.state.lastInteraction == SliderLastInteraction.from
+                    ? 4
+                    : 3
               }}
               onMouseUp={this.handleMouseUp}
             />
-          </div>
+          )}
+
+          <input
+            type="range"
+            value={to}
+            max={max}
+            min={min}
+            step="1"
+            onChange={this.handleChangeTo}
+            style={{
+              zIndex:
+                this.state.lastInteraction == SliderLastInteraction.to ? 4 : 3
+            }}
+            onMouseUp={this.handleMouseUp}
+          />
         </div>
       </div>
     )
