@@ -27,7 +27,8 @@
   background-size: contain;
 }
 
-.dcl.option.metamask .image {
+.dcl.option.metamask .image,
+.dcl.option.metamask-mobile .image {
   background-image: inline('../../images/metamask.svg');
 }
 
@@ -48,7 +49,8 @@
 }
 
 .dcl.option.coinbase .image,
-.dcl.option.wallet-link .image {
+.dcl.option.wallet-link .image,
+.dcl.option.wallet-link-mobile .image {
   background-image: inline('../../images/coinbase.svg');
 }
 

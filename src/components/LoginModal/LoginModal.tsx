@@ -7,12 +7,14 @@ import './LoginModal.css'
 
 export enum LoginModalOptionType {
   METAMASK = 'metamask',
+  METAMASK_MOBILE = 'metamask-mobile',
   DAPPER = 'dapper',
   FORTMATIC = 'fortmatic',
   COINBASE = 'coinbase',
   SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect',
-  WALLET_LINK = 'wallet-link'
+  WALLET_LINK = 'wallet-link',
+  WALLET_LINK_MOBILE = 'wallet-link-mobile'
 }
 
 export type LoginModalProps = {
@@ -41,6 +43,7 @@ export type LoginModalOptionI18N = {
   browser_extension: React.ReactNode
   email: React.ReactNode
   mobile: React.ReactNode
+  mobile_and_browser: React.ReactNode
 }
 
 class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
@@ -48,7 +51,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     i18n: {
       browser_extension: 'Using a browser extension',
       email: 'Using your email',
-      mobile: 'Using your mobile wallet'
+      mobile: 'Using your mobile wallet',
+      mobile_and_browser: 'Using your mobile or browser'
     }
   }
 
@@ -61,6 +65,11 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       case LoginModalOptionType.METAMASK:
         title = 'MetaMask'
         subtitle = i18n.browser_extension
+        break
+
+      case LoginModalOptionType.METAMASK_MOBILE:
+        title = 'MetaMask'
+        subtitle = i18n.mobile
         break
 
       case LoginModalOptionType.DAPPER:
@@ -89,6 +98,11 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
         break
 
       case LoginModalOptionType.WALLET_LINK:
+        title = 'Coinbase Wallet'
+        subtitle = i18n.mobile_and_browser
+        break
+
+      case LoginModalOptionType.WALLET_LINK_MOBILE:
         title = 'Coinbase Wallet'
         subtitle = i18n.mobile
         break
