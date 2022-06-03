@@ -7,14 +7,12 @@ import './LoginModal.css'
 
 export enum LoginModalOptionType {
   METAMASK = 'metamask',
-  METAMASK_MOBILE = 'metamask-mobile',
   DAPPER = 'dapper',
   FORTMATIC = 'fortmatic',
   COINBASE = 'coinbase',
   SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect',
-  WALLET_LINK = 'wallet-link',
-  WALLET_LINK_MOBILE = 'wallet-link-mobile'
+  WALLET_LINK = 'wallet-link'
 }
 
 export type LoginModalProps = {
@@ -67,11 +65,6 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
         subtitle = i18n.browser_extension
         break
 
-      case LoginModalOptionType.METAMASK_MOBILE:
-        title = 'MetaMask'
-        subtitle = i18n.mobile
-        break
-
       case LoginModalOptionType.DAPPER:
         title = 'Dapper'
         subtitle = i18n.browser_extension
@@ -100,11 +93,6 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       case LoginModalOptionType.WALLET_LINK:
         title = 'Coinbase Wallet'
         subtitle = i18n.mobile_and_browser
-        break
-
-      case LoginModalOptionType.WALLET_LINK_MOBILE:
-        title = 'Coinbase Wallet'
-        subtitle = i18n.mobile
         break
     }
 

@@ -52,14 +52,12 @@ storiesOf('LoginModal', module)
       {lipsum}
       <LoginModal open onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.METAMASK_MOBILE} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK_MOBILE} />
       </LoginModal>
     </div>
   ))
@@ -72,14 +70,12 @@ storiesOf('LoginModal', module)
         onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.METAMASK_MOBILE} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK_MOBILE} />
       </LoginModal>
     </div>
   ))
@@ -88,14 +84,12 @@ storiesOf('LoginModal', module)
       {lipsum}
       <LoginModal open hasError onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.METAMASK_MOBILE} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK_MOBILE} />
       </LoginModal>
     </div>
   ))
@@ -104,13 +98,11 @@ storiesOf('LoginModal', module)
       {lipsum}
       <LoginModal open loading onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.METAMASK_MOBILE} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK_MOBILE} />
       </LoginModal>
     </div>
   ))
@@ -125,14 +117,12 @@ storiesOf('LoginModal', module)
         onClose={() => undefined}
       >
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.METAMASK_MOBILE} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.COINBASE} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
         <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK_MOBILE} />
       </LoginModal>
     </div>
   ))
