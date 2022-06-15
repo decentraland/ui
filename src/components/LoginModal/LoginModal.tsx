@@ -41,6 +41,7 @@ export type LoginModalOptionI18N = {
   browser_extension: React.ReactNode
   email: React.ReactNode
   mobile: React.ReactNode
+  mobile_and_browser: React.ReactNode
 }
 
 class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
@@ -48,7 +49,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     i18n: {
       browser_extension: 'Using a browser extension',
       email: 'Using your email',
-      mobile: 'Using your mobile wallet'
+      mobile: 'Using your mobile wallet',
+      mobile_and_browser: 'Using your mobile + browser extension'
     }
   }
 
@@ -90,7 +92,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
 
       case LoginModalOptionType.WALLET_LINK:
         title = 'Coinbase Wallet'
-        subtitle = i18n.mobile
+        subtitle = i18n.mobile_and_browser
         break
     }
 
