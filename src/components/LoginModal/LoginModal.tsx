@@ -50,7 +50,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       browser_extension: 'Using a browser extension',
       email: 'Using your email',
       mobile: 'Using your mobile wallet',
-      mobile_and_browser: 'Using a mobile wallet or browser extension'
+      mobile_and_browser: 'Using your mobile + browser extension'
     }
   }
 
