@@ -444,13 +444,13 @@ storiesOf('WearablePreview', module)
       </div>
     )
   })
-  .add('With zoom and offset', () => (
+  .add('With offset', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview
+        baseUrl="http://localhost:3000"
         profile="default"
-        zoom={100}
         offsetY={0.5}
-        offsetZ={-0.1}
+        offsetX={0.5}
       />
     </div>
   ))
