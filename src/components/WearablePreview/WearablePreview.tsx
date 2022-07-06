@@ -8,10 +8,12 @@ import {
   PreviewOptions,
   PreviewMessageType,
   PreviewMessagePayload,
-  sendMessage
+  sendMessage,
+  WearableWithBlobs
 } from '@dcl/schemas/dist/dapps/preview'
-import { WearableBodyShape } from '@dcl/schemas/dist/platform/wearables'
+import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
+import { createController } from './WearablePreview.controller'
 import './WearablePreview.css'
 
 const debounce = createDebounce()
@@ -25,13 +27,13 @@ export type WearablePreviewProps = {
   urns?: string[]
   urls?: string[]
   base64s?: string[]
+  blob?: WearableWithBlobs
   skin?: string
   hair?: string
   eyes?: string
   emote?: PreviewEmote
-  bodyShape?: WearableBodyShape
+  bodyShape?: BodyShape
   camera?: PreviewCamera
-  autoRotateSpeed?: number
   zoom?: number
   offsetX?: number
   offsetY?: number
@@ -39,9 +41,12 @@ export type WearablePreviewProps = {
   wheelZoom?: number
   wheelPrecision?: number
   wheelStart?: number
-  transparentBackground?: boolean
+  disableBackground?: boolean
+  disableAutoRotate?: boolean
+  disableAutoCenter?: boolean
+  disableFace?: boolean
+  disableDefaultWearables?: boolean
   dev?: boolean
-  hotreload?: boolean
   baseUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
@@ -58,9 +63,14 @@ type WearablePreviewState = {
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
     dev: false,
-    baseUrl: 'https://wearable-preview.decentraland.org',
+    baseUrl: 'https://wearable-preview.decentraland.org/',
     onLoad: () => {},
-    onError: () => {}
+    onError: () => {},
+    onUpdate: () => {}
+  }
+
+  static createController(id: string) {
+    return createController(id)
   }
 
   state: WearablePreviewState = {
@@ -87,14 +97,17 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       emote,
       camera,
       zoom,
-      autoRotateSpeed,
       offsetX,
       offsetY,
       offsetZ,
       wheelZoom,
       wheelPrecision,
       wheelStart,
-      transparentBackground,
+      disableBackground,
+      disableAutoRotate,
+      disableAutoCenter,
+      disableFace,
+      disableDefaultWearables,
       dev,
       baseUrl
     } = this.props
@@ -118,9 +131,6 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const emoteParam = emote ? `emote=${emote}` : ''
     const cameraParam = camera ? `camera=${camera}` : ''
     const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
-    const autoRotateSpeedParam = !isNaN(autoRotateSpeed)
-      ? `autoRotateSpeed=${autoRotateSpeed}`
-      : ''
     const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
     const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
     const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
@@ -129,8 +139,12 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       ? `wheelPrecision=${wheelPrecision}`
       : ''
     const wheelStartParam = !isNaN(wheelStart) ? `wheelStart=${wheelStart}` : ''
-    const transparentBackgroundParam = transparentBackground
-      ? `transparentBackground`
+    const disableBackgroundParam = disableBackground ? `disableBackground` : ''
+    const disableAutoRotateParam = disableAutoRotate ? `disableAutoRotate` : ''
+    const disableAutoCenterParam = disableAutoCenter ? `disableAutoCenter` : ''
+    const disableFaceParam = disableFace ? `disableFace` : ''
+    const disableDefaultWearablesParam = disableDefaultWearables
+      ? `disableDefaultWearables`
       : ''
     const envParam = dev ? `env=dev` : ''
     const url =
@@ -151,14 +165,17 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         emoteParam,
         cameraParam,
         zoomParam,
-        autoRotateSpeedParam,
         offsetXParam,
         offsetYParam,
         offsetZParam,
         wheelZoomParam,
         wheelPrecisionParam,
         wheelStartParam,
-        transparentBackgroundParam,
+        disableBackgroundParam,
+        disableAutoRotateParam,
+        disableAutoCenterParam,
+        disableFaceParam,
+        disableDefaultWearablesParam,
         envParam
       ]
         .filter((param) => !!param)
@@ -167,13 +184,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   }
 
   getOptions = () => {
-    const { dev, hotreload, ...rest } = this.props
-
-    if (!hotreload) {
-      throw new Error(
-        'Should not generate options if hotreload is not turned on'
-      )
-    }
+    const { dev, ...rest } = this.props
 
     const options: PreviewOptions = {
       env: dev ? PreviewEnv.DEV : PreviewEnv.PROD
@@ -256,9 +267,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       })
       // callback
       const { onUpdate } = this.props
-      if (onUpdate) {
-        onUpdate(options)
-      }
+      onUpdate(options)
+
       // store options on state
       this.setState({ lastOptions: options })
     }
@@ -266,7 +276,14 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
 
   componentDidMount() {
     window.addEventListener('message', this.handleMessage, false)
+
+    // set url in state
     this.setState({ url: this.getUrl() })
+
+    // if there's a blob in the props, it can't be passed via URL, so we send it via postMessage
+    if (this.props.blob) {
+      this.handleUpdate()
+    }
   }
 
   componentWillUnmount() {
@@ -274,9 +291,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   }
 
   componentDidUpdate() {
-    if (this.props.hotreload) {
-      debounce(this.handleUpdate, 500)
-    }
+    debounce(this.handleUpdate, 500)
   }
 
   refIframe = (iframe: HTMLIFrameElement | null) => {
@@ -294,7 +309,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       <iframe
         id={this.props.id}
         className="WearablePreview"
-        src={this.props.hotreload ? this.state.url : this.getUrl()}
+        src={this.state.url}
         width="100%"
         height="100%"
         frameBorder="0"

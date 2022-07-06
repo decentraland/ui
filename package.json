@@ -72,10 +72,11 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^4.9.0",
+    "@dcl/schemas": "^5.3.0",
     "balloon-css": "^0.5.0",
     "deep-equal": "^2.0.5",
     "ethereum-blockies": "^0.1.1",
+    "fp-future": "^1.0.1",
     "parallax-js": "^3.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
