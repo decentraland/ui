@@ -248,6 +248,11 @@ storiesOf('WearablePreview', module)
       <WearablePreview profile="default" disableBackground />
     </div>
   ))
+  .add('With custom background color', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview profile="default" background="ff0000" />
+    </div>
+  ))
   .add('Take screenshot and metrics', () => {
     const [screenshot, setScreenshot] = React.useState('')
     const [metrics, setMetrics] = React.useState<Metrics | null>(null)
