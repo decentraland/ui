@@ -418,7 +418,7 @@ storiesOf('WearablePreview', module)
               </Button>
               {screenshot && <img src={screenshot} />}
               {length > 0 && (
-                <span>
+                <span className="slider">
                   <SliderField
                     header=""
                     min={0}

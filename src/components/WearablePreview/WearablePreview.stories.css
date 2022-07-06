@@ -38,12 +38,16 @@
   outline: none;
 }
 
-.WearablePreview-story-container .dcl.sliderfield .dcl.sliderfield-header,
-.WearablePreview-story-container .dcl.sliderfield p {
-  display: none;
-}
-
 .WearablePreview-story-container .controls .goto {
   margin-left: 0px;
   border-radius: 0px 8px 8px 0px;
+}
+
+.WearablePreview-story-container .slider {
+  width: 300px;
+}
+
+.WearablePreview-story-container .dcl.sliderfield .dcl.sliderfield-header,
+.WearablePreview-story-container .dcl.sliderfield p {
+  display: none;
 }
