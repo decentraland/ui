@@ -63,7 +63,7 @@ type WearablePreviewState = {
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
     dev: false,
-    baseUrl: 'https://wearable-preview.decentraland.org/',
+    baseUrl: 'https://wearable-preview.decentraland.org',
     onLoad: () => {},
     onError: () => {},
     onUpdate: () => {}
