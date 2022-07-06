@@ -7,3 +7,43 @@
 .WearablePreview-story-container .dcl.hero {
   padding: 0px;
 }
+
+.WearablePreview-story-container .controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.WearablePreview-story-container .controls * + * {
+  margin-left: 10px;
+}
+
+.WearablePreview-story-container .controls img {
+  position: absolute;
+  top: 54px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  margin-left: 0px;
+  background-color: #ffffff;
+  width: 256px;
+  height: 256px;
+}
+
+.WearablePreview-story-container .controls .seconds {
+  height: 42px;
+  width: 84px;
+  border-radius: 8px 0px 0px 8px;
+  border: none;
+  padding-left: 12px;
+  outline: none;
+}
+
+.WearablePreview-story-container .dcl.sliderfield .dcl.sliderfield-header,
+.WearablePreview-story-container .dcl.sliderfield p {
+  display: none;
+}
+
+.WearablePreview-story-container .controls .goto {
+  margin-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+}

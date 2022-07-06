@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { PreviewCamera, PreviewEmote } from '@dcl/schemas/dist/dapps/preview'
-import { WearableBodyShape } from '@dcl/schemas/dist/platform/wearables'
-import { WearablePreview } from './WearablePreview'
+import {
+  IPreviewController,
+  PreviewCamera,
+  PreviewEmote,
+  WearableWithBlobs
+} from '@dcl/schemas/dist/dapps/preview'
+import { BodyShape, Metrics } from '@dcl/schemas/dist/platform/item'
+import { WearableCategory } from '@dcl/schemas'
+import { Button } from '../Button/Button'
 import { Navbar } from '../Navbar/Navbar'
 import { Tabs } from '../Tabs/Tabs'
 import { Page } from '../Page/Page'
@@ -10,6 +16,10 @@ import { Hero } from '../Hero/Hero'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
+import { Row } from '../Row/Row'
+import { Center } from '../Center/Center'
+import { SliderField } from '../SliderField/SliderField'
+import { WearablePreview } from './WearablePreview'
 import './WearablePreview.stories.css'
 
 const getRandomHex = () => {
@@ -28,6 +38,38 @@ const RandomConfigProvider = (props: {
     }, 5000)
   }, [])
   return props.children(hair, skin)
+}
+
+function toWearableWithBlobs(file: File, isEmote = false): WearableWithBlobs {
+  return {
+    id: 'some-id',
+    name: '',
+    description: '',
+    image: '',
+    thumbnail: '',
+    i18n: [],
+    data: {
+      category: WearableCategory.HAT,
+      hides: [],
+      replaces: [],
+      tags: [],
+      representations: [
+        {
+          bodyShapes: [BodyShape.MALE, BodyShape.FEMALE],
+          mainFile: 'model.glb',
+          contents: [
+            {
+              key: 'model.glb',
+              blob: file
+            }
+          ],
+          overrideHides: [],
+          overrideReplaces: []
+        }
+      ]
+    },
+    emoteDataV0: isEmote ? { loop: false } : undefined
+  }
 }
 
 storiesOf('WearablePreview', module)
@@ -88,7 +130,7 @@ storiesOf('WearablePreview', module)
         contractAddress="0xe3d2c4ec777fb88dd219905cd896f79a592adf30"
         itemId="0"
         hair="00ff00"
-        bodyShape={WearableBodyShape.FEMALE}
+        bodyShape={BodyShape.FEMALE}
       />
     </div>
   ))
@@ -198,10 +240,211 @@ storiesOf('WearablePreview', module)
   ))
   .add('Without auto rotation', () => (
     <div className="WearablePreview-story-container">
-      <WearablePreview profile="default" autoRotateSpeed={0} />
+      <WearablePreview profile="default" disableAutoRotate />
     </div>
   ))
-  .add('With offset and zoom', () => (
+  .add('Without background (or transparent background)', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview profile="default" disableBackground />
+    </div>
+  ))
+  .add('Take screenshot and metrics', () => {
+    const [screenshot, setScreenshot] = React.useState('')
+    const [metrics, setMetrics] = React.useState<Metrics | null>(null)
+    const ref = React.useRef<IPreviewController | null>(null)
+    const onLoad = React.useCallback(() => {
+      ref.current = ref.current ?? WearablePreview.createController('some-id')
+    }, [])
+    return (
+      <div className="WearablePreview-story-container">
+        <WearablePreview
+          id="some-id"
+          contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
+          itemId="0"
+          disableAutoRotate
+          disableBackground
+          onLoad={onLoad}
+        />
+        <Row className="controls">
+          <Button
+            primary
+            onClick={() =>
+              ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
+            }
+          >
+            Screenshot
+          </Button>
+          {screenshot && <img src={screenshot} />}
+          <Button
+            primary
+            onClick={() => ref.current.scene.getMetrics().then(setMetrics)}
+          >
+            Metrics
+          </Button>
+          {metrics && <p>{JSON.stringify(metrics)}</p>}
+        </Row>
+      </div>
+    )
+  })
+  .add('Emote controls', () => {
+    const [goTo, setGoTo] = React.useState('0')
+    const [screenshot, setScreenshot] = React.useState('')
+    const [length, setLength] = React.useState('')
+    const ref = React.useRef<IPreviewController | null>(null)
+    const onLoad = React.useCallback(() => {
+      ref.current = ref.current ?? WearablePreview.createController('some-id')
+    }, [])
+    return (
+      <div className="WearablePreview-story-container">
+        <WearablePreview
+          id="some-id"
+          profile="default"
+          emote={PreviewEmote.DANCE}
+          disableBackground
+          disableAutoRotate
+          disableFace
+          disableDefaultWearables
+          skin="000000"
+          onLoad={onLoad}
+        />
+        <Row className="controls">
+          <Button primary onClick={() => ref.current.emote.play()}>
+            Play
+          </Button>
+          <Button primary onClick={() => ref.current.emote.pause()}>
+            Pause
+          </Button>
+          <Button primary onClick={() => ref.current.emote.stop()}>
+            Stop
+          </Button>
+          <input
+            className="seconds"
+            type="number"
+            value={goTo}
+            onChange={(e) => setGoTo(e.target.value)}
+          />
+          <Button
+            primary
+            className="goto"
+            onClick={() => {
+              const parsed = parseFloat(goTo)
+              if (!isNaN(parsed)) {
+                ref.current.emote.goTo(parsed)
+              }
+            }}
+          >
+            Go To
+          </Button>
+          <Button
+            primary
+            onClick={() =>
+              ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
+            }
+          >
+            Screenshot
+          </Button>
+          <Button
+            primary
+            onClick={() =>
+              ref.current.emote
+                .getLength()
+                .then((value) => setLength(value.toFixed(2)))
+            }
+          >
+            Get Length
+          </Button>
+          {screenshot && <img src={screenshot} />}
+          {!!length && <p>Length: {length} seconds</p>}
+        </Row>
+      </div>
+    )
+  })
+  .add('Preview from a file', () => {
+    const inputRef = React.useRef<HTMLInputElement>()
+    const [file, setFile] = React.useState<File | null>(null)
+    return (
+      <div className="WearablePreview-story-container">
+        {file ? (
+          <WearablePreview blob={toWearableWithBlobs(file)} />
+        ) : (
+          <Center>
+            <input
+              type="file"
+              ref={inputRef}
+              onChange={() => setFile(inputRef.current.files[0])}
+            />
+          </Center>
+        )}
+      </div>
+    )
+  })
+  .add('Emote thumbnail picker', () => {
+    const inputRef = React.useRef<HTMLInputElement>()
+    const [file, setFile] = React.useState<File | null>(null)
+    const [screenshot, setScreenshot] = React.useState('')
+    const [length, setLength] = React.useState(0)
+    const ref = React.useRef<IPreviewController | null>(null)
+    const onLoad = React.useCallback(async () => {
+      ref.current =
+        ref.current ?? WearablePreview.createController('thumbnail-picker')
+      setLength(await ref.current.emote.getLength())
+    }, [])
+    return (
+      <div className="WearablePreview-story-container">
+        {file ? (
+          <>
+            <WearablePreview
+              id="thumbnail-picker"
+              blob={file ? toWearableWithBlobs(file, true) : undefined}
+              profile="default"
+              disableBackground
+              disableAutoRotate
+              disableFace
+              disableDefaultWearables
+              skin="000000"
+              wheelZoom={2}
+              onLoad={onLoad}
+            />
+            <Row className="controls">
+              <Button
+                primary
+                onClick={() =>
+                  ref.current.scene
+                    .getScreenshot(1024, 1024)
+                    .then(setScreenshot)
+                }
+              >
+                Screenshot
+              </Button>
+              {screenshot && <img src={screenshot} />}
+              {length > 0 && (
+                <span>
+                  <SliderField
+                    header=""
+                    min={0}
+                    max={length * 100}
+                    onChange={async (_, value) => {
+                      await ref.current.emote.pause()
+                      await ref.current.emote.goTo(value / 100)
+                    }}
+                  />
+                </span>
+              )}
+            </Row>
+          </>
+        ) : (
+          <Center>
+            <input
+              type="file"
+              ref={inputRef}
+              onChange={() => setFile(inputRef.current.files[0])}
+            />
+          </Center>
+        )}
+      </div>
+    )
+  })
+  .add('With zoom and offset', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview
         profile="default"
@@ -209,10 +452,5 @@ storiesOf('WearablePreview', module)
         offsetY={0.5}
         offsetZ={-0.1}
       />
-    </div>
-  ))
-  .add('With transparent background', () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview profile="default" transparentBackground />
     </div>
   ))
