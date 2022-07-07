@@ -133,7 +133,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const emoteParam = emote ? `emote=${emote}` : ''
     const cameraParam = camera ? `camera=${camera}` : ''
     const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
-    const backgroundParam = skin ? `background=${background}` : ''
+    const backgroundParam = background ? `background=${background}` : ''
     const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
     const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
     const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
