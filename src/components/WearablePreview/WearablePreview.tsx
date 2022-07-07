@@ -35,6 +35,7 @@ export type WearablePreviewProps = {
   bodyShape?: BodyShape
   camera?: PreviewCamera
   zoom?: number
+  background?: string
   offsetX?: number
   offsetY?: number
   offsetZ?: number
@@ -97,6 +98,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       emote,
       camera,
       zoom,
+      background,
       offsetX,
       offsetY,
       offsetZ,
@@ -131,6 +133,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const emoteParam = emote ? `emote=${emote}` : ''
     const cameraParam = camera ? `camera=${camera}` : ''
     const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
+    const backgroundParam = skin ? `background=${background}` : ''
     const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
     const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
     const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
@@ -165,6 +168,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         emoteParam,
         cameraParam,
         zoomParam,
+        backgroundParam,
         offsetXParam,
         offsetYParam,
         offsetZParam,
