@@ -30,8 +30,8 @@ window.onmessage = function handleMessage(event: MessageEvent) {
   }
 }
 
+let nonce = 0
 function createSendRequest(id: string) {
-  let nonce = 0
   return function sendRequest<T>(
     namespace: 'scene' | 'emote',
     method:
