@@ -47,6 +47,7 @@ export type WearablePreviewProps = {
   disableAutoCenter?: boolean
   disableFace?: boolean
   disableDefaultWearables?: boolean
+  disableDefaultEmotes?: boolean
   dev?: boolean
   baseUrl?: string
   onLoad?: () => void
@@ -110,6 +111,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       disableAutoCenter,
       disableFace,
       disableDefaultWearables,
+      disableDefaultEmotes,
       dev,
       baseUrl
     } = this.props
@@ -149,6 +151,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const disableDefaultWearablesParam = disableDefaultWearables
       ? `disableDefaultWearables`
       : ''
+    const disableDefaultEmotesParam = disableDefaultEmotes
+      ? `disableDefaultEmotes`
+      : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -180,6 +185,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         disableAutoCenterParam,
         disableFaceParam,
         disableDefaultWearablesParam,
+        disableDefaultEmotesParam,
         envParam
       ]
         .filter((param) => !!param)
