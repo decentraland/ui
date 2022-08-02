@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { EventEmitter } from 'events'
+import future, { IFuture } from 'fp-future'
 import {
   IPreviewController,
   PreviewMessagePayload,
@@ -6,26 +8,39 @@ import {
   sendMessage
 } from '@dcl/schemas/dist/dapps/preview'
 import { Metrics } from '@dcl/schemas/dist/platform/item/metrics'
-import future, { IFuture } from 'fp-future'
 
 const promises = new Map<string, IFuture<any>>()
+const emoteEvents = new Map<MessageEventSource, EventEmitter>()
 
 window.onmessage = function handleMessage(event: MessageEvent) {
-  if (
-    event.data &&
-    event.data.type &&
-    event.data.type === PreviewMessageType.CONTROLLER_RESPONSE
-  ) {
-    const payload = event.data
-      .payload as PreviewMessagePayload<PreviewMessageType.CONTROLLER_RESPONSE>
-    const { id } = payload
-    const promise = promises.get(id)
-    if (promise) {
-      if (payload.ok) {
-        promise.resolve(payload.result)
-      } else if (payload.ok === false) {
-        promise.reject(new Error(payload.error))
+  if (event.data && event.data.type) {
+    switch (event.data.type as PreviewMessageType) {
+      case PreviewMessageType.CONTROLLER_RESPONSE: {
+        const payload = event.data
+          .payload as PreviewMessagePayload<PreviewMessageType.CONTROLLER_RESPONSE>
+        const { id } = payload
+        const promise = promises.get(id)
+        if (promise) {
+          if (payload.ok) {
+            promise.resolve(payload.result)
+          } else if (payload.ok === false) {
+            promise.reject(new Error(payload.error))
+          }
+        }
+        break
       }
+      case PreviewMessageType.EMOTE_EVENT: {
+        const payload = event.data
+          .payload as PreviewMessagePayload<PreviewMessageType.EMOTE_EVENT>
+        const { type } = payload
+        const events = emoteEvents.get(event.source)
+        if (events && type) {
+          events.emit(event.data.payload.type)
+        }
+        break
+      }
+      default:
+      // nothing to do, invalid message
     }
   }
 }
@@ -58,9 +73,13 @@ function createSendRequest(id: string) {
 }
 
 export function createController(id: string): IPreviewController {
-  if (!document.getElementById(id)) {
+  const iframe = document.getElementById(id) as HTMLIFrameElement
+  if (!iframe) {
     throw new Error(`Could not find an iframe with id="${id}"`)
   }
+
+  const events = new EventEmitter()
+  emoteEvents.set(iframe.contentWindow, events)
 
   const sendRequest = createSendRequest(id)
 
@@ -91,7 +110,8 @@ export function createController(id: string): IPreviewController {
       },
       stop() {
         return sendRequest<void>('emote', 'stop', [])
-      }
+      },
+      events
     }
   }
 }
