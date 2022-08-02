@@ -35,7 +35,7 @@ window.onmessage = function handleMessage(event: MessageEvent) {
         const { type } = payload
         const events = emoteEvents.get(event.source)
         if (events && type) {
-          events.emit(event.data.payload.type)
+          events.emit(type)
         }
         break
       }
