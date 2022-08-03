@@ -20,7 +20,6 @@ type EmoteControlsState = {
   frame: number
   isPlaying: boolean
   playingIntervalId?: number
-  previewController?: IPreviewController
   length?: number
 }
 
@@ -28,12 +27,15 @@ export class EmoteControls extends React.PureComponent<
   EmoteControlsProps,
   EmoteControlsState
 > {
+  mounted = false
+  previewController: IPreviewController | undefined
   state: EmoteControlsState = {
     isPlaying: false,
     frame: 0
   }
 
   async componentDidMount(): Promise<void> {
+    this.mounted = true
     const previewController = WearablePreview.createController(
       this.props.wearablePreviewId
     )
@@ -53,8 +55,10 @@ export class EmoteControls extends React.PureComponent<
       () => this.setState({ isPlaying: true })
     )
 
+    this.previewController = previewController
+    if (!this.mounted) return
+
     this.setState({
-      previewController,
       length,
       isPlaying: true,
       playingIntervalId: this.trackFrame(length)
@@ -69,6 +73,10 @@ export class EmoteControls extends React.PureComponent<
     if (prevState.isPlaying && !isPlaying) {
       this.clearPlayingInterval()
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   trackFrame = (length: number, currentFrame?: number) => {
@@ -97,11 +105,11 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handlePlayPause = async () => {
-    const { previewController, frame, length, isPlaying } = this.state
+    const { frame, length, isPlaying } = this.state
     if (isPlaying) {
-      await previewController?.emote.pause()
+      await this.previewController?.emote.pause()
     } else {
-      await previewController?.emote.play()
+      await this.previewController?.emote.play()
       const hasEnded = frame === length * 100
       // it's at the end, let's go back to the first frame
       this.setState({
@@ -113,15 +121,15 @@ export class EmoteControls extends React.PureComponent<
 
   handleFrameChange = async (value: number) => {
     let targetValue = !isNaN(value) ? value : 0
-    const { previewController, isPlaying, length } = this.state
+    const { isPlaying, length } = this.state
     if (length * 100 < value) {
       targetValue = length * 100
     }
     this.setState({ frame: targetValue })
     if (isPlaying) {
-      await previewController?.emote.pause()
+      await this.previewController?.emote.pause()
     }
-    await previewController?.emote.goTo(targetValue / 100)
+    await this.previewController?.emote.goTo(targetValue / 100)
   }
 
   render() {
