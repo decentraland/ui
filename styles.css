@@ -3512,6 +3512,19 @@ a.ui.card:hover,
   background: var(--secondary);
 }
 
+.WearablePreview .play-controls {
+  display: flex;
+  margin: 16px 0;
+}
+
+.WearablePreview .ui.button.play-control {
+  width: 56px;
+  height: 44px;
+  padding: 0;
+  min-width: unset;
+  margin-right: 16px;
+}
+
 .dcl.select-field {
   min-width: 400px;
 }
