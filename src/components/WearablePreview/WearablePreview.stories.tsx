@@ -20,6 +20,7 @@ import { Row } from '../Row/Row'
 import { Center } from '../Center/Center'
 import { SliderField } from '../SliderField/SliderField'
 import { WearablePreview } from './WearablePreview'
+import { EmoteControls } from './EmoteControls'
 import './WearablePreview.stories.css'
 
 const getRandomHex = () => {
@@ -291,7 +292,31 @@ storiesOf('WearablePreview', module)
       </div>
     )
   })
-  .add('Emote controls', () => {
+  .add('With EmoteControls', () => {
+    const [showControls, setShowControls] = React.useState(false)
+    const ref = React.useRef<IPreviewController | null>(null)
+    const onLoad = React.useCallback(() => {
+      ref.current = ref.current ?? WearablePreview.createController('some-id')
+      setShowControls(true)
+    }, [])
+    return (
+      <div className="WearablePreview-story-container">
+        <WearablePreview
+          id="some-id"
+          profile="default"
+          emote={PreviewEmote.DANCE}
+          disableBackground
+          disableAutoRotate
+          disableFace
+          disableDefaultWearables
+          skin="000000"
+          onLoad={onLoad}
+        />
+        {showControls && <EmoteControls wearablePreviewId="some-id" />}
+      </div>
+    )
+  })
+  .add('Emote Events', () => {
     const [goTo, setGoTo] = React.useState('0')
     const [screenshot, setScreenshot] = React.useState('')
     const [length, setLength] = React.useState('')
