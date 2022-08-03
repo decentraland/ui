@@ -4,6 +4,7 @@ import {
   IPreviewController,
   PreviewCamera,
   PreviewEmote,
+  PreviewProjection,
   WearableWithBlobs
 } from '@dcl/schemas/dist/dapps/preview'
 import { BodyShape, Metrics } from '@dcl/schemas/dist/platform/item'
@@ -451,11 +452,59 @@ storiesOf('WearablePreview', module)
   })
   .add('With offset', () => (
     <div className="WearablePreview-story-container">
+      <WearablePreview profile="default" offsetY={0.5} offsetX={0.5} />
+    </div>
+  ))
+  .add('Camera from the front', () => (
+    <div className="WearablePreview-story-container">
       <WearablePreview
-        baseUrl="http://localhost:3000"
-        profile="default"
-        offsetY={0.5}
-        offsetX={0.5}
+        contractAddress="0x9449bc0ef0108d2af6f1031aa5a51a3a830d59c2"
+        itemId="0"
+        cameraX={0}
+        cameraY={0}
+        cameraZ={3}
+        disableAutoRotate
       />
+    </div>
+  ))
+  .add('Camera from the top', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
+        itemId="2"
+        cameraX={0}
+        cameraY={2}
+        cameraZ={0}
+        disableAutoRotate
+      />
+    </div>
+  ))
+  .add('Different projections', () => (
+    <div className="WearablePreview-story-container">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%'
+        }}
+      >
+        <div style={{ width: 512, height: 512, display: 'inline-block' }}>
+          <WearablePreview
+            contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
+            itemId="2"
+            projection={PreviewProjection.ORTHOGRAPHIC}
+            disableAutoRotate
+          />
+        </div>
+        <div style={{ width: 512, height: 512, display: 'inline-block' }}>
+          <WearablePreview
+            contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
+            itemId="2"
+            projection={PreviewProjection.PERSPECTIVE}
+            disableAutoRotate
+          />
+        </div>
+      </div>
     </div>
   ))

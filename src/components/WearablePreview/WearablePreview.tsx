@@ -8,6 +8,7 @@ import {
   PreviewOptions,
   PreviewMessageType,
   PreviewMessagePayload,
+  PreviewProjection,
   sendMessage,
   WearableWithBlobs
 } from '@dcl/schemas/dist/dapps/preview'
@@ -34,11 +35,15 @@ export type WearablePreviewProps = {
   emote?: PreviewEmote
   bodyShape?: BodyShape
   camera?: PreviewCamera
+  projection?: PreviewProjection
   zoom?: number
   background?: string
   offsetX?: number
   offsetY?: number
   offsetZ?: number
+  cameraX?: number
+  cameraY?: number
+  cameraZ?: number
   wheelZoom?: number
   wheelPrecision?: number
   wheelStart?: number
@@ -98,11 +103,15 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       bodyShape,
       emote,
       camera,
+      projection,
       zoom,
       background,
       offsetX,
       offsetY,
       offsetZ,
+      cameraX,
+      cameraY,
+      cameraZ,
       wheelZoom,
       wheelPrecision,
       wheelStart,
@@ -134,11 +143,15 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const bodyShapeParam = bodyShape ? `bodyShape=${bodyShape}` : ''
     const emoteParam = emote ? `emote=${emote}` : ''
     const cameraParam = camera ? `camera=${camera}` : ''
+    const projectionParam = projection ? `projection=${projection}` : ''
     const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
     const backgroundParam = background ? `background=${background}` : ''
     const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
     const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
     const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
+    const cameraXParam = !isNaN(cameraX) ? `cameraX=${cameraX}` : ''
+    const cameraYParam = !isNaN(cameraY) ? `cameraY=${cameraY}` : ''
+    const cameraZParam = !isNaN(cameraZ) ? `cameraZ=${cameraZ}` : ''
     const wheelZoomParam = !isNaN(wheelZoom) ? `wheelZoom=${wheelZoom}` : ''
     const wheelPrecisionParam = !isNaN(wheelPrecision)
       ? `wheelPrecision=${wheelPrecision}`
@@ -172,11 +185,15 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         bodyShapeParam,
         emoteParam,
         cameraParam,
+        projectionParam,
         zoomParam,
         backgroundParam,
         offsetXParam,
         offsetYParam,
         offsetZParam,
+        cameraXParam,
+        cameraYParam,
+        cameraZParam,
         wheelZoomParam,
         wheelPrecisionParam,
         wheelStartParam,
