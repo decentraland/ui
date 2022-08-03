@@ -79,7 +79,7 @@ export class EmoteControls extends React.PureComponent<
 
     let counter = currentFrame || 0
     const max = length * 100
-    return setInterval(() => {
+    return window.setInterval(() => {
       counter += ANIMATION_INTERVAL_PERCENTAGE * length
       const nextValue = counter >= max ? max : counter
       this.setState({
