@@ -6,14 +6,13 @@ import { Button } from '../Button/Button'
 import { Icon, WearablePreview } from '../..'
 import './EmoteControls.css'
 
-const ANIMATION_INTERVAL_PERCENTAGE = 0.1
-
 export type EmoteControlsProps = {
   wearablePreviewId: string
   className?: string
   hideFrameInput?: boolean
   hideProgressInput?: boolean
   hidePlayButton?: boolean
+  wearablePreviewController?: IPreviewController
 }
 
 type EmoteControlsState = {
@@ -27,42 +26,58 @@ export class EmoteControls extends React.PureComponent<
   EmoteControlsProps,
   EmoteControlsState
 > {
-  mounted = false
   previewController: IPreviewController | undefined
   state: EmoteControlsState = {
     isPlaying: false,
     frame: 0
   }
 
-  async componentDidMount(): Promise<void> {
-    this.mounted = true
-    const previewController = WearablePreview.createController(
-      this.props.wearablePreviewId
-    )
-    const length = await previewController.emote.getLength()
+  handleAnimationEnd = () => {
+    this.setState({ isPlaying: false })
+  }
 
-    previewController.emote.events.on(PreviewEmoteEventType.ANIMATION_END, () =>
-      this.setState({ isPlaying: false })
+  handleAnimationPause = () => {
+    this.setState({ isPlaying: false })
+  }
+
+  handleAnimationPlay = async () => {
+    const { frame } = this.state
+    const length = await this.previewController.emote.getLength()
+    const intervalId = this.trackFrame(
+      length,
+      frame < length * 100 ? frame : undefined
+    )
+    this.setState((prevState) => ({
+      isPlaying: true,
+      length,
+      frame: prevState.frame === length * 100 ? 0 : prevState.frame,
+      playingIntervalId: intervalId
+    }))
+  }
+
+  async componentDidMount(): Promise<void> {
+    const { wearablePreviewController } = this.props
+
+    const previewController =
+      wearablePreviewController ??
+      WearablePreview.createController(this.props.wearablePreviewId)
+
+    previewController.emote.events.on(
+      PreviewEmoteEventType.ANIMATION_END,
+      this.handleAnimationEnd
     )
 
     previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_PAUSE,
-      () => this.setState({ isPlaying: false })
+      this.handleAnimationPause
     )
 
     previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_PLAY,
-      () => this.setState({ isPlaying: true })
+      this.handleAnimationPlay
     )
 
     this.previewController = previewController
-    if (!this.mounted) return
-
-    this.setState({
-      length,
-      isPlaying: true,
-      playingIntervalId: this.trackFrame(length)
-    })
   }
 
   componentDidUpdate(
@@ -75,25 +90,26 @@ export class EmoteControls extends React.PureComponent<
     }
   }
 
-  componentWillUnmount() {
-    this.mounted = false
-  }
-
   trackFrame = (length: number, currentFrame?: number) => {
-    const { isPlaying, playingIntervalId } = this.state
-    if (isPlaying && playingIntervalId) {
-      return
+    const { playingIntervalId } = this.state
+    if (playingIntervalId) {
+      clearInterval(playingIntervalId)
     }
 
-    let counter = currentFrame || 0
     const max = length * 100
+    const intervalWindow = 100
+    const interval = (length / (length / (intervalWindow / 1000))) * 100
+    let counter = currentFrame || interval
     return window.setInterval(() => {
-      counter += ANIMATION_INTERVAL_PERCENTAGE * length
+      counter += interval
       const nextValue = counter >= max ? max : counter
+      if (nextValue >= max) {
+        this.clearPlayingInterval()
+      }
       this.setState({
         frame: nextValue
       })
-    }, ANIMATION_INTERVAL_PERCENTAGE * length * 10)
+    }, intervalWindow)
   }
 
   clearPlayingInterval = () => {
@@ -113,8 +129,7 @@ export class EmoteControls extends React.PureComponent<
       const hasEnded = frame === length * 100
       // it's at the end, let's go back to the first frame
       this.setState({
-        frame: hasEnded ? 0 : frame,
-        playingIntervalId: this.trackFrame(length, hasEnded ? 0 : frame)
+        frame: hasEnded ? 0 : frame
       })
     }
   }

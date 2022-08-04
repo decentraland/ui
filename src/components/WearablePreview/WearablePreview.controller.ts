@@ -78,7 +78,7 @@ export function createController(id: string): IPreviewController {
     throw new Error(`Could not find an iframe with id="${id}"`)
   }
 
-  const events = new EventEmitter()
+  const events = emoteEvents.get(iframe.contentWindow) ?? new EventEmitter()
   emoteEvents.set(iframe.contentWindow, events)
 
   const sendRequest = createSendRequest(id)
