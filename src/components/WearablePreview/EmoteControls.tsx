@@ -41,16 +41,20 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationPlay = async () => {
-    const { frame } = this.state
-    const length = await this.previewController.emote.getLength()
+    const { frame, length: stateLength } = this.state
+    let emoteLength = stateLength
+    if (!stateLength) {
+      emoteLength = await this.previewController.emote.getLength()
+    }
+
     const intervalId = this.trackFrame(
-      length,
-      frame < length * 100 ? frame : undefined
+      emoteLength,
+      frame < emoteLength * 100 ? frame : undefined
     )
     this.setState((prevState) => ({
       isPlaying: true,
-      length,
-      frame: prevState.frame === length * 100 ? 0 : prevState.frame,
+      length: emoteLength,
+      frame: prevState.frame === emoteLength * 100 ? 0 : prevState.frame,
       playingIntervalId: intervalId
     }))
   }
@@ -63,6 +67,11 @@ export class EmoteControls extends React.PureComponent<
       WearablePreview.createController(this.props.wearablePreviewId)
 
     previewController.emote.events.on(
+      PreviewEmoteEventType.ANIMATION_PLAY,
+      this.handleAnimationPlay
+    )
+
+    previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_END,
       this.handleAnimationEnd
     )
@@ -70,11 +79,6 @@ export class EmoteControls extends React.PureComponent<
     previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_PAUSE,
       this.handleAnimationPause
-    )
-
-    previewController.emote.events.on(
-      PreviewEmoteEventType.ANIMATION_PLAY,
-      this.handleAnimationPlay
     )
 
     this.previewController = previewController
@@ -135,7 +139,10 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleFrameChange = async (value: number) => {
-    let targetValue = !isNaN(value) ? value : 0
+    if (isNaN(value)) {
+      return
+    }
+    let targetValue = value
     const { isPlaying, length } = this.state
     if (length * 100 < value) {
       targetValue = length * 100
@@ -162,11 +169,11 @@ export class EmoteControls extends React.PureComponent<
             <Icon name={isPlaying ? 'pause' : 'play'} />
           </Button>
         )}
-        {length && !hideProgressInput ? (
+        {!hideProgressInput ? (
           <input
             type="range"
             value={frame}
-            max={length * 100}
+            max={length ? length * 100 : 0}
             min={0}
             step="1"
             onChange={(e) => this.handleFrameChange(Number(e.target.value))}
