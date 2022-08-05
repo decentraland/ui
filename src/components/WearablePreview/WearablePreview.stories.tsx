@@ -294,12 +294,6 @@ storiesOf('WearablePreview', module)
     )
   })
   .add('With EmoteControls', () => {
-    const [showControls, setShowControls] = React.useState(false)
-    const ref = React.useRef<IPreviewController | null>(null)
-    const onLoad = React.useCallback(() => {
-      ref.current = ref.current ?? WearablePreview.createController('some-id')
-      setShowControls(true)
-    }, [])
     return (
       <div className="WearablePreview-story-container">
         <WearablePreview
@@ -311,9 +305,8 @@ storiesOf('WearablePreview', module)
           disableFace
           disableDefaultWearables
           skin="000000"
-          onLoad={onLoad}
         />
-        {showControls && <EmoteControls wearablePreviewId="some-id" />}
+        <EmoteControls wearablePreviewId="some-id" />
       </div>
     )
   })
@@ -435,6 +428,7 @@ storiesOf('WearablePreview', module)
               skin="000000"
               wheelZoom={2}
               onLoad={onLoad}
+              disableDefaultEmotes
             />
             <Row className="controls">
               <Button
@@ -462,6 +456,7 @@ storiesOf('WearablePreview', module)
                 </span>
               )}
             </Row>
+            <EmoteControls wearablePreviewId="thumbnail-picker" />
           </>
         ) : (
           <Center>
