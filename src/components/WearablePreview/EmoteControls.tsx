@@ -32,6 +32,13 @@ export class EmoteControls extends React.PureComponent<
     frame: 0
   }
 
+  handleAnimationLoop = () => {
+    this.setState({
+      frame: 0,
+      playingIntervalId: this.trackFrame(this.state.length, 0)
+    })
+  }
+
   handleAnimationEnd = () => {
     this.setState({ isPlaying: false })
   }
@@ -79,6 +86,11 @@ export class EmoteControls extends React.PureComponent<
     previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_PAUSE,
       this.handleAnimationPause
+    )
+
+    previewController.emote.events.on(
+      PreviewEmoteEventType.ANIMATION_LOOP,
+      this.handleAnimationLoop
     )
 
     this.previewController = previewController
