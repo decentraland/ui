@@ -40,7 +40,11 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationEnd = () => {
-    this.setState({ isPlaying: false })
+    const { frame, length } = this.state
+    this.setState({
+      isPlaying: false,
+      frame: frame.toFixed(0) === (length * 100).toFixed(0) ? 0 : frame // using to Fixed(1)
+    })
   }
 
   handleAnimationPause = () => {
@@ -113,7 +117,7 @@ export class EmoteControls extends React.PureComponent<
     }
 
     const max = length * 100
-    const intervalWindow = 100
+    const intervalWindow = 10
     const interval = (length / (length / (intervalWindow / 1000))) * 100
     let counter = currentFrame || interval
     return window.setInterval(() => {
@@ -141,12 +145,15 @@ export class EmoteControls extends React.PureComponent<
     if (isPlaying) {
       await this.previewController?.emote.pause()
     } else {
-      await this.previewController?.emote.play()
       const hasEnded = frame === length * 100
       // it's at the end, let's go back to the first frame
-      this.setState({
-        frame: hasEnded ? 0 : frame
-      })
+      this.setState(
+        {
+          frame: hasEnded ? 0 : frame,
+          playingIntervalId: this.trackFrame(length, frame)
+        },
+        async () => await this.previewController?.emote.play()
+      )
     }
   }
 
