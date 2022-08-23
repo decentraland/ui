@@ -53,6 +53,9 @@ function createSendRequest(id: string) {
       | 'getScreenshot'
       | 'getMetrics'
       | 'getLength'
+      | 'changeZoom'
+      | 'panCamera'
+      | 'changeCameraPosition'
       | 'isPlaying'
       | 'goTo'
       | 'play'
@@ -90,6 +93,15 @@ export function createController(id: string): IPreviewController {
       },
       getMetrics() {
         return sendRequest<Metrics>('scene', 'getMetrics', [])
+      },
+      changeZoom: function (zoom) {
+        return sendRequest('scene', 'changeZoom', [zoom])
+      },
+      panCamera: function (offset) {
+        return sendRequest('scene', 'panCamera', [offset])
+      },
+      changeCameraPosition: function (position) {
+        return sendRequest('scene', 'changeCameraPosition', [position])
       }
     },
     emote: {
