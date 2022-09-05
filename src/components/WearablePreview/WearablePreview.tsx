@@ -53,8 +53,11 @@ export type WearablePreviewProps = {
   disableFace?: boolean
   disableDefaultWearables?: boolean
   disableDefaultEmotes?: boolean
+  disableFadeEffect?: boolean
   dev?: boolean
   baseUrl?: string
+  peerUrl?: string
+  nftServerUrl?: string
   onLoad?: () => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -121,8 +124,11 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       disableFace,
       disableDefaultWearables,
       disableDefaultEmotes,
+      disableFadeEffect,
       dev,
-      baseUrl
+      baseUrl,
+      peerUrl,
+      nftServerUrl
     } = this.props
 
     const contractParam = contractAddress ? `contract=${contractAddress}` : ''
@@ -167,6 +173,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const disableDefaultEmotesParam = disableDefaultEmotes
       ? `disableDefaultEmotes`
       : ''
+    const disableFadeEffectParam = disableFadeEffect ? `disableFadeEffect` : ''
+    const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
+    const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -203,6 +212,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         disableFaceParam,
         disableDefaultWearablesParam,
         disableDefaultEmotesParam,
+        disableFadeEffectParam,
+        peerUrlParam,
+        nftServerUrlParam,
         envParam
       ]
         .filter((param) => !!param)
