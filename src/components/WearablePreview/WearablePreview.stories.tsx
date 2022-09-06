@@ -28,18 +28,24 @@ const getRandomHex = () => {
   return '#' + Math.random().toString(16).slice(2, 8)
 }
 
+const getRandomProfile = () => {
+  return 'default' + ((Math.random() * 50) | 0)
+}
+
 const RandomConfigProvider = (props: {
-  children: (hair: string, skin: string) => React.ReactElement
+  children: (hair: string, skin: string, profile: string) => React.ReactElement
 }) => {
   const [hair, setHair] = React.useState(getRandomHex())
   const [skin, setSkin] = React.useState(getRandomHex())
+  const [profile, setProfile] = React.useState(getRandomProfile())
   React.useEffect(() => {
     setInterval(() => {
       setHair(getRandomHex())
       setSkin(getRandomHex())
+      setProfile(getRandomProfile())
     }, 5000)
   }, [])
-  return props.children(hair, skin)
+  return props.children(hair, skin, profile)
 }
 
 function toWearableWithBlobs(file: File, isEmote = false): WearableWithBlobs {
@@ -91,12 +97,12 @@ storiesOf('WearablePreview', module)
       />
     </div>
   ))
-  .add('Preview a token from ropsten', () => (
+  .add('Preview a token from mumbai', () => (
     <div className="WearablePreview-story-container">
       <WearablePreview
-        contractAddress="0x07e2a8fce1eb1ddf8e7d8de3f86654abe32eb97f"
+        contractAddress="0xf88951ddd9ff334ae98901e26042edbb8f6d52e5"
         tokenId="1"
-        dev={true}
+        dev
       />
     </div>
   ))
@@ -211,9 +217,9 @@ storiesOf('WearablePreview', module)
   .add('With hot reload', () => (
     <div className="WearablePreview-story-container">
       <RandomConfigProvider>
-        {(hair, skin) => (
+        {(hair, skin, profile) => (
           <WearablePreview
-            profile="default"
+            profile={profile}
             hair={hair}
             skin={skin}
             onLoad={() => console.log('loaded!')}
@@ -526,5 +532,22 @@ storiesOf('WearablePreview', module)
           />
         </div>
       </div>
+    </div>
+  ))
+  .add('Custom peerUrl', () => (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        profile="default"
+        peerUrl="https://peer.decentraland.zone"
+      />
+    </div>
+  ))
+  .add('Without fade effect', () => (
+    <div className="WearablePreview-story-container">
+      <RandomConfigProvider>
+        {(_hair, _skin, profile) => (
+          <WearablePreview profile={profile} disableFadeEffect />
+        )}
+      </RandomConfigProvider>
     </div>
   ))
