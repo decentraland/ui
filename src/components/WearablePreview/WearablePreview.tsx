@@ -4,7 +4,6 @@ import equal from 'deep-equal'
 import {
   PreviewCamera,
   PreviewEmote,
-  PreviewEnv,
   PreviewOptions,
   PreviewMessageType,
   PreviewMessagePayload,
@@ -223,11 +222,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   }
 
   getOptions = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { dev, ...rest } = this.props
 
-    const options: PreviewOptions = {
-      env: dev ? PreviewEnv.DEV : PreviewEnv.PROD
-    }
+    const options: PreviewOptions = {}
 
     for (const key in rest) {
       if (typeof rest[key] !== 'function') {
