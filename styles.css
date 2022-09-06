@@ -1782,6 +1782,10 @@ a.ui.card:hover,
   flex: 1 1 auto;
 }
 
+.EmoteIcon {
+  fill: var(--text);
+}
+
 .dcl.empty {
   position: relative;
   border: 1px solid var(--secondary-text);
@@ -3505,6 +3509,10 @@ a.ui.card:hover,
 }
 
 .WalletIcon {
+  fill: var(--text);
+}
+
+.WearableIcon {
   fill: var(--text);
 }
 
