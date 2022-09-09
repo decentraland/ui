@@ -144,3 +144,4 @@ $ npm start
 ## CI/CD
 
 We deploy automatically to [ui.decentraland.org](https://ui.decentraland.org) and release a new version via `semantic-release`
+
