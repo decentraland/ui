@@ -1,13 +1,18 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import {
+  EmoteWithBlobs,
   IPreviewController,
   PreviewCamera,
   PreviewEmote,
   PreviewProjection,
   WearableWithBlobs
 } from '@dcl/schemas/dist/dapps/preview'
-import { BodyShape, Metrics } from '@dcl/schemas/dist/platform/item'
+import {
+  BodyShape,
+  EmoteCategory,
+  Metrics
+} from '@dcl/schemas/dist/platform/item'
 import { WearableCategory } from '@dcl/schemas'
 import { Button } from '../Button/Button'
 import { Navbar } from '../Navbar/Navbar'
@@ -48,7 +53,7 @@ const RandomConfigProvider = (props: {
   return props.children(hair, skin, profile)
 }
 
-function toWearableWithBlobs(file: File, isEmote = false): WearableWithBlobs {
+function toWearableWithBlobs(file: File): WearableWithBlobs {
   return {
     id: 'some-id',
     name: '',
@@ -75,8 +80,35 @@ function toWearableWithBlobs(file: File, isEmote = false): WearableWithBlobs {
           overrideReplaces: []
         }
       ]
-    },
-    emoteDataV0: isEmote ? { loop: false } : undefined
+    }
+  }
+}
+
+function toEmoteWithBlobs(file: File): EmoteWithBlobs {
+  return {
+    id: 'some-id',
+    name: '',
+    description: '',
+    image: '',
+    thumbnail: '',
+    i18n: [],
+    emoteDataADR74: {
+      category: EmoteCategory.DANCE,
+      tags: [],
+      representations: [
+        {
+          bodyShapes: [BodyShape.MALE, BodyShape.FEMALE],
+          mainFile: 'model.glb',
+          contents: [
+            {
+              key: 'model.glb',
+              blob: file
+            }
+          ]
+        }
+      ],
+      loop: false
+    }
   }
 }
 
@@ -425,7 +457,7 @@ storiesOf('WearablePreview', module)
           <>
             <WearablePreview
               id="thumbnail-picker"
-              blob={file ? toWearableWithBlobs(file, true) : undefined}
+              blob={file ? toEmoteWithBlobs(file) : undefined}
               profile="default"
               disableBackground
               disableAutoRotate

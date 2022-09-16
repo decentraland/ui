@@ -9,7 +9,8 @@ import {
   PreviewMessagePayload,
   PreviewProjection,
   sendMessage,
-  WearableWithBlobs
+  WearableWithBlobs,
+  EmoteWithBlobs
 } from '@dcl/schemas/dist/dapps/preview'
 import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
@@ -27,7 +28,7 @@ export type WearablePreviewProps = {
   urns?: string[]
   urls?: string[]
   base64s?: string[]
-  blob?: WearableWithBlobs
+  blob?: WearableWithBlobs | EmoteWithBlobs
   skin?: string
   hair?: string
   eyes?: string
