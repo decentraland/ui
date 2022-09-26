@@ -44,7 +44,9 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
             <div
               key={index}
               className={classesItem.join(' ')}
-              onClick={(event) => !item.disabled && onClick && onClick(event, item)}
+              onClick={(event) =>
+                !item.disabled && onClick && onClick(event, item)
+              }
             >
               <div className={'dcl togglebox-item-title'}>{item.title}</div>
               <div className={'dcl togglebox-item-description'}>
