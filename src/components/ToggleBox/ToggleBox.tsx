@@ -34,7 +34,7 @@ export class ToggleBox extends React.PureComponent<ToggleBoxProps> {
       <Box header={header} className={className} borderless={borderless}>
         {items.map((item, index) => {
           const classesItem = [...classes]
-          if (value && value === item.value) {
+          if (value === item.value) {
             classesItem.push('active')
           }
           if (item.disabled) {
