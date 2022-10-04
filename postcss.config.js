@@ -1,8 +1,11 @@
 /*eslint-env node*/
 module.exports = {
-  plugins: [
-    require('autoprefixer'),
-    require('postcss-svg'),
-    require('postcss-assets')
-  ]
+  plugins: {
+    'autoprefixer': true,
+    'postcss-svg': true,
+    'postcss-assets': true,
+    'postcss-copy': {
+      dest: 'dist/assets'
+    },
+  }
 }

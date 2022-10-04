@@ -15,17 +15,17 @@
 }
 
 .ui.loader.injected {
-  background-image: inline('../../images/metamask.svg');
+  background-image: url('../../images/metamask.svg');
 }
 
 .ui.loader.formatic {
-  background-image: inline('../../images/fortmatic.png');
+  background-image: url('../../images/fortmatic.png');
 }
 
 .ui.loader.wallet_connect {
-  background-image: inline('../../images/wallet-connect.png');
+  background-image: url('../../images/wallet-connect.png');
 }
 
 .ui.loader.wallet_link {
-  background-image: inline('../../images/coinbase.svg');
+  background-image: url('../../images/coinbase.svg');
 }
