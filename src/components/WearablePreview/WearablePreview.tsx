@@ -55,6 +55,7 @@ export type WearablePreviewProps = {
   disableDefaultEmotes?: boolean
   disableFadeEffect?: boolean
   showSceneBoundaries?: boolean
+  showThumbnailBoundaries?: boolean
   dev?: boolean
   baseUrl?: string
   peerUrl?: string
@@ -127,6 +128,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       disableDefaultEmotes,
       disableFadeEffect,
       showSceneBoundaries,
+      showThumbnailBoundaries,
       dev,
       baseUrl,
       peerUrl,
@@ -179,6 +181,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const showSceneBoundariesParam = showSceneBoundaries
       ? `showSceneBoundaries`
       : ''
+    const showThumbnailBoundariesParam = showThumbnailBoundaries
+      ? `showThumbnailBoundaries`
+      : ''
     const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
     const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
     const envParam = dev ? `env=dev` : ''
@@ -219,6 +224,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         disableDefaultEmotesParam,
         disableFadeEffectParam,
         showSceneBoundariesParam,
+        showThumbnailBoundariesParam,
         peerUrlParam,
         nftServerUrlParam,
         envParam
