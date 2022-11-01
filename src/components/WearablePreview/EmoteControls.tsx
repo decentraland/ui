@@ -59,9 +59,7 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationPlaying = async ({ length }) => {
-    if (await this.previewController.emote.isPlaying()) {
-      this.setState({ frame: Math.ceil((length ?? 0) * 100) })
-    }
+    this.setState({ frame: Math.ceil((length ?? 0) * 100) })
   }
 
   async componentDidMount(): Promise<void> {
