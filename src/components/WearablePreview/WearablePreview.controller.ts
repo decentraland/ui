@@ -32,10 +32,10 @@ window.onmessage = function handleMessage(event: MessageEvent) {
       case PreviewMessageType.EMOTE_EVENT: {
         const payload = event.data
           .payload as PreviewMessagePayload<PreviewMessageType.EMOTE_EVENT>
-        const { type } = payload
+        const { type, payload: eventPayload } = payload
         const events = emoteEvents.get(event.source)
         if (events && type) {
-          events.emit(type)
+          events.emit(type, eventPayload)
         }
         break
       }
