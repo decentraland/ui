@@ -36,7 +36,7 @@ export class EmoteControls extends React.PureComponent<
     this.setState({ frame: 0 })
   }
 
-  handleAnimationEnd = async () => {
+  handleAnimationEnd = () => {
     const { frame, length } = this.state
     this.setState({
       isPlaying: false,
@@ -58,11 +58,11 @@ export class EmoteControls extends React.PureComponent<
     this.setState({ isPlaying: true, length: emoteLength })
   }
 
-  handleAnimationPlaying = async ({ length }) => {
+  handleAnimationPlaying = ({ length }) => {
     this.setState({ frame: Math.ceil((length ?? 0) * 100) })
   }
 
-  async componentDidMount(): Promise<void> {
+  componentDidMount(): void {
     const { wearablePreviewController } = this.props
 
     const previewController =
