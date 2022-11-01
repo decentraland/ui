@@ -33,17 +33,14 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationLoop = () => {
-    this.setState({
-      frame: 0,
-      playingIntervalId: this.trackFrame(this.state.length, 0)
-    })
+    this.setState({ frame: 0 })
   }
 
-  handleAnimationEnd = () => {
+  handleAnimationEnd = async () => {
     const { frame, length } = this.state
     this.setState({
       isPlaying: false,
-      frame: frame.toFixed(0) === (length * 100).toFixed(0) ? 0 : frame // using to Fixed(1)
+      frame: frame >= Math.floor(length * 100) ? 0 : frame // using to Fixed(1)
     })
   }
 
@@ -52,22 +49,19 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationPlay = async () => {
-    const { frame, length: stateLength } = this.state
+    const { length: stateLength } = this.state
     let emoteLength = stateLength
     if (!stateLength) {
       emoteLength = await this.previewController.emote.getLength()
     }
 
-    const intervalId = this.trackFrame(
-      emoteLength,
-      frame < emoteLength * 100 ? frame : undefined
-    )
-    this.setState((prevState) => ({
-      isPlaying: true,
-      length: emoteLength,
-      frame: prevState.frame === emoteLength * 100 ? 0 : prevState.frame,
-      playingIntervalId: intervalId
-    }))
+    this.setState({ isPlaying: true, length: emoteLength })
+  }
+
+  handleAnimationPlaying = async (data) => {
+    if (await this.previewController.emote.isPlaying()) {
+      this.setState({ frame: Math.ceil((data ?? 0) * 100) })
+    }
   }
 
   async componentDidMount(): Promise<void> {
@@ -80,6 +74,11 @@ export class EmoteControls extends React.PureComponent<
     previewController.emote.events.on(
       PreviewEmoteEventType.ANIMATION_PLAY,
       this.handleAnimationPlay
+    )
+
+    previewController.emote.events.on(
+      PreviewEmoteEventType.ANIMATION_PLAYING,
+      this.handleAnimationPlaying
     )
 
     previewController.emote.events.on(
@@ -100,60 +99,12 @@ export class EmoteControls extends React.PureComponent<
     this.previewController = previewController
   }
 
-  componentDidUpdate(
-    _prevProps: EmoteControlsProps,
-    prevState: EmoteControlsState
-  ) {
-    const { isPlaying } = this.state
-    if (prevState.isPlaying && !isPlaying) {
-      this.clearPlayingInterval()
-    }
-  }
-
-  trackFrame = (length: number, currentFrame?: number) => {
-    const { playingIntervalId } = this.state
-    if (playingIntervalId) {
-      clearInterval(playingIntervalId)
-    }
-
-    const max = length * 100
-    const intervalWindow = 10
-    const interval = (length / (length / (intervalWindow / 1000))) * 100
-    let counter = currentFrame || interval
-    return window.setInterval(() => {
-      counter += interval
-      const nextValue = counter >= max ? max : counter
-      if (nextValue >= max) {
-        this.clearPlayingInterval()
-      }
-      this.setState({
-        frame: nextValue
-      })
-    }, intervalWindow)
-  }
-
-  clearPlayingInterval = () => {
-    const { playingIntervalId } = this.state
-    if (playingIntervalId) {
-      clearInterval(playingIntervalId)
-      this.setState({ playingIntervalId: undefined })
-    }
-  }
-
   handlePlayPause = async () => {
-    const { frame, length, isPlaying } = this.state
+    const { isPlaying } = this.state
     if (isPlaying) {
       await this.previewController?.emote.pause()
     } else {
-      const hasEnded = frame === length * 100
-      // it's at the end, let's go back to the first frame
-      this.setState(
-        {
-          frame: hasEnded ? 0 : frame,
-          playingIntervalId: this.trackFrame(length, frame)
-        },
-        async () => await this.previewController?.emote.play()
-      )
+      await this.previewController?.emote.play()
     }
   }
 
@@ -192,7 +143,7 @@ export class EmoteControls extends React.PureComponent<
           <input
             type="range"
             value={frame}
-            max={length ? length * 100 : 0}
+            max={Math.ceil((length ?? 0) * 100)}
             min={0}
             step="1"
             onChange={(e) => this.handleFrameChange(Number(e.target.value))}
