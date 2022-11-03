@@ -13,6 +13,7 @@ export type NavbarI18N = {
     marketplace: React.ReactNode
     docs: React.ReactNode
     events: React.ReactNode
+    places: React.ReactNode
     agora: React.ReactNode
     dao: React.ReactNode
     blog: React.ReactNode
@@ -31,6 +32,7 @@ export type NavbarProps = {
     | 'marketplace'
     | 'docs'
     | 'events'
+    | 'places'
     | 'agora'
     | 'dao'
     | 'blog'
@@ -67,6 +69,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         marketplace: 'Marketplace',
         docs: 'Docs',
         events: 'Events',
+        places: 'Places',
         agora: 'Agora',
         dao: 'DAO',
         blog: 'Blog',
@@ -129,6 +132,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           href="https://docs.decentraland.org"
         >
           {i18n.menu.docs}
+        </Menu.Item>
+        <Menu.Item
+          active={activePage === 'places'}
+          href="https://places.decentraland.org"
+        >
+          {i18n.menu.places}
         </Menu.Item>
         <Menu.Item
           active={activePage === 'events'}
