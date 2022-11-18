@@ -1,0 +1,152 @@
+.dcl.network {
+  width: 762px;
+}
+
+.dcl.network .dcl.modal-navigation {
+  align-items: flex-start;
+  padding: 24px 32px 0px 32px;
+}
+
+.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title:before {
+  width: 22.55px;
+  height: 22.55px;
+  margin-left: 16px;
+  margin-right: 12px;
+}
+
+.dcl.network.ethereum .dcl.modal-navigation .dcl.modal-navigation-title:before {
+  content: url(../../images/ethereum.svg);
+}
+
+.dcl.network.matic .dcl.modal-navigation .dcl.modal-navigation-title:before {
+  content: url(../../images/matic.svg);
+}
+
+.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title {
+  display: flex;
+}
+
+.dcl.modal-navigation-button.modal-navigation-back {
+  top: 27px;
+}
+
+.dcl.network .dcl.gateway {
+  width: 327px;
+  min-height: 280px;
+  box-shadow: var(--shadow-1);
+  border-radius: 8px;
+  border: var(--outline);
+  background-color: var(--card-on-modal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+
+.dcl.network .dcl.gateway.disabled .diseableable-container {
+  pointer-events: none;
+  background-color: var(--grey5);
+  filter: opacity(0.3);
+}
+
+.dcl.network .dcl.gateway:hover {
+  background-color: var(--secondary-on-modal-hover);
+}
+
+.dcl.network .dcl.gateway .image {
+  flex: none;
+  width: 271.6px;
+  height: 88px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 8px;
+}
+
+.dcl.gateway.moonPay .image {
+  background-image: url('../../images/moonpay.svg');
+}
+
+.dcl.gateway.transak .image {
+  background-image: url('../../images/transak.svg');
+}
+
+.dcl.network .dcl.gateway .info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.dcl.network .dcl.gateway .info .title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.dcl.network .dcl.gateway .info .subtitle {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--secondary-text);
+  margin-top: 2px;
+}
+
+.dcl.network .dcl.gateway .info .continue-button {
+  margin-top: 24px;
+}
+
+.dcl.network .dcl.gateway .info .learn-more {
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: var(--grey1);
+  text-decoration: underline;
+}
+
+.dcl.network .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dcl.network .content .gateways-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.dcl.network .content .message {
+  color: var(--text);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.dcl.network .error {
+  opacity: 0;
+  user-select: none;
+  color: var(--primary);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dcl.network .error.visible {
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  user-select: auto;
+}
+
+.dcl.network .loader-background {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}

@@ -1,0 +1,196 @@
+import * as React from 'react'
+import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import { Network } from '@dcl/schemas'
+import { Modal } from '../Modal/Modal'
+import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
+import { Loader } from '../Loader/Loader'
+import {
+  BuyWithFiatNetwork,
+  NetworkGatewayProps,
+  BuyWithFiatNetworkProps,
+  networksNames
+} from './Network'
+import './BuyManaWithFiatModal.css'
+import './Network.css'
+
+type SelectedNetwork = BuyManaWithFiatModalNetworkProps &
+  BuyWithFiatNetworkProps
+
+export type BuyManaWithFiatModalProps = {
+  className?: string
+  message?: React.ReactNode
+  hasError?: boolean
+  open?: boolean
+  loading?: boolean
+  i18n?: BuyManaWithFiatModalI18N
+  networks: (BuyManaWithFiatModalNetworkProps & BuyWithFiatNetworkProps)[]
+  onClose?: () => void
+  onInfo?: () => void
+}
+
+export type BuyManaWithFiatModalNetworkProps = {
+  type: Network
+  i18n?: BuyManaWithFiatModalNetworkI18N
+  gateways: Omit<NetworkGatewayProps, 'network'>[]
+  onClick?: () => void
+}
+
+export type BuyManaWithFiatModalI18N = {
+  title: React.ReactNode
+  subtitle: React.ReactNode
+  error: React.ReactNode
+}
+
+export type BuyManaWithFiatModalNetworkI18N = {
+  cta: React.ReactNode
+  ctaSubtitle: React.ReactNode
+}
+
+class BuyManaWithFiatModalNetwork extends React.PureComponent<BuyManaWithFiatModalNetworkProps> {
+  render(): JSX.Element {
+    const { type, i18n, onClick } = this.props
+
+    const cta: React.ReactNode = `${networksNames[type]} MANA`
+    let ctaSubtitle: React.ReactNode = ''
+
+    switch (type) {
+      case Network.MATIC:
+        ctaSubtitle = 'Use it to buy most wearables and emotes.'
+        break
+
+      case Network.ETHEREUM:
+        ctaSubtitle = 'Use it to buy LAND, names and specific wearables.'
+        break
+    }
+
+    return (
+      <div
+        className={`dcl option ${type.toLowerCase()}`}
+        onClick={onClick}
+        key={type}
+      >
+        <div className="image" />
+        <div className="info">
+          <div className="cta">{i18n?.cta || cta}</div>
+          <div className="ctaSubtitle">{i18n?.ctaSubtitle || ctaSubtitle}</div>
+        </div>
+        <Icon name="chevron right" />
+      </div>
+    )
+  }
+}
+
+export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalProps> {
+  state: Readonly<{
+    selectedNetwork: SelectedNetwork
+  }> = {
+    selectedNetwork: null
+  }
+
+  static defaultProps = {
+    className: '',
+    hasError: false,
+    loading: false,
+    i18n: {
+      title: 'Buy MANA',
+      subtitle: 'Select what MANA you want to buy',
+      message: '',
+      error: 'Could not process the payment'
+    }
+  }
+
+  static Network = BuyManaWithFiatModalNetwork
+
+  componentDidMount() {
+    if (this.props.networks.length === 1) {
+      this.setState({ selectedNetwork: this.props.networks[0] })
+    }
+  }
+
+  unselectNetwork = () => this.setState({ selectedNetwork: null })
+
+  render(): JSX.Element {
+    const { selectedNetwork } = this.state
+
+    const { className, message, hasError, loading, i18n, onInfo } =
+      selectedNetwork ? selectedNetwork : this.props
+
+    const title: React.ReactNode =
+      i18n?.title ||
+      (selectedNetwork
+        ? `Buy ${networksNames[selectedNetwork.type]} MANA`
+        : 'Buy MANA')
+    const defaultNetworkMessage: React.ReactNode =
+      'If this is the first time you use any of these providers you will first need to create an account on their platform. If you have already have an account, you will just need to login.'
+
+    let errorClasses = 'error'
+    if (hasError) {
+      errorClasses += ' visible'
+    }
+
+    return (
+      <Modal
+        open={
+          this.props.open ||
+          (!!selectedNetwork && this.props.networks.length > 1)
+        }
+        className={`dcl ${
+          selectedNetwork ? 'network' : 'buy-mana-with-fiat-modal'
+        } ${className} ${
+          selectedNetwork
+            ? selectedNetwork.type.toLowerCase().replace(' ', '-')
+            : ''
+        }`.trim()}
+      >
+        <ModalNavigation
+          title={title}
+          subtitle={selectedNetwork ? '' : this.props.i18n.subtitle}
+          onInfo={onInfo}
+          onClose={
+            this.props.networks.length > 1 && selectedNetwork
+              ? this.unselectNetwork
+              : this.props.onClose
+          }
+          onBack={
+            selectedNetwork &&
+            this.props.networks.length > 1 &&
+            this.unselectNetwork
+          }
+        />
+        <ModalContent>
+          {selectedNetwork ? (
+            <BuyWithFiatNetwork
+              type={selectedNetwork.type}
+              gateways={selectedNetwork.gateways}
+            />
+          ) : (
+            this.props.networks.map((network) => (
+              <BuyManaWithFiatModalNetwork
+                {...network}
+                type={network.type}
+                onClick={() =>
+                  this.setState({
+                    selectedNetwork: network
+                  })
+                }
+              />
+            ))
+          )}
+          {message || selectedNetwork ? (
+            <small className="message">
+              {message || defaultNetworkMessage}
+            </small>
+          ) : null}
+        </ModalContent>
+        {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
+        {loading ? (
+          <>
+            <Loader size="big" active />
+            <div className="loader-background"></div>
+          </>
+        ) : null}
+      </Modal>
+    )
+  }
+}
