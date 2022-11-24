@@ -65,9 +65,9 @@ jobs:
 
   release:
     needs: deploy
-    runs-on: ubuntu-latest # check if necessary
+    runs-on: ubuntu-latest
     steps:
       - name: Semantic release
         run: npm run semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
