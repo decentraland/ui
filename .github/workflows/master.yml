@@ -46,7 +46,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest # check if necessary
+    runs-on: ubuntu-latest
     steps:
       - name: Build storybook
         run: npm run build:storybook
@@ -57,8 +57,6 @@ jobs:
           npm init --yes
           npm install gh-pages --no-save
 
-          mkdir storybook-static/.circleci
-          touch storybook-static/.circleci/config.yml
           echo 'ui.decentraland.org' > storybook-static/CNAME
 
           git config user.name "decentraland-bot"
