@@ -73,6 +73,8 @@ jobs:
         run: npm list
       - name: Install dependencies
         run: npm install
+      - name: Build library
+        run: npm run build
       - name: Build storybook
         run: npm run build:storybook
       - name: Copy styles from lib
