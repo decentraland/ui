@@ -82,7 +82,7 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npm init --yes
-          npm install gh-pages --no-save
+          npm install gh-pages --force --no-save
 
           echo 'ui.decentraland.org' > storybook-static/CNAME
 
