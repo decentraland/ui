@@ -11,6 +11,7 @@
   font-size: 21px;
   line-height: 30px;
   letter-spacing: 0.3px;
+  margin-bottom: 8px;
 }
 
 .dcl.modal-navigation-subtitle {
@@ -18,7 +19,6 @@
   font-size: 17px;
   line-height: 26px;
   letter-spacing: -0.2px;
-  margin-top: 8px;
   text-align: center;
 }
 
@@ -31,6 +31,7 @@
   background-position: center;
   cursor: pointer;
   filter: var(--brightness);
+  margin-top: 3.5px;
 }
 
 .dcl.modal-navigation-button.modal-navigation-close {
@@ -41,4 +42,9 @@
 .dcl.modal-navigation-button.modal-navigation-back {
   left: 24px;
   background-image: url(../../assets/back.svg);
+}
+
+.dcl.modal-navigation-button.modal-navigation-info {
+  right: 55px;
+  background-image: url(../../assets/question.svg);
 }
