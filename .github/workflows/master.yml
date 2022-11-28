@@ -80,6 +80,8 @@ jobs:
       - name: Copy styles from lib
         run: cp ./lib/*.css ./storybook-static
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm init --yes
           npm install gh-pages --force --no-save
@@ -88,6 +90,8 @@ jobs:
 
           git config user.name "decentraland-bot"
           git config user.email "developers@decentraland.org"
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "developers@decentraland.org"
           ./node_modules/.bin/gh-pages --dist storybook-static
 
   release:
