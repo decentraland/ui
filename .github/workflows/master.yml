@@ -91,7 +91,6 @@ jobs:
           git config user.name "decentraland-bot"
           git config user.email "developers@decentraland.org"
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx gh-pages -d build -u "developers@decentraland.org"
           ./node_modules/.bin/gh-pages --dist storybook-static
 
   release:
