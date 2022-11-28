@@ -144,3 +144,15 @@
 .ui.modal .ui.radio.checkbox input.hidden:focus ~ label:before {
   border-color: var(--secondary-on-modal);
 }
+
+@media (max-width: 700px) {
+  .ui .page .modals,
+  .ui .modal {
+    min-width: 100vw;
+    min-height: 100vh;
+    border-radius: 0px;
+    margin: 0px !important;
+    padding: 0px !important;
+    top: 0;
+  }
+}
