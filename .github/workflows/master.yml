@@ -3,9 +3,6 @@ on:
     branches:
       - master
       - main
-  release:
-    types:
-      - created
 
 name: Publish NPM package
 jobs:
