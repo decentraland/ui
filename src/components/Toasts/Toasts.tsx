@@ -3,8 +3,10 @@ import './Toasts.css'
 
 export type ToastPosition =
   | 'bottom left'
+  | 'bottom center'
   | 'bottom right'
   | 'top left'
+  | 'top center'
   | 'top right'
 
 export type ToastsProps = {

@@ -20,6 +20,13 @@ storiesOf('Toasts', module)
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
   ))
+  .add('top center', () => (
+    <Toasts position="top center">
+      <Toast title="Title 1" body="Body 1" />
+      <Toast title="Title 2" body="Body 2" />
+      <Toast title="Title 3" body="Body 3" />
+    </Toasts>
+  ))
   .add('bottom left', () => (
     <Toasts position="bottom left">
       <Toast title="Title 1" body="Body 1" />
@@ -29,6 +36,13 @@ storiesOf('Toasts', module)
   ))
   .add('bottom right', () => (
     <Toasts position="bottom right">
+      <Toast title="Title 1" body="Body 1" />
+      <Toast title="Title 2" body="Body 2" />
+      <Toast title="Title 3" body="Body 3" />
+    </Toasts>
+  ))
+  .add('bottom center', () => (
+    <Toasts position="bottom center">
       <Toast title="Title 1" body="Body 1" />
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
