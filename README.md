@@ -134,7 +134,7 @@ Or you can create your own theme like this:
 
 ## Development
 
-Install dependencies and start Storybook
+Install dependencies and start Storybook:
 
 ```
 $ npm install
