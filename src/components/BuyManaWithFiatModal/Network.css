@@ -44,10 +44,18 @@
   cursor: pointer;
 }
 
+.dcl.network .dcl.gateway.disabled .image,
+.dcl.network .dcl.gateway.disabled .info .diseableable-container {
+  cursor: not-allowed;
+}
+
 .dcl.network .dcl.gateway.disabled .diseableable-container {
-  pointer-events: none;
   background-color: var(--grey5);
   filter: opacity(0.3);
+}
+
+.dcl.network .dcl.gateway.disabled:hover {
+  background-color: var(--card-on-modal);
 }
 
 .dcl.network .dcl.gateway:hover {

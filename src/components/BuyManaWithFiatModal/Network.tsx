@@ -126,7 +126,11 @@ export class BuyWithFiatNetwork extends React.Component<BuyWithFiatNetworkProps>
     return (
       <div className="gateways-container">
         {gateways.sort(this.enabledFirst).map((gatewayProps) => (
-          <ButWithFiatNetworkGateway {...gatewayProps} network={type} />
+          <ButWithFiatNetworkGateway
+            {...gatewayProps}
+            key={gatewayProps.type}
+            network={type}
+          />
         ))}
       </div>
     )
