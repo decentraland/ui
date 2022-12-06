@@ -146,10 +146,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
 
     return (
       <Modal
-        open={
-          this.props.open ||
-          (!!selectedNetwork && this.props.networks.length > 1)
-        }
+        open={this.props.open}
         className={`dcl ${
           selectedNetwork ? 'network' : 'buy-mana-with-fiat-modal'
         } ${className ? className : ''} ${
