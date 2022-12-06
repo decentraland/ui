@@ -6,7 +6,6 @@ import { Header } from '../Header/Header'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
 import { NetworkGatewayType } from './Network'
 import './BuyManaWithFiatModal.stories.css'
-import './BuyManaWithFiatModal.stories.css'
 
 const lipsum = (
   <>
