@@ -108,7 +108,22 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     }
   }
 
+  componentDidUpdate(): void {
+    if (
+      this.props.networks &&
+      this.props.networks.length === 1 &&
+      !this.state.selectedNetwork
+    ) {
+      this.setState({ selectedNetwork: this.props.networks[0] })
+    }
+  }
+
   unselectNetwork = () => this.setState({ selectedNetwork: null })
+
+  handleOnClose = () => {
+    this.unselectNetwork()
+    this.props.onClose()
+  }
 
   render(): JSX.Element {
     const { selectedNetwork } = this.state
@@ -137,7 +152,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
         }
         className={`dcl ${
           selectedNetwork ? 'network' : 'buy-mana-with-fiat-modal'
-        } ${className} ${
+        } ${className ? className : ''} ${
           selectedNetwork
             ? selectedNetwork.type.toLowerCase().replace(' ', '-')
             : ''
@@ -147,11 +162,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
           title={title}
           subtitle={selectedNetwork ? '' : this.props.i18n.subtitle}
           onInfo={onInfo}
-          onClose={
-            this.props.networks.length > 1 && selectedNetwork
-              ? this.unselectNetwork
-              : this.props.onClose
-          }
+          onClose={this.handleOnClose}
           onBack={
             selectedNetwork &&
             this.props.networks.length > 1 &&
@@ -168,6 +179,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
             this.props.networks.map((network) => (
               <BuyManaWithFiatModalNetwork
                 {...network}
+                key={network.type}
                 type={network.type}
                 onClick={() =>
                   this.setState({
