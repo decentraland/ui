@@ -18,3 +18,11 @@
 .dcl.toasts.right {
   right: 0;
 }
+
+.dcl.toasts.top.center {
+  bottom: unset;
+}
+
+.dcl.toasts.bottom.center {
+  top: unset;
+}
