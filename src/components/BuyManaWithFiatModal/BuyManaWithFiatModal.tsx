@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
@@ -56,11 +56,11 @@ class BuyManaWithFiatModalNetwork extends React.PureComponent<BuyManaWithFiatMod
 
     switch (type) {
       case Network.MATIC:
-        ctaSubtitle = 'Use it to buy most wearables and emotes.'
+        ctaSubtitle = `Use it to buy most wearables and emotes in ${networksNames[type]}.`
         break
 
       case Network.ETHEREUM:
-        ctaSubtitle = 'Use it to buy LAND, names and specific wearables.'
+        ctaSubtitle = `Use it to buy LAND, names and specific wearables in ${networksNames[type]}.`
         break
     }
 
@@ -75,7 +75,6 @@ class BuyManaWithFiatModalNetwork extends React.PureComponent<BuyManaWithFiatMod
           <div className="cta">{i18n?.cta || cta}</div>
           <div className="ctaSubtitle">{i18n?.ctaSubtitle || ctaSubtitle}</div>
         </div>
-        <Icon name="chevron right" />
       </div>
     )
   }
@@ -94,7 +93,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     loading: false,
     i18n: {
       title: 'Buy MANA',
-      subtitle: 'Select what MANA you want to buy',
+      subtitle: 'Select which mana you want to buy',
       message: '',
       error: 'Could not process the payment'
     }
@@ -147,13 +146,12 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     return (
       <Modal
         open={this.props.open}
-        className={`dcl ${
-          selectedNetwork ? 'network' : 'buy-mana-with-fiat-modal'
-        } ${className ? className : ''} ${
-          selectedNetwork
-            ? selectedNetwork.type.toLowerCase().replace(' ', '-')
-            : ''
-        }`.trim()}
+        className={classNames(
+          'dcl',
+          selectedNetwork ? 'network' : 'buy-mana-with-fiat-modal',
+          className,
+          selectedNetwork?.type.toLowerCase().replace(' ', '-')
+        )}
       >
         <ModalNavigation
           title={title}

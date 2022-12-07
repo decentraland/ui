@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Network } from '@dcl/schemas'
 import { Button } from '../Button/Button'
 import './Network.css'
+import classNames from 'classnames'
 
 export enum NetworkGatewayType {
   MOON_PAY = 'moonPay',
@@ -76,19 +77,16 @@ class ButWithFiatNetworkGateway extends React.PureComponent<NetworkGatewayProps>
     const subtitle: React.ReactNode =
       'You can buy with debit and credit cards, Apple Pay, Google Pay, or via bank transfer.'
     const continueButtonText: React.ReactNode = `Continue with ${gatewaysNames[type]}`
-    const learnMoreText: React.ReactNode = `Learn More about ${gatewaysNames[type]}`
 
     return (
-      <div
-        className={`dcl gateway ${type} ${disabled ? 'disabled' : ''}`.trim()}
-      >
+      <div className={classNames('dcl', 'gateway', type, disabled)}>
         <div className="image" />
         <div className="info">
           <div className="diseableable-container">
             <div className="title">{i18n?.title || title}</div>
             <div className="subtitle">{i18n?.subtitle || subtitle}</div>
             <Button
-              inverted
+              primary
               onClick={onContinue}
               className={'continue-button'}
               disabled={disabled}
@@ -96,14 +94,23 @@ class ButWithFiatNetworkGateway extends React.PureComponent<NetworkGatewayProps>
               {i18n?.continueButtonText || continueButtonText}
             </Button>
           </div>
-          <a
-            className="learn-more"
-            href={learnMoreLink}
-            target="_blank"
-            rel="external"
-          >
-            {i18n?.learnMoreText || learnMoreText}
-          </a>
+          {i18n?.learnMoreText ? (
+            <a
+              className="learn-more"
+              href={learnMoreLink}
+              target="_blank"
+              rel="external"
+            >
+              {i18n?.learnMoreText}
+            </a>
+          ) : (
+            <span className="learn-more">
+              <a href={learnMoreLink} target="_blank" rel="external">
+                Learn more
+              </a>
+              {` about ${gatewaysNames[type]}`}
+            </span>
+          )}
         </div>
       </div>
     )
