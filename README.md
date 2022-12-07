@@ -20,7 +20,7 @@ Import Decentraland UI's styles in your App's entry point
 import 'decentraland-ui/lib/styles.css'
 ```
 
-Now you can use Decentraland UI's components
+Now you can use Decentraland UI's components:
 
 ```jsx
 import React from 'react'
