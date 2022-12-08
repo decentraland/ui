@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
+import Icon from '../../assets/alert.svg'
 
 import { Toast, ToastType } from './Toast'
 import './Toast.stories.css'
@@ -40,4 +41,12 @@ storiesOf('Toast', module)
   ))
   .add('Error toast', () => (
     <Toast type={ToastType.ERROR} title="Error toast" body="ERROR" />
+  ))
+  .add('Toast with icon', () => (
+    <Toast
+      type={ToastType.INFO}
+      title="Toast with icon"
+      body="This toast has an icon"
+      icon={<img src={Icon} />}
+    />
   ))
