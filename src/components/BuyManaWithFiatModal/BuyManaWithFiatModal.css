@@ -1,31 +1,49 @@
 .dcl.buy-mana-with-fiat-modal {
-  width: 762px;
+  width: 520px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.modal-navigation {
-  align-items: flex-start;
-  padding: 24px 32px 0px 32px;
+  padding: 40px 80px 0px 80px;
 }
 
 .dcl.buy-mana-with-fiat-modal
   .dcl.modal-navigation
-  .dcl.modal-navigation-title:before {
-  content: url('../../assets/download.svg');
-  width: 23px;
-  height: 21px;
-  margin-right: 12px;
+  .dcl.modal-navigation-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.dcl.buy-mana-with-fiat-modal
+  .dcl.modal-navigation
+  .dcl.modal-navigation-subtitle {
+  color: var(--text);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.dcl.buy-mana-with-fiat-modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 32px 24px 34px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option {
+  min-width: 392px;
   width: 100%;
-  height: 80px;
+  height: 68px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);
   background-color: var(--card-on-modal);
   display: flex;
   align-items: center;
-  padding: 21px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -35,19 +53,19 @@
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .image {
   flex: none;
-  width: 29px;
-  height: 29px;
+  width: 48px;
+  height: 48px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.dcl.option.matic .image {
-  background-image: url('../../images/matic.svg');
+.dcl.buy-mana-with-fiat-modal .dcl.option.matic .image {
+  background: url('../../images/matic.svg');
 }
 
-.dcl.option.ethereum .image {
-  background-image: url('../../images/ethereum.svg');
+.dcl.buy-mana-with-fiat-modal .dcl.option.ethereum .image {
+  background: url('../../images/ethereum.svg');
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info {
@@ -58,31 +76,31 @@
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info .cta {
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
   color: var(--text);
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info .ctaSubtitle {
-  color: var(--secondary-text);
+  color: var(--text);
   margin-top: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option + .dcl.option {
   margin-top: 16px;
 }
 
-.dcl.buy-mana-with-fiat-modal .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
 .dcl.buy-mana-with-fiat-modal .message {
   margin-top: 28px;
   text-align: center;
   display: block;
-  color: var(--text);
+  color: var(--secondary-text);
   line-height: 1.5;
   opacity: 0.9;
 }

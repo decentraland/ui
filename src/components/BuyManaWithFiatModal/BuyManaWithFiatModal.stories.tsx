@@ -59,11 +59,6 @@ storiesOf('BuyManaWithFiatModal', module)
             type: Network.MATIC,
             gateways: [
               {
-                type: NetworkGatewayType.MOON_PAY,
-                disabled: true,
-                onContinue: () => undefined
-              },
-              {
                 type: NetworkGatewayType.TRANSAK,
                 learnMoreLink: 'https://transak.com/',
                 onContinue: () => undefined
@@ -119,11 +114,6 @@ storiesOf('BuyManaWithFiatModal', module)
                   learnMoreText: 'Learn more about the gateway'
                 },
                 onContinue: () => undefined
-              },
-              {
-                type: NetworkGatewayType.MOON_PAY,
-                disabled: true,
-                onContinue: () => undefined
               }
             ]
           },
@@ -146,7 +136,7 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyWithFiat options with only one network', () => (
+  .add('BuyWithFiat with Polygon already selected and only one gateway', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -156,8 +146,30 @@ storiesOf('BuyManaWithFiatModal', module)
             type: Network.MATIC,
             gateways: [
               {
+                type: NetworkGatewayType.TRANSAK,
+                learnMoreLink: 'https://transak.com/',
+                onContinue: () => undefined
+              }
+            ]
+          }
+        ]}
+        onClose={() => undefined}
+        onInfo={() => undefined}
+      />
+    </div>
+  ))
+  .add('BuyWithFiat with Ethereum already selected', () => (
+    <div className="BuyManaWithFiatModal-story">
+      {lipsum}
+      <BuyManaWithFiatModal
+        open
+        networks={[
+          {
+            type: Network.ETHEREUM,
+            gateways: [
+              {
                 type: NetworkGatewayType.MOON_PAY,
-                disabled: true,
+                learnMoreLink: 'https://moonpay.com/',
                 onContinue: () => undefined
               },
               {

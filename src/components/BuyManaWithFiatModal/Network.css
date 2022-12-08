@@ -1,38 +1,32 @@
 .dcl.network {
-  width: 762px;
+  min-width: 520px;
+  max-width: min-content;
 }
 
 .dcl.network .dcl.modal-navigation {
-  align-items: flex-start;
-  padding: 24px 32px 0px 32px;
+  padding: 23px 0px 0px;
 }
 
-.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  width: 22.55px;
-  height: 22.55px;
-  margin-left: 16px;
-  margin-right: 12px;
-}
-
-.dcl.network.ethereum .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  content: url(../../images/ethereum.svg);
-}
-
-.dcl.network.matic .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  content: url(../../images/matic.svg);
-}
-
-.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title {
+.dcl.network .content {
   display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 24px;
 }
 
-.dcl.modal-navigation-button.modal-navigation-back {
-  top: 27px;
+.dcl.network .content .gateways-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  column-gap: 12px;
 }
 
 .dcl.network .dcl.gateway {
-  width: 327px;
-  min-height: 280px;
+  min-width: 310px;
+  max-width: 474px;
+  min-height: 310px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);
@@ -40,7 +34,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 24px;
+  justify-content: center;
+  padding: 23px 23px 15px;
   cursor: pointer;
 }
 
@@ -64,30 +59,32 @@
 
 .dcl.network .dcl.gateway .image {
   flex: none;
-  width: 271.6px;
-  height: 88px;
+  width: 100%;
+  height: 128px;
   background-position: center;
-  background-size: contain;
+  background-size: 187px 60px;
   background-repeat: no-repeat;
   margin-bottom: 8px;
+  border-radius: 5px;
 }
 
 .dcl.gateway.moonPay .image {
-  background-image: url('../../images/moonpay.svg');
+  background: url('../../images/moonpay.svg'), white;
 }
 
 .dcl.gateway.transak .image {
-  background-image: url('../../images/transak.svg');
+  background: url('../../images/transak.svg'), white;
 }
 
 .dcl.network .dcl.gateway .info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  margin-left: 16px;
+  width: 100%;
 }
 
 .dcl.network .dcl.gateway .info .title {
+  font-style: normal;
   font-weight: 600;
   font-size: 15px;
   line-height: 24px;
@@ -95,42 +92,30 @@
 }
 
 .dcl.network .dcl.gateway .info .subtitle {
+  font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--secondary-text);
-  margin-top: 2px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
 }
 
 .dcl.network .dcl.gateway .info .continue-button {
-  margin-top: 24px;
+  margin-top: 16px;
+  width: 100%;
 }
 
 .dcl.network .dcl.gateway .info .learn-more {
   margin-top: 12px;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 500;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 18px;
   text-align: center;
-  color: var(--grey1);
-  text-decoration: underline;
-}
-
-.dcl.network .content {
-  display: flex;
-  flex-direction: column;
-}
-
-.dcl.network .content .gateways-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 26px;
+  text-decoration: none;
 }
 
 .dcl.network .content .message {
-  color: var(--text);
+  color: var(--secondary-text);
   line-height: 1.5;
   opacity: 0.9;
 }
