@@ -10,6 +10,14 @@
   color: var(--toast-text);
 }
 
+.dcl.toast .toast-info {
+  display: flex;
+}
+
+.dcl.toast .toast-info .toast-icon {
+  margin-right: 15px;
+}
+
 .dcl.toast .dcl.close {
   position: absolute;
   top: 18px;

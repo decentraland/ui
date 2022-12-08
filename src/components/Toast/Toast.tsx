@@ -14,6 +14,7 @@ export type ToastProps = {
   body: string | JSX.Element
   closable?: boolean
   timeout?: number
+  icon?: JSX.Element
   onClose?: () => void
 }
 
@@ -56,12 +57,17 @@ export class Toast extends React.PureComponent<ToastProps> {
   }
 
   render(): JSX.Element {
-    const { type = ToastType.INFO, title, body, closable } = this.props
+    const { type = ToastType.INFO, title, body, closable, icon } = this.props
     return (
       <div className={`dcl toast ${type.toLowerCase()}`}>
-        {closable ? <Close small onClick={this.handleClose} /> : null}
-        <div className="title">{title}</div>
-        <div className="body">{body}</div>
+        <div className="toast-info">
+          {icon && <span className="toast-icon">{icon}</span>}
+          <div>
+            {closable ? <Close small onClick={this.handleClose} /> : null}
+            <div className="title">{title}</div>
+            <div className="body">{body}</div>
+          </div>
+        </div>
       </div>
     )
   }
