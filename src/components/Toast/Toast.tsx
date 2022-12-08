@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Close } from '../Close/Close'
 import './Toast.css'
 
@@ -15,6 +16,7 @@ export type ToastProps = {
   closable?: boolean
   timeout?: number
   icon?: JSX.Element
+  className?: string
   onClose?: () => void
 }
 
@@ -57,9 +59,18 @@ export class Toast extends React.PureComponent<ToastProps> {
   }
 
   render(): JSX.Element {
-    const { type = ToastType.INFO, title, body, closable, icon } = this.props
+    const {
+      type = ToastType.INFO,
+      title,
+      body,
+      closable,
+      icon,
+      className
+    } = this.props
     return (
-      <div className={`dcl toast ${type.toLowerCase()}`}>
+      <div
+        className={classNames('dcl', 'toast', type.toLowerCase(), className)}
+      >
         <div className="toast-info">
           {icon && <span className="toast-icon">{icon}</span>}
           <div>

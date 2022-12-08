@@ -50,3 +50,11 @@ storiesOf('Toast', module)
       icon={<img src={Icon} />}
     />
   ))
+  .add('Toast with extra classes', () => (
+    <Toast
+      type={ToastType.INFO}
+      title="Toast with fixed height and width"
+      body="This toast has a fixed height and width"
+      className="height-200 width-300"
+    />
+  ))
