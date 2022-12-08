@@ -1727,40 +1727,38 @@ a.ui.card:hover,
 }
 
 .dcl.network {
-  width: 762px;
+  min-width: 520px;
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
 }
 
 .dcl.network .dcl.modal-navigation {
-  align-items: flex-start;
-  padding: 24px 32px 0px 32px;
+  padding: 23px 0px 0px;
 }
 
-.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  width: 22.55px;
-  height: 22.55px;
-  margin-left: 16px;
-  margin-right: 12px;
-}
-
-.dcl.network.ethereum .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAyNiAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMC41MTQzIDE0LjkzMjJDMjAuNTE0MyAxMC43MjggMTcuMTIzNyA3LjIzNTY5IDEyLjkxOTUgNy4yMzU2OUM4LjcxNTE3IDcuMjM1NjkgNS4zMjQ2MiAxMC43MjggNS4zMjQ2MiAxNC45MzIyQzUuMzI0NjIgMTkuMTAyNiA4LjcxNTE3IDIyLjQ5MzIgMTIuOTE5NSAyMi40OTMyQzE3LjEyMzcgMjIuNDkzMiAyMC41MTQzIDE5LjEwMjYgMjAuNTE0MyAxNC45MzIyWk0xOC43NTEyIDE0LjkzMjJDMTguNzUxMiAxOC4xMTkzIDE1LjkwMzEgMjAuNzMwMSAxMi45MTk1IDIwLjczMDFDOS42MzA2MiAyMC43MzAxIDcuMDg3NzEgMTguMTg3MiA3LjA4NzcxIDE0LjkzMjJDNy4wODc3MSAxMS43MTEyIDkuNjMwNjIgOC45OTg3NyAxMi45MTk1IDguOTk4NzdDMTUuOTM3IDguOTk4NzcgMTguNzUxMiAxMS43MTEyIDE4Ljc1MTIgMTQuOTMyMlpNMjUuNTY2MiAyMi4yODk3VjcuNzEwMzZMMTIuOTE5NSAwLjQ1NDU5TDAuMjcyNzA1IDcuNzEwMzZWMjIuMjg5N0wxMi45MTk1IDI5LjU0NTVMMjUuNTY2MiAyMi4yODk3Wk0yMy4zMjg0IDIxLjAzNTJMMTIuOTUzNCAyNi45Njg3TDIuNTEwNDcgMjEuMDM1MlY5LjA2NjU4TDEyLjkxOTUgMy4wMzE0MUwyMy4zMjg0IDkuMDY2NThWMjEuMDM1MloiIGZpbGw9IiNGRjJENTUiIHN0cm9rZT0iIzcxNkI3QyIgc3Ryb2tlLXdpZHRoPSIwLjQiLz4KPC9zdmc+Cg==);
-}
-
-.dcl.network.matic .dcl.modal-navigation .dcl.modal-navigation-title:before {
-  content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUgMC40NTQ1OUwyOS41NDU0IDE1TDE1IDI5LjU0NTVMMC40NTQ1MjkgMTVMMTUgMC40NTQ1OVpNMTUgNC41MjczMkwyNS40NzI3IDE1TDE1IDI1LjQ3MjhMNC41MjcyNiAxNUwxNSA0LjUyNzMyWk0xNSAyMC4yMzY0QzE2LjM4ODggMjAuMjM2NiAxNy43MjA3IDE5LjY4NSAxOC43MDI4IDE4LjcwMzFDMTkuNjg1IDE3LjcyMTIgMjAuMjM2OCAxNi4zODk0IDIwLjIzNyAxNS4wMDA3QzIwLjIzNzEgMTMuNjExOSAxOS42ODU2IDEyLjI3OTkgMTguNzAzNyAxMS4yOTc4QzE3LjcyMTggMTAuMzE1NyAxNi4zOSA5Ljc2Mzg0IDE1LjAwMTIgOS43NjM2OEMxMy42MTI0IDkuNzYzNjggMTIuMjgwNSAxMC4zMTU0IDExLjI5ODUgMTEuMjk3NEMxMC4zMTY1IDEyLjI3OTQgOS43NjQ4MyAxMy42MTEzIDkuNzY0ODMgMTVDOS43NjQ4MyAxNi4zODg4IDEwLjMxNjUgMTcuNzIwNyAxMS4yOTg1IDE4LjcwMjdDMTIuMjgwNSAxOS42ODQ3IDEzLjYxMjQgMjAuMjM2NCAxNS4wMDEyIDIwLjIzNjRIMTVaIiBmaWxsPSIjMTYxNTE4Ii8+Cjwvc3ZnPgo=);
-}
-
-.dcl.network .dcl.modal-navigation .dcl.modal-navigation-title {
+.dcl.network .content {
   display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 24px;
 }
 
-.dcl.modal-navigation-button.modal-navigation-back {
-  top: 27px;
+.dcl.network .content .gateways-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
 }
 
 .dcl.network .dcl.gateway {
-  width: 327px;
-  min-height: 280px;
+  min-width: 310px;
+  max-width: 474px;
+  min-height: 310px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);
@@ -1768,7 +1766,8 @@ a.ui.card:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 24px;
+  justify-content: center;
+  padding: 23px 23px 15px;
   cursor: pointer;
 }
 
@@ -1793,30 +1792,32 @@ a.ui.card:hover,
 
 .dcl.network .dcl.gateway .image {
   flex: none;
-  width: 271.6px;
-  height: 88px;
+  width: 100%;
+  height: 128px;
   background-position: center;
-  background-size: contain;
+  background-size: 187px 60px;
   background-repeat: no-repeat;
   margin-bottom: 8px;
+  border-radius: 5px;
 }
 
 .dcl.gateway.moonPay .image {
-  background-image: url(6d10f8ecdbea73e6f66ab257c6ed48f8.svg);
+  background: url(e1372a875e62fd0e0710fd9570dc25b3.svg), white;
 }
 
 .dcl.gateway.transak .image {
-  background-image: url(ddab8e4113085f67038ad3cdf3796c35.svg);
+  background: url(bcf333b07371e6561224875ebea62d64.svg), white;
 }
 
 .dcl.network .dcl.gateway .info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  margin-left: 16px;
+  width: 100%;
 }
 
 .dcl.network .dcl.gateway .info .title {
+  font-style: normal;
   font-weight: 600;
   font-size: 15px;
   line-height: 24px;
@@ -1824,42 +1825,30 @@ a.ui.card:hover,
 }
 
 .dcl.network .dcl.gateway .info .subtitle {
+  font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--secondary-text);
-  margin-top: 2px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
 }
 
 .dcl.network .dcl.gateway .info .continue-button {
-  margin-top: 24px;
+  margin-top: 16px;
+  width: 100%;
 }
 
 .dcl.network .dcl.gateway .info .learn-more {
   margin-top: 12px;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 500;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 18px;
   text-align: center;
-  color: var(--grey1);
-  text-decoration: underline;
-}
-
-.dcl.network .content {
-  display: flex;
-  flex-direction: column;
-}
-
-.dcl.network .content .gateways-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 26px;
+  text-decoration: none;
 }
 
 .dcl.network .content .message {
-  color: var(--text);
+  color: var(--secondary-text);
   line-height: 1.5;
   opacity: 0.9;
 }
@@ -1895,33 +1884,51 @@ a.ui.card:hover,
 }
 
 .dcl.buy-mana-with-fiat-modal {
-  width: 762px;
+  width: 520px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.modal-navigation {
-  align-items: flex-start;
-  padding: 24px 32px 0px 32px;
+  padding: 40px 80px 0px 80px;
 }
 
 .dcl.buy-mana-with-fiat-modal
   .dcl.modal-navigation
-  .dcl.modal-navigation-title:before {
-  content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyNyAyMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xLjc1NzYzIDE3LjM3MTVMMi40ODY4MyAyMC4yODk1QzIuNjEzODMgMjAuNzk3NiAyLjkwNzAxIDIxLjI0ODYgMy4zMTk3NiAyMS41NzFDMy43MzI1MSAyMS44OTMzIDQuMjQxMTYgMjIuMDY4NCA0Ljc2NDg2IDIyLjA2ODVIMjIuMjM1MkMyMi43NTg5IDIyLjA2ODQgMjMuMjY3NiAyMS44OTMzIDIzLjY4MDMgMjEuNTcxQzI0LjA5MzEgMjEuMjQ4NiAyNC4zODYzIDIwLjc5NzYgMjQuNTEzMyAyMC4yODk1TDI1LjI0MjUgMTcuMzcxNU0xMy41MDAxIDE1LjAyM1YwLjkzMjEyOVYxNS4wMjNaTTEzLjUwMDEgMTUuMDIzTDguODAzMDggMTAuMzI2MUwxMy41MDAxIDE1LjAyM1pNMTMuNTAwMSAxNS4wMjNMMTguMTk3IDEwLjMyNjFMMTMuNTAwMSAxNS4wMjNaIiBzdHJva2U9IiM3MTZCN0MiIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=);
-  width: 23px;
-  height: 21px;
-  margin-right: 12px;
+  .dcl.modal-navigation-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.dcl.buy-mana-with-fiat-modal
+  .dcl.modal-navigation
+  .dcl.modal-navigation-subtitle {
+  color: var(--text);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.dcl.buy-mana-with-fiat-modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 32px 24px 34px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option {
+  min-width: 392px;
   width: 100%;
-  height: 80px;
+  height: 68px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);
   background-color: var(--card-on-modal);
   display: flex;
   align-items: center;
-  padding: 21px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -1931,19 +1938,19 @@ a.ui.card:hover,
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .image {
   flex: none;
-  width: 29px;
-  height: 29px;
+  width: 48px;
+  height: 48px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.dcl.option.matic .image {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUgMC40NTQ1OUwyOS41NDU0IDE1TDE1IDI5LjU0NTVMMC40NTQ1MjkgMTVMMTUgMC40NTQ1OVpNMTUgNC41MjczMkwyNS40NzI3IDE1TDE1IDI1LjQ3MjhMNC41MjcyNiAxNUwxNSA0LjUyNzMyWk0xNSAyMC4yMzY0QzE2LjM4ODggMjAuMjM2NiAxNy43MjA3IDE5LjY4NSAxOC43MDI4IDE4LjcwMzFDMTkuNjg1IDE3LjcyMTIgMjAuMjM2OCAxNi4zODk0IDIwLjIzNyAxNS4wMDA3QzIwLjIzNzEgMTMuNjExOSAxOS42ODU2IDEyLjI3OTkgMTguNzAzNyAxMS4yOTc4QzE3LjcyMTggMTAuMzE1NyAxNi4zOSA5Ljc2Mzg0IDE1LjAwMTIgOS43NjM2OEMxMy42MTI0IDkuNzYzNjggMTIuMjgwNSAxMC4zMTU0IDExLjI5ODUgMTEuMjk3NEMxMC4zMTY1IDEyLjI3OTQgOS43NjQ4MyAxMy42MTEzIDkuNzY0ODMgMTVDOS43NjQ4MyAxNi4zODg4IDEwLjMxNjUgMTcuNzIwNyAxMS4yOTg1IDE4LjcwMjdDMTIuMjgwNSAxOS42ODQ3IDEzLjYxMjQgMjAuMjM2NCAxNS4wMDEyIDIwLjIzNjRIMTVaIiBmaWxsPSIjMTYxNTE4Ii8+Cjwvc3ZnPgo=);
+.dcl.buy-mana-with-fiat-modal .dcl.option.matic .image {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDI0QzAgMTAuNzQ1MiAxMC43NDUyIDAgMjQgMEMzNy4yNTQ4IDAgNDggMTAuNzQ1MiA0OCAyNEM0OCAzNy4yNTQ4IDM3LjI1NDggNDggMjQgNDhDMTAuNzQ1MiA0OCAwIDM3LjI1NDggMCAyNFoiIGZpbGw9IiMyNDIxMjkiLz4KICAgIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjQgMTRMMzQgMjRMMjQgMzRMMTQgMjRMMjQgMTRaTTI0IDE2LjhMMzEuMiAyNEwyNCAzMS4yTDE2LjggMjRMMjQgMTYuOFpNMjQgMjcuNkMyNC45NTQ4IDI3LjYwMDEgMjUuODcwNSAyNy4yMjA5IDI2LjU0NTcgMjYuNTQ1OUMyNy4yMjA5IDI1Ljg3MDggMjcuNjAwMyAyNC45NTUyIDI3LjYwMDQgMjQuMDAwNEMyNy42MDA1IDIzLjA0NTYgMjcuMjIxMyAyMi4xMjk5IDI2LjU0NjMgMjEuNDU0N0MyNS44NzEyIDIwLjc3OTUgMjQuOTU1NiAyMC40MDAxIDI0LjAwMDggMjAuNEMyMy4wNDYxIDIwLjQgMjIuMTMwNCAyMC43NzkzIDIxLjQ1NTIgMjEuNDU0NEMyMC43ODAxIDIyLjEyOTUgMjAuNDAwOCAyMy4wNDUyIDIwLjQwMDggMjRDMjAuNDAwOCAyNC45NTQ4IDIwLjc4MDEgMjUuODcwNSAyMS40NTUyIDI2LjU0NTZDMjIuMTMwNCAyNy4yMjA3IDIzLjA0NjEgMjcuNiAyNC4wMDA4IDI3LjZIMjRaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K);
 }
 
-.dcl.option.ethereum .image {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAyNiAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMC41MTQzIDE0LjkzMjJDMjAuNTE0MyAxMC43MjggMTcuMTIzNyA3LjIzNTY5IDEyLjkxOTUgNy4yMzU2OUM4LjcxNTE3IDcuMjM1NjkgNS4zMjQ2MiAxMC43MjggNS4zMjQ2MiAxNC45MzIyQzUuMzI0NjIgMTkuMTAyNiA4LjcxNTE3IDIyLjQ5MzIgMTIuOTE5NSAyMi40OTMyQzE3LjEyMzcgMjIuNDkzMiAyMC41MTQzIDE5LjEwMjYgMjAuNTE0MyAxNC45MzIyWk0xOC43NTEyIDE0LjkzMjJDMTguNzUxMiAxOC4xMTkzIDE1LjkwMzEgMjAuNzMwMSAxMi45MTk1IDIwLjczMDFDOS42MzA2MiAyMC43MzAxIDcuMDg3NzEgMTguMTg3MiA3LjA4NzcxIDE0LjkzMjJDNy4wODc3MSAxMS43MTEyIDkuNjMwNjIgOC45OTg3NyAxMi45MTk1IDguOTk4NzdDMTUuOTM3IDguOTk4NzcgMTguNzUxMiAxMS43MTEyIDE4Ljc1MTIgMTQuOTMyMlpNMjUuNTY2MiAyMi4yODk3VjcuNzEwMzZMMTIuOTE5NSAwLjQ1NDU5TDAuMjcyNzA1IDcuNzEwMzZWMjIuMjg5N0wxMi45MTk1IDI5LjU0NTVMMjUuNTY2MiAyMi4yODk3Wk0yMy4zMjg0IDIxLjAzNTJMMTIuOTUzNCAyNi45Njg3TDIuNTEwNDcgMjEuMDM1MlY5LjA2NjU4TDEyLjkxOTUgMy4wMzE0MUwyMy4zMjg0IDkuMDY2NThWMjEuMDM1MloiIGZpbGw9IiNGRjJENTUiIHN0cm9rZT0iIzcxNkI3QyIgc3Ryb2tlLXdpZHRoPSIwLjQiLz4KPC9zdmc+Cg==);
+.dcl.buy-mana-with-fiat-modal .dcl.option.ethereum .image {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDI0QzAgMTAuNzQ1MiAxMC43NDUyIDAgMjQgMEMzNy4yNTQ4IDAgNDggMTAuNzQ1MiA0OCAyNEM0OCAzNy4yNTQ4IDM3LjI1NDggNDggMjQgNDhDMTAuNzQ1MiA0OCAwIDM3LjI1NDggMCAyNFoiIGZpbGw9IiMyNDIxMjkiLz4KICAgIDxwYXRoIGQ9Ik0yOS40MDQ4IDIzLjk1MzRDMjkuNDA0OCAyMS4wNjI5IDI2Ljk5MiAxOC42NjIgMjQgMTguNjYyQzIxLjAwOCAxOC42NjIgMTguNTk1MiAyMS4wNjI5IDE4LjU5NTIgMjMuOTUzNEMxOC41OTUyIDI2LjgyMDUgMjEuMDA4IDI5LjE1MTUgMjQgMjkuMTUxNUMyNi45OTIgMjkuMTUxNSAyOS40MDQ4IDI2LjgyMDUgMjkuNDA0OCAyMy45NTM0Wk0yOC4xNTAxIDIzLjk1MzRDMjguMTUwMSAyNi4xNDQ1IDI2LjEyMzMgMjcuOTM5NCAyNCAyNy45Mzk0QzIxLjY1OTUgMjcuOTM5NCAxOS44NDk5IDI2LjE5MTEgMTkuODQ5OSAyMy45NTM0QzE5Ljg0OTkgMjEuNzM4OSAyMS42NTk1IDE5Ljg3NDEgMjQgMTkuODc0MUMyNi4xNDc1IDE5Ljg3NDEgMjguMTUwMSAyMS43Mzg5IDI4LjE1MDEgMjMuOTUzNFpNMzMgMjkuMDExN1YxOC45ODgzTDI0IDE0TDE1IDE4Ljk4ODNWMjkuMDExN0wyNCAzNEwzMyAyOS4wMTE3Wk0zMS40MDc1IDI4LjE0OTJMMjQuMDI0MSAzMi4yMjg0TDE2LjU5MjUgMjguMTQ5MlYxOS45MjA3TDI0IDE1Ljc3MTZMMzEuNDA3NSAxOS45MjA3VjI4LjE0OTJaIiBmaWxsPSIjRkYyRDU1Ii8+Cjwvc3ZnPgo=);
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info {
@@ -1954,31 +1961,31 @@ a.ui.card:hover,
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info .cta {
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
   color: var(--text);
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option .info .ctaSubtitle {
-  color: var(--secondary-text);
+  color: var(--text);
   margin-top: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.option + .dcl.option {
   margin-top: 16px;
 }
 
-.dcl.buy-mana-with-fiat-modal .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
 .dcl.buy-mana-with-fiat-modal .message {
   margin-top: 28px;
   text-align: center;
   display: block;
-  color: var(--text);
+  color: var(--secondary-text);
   line-height: 1.5;
   opacity: 0.9;
 }
