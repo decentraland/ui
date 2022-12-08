@@ -2,3 +2,11 @@
 .Toast .body p {
   color: var(--toast-text);
 }
+
+.toast.width-300 {
+  width: 300px;
+}
+
+.toast.height-200 {
+  height: 200px;
+}
