@@ -10,7 +10,7 @@ export type ToastPosition =
   | 'top right'
 
 export type ToastsProps = {
-  position?: ToastPosition
+  position?: ToastPosition | undefined
   children: React.ReactNode
 }
 
