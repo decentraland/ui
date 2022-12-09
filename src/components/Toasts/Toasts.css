@@ -1,6 +1,6 @@
 .dcl.toasts {
   position: fixed;
-  z-index: 3001; /* Appear over modals */
+  z-index: 2147483002; /* Appear over modals and intercom */
 }
 
 .dcl.toasts.top {
