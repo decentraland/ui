@@ -16,16 +16,14 @@ export type ToastsProps = {
   children: React.ReactNode
 }
 
-export class Toasts extends React.PureComponent<ToastsProps> {
-  render(): JSX.Element {
-    const newPosition: ToastPosition = useMobileMediaQuery()
-      ? 'bottom center'
-      : 'top right'
+export const Toasts = (props: ToastsProps) => {
+  const newPosition: ToastPosition = useMobileMediaQuery()
+    ? 'bottom center'
+    : 'top right'
 
-    const { position = newPosition, children } = this.props
+  const { position = newPosition, children } = props
 
-    const className = ['dcl', 'toasts', ...position.split(' ')]
+  const className = ['dcl', 'toasts', ...position.split(' ')]
 
-    return <div className={className.join(' ')}>{children}</div>
-  }
+  return <div className={className.join(' ')}>{children}</div>
 }
