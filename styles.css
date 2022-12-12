@@ -3591,6 +3591,7 @@ a.ui.card:hover,
   position: relative;
   background-color: var(--toast);
   color: var(--toast-text);
+  z-index: 2147483002; /* Appear over intercom */
 }
 
 .dcl.toast .toast-info {
@@ -3617,7 +3618,7 @@ a.ui.card:hover,
 
 .dcl.toasts {
   position: fixed;
-  z-index: 3001; /* Appear over modals */
+  z-index: 2147483002; /* Appear over modals and intercom */
 }
 
 .dcl.toasts.top {
