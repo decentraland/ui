@@ -1,4 +1,6 @@
 import * as React from 'react'
+
+import { useMobileMediaQuery } from '../Media'
 import './Toasts.css'
 
 export type ToastPosition =
@@ -16,7 +18,11 @@ export type ToastsProps = {
 
 export class Toasts extends React.PureComponent<ToastsProps> {
   render(): JSX.Element {
-    const { position = 'top right', children } = this.props
+    const newPosition: ToastPosition = useMobileMediaQuery()
+      ? 'bottom center'
+      : 'top right'
+
+    const { position = newPosition, children } = this.props
 
     const className = ['dcl', 'toasts', ...position.split(' ')]
 

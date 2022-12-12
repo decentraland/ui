@@ -8,6 +8,7 @@
   position: relative;
   background-color: var(--toast);
   color: var(--toast-text);
+  z-index: 2147483002; /* Appear over intercom */
 }
 
 .dcl.toast .toast-info {
