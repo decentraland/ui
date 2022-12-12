@@ -30,9 +30,7 @@ export const gatewaysNames: GatewaysNames = {
 export type BuyWithFiatNetworkProps = {
   className?: string
   message?: React.ReactNode
-  hasError?: boolean
   open?: boolean
-  loading?: boolean
   i18n?: NetworkI18N
   type: Network
   gateways: Omit<NetworkGatewayProps, 'network'>[]

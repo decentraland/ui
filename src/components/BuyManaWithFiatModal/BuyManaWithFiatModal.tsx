@@ -127,8 +127,9 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
   render(): JSX.Element {
     const { selectedNetwork } = this.state
 
-    const { className, message, hasError, loading, i18n, onInfo } =
-      selectedNetwork ? selectedNetwork : this.props
+    const { className, message, i18n, onInfo } = selectedNetwork
+      ? selectedNetwork
+      : this.props
 
     const title: React.ReactNode =
       i18n?.title ||
@@ -139,7 +140,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
       'If this is the first time you use any of these providers you will first need to create an account on their platform. If you have already have an account, you will just need to login.'
 
     let errorClasses = 'error'
-    if (hasError) {
+    if (this.props.hasError) {
       errorClasses += ' visible'
     }
 
@@ -190,8 +191,10 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
             </small>
           ) : null}
         </ModalContent>
-        {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
-        {loading ? (
+        {this.props.hasError ? (
+          <p className={errorClasses}>{i18n.error}</p>
+        ) : null}
+        {this.props.loading ? (
           <>
             <Loader size="big" active />
             <div className="loader-background"></div>
