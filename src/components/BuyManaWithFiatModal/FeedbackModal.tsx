@@ -54,11 +54,6 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       onClickCta
     } = this.props
 
-    let errorClasses = 'error'
-    if (this.props.hasError) {
-      errorClasses += ' visible'
-    }
-
     return (
       <Modal
         open={open}
@@ -70,7 +65,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           <p>{i18n.description}</p>
           {message ? <small className="message">{message}</small> : null}
         </ModalContent>
-        {hasError ? <p className={errorClasses}>{i18n.error}</p> : null}
+        {hasError ? <p className="error visible">{i18n.error}</p> : null}
         {loading ? (
           <>
             <Loader size="big" active />

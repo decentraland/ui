@@ -2,11 +2,11 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
-import { Header } from '../Header/Header'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
+import { Header } from '../Header/Header'
+import { FeedbackModal } from './FeedbackModal'
 import { NetworkGatewayType } from './Network'
 import './BuyManaWithFiatModal.stories.css'
-import { FeedbackModal } from './FeedbackModal'
 
 const lipsum = (
   <>
