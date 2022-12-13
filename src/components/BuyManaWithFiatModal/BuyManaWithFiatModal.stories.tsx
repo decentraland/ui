@@ -6,6 +6,7 @@ import { Header } from '../Header/Header'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
 import { NetworkGatewayType } from './Network'
 import './BuyManaWithFiatModal.stories.css'
+import { FeedbackModal } from './FeedbackModal'
 
 const lipsum = (
   <>
@@ -49,7 +50,7 @@ const lipsum = (
 
 storiesOf('BuyManaWithFiatModal', module)
   .addDecorator(centered)
-  .add('BuyWithFiat options with default values', () => (
+  .add('BuyManaWithFiat options with default values', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -84,7 +85,7 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyWithFiat options with custom texts', () => (
+  .add('BuyManaWithFiat options with custom texts', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -136,29 +137,32 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyWithFiat with Polygon already selected and only one gateway', () => (
-    <div className="BuyManaWithFiatModal-story">
-      {lipsum}
-      <BuyManaWithFiatModal
-        open
-        networks={[
-          {
-            type: Network.MATIC,
-            gateways: [
-              {
-                type: NetworkGatewayType.TRANSAK,
-                learnMoreLink: 'https://transak.com/',
-                onContinue: () => undefined
-              }
-            ]
-          }
-        ]}
-        onClose={() => undefined}
-        onInfo={() => undefined}
-      />
-    </div>
-  ))
-  .add('BuyWithFiat with Ethereum already selected', () => (
+  .add(
+    'BuyManaWithFiat with Polygon already selected and only one gateway',
+    () => (
+      <div className="BuyManaWithFiatModal-story">
+        {lipsum}
+        <BuyManaWithFiatModal
+          open
+          networks={[
+            {
+              type: Network.MATIC,
+              gateways: [
+                {
+                  type: NetworkGatewayType.TRANSAK,
+                  learnMoreLink: 'https://transak.com/',
+                  onContinue: () => undefined
+                }
+              ]
+            }
+          ]}
+          onClose={() => undefined}
+          onInfo={() => undefined}
+        />
+      </div>
+    )
+  )
+  .add('BuyManaWithFiat with Ethereum already selected', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -185,7 +189,13 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyWithFiat persisent message', () => (
+  .add('BuyManaWithFiat last step: Feedback Modal', () => (
+    <div className="BuyManaWithFiatModal-story">
+      {lipsum}
+      <FeedbackModal open onClose={() => undefined} onInfo={() => undefined} />
+    </div>
+  ))
+  .add('BuyManaWithFiat persisent message', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -200,7 +210,7 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyWithFiat error', () => (
+  .add('BuyManaWithFiat error', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
