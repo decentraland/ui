@@ -1,7 +1,6 @@
 import * as React from 'react'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import classNames from 'classnames'
-import FeedbackStarts from '../../assets/feedback-stars.svg'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
@@ -61,7 +60,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       >
         <ModalNavigation title={i18n.title} onInfo={onInfo} onClose={onClose} />
         <ModalContent>
-          <img src={FeedbackStarts} className="stars" />
+          <img className="stars" />
           <p>{i18n.description}</p>
           {message ? <small className="message">{message}</small> : null}
         </ModalContent>
@@ -73,7 +72,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           </>
         ) : null}
         <Modal.Actions>
-          <Button primary onClose={onClickCta || onClose}>
+          <Button primary onClick={onClickCta || onClose}>
             {i18n.cta}
           </Button>
         </Modal.Actions>

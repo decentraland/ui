@@ -1,5 +1,5 @@
 .dcl.feedback-modal {
-  width: 520px;
+  width: 520px !important;
 }
 
 .dcl.feedback-modal .dcl.modal-navigation {
@@ -20,6 +20,10 @@
   text-align: center;
   margin: 0;
   padding: 32px 24px 34px;
+}
+
+.dcl.feedback-modal .content img {
+  content: url(../../assets/feedback-stars.svg);
 }
 
 .dcl.feedback-modal .content img.stars {
