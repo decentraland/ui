@@ -1,0 +1,69 @@
+.dcl.feedback-modal {
+  width: 520px;
+}
+
+.dcl.feedback-modal .dcl.modal-navigation {
+  padding-top: 40px;
+}
+
+.dcl.feedback-modal .dcl.modal-navigation .dcl.modal-navigation-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.dcl.feedback-modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 32px 24px 34px;
+}
+
+.dcl.feedback-modal .content img.stars {
+  margin-bottom: 40px;
+}
+
+.dcl.feedback-modal .content p {
+  white-space: pre-line;
+}
+
+.dcl.feedback-modal .actions {
+  margin: 0;
+  padding: 24px 64px 64px 64px;
+}
+
+.dcl.feedback-modal .message {
+  margin-top: 28px;
+  text-align: center;
+  display: block;
+  color: var(--secondary-text);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.dcl.feedback-modal .error {
+  opacity: 0;
+  user-select: none;
+  color: var(--primary);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dcl.feedback-modal .error.visible {
+  transition: opacity 0.25s ease;
+  opacity: 1;
+  user-select: auto;
+}
+
+.dcl.feedback-modal .loader-background {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
