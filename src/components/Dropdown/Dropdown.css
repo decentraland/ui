@@ -48,3 +48,29 @@
   font-weight: 500;
   background-color: var(--dropdown-hover);
 }
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
+  font-size: 17px;
+}
+
+.closeIcon {
+  position: fixed;
+  top: 23px;
+  right: 21px;
+}
+
+@media (max-width: 767px) {
+  .ui.dropdown .menu,
+  .ui.upward.dropdown > .menu {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: -13px;
+    border-radius: 0px;
+  }
+}
