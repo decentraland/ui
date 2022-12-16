@@ -77,12 +77,12 @@ export * from './components/Responsive'
 export * from './components/Media'
 
 // Overrides semantic-ui Dropdown
-import { Dropdown, DropdownPropsAndTitle } from './components/Dropdown/Dropdown'
+import { Dropdown, DropdownProps } from './components/Dropdown/Dropdown'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
-export { Dropdown, DropdownPropsAndTitle }
+export { Dropdown, DropdownProps }
 
 // Colors
 export * from './colors'

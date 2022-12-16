@@ -1,17 +1,18 @@
 import React from 'react'
 import {
   default as DropdownSemantic,
-  DropdownProps
+  DropdownProps as DropdownSemanticProps
 } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown'
 import { Icon } from '../..'
 import { Mobile, NotMobile } from '../Media'
 import './Dropdown.css'
 
-export type DropdownPropsAndTitle = DropdownProps & {
-  title: string
+export type DropdownProps = DropdownSemanticProps & {
+  /* Mobile header title */
+  title?: string
 }
 export class Dropdown extends DropdownSemantic {
-  constructor(props: DropdownProps) {
+  constructor(props: DropdownSemanticProps) {
     super(props)
   }
 
@@ -19,7 +20,11 @@ export class Dropdown extends DropdownSemantic {
     return (
       <div className="headerContainer">
         {this.props.title}
-        <Icon name="close" className="closeIcon" />
+        <Icon
+          name="close"
+          className="closeIcon"
+          onClick={this.props?.onClose}
+        />
       </div>
     )
   }
@@ -38,4 +43,4 @@ export class Dropdown extends DropdownSemantic {
   }
 }
 
-export { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown'
+export { DropdownProps as DropdownPropsSemantic } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown'
