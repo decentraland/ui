@@ -26,6 +26,7 @@ export type BuyManaWithFiatModalProps = {
   i18n?: BuyManaWithFiatModalI18N
   networks: (BuyManaWithFiatModalNetworkProps & BuyWithFiatNetworkProps)[]
   onClose?: () => void
+  onClickNetwork?: (network: Network) => void
   onInfo?: () => void
 }
 
@@ -124,6 +125,13 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     this.props.onClose()
   }
 
+  handleNetworkOnClick = (network: SelectedNetwork) => {
+    this.setState({
+      selectedNetwork: network
+    })
+    this.props.onClickNetwork?.(network.type)
+  }
+
   render(): JSX.Element {
     const { selectedNetwork } = this.state
 
@@ -177,11 +185,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
                 {...network}
                 key={network.type}
                 type={network.type}
-                onClick={() =>
-                  this.setState({
-                    selectedNetwork: network
-                  })
-                }
+                onClick={() => this.handleNetworkOnClick(network)}
               />
             ))
           )}
