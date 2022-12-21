@@ -37,5 +37,6 @@
 
 .dcl.box .box-header .ui.button.collapse-btn img {
   margin-right: 0;
-  filter: invert(45%) sepia(6%) saturate(719%) hue-rotate(218deg) brightness(94%) contrast(91%);
+  filter: invert(45%) sepia(6%) saturate(719%) hue-rotate(218deg)
+    brightness(94%) contrast(91%);
 }

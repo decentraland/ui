@@ -51,7 +51,10 @@ export const Box = (props: BoxProps): JSX.Element => {
               className="collapse-btn"
               onClick={handleToggleCollapse}
             >
-              <img src={shouldCollapse ? arrowDownIcon : arrowUpIcon } alt={shouldCollapse ? "collapse" : "open" }/>
+              <img
+                src={shouldCollapse ? arrowDownIcon : arrowUpIcon}
+                alt={shouldCollapse ? 'collapse' : 'open'}
+              />
             </Button>
           )}
         </div>
