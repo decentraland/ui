@@ -6,10 +6,6 @@
   max-width: 520px;
 }
 
-.ui.modal.dcl.feedback-modal.iframe-bg {
-  background: #1c1c1e;
-}
-
 .dcl.feedback-modal .dcl.modal-navigation {
   padding-top: 40px;
 }
@@ -40,10 +36,17 @@
 }
 
 .ui.modal.dcl.feedback-modal .content .status-icon {
-  color: #736e7d;
   width: 18px;
   height: 18px;
   font-weight: 600;
+}
+
+.ui.modal.dcl.feedback-modal.pending .content .status-icon {
+  color: #736e7d;
+}
+
+.ui.modal.dcl.feedback-modal.failure .content .status-icon {
+  color: var(--millenial-orange);
 }
 
 .ui.modal.dcl.feedback-modal .content .description {
@@ -55,38 +58,36 @@
   text-align: center;
 }
 
-.dcl.feedback-modal .content .image {
+.dcl.dcl.feedback-modal .content .gateway-image {
   flex: none;
   width: 100%;
   height: 128px;
   border-radius: 5px;
   max-width: 392px;
-  max-height: 128px;
 }
 
-.dcl.feedback-modal .content.moonPay .image {
+.dcl.feedback-modal .content .gateway-image.moonPay {
   background: url('../../images/moonpay.svg') no-repeat center, white;
   background-size: 65% auto;
 }
 
-.dcl.feedback-modal .content.transak .image {
+.dcl.feedback-modal .content .gateway-image.transak {
   background: url('../../images/transak.svg') no-repeat center, white;
   background-size: 65% auto;
 }
 
+.ui.modal.dcl.feedback-modal .actions .ui.button + .ui.button,
 .dcl.feedback-modal .content .text-content p {
   margin: 0;
 }
 
-.dcl.feedback-modal .content iframe {
-  border-radius: 20px;
-}
-
-.dcl.feedback-modal .actions {
+.ui.modal.dcl.feedback-modal > .actions,
+.ui.modal.dcl.feedback-modal .actions {
   margin: 0;
   padding: 24px 64px 64px 64px;
   display: flex;
   flex-direction: column;
+  row-gap: 8px;
 }
 
 .dcl.feedback-modal .actions .view-transaction {

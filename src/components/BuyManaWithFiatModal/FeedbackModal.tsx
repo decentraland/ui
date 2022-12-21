@@ -16,6 +16,12 @@ export enum TransactionStatus {
   FAILURE = 'failure'
 }
 
+const iconNames = {
+  [TransactionStatus.PENDING]: 'clock outline',
+  [TransactionStatus.FAILURE]: 'warning circle'
+}
+
+// TODO (enhancement): conditional typing (at least the mandatory props) based on the status
 export type FeedbackModalProps = {
   className?: string
   message?: React.ReactNode
@@ -29,18 +35,20 @@ export type FeedbackModalProps = {
   goToUrl?: string
   status: TransactionStatus
   onClickCta?: () => void
+  onClickSecondaryCta?: () => void
   onClose?: () => void
   onInfo?: () => void
 }
 
 export type FeedbackModalI18N = {
   title: React.ReactNode
-  statusDescription?: React.ReactNode
+  statusTitle?: React.ReactNode
   description: React.ReactNode
-  cta: React.ReactNode
-  error: React.ReactNode
+  cta?: React.ReactNode
+  secondaryCta?: React.ReactNode
   viewTransaction: React.ReactNode
   goToText?: React.ReactNode
+  error?: React.ReactNode
 }
 
 export class FeedbackModal extends React.Component<FeedbackModalProps> {
@@ -53,22 +61,20 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       description:
         'The MANA has been added to your account. If you still don’t see it in your balance, refresh this page.',
       cta: 'Done',
-      error: 'Could not process the transaction',
       viewTransaction: 'View Transaction in Exporer'
     }
   }
 
-  renderBanner(): JSX.Element {
-    return this.props.status === TransactionStatus.SUCCESS ? (
-      <img className="stars" />
-    ) : (
-      <div className="image" />
-    )
-  }
-
   renderActions(): JSX.Element {
-    const { i18n, status, goToUrl, transactionUrl, onClickCta, onClose } =
-      this.props
+    const {
+      i18n,
+      status,
+      goToUrl,
+      transactionUrl,
+      onClickCta,
+      onClickSecondaryCta,
+      onClose
+    } = this.props
 
     switch (status) {
       case TransactionStatus.SUCCESS:
@@ -95,7 +101,12 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           <>
             <Loader size="medium" active>
               {goToUrl ? (
-                <a href={goToUrl} className="go-to">
+                <a
+                  href={goToUrl}
+                  className="go-to"
+                  target="_blank"
+                  rel="external"
+                >
                   {i18n?.goToText}
                 </a>
               ) : null}
@@ -104,13 +115,32 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
         )
       case TransactionStatus.FAILURE:
         return (
-          <Button primary onClick={onClickCta || onClose}>
-            {i18n.cta}
-          </Button>
+          <>
+            <Button primary onClick={onClickCta}>
+              {i18n.cta}
+            </Button>
+            <Button secondary onClick={onClickSecondaryCta}>
+              {i18n.secondaryCta}
+            </Button>
+          </>
         )
       default:
         break
     }
+  }
+
+  renderStatusTitle(): JSX.Element {
+    const { i18n, status } = this.props
+    const iconName = iconNames[status]
+
+    if (this.props.status === TransactionStatus.SUCCESS) return null
+
+    return i18n.statusTitle ? (
+      <p className="status-description">
+        {iconName ? <Icon name={iconName} className="status-icon" /> : null}
+        {i18n.statusTitle}
+      </p>
+    ) : null
   }
 
   render(): JSX.Element {
@@ -121,9 +151,8 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       i18n,
       hasError,
       loading,
-      selectedNetwork,
-      selectedGateway,
       status,
+      selectedGateway,
       onClose,
       onInfo
     } = this.props
@@ -134,15 +163,17 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
         className={classNames('dcl', 'feedback-modal', className, status)}
       >
         <ModalNavigation title={i18n.title} onInfo={onInfo} onClose={onClose} />
-        <ModalContent className={classNames(selectedNetwork, selectedGateway)}>
-          {this.renderBanner()}
+        <ModalContent>
+          <img
+            className={classNames(
+              'gateway-image',
+              this.props.status === TransactionStatus.SUCCESS
+                ? 'stars'
+                : selectedGateway
+            )}
+          />
           <div className="text-content">
-            {i18n.statusDescription ? (
-              <p className="status-description">
-                <Icon name="clock outline" className="status-icon" />
-                {i18n.statusDescription}
-              </p>
-            ) : null}
+            {this.renderStatusTitle()}
             <p className="description">{i18n.description}</p>
             {message ? <small className="message">{message}</small> : null}
           </div>
