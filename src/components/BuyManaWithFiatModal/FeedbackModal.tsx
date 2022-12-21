@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import classNames from 'classnames'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
@@ -14,6 +15,7 @@ export type FeedbackModalProps = {
   open?: boolean
   loading?: boolean
   i18n?: FeedbackModalI18N
+  transactionUrl?: string
   onClickCta?: () => void
   onClose?: () => void
   onInfo?: () => void
@@ -24,6 +26,7 @@ export type FeedbackModalI18N = {
   description: React.ReactNode
   cta: React.ReactNode
   error: React.ReactNode
+  viewTransaction: React.ReactNode
 }
 
 export class FeedbackModal extends React.Component<FeedbackModalProps> {
@@ -36,7 +39,8 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       description:
         'You just bought some mana you naughty friend.\nThis copy clearly needs review',
       cta: 'Done',
-      error: 'Could not process the transaction'
+      error: 'Could not process the transaction',
+      viewTransaction: 'View Transaction in Exporer'
     }
   }
 
@@ -48,6 +52,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       i18n,
       hasError,
       loading,
+      transactionUrl,
       onClose,
       onInfo,
       onClickCta
@@ -75,6 +80,17 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           <Button primary onClick={onClickCta || onClose}>
             {i18n.cta}
           </Button>
+          {transactionUrl ? (
+            <a
+              className="view-transaction"
+              href={transactionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {i18n.viewTransaction}
+              <Icon name="external alternate" />
+            </a>
+          ) : null}
         </Modal.Actions>
       </Modal>
     )

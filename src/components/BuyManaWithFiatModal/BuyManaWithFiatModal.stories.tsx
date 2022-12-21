@@ -189,12 +189,33 @@ storiesOf('BuyManaWithFiatModal', module)
       />
     </div>
   ))
-  .add('BuyManaWithFiat last step: Feedback Modal', () => (
-    <div className="BuyManaWithFiatModal-story">
-      {lipsum}
-      <FeedbackModal open onClose={() => undefined} onInfo={() => undefined} />
-    </div>
-  ))
+  .add(
+    'BuyManaWithFiat success modal without link to transaction explorer',
+    () => (
+      <div className="BuyManaWithFiatModal-story">
+        {lipsum}
+        <FeedbackModal
+          open
+          onClose={() => undefined}
+          onInfo={() => undefined}
+        />
+      </div>
+    )
+  )
+  .add(
+    'BuyManaWithFiat success modal with link to transaction explorer',
+    () => (
+      <div className="BuyManaWithFiatModal-story">
+        {lipsum}
+        <FeedbackModal
+          open
+          transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
+          onClose={() => undefined}
+          onInfo={() => undefined}
+        />
+      </div>
+    )
+  )
   .add('BuyManaWithFiat persisent message', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}

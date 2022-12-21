@@ -34,6 +34,22 @@
 .dcl.feedback-modal .actions {
   margin: 0;
   padding: 24px 64px 64px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dcl.feedback-modal .actions .view-transaction {
+  margin-top: 19px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--text);
+}
+
+.dcl.feedback-modal .actions .view-transaction i {
+  margin-left: 7px;
 }
 
 .dcl.feedback-modal .message {
