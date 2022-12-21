@@ -2612,6 +2612,10 @@ a.ui.card:hover,
   position: relative;
 }
 
+.dcl.field.resizable {
+  min-width: 0;
+}
+
 .dcl.field .ui.input {
   width: 100%;
 }
@@ -2629,6 +2633,20 @@ a.ui.card:hover,
   border-radius: 0px;
   color: var(--text);
   background: transparent;
+}
+
+.dcl.field.full .ui.input input,
+.ui.form .dcl.field.full .ui.input input {
+  border: 2px solid var(--divider);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.dcl.field.full .ui.input input:focus,
+.dcl.field.full .ui.input input:active,
+.ui.form .dcl.field.full .ui.input input:focus,
+.ui.form .dcl.field.full .ui.input input:active {
+  border: 2px solid var(--text);
 }
 
 .dcl.field .ui.input input:focus,
@@ -2663,6 +2681,12 @@ a.ui.card:hover,
   border-width: 2px;
 }
 
+.dcl.field.full .ui.input.loading > i.icon,
+.ui.form .dcl.field.full .ui.input.loading > i.icon {
+  top: 8px;
+  right: 10px;
+}
+
 /* Disabled */
 
 .dcl.field.disabled .ui.header.sub,
@@ -2684,6 +2708,11 @@ a.ui.card:hover,
   border-bottom: 2px solid var(--error);
 }
 
+.dcl.field.error.full .ui.input input,
+.ui.form .dcl.field.error .ui.input input {
+  border: 2px solid var(--error);
+}
+
 .dcl.field.error .message,
 .ui.form .dcl.field.error .message {
   color: var(--error);
@@ -2702,6 +2731,13 @@ a.ui.card:hover,
   background-position: center;
   height: 36px;
 }
+
+.dcl.field.error.full .ui.input > i.icon,
+.ui.form .dcl.field.error.full .ui.input > i.icon {
+  top: 8px;
+  right: 10px;
+}
+
 .dcl.field.error .ui.input > i.icon:before,
 .ui.form .dcl.field.error .ui.input > i.icon:before {
   content: '';
@@ -2729,11 +2765,23 @@ a.ui.card:hover,
   top: 28px;
 }
 
+.dcl.field.address.has-label.full .dcl.blockie,
+.ui.form .dcl.field.address.has-label.full .dcl.blockie {
+  top: 35px;
+  right: 10px;
+}
+
 .dcl.field .overlay,
 .ui.form .dcl.field .overlay {
   position: absolute;
   bottom: 30px;
   right: 0px;
+}
+
+.dcl.field.full .overlay,
+.ui.form .dcl.field.full .overlay {
+  bottom: 33px;
+  right: 10px;
 }
 
 .dcl.field .overlay .ui.button,
