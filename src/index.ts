@@ -75,6 +75,7 @@ export * from './components/SelectField/SelectField'
 export * from './components/TextFilter'
 export * from './components/Responsive'
 export * from './components/Media'
+export * from './components/Box'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
