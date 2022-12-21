@@ -4,7 +4,7 @@ import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
 import { Header } from '../Header/Header'
-import { FeedbackModal } from './FeedbackModal'
+import { FeedbackModal, TransactionStatus } from './FeedbackModal'
 import { NetworkGatewayType } from './Network'
 import './BuyManaWithFiatModal.stories.css'
 
@@ -196,6 +196,7 @@ storiesOf('BuyManaWithFiatModal', module)
         {lipsum}
         <FeedbackModal
           open
+          status={TransactionStatus.SUCCESS}
           onClose={() => undefined}
           onInfo={() => undefined}
         />
@@ -209,6 +210,7 @@ storiesOf('BuyManaWithFiatModal', module)
         {lipsum}
         <FeedbackModal
           open
+          status={TransactionStatus.SUCCESS}
           transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
           onClose={() => undefined}
           onInfo={() => undefined}
@@ -216,6 +218,29 @@ storiesOf('BuyManaWithFiatModal', module)
       </div>
     )
   )
+  .add('BuyManaWithFiat pending tx in Moon Pay', () => (
+    <div className="BuyManaWithFiatModal-story">
+      {lipsum}
+      <FeedbackModal
+        open
+        status={TransactionStatus.PENDING}
+        goToUrl="https://buy-sandbox.moonpay.com/transaction_receipt?transactionId=0a1cbb99-1b3c-4106-9d88-318ef2201123"
+        i18n={{
+          title: 'Buy Ethereum MANA',
+          statusDescription: 'The transaction is processing',
+          description:
+            'Wait a few minutes while the transaction is being processed',
+          goToText: 'Go to MoonPay tab',
+          cta: '',
+          error: ''
+        }}
+        onClose={() => undefined}
+        onInfo={() => undefined}
+        selectedNetwork={Network.ETHEREUM}
+        selectedGateway={NetworkGatewayType.MOON_PAY}
+      />
+    </div>
+  ))
   .add('BuyManaWithFiat persisent message', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
