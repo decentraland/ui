@@ -1,5 +1,9 @@
 .ui.modal.dcl.feedback-modal {
-  width: 520px;
+  max-width: 520px;
+}
+
+.ui.modal.dcl.feedback-modal.iframe-bg {
+  background: #1c1c1e;
 }
 
 .dcl.feedback-modal .dcl.modal-navigation {
@@ -22,6 +26,10 @@
   padding: 32px 24px 34px;
 }
 
+.ui.modal.dcl.feedback-modal.iframe-bg > .content {
+  background: #1c1c1e;
+}
+
 .dcl.feedback-modal .content img.stars {
   margin-bottom: 40px;
   content: url(../../assets/feedback-stars.svg);
@@ -29,6 +37,10 @@
 
 .dcl.feedback-modal .content p {
   white-space: pre-line;
+}
+
+.dcl.feedback-modal .content iframe {
+  border-radius: 20px;
 }
 
 .dcl.feedback-modal .actions {
