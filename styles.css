@@ -1727,7 +1727,6 @@ a.ui.card:hover,
 }
 
 .dcl.network {
-  min-width: 520px;
   max-width: -webkit-min-content;
   max-width: -moz-min-content;
   max-width: min-content;
@@ -1756,7 +1755,6 @@ a.ui.card:hover,
 }
 
 .dcl.network .dcl.gateway {
-  min-width: 310px;
   max-width: 474px;
   min-height: 310px;
   box-shadow: var(--shadow-1);
@@ -1883,8 +1881,25 @@ a.ui.card:hover,
   opacity: 0.5;
 }
 
+@media only screen and (min-width: 1200px) {
+  .dcl.network {
+    min-width: 520px;
+  }
+
+  .dcl.network .dcl.gateway {
+    min-width: 310px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dcl.network .content .gateways-container {
+    flex-direction: column;
+    row-gap: 12px;
+  }
+}
+
 .dcl.buy-mana-with-fiat-modal {
-  width: 520px;
+  max-width: 520px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.modal-navigation {
@@ -1921,7 +1936,6 @@ a.ui.card:hover,
 .dcl.buy-mana-with-fiat-modal .dcl.option {
   min-width: 392px;
   width: 100%;
-  height: 68px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);
