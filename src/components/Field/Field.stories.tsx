@@ -56,3 +56,34 @@ storiesOf('Field', module)
       />
     </Form>
   ))
+  .add('With borders', () => (
+    <Form>
+      <Field label="Label" placeholder="Placeholder" kind="full" />
+      <Field label="Label" value="Input Value" kind="full" />
+      <Field
+        label="Label"
+        value="Input Value"
+        message="Additional comment"
+        kind="full"
+      />
+      <Field
+        type="address"
+        label="Label"
+        value="Input Value"
+        message="Some warning"
+        kind="full"
+        error
+      />
+      <Field label="Label" value="Input Value" loadin kind="full" />
+      <Field label="Label" value={address} type="address" kind="full" />
+      <Field label="Label" placeholder="1,000" type="number" kind="full" />
+      <Field label="Label" value="This is disabled" disabled kind="full" />
+      <Field
+        label="Label"
+        value="Input value"
+        action="submit"
+        onAction={() => alert('Action triggered!')}
+        kind="full"
+      />
+    </Form>
+  ))
