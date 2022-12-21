@@ -25,9 +25,7 @@ export const Box = (props: BoxProps): JSX.Element => {
     collapsible,
     onToggle
   } = props
-  const [isCollapsed, setIsCollapsed] = React.useState(
-    'collapsed' in props ? collapsed : false
-  )
+  const [isCollapsed, setIsCollapsed] = React.useState(false)
 
   const shouldCollapse = 'collapsed' in props ? collapsed : isCollapsed
 
