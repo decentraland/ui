@@ -1,7 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import arrowDownIcon from '../../assets/arrow-down.svg'
-import arrowUpIcon from '../../assets/arrow-up.svg'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import { Button } from '../Button/Button'
 import './Box.css'
 
@@ -49,10 +48,7 @@ export const Box = (props: BoxProps): JSX.Element => {
               className="collapse-btn"
               onClick={handleToggleCollapse}
             >
-              <img
-                src={shouldCollapse ? arrowDownIcon : arrowUpIcon}
-                alt={shouldCollapse ? 'collapse' : 'open'}
-              />
+              <Icon name={shouldCollapse ? 'chevron down' : 'chevron up'} />
             </Button>
           )}
         </div>
