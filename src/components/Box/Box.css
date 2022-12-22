@@ -35,8 +35,7 @@
   margin-left: 10px;
 }
 
-.dcl.box .box-header .ui.button.collapse-btn img {
+.dcl.box .box-header .ui.button.collapse-btn i {
   margin-right: 0;
-  filter: invert(45%) sepia(6%) saturate(719%) hue-rotate(218deg)
-    brightness(94%) contrast(91%);
+  color: #736e7d;
 }
