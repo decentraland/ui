@@ -6,7 +6,7 @@ import './RangeField.css'
 export type RangeFieldProps = {
   rangeLimitMin?: number
   rangeLimitMax?: number
-  value?: [number | string, number | string] | []
+  value?: [number | string | undefined, number | string | undefined] | []
   minLabel?: string
   maxLabel?: string
   className?: string
