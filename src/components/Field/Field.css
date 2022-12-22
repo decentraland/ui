@@ -3,10 +3,7 @@
 .dcl.field {
   min-width: 400px;
   position: relative;
-}
-
-.dcl.field.resizable {
-  min-width: 0;
+  min-width: 100%;
 }
 
 .dcl.field .ui.input {
@@ -26,20 +23,6 @@
   border-radius: 0px;
   color: var(--text);
   background: transparent;
-}
-
-.dcl.field.full .ui.input input,
-.ui.form .dcl.field.full .ui.input input {
-  border: 2px solid var(--divider);
-  border-radius: 6px;
-  padding: 10px;
-}
-
-.dcl.field.full .ui.input input:focus,
-.dcl.field.full .ui.input input:active,
-.ui.form .dcl.field.full .ui.input input:focus,
-.ui.form .dcl.field.full .ui.input input:active {
-  border: 2px solid var(--text);
 }
 
 .dcl.field .ui.input input:focus,
@@ -74,12 +57,6 @@
   border-width: 2px;
 }
 
-.dcl.field.full .ui.input.loading > i.icon,
-.ui.form .dcl.field.full .ui.input.loading > i.icon {
-  top: 8px;
-  right: 10px;
-}
-
 /* Disabled */
 
 .dcl.field.disabled .ui.header.sub,
@@ -101,11 +78,6 @@
   border-bottom: 2px solid var(--error);
 }
 
-.dcl.field.error.full .ui.input input,
-.ui.form .dcl.field.error .ui.input input {
-  border: 2px solid var(--error);
-}
-
 .dcl.field.error .message,
 .ui.form .dcl.field.error .message {
   color: var(--error);
@@ -124,13 +96,6 @@
   background-position: center;
   height: 36px;
 }
-
-.dcl.field.error.full .ui.input > i.icon,
-.ui.form .dcl.field.error.full .ui.input > i.icon {
-  top: 8px;
-  right: 10px;
-}
-
 .dcl.field.error .ui.input > i.icon:before,
 .ui.form .dcl.field.error .ui.input > i.icon:before {
   content: '';
@@ -158,23 +123,11 @@
   top: 28px;
 }
 
-.dcl.field.address.has-label.full .dcl.blockie,
-.ui.form .dcl.field.address.has-label.full .dcl.blockie {
-  top: 35px;
-  right: 10px;
-}
-
 .dcl.field .overlay,
 .ui.form .dcl.field .overlay {
   position: absolute;
   bottom: 30px;
   right: 0px;
-}
-
-.dcl.field.full .overlay,
-.ui.form .dcl.field.full .overlay {
-  bottom: 33px;
-  right: 10px;
 }
 
 .dcl.field .overlay .ui.button,
@@ -187,4 +140,34 @@
 .dcl.field .ui.input .icon,
 .ui.form .dcl.field .ui.input .icon {
   color: var(--text);
+}
+
+/* Date */
+.dcl.field,
+.clndr-cell {
+  background-color: var(--secondary) !important;
+}
+
+.clndr-cell-selected {
+  background-color: var(--primary) !important;
+  border-radius: 4px !important;
+}
+
+.clndr-cell-other-month {
+  color: var(--secondary-text) !important;
+}
+
+.clndr-cell-today {
+  color: var(--primary) !important;
+}
+
+.datePickerWidth {
+  width: 90% !important;
+}
+
+@media (max-width: 767px) {
+  .ui.button + .ui.button {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
 }

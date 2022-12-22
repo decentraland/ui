@@ -24,6 +24,7 @@ storiesOf('Field', module)
   .add('Disabled', () => (
     <Field label="Label" value="This is disabled" disabled />
   ))
+  .add('Date', () => <Field label="Date input" type="date" />)
   .add('Action', () => (
     <Field
       label="Label"

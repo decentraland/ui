@@ -1,12 +1,15 @@
 import * as React from 'react'
+import SemanticDatepicker from 'react-semantic-ui-datepickers'
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 import Input, {
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
-import classnames from 'classnames'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
 import './Field.css'
+
+const DATE_TYPE = 'date'
 
 export type FieldProps = InputProps & {
   label?: string
@@ -14,16 +17,9 @@ export type FieldProps = InputProps & {
   message?: string
   action?: string
   onAction?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  kind?: 'simple' | 'full'
-  fitContent?: boolean
 }
 
 export class Field extends React.PureComponent<FieldProps> {
-  static defaultProps = {
-    kind: 'simple',
-    fitContent: false
-  }
-
   hasAction(): boolean {
     const { loading, error, action } = this.props
     const hasOnAction =
@@ -47,19 +43,27 @@ export class Field extends React.PureComponent<FieldProps> {
       action,
       onAction,
       disabled,
-      kind,
-      fitContent,
       ...rest
     } = this.props
     const isAddress = this.isAddress()
-    const icon = error && !isAddress ? 'warning circle' : void 0
-    const classes = classnames('dcl field', kind, {
-      error,
-      disabled,
-      address: isAddress,
-      resizable: fitContent,
-      ['has-label']: label
-    })
+    let classes = 'dcl field'
+    let icon
+
+    if (error) {
+      classes += ' error'
+      if (!isAddress) {
+        icon = 'warning circle'
+      }
+    }
+    if (isAddress) {
+      classes += ' address'
+    }
+    if (disabled) {
+      classes += ' disabled'
+    }
+    if (label) {
+      classes += ' has-label'
+    }
 
     if (isAddress && action) {
       console.warn(
@@ -70,14 +74,26 @@ export class Field extends React.PureComponent<FieldProps> {
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
-        <Input
-          value={value}
-          type={isAddress ? 'text' : type}
-          icon={icon}
-          loading={loading && !isAddress}
-          disabled={disabled}
-          {...rest}
-        />
+        {type === DATE_TYPE ? (
+          <SemanticDatepicker
+            value={value}
+            icon={icon ? icon : void 0}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            format="DD-MM-YYYY"
+            showOutsideDays
+            className="datePickerWidth"
+          />
+        ) : (
+          <Input
+            value={value}
+            type={isAddress ? 'text' : type}
+            icon={icon ? icon : void 0}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            {...rest}
+          />
+        )}
         {this.hasAction() && (
           <div className="overlay">
             <Button onClick={onAction} disabled={disabled} basic>
