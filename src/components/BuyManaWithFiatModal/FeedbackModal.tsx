@@ -167,7 +167,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           <img
             className={classNames(
               'gateway-image',
-              this.props.status === TransactionStatus.SUCCESS
+              status === TransactionStatus.SUCCESS
                 ? 'stars'
                 : selectedGateway
             )}
