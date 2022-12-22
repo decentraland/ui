@@ -1,5 +1,5 @@
 .dcl.buy-mana-with-fiat-modal {
-  width: 520px;
+  max-width: 520px;
 }
 
 .dcl.buy-mana-with-fiat-modal .dcl.modal-navigation {
@@ -36,7 +36,6 @@
 .dcl.buy-mana-with-fiat-modal .dcl.option {
   min-width: 392px;
   width: 100%;
-  height: 68px;
   box-shadow: var(--shadow-1);
   border-radius: 8px;
   border: var(--outline);

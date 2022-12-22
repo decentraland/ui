@@ -76,6 +76,7 @@ export * from './components/TextFilter'
 export * from './components/Responsive'
 export * from './components/Media'
 export * from './components/Box'
+export * from './components/RangeField'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */

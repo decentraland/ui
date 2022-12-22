@@ -124,6 +124,13 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     this.props.onClose()
   }
 
+  handleNetworkOnClick = (network: SelectedNetwork) => {
+    this.setState({
+      selectedNetwork: network
+    })
+    network.onClick?.()
+  }
+
   render(): JSX.Element {
     const { selectedNetwork } = this.state
 
@@ -177,11 +184,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
                 {...network}
                 key={network.type}
                 type={network.type}
-                onClick={() =>
-                  this.setState({
-                    selectedNetwork: network
-                  })
-                }
+                onClick={() => this.handleNetworkOnClick(network)}
               />
             ))
           )}

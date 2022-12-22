@@ -1,5 +1,4 @@
 .dcl.network {
-  min-width: 520px;
   max-width: min-content;
 }
 
@@ -24,7 +23,6 @@
 }
 
 .dcl.network .dcl.gateway {
-  min-width: 310px;
   max-width: 474px;
   min-height: 310px;
   box-shadow: var(--shadow-1);
@@ -142,4 +140,21 @@
   top: 0;
   left: 0;
   opacity: 0.5;
+}
+
+@media only screen and (min-width: 1200px) {
+  .dcl.network {
+    min-width: 520px;
+  }
+
+  .dcl.network .dcl.gateway {
+    min-width: 310px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dcl.network .content .gateways-container {
+    flex-direction: column;
+    row-gap: 12px;
+  }
 }
