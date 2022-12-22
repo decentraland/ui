@@ -46,7 +46,7 @@ export type FeedbackModalI18N = {
   description: React.ReactNode
   cta?: React.ReactNode
   secondaryCta?: React.ReactNode
-  viewTransaction: React.ReactNode
+  viewTransaction?: React.ReactNode
   goToText?: React.ReactNode
   error?: React.ReactNode
 }
@@ -167,9 +167,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
           <img
             className={classNames(
               'gateway-image',
-              status === TransactionStatus.SUCCESS
-                ? 'stars'
-                : selectedGateway
+              status === TransactionStatus.SUCCESS ? 'stars' : selectedGateway
             )}
           />
           <div className="text-content">
