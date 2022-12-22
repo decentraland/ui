@@ -1,4 +1,6 @@
 import * as React from 'react'
+import SemanticDatepicker from 'react-semantic-ui-datepickers'
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 import Input, {
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
@@ -6,6 +8,8 @@ import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
 import './Field.css'
+
+const DATE_TYPE = 'date'
 
 export type FieldProps = InputProps & {
   label?: string
@@ -70,14 +74,26 @@ export class Field extends React.PureComponent<FieldProps> {
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
-        <Input
-          value={value}
-          type={isAddress ? 'text' : type}
-          icon={icon ? icon : void 0}
-          loading={loading && !isAddress}
-          disabled={disabled}
-          {...rest}
-        />
+        {type === DATE_TYPE ? (
+          <SemanticDatepicker
+            value={value}
+            icon={icon ? icon : void 0}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            format="DD-MM-YYYY"
+            showOutsideDays
+            className="datePickerWidth"
+          />
+        ) : (
+          <Input
+            value={value}
+            type={isAddress ? 'text' : type}
+            icon={icon ? icon : void 0}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            {...rest}
+          />
+        )}
         {this.hasAction() && (
           <div className="overlay">
             <Button onClick={onAction} disabled={disabled} basic>
