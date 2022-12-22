@@ -30,3 +30,17 @@ storiesOf('Box', module)
       </Blockie>
     </Box>
   ))
+  .add('Collapsible', () => (
+    <Box header="Without border" collapsible>
+      <Blockie seed={address}>
+        <Address value={address} strong />
+      </Blockie>
+    </Box>
+  ))
+  .add('Collapsed', () => (
+    <Box header="Without border" collapsible collapsed>
+      <Blockie seed={address}>
+        <Address value={address} strong />
+      </Blockie>
+    </Box>
+  ))

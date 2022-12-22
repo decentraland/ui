@@ -4,10 +4,20 @@
   display: flex;
   flex-direction: column;
   padding: 13px 20px 8px;
+  position: relative;
 }
 
-.dcl.box .dcl.box-header {
+.dcl.box .box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dcl.box .box-header:not(.collapsed) {
   margin-bottom: 13px;
+}
+
+.dcl.box .dcl.box-header-text {
   text-transform: uppercase;
   color: #736e7d;
   font-weight: 600;
@@ -16,4 +26,17 @@
 
 .dcl.box.borderless {
   border-color: transparent;
+}
+
+.dcl.box .box-header .collapse-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.dcl.box .box-header .ui.button.collapse-btn img {
+  margin-right: 0;
+  filter: invert(45%) sepia(6%) saturate(719%) hue-rotate(218deg)
+    brightness(94%) contrast(91%);
 }

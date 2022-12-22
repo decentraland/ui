@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React from 'react'
 import { Field } from '../Field/Field'
 import './RangeField.css'
@@ -5,9 +6,10 @@ import './RangeField.css'
 export type RangeFieldProps = {
   rangeLimitMin?: number
   rangeLimitMax?: number
-  value?: [number | string, number | string] | []
+  value?: [number | string | undefined, number | string | undefined] | []
   minLabel?: string
   maxLabel?: string
+  className?: string
   onChange: (
     value: [string, string],
     evt: React.ChangeEvent<HTMLInputElement>
@@ -20,6 +22,7 @@ export const RangeField = ({
   value = [],
   minLabel = 'MIN',
   maxLabel = 'MAX',
+  className,
   onChange
 }: RangeFieldProps): JSX.Element => {
   const [min, max] = value
@@ -35,7 +38,7 @@ export const RangeField = ({
   }
 
   return (
-    <div className="ui min-max-field">
+    <div className={classNames('ui min-max-field', className)}>
       <Field
         label={minLabel}
         kind="full"
