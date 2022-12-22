@@ -133,7 +133,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
     const { i18n, status } = this.props
     const iconName = iconNames[status]
 
-    if (this.props.status === TransactionStatus.SUCCESS) return null
+    if (status === TransactionStatus.SUCCESS) return null
 
     return i18n.statusTitle ? (
       <p className="status-description">
