@@ -81,10 +81,10 @@
     "events": "^3.3.0",
     "fp-future": "^1.0.1",
     "parallax-js": "^3.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0",
     "react-responsive": "^9.0.0-beta.3",
-    "react-tile-map": "^0.3.2",
+    "react-tile-map": "^0.3.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3"
   },
