@@ -4,6 +4,7 @@ import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 import Input, {
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
+import classnames from 'classnames'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
@@ -17,9 +18,16 @@ export type FieldProps = InputProps & {
   message?: string
   action?: string
   onAction?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  kind?: 'simple' | 'full'
+  fitContent?: boolean
 }
 
 export class Field extends React.PureComponent<FieldProps> {
+  static defaultProps = {
+    kind: 'simple',
+    fitContent: false
+  }
+
   hasAction(): boolean {
     const { loading, error, action } = this.props
     const hasOnAction =
@@ -43,27 +51,19 @@ export class Field extends React.PureComponent<FieldProps> {
       action,
       onAction,
       disabled,
+      kind,
+      fitContent,
       ...rest
     } = this.props
     const isAddress = this.isAddress()
-    let classes = 'dcl field'
-    let icon
-
-    if (error) {
-      classes += ' error'
-      if (!isAddress) {
-        icon = 'warning circle'
-      }
-    }
-    if (isAddress) {
-      classes += ' address'
-    }
-    if (disabled) {
-      classes += ' disabled'
-    }
-    if (label) {
-      classes += ' has-label'
-    }
+    const icon = error && !isAddress ? 'warning circle' : void 0
+    const classes = classnames('dcl field', kind, {
+      error,
+      disabled,
+      address: isAddress,
+      resizable: fitContent,
+      ['has-label']: label
+    })
 
     if (isAddress && action) {
       console.warn(
@@ -88,7 +88,7 @@ export class Field extends React.PureComponent<FieldProps> {
           <Input
             value={value}
             type={isAddress ? 'text' : type}
-            icon={icon ? icon : void 0}
+            icon={icon}
             loading={loading && !isAddress}
             disabled={disabled}
             {...rest}
