@@ -1,7 +1,10 @@
 import * as React from 'react'
 import SemanticDatepicker from 'react-semantic-ui-datepickers'
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
+import dateFnsFormat from 'date-fns/format'
+
 import Input, {
+  InputOnChangeData,
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
@@ -11,6 +14,7 @@ import { Header } from '../Header/Header'
 import './Field.css'
 
 const DATE_TYPE = 'date'
+export const INPUT_FORMAT = 'dd-MM-yyyy'
 
 export type FieldProps = InputProps & {
   label?: string
@@ -71,18 +75,27 @@ export class Field extends React.PureComponent<FieldProps> {
       )
     }
 
+    const onChangeDatePicker = (e, data) => {
+      console.log('flo llego aca que onda', data)
+      let inputProps: InputOnChangeData
+      inputProps.value = dateFnsFormat(data.value.selected, INPUT_FORMAT)
+      this.props.onChange(e, inputProps)
+    }
+
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
         {type === DATE_TYPE ? (
           <SemanticDatepicker
-            value={value}
+            value={new Date(value)}
             icon={icon ? icon : void 0}
             loading={loading && !isAddress}
             disabled={disabled}
             format="DD-MM-YYYY"
             showOutsideDays
             className="datePickerWidth"
+            {...rest}
+            onChange={onChangeDatePicker}
           />
         ) : (
           <Input

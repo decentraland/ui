@@ -213,9 +213,7 @@
   width: 90% !important;
 }
 
-@media (max-width: 767px) {
-  .ui.button + .ui.button {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
-  }
+.ui.button + .ui.button {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
