@@ -31,10 +31,6 @@
   margin-top: 40px;
 }
 
-.dcl.feedback-modal .content img.stars {
-  content: url(../../assets/feedback-stars.svg);
-}
-
 .ui.modal.dcl.feedback-modal .content .status-icon {
   width: 18px;
   height: 18px;
@@ -64,6 +60,11 @@
   height: 128px;
   border-radius: 5px;
   max-width: 392px;
+}
+
+.dcl.feedback-modal .content .gateway-image.stars {
+  content: url(../../assets/feedback-stars.svg);
+  width: auto;
 }
 
 .dcl.feedback-modal .content .gateway-image.moonPay {
