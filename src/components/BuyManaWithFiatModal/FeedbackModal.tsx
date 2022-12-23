@@ -21,7 +21,6 @@ const iconNames = {
   [TransactionStatus.FAILURE]: 'warning circle'
 }
 
-// TODO (enhancement): conditional typing (at least the mandatory props) based on the status
 export type FeedbackModalProps = {
   className?: string
   message?: React.ReactNode
