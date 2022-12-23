@@ -1,9 +1,9 @@
-.ui.modal.dcl.feedback-modal {
-  max-width: 520px;
+.ui.modal.dcl.feedback-modal.pending {
+  min-height: 540px;
 }
 
-.ui.modal.dcl.feedback-modal.iframe-bg {
-  background: #1c1c1e;
+.ui.modal.dcl.feedback-modal {
+  max-width: 520px;
 }
 
 .dcl.feedback-modal .dcl.modal-navigation {
@@ -26,28 +26,68 @@
   padding: 32px 24px 34px;
 }
 
-.ui.modal.dcl.feedback-modal.iframe-bg > .content {
-  background: #1c1c1e;
+.dcl.feedback-modal .content .text-content {
+  padding: 0 56px;
+  margin-top: 40px;
 }
 
 .dcl.feedback-modal .content img.stars {
-  margin-bottom: 40px;
   content: url(../../assets/feedback-stars.svg);
 }
 
-.dcl.feedback-modal .content p {
-  white-space: pre-line;
+.ui.modal.dcl.feedback-modal .content .status-icon {
+  width: 18px;
+  height: 18px;
+  font-weight: 600;
 }
 
-.dcl.feedback-modal .content iframe {
-  border-radius: 20px;
+.ui.modal.dcl.feedback-modal.pending .content .status-icon {
+  color: #736e7d;
 }
 
-.dcl.feedback-modal .actions {
+.ui.modal.dcl.feedback-modal.failure .content .status-icon {
+  color: var(--millenial-orange);
+}
+
+.ui.modal.dcl.feedback-modal .content .description {
+  padding: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.dcl.dcl.feedback-modal .content .gateway-image {
+  flex: none;
+  width: 100%;
+  height: 128px;
+  border-radius: 5px;
+  max-width: 392px;
+}
+
+.dcl.feedback-modal .content .gateway-image.moonPay {
+  background: url('../../images/moonpay.svg') no-repeat center, white;
+  background-size: 65% auto;
+}
+
+.dcl.feedback-modal .content .gateway-image.transak {
+  background: url('../../images/transak.svg') no-repeat center, white;
+  background-size: 65% auto;
+}
+
+.ui.modal.dcl.feedback-modal .actions .ui.button + .ui.button,
+.dcl.feedback-modal .content .text-content p {
+  margin: 0;
+}
+
+.ui.modal.dcl.feedback-modal > .actions,
+.ui.modal.dcl.feedback-modal .actions {
   margin: 0;
   padding: 24px 64px 64px 64px;
   display: flex;
   flex-direction: column;
+  row-gap: 8px;
 }
 
 .dcl.feedback-modal .actions .view-transaction {
@@ -62,6 +102,20 @@
 
 .dcl.feedback-modal .actions .view-transaction i {
   margin-left: 7px;
+}
+
+.dcl.feedback-modal .actions .ui.loader {
+  display: flex;
+  top: 85%;
+}
+
+.dcl.feedback-modal .actions .go-to {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 40px 0;
+  margin-top: 40px;
 }
 
 .dcl.feedback-modal .message {
