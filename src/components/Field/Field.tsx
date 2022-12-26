@@ -13,7 +13,6 @@ import { Header } from '../Header/Header'
 import './Field.css'
 
 const DATE_TYPE = 'date'
-export const INPUT_FORMAT = 'dd-MM-yyyy'
 
 export type FieldProps = InputProps & {
   label?: string
@@ -97,6 +96,7 @@ export class Field extends React.PureComponent<FieldProps> {
         {label ? <Header sub>{label}</Header> : null}
         {type === DATE_TYPE ? (
           <SemanticDatepicker
+            // Added the time to the date to prevent timezone variations that would change the date
             value={value && new Date(`${value} 00:00:00`)}
             icon={icon ? icon : void 0}
             loading={loading && !isAddress}
