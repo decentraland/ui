@@ -2,6 +2,8 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
+import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
+
 import { Field } from './Field'
 
 const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
@@ -24,7 +26,31 @@ storiesOf('Field', module)
   .add('Disabled', () => (
     <Field label="Label" value="This is disabled" disabled />
   ))
-  .add('Date', () => <Field label="Date input" type="date" />)
+  .add('Date', () => (
+    <Form>
+      <Field
+        label="Date input"
+        type="date"
+        onChange={(
+          _event: React.ChangeEvent<HTMLInputElement>,
+          props: InputOnChangeData
+        ) => {
+          console.log(props.value)
+        }}
+      />
+      <Field
+        label="Date input with value pre selected"
+        type="date"
+        onChange={(
+          _event: React.ChangeEvent<HTMLInputElement>,
+          props: InputOnChangeData
+        ) => {
+          console.log(props.value)
+        }}
+        value={'1996-12-19'}
+      />
+    </Form>
+  ))
   .add('Action', () => (
     <Field
       label="Label"

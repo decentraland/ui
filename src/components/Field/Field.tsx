@@ -1,7 +1,6 @@
 import * as React from 'react'
 import SemanticDatepicker from 'react-semantic-ui-datepickers'
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
-import dateFnsFormat from 'date-fns/format'
 
 import Input, {
   InputOnChangeData,
@@ -44,6 +43,23 @@ export class Field extends React.PureComponent<FieldProps> {
     return type === 'address'
   }
 
+  onChangeDatePicker = (e, data) => {
+    const year: string = data.value && data.value.getFullYear()
+    // Added 0 to dates to match format. e.g. 9-10-2000 -> 09-10-2000
+    const day =
+      data.value &&
+      `${data.value.getDate() < 10 ? '0' : ''}${data.value.getDate()}`
+    const month =
+      data.value &&
+      `${data.value.getMonth() + 1 < 10 ? '0' : ''}${data.value.getMonth() + 1}`
+
+    const newDateFormatted = `${year}-${month}-${day}`
+    const inputProps: InputOnChangeData = {
+      value: newDateFormatted
+    }
+    this.props.onChange && this.props.onChange(e, inputProps)
+  }
+
   render(): JSX.Element {
     const {
       value,
@@ -59,6 +75,7 @@ export class Field extends React.PureComponent<FieldProps> {
       fitContent,
       ...rest
     } = this.props
+
     const isAddress = this.isAddress()
     const icon = error && !isAddress ? 'warning circle' : void 0
     const classes = classnames('dcl field', kind, {
@@ -75,27 +92,19 @@ export class Field extends React.PureComponent<FieldProps> {
       )
     }
 
-    const onChangeDatePicker = (e, data) => {
-      console.log('flo llego aca que onda', data)
-      let inputProps: InputOnChangeData
-      inputProps.value = dateFnsFormat(data.value.selected, INPUT_FORMAT)
-      this.props.onChange(e, inputProps)
-    }
-
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
         {type === DATE_TYPE ? (
           <SemanticDatepicker
-            value={new Date(value)}
+            value={value && new Date(`${value} 00:00:00`)}
             icon={icon ? icon : void 0}
             loading={loading && !isAddress}
             disabled={disabled}
-            format="DD-MM-YYYY"
             showOutsideDays
             className="datePickerWidth"
             {...rest}
-            onChange={onChangeDatePicker}
+            onChange={this.onChangeDatePicker}
           />
         ) : (
           <Input
