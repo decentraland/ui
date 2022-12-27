@@ -3,7 +3,6 @@
 .dcl.field {
   min-width: 400px;
   position: relative;
-  min-width: 100%;
 }
 
 .dcl.field.resizable {
@@ -191,11 +190,6 @@
 }
 
 /* Date */
-.dcl.field,
-.clndr-cell {
-  background-color: var(--secondary) !important;
-}
-
 .clndr-cell-selected {
   background-color: var(--primary) !important;
   border-radius: 4px !important;
@@ -213,7 +207,7 @@
   width: 100% !important;
 }
 
-.ui.button + .ui.button {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+.datePickerWidth .ui.button + .ui.button {
+  margin-right: 0px;
+  margin-left: 0px;
 }
