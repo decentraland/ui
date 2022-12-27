@@ -1,5 +1,9 @@
 import * as React from 'react'
+import SemanticDatepicker from 'react-semantic-ui-datepickers'
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
+
 import Input, {
+  InputOnChangeData,
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
@@ -7,6 +11,8 @@ import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
 import './Field.css'
+
+const DATE_TYPE = 'date'
 
 export type FieldProps = InputProps & {
   label?: string
@@ -36,6 +42,23 @@ export class Field extends React.PureComponent<FieldProps> {
     return type === 'address'
   }
 
+  onChangeDatePicker = (e, data) => {
+    const year: string = data.value && data.value.getFullYear()
+    // Added 0 to dates to match format. e.g. 9-10-2000 -> 09-10-2000
+    const day =
+      data.value &&
+      `${data.value.getDate() < 10 ? '0' : ''}${data.value.getDate()}`
+    const month =
+      data.value &&
+      `${data.value.getMonth() + 1 < 10 ? '0' : ''}${data.value.getMonth() + 1}`
+
+    const newDateFormatted = `${year}-${month}-${day}`
+    const inputProps: InputOnChangeData = {
+      value: newDateFormatted
+    }
+    this.props.onChange && this.props.onChange(e, inputProps)
+  }
+
   render(): JSX.Element {
     const {
       value,
@@ -51,6 +74,7 @@ export class Field extends React.PureComponent<FieldProps> {
       fitContent,
       ...rest
     } = this.props
+
     const isAddress = this.isAddress()
     const icon = error && !isAddress ? 'warning circle' : void 0
     const classes = classnames('dcl field', kind, {
@@ -70,14 +94,28 @@ export class Field extends React.PureComponent<FieldProps> {
     return (
       <div className={classes}>
         {label ? <Header sub>{label}</Header> : null}
-        <Input
-          value={value}
-          type={isAddress ? 'text' : type}
-          icon={icon}
-          loading={loading && !isAddress}
-          disabled={disabled}
-          {...rest}
-        />
+        {type === DATE_TYPE ? (
+          <SemanticDatepicker
+            // Added the time to the date to prevent timezone variations that would change the date
+            value={value && new Date(`${value} 00:00:00`)}
+            icon={icon ? icon : void 0}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            showOutsideDays
+            className="datePickerWidth"
+            {...rest}
+            onChange={this.onChangeDatePicker}
+          />
+        ) : (
+          <Input
+            value={value}
+            type={isAddress ? 'text' : type}
+            icon={icon}
+            loading={loading && !isAddress}
+            disabled={disabled}
+            {...rest}
+          />
+        )}
         {this.hasAction() && (
           <div className="overlay">
             <Button onClick={onAction} disabled={disabled} basic>
