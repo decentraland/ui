@@ -2604,11 +2604,14 @@ a.ui.card:hover,
   }
 }
 
+.clndr-cell{background-color:#fff;border:none;color:inherit;cursor:pointer;font-family:inherit;height:30px;padding:5px 0;transition:all .2s}.clndr-cell.inverted{background-color:#4f4f4f}.clndr-cell.inverted:hover{background-color:#757575;color:inherit}.clndr-cell:hover{background-color:#cacbcd;color:inherit}.clndr-cell-today{background-color:#e0e1e2}.clndr-cell-inrange{background-color:#cacbcd;color:inherit}.clndr-cell-inrange.inverted{background-color:#757575;color:inherit}.clndr-cell-disabled{cursor:default;opacity:.45}.clndr-cell-disabled:hover{background-color:#fff}.clndr-cell-disabled.inverted:hover{background-color:#4f4f4f;color:inherit}.clndr-cell-selected{background-color:#4f4f4f;color:#f2f2f2}.clndr-cell-selected.inverted{background-color:#fff;color:#000}.clndr-cell-other-month{color:#d9d9d9}.clndr-cell-other-month.inverted{color:#a6a6a6}
+.clndr-calendars-segment{margin-bottom:.25rem!important;margin-top:.25rem!important;text-align:center}.clndr-calendars-segment.clndr-floating{position:absolute!important;z-index:2000}.clndr-calendars-wrapper{grid-gap:1em;display:grid;grid-template-columns:repeat(var(--n,1),1fr)}.clndr-control{align-items:center;display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:10px}.clndr-days{grid-gap:1px;background-color:rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.1);border-radius:.28571429rem;display:grid;grid-template-columns:repeat(7,minmax(2.2rem,1fr));overflow:hidden;text-align:center}.clndr-left{left:0}.clndr-right{right:0}.clndr-top{bottom:100%}.clndr-bottom{top:100%}.clndr-calendars-segment.clndr-top{box-shadow:0 -1px 2px 0 rgba(34,36,38,.15)!important;margin-bottom:.25rem!important}
 /* Normal */
 
 .dcl.field {
   min-width: 400px;
   position: relative;
+  min-width: 100%;
 }
 
 .dcl.field.resizable {
@@ -2793,6 +2796,34 @@ a.ui.card:hover,
 .dcl.field .ui.input .icon,
 .ui.form .dcl.field .ui.input .icon {
   color: var(--text);
+}
+
+/* Date */
+.dcl.field,
+.clndr-cell {
+  background-color: var(--secondary) !important;
+}
+
+.clndr-cell-selected {
+  background-color: var(--primary) !important;
+  border-radius: 4px !important;
+}
+
+.clndr-cell-other-month {
+  color: var(--secondary-text) !important;
+}
+
+.clndr-cell-today {
+  color: var(--primary) !important;
+}
+
+.datePickerWidth {
+  width: 100% !important;
+}
+
+.ui.button + .ui.button {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 
 .dcl.mana {
