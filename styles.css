@@ -2798,20 +2798,20 @@ a.ui.card:hover,
 }
 
 /* Date */
-.datePickerWidth .clndr-cell {
+.clndr-cell {
   background-color: var(--secondary) !important;
 }
 
-.datePickerWidth .clndr-cell-selected {
+.clndr-cell-selected {
   background-color: var(--primary) !important;
   border-radius: 4px !important;
 }
 
-.datePickerWidth .clndr-cell-other-month {
+.clndr-cell-other-month {
   color: var(--secondary-text) !important;
 }
 
-.datePickerWidth .clndr-cell-today {
+.clndr-cell-today {
   color: var(--primary) !important;
 }
 
