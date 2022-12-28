@@ -22,6 +22,7 @@ export type FieldProps = InputProps & {
   onAction?: (event: React.MouseEvent<HTMLButtonElement>) => void
   kind?: 'simple' | 'full'
   fitContent?: boolean
+  isClearable?: boolean
 }
 
 export class Field extends React.PureComponent<FieldProps> {
@@ -52,7 +53,7 @@ export class Field extends React.PureComponent<FieldProps> {
       data.value &&
       `${data.value.getMonth() + 1 < 10 ? '0' : ''}${data.value.getMonth() + 1}`
 
-    const newDateFormatted = `${year}-${month}-${day}`
+    const newDateFormatted = year ? `${year}-${month}-${day}` : null
     const inputProps: InputOnChangeData = {
       value: newDateFormatted
     }
@@ -72,6 +73,7 @@ export class Field extends React.PureComponent<FieldProps> {
       disabled,
       kind,
       fitContent,
+      isClearable,
       ...rest
     } = this.props
 
@@ -103,6 +105,7 @@ export class Field extends React.PureComponent<FieldProps> {
             disabled={disabled}
             showOutsideDays
             className="datePickerWidth"
+            clearable={isClearable}
             {...rest}
             onChange={this.onChangeDatePicker}
           />
