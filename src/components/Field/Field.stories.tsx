@@ -2,8 +2,8 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
-
 import { Field } from './Field'
 
 const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
@@ -56,6 +56,16 @@ storiesOf('Field', module)
       label="Label"
       value="Input value"
       action="submit"
+      onAction={() => alert('Action triggered!')}
+    />
+  ))
+  .add('with Icon', () => (
+    <Field
+      label="Label"
+      value="Input value"
+      action="submit"
+      icon={<Icon name="search" />}
+      iconPosition="left"
       onAction={() => alert('Action triggered!')}
     />
   ))
