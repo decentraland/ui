@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { RangeField } from './RangeField'
 
 storiesOf('RangeField', module)
@@ -22,5 +23,14 @@ storiesOf('RangeField', module)
       rangeLimitMax={6}
       onChange={(params) => console.log(params)}
       value={['2', '4']}
+    />
+  ))
+  .add('With custom props', () => (
+    <RangeField
+      rangeLimitMin={0}
+      rangeLimitMax={6}
+      onChange={(params) => console.log(params)}
+      value={['2', '4']}
+      minProps={{ icon: <Icon name="search" />, iconPosition: 'left' }}
     />
   ))
