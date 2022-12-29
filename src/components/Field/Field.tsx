@@ -15,13 +15,21 @@ import './Field.css'
 const DATE_TYPE = 'date'
 
 export type FieldProps = InputProps & {
+  /** Input label*/
   label?: string
+  /** Boolean flag to show an error, default on false*/
   error?: boolean
+  /** Message to display below the input*/
   message?: string
+  /** Button text to display before input to dispatch an action*/
   action?: string
+  /** On action function*/
   onAction?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  /** Style of input, default on simple*/
   kind?: 'simple' | 'full'
+  /** Boolean flag to determine if it is resizable, default on false*/
   fitContent?: boolean
+  /** Boolean flag to determine if datepicker can be cleared, default on true */
   isClearable?: boolean
 }
 
@@ -44,18 +52,25 @@ export class Field extends React.PureComponent<FieldProps> {
   }
 
   onChangeDatePicker = (e, data) => {
-    const year: string = data.value && data.value.getFullYear()
-    // Added 0 to dates to match format. e.g. 9-10-2000 -> 09-10-2000
-    const day =
-      data.value &&
-      `${data.value.getDate() < 10 ? '0' : ''}${data.value.getDate()}`
-    const month =
-      data.value &&
-      `${data.value.getMonth() + 1 < 10 ? '0' : ''}${data.value.getMonth() + 1}`
+    let newValue = ''
 
-    const newDateFormatted = year ? `${year}-${month}-${day}` : null
+    if (data.value) {
+      const year: string = data.value && data.value.getFullYear()
+      // Added 0 to dates to match format. e.g. 9-10-2000 -> 09-10-2000
+      const day =
+        data.value &&
+        `${data.value.getDate() < 10 ? '0' : ''}${data.value.getDate()}`
+      const month =
+        data.value &&
+        `${data.value.getMonth() + 1 < 10 ? '0' : ''}${
+          data.value.getMonth() + 1
+        }`
+
+      newValue = `${year}-${month}-${day}`
+    }
+
     const inputProps: InputOnChangeData = {
-      value: newDateFormatted
+      value: newValue
     }
     this.props.onChange && this.props.onChange(e, inputProps)
   }
@@ -73,7 +88,7 @@ export class Field extends React.PureComponent<FieldProps> {
       disabled,
       kind,
       fitContent,
-      isClearable,
+      isClearable = true,
       ...rest
     } = this.props
 
@@ -99,7 +114,7 @@ export class Field extends React.PureComponent<FieldProps> {
         {type === DATE_TYPE ? (
           <SemanticDatepicker
             // Added the time to the date to prevent timezone variations that would change the date
-            value={value && new Date(`${value} 00:00:00`)}
+            value={value ? new Date(`${value} 00:00:00`) : undefined}
             icon={icon ? icon : void 0}
             loading={loading && !isAddress}
             disabled={disabled}
