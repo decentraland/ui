@@ -1880,6 +1880,15 @@ a.ui.card:hover,
   opacity: 0.5;
 }
 
+.transak_close {
+  color: var(--dark);
+}
+
+.transak_close:hover,
+.transak_close:focus {
+  background: #000000;
+}
+
 @media only screen and (min-width: 1200px) {
   .dcl.network {
     min-width: 520px;
