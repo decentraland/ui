@@ -5,12 +5,13 @@ import { Button } from '../Button/Button'
 import './Box.css'
 
 export type BoxProps = {
-  header?: string
+  header?: string | JSX.Element
   className?: string
   children: React.ReactNode
   borderless?: boolean
   collapsible?: boolean
   collapsed?: boolean
+  defaultCollapsed?: boolean
   onToggle?: (shouldCollapse: boolean) => void
 }
 
@@ -22,9 +23,10 @@ export const Box = (props: BoxProps): JSX.Element => {
     borderless,
     className,
     collapsible,
+    defaultCollapsed,
     onToggle
   } = props
-  const [isCollapsed, setIsCollapsed] = React.useState(false)
+  const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed || false)
 
   const shouldCollapse = 'collapsed' in props ? collapsed : isCollapsed
 
@@ -40,6 +42,8 @@ export const Box = (props: BoxProps): JSX.Element => {
       {header && (
         <div
           className={classnames('box-header', { collapsed: shouldCollapse })}
+          role={collapsible ? "button" : ""}
+          onClick={collapsible ? handleToggleCollapse : undefined}
         >
           <div className="dcl box-header-text">{header}</div>
           {collapsible && (

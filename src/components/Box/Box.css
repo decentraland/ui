@@ -22,6 +22,7 @@
   color: #736e7d;
   font-weight: 600;
   font-size: 13px;
+  flex: 1;
 }
 
 .dcl.box.borderless {
