@@ -26,7 +26,9 @@ export const Box = (props: BoxProps): JSX.Element => {
     defaultCollapsed,
     onToggle
   } = props
-  const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed || false)
+  const [isCollapsed, setIsCollapsed] = React.useState(
+    defaultCollapsed || false
+  )
 
   const shouldCollapse = 'collapsed' in props ? collapsed : isCollapsed
 
@@ -42,7 +44,7 @@ export const Box = (props: BoxProps): JSX.Element => {
       {header && (
         <div
           className={classnames('box-header', { collapsed: shouldCollapse })}
-          role={collapsible ? "button" : ""}
+          role={collapsible ? 'button' : ''}
           onClick={collapsible ? handleToggleCollapse : undefined}
         >
           <div className="dcl box-header-text">{header}</div>
