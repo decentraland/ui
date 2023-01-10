@@ -1,0 +1,125 @@
+/* Common */
+.ui.checkbox input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+}
+
+.ui.checkbox input[type='checkbox'].hidden + label,
+.ui.checkbox input[type='checkbox'].hidden:focus + label,
+.ui.checkbox input[type='checkbox'].hidden:active + label {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0px 0px 0px 24px;
+  position: relative;
+}
+
+/* Unchecked */
+.ui.checkbox input[type='checkbox'].hidden ~ label:before,
+.ui.toggle.checkbox input[type='checkbox'].hidden:focus ~ label:before {
+  background-color: transparent;
+  border: 2px solid var(--dropdown);
+}
+
+.ui.checkbox input[type='checkbox'].hidden ~ label:hover:before,
+.ui.checkbox input[type='checkbox'].hidden:focus ~ label:hover:before {
+  background-color: transparent;
+  border: transparent;
+}
+
+/* Checked */
+.ui.checkbox.checked input[type='checkbox'].hidden + label:before,
+.ui.checkbox.checked input[type='checkbox'].hidden:focus + label:before {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.ui.checkbox.checked:not(.toggle) input[type='checkbox'].hidden + label:after,
+.ui.checkbox.checked:not(.toggle)
+  input[type='checkbox'].hidden:focus
+  + label:after {
+  top: 4px;
+  left: 4px;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-image: url('../../assets/check.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+}
+
+.dcl.row > .ui.checkbox + ui.checkbox {
+  margin-left: 16px;
+}
+
+/* Toggle */
+
+.ui.toggle.checkbox {
+  min-width: 34px !important;
+  height: 18px;
+  min-height: 0px !important;
+}
+
+.ui.fitted.toggle.checkbox {
+  width: auto !important;
+}
+
+.ui.toggle.checkbox input[type='checkbox'].hidden {
+  width: auto;
+  height: auto;
+}
+
+/* Unchecked */
+.ui.toggle.checkbox input[type='checkbox'].hidden + label:after {
+  width: 18px;
+  height: 18px;
+}
+
+.ui.toggle.checkbox:not(.checked) input[type='checkbox'].hidden + label:after {
+  background: var(--dropdown);
+}
+
+.ui.toggle.checkbox input[type='checkbox'].hidden + .box:before,
+.ui.toggle.checkbox input[type='checkbox'].hidden + label:before {
+  background: var(--divider) !important;
+  width: 32px;
+  height: 18px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Checked */
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden + label:before,
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden:focus + label:before {
+  background-color: rgba(
+    255,
+    45,
+    85,
+    0.5
+  ) !important; /* override semantic ui styles */
+  border-color: transparent;
+}
+
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden + label:after,
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden:focus + label:after {
+  left: 16px;
+  top: 0px;
+  background: var(--primary);
+}
+
+.ui.toggle.checkbox input[type='checkbox'].hidden + label,
+.ui.toggle.checkbox input[type='checkbox'].hidden:focus + label,
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden + label,
+.ui.toggle.checkbox.checked input[type='checkbox'].hidden:focus + label {
+  padding-left: 45px;
+  font-size: 14px;
+  color: var(--text) !important;
+  min-height: 0px;
+}
+
+.ui.checkbox input[type='checkbox'].hidden:focus + label:before,
+.ui.checkbox.checked input[type='checkbox'].hidden:focus + label:before {
+  outline: 1px solid white;
+}
