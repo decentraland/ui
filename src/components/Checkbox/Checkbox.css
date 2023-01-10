@@ -35,7 +35,9 @@
 }
 
 .ui.checkbox.checked:not(.toggle) input[type='checkbox'].hidden + label:after,
-.ui.checkbox.checked:not(.toggle) input[type='checkbox'].hidden:focus + label:after {
+.ui.checkbox.checked:not(.toggle)
+  input[type='checkbox'].hidden:focus
+  + label:after {
   top: 4px;
   left: 4px;
   content: '';
@@ -91,7 +93,12 @@
 /* Checked */
 .ui.toggle.checkbox.checked input[type='checkbox'].hidden + label:before,
 .ui.toggle.checkbox.checked input[type='checkbox'].hidden:focus + label:before {
-  background-color: rgba(255, 45, 85, 0.5) !important; /* override semantic ui styles */
+  background-color: rgba(
+    255,
+    45,
+    85,
+    0.5
+  ) !important; /* override semantic ui styles */
   border-color: transparent;
 }
 
