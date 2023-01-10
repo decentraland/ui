@@ -1294,9 +1294,9 @@ a.ui.card:hover,
   height: 16px;
 }
 
-.ui.checkbox input.hidden + label,
-.ui.checkbox input.hidden:focus + label,
-.ui.checkbox input.hidden:active + label {
+.ui.checkbox input[type='radio'].hidden + label,
+.ui.checkbox input[type='radio'].hidden:focus + label,
+.ui.checkbox input[type='radio'].hidden:active + label {
   color: var(--text);
   font-size: 14px;
   line-height: 18px;
@@ -1305,28 +1305,28 @@ a.ui.card:hover,
 }
 
 /* Unchecked */
-.ui.radio.checkbox input.hidden ~ label:before,
-.ui.radio.checkbox input.hidden:focus ~ label:before {
+.ui.radio.checkbox input[type='radio'].hidden ~ label:before,
+.ui.radio.checkbox input[type='radio'].hidden:focus ~ label:before {
   background-color: transparent;
   border: 2px solid var(--secondary);
 }
 
-.ui.radio.checkbox input.hidden ~ label:hover:before,
-.ui.radio.checkbox input.hidden:focus ~ label:hover:before {
+.ui.radio.checkbox input[type='radio'].hidden ~ label:hover:before,
+.ui.radio.checkbox input[type='radio'].hidden:focus ~ label:hover:before {
   background-color: transparent;
   border: 2px solid var(--secondary-text);
 }
 
 /* Checked */
-.ui.radio.checkbox.checked input.hidden + label:before,
-.ui.radio.checkbox.checked input.hidden:focus + label:before,
-.ui.radio.checkbox.checked input.hidden + label:after,
-.ui.radio.checkbox.checked input.hidden:focus + label:after {
+.ui.radio.checkbox.checked input[type='radio'].hidden + label:before,
+.ui.radio.checkbox.checked input[type='radio'].hidden:focus + label:before,
+.ui.radio.checkbox.checked input[type='radio'].hidden + label:after,
+.ui.radio.checkbox.checked input[type='radio'].hidden:focus + label:after {
   background-color: var(--primary);
   border: 2px solid var(--primary);
 }
 
-.ui.checkbox.checked input.hidden + label:after {
+.ui.checkbox.checked input[type='radio'].hidden + label:after {
   top: -3px;
   left: -4px;
   width: 24px;
@@ -1352,20 +1352,27 @@ a.ui.card:hover,
   width: auto !important;
 }
 
-.ui.toggle.checkbox input.hidden {
+.ui.toggle.checkbox input[type='radio'].hidden {
   width: auto;
   height: auto;
 }
 
 /* Unchecked */
-.ui.toggle.checkbox input.hidden + label:after {
-  background: var(--dropdown);
+.ui.toggle.checkbox input[type='radio'].hidden + label:after {
   width: 18px;
   height: 18px;
 }
 
-.ui.toggle.checkbox input.hidden + .box:before,
-.ui.toggle.checkbox input.hidden + label:before {
+.ui.toggle.checkbox:not(.checked) input[type='radio'].hidden + label:after {
+  background: var(--dropdown);
+}
+
+.ui.toggle.checkbox.checked input[type='radio'].hidden + label:after {
+  background: var(--primary);
+}
+
+.ui.toggle.checkbox input[type='radio'].hidden + .box:before,
+.ui.toggle.checkbox input[type='radio'].hidden + label:before {
   background: var(--divider) !important;
   width: 32px;
   height: 18px;
@@ -1373,26 +1380,30 @@ a.ui.card:hover,
 }
 
 /* Checked */
-.ui.toggle.checkbox.checked input.hidden + label:before,
-.ui.toggle.checkbox.checked input.hidden:focus + label:before {
+.ui.toggle.checkbox.checked input[type='radio'].hidden + label:before,
+.ui.toggle.checkbox.checked input[type='radio'].hidden:focus + label:before {
   background-color: var(--primary) !important;
   opacity: 0.5;
 }
 
-.ui.toggle.checkbox.checked input.hidden + label:after,
-.ui.toggle.checkbox.checked input.hidden:focus + label:after {
+.ui.toggle.checkbox.checked input[type='radio'].hidden + label:after,
+.ui.toggle.checkbox.checked input[type='radio'].hidden:focus + label:after {
   left: 16px;
   top: 0px;
 }
 
-.ui.toggle.checkbox input.hidden + label,
-.ui.toggle.checkbox input.hidden:focus + label,
-.ui.toggle.checkbox.checked input.hidden + label,
-.ui.toggle.checkbox.checked input.hidden:focus + label {
+.ui.toggle.checkbox input[type='radio'].hidden + label,
+.ui.toggle.checkbox input[type='radio'].hidden:focus + label,
+.ui.toggle.checkbox.checked input[type='radio'].hidden + label,
+.ui.toggle.checkbox.checked input[type='radio'].hidden:focus + label {
   padding-left: 45px;
   font-size: 14px;
   color: var(--text) !important;
   min-height: 0px;
+}
+
+.ui.toggle.checkbox input[type='radio'].hidden:focus + label:before {
+  outline: 1px solid white;
 }
 
 .ui.segment {
