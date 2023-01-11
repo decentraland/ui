@@ -25,6 +25,7 @@ import './components/Popup/Popup.css'
 import './components/Radio/Radio.css'
 import './components/Segment/Segment.css'
 import './components/Table/Table.css'
+import './components/Checkbox/Checkbox'
 
 // Decentraland components
 export * from './components/Address/Address'
