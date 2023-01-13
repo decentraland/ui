@@ -51,6 +51,10 @@
   margin-left: 16px;
 }
 
+.ui.radio.checkbox input[type='radio'].hidden:focus + label:before {
+  outline: 1px solid white;
+}
+
 /* Toggle */
 
 .ui.toggle.checkbox {
