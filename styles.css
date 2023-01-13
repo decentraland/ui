@@ -1340,6 +1340,10 @@ a.ui.card:hover,
   margin-left: 16px;
 }
 
+.ui.radio.checkbox input[type='radio'].hidden:focus + label:before {
+  outline: 1px solid white;
+}
+
 /* Toggle */
 
 .ui.toggle.checkbox {
@@ -4426,6 +4430,10 @@ a.ui.card:hover,
   border: none;
   padding: 0;
   margin-left: 10px;
+}
+
+.dcl.box .box-header .collapse-btn:focus {
+  outline: 1px solid white;
 }
 
 .dcl.box .box-header .ui.button.collapse-btn i {
