@@ -213,6 +213,16 @@ const onChange = (values) => {
 
 storiesOf('PriceChart', module)
   .addDecorator(centered)
+  .add('Loading data', () => (
+    <PriceChart
+      width={250}
+      loading
+      maxPrice={''}
+      minPrice={''}
+      network={Network.ETHEREUM}
+      onChange={onChange}
+    />
+  ))
   .add('No upperBound', () => (
     <PriceChart
       width={250}
@@ -238,7 +248,7 @@ storiesOf('PriceChart', module)
     <PriceChart
       width={250}
       prices={formattedPrices}
-      minPrice={'3600'}
+      minPrice={'7000'}
       maxPrice={'2000000'}
       network={Network.ETHEREUM}
       onChange={onChange}

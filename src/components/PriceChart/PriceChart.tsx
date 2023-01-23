@@ -87,12 +87,12 @@ export const PriceChart = ({
   }, [prices, upperBound])
 
   const inputMaxRangeValue = useMemo(
-    () => (rangeMax ? inverseScale(rangeMax) : undefined),
+    () => (rangeMax !== undefined ? inverseScale(rangeMax) : undefined),
     [rangeMax]
   )
 
   const inputMinRangeValue = useMemo(
-    () => (rangeMin ? inverseScale(rangeMin) : undefined),
+    () => (rangeMin !== undefined ? inverseScale(rangeMin) : undefined),
     [rangeMin]
   )
 
@@ -124,12 +124,14 @@ export const PriceChart = ({
   }, [rangeMin, value])
 
   const sliderMaxLabel = useMemo(() => {
-    const { max: datasetMax } = getDatasetBounds(prices)
-    const currentMax = Number(value[1] || rangeMax)
-    const isInputAtMaxValue = currentMax === rangeMax
-    return `${priceFormatter.format(Number(currentMax))}${
-      isInputAtMaxValue && upperBound && upperBound < datasetMax ? '+' : ''
-    }`
+    if (prices) {
+      const { max: datasetMax } = getDatasetBounds(prices)
+      const currentMax = Number(value[1] || rangeMax)
+      const isInputAtMaxValue = currentMax === rangeMax
+      return `${priceFormatter.format(Number(currentMax))}${
+        isInputAtMaxValue && upperBound && upperBound < datasetMax ? '+' : ''
+      }`
+    }
   }, [prices, rangeMax, upperBound, value])
 
   // Component handlers
@@ -149,7 +151,11 @@ export const PriceChart = ({
 
   const handleRangeChange = useCallback(
     (_, [min, max]) => {
-      if (rangeMax && rangeMin && inputMaxRangeValue) {
+      if (
+        rangeMax !== undefined &&
+        rangeMin !== undefined &&
+        inputMaxRangeValue
+      ) {
         // it can happend that the slider doesn't go all the way to the max because there's no room for other step.
         // So we compare the diff to the input step. If it's lower, we programmatically move it to the max
         const remainingToMax = inputMaxRangeValue - max

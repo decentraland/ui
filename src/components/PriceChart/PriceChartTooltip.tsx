@@ -34,7 +34,6 @@ export const PriceChartTooltip = ({
             </Mana>
           </>
         ) : null}
-        <span>{`: ${payload[0].payload.amount}`}</span>
       </div>
     )
   }

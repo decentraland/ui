@@ -98,8 +98,8 @@ export class SliderField extends React.PureComponent<
   componentDidUpdate(prevProps: Readonly<SliderFieldProps>): void {
     const { valueFrom, valueTo } = this.props
     this.setState({
-      from: valueFrom || prevProps.valueFrom,
-      to: valueTo || prevProps.valueTo
+      from: valueFrom ?? prevProps.valueFrom,
+      to: valueTo ?? prevProps.valueTo
     })
   }
 
@@ -238,7 +238,7 @@ export class SliderField extends React.PureComponent<
           {range && (
             <input
               type="range"
-              value={valueFrom || from}
+              value={valueFrom ?? from}
               max={max}
               min={min}
               step={step || '1'}
@@ -255,7 +255,7 @@ export class SliderField extends React.PureComponent<
 
           <input
             type="range"
-            value={valueTo || to}
+            value={valueTo ?? to}
             max={max}
             min={min}
             step={step || '1'}

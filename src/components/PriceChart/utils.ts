@@ -3,7 +3,7 @@ export const LOADING_BAR_COLOR = 'grey'
 export const ACTIVE_BAR_COLOR = '#ff2d55'
 export const NON_ACTIVE_BAR_COLOR = '#4f1414'
 export const PRICE_CHART_LOG_SCALE = 5
-const PRICE_CHART_BAR_QTY = 18
+const PRICE_CHART_BAR_QTY = 24
 
 export const priceFormatter = Intl.NumberFormat('en', {
   notation: 'compact'
@@ -24,7 +24,8 @@ export const formatPriceString = (price: string, decimals = 0) => {
 const formatPrice = (price: string) => roundNumber(Number(price))
 
 export const inverseScale = (number: number) => {
-  return Math.log(number) / Math.log(PRICE_CHART_LOG_SCALE)
+  // avoid doing Math.log(0) which would return Inifity
+  return number !== 0 ? Math.log(number) / Math.log(PRICE_CHART_LOG_SCALE) : 0
 }
 
 export const roundNumber = (number: number) => {
@@ -53,7 +54,9 @@ export const createExponentialRange = (
 
   return [
     ...arr.map((interval) =>
-      roundNumber(Math.pow(PRICE_CHART_LOG_SCALE, interval))
+      interval !== 0
+        ? roundNumber(Math.pow(PRICE_CHART_LOG_SCALE, interval))
+        : interval
     ),
     ...(upperBound && max > upperBound ? [upperBound] : [])
   ]
@@ -77,7 +80,7 @@ export const getBarChartRanges = (
       const upperBoundIdx = ranges.findIndex((range) => formattedPrice < range)
       let upperBound =
         ranges[upperBoundIdx > 0 ? upperBoundIdx - 1 : upperBoundIdx]
-      if (!upperBound) {
+      if (upperBound === undefined) {
         upperBound = ranges[ranges.length - 1]
       }
       const currentValueForRange = bars.get(upperBound) || 0
