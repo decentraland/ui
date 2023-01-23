@@ -180,7 +180,7 @@ export const PriceChart = ({
     setActiveBar(e.activeTooltipIndex)
   }, [])
 
-  const handleBarChartMouseLeave = useCallback((e) => {
+  const handleBarChartMouseLeave = useCallback(() => {
     setActiveBar(undefined)
   }, [])
 
