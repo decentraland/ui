@@ -131,21 +131,6 @@ export const getFlooredFixed = (v: number, d: number) => {
   return (Math.floor(v * Math.pow(10, d)) / Math.pow(10, d)).toFixed(d)
 }
 
-export const removePricesOutOfRange = (
-  prices: Record<number, number>,
-  upperBound?: number
-) => {
-  if (!upperBound) {
-    return prices
-  }
-  return Object.entries(prices).reduce((acc, [key, value]) => {
-    if (Number(key) <= upperBound) {
-      acc[key] = value
-    }
-    return acc
-  }, {} as Record<string, number>)
-}
-
 export const getDatasetBounds = (prices: Record<string, number>) => {
   const formattedPrices = Object.keys(prices).map((price) => Number(price))
   return {
