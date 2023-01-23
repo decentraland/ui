@@ -6,8 +6,11 @@ export type SliderFieldProps =
       range?: false
       header: string
       className?: string
+      valueFrom?: number
+      valueTo?: number
       min?: number
       max?: number
+      step?: undefined
       defaultValue?: number
       label?: string | React.PureComponent<{ value: number }>
       onChange?: (ev: React.ChangeEvent<HTMLInputElement>, data: number) => void
@@ -17,8 +20,11 @@ export type SliderFieldProps =
       range: true
       header: string
       className?: string
+      valueFrom?: number
+      valueTo?: number
       min?: number
       max?: number
+      step?: number
       defaultValue?: readonly [number, number]
       label?: string | React.PureComponent<{ value: readonly [number, number] }>
       onChange?: (
@@ -87,6 +93,14 @@ export class SliderField extends React.PureComponent<
         })
       }
     }
+  }
+
+  componentDidUpdate(prevProps: Readonly<SliderFieldProps>): void {
+    const { valueFrom, valueTo } = this.props
+    this.setState({
+      from: valueFrom || prevProps.valueFrom,
+      to: valueTo || prevProps.valueTo
+    })
   }
 
   handleChangeFrom = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -182,7 +196,7 @@ export class SliderField extends React.PureComponent<
   }
 
   render(): JSX.Element {
-    const { header, className, range } = this.props
+    const { header, className, range, step, valueFrom, valueTo } = this.props
 
     const min = this.props.min || SliderDefault.MIN
     const max = this.props.max || SliderDefault.MAX
@@ -224,10 +238,10 @@ export class SliderField extends React.PureComponent<
           {range && (
             <input
               type="range"
-              value={from}
+              value={valueFrom || from}
               max={max}
               min={min}
-              step="1"
+              step={step || '1'}
               onChange={this.handleChangeFrom}
               style={{
                 zIndex:
@@ -241,10 +255,10 @@ export class SliderField extends React.PureComponent<
 
           <input
             type="range"
-            value={to}
+            value={valueTo || to}
             max={max}
             min={min}
-            step="1"
+            step={step || '1'}
             onChange={this.handleChangeTo}
             style={{
               zIndex:
