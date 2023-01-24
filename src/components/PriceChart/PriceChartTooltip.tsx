@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
-import { formatAndRoundPriceString } from './utils'
 import { Mana } from '../Mana/Mana'
+import { formatAndRoundPriceString } from './utils'
 import './PriceChart.css'
 
 export type PriceChartTooltipProps = {
