@@ -9,3 +9,4 @@ updates:
     allow:
       - dependency-name: "@dcl/*"
       - dependency-name: "decentraland-*"
+      - dependency-name: "dcl-*"
