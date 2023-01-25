@@ -1,0 +1,11 @@
+# Keep Decentraland packages up to date
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-name: "@dcl/*"
+      - dependency-name: "decentraland-*"
