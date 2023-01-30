@@ -1,14 +1,14 @@
 import { Network } from '@dcl/schemas'
 
-export type PriceChartProps = {
+export type BarChartProps = {
+  data?: Record<number, number>
   height?: number | string
   width?: number | string
-  sliderStep?: number
-  prices?: Record<number, number>
   upperBound?: number
+  sliderStep?: number
   loading?: boolean
-  minPrice: string
-  maxPrice: string
+  min: string
+  max: string
   network?: Network
   errorMessage?: string
   onChange: (value: [string, string]) => void

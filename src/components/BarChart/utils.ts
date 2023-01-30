@@ -2,30 +2,30 @@ export const HOVERED_BAR_COLOR = 'pink'
 export const LOADING_BAR_COLOR = 'grey'
 export const ACTIVE_BAR_COLOR = '#ff2d55'
 export const NON_ACTIVE_BAR_COLOR = '#4f1414'
-export const PRICE_CHART_LOG_SCALE = 5
-const PRICE_CHART_BAR_QTY = 24
+export const CHART_LOG_SCALE = 5
+const CHART_BAR_QTY = 24
 
-export const priceFormatter = Intl.NumberFormat('en', {
+export const numberFormatter = Intl.NumberFormat('en', {
   notation: 'compact'
 } as Intl.NumberFormatOptions)
 
-export const formatAndRoundPriceString = (price: string) => {
-  return priceFormatter.format(Number(price))
+export const formatAndRoundNumberString = (number: string) => {
+  return numberFormatter.format(Number(number))
 }
 
 export const roundRange = (range: number[]): [string, string] => {
   return [roundNumber(range[0]).toString(), roundNumber(range[1]).toString()]
 }
 
-export const formatPriceString = (price: string, decimals = 0) => {
-  return Number(price).toFixed(decimals).toLocaleString()
+export const formatNumberString = (number: string, decimals = 0) => {
+  return Number(number).toFixed(decimals).toLocaleString()
 }
 
-const formatPrice = (price: string) => roundNumber(Number(price))
+const formatNumber = (number: string) => roundNumber(Number(number))
 
 export const inverseScale = (number: number) => {
   // avoid doing Math.log(0) which would return Inifity
-  return number !== 0 ? Math.log(number) / Math.log(PRICE_CHART_LOG_SCALE) : 0
+  return number !== 0 ? Math.log(number) / Math.log(CHART_LOG_SCALE) : 0
 }
 
 export const roundNumber = (number: number) => {
@@ -45,9 +45,9 @@ export const createExponentialRange = (
 ) => {
   const rangeMin = inverseScale(min)
   const rangeMax = inverseScale(max)
-  const step = (rangeMax - rangeMin) / PRICE_CHART_BAR_QTY
+  const step = (rangeMax - rangeMin) / CHART_BAR_QTY
   const arr: number[] = []
-  for (let i = 0; i < PRICE_CHART_BAR_QTY; i++) {
+  for (let i = 0; i < CHART_BAR_QTY; i++) {
     const prev = arr[i - 1]
     arr.push(prev !== undefined ? prev + step : rangeMin)
   }
@@ -55,7 +55,7 @@ export const createExponentialRange = (
   return [
     ...arr.map((interval) =>
       interval !== 0
-        ? roundNumber(Math.pow(PRICE_CHART_LOG_SCALE, interval))
+        ? roundNumber(Math.pow(CHART_LOG_SCALE, interval))
         : interval
     ),
     ...(upperBound && max > upperBound ? [upperBound] : [])
@@ -74,10 +74,10 @@ export const getBarChartRanges = (
     return acc
   }, new Map())
   try {
-    // iterates each data entry of <price, itemsWithThatPrice>
+    // iterates each data entry of <number, ocurrences>
     Object.entries(data).forEach(([key, value]) => {
-      const formattedPrice = formatPrice(key)
-      const upperBoundIdx = ranges.findIndex((range) => formattedPrice < range)
+      const formattedNumber = formatNumber(key)
+      const upperBoundIdx = ranges.findIndex((range) => formattedNumber < range)
       let upperBound =
         ranges[upperBoundIdx > 0 ? upperBoundIdx - 1 : upperBoundIdx]
       if (upperBound === undefined) {
@@ -91,12 +91,12 @@ export const getBarChartRanges = (
     const mapIterator = bars.entries()
     let interval: [string, number] = mapIterator.next().value
     while (interval) {
-      const [maxPriceOfInterval, amount] = interval
+      const [maxOfInterval, amount] = interval
       const nextInterval = mapIterator.next().value
       final.push({
         values: [
-          Number(maxPriceOfInterval),
-          nextInterval ? Number(nextInterval[0]) : Number(maxPriceOfInterval)
+          Number(maxOfInterval),
+          nextInterval ? Number(nextInterval[0]) : Number(maxOfInterval)
         ],
         amount
       })
@@ -131,10 +131,10 @@ export const getFlooredFixed = (v: number, d: number) => {
   return (Math.floor(v * Math.pow(10, d)) / Math.pow(10, d)).toFixed(d)
 }
 
-export const getDatasetBounds = (prices: Record<string, number>) => {
-  const formattedPrices = Object.keys(prices).map((price) => Number(price))
+export const getDatasetBounds = (data: Record<string, number>) => {
+  const formattedData = Object.keys(data).map((key) => Number(key))
   return {
-    min: Math.min(...formattedPrices),
-    max: Math.max(...formattedPrices)
+    min: Math.min(...formattedData),
+    max: Math.max(...formattedData)
   }
 }

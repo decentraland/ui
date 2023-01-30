@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { useEffect, useState, useCallback, useRef, useMemo } from 'react'
 import classNames from 'classnames'
-import { BarChart, Bar, Cell, Tooltip, ResponsiveContainer } from 'recharts'
+import {
+  BarChart as RechartBartChart,
+  Bar,
+  Cell,
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { RangeField } from '../RangeField'
 import { SliderField } from '../SliderField/SliderField'
@@ -17,14 +23,14 @@ import {
   isValuesInCurrentRange,
   LOADING_BAR_COLOR,
   NON_ACTIVE_BAR_COLOR,
-  priceFormatter,
-  PRICE_CHART_LOG_SCALE,
+  numberFormatter,
+  CHART_LOG_SCALE,
   roundRange,
   roundNumber
 } from './utils'
-import { PriceChartProps } from './PriceChart.types'
-import { PriceChartTooltip } from './PriceChartTooltip'
-import './PriceChart.css'
+import { BarChartProps } from './BarChart.types'
+import { BarChartTooltip } from './BarChartTooltip'
+import './BarChart.css'
 
 const DEFAULT_SLIDER_STEP = 0.1
 
@@ -33,27 +39,27 @@ type Range = {
   values: number[]
 }
 
-export const PriceChart = ({
+export const BarChart = ({
   height = 150,
   width = '100%',
-  prices,
+  data,
   upperBound,
   loading,
   onChange,
-  minPrice,
-  maxPrice,
+  min,
+  max,
   network = Network.ETHEREUM,
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage
-}: PriceChartProps) => {
-  const [value, setValue] = useState<[string, string]>([minPrice, maxPrice])
+}: BarChartProps) => {
+  const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
   const [activeBar, setActiveBar] = useState<number>()
   const [rangeMax, setRangeMax] = useState<number>()
   const [rangeMin, setRangeMin] = useState<number>()
   const timeout = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => setValue([minPrice, maxPrice]), [minPrice, maxPrice])
+  useEffect(() => setValue([min, max]), [min, max])
 
   useEffect(() => {
     return () => {
@@ -64,26 +70,24 @@ export const PriceChart = ({
   }, [])
 
   useEffect(() => {
-    if (prices) {
+    if (data) {
       try {
-        const formattedPrices = Object.keys(prices).map((price) =>
-          Number(price)
-        )
-        const maxValueFromDataset = Math.max(...formattedPrices)
+        const formattedValues = Object.keys(data).map((key) => Number(key))
+        const maxValueFromDataset = Math.max(...formattedValues)
         const maxValue = upperBound
           ? upperBound < maxValueFromDataset
             ? upperBound
             : maxValueFromDataset
           : maxValueFromDataset
-        const minValue = Math.min(...formattedPrices)
+        const minValue = Math.min(...formattedValues)
         setRangeMax(maxValue)
         setRangeMin(minValue)
-        setRanges(getBarChartRanges(prices, minValue, maxValue, upperBound))
+        setRanges(getBarChartRanges(data, minValue, maxValue, upperBound))
       } catch (error) {
         console.error('error: ', error)
       }
     }
-  }, [prices, upperBound])
+  }, [data, upperBound])
 
   const inputMaxRangeValue = useMemo(
     () => (rangeMax !== undefined ? inverseScale(rangeMax) : undefined),
@@ -111,7 +115,7 @@ export const PriceChart = ({
     return scaledValue < inputMaxRangeValue ? scaledValue : inputMaxRangeValue
   }, [inputMaxRangeValue, value])
 
-  const showMaxErrorPrice = useMemo(
+  const showMaxError = useMemo(
     () => value[0] && value[1] && Number(value[1]) <= Number(value[0]),
     [value]
   )
@@ -119,22 +123,22 @@ export const PriceChart = ({
   // Slider variables to display
   const sliderMinLabel = useMemo(() => {
     const min = value[0] ? Number(value[0]) : rangeMin ? rangeMin : ''
-    return priceFormatter.format(Number(min))
+    return numberFormatter.format(Number(min))
   }, [rangeMin, value])
 
   const sliderMaxLabel = useMemo(() => {
-    if (prices) {
-      const { max: datasetMax } = getDatasetBounds(prices)
+    if (data) {
+      const { max: datasetMax } = getDatasetBounds(data)
       const currentMax = Number(value[1] || rangeMax)
       const isInputAtMaxValue = currentMax === rangeMax
-      return `${priceFormatter.format(Number(currentMax))}${
+      return `${numberFormatter.format(Number(currentMax))}${
         isInputAtMaxValue && upperBound && upperBound < datasetMax ? '+' : ''
       }`
     }
-  }, [prices, rangeMax, upperBound, value])
+  }, [data, rangeMax, upperBound, value])
 
   // Component handlers
-  const handlePriceChange = useCallback(
+  const handleChange = useCallback(
     (newValue: [string, string]) => {
       setValue(newValue)
       if (timeout.current) {
@@ -164,20 +168,20 @@ export const PriceChart = ({
           remainingToMax <= sliderStep
 
         const formattedMin =
-          min === rangeMin ? rangeMin : Math.pow(PRICE_CHART_LOG_SCALE, min)
+          min === rangeMin ? rangeMin : Math.pow(CHART_LOG_SCALE, min)
         const formattedMax = isTheMaxValue
           ? rangeMax
-          : Math.pow(PRICE_CHART_LOG_SCALE, max)
+          : Math.pow(CHART_LOG_SCALE, max)
 
         const newValue: [string, string] = [
           roundNumber(formattedMin).toString(),
           roundNumber(formattedMax).toString()
         ]
         setValue(newValue)
-        handlePriceChange(newValue)
+        handleChange(newValue)
       }
     },
-    [handlePriceChange, inputMaxRangeValue, rangeMax, rangeMin, sliderStep]
+    [handleChange, inputMaxRangeValue, rangeMax, rangeMin, sliderStep]
   )
 
   // Bar chart handlers
@@ -194,13 +198,13 @@ export const PriceChart = ({
       const values = activePayload[0].payload.values
       const isUpperBoundRange = values[0] === values[1]
 
-      handlePriceChange(
+      handleChange(
         isUpperBoundRange
           ? [values[0], '']
           : roundRange(activePayload[0].payload.values)
       )
     },
-    [handlePriceChange]
+    [handleChange]
   )
 
   const renderBarCell = useCallback(
@@ -229,7 +233,7 @@ export const PriceChart = ({
   )
 
   return (
-    <div className="price-filter">
+    <div className="bar-chart">
       <RangeField
         minProps={{
           icon: <Mana network={network} />,
@@ -241,7 +245,7 @@ export const PriceChart = ({
           iconPosition: 'left',
           placeholder: 1000
         }}
-        onChange={handlePriceChange}
+        onChange={handleChange}
         value={value}
       />
 
@@ -249,7 +253,7 @@ export const PriceChart = ({
         <div
           className={classNames(
             'loader-container',
-            !prices && 'no-data-loading-layer'
+            !data && 'no-data-loading-layer'
           )}
         >
           <div className="loading-layer" />
@@ -257,10 +261,10 @@ export const PriceChart = ({
         </div>
       ) : null}
 
-      {!!prices && !!ranges && !!inputMaxRangeValue && (
+      {!!data && !!ranges && !!inputMaxRangeValue && (
         <>
           <ResponsiveContainer width={width} height={height}>
-            <BarChart
+            <RechartBartChart
               data={ranges}
               margin={{ top: 20, right: 12, left: 12 }}
               onMouseMove={handleBarChartMouseMove}
@@ -269,13 +273,13 @@ export const PriceChart = ({
             >
               <Tooltip
                 cursor={false}
-                content={<PriceChartTooltip network={network} />}
+                content={<BarChartTooltip network={network} />}
                 position={{ y: 25 }}
               />
               <Bar dataKey="amount" barSize={8}>
                 {ranges?.map(renderBarCell)}
               </Bar>
-            </BarChart>
+            </RechartBartChart>
           </ResponsiveContainer>
 
           <SliderField
@@ -288,12 +292,12 @@ export const PriceChart = ({
             step={sliderStep}
             onChange={handleRangeChange}
           />
-          <div className="price-input-container">
+          <div className="bar-chart-input-container">
             <Mana network={network}>{sliderMinLabel}</Mana>
             <Mana network={network}>{sliderMaxLabel}</Mana>
           </div>
-          {errorMessage && showMaxErrorPrice ? (
-            <span className="price-filter-error">{errorMessage}</span>
+          {errorMessage && showMaxError ? (
+            <span className="bar-chart-error">{errorMessage}</span>
           ) : null}
         </>
       )}

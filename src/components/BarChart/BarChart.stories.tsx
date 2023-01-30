@@ -2,9 +2,9 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
-import { PriceChart } from './PriceChart'
+import { BarChart } from './BarChart'
 
-const formattedPrices = {
+const data = {
   '3499.0': 1,
   '3685.0': 1,
   '3729.0': 1,
@@ -211,45 +211,45 @@ const onChange = (values) => {
   console.log('values:', values)
 }
 
-storiesOf('PriceChart', module)
+storiesOf('BarChart ', module)
   .addDecorator(centered)
   .add('Loading data', () => (
-    <PriceChart
+    <BarChart
       width={250}
       loading
-      maxPrice={''}
-      minPrice={''}
+      max={''}
+      min={''}
       network={Network.ETHEREUM}
       onChange={onChange}
     />
   ))
   .add('No upperBound', () => (
-    <PriceChart
+    <BarChart
       width={250}
-      prices={formattedPrices}
-      maxPrice={''}
-      minPrice={''}
+      data={data}
+      max={''}
+      min={''}
       network={Network.ETHEREUM}
       onChange={onChange}
     />
   ))
   .add('With a 5M upperBound', () => (
-    <PriceChart
+    <BarChart
       width={250}
-      prices={formattedPrices}
-      maxPrice={''}
-      minPrice={''}
+      data={data}
+      max={''}
+      min={''}
       upperBound={5000000}
       network={Network.ETHEREUM}
       onChange={onChange}
     />
   ))
   .add('With minPrice and maxPrice defined', () => (
-    <PriceChart
+    <BarChart
       width={250}
-      prices={formattedPrices}
-      minPrice={'7000'}
-      maxPrice={'2000000'}
+      data={data}
+      min={'7000'}
+      max={'2000000'}
       network={Network.ETHEREUM}
       onChange={onChange}
     />
