@@ -79,7 +79,7 @@ export * from './components/Media'
 export * from './components/Box'
 export * from './components/RangeField'
 export * from './components/SliderField/SliderField'
-export * from './components/Inventory/Inventory'
+export * from './components/BarChart/BarChart'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */

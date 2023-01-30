@@ -1,6 +1,6 @@
 import { Network } from '@dcl/schemas'
 
-export type InventoryProps = {
+export type BarChartProps = {
   data?: Record<number, number>
   height?: number | string
   width?: number | string

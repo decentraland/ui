@@ -1,28 +1,28 @@
-.inventory.range-field {
+.bar-chart.range-field {
   padding: 20px;
   padding-bottom: 0;
 }
 
-.inventory .dcl.mana:not(.mana-label-icon) {
+.bar-chart .dcl.mana:not(.mana-label-icon) {
   position: absolute;
   top: 10px;
   left: 12px;
   margin-top: 0;
 }
 
-.inventory .ui.header.dcl.mana.mana-label-icon {
+.bar-chart .ui.header.dcl.mana.mana-label-icon {
   font-size: 17px;
 }
 
-.inventory .dcl.mana.mana-label-icon .symbol {
+.bar-chart .dcl.mana.mana-label-icon .symbol {
   opacity: 0.5;
 }
 
-.inventory .dcl.mana .symbol .ethereum {
+.bar-chart .dcl.mana .symbol .ethereum {
   transform: scale(0.8) translateY(0.2em);
 }
 
-.inventory .dcl.mana .symbol .matic {
+.bar-chart .dcl.mana .symbol .matic {
   /* obtained using https://codepen.io/sosuke/pen/Pjoqqp */
   filter: invert(44%) sepia(18%) saturate(249%) hue-rotate(219deg)
     brightness(95%) contrast(87%);
@@ -31,55 +31,55 @@
   height: 16px;
 }
 
-.inventory .dcl.field.full .ui.input input {
+.bar-chart .dcl.field.full .ui.input input {
   text-overflow: ellipsis;
   padding-right: 4px !important;
   padding-left: 29px !important;
   font-size: 15px;
 }
 
-.inventory .ui.min-max-field {
+.bar-chart .ui.min-max-field {
   column-gap: 8px;
 }
 
-.inventory .dcl.field .ui.sub.header {
+.bar-chart .dcl.field .ui.sub.header {
   padding: 4px 0;
 }
 
-.inventory .dcl.field .message {
+.bar-chart .dcl.field .message {
   /* we won't show any message for this inputs */
   display: none;
 }
 
 /* Hide input arrows for Chrome, Safari, Edge, Opera */
-.inventory .dcl.field.full .ui.input input::-webkit-outer-spin-button,
-.inventory .dcl.field.full .ui.input input::-webkit-inner-spin-button {
+.bar-chart .dcl.field.full .ui.input input::-webkit-outer-spin-button,
+.bar-chart .dcl.field.full .ui.input input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Hide input arrows for Firefox */
-.inventory .dcl.field.full .ui.input input[type='number'] {
+.bar-chart .dcl.field.full .ui.input input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.inventory-error {
+.bar-chart-error {
   display: block;
   margin-top: 12px;
   color: var(--summer-red);
 }
 
-.inventory .inventory-input-container {
+.bar-chart .bar-chart-input-container {
   max-width: 100%;
 }
 
-.inventory .recharts-responsive-container {
+.bar-chart .recharts-responsive-container {
   background-color: #161419;
   border-radius: 6px;
   margin-top: 16px;
 }
 
-.inventory .inventory-input-container {
+.bar-chart .bar-chart-input-container {
   display: flex;
   align-items: center;
   position: relative;
@@ -97,7 +97,7 @@
   overflow: hidden;
 }
 
-.inventory .inventory-input-container .ui.header.dcl.mana {
+.bar-chart .bar-chart-input-container .ui.header.dcl.mana {
   position: relative;
   margin-bottom: 0;
   top: 0;
@@ -105,37 +105,37 @@
   font-size: 15px;
 }
 
-.inventory .dcl.sliderfield {
+.bar-chart .dcl.sliderfield {
   padding-left: 5px;
 }
 
-.inventory .dcl.sliderfield > p {
+.bar-chart .dcl.sliderfield > p {
   display: none;
 }
 
-.inventory .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
+.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
   top: -7px;
 }
 
-.inventory .dcl.sliderfield-wrapper .dcl.sliderfield-track {
+.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
   background: #736e7d;
 }
 
-.inventory .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
+.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
   background-color: #736e7d;
 }
 
-.inventory .dcl.sliderfield-wrapper .dcl.sliderfield-rail,
-.inventory .dcl.sliderfield-wrapper .dcl.sliderfield-track,
-.inventory .dcl.sliderfield-wrapper {
+.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-rail,
+.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track,
+.bar-chart .dcl.sliderfield-wrapper {
   height: 2px;
 }
 
-.inventory .inventory .dcl.sliderfield-wrapper .dcl.sliderfield-track {
+.bar-chart .bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
   height: 2px;
 }
 
-.inventory .loader-container {
+.bar-chart .loader-container {
   height: 150px;
   position: absolute;
   width: 100%;
@@ -144,7 +144,7 @@
   border-radius: 6px;
 }
 
-.inventory .loading-layer {
+.bar-chart .loading-layer {
   height: 150px;
   background-color: black;
   width: 100%;
@@ -153,14 +153,14 @@
   height: 100%;
 }
 
-.inventory .no-data-loading-layer {
+.bar-chart .no-data-loading-layer {
   position: relative;
   left: 0;
   bottom: 0;
   margin-top: 24px;
 }
 
-.inventory .custom-tooltip {
+.bar-chart .custom-tooltip {
   display: flex;
   color: var(--popup-text);
   background-color: var(--card);
@@ -181,17 +181,17 @@
   box-shadow: var(--shadow-1);
 }
 
-.inventory .custom-tooltip .ui.header.dcl.mana {
+.bar-chart .custom-tooltip .ui.header.dcl.mana {
   position: initial;
   font-size: 17px;
   margin-bottom: 0;
   white-space: nowrap;
 }
 
-.inventory .custom-tooltip .ui.header.dcl.mana span {
+.bar-chart .custom-tooltip .ui.header.dcl.mana span {
   font-size: 14px;
 }
 
-.inventory .custom-tooltip .custom-tooltip-separator {
+.bar-chart .custom-tooltip .custom-tooltip-separator {
   padding: 0 6px;
 }

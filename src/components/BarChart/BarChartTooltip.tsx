@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Mana } from '../Mana/Mana'
 import { formatAndRoundNumberString } from './utils'
-import './Inventory.css'
+import './BarChart.css'
 
-export type InventoryTooltipProps = {
+export type BarChartTooltipProps = {
   payload?: {
     payload: { name: string; values: [number, number]; amount: number }
   }[]
@@ -12,11 +12,11 @@ export type InventoryTooltipProps = {
   network: Network
 }
 
-export const InventoryTooltip = ({
+export const BarChartTooltip = ({
   active,
   payload,
   network
-}: InventoryTooltipProps) => {
+}: BarChartTooltipProps) => {
   if (active && payload && payload.length && payload[0].payload.amount) {
     const values = payload[0].payload.values
     const isLatestRange = values[0] === values[1]

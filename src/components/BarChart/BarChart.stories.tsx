@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
-import { Inventory } from './Inventory'
+import { BarChart } from './BarChart'
 
 const data = {
   '3499.0': 1,
@@ -211,10 +211,10 @@ const onChange = (values) => {
   console.log('values:', values)
 }
 
-storiesOf('Inventory', module)
+storiesOf('BarChart ', module)
   .addDecorator(centered)
   .add('Loading data', () => (
-    <Inventory
+    <BarChart
       width={250}
       loading
       max={''}
@@ -224,7 +224,7 @@ storiesOf('Inventory', module)
     />
   ))
   .add('No upperBound', () => (
-    <Inventory
+    <BarChart
       width={250}
       data={data}
       max={''}
@@ -234,7 +234,7 @@ storiesOf('Inventory', module)
     />
   ))
   .add('With a 5M upperBound', () => (
-    <Inventory
+    <BarChart
       width={250}
       data={data}
       max={''}
@@ -245,7 +245,7 @@ storiesOf('Inventory', module)
     />
   ))
   .add('With minPrice and maxPrice defined', () => (
-    <Inventory
+    <BarChart
       width={250}
       data={data}
       min={'7000'}

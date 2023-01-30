@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { useEffect, useState, useCallback, useRef, useMemo } from 'react'
 import classNames from 'classnames'
-import { BarChart, Bar, Cell, Tooltip, ResponsiveContainer } from 'recharts'
+import {
+  BarChart as RechartBartChart,
+  Bar,
+  Cell,
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { RangeField } from '../RangeField'
 import { SliderField } from '../SliderField/SliderField'
@@ -22,9 +28,9 @@ import {
   roundRange,
   roundNumber
 } from './utils'
-import { InventoryProps } from './Inventory.types'
-import { InventoryTooltip } from './InventoryTooltip'
-import './Inventory.css'
+import { BarChartProps } from './BarChart.types'
+import { BarChartTooltip } from './BarChartTooltip'
+import './BarChart.css'
 
 const DEFAULT_SLIDER_STEP = 0.1
 
@@ -33,7 +39,7 @@ type Range = {
   values: number[]
 }
 
-export const Inventory = ({
+export const BarChart = ({
   height = 150,
   width = '100%',
   data,
@@ -45,7 +51,7 @@ export const Inventory = ({
   network = Network.ETHEREUM,
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage
-}: InventoryProps) => {
+}: BarChartProps) => {
   const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
   const [activeBar, setActiveBar] = useState<number>()
@@ -227,7 +233,7 @@ export const Inventory = ({
   )
 
   return (
-    <div className="inventory">
+    <div className="bar-chart">
       <RangeField
         minProps={{
           icon: <Mana network={network} />,
@@ -258,7 +264,7 @@ export const Inventory = ({
       {!!data && !!ranges && !!inputMaxRangeValue && (
         <>
           <ResponsiveContainer width={width} height={height}>
-            <BarChart
+            <RechartBartChart
               data={ranges}
               margin={{ top: 20, right: 12, left: 12 }}
               onMouseMove={handleBarChartMouseMove}
@@ -267,13 +273,13 @@ export const Inventory = ({
             >
               <Tooltip
                 cursor={false}
-                content={<InventoryTooltip network={network} />}
+                content={<BarChartTooltip network={network} />}
                 position={{ y: 25 }}
               />
               <Bar dataKey="amount" barSize={8}>
                 {ranges?.map(renderBarCell)}
               </Bar>
-            </BarChart>
+            </RechartBartChart>
           </ResponsiveContainer>
 
           <SliderField
@@ -286,12 +292,12 @@ export const Inventory = ({
             step={sliderStep}
             onChange={handleRangeChange}
           />
-          <div className="inventory-input-container">
+          <div className="bar-chart-input-container">
             <Mana network={network}>{sliderMinLabel}</Mana>
             <Mana network={network}>{sliderMaxLabel}</Mana>
           </div>
           {errorMessage && showMaxError ? (
-            <span className="inventory-error">{errorMessage}</span>
+            <span className="bar-chart-error">{errorMessage}</span>
           ) : null}
         </>
       )}
