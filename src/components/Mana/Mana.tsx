@@ -1,8 +1,8 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header, HeaderProps } from '../Header/Header'
 import './Mana.css'
-import classNames from 'classnames'
 
 export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
