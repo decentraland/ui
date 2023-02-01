@@ -19,7 +19,7 @@
   background-size: cover;
 }
 
-.dcl.mana+.dcl.mana {
+.dcl.mana + .dcl.mana {
   padding-left: 0.3em;
 }
 
