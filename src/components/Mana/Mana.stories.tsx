@@ -38,6 +38,15 @@ storiesOf('Mana', module)
       into Matic Network.
     </p>
   ))
+  .add('Matic primary', () => (
+    <p>
+      You deposited{' '}
+      <Mana inline network={Network.MATIC} primary>
+        1,000
+      </Mana>{' '}
+      into Matic Network.
+    </p>
+  ))
   .add('Matic Sizes', () => (
     <>
       <Mana network={Network.MATIC} size="huge">

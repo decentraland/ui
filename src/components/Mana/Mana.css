@@ -4,6 +4,7 @@
   overflow: hidden;
   color: inherit;
 }
+
 .dcl.mana .symbol {
   padding-right: 0.3em;
   display: inline-block;
@@ -34,4 +35,14 @@
   background-size: contain;
   filter: var(--brightness);
   transform: translateY(0.2em);
+}
+
+.dcl.mana .matic.primary {
+  background-image: none;
+  -webkit-mask: url(../../assets/mana-l2.svg) no-repeat 100% 100%;
+  mask: url(../../assets/mana-l2.svg) no-repeat 100% 100%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: var(--primary);
+  filter: none;
 }
