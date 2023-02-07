@@ -254,3 +254,14 @@ storiesOf('BarChart ', module)
       onChange={onChange}
     />
   ))
+  .add('with MANA currency', () => (
+    <BarChart
+      isMana
+      width={250}
+      data={data}
+      min={'7000'}
+      max={'2000000'}
+      network={Network.ETHEREUM}
+      onChange={onChange}
+    />
+  ))
