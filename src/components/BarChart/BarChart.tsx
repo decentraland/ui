@@ -48,6 +48,9 @@ export const BarChart = ({
   onChange,
   min,
   max,
+  minLabel,
+  maxLabel,
+  isMana = false,
   network = Network.ETHEREUM,
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage
@@ -235,13 +238,15 @@ export const BarChart = ({
   return (
     <div className="bar-chart">
       <RangeField
+        minLabel={minLabel}
+        maxLabel={maxLabel}
         minProps={{
-          icon: <Mana network={network} />,
+          icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
           placeholder: 0
         }}
         maxProps={{
-          icon: <Mana network={network} />,
+          icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
           placeholder: 1000
         }}
@@ -273,7 +278,7 @@ export const BarChart = ({
             >
               <Tooltip
                 cursor={false}
-                content={<BarChartTooltip network={network} />}
+                content={<BarChartTooltip network={network} isMana={isMana} />}
                 position={{ y: 25 }}
               />
               <Bar dataKey="amount" barSize={8}>
@@ -293,8 +298,17 @@ export const BarChart = ({
             onChange={handleRangeChange}
           />
           <div className="bar-chart-input-container">
-            <Mana network={network}>{sliderMinLabel}</Mana>
-            <Mana network={network}>{sliderMaxLabel}</Mana>
+            {isMana ? (
+              <>
+                <Mana network={network}>{sliderMinLabel}</Mana>
+                <Mana network={network}>{sliderMaxLabel}</Mana>
+              </>
+            ) : (
+              <>
+                <span>{sliderMinLabel}</span>
+                <span>{sliderMaxLabel}</span>
+              </>
+            )}
           </div>
           {errorMessage && showMaxError ? (
             <span className="bar-chart-error">{errorMessage}</span>

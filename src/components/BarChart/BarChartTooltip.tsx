@@ -10,28 +10,40 @@ export type BarChartTooltipProps = {
   }[]
   active?: boolean
   network: Network
+  isMana: boolean
 }
 
 export const BarChartTooltip = ({
   active,
   payload,
-  network
+  network,
+  isMana
 }: BarChartTooltipProps) => {
   if (active && payload && payload.length && payload[0].payload.amount) {
     const values = payload[0].payload.values
     const isLatestRange = values[0] === values[1]
-    const lowerBoundLabel = formatAndRoundNumberString(values[0].toString())
+    const lowerBound = formatAndRoundNumberString(values[0].toString())
+    const lowerBoundLabel = (
+      <span>{isLatestRange ? `${lowerBound}+` : lowerBound}</span>
+    )
+    const upperBoundLabel = (
+      <span>{formatAndRoundNumberString(values[1].toString())}</span>
+    )
     return (
       <div className="custom-tooltip">
-        <Mana network={network}>
-          <span>{isLatestRange ? `${lowerBoundLabel}+` : lowerBoundLabel}</span>
-        </Mana>
+        {isMana ? (
+          <Mana network={network}>{lowerBoundLabel}</Mana>
+        ) : (
+          lowerBoundLabel
+        )}
         {!isLatestRange ? (
           <>
             <span className="custom-tooltip-separator">-</span>
-            <Mana network={network}>
-              <span>{formatAndRoundNumberString(values[1].toString())}</span>
-            </Mana>
+            {isMana ? (
+              <Mana network={network}>{upperBoundLabel}</Mana>
+            ) : (
+              upperBoundLabel
+            )}
           </>
         ) : null}
       </div>
