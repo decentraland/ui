@@ -10,6 +10,9 @@ export type BarChartProps = {
   min: string
   max: string
   network?: Network
+  isMana?: boolean
+  minLabel?: string
+  maxLabel?: string
   errorMessage?: string
   onChange: (value: [string, string]) => void
 }
