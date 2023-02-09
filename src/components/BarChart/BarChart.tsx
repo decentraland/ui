@@ -53,7 +53,8 @@ export const BarChart = ({
   isMana = false,
   network = Network.ETHEREUM,
   sliderStep = DEFAULT_SLIDER_STEP,
-  errorMessage
+  errorMessage,
+  rangeDecimals = 2
 }: BarChartProps) => {
   const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
@@ -85,7 +86,9 @@ export const BarChart = ({
         const minValue = Math.min(...formattedValues)
         setRangeMax(maxValue)
         setRangeMin(minValue)
-        setRanges(getBarChartRanges(data, minValue, maxValue, upperBound))
+        setRanges(
+          getBarChartRanges(data, minValue, maxValue, upperBound, rangeDecimals)
+        )
       } catch (error) {
         console.error('error: ', error)
       }
@@ -235,6 +238,23 @@ export const BarChart = ({
     [activeBar, loading, rangeMax, rangeMin, value]
   )
 
+  const timeoutRef = useRef<NodeJS.Timeout>()
+
+  // disables the behavior of chanhing value while scrolling on top of the input
+  const onRangeWheel = useCallback((e) => {
+    // Prevent the input value change
+    e.target.blur()
+    // Prevent the page/container scrolling
+    e.stopPropagation()
+    timeoutRef.current = setTimeout(() => {
+      e.target.focus()
+    }, 0) as unknown as NodeJS.Timeout
+  }, [])
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current)
+  }, [])
+
   return (
     <div className="bar-chart">
       <RangeField
@@ -243,12 +263,14 @@ export const BarChart = ({
         minProps={{
           icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
-          placeholder: 0
+          placeholder: 0,
+          onWheel: onRangeWheel
         }}
         maxProps={{
           icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
-          placeholder: 1000
+          placeholder: 1000,
+          onWheel: onRangeWheel
         }}
         onChange={handleChange}
         value={value}

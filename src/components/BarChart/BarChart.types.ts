@@ -5,6 +5,7 @@ export type BarChartProps = {
   height?: number | string
   width?: number | string
   upperBound?: number
+  rangeDecimals?: number
   sliderStep?: number
   loading?: boolean
   min: string
