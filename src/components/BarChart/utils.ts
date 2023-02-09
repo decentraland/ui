@@ -75,7 +75,9 @@ export const getBarChartRanges = (
     // iterates each data entry of <number, ocurrences>
     Object.entries(data).forEach(([key, value]) => {
       const formattedNumber = formatNumber(key)
-      const upperBoundIdx = ranges.findIndex((range) => formattedNumber < range)
+      const upperBoundIdx = ranges.findIndex(
+        (range) => formattedNumber <= range
+      )
       let upperBound =
         ranges[upperBoundIdx > 0 ? upperBoundIdx - 1 : upperBoundIdx]
       if (upperBound === undefined) {
