@@ -17,10 +17,6 @@ export const roundRange = (range: number[]): [string, string] => {
   return [roundNumber(range[0]).toString(), roundNumber(range[1]).toString()]
 }
 
-export const formatNumberString = (number: string, decimals = 0) => {
-  return Number(number).toFixed(decimals).toLocaleString()
-}
-
 const formatNumber = (number: string) => roundNumber(Number(number))
 
 export const inverseScale = (number: number) => {
@@ -28,10 +24,10 @@ export const inverseScale = (number: number) => {
   return number !== 0 ? Math.log(number) / Math.log(CHART_LOG_SCALE) : 0
 }
 
-export const roundNumber = (number: number) => {
+export const roundNumber = (number: number, decimals = 2) => {
   let exp = 1
   if (number < 10) {
-    return Number(number.toFixed(2))
+    return Number(number.toFixed(decimals))
   }
   if (number > 100) exp = 100
   if (number > 1000) exp = 1000
@@ -41,7 +37,8 @@ export const roundNumber = (number: number) => {
 export const createExponentialRange = (
   min: number,
   max: number,
-  upperBound?: number
+  upperBound?: number,
+  decimals?: number
 ) => {
   const rangeMin = inverseScale(min)
   const rangeMax = inverseScale(max)
@@ -55,7 +52,7 @@ export const createExponentialRange = (
   return [
     ...arr.map((interval) =>
       interval !== 0
-        ? roundNumber(Math.pow(CHART_LOG_SCALE, interval))
+        ? roundNumber(Math.pow(CHART_LOG_SCALE, interval), decimals)
         : interval
     ),
     ...(upperBound && max > upperBound ? [upperBound] : [])
@@ -66,9 +63,10 @@ export const getBarChartRanges = (
   data: Record<string, number>,
   min: number,
   max: number,
-  upperBound?: number
+  upperBound?: number,
+  rangeDecimals?: number
 ) => {
-  const ranges = createExponentialRange(min, max, upperBound)
+  const ranges = createExponentialRange(min, max, upperBound, rangeDecimals)
   const bars = ranges.reduce((acc, range) => {
     acc.set(range, 0)
     return acc
