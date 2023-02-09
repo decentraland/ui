@@ -238,15 +238,21 @@ export const BarChart = ({
     [activeBar, loading, rangeMax, rangeMin, value]
   )
 
+  const timeoutRef = useRef<NodeJS.Timeout>()
+
   // disables the behavior of chanhing value while scrolling on top of the input
   const onRangeWheel = useCallback((e) => {
     // Prevent the input value change
     e.target.blur()
     // Prevent the page/container scrolling
     e.stopPropagation()
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       e.target.focus()
-    }, 0)
+    }, 0) as unknown as NodeJS.Timeout
+  }, [])
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current)
   }, [])
 
   return (
