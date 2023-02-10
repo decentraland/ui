@@ -79,3 +79,30 @@ storiesOf('SliderField', module)
       range
     />
   ))
+  .add('with state', () => {
+    const [value, setRange] = React.useState<number>(10)
+    return (
+      <SliderField
+        header="Shown on console"
+        min={0}
+        max={10}
+        valueFrom={0}
+        valueTo={value}
+        onChange={(_, data) => setRange(data[1])}
+      />
+    )
+  })
+  .add('range with state', () => {
+    const [range, setRange] = React.useState<readonly [number, number]>([0, 10])
+    return (
+      <SliderField
+        header="Shown on console"
+        min={0}
+        max={10}
+        valueFrom={range[0]}
+        valueTo={range[1]}
+        onChange={(_, data) => setRange(data)}
+        range
+      />
+    )
+  })

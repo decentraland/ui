@@ -318,20 +318,25 @@ export const BarChart = ({
             max={inputMaxRangeValue}
             step={sliderStep}
             onChange={handleRangeChange}
+            labelFrom={
+              isMana ? (
+                <Mana network={network} className="slider-label">
+                  {sliderMinLabel}
+                </Mana>
+              ) : (
+                <span className="slider-label">{sliderMinLabel}</span>
+              )
+            }
+            labelTo={
+              isMana ? (
+                <Mana network={network} className="slider-label">
+                  {sliderMaxLabel}
+                </Mana>
+              ) : (
+                <span className="slider-label">{sliderMaxLabel}</span>
+              )
+            }
           />
-          <div className="bar-chart-input-container">
-            {isMana ? (
-              <>
-                <Mana network={network}>{sliderMinLabel}</Mana>
-                <Mana network={network}>{sliderMaxLabel}</Mana>
-              </>
-            ) : (
-              <>
-                <span>{sliderMinLabel}</span>
-                <span>{sliderMaxLabel}</span>
-              </>
-            )}
-          </div>
           {errorMessage && showMaxError ? (
             <span className="bar-chart-error">{errorMessage}</span>
           ) : null}

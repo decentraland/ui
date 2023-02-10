@@ -1,41 +1,42 @@
 import * as React from 'react'
 import './SliderField.css'
 
-export type SliderFieldProps =
-  | {
-      range?: false
-      header: string
-      className?: string
-      valueFrom?: number
-      valueTo?: number
-      min?: number
-      max?: number
-      step?: undefined
-      defaultValue?: number
-      label?: string | React.PureComponent<{ value: number }>
-      onChange?: (ev: React.ChangeEvent<HTMLInputElement>, data: number) => void
-      onMouseUp?: (ev: React.MouseEvent<HTMLInputElement>, data: number) => void
-    }
-  | {
-      range: true
-      header: string
-      className?: string
-      valueFrom?: number
-      valueTo?: number
-      min?: number
-      max?: number
-      step?: number
-      defaultValue?: readonly [number, number]
-      label?: string | React.PureComponent<{ value: readonly [number, number] }>
-      onChange?: (
-        ev: React.ChangeEvent<HTMLInputElement>,
-        data: readonly [number, number]
-      ) => void
-      onMouseUp?: (
-        ev: React.MouseEvent<HTMLInputElement>,
-        data: readonly [number, number]
-      ) => void
-    }
+interface SliderBaseProps {
+  header: string
+  className?: string
+  valueFrom?: number
+  valueTo?: number
+  min?: number
+  max?: number
+  labelFrom?: string | JSX.Element
+  labelTo?: string | JSX.Element
+}
+
+interface RangeSliderProps extends SliderBaseProps {
+  range: true
+  step?: number
+  defaultValue?: readonly [number, number]
+  label?: string | React.PureComponent<{ value: readonly [number, number] }>
+  onChange?: (
+    ev: React.ChangeEvent<HTMLInputElement>,
+    data: readonly [number, number]
+  ) => void
+  onMouseUp?: (
+    ev: React.MouseEvent<HTMLInputElement>,
+    data: readonly [number, number]
+  ) => void
+}
+
+interface SimpleSliderProps extends SliderBaseProps {
+  range?: false
+  step?: undefined
+  defaultValue?: number
+  label?: string | React.PureComponent<{ value: number }>
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>, data: number) => void
+  onMouseUp?: (ev: React.MouseEvent<HTMLInputElement>, data: number) => void
+}
+
+export type SliderFieldProps = SimpleSliderProps | RangeSliderProps
 
 export enum SliderLastInteraction {
   'from',
@@ -97,10 +98,12 @@ export class SliderField extends React.PureComponent<
 
   componentDidUpdate(prevProps: Readonly<SliderFieldProps>): void {
     const { valueFrom, valueTo } = this.props
-    this.setState({
-      from: valueFrom ?? prevProps.valueFrom,
-      to: valueTo ?? prevProps.valueTo
-    })
+    if (valueFrom !== prevProps.valueFrom || valueTo !== prevProps.valueTo) {
+      this.setState({
+        from: valueFrom ?? prevProps.valueFrom,
+        to: valueTo ?? prevProps.valueTo
+      })
+    }
   }
 
   handleChangeFrom = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -196,7 +199,17 @@ export class SliderField extends React.PureComponent<
   }
 
   render(): JSX.Element {
-    const { header, className, range, step, valueFrom, valueTo } = this.props
+    const {
+      header,
+      className,
+      range,
+      step,
+      valueFrom,
+      valueTo,
+      label,
+      labelFrom,
+      labelTo
+    } = this.props
 
     const min = this.props.min || SliderDefault.MIN
     const max = this.props.max || SliderDefault.MAX
@@ -210,31 +223,13 @@ export class SliderField extends React.PureComponent<
 
     const trackStyle = this.getTrackStyles(min, max)
     const markStyle = this.getMarkStyle(min, max)
-    const label = this.getLabel()
-
+    const fromText = labelFrom ?? valueFrom ?? from
+    const toText = labelTo ?? valueTo ?? to
     return (
       <div className={classes.join(' ')}>
-        <div className="dcl sliderfield-header">{header}</div>
-        <p>{label}</p>
+        {header && <div className="dcl sliderfield-header">{header}</div>}
+        {label && <p>{label}</p>}
         <div className="dcl sliderfield-wrapper">
-          <div className="dcl sliderfield-rail">
-            <div
-              className="dcl sliderfield-track"
-              style={{ left: trackStyle.left, right: trackStyle.right }}
-            ></div>
-            {range && (
-              <span
-                className="dcl sliderfield-mark"
-                style={{ left: markStyle.left }}
-              ></span>
-            )}
-
-            <span
-              className="dcl sliderfield-mark"
-              style={{ left: markStyle.right }}
-            ></span>
-          </div>
-
           {range && (
             <input
               type="range"
@@ -250,6 +245,9 @@ export class SliderField extends React.PureComponent<
                     : 3
               }}
               onMouseUp={this.handleMouseUp}
+              className="sliderfield-input-left"
+              aria-label="min value"
+              role="slider"
             />
           )}
 
@@ -265,7 +263,31 @@ export class SliderField extends React.PureComponent<
                 this.state.lastInteraction == SliderLastInteraction.to ? 4 : 3
             }}
             onMouseUp={this.handleMouseUp}
+            className="sliderfield-input-right"
+            aria-label="max value"
+            role="slider"
           />
+          <div className="dcl sliderfield-rail">
+            <div
+              className="dcl sliderfield-track"
+              style={{ left: trackStyle.left, right: trackStyle.right }}
+            >
+              {range && fromText !== toText && (
+                <span className="slider-value slider-from">{fromText}</span>
+              )}
+              <span className="slider-value slider-to">{toText}</span>
+            </div>
+            {range && (
+              <span
+                className="dcl sliderfield-mark left"
+                style={{ left: markStyle.left }}
+              ></span>
+            )}
+            <span
+              className="dcl sliderfield-mark right"
+              style={{ left: markStyle.right }}
+            ></span>
+          </div>
         </div>
       </div>
     )

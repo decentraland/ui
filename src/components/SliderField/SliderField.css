@@ -24,6 +24,7 @@
   width: 100%;
   position: relative;
   height: 8px;
+  margin-top: 25px;
 }
 
 .dcl.sliderfield-wrapper .dcl.sliderfield-rail {
@@ -72,15 +73,6 @@
   left: 0;
   cursor: pointer;
 }
-.dcl.sliderfield-wrapper
-  > input[type='range']:focus::-webkit-slider-runnable-track {
-  background: transparent;
-  border: transparent;
-}
-
-.dcl.sliderfield-wrapper > input[type='range']:focus {
-  outline: none;
-}
 
 .dcl.sliderfield-wrapper > input[type='range']::-webkit-slider-thumb {
   pointer-events: all;
@@ -89,6 +81,28 @@
   border-radius: 0px;
   border: 0 none;
   -webkit-appearance: none;
+}
+
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-right:focus
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.right,
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-left:focus
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.left {
+  outline: 1px solid #cfcdd4;
+}
+
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-right:hover
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.right,
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-left:hover
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.left {
+  background: var(--primary-hover);
 }
 
 .dcl.sliderfield-wrapper > input[type='range']::-moz-range-thumb {
@@ -108,4 +122,17 @@
 
 .dcl.sliderfield-wrapper > input[type='range']::-ms-tooltip {
   display: none;
+}
+
+.dcl.sliderfield-track .slider-value {
+  position: absolute;
+  top: -25px;
+}
+
+.dcl.sliderfield-track .slider-from {
+  left: -8px;
+}
+
+.dcl.sliderfield-track .slider-to {
+  right: -3px;
 }
