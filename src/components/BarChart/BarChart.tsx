@@ -65,6 +65,7 @@ export const BarChart = ({
 
   useEffect(() => setValue([min, max]), [min, max])
 
+  // clear the timeout if needed
   useEffect(() => {
     return () => {
       if (timeout.current) {
@@ -146,7 +147,10 @@ export const BarChart = ({
   // Component handlers
   const handleChange = useCallback(
     (newValue: [string, string]) => {
-      setValue(newValue)
+      setValue([
+        Number(newValue[0]).toFixed(rangeDecimals),
+        Number(newValue[1]).toFixed(rangeDecimals)
+      ])
       if (timeout.current) {
         clearTimeout(timeout.current)
       }
@@ -173,15 +177,14 @@ export const BarChart = ({
             getFlooredFixed(Number(inputMaxRangeValue), 1) ||
           remainingToMax <= sliderStep
 
-        const formattedMin =
-          min === rangeMin ? rangeMin : Math.pow(CHART_LOG_SCALE, min)
+        const formattedMin = Math.pow(CHART_LOG_SCALE, min)
         const formattedMax = isTheMaxValue
           ? rangeMax
           : Math.pow(CHART_LOG_SCALE, max)
 
         const newValue: [string, string] = [
-          roundNumber(formattedMin).toString(),
-          roundNumber(formattedMax).toString()
+          roundNumber(formattedMin, rangeDecimals).toString(),
+          roundNumber(formattedMax, rangeDecimals).toString()
         ]
         setValue(newValue)
         handleChange(newValue)
@@ -238,21 +241,15 @@ export const BarChart = ({
     [activeBar, loading, rangeMax, rangeMin, value]
   )
 
-  const timeoutRef = useRef<NodeJS.Timeout>()
-
   // disables the behavior of chanhing value while scrolling on top of the input
   const onRangeWheel = useCallback((e) => {
     // Prevent the input value change
     e.target.blur()
     // Prevent the page/container scrolling
     e.stopPropagation()
-    timeoutRef.current = setTimeout(() => {
+    timeout.current = setTimeout(() => {
       e.target.focus()
     }, 0) as unknown as NodeJS.Timeout
-  }, [])
-
-  useEffect(() => {
-    return () => clearTimeout(timeoutRef.current)
   }, [])
 
   return (
