@@ -72,14 +72,17 @@ export class SliderField extends React.PureComponent<
   }
 
   componentDidMount(): void {
-    const { defaultValue, min, max } = this.props
+    const { defaultValue, min, max, valueFrom, valueTo } = this.props
 
     if (defaultValue === undefined) {
+      const minValue = !isNaN(min) ? min : SliderDefault.FROM
+      const maxValue = !isNaN(max) ? max : SliderDefault.TO
+
       this.setState((prevState) => {
         return {
           ...prevState,
-          from: !isNaN(min) ? min : prevState.from,
-          to: !isNaN(max) ? max : prevState.to
+          from: valueFrom ? valueFrom : minValue,
+          to: valueTo ? valueTo : maxValue
         }
       })
     } else {

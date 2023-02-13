@@ -93,7 +93,7 @@ storiesOf('SliderField', module)
     )
   })
   .add('range with state', () => {
-    const [range, setRange] = React.useState<readonly [number, number]>([0, 10])
+    const [range, setRange] = React.useState<readonly [number, number]>([5, 10])
     return (
       <SliderField
         header="Shown on console"
