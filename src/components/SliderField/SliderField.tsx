@@ -183,12 +183,6 @@ export class SliderField extends React.PureComponent<
     }
   }
 
-  getLabel = () => {
-    const { label, range } = this.props
-    const { from, to } = this.state
-    return label || (range ? `${from} - ${to}` : to)
-  }
-
   getMarkStyle = (min: number, max: number): SliderFieldLeftRightStyle => {
     const { from, to } = this.state
     const diffMaxMin = max - min
