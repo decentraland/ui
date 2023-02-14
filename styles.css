@@ -4487,6 +4487,7 @@ a.ui.card:hover,
   width: 100%;
   position: relative;
   height: 8px;
+  margin-top: 25px;
 }
 
 .dcl.sliderfield-wrapper .dcl.sliderfield-rail {
@@ -4535,15 +4536,6 @@ a.ui.card:hover,
   left: 0;
   cursor: pointer;
 }
-.dcl.sliderfield-wrapper
-  > input[type='range']:focus::-webkit-slider-runnable-track {
-  background: transparent;
-  border: transparent;
-}
-
-.dcl.sliderfield-wrapper > input[type='range']:focus {
-  outline: none;
-}
 
 .dcl.sliderfield-wrapper > input[type='range']::-webkit-slider-thumb {
   pointer-events: all;
@@ -4552,6 +4544,28 @@ a.ui.card:hover,
   border-radius: 0px;
   border: 0 none;
   -webkit-appearance: none;
+}
+
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-right:focus
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.right,
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-left:focus
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.left {
+  outline: 1px solid #cfcdd4;
+}
+
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-right:hover
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.right,
+.dcl.sliderfield-wrapper
+  > input[type='range'].sliderfield-input-left:hover
+  ~ .dcl.sliderfield-rail
+  .dcl.sliderfield-mark.left {
+  background: var(--primary-hover);
 }
 
 .dcl.sliderfield-wrapper > input[type='range']::-moz-range-thumb {
@@ -4571,6 +4585,19 @@ a.ui.card:hover,
 
 .dcl.sliderfield-wrapper > input[type='range']::-ms-tooltip {
   display: none;
+}
+
+.dcl.sliderfield-track .slider-value {
+  position: absolute;
+  top: -25px;
+}
+
+.dcl.sliderfield-track .slider-from {
+  left: -8px;
+}
+
+.dcl.sliderfield-track .slider-to {
+  right: -3px;
 }
 
 .bar-chart.range-field {
@@ -4658,29 +4685,22 @@ a.ui.card:hover,
   margin-top: 16px;
 }
 
-.bar-chart .bar-chart-input-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  justify-content: space-between;
+.bar-chart .dcl.sliderfield-track .slider-value .slider-label {
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  /* identical to box height, or 160% */
-
   letter-spacing: -0.2px;
 
   color: #736e7d;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
+  top: -5px;
+  left: 0;
 }
 
-.bar-chart .bar-chart-input-container .ui.header.dcl.mana {
-  position: relative;
-  margin-bottom: 0;
-  top: 0;
-  left: 0;
+.bar-chart .dcl.sliderfield-track .slider-value .ui.header.dcl.mana {
   font-size: 15px;
 }
 
