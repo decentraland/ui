@@ -23,7 +23,7 @@
 .dcl.sliderfield-wrapper {
   width: 100%;
   position: relative;
-  height: 8px;
+  height: 6px;
   margin-top: 25px;
 }
 
@@ -31,7 +31,7 @@
   position: absolute;
   left: 5px;
   right: 5px;
-  height: 8px;
+  height: 6px;
   background-color: #cfcdd4;
   mix-blend-mode: normal;
   border-radius: 3px;
@@ -40,7 +40,7 @@
 .dcl.sliderfield-wrapper .dcl.sliderfield-track {
   position: absolute;
   left: 0;
-  height: 8px;
+  height: 6px;
   border-radius: 14px;
   background-color: var(--primary);
 }
