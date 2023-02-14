@@ -31,6 +31,10 @@
   background-image: url('../../images/metamask.svg');
 }
 
+.dcl.option.metamask-mobile .image {
+  background-image: url('../../images/metamask.svg');
+}
+
 .dcl.option.dapper .image {
   background-image: url('../../images/dapper.png');
 }

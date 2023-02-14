@@ -12,7 +12,8 @@ export enum LoginModalOptionType {
   COINBASE = 'coinbase',
   SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect',
-  WALLET_LINK = 'wallet-link'
+  WALLET_LINK = 'wallet-link',
+  METAMASK_MOBILE = 'metamask-mobile'
 }
 
 export type LoginModalProps = {
@@ -42,6 +43,7 @@ export type LoginModalOptionI18N = {
   email: React.ReactNode
   mobile: React.ReactNode
   mobile_and_browser: React.ReactNode
+  metamask_mobile: React.ReactNode
 }
 
 class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
@@ -50,7 +52,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       browser_extension: 'Using a browser extension',
       email: 'Using your email',
       mobile: 'Using your mobile wallet',
-      mobile_and_browser: 'Using your mobile or browser extension'
+      mobile_and_browser: 'Using your mobile or browser extension',
+      metamask_mobile: 'Using the MetaMask app'
     }
   }
 
@@ -60,6 +63,11 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     let title: React.ReactNode = ''
     let subtitle: React.ReactNode = ''
     switch (type) {
+      case LoginModalOptionType.METAMASK_MOBILE:
+        title = 'MetaMask'
+        subtitle = i18n.metamask_mobile
+        break
+
       case LoginModalOptionType.METAMASK:
         title = 'MetaMask'
         subtitle = i18n.browser_extension
