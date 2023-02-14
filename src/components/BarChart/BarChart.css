@@ -85,7 +85,6 @@
   line-height: 24px;
   letter-spacing: -0.2px;
 
-  color: #736e7d;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -104,28 +103,6 @@
 
 .bar-chart .dcl.sliderfield > p {
   display: none;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
-  top: -7px;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
-  background: #736e7d;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
-  background-color: #736e7d;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-rail,
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track,
-.bar-chart .dcl.sliderfield-wrapper {
-  height: 2px;
-}
-
-.bar-chart .bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
-  height: 2px;
 }
 
 .bar-chart .loader-container {
