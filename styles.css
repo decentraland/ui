@@ -4486,7 +4486,7 @@ a.ui.card:hover,
 .dcl.sliderfield-wrapper {
   width: 100%;
   position: relative;
-  height: 8px;
+  height: 6px;
   margin-top: 25px;
 }
 
@@ -4494,7 +4494,7 @@ a.ui.card:hover,
   position: absolute;
   left: 5px;
   right: 5px;
-  height: 8px;
+  height: 6px;
   background-color: #cfcdd4;
   mix-blend-mode: normal;
   border-radius: 3px;
@@ -4503,7 +4503,7 @@ a.ui.card:hover,
 .dcl.sliderfield-wrapper .dcl.sliderfield-track {
   position: absolute;
   left: 0;
-  height: 8px;
+  height: 6px;
   border-radius: 14px;
   background-color: var(--primary);
 }
@@ -4691,7 +4691,6 @@ a.ui.card:hover,
   line-height: 24px;
   letter-spacing: -0.2px;
 
-  color: #736e7d;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -4710,28 +4709,6 @@ a.ui.card:hover,
 
 .bar-chart .dcl.sliderfield > p {
   display: none;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
-  top: -7px;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
-  background: #736e7d;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-mark {
-  background-color: #736e7d;
-}
-
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-rail,
-.bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track,
-.bar-chart .dcl.sliderfield-wrapper {
-  height: 2px;
-}
-
-.bar-chart .bar-chart .dcl.sliderfield-wrapper .dcl.sliderfield-track {
-  height: 2px;
 }
 
 .bar-chart .loader-container {
