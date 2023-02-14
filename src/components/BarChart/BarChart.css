@@ -79,29 +79,22 @@
   margin-top: 16px;
 }
 
-.bar-chart .bar-chart-input-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  justify-content: space-between;
+.bar-chart .dcl.sliderfield-track .slider-value .slider-label {
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  /* identical to box height, or 160% */
-
   letter-spacing: -0.2px;
 
   color: #736e7d;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
+  top: -5px;
+  left: 0;
 }
 
-.bar-chart .bar-chart-input-container .ui.header.dcl.mana {
-  position: relative;
-  margin-bottom: 0;
-  top: 0;
-  left: 0;
+.bar-chart .dcl.sliderfield-track .slider-value .ui.header.dcl.mana {
   font-size: 15px;
 }
 
