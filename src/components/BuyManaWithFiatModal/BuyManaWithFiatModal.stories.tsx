@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
 import { Header } from '../Header/Header'
@@ -49,7 +48,6 @@ const lipsum = (
 )
 
 storiesOf('BuyManaWithFiatModal', module)
-  .addDecorator(centered)
   .add('BuyManaWithFiat options with default values', () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}

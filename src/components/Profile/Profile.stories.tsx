@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Profile } from './Profile'
 import { Mana } from '../Mana/Mana'
 import { avatar } from '../../data/avatar'
 
 storiesOf('Profile', module)
-  .addDecorator(centered)
   .add('No avatar', () => (
     <>
       <Profile address="0xdeadbeef" />

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Button } from '../Button/Button'
 import { Center } from '../Center/Center'
 import { Close } from '../Close/Close'
@@ -54,7 +53,6 @@ const lipsum = (
 )
 
 storiesOf('Modal', module)
-  .addDecorator(centered)
   .add('Simple', () => (
     <div className="Modal-story">
       {lipsum}

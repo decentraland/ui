@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Field } from '../Field/Field'
 import { Header } from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
@@ -11,7 +10,6 @@ import { Segment } from './Segment'
 import './Segment.stories.css'
 
 storiesOf('Segment', module)
-  .addDecorator(centered)
   .add('Single segment', () => (
     <Segment style={{ width: 400 }}>
       <Header>Decentraland</Header>

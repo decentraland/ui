@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Button } from '../Button/Button'
 import { Container } from '../Container/Container'
 import { Dropdown } from '../Dropdown/Dropdown'
@@ -9,7 +8,6 @@ import { Header } from '../Header/Header'
 import { HeaderMenu } from './HeaderMenu'
 
 storiesOf('HeaderMenu', module)
-  .addDecorator(centered)
   .add('With Button', () => (
     <Container>
       <HeaderMenu>

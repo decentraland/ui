@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { AvatarFace } from './AvatarFace'
 import { Mana } from '../Mana/Mana'
 import { avatar } from '../../data/avatar'
 
 storiesOf('AvatarFace', module)
-  .addDecorator(centered)
   .add('Single', () => <AvatarFace size="large" avatar={avatar} />)
   .add('Sizes', () => (
     <>

@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 
 import { Toast } from '../Toast/Toast'
 import { Toasts } from './Toasts'
 
 storiesOf('Toasts', module)
-  .addDecorator(centered)
   .add('Lists toasts', () => (
     <Toasts>
       <Toast title="Title 1" body="Body 1" />

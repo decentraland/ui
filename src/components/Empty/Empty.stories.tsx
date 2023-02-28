@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Empty } from './Empty'
 import { Page } from '../Page/Page'
 
 storiesOf('Empty', module)
-  .addDecorator(centered)
   .add('Example', () => (
     <Page>
       <Empty>No results...</Empty>

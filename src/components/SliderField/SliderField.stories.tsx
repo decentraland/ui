@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { SliderField } from './SliderField'
 
 storiesOf('SliderField', module)
-  .addDecorator(centered)
   .add('Slider Simple', () => <SliderField header="SliderField Simple" />)
   .add('Range Simple', () => (
     <SliderField header="SliderField Simple Range" range={true} />
