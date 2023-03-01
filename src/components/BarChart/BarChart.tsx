@@ -117,11 +117,11 @@ export const BarChart = ({
       return inputMinRangeValue
     }
 
-    // value higher or equal value max 
+    // value higher or equal value max
     if (scaledValue > inputMaxRangeValue) {
       return inputMaxRangeValue
     }
-    return scaledValue;
+    return scaledValue
   }, [inputMinRangeValue, value, inputMaxRangeValue])
 
   const valueToForRangeInput = useMemo(() => {
@@ -133,12 +133,12 @@ export const BarChart = ({
       return inputMaxRangeValue
     }
 
-    // value lower or equal than current min value in range 
+    // value lower or equal than current min value in range
     if (scaledValue < valueFromForRangeInput) {
       return valueFromForRangeInput
     }
 
-    return scaledValue;
+    return scaledValue
   }, [inputMaxRangeValue, value, inputMinRangeValue, valueFromForRangeInput])
 
   const showMaxError = useMemo(

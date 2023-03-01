@@ -15,7 +15,7 @@ export type RangeFieldProps = {
   onChange: (
     value: [string, string],
     evt: React.ChangeEvent<HTMLInputElement>
-  ) => void,
+  ) => void
   onBlur: () => void
 }
 

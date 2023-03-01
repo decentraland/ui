@@ -34,10 +34,10 @@ export const roundNumber = (number: number, decimals = 2) => {
   return Math.round(number / exp) * exp
 }
 
-export const fixedNumber = (value: string, decimals: number): string  => {
-  const regex = new RegExp("^([0-9]+((\.|,)?[0-9]?[0-9]?)?)", "g")
+export const fixedNumber = (value: string, decimals: number): string => {
+  const regex = new RegExp('^([0-9]+((.|,)?[0-9]?[0-9]?)?)', 'g')
   const match = value.match(regex)
-  return match ? match[0] : ""
+  return match ? match[0] : ''
 }
 
 export const createExponentialRange = (
