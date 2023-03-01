@@ -15,7 +15,8 @@ export type RangeFieldProps = {
   onChange: (
     value: [string, string],
     evt: React.ChangeEvent<HTMLInputElement>
-  ) => void
+  ) => void,
+  onBlur: () => void
 }
 
 export const RangeField = ({
@@ -27,7 +28,8 @@ export const RangeField = ({
   className,
   minProps,
   maxProps,
-  onChange
+  onChange,
+  onBlur
 }: RangeFieldProps): JSX.Element => {
   const [min, max] = value
 
@@ -53,6 +55,7 @@ export const RangeField = ({
         min={rangeLimitMin}
         max={rangeLimitMax}
         onChange={handleMinChange}
+        onBlur={onBlur}
       />
       <Field
         {...maxProps}
@@ -64,6 +67,7 @@ export const RangeField = ({
         min={rangeLimitMin}
         max={rangeLimitMax}
         onChange={handleMaxChange}
+        onBlur={onBlur}
       />
     </div>
   )

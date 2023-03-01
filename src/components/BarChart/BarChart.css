@@ -93,6 +93,18 @@
   left: 0;
 }
 
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-left ~ .dcl.sliderfield-rail .slider-value.slider-from,
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-right ~ .dcl.sliderfield-rail .slider-value.slider-to {
+  visibility: hidden;
+}
+
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-left:focus ~ .dcl.sliderfield-rail .slider-value.slider-from,
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-left:hover ~ .dcl.sliderfield-rail .slider-value.slider-from,
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-right:focus ~ .dcl.sliderfield-rail .slider-value.slider-to,
+.bar-chart .dcl.sliderfield-wrapper > input[type='range'].sliderfield-input-right:hover ~ .dcl.sliderfield-rail .slider-value.slider-to {
+  visibility: visible;
+}
+
 .bar-chart .dcl.sliderfield-track .slider-value .ui.header.dcl.mana {
   font-size: 15px;
 }
