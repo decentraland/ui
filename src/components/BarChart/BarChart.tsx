@@ -26,7 +26,8 @@ import {
   numberFormatter,
   CHART_LOG_SCALE,
   roundRange,
-  roundNumber
+  roundNumber,
+  fixedNumber
 } from './utils'
 import { BarChartProps } from './BarChart.types'
 import { BarChartTooltip } from './BarChartTooltip'
@@ -110,17 +111,35 @@ export const BarChart = ({
     const scaledValue = value[0]
       ? inverseScale(Number(value[0]))
       : Number(inputMinRangeValue)
-    // scaledValue can't be less than the input range min value
-    return scaledValue > inputMinRangeValue ? scaledValue : inputMinRangeValue
-  }, [inputMinRangeValue, value])
+
+    // value lower than input min
+    if (scaledValue < inputMinRangeValue) {
+      return inputMinRangeValue
+    }
+
+    // value higher or equal value max
+    if (scaledValue > inputMaxRangeValue) {
+      return inputMaxRangeValue
+    }
+    return scaledValue
+  }, [inputMinRangeValue, value, inputMaxRangeValue])
 
   const valueToForRangeInput = useMemo(() => {
     const scaledValue = value[1]
       ? inverseScale(Number(value[1]))
       : Number(inputMaxRangeValue)
-    // scaledValue can't be greater than the input range max value
-    return scaledValue < inputMaxRangeValue ? scaledValue : inputMaxRangeValue
-  }, [inputMaxRangeValue, value])
+    // value higher than input max
+    if (scaledValue > inputMaxRangeValue) {
+      return inputMaxRangeValue
+    }
+
+    // value lower or equal than current min value in range
+    if (scaledValue < valueFromForRangeInput) {
+      return valueFromForRangeInput
+    }
+
+    return scaledValue
+  }, [inputMaxRangeValue, value, inputMinRangeValue, valueFromForRangeInput])
 
   const showMaxError = useMemo(
     () => value[0] && value[1] && Number(value[1]) <= Number(value[0]),
@@ -147,15 +166,14 @@ export const BarChart = ({
   // Component handlers
   const handleChange = useCallback(
     (newValue: [string, string]) => {
-      setValue([
-        Number(newValue[0]).toFixed(rangeDecimals),
-        Number(newValue[1]).toFixed(rangeDecimals)
-      ])
+      const from = fixedNumber(newValue[0], rangeDecimals)
+      const to = fixedNumber(newValue[1], rangeDecimals)
+      setValue([from, to])
       if (timeout.current) {
         clearTimeout(timeout.current)
       }
       timeout.current = setTimeout(
-        () => onChange(newValue),
+        () => onChange([from, to]),
         500
       ) as unknown as NodeJS.Timeout
     },
@@ -252,6 +270,24 @@ export const BarChart = ({
     }, 0) as unknown as NodeJS.Timeout
   }, [])
 
+  const handleBlur = useCallback(() => {
+    if (Number.parseFloat(value[0]) > Number.parseFloat(value[1])) {
+      const swappedRange: [string, string] = [value[1], value[0]]
+      setValue(swappedRange)
+      onChange(swappedRange)
+    }
+  }, [onChange, setValue, value])
+
+  function getLabel(value: string) {
+    return isMana ? (
+      <Mana network={network} className="slider-label">
+        {value}
+      </Mana>
+    ) : (
+      <span className="slider-label">{value}</span>
+    )
+  }
+
   return (
     <div className="bar-chart">
       <RangeField
@@ -270,6 +306,7 @@ export const BarChart = ({
           onWheel: onRangeWheel
         }}
         onChange={handleChange}
+        onBlur={handleBlur}
         value={value}
       />
 
@@ -315,24 +352,8 @@ export const BarChart = ({
             max={inputMaxRangeValue}
             step={sliderStep}
             onChange={handleRangeChange}
-            labelFrom={
-              isMana ? (
-                <Mana network={network} className="slider-label">
-                  {sliderMinLabel}
-                </Mana>
-              ) : (
-                <span className="slider-label">{sliderMinLabel}</span>
-              )
-            }
-            labelTo={
-              isMana ? (
-                <Mana network={network} className="slider-label">
-                  {sliderMaxLabel}
-                </Mana>
-              ) : (
-                <span className="slider-label">{sliderMaxLabel}</span>
-              )
-            }
+            labelFrom={getLabel(sliderMinLabel)}
+            labelTo={getLabel(sliderMaxLabel)}
           />
           {errorMessage && showMaxError ? (
             <span className="bar-chart-error">{errorMessage}</span>
