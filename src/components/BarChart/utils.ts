@@ -35,7 +35,7 @@ export const roundNumber = (number: number, decimals = 2) => {
 }
 
 export const fixedNumber = (value: string, decimals: number): string => {
-  const regex = new RegExp('^([0-9]+((.|,)?[0-9]?[0-9]?)?)', 'g')
+  const regex = new RegExp(`^([0-9]+((.|,)?([0-9]?){${decimals}})?)`, 'g')
   const match = value.match(regex)
   return match ? match[0] : ''
 }
