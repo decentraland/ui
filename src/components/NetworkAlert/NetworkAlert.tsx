@@ -7,19 +7,23 @@ import './NetworkAlert.css'
 
 export class NetworkAlert extends React.PureComponent<Props> {
   static defaultProps = {
-    title:
-      'Your wallet is connected to a partially supported network (Polygon)',
-    content: (
-      <span>
-        Switch to Ethereum Mainnet if you want to use all the features of this
-        app. <a href="">Learn more</a>
-      </span>
-    ),
-    action: 'Switch Network'
+    i18n: {
+      title:
+        'Your wallet is connected to a partially supported network (Polygon)',
+      content: (
+        <span>
+          Switch to Ethereum Mainnet if you want to use all the features of this
+          app. <a href="">Learn more</a>
+        </span>
+      ),
+      action: 'Switch Network'
+    }
   }
 
   render() {
-    const { title, content, action, onSwitchNetwork } = this.props
+    const { i18n, onSwitchNetwork } = this.props
+    const { title, content, action } = i18n
+
     return (
       <div className="NetworkAlert" aria-live="polite">
         <div className="center">
