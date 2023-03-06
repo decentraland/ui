@@ -1,0 +1,78 @@
+.NetworkAlert {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #44404b;
+  display: flex;
+  justify-content: center;
+}
+
+.NetworkAlert .center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NetworkAlert .title {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.NetworkAlert .description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.NetworkAlert .description .ui.header.title {
+  margin: 0 0 5px 0;
+}
+
+.NetworkAlert .description .warning-icon {
+  margin-right: 20px;
+}
+
+.NetworkAlert .action {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.NetworkAlert .description a {
+  color: var(--primary-text) !important;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .NetworkAlert {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .NetworkAlert .title {
+    white-space: pre-wrap;
+  }
+
+  .NetworkAlert .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+  }
+
+  .NetworkAlert .description {
+    width: 100%;
+  }
+  .NetworkAlert .description .ui.header.title {
+    line-height: normal;
+  }
+
+  .NetworkAlert .action {
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 0px;
+    justify-content: center;
+  }
+
+  .NetworkAlert .action .ui.inverted.button {
+    font-size: 12px;
+  }
+}
