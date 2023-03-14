@@ -23,10 +23,13 @@ import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
 import { Row } from '../Row/Row'
+import { Radio } from '../Radio/Radio'
 import { Center } from '../Center/Center'
 import { SliderField } from '../SliderField/SliderField'
 import { WearablePreview } from './WearablePreview'
 import { EmoteControls } from './EmoteControls'
+import { ZoomControls } from './ZoomControls'
+import TraslationControls, { VerticalPosition } from './TraslationControls'
 import './WearablePreview.stories.css'
 
 const getRandomHex = () => {
@@ -328,6 +331,64 @@ storiesOf('WearablePreview', module)
           </Button>
           {metrics && <p>{JSON.stringify(metrics)}</p>}
         </Row>
+      </div>
+    )
+  })
+  .add('With TraslationControls', () => {
+    const [verticalPosition, setVerticalPosition] = React.useState(
+      VerticalPosition.LEFT
+    )
+
+    const togglePosition =
+      verticalPosition === VerticalPosition.LEFT
+        ? VerticalPosition.RIGHT
+        : VerticalPosition.LEFT
+
+    return (
+      <div className="WearablePreview-story-container">
+        <WearablePreview
+          id="some-id"
+          profile="default"
+          emote={PreviewEmote.DANCE}
+          disableBackground
+          disableAutoRotate
+          disableFace
+          disableDefaultWearables
+          skin="000000"
+        />
+        <TraslationControls
+          vertical
+          verticalPosition={verticalPosition}
+          wearablePreviewId="some-id"
+        />
+        <Row className="controls">
+          <Radio
+            toggle
+            checked={verticalPosition === VerticalPosition.LEFT}
+            label={`${verticalPosition} side`}
+            onClick={() => setVerticalPosition(togglePosition)}
+            style={{ textTransform: 'capitalize' }}
+          />
+        </Row>
+      </div>
+    )
+  })
+  .add('With ZoomControls', () => {
+    return (
+      <div className="WearablePreview-story-container">
+        <WearablePreview
+          id="some-id"
+          profile="default"
+          emote={PreviewEmote.DANCE}
+          disableBackground
+          disableAutoRotate
+          disableFace
+          disableDefaultWearables
+          skin="000000"
+          zoom={100}
+          wheelZoom={2}
+        />
+        <ZoomControls wearablePreviewId="some-id" />
       </div>
     )
   })
