@@ -2,9 +2,9 @@ import { IPreviewController } from '@dcl/schemas'
 import React, { useCallback, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Icon, WearablePreview } from '../..'
-import './TraslationControls.css'
+import './TranslationControls.css'
 
-export type TraslationControlsProp = {
+export type TranslationControlsProp = {
   wearablePreviewId: string
   vertical?: boolean
   horizontal?: boolean
@@ -18,7 +18,9 @@ export enum VerticalPosition {
   RIGHT = 'right'
 }
 
-export const TraslationControls: React.FC<TraslationControlsProp> = (props) => {
+export const TranslationControls: React.FC<TranslationControlsProp> = (
+  props
+) => {
   const [previewController, setPreviewController] = useState(null)
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export const TraslationControls: React.FC<TraslationControlsProp> = (props) => {
   )
 
   return (
-    <div className={classNames('TraslationControls', props.className)}>
+    <div className={classNames('TranslationControls', props.className)}>
       {props.vertical ? (
         <div
           className={classNames(
@@ -62,4 +64,4 @@ export const TraslationControls: React.FC<TraslationControlsProp> = (props) => {
   )
 }
 
-export default React.memo(TraslationControls)
+export default React.memo(TranslationControls)

@@ -29,7 +29,7 @@ import { SliderField } from '../SliderField/SliderField'
 import { WearablePreview } from './WearablePreview'
 import { EmoteControls } from './EmoteControls'
 import { ZoomControls } from './ZoomControls'
-import TraslationControls, { VerticalPosition } from './TraslationControls'
+import TranslationControls, { VerticalPosition } from './TranslationControls'
 import './WearablePreview.stories.css'
 
 const getRandomHex = () => {
@@ -334,7 +334,7 @@ storiesOf('WearablePreview', module)
       </div>
     )
   })
-  .add('With TraslationControls', () => {
+  .add('With TranslationControls', () => {
     const [verticalPosition, setVerticalPosition] = React.useState(
       VerticalPosition.LEFT
     )
@@ -356,7 +356,7 @@ storiesOf('WearablePreview', module)
           disableDefaultWearables
           skin="000000"
         />
-        <TraslationControls
+        <TranslationControls
           vertical
           verticalPosition={verticalPosition}
           wearablePreviewId="some-id"
