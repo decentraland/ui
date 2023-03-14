@@ -61,7 +61,7 @@ export type WearablePreviewProps = {
   baseUrl?: string
   peerUrl?: string
   nftServerUrl?: string
-  previewType?: PreviewType
+  type?: PreviewType
   onLoad?: () => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -135,7 +135,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       baseUrl,
       peerUrl,
       nftServerUrl,
-      previewType
+      type
     } = this.props
 
     const contractParam = contractAddress ? `contract=${contractAddress}` : ''
@@ -189,7 +189,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       : ''
     const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
     const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
-    const previewTypeParam = previewType ? `previewType=${previewType}` : ''
+    const typeParam = type ? `type=${type}` : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -231,7 +231,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         showThumbnailBoundariesParam,
         peerUrlParam,
         nftServerUrlParam,
-        previewTypeParam,
+        typeParam,
         envParam
       ]
         .filter((param) => !!param)
