@@ -10,7 +10,8 @@ import {
   PreviewProjection,
   sendMessage,
   WearableWithBlobs,
-  EmoteWithBlobs
+  EmoteWithBlobs,
+  PreviewType
 } from '@dcl/schemas/dist/dapps/preview'
 import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
@@ -60,6 +61,7 @@ export type WearablePreviewProps = {
   baseUrl?: string
   peerUrl?: string
   nftServerUrl?: string
+  previewType?: PreviewType
   onLoad?: () => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -132,7 +134,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       dev,
       baseUrl,
       peerUrl,
-      nftServerUrl
+      nftServerUrl,
+      previewType
     } = this.props
 
     const contractParam = contractAddress ? `contract=${contractAddress}` : ''
@@ -186,6 +189,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       : ''
     const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
     const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
+    const previewTypeParam = previewType ? `previewType=${previewType}` : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -227,6 +231,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         showThumbnailBoundariesParam,
         peerUrlParam,
         nftServerUrlParam,
+        previewTypeParam,
         envParam
       ]
         .filter((param) => !!param)
