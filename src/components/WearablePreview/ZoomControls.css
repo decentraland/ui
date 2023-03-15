@@ -3,7 +3,14 @@
   flex-direction: column;
   position: absolute;
   top: 12px;
+}
+
+.ZoomControls.left {
   left: 12px;
+}
+
+.ZoomControls.right {
+  right: 12px;
 }
 
 .ZoomControls .ui.button.zoom-control {
@@ -16,6 +23,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ZoomControls .ui.button.zoom-control:hover {
+  transform: none;
 }
 
 .ZoomControls .ui.button.zoom-control i.icon {

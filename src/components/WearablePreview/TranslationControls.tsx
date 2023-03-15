@@ -46,7 +46,7 @@ export const TranslationControls: React.FC<TranslationControlsProp> = (
         <div
           className={classNames(
             'VerticalSliderContainer',
-            props.verticalPosition
+            props.verticalPosition ?? VerticalPosition.RIGHT
           )}
         >
           <Icon className="arrows alternate horizontal" />

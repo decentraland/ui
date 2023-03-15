@@ -1,5 +1,6 @@
 import { IPreviewController } from '@dcl/schemas'
 import React, { useCallback, useEffect, useState } from 'react'
+import classNames from 'classnames'
 import { Icon, WearablePreview } from '../..'
 import { Button } from '../Button/Button'
 import './ZoomControls.css'
@@ -7,10 +8,16 @@ import './ZoomControls.css'
 export type ZoomControlsProp = {
   wearablePreviewId: string
   className?: string
+  position?: Position
   wearablePreviewController?: IPreviewController
 }
 
 const ZOOM_DELTA = 0.1
+
+export enum Position {
+  LEFT = 'left',
+  RIGHT = 'right'
+}
 
 export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {
   const [previewController, setPreviewController] = useState(null)
@@ -33,7 +40,13 @@ export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {
   }, [previewController])
 
   return (
-    <div className={`ZoomControls ${props.className}`}>
+    <div
+      className={classNames(
+        'ZoomControls',
+        props.className,
+        props.position ?? Position.LEFT
+      )}
+    >
       <Button
         className="zoom-control zoom-in-control"
         onClick={handleControlZoomIn}

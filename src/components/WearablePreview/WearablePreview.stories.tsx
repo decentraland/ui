@@ -29,7 +29,7 @@ import { SliderField } from '../SliderField/SliderField'
 import { WearablePreview } from './WearablePreview'
 import { EmoteControls } from './EmoteControls'
 import { ZoomControls } from './ZoomControls'
-import TranslationControls, { VerticalPosition } from './TranslationControls'
+import { TranslationControls, VerticalPosition } from './TranslationControls'
 import './WearablePreview.stories.css'
 
 const getRandomHex = () => {
