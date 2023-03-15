@@ -1670,6 +1670,55 @@ a.ui.card:hover,
   opacity: 1;
 }
 
+.react-tile-map .zoom-controls {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 30%);
+  border-radius: 6px;
+}
+
+.react-tile-map .zoom-controls button {
+  color: rgb(214, 214, 214);
+  font-size: 20px;
+  background-color: #736e7d;
+  border: 0;
+  height: 48px;
+  width: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+.react-tile-map .zoom-controls button:hover:not(:disabled) {
+  color: white;
+}
+
+.react-tile-map .zoom-controls button:disabled {
+  cursor: default;
+  color: #969696
+}
+
+.react-tile-map .zoom-controls button:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.react-tile-map .zoom-controls button:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.react-tile-map .zoom-controls button:last-child::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  top: -2px;
+  height: 1px;
+  width: 80%;
+  border-bottom: 1px solid #161419;
+  opacity: 0.4;
+}
+
 
 .dcl.atlas {
   background: var(--dark);
