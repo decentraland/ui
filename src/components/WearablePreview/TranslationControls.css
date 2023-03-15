@@ -1,0 +1,86 @@
+.TranslationControls .VerticalSliderContainer {
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 181px;
+  width: 280px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.TranslationControls .VerticalSliderContainer.right {
+  right: -105px;
+}
+
+.TranslationControls .VerticalSliderContainer.left {
+  left: -105px;
+}
+
+.TranslationControls .VerticalSliderContainer i.icon {
+  margin-top: -6px;
+  margin-left: 12px;
+}
+
+.TranslationControls .VerticalSliderContainer .y-slider {
+  width: 229px;
+}
+
+.TranslationControls input[type='range'] {
+  background: none;
+}
+
+.TranslationControls input[type='range'] {
+  -webkit-appearance: none;
+}
+
+.TranslationControls input[type='range']:focus {
+  outline: none;
+}
+
+.TranslationControls input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 32px;
+  height: 8px;
+  border-radius: 10px;
+  background: #736e7d;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16),
+    inset 0px 1px 0px rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  overflow: visible;
+  cursor: pointer;
+  padding-bottom: 5px;
+  margin-top: -3px;
+}
+
+.TranslationControls input[type='range']::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  background-color: #736e7d;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.TranslationControls input[type='range']::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  background-color: #736e7d;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.TranslationControls input[type='range']::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 2px;
+  background: #000000;
+  border: none;
+  border-radius: 10px;
+}
+
+.TranslationControls input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(115, 110, 125, 0.32);
+}
