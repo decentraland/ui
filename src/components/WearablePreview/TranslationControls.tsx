@@ -7,7 +7,6 @@ import './TranslationControls.css'
 export type TranslationControlsProp = {
   wearablePreviewId: string
   vertical?: boolean
-  horizontal?: boolean
   className?: string
   verticalPosition?: VerticalPosition
   wearablePreviewController?: IPreviewController
