@@ -130,10 +130,7 @@ export class EmoteControls extends React.PureComponent<
     return (
       <div className={`EmoteControls ${className}`}>
         {hidePlayButton ? null : (
-          <Button
-            className="zoom-control play-control"
-            onClick={this.handlePlayPause}
-          >
+          <Button className="play-control" onClick={this.handlePlayPause}>
             <Icon name={isPlaying ? 'pause' : 'play'} />
           </Button>
         )}
