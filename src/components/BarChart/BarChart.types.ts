@@ -1,6 +1,6 @@
 import { Network } from '@dcl/schemas'
 
-export type BarChartSource = 'input' | 'slider' | 'chart';
+export type BarChartSource = 'input' | 'slider' | 'chart'
 
 export type BarChartProps = {
   data?: Record<number, number>

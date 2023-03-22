@@ -165,7 +165,11 @@ export const BarChart = ({
 
   // Component handlers
   const handleChange = useCallback(
-    (newValue: [string, string], _: React.ChangeEvent | null, source?: BarChartSource) => {
+    (
+      newValue: [string, string],
+      _: React.ChangeEvent | null,
+      source?: BarChartSource
+    ) => {
       const from = fixedNumber(newValue[0], rangeDecimals)
       const to = fixedNumber(newValue[1], rangeDecimals)
       setValue([from, to])
