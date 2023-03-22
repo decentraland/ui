@@ -1,5 +1,7 @@
 import { Network } from '@dcl/schemas'
 
+export type BarChartSource = 'input' | 'slider' | 'chart'
+
 export type BarChartProps = {
   data?: Record<number, number>
   height?: number | string
@@ -15,5 +17,5 @@ export type BarChartProps = {
   minLabel?: string
   maxLabel?: string
   errorMessage?: string
-  onChange: (value: [string, string]) => void
+  onChange: (value: [string, string], source: BarChartSource) => void
 }
