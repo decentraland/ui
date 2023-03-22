@@ -29,7 +29,7 @@ import {
   roundNumber,
   fixedNumber
 } from './utils'
-import { BarChartProps } from './BarChart.types'
+import { BarChartProps, BarChartSource } from './BarChart.types'
 import { BarChartTooltip } from './BarChartTooltip'
 import './BarChart.css'
 
@@ -165,15 +165,16 @@ export const BarChart = ({
 
   // Component handlers
   const handleChange = useCallback(
-    (newValue: [string, string]) => {
+    (newValue: [string, string], _: React.ChangeEvent | null, source?: BarChartSource) => {
       const from = fixedNumber(newValue[0], rangeDecimals)
       const to = fixedNumber(newValue[1], rangeDecimals)
       setValue([from, to])
       if (timeout.current) {
         clearTimeout(timeout.current)
       }
+
       timeout.current = setTimeout(
-        () => onChange([from, to]),
+        () => onChange([from, to], source ? source : 'input'),
         500
       ) as unknown as NodeJS.Timeout
     },
@@ -205,7 +206,7 @@ export const BarChart = ({
           roundNumber(formattedMax, rangeDecimals).toString()
         ]
         setValue(newValue)
-        handleChange(newValue)
+        handleChange(newValue, null, 'slider')
       }
     },
     [handleChange, inputMaxRangeValue, rangeMax, rangeMin, sliderStep]
@@ -228,7 +229,9 @@ export const BarChart = ({
       handleChange(
         isUpperBoundRange
           ? [values[0], '']
-          : roundRange(activePayload[0].payload.values)
+          : roundRange(activePayload[0].payload.values),
+        null,
+        'chart'
       )
     },
     [handleChange]
@@ -274,7 +277,7 @@ export const BarChart = ({
     if (Number.parseFloat(value[0]) > Number.parseFloat(value[1])) {
       const swappedRange: [string, string] = [value[1], value[0]]
       setValue(swappedRange)
-      onChange(swappedRange)
+      onChange(swappedRange, 'input')
     }
   }, [onChange, setValue, value])
 
