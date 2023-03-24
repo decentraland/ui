@@ -232,7 +232,7 @@ export const BarChart = ({
 
       handleChange(
         isUpperBoundRange
-          ? [values[0], '']
+          ? [values[0].toString(), '']
           : roundRange(activePayload[0].payload.values),
         null,
         'chart'
