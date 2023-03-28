@@ -10,6 +10,7 @@ export type ZoomControlsProp = {
   className?: string
   position?: Position
   wearablePreviewController?: IPreviewController
+  zoomDelta?: number
 }
 
 const ZOOM_DELTA = 0.1
@@ -21,6 +22,7 @@ export enum Position {
 
 export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {
   const [previewController, setPreviewController] = useState(null)
+  const zoomDelta = props?.zoomDelta ?? ZOOM_DELTA
 
   useEffect(() => {
     if (!previewController) {
@@ -32,11 +34,11 @@ export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {
   }, [props.wearablePreviewId, props.wearablePreviewController])
 
   const handleControlZoomIn = useCallback(async () => {
-    await previewController?.scene.changeZoom(ZOOM_DELTA)
+    await previewController?.scene.changeZoom(zoomDelta)
   }, [previewController])
 
   const handleControlZoomOut = useCallback(async () => {
-    await previewController?.scene.changeZoom(-ZOOM_DELTA)
+    await previewController?.scene.changeZoom(-zoomDelta)
   }, [previewController])
 
   return (
