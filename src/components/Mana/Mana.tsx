@@ -11,6 +11,8 @@ export type ManaProps = {
   className?: string
   children?: React.ReactChild
   primary?: boolean
+  showTooltip?:boolean
+  toolTipText?:string
 }
 
 export class Mana extends React.Component<ManaProps & HeaderProps> {
