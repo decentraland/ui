@@ -14,7 +14,13 @@ export type UserMenuI18N = {
   signOut: React.ReactNode
   guest: React.ReactNode
   settings: React.ReactNode
-  account: React.ReactNode
+  viewProfile: React.ReactNode
+  myAssets: React.ReactNode
+  myLists: React.ReactNode
+}
+
+export type UserMenuLinks = {
+  [k in keyof Partial<UserMenuI18N>]: string
 }
 
 export type UserMenuProps = {
@@ -27,11 +33,14 @@ export type UserMenuProps = {
   avatar?: Avatar
   menuItems?: React.ReactNode
   i18n: UserMenuI18N
+  links: UserMenuLinks
   onSignOut: () => void
   onSignIn: () => void
   onClickProfile: () => void
   onClickActivity: () => void
   onClickSettings: () => void
+  onClickMyAssets?: () => void
+  onClickMyLists?: () => void
   onClickBalance: (network: Network) => void
 }
 
@@ -48,7 +57,14 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       signOut: 'Sign Out',
       guest: 'Guest',
       settings: 'Settings',
-      account: 'Account'
+      viewProfile: 'View profile',
+      myAssets: 'My Assets',
+      myLists: 'My Lists'
+    },
+    links: {
+      viewProfile: 'https://account.decentraland.org',
+      myAssets: 'https://market.decentraland.org/account',
+      myLists: 'https://market.decentraland.org/lists'
     }
   }
 
@@ -100,7 +116,10 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       onClickActivity,
       onClickSettings,
       onClickBalance,
+      onClickMyAssets,
+      onClickMyLists,
       i18n,
+      links,
       menuItems
     } = this.props
 
@@ -155,15 +174,36 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                   </div>
                   <div>
                     <div className="name">{name || i18n.guest}</div>
+                    <a href={links.viewProfile}>{i18n.viewProfile}</a>
                   </div>
                 </div>
                 <ul className="actions">
-                  <a href="https://account.decentraland.org">
-                    <li>
-                      <Icon name="user"></Icon>
-                      {i18n.account}
+                  {onClickMyAssets ? (
+                    <li onClick={onClickMyAssets}>
+                      <Icon name="briefcase" />
+                      {i18n.myAssets}
                     </li>
-                  </a>
+                  ) : (
+                    <a href={links.myAssets}>
+                      <li>
+                        <Icon name="briefcase" />
+                        {i18n.myAssets}
+                      </li>
+                    </a>
+                  )}
+                  {onClickMyLists ? (
+                    <li onClick={onClickMyLists}>
+                      <Icon name="briefcase" />
+                      {i18n.myAssets}
+                    </li>
+                  ) : (
+                    <a href={links.myLists}>
+                      <li>
+                        <Icon name="bookmark" />
+                        {i18n.myLists}
+                      </li>
+                    </a>
+                  )}
                   {menuItems}
                   {onClickSettings ? (
                     <li onClick={onClickSettings}>
