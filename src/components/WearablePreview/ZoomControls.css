@@ -1,0 +1,41 @@
+.ZoomControls {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 12px;
+}
+
+.ZoomControls.left {
+  left: 12px;
+}
+
+.ZoomControls.right {
+  right: 12px;
+}
+
+.ZoomControls .ui.button.zoom-control {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  min-width: unset;
+  background-color: rgba(0, 0, 0, 0.64) !important;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ZoomControls .ui.button.zoom-control:hover {
+  transform: none;
+}
+
+.ZoomControls .ui.button.zoom-control i.icon {
+  margin: 0 !important;
+}
+
+.ZoomControls .ui.button.zoom-in-control {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  min-width: unset;
+}

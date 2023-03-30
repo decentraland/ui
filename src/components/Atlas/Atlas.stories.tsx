@@ -135,3 +135,13 @@ storiesOf('Atlas', module)
       />
     </App>
   ))
+  .add('With zoom controls', () => (
+    <App>
+      <Atlas
+        tiles={tiles}
+        layers={[hoverStrokeLayer, hoverFillLayer]}
+        onHover={handleHover}
+        withZoomControls
+      />
+    </App>
+  ))
