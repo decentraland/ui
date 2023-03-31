@@ -51,7 +51,7 @@
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
     "autoprefixer": "^9.7.4",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
