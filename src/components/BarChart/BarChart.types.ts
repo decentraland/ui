@@ -17,5 +17,6 @@ export type BarChartProps = {
   minLabel?: string
   maxLabel?: string
   errorMessage?: string
+  id?: string
   onChange: (value: [string, string], source: BarChartSource) => void
 }

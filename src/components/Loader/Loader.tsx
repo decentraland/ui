@@ -17,6 +17,6 @@ export class Loader extends React.PureComponent<LoaderProps> {
   }
 
   render(): JSX.Element {
-    return <BaseLoader {...this.props} className={this.getClassName()} />
+    return <BaseLoader aria-live="polite" aria-label="Loading" role="status" {...this.props} className={this.getClassName()} />
   }
 }
