@@ -2,7 +2,6 @@ import * as React from 'react'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Button } from '../Button/Button'
 import { Hero } from '../Hero/Hero'
 import { Parallax } from '../Parallax/Parallax'
@@ -13,7 +12,6 @@ import { Navbar } from './Navbar'
 import './Navbar.stories.css'
 
 storiesOf('Navbar', module)
-  .addDecorator(centered)
   .add('DAO', () => {
     return (
       <div className="Navbar-story-container">

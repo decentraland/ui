@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Header } from '../Header/Header'
 import { LoginModal, LoginModalOptionType } from '../LoginModal/LoginModal'
 import './LoginModal.stories.css'
@@ -46,7 +45,6 @@ const lipsum = (
 )
 
 storiesOf('LoginModal', module)
-  .addDecorator(centered)
   .add('Login options', () => (
     <div className="LoginModal-story">
       {lipsum}

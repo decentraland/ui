@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { TextFilter } from './TextFilter'
 
 function generateValueAndChangeFunction() {
@@ -19,7 +18,6 @@ function generateValueAndChangeFunction() {
 const firstExample = generateValueAndChangeFunction()
 
 storiesOf('TextFilter', module)
-  .addDecorator(centered)
   .add('Basic filter', () => (
     <TextFilter
       placeholder="This is a placeholder"

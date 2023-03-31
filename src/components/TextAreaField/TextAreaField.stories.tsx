@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { TextAreaField } from './TextAreaField'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form/Form'
 
@@ -10,7 +9,6 @@ const textAreaValue =
   ', when an unknown printer took a galley of type and scrambled'
 
 storiesOf('TextArea', module)
-  .addDecorator(centered)
   .add('Text area without label', () => (
     <TextAreaField value={textAreaValue} rows="10" cols="50" />
   ))

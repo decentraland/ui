@@ -1,13 +1,11 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import Icon from '../../assets/alert.svg'
 
 import { Toast, ToastType } from './Toast'
 import './Toast.stories.css'
 
 storiesOf('Toast', module)
-  .addDecorator(centered)
   .add('Simple toast example', () => (
     <Toast title="Toast title" body="Toast body" />
   ))

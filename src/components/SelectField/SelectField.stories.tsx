@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Header } from '../Header/Header'
 import { SelectField } from './SelectField'
 
 storiesOf('SelectField', module)
-  .addDecorator(centered)
   .add('Basic', () => (
     <>
       <SelectField

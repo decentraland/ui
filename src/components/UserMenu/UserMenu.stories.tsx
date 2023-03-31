@@ -3,12 +3,10 @@ import { Network } from '@dcl/schemas/dist/dapps/network'
 import MenuItem from 'semantic-ui-react/dist/commonjs/collections/Menu/MenuItem'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { UserMenu } from './UserMenu'
 import { avatar } from '../../data/avatar'
 
 storiesOf('UserMenu', module)
-  .addDecorator(centered)
   .add('Signed out', () => <UserMenu />)
   .add('Signed in', () => <UserMenu isSignedIn avatar={avatar} />)
   .add('Guest', () => <UserMenu isSignedIn />)
