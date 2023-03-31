@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
-import { Profile } from './Profile'
-import { Mana } from '../Mana/Mana'
 import { avatar } from '../../data/avatar'
+import { Mana } from '../Mana/Mana'
+import { Profile } from './Profile'
+import './Profile.stories.css'
 
 storiesOf('Profile', module)
   .addDecorator(centered)
@@ -38,6 +39,26 @@ storiesOf('Profile', module)
       You sent <Mana inline>1,000</Mana> to{' '}
       <Profile address="0xdeadbeef" avatar={avatar} inline isDecentraland />
     </>
+  ))
+  .add('Sliced address', () => (
+    <div className="ProfileList">
+      <Profile
+        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        sliceAddressBy={10}
+      />
+      <Profile
+        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        sliceAddressBy={20}
+      />
+      <Profile
+        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        sliceAddressBy={30}
+      />
+      <Profile
+        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        sliceAddressBy={40}
+      />
+    </div>
   ))
   .add('Sizes', () => (
     <>
