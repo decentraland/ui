@@ -64,7 +64,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              options: { esModule: false }
+              esModule: false
             }
           }
         ]
