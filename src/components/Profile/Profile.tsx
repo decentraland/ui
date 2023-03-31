@@ -13,6 +13,7 @@ export type ProfileProps = {
   imageOnly?: boolean
   hasPopup?: boolean
   inline?: boolean
+  sliceAddressBy?: number
   size?: 'normal' | 'large' | 'huge' | 'massive'
   isDecentraland?: boolean
 }
@@ -20,6 +21,7 @@ export type ProfileProps = {
 export class Profile extends React.PureComponent<ProfileProps> {
   static defaultProps = {
     inline: true,
+    sliceAddressBy: 6,
     size: 'normal'
   }
 
@@ -32,9 +34,12 @@ export class Profile extends React.PureComponent<ProfileProps> {
       hasPopup,
       inline,
       size,
+      sliceAddressBy,
       isDecentraland
     } = this.props
-    const name = (avatar && avatar.name) || address.slice(0, 6)
+
+    const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
+    const name = (avatar && avatar.name) || address.slice(0, sliceLimit)
 
     if (isDecentraland) {
       return (
