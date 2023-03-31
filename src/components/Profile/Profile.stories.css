@@ -1,0 +1,4 @@
+.ProfileList {
+  display: flex;
+  flex-direction: column;
+}
