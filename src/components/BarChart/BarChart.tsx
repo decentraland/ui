@@ -56,7 +56,7 @@ export const BarChart = ({
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage,
   rangeDecimals = 2,
-  id = "bar-chart"
+  id = 'bar-chart'
 }: BarChartProps) => {
   const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
