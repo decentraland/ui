@@ -52,7 +52,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
+        use: { loader: 'file-loader', options: { esModule: false }}
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -60,7 +60,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
+              limit: 8192,
+              esModule: false
             }
           }
         ]
