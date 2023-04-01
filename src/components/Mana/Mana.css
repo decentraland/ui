@@ -1,5 +1,6 @@
 .dcl.mana {
   display: inline;
+  position: relative;
   text-overflow: ellipsis;
   overflow: hidden;
   color: inherit;
@@ -46,3 +47,12 @@
   background-color: var(--primary);
   filter: none;
 }
+
+/* .dcl.mana.tooltip{
+  background-color: var(--secondary-on-modal-hover);
+  border-radius: 0.2em;
+  text-align: center;
+  padding: 0.2em 0.3em;
+  position: absolute;
+  top: -2em;
+} */
