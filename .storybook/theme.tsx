@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { makeDecorator } from '@storybook/addons'
 import { Radio } from '../src/components/Radio/Radio'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import './theme.css'
@@ -145,7 +144,7 @@ function removeStyle(id: string) {
 
 let persistedValue = true
 
-const ThemePicker = () => {
+export const ThemePicker = () => {
   const [value, setValue] = useState(persistedValue)
 
   const handleClick = useCallback(() => setValue(!value), [value])
@@ -158,18 +157,7 @@ const ThemePicker = () => {
   return (
     <div className="switch-theme" onClick={handleClick}>
       <Icon name={value ? 'moon' : 'sun'} />
-      <Radio toggle checked={value}></Radio>
+      <Radio toggle checked={value} name="theme" id="theme-toggle" aria-label="Theme"/>
     </div>
   )
 }
-
-export default makeDecorator({
-  name: 'ThemePicker',
-  parameterName: 'themePicker',
-  wrapper: (getStory, context) => (
-    <>
-      <ThemePicker />
-      {getStory(context)}
-    </>
-  )
-})

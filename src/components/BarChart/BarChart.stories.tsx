@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas'
 import { BarChart } from './BarChart'
 
@@ -347,7 +346,6 @@ const onChange = (values) => {
 }
 
 storiesOf('BarChart ', module)
-  .addDecorator(centered)
   .add('Loading data', () => (
     <BarChart
       width={250}

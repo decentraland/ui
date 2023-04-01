@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { Button } from '../Button/Button'
 import { Container } from '../Container/Container'
@@ -47,32 +46,30 @@ const cards = [
   }
 ]
 
-storiesOf('Card', module)
-  .addDecorator(centered)
-  .add('Polls', () => (
-    <Container>
-      <HeaderMenu>
-        <HeaderMenu.Left>
-          <Header>District polls</Header>
-        </HeaderMenu.Left>
-        <HeaderMenu.Right>
-          <Button basic size="small">
-            View More
-            <Icon name="chevron right" />
-          </Button>
-        </HeaderMenu.Right>
-      </HeaderMenu>
-      <Card.Group>
-        {cards.map((card, index) => (
-          <Card link key={index}>
-            <Card.Content>
-              <Card.Header>{card.poll}</Card.Header>
-              <Card.Meta>
-                Weight {card.weight} <Mana inline />
-              </Card.Meta>
-            </Card.Content>
-          </Card>
-        ))}
-      </Card.Group>
-    </Container>
-  ))
+storiesOf('Card', module).add('Polls', () => (
+  <Container>
+    <HeaderMenu>
+      <HeaderMenu.Left>
+        <Header>District polls</Header>
+      </HeaderMenu.Left>
+      <HeaderMenu.Right>
+        <Button basic size="small">
+          View More
+          <Icon name="chevron right" />
+        </Button>
+      </HeaderMenu.Right>
+    </HeaderMenu>
+    <Card.Group>
+      {cards.map((card, index) => (
+        <Card link key={index}>
+          <Card.Content>
+            <Card.Header>{card.poll}</Card.Header>
+            <Card.Meta>
+              Weight {card.weight} <Mana inline />
+            </Card.Meta>
+          </Card.Content>
+        </Card>
+      ))}
+    </Card.Group>
+  </Container>
+))

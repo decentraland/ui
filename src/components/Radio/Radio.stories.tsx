@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Radio } from './Radio'
 import { Row } from '../Row/Row'
 
 storiesOf('Radio', module)
-  .addDecorator(centered)
   .add('Checked', () => (
     <>
       <Radio checked={true} label="Yes" />

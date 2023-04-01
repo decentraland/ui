@@ -1,14 +1,12 @@
 import * as React from 'react'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 
 import { Button } from './Button'
 import './Button.stories.css'
 import { Row } from '../Row/Row'
 
 storiesOf('Button', module)
-  .addDecorator(centered)
   .add('Primary', () => (
     <Row>
       <Button primary>Vote Now</Button>

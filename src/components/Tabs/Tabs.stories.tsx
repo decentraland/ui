@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 
 import { Tabs } from './Tabs'
 import './Tabs.stories.css'
 
 storiesOf('Tabs', module)
-  .addDecorator(centered)
   .add('Basic', () => (
     <div className="Tabs-story-container">
       <Tabs>

@@ -4,6 +4,7 @@
   cursor: pointer;
   margin: 24px;
   right: 0px;
+  top: 0px;
 }
 
 .switch-theme .ui.toggle.checkbox input:checked ~ label:before,

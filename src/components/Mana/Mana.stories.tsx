@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
 
 storiesOf('Mana', module)
-  .addDecorator(centered)
   .add('Symbol', () => <Mana />)
   .add('Symbol + MANA', () => <Mana>MANA</Mana>)
   .add('Total voted', () => (
