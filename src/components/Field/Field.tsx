@@ -111,7 +111,11 @@ export class Field extends React.PureComponent<FieldProps> {
 
     return (
       <div className={classes}>
-        {label ? <Header sub><label htmlFor={id}>{label}</label></Header> : null}
+        {label ? (
+          <Header sub>
+            <label htmlFor={id}>{label}</label>
+          </Header>
+        ) : null}
         {type === DATE_TYPE ? (
           <SemanticDatepicker
             // Added the time to the date to prevent timezone variations that would change the date

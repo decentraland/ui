@@ -38,9 +38,12 @@ it('should show all locales as options with correct names', () => {
   })
 })
 
-it("should call onChange callback when option is clicked", async () => {
+it('should call onChange callback when option is clicked', async () => {
   const onChangeMock = jest.fn()
-  const screen = renderLanguageDropdown({ onChange: onChangeMock });
-  await userEvent.click(screen.getByRole("option", { name: "English"}))
-  expect(onChangeMock).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ value: "en" }))
+  const screen = renderLanguageDropdown({ onChange: onChangeMock })
+  await userEvent.click(screen.getByRole('option', { name: 'English' }))
+  expect(onChangeMock).toHaveBeenCalledWith(
+    expect.anything(),
+    expect.objectContaining({ value: 'en' })
+  )
 })
