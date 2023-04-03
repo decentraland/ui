@@ -89,6 +89,7 @@ export class Field extends React.PureComponent<FieldProps> {
       kind,
       fitContent,
       isClearable = true,
+      id,
       ...rest
     } = this.props
 
@@ -110,7 +111,11 @@ export class Field extends React.PureComponent<FieldProps> {
 
     return (
       <div className={classes}>
-        {label ? <Header sub>{label}</Header> : null}
+        {label ? (
+          <Header sub>
+            <label htmlFor={id}>{label}</label>
+          </Header>
+        ) : null}
         {type === DATE_TYPE ? (
           <SemanticDatepicker
             // Added the time to the date to prevent timezone variations that would change the date
@@ -123,9 +128,11 @@ export class Field extends React.PureComponent<FieldProps> {
             clearable={isClearable}
             {...rest}
             onChange={this.onChangeDatePicker}
+            id={id}
           />
         ) : (
           <Input
+            id={id}
             value={value}
             type={isAddress ? 'text' : type}
             icon={icon}
