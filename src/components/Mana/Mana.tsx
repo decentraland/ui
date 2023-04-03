@@ -1,9 +1,11 @@
 import * as React from 'react'
 import classNames from 'classnames'
+
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header, HeaderProps } from '../Header/Header'
-import './Mana.css'
 import { Popup } from '../Popup/Popup'
+
+import './Mana.css'
 
 export interface ManaProps {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
@@ -12,7 +14,7 @@ export interface ManaProps {
   className?: string
   children?: React.ReactChild
   primary?: boolean
-  toolTipText?: string
+  tooltipText?: string
 }
 
 export class Mana extends React.Component<ManaProps & HeaderProps> {
