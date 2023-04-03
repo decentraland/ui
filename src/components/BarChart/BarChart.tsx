@@ -55,7 +55,8 @@ export const BarChart = ({
   network = Network.ETHEREUM,
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage,
-  rangeDecimals = 2
+  rangeDecimals = 2,
+  id = 'bar-chart'
 }: BarChartProps) => {
   const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
@@ -300,6 +301,7 @@ export const BarChart = ({
       <RangeField
         minLabel={minLabel}
         maxLabel={maxLabel}
+        id={`${id}-range-field`}
         minProps={{
           icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',

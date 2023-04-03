@@ -12,6 +12,7 @@ export type RangeFieldProps = {
   className?: string
   minProps?: Partial<Field['props']>
   maxProps?: Partial<Field['props']>
+  id?: string
   onChange: (
     value: [string, string],
     evt: React.ChangeEvent<HTMLInputElement>
@@ -28,6 +29,7 @@ export const RangeField = ({
   className,
   minProps,
   maxProps,
+  id = 'range-field',
   onChange,
   onBlur
 }: RangeFieldProps): JSX.Element => {
@@ -46,6 +48,7 @@ export const RangeField = ({
   return (
     <div className={classNames('ui min-max-field', className)}>
       <Field
+        id={`${id}-min`}
         {...minProps}
         label={minLabel}
         kind="full"
@@ -58,6 +61,7 @@ export const RangeField = ({
         onBlur={onBlur}
       />
       <Field
+        id={`${id}-max`}
         {...maxProps}
         label={maxLabel}
         kind="full"
