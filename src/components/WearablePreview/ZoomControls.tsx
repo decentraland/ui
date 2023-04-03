@@ -22,7 +22,7 @@ export enum Position {
 
 export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {
   const [previewController, setPreviewController] = useState(null)
-  const zoomDelta = props?.zoomDelta ?? ZOOM_DELTA
+  const zoomDelta = props.zoomDelta || ZOOM_DELTA
 
   useEffect(() => {
     if (!previewController) {
