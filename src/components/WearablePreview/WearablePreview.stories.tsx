@@ -131,6 +131,7 @@ export const PreviewAnItem: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+PreviewAnItem.storyName = 'Preview an item'
 
 export const PreviewAToken: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -140,6 +141,7 @@ export const PreviewAToken: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+PreviewAToken.storyName = 'Preview a token'
 
 export const PreviewATokenFromMumbai: ComponentStory<typeof WearablePreview> =
   () => (
@@ -151,6 +153,7 @@ export const PreviewATokenFromMumbai: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+PreviewATokenFromMumbai.storyName = 'Preview a token from mumbai'
 
 export const PreviewATextureWearable: ComponentStory<typeof WearablePreview> =
   () => (
@@ -161,6 +164,7 @@ export const PreviewATextureWearable: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+PreviewATextureWearable.storyName = 'Preview a texture wearable'
 
 export const UsingCustomSkin: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -171,6 +175,7 @@ export const UsingCustomSkin: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+UsingCustomSkin.storyName = 'Using custom skin'
 
 export const UsingCustomHair: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -181,6 +186,7 @@ export const UsingCustomHair: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+UsingCustomHair.storyName = 'Using custom hair'
 
 export const UsingCustomShape: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -192,12 +198,14 @@ export const UsingCustomShape: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+UsingCustomShape.storyName = 'Using custom shape'
 
 export const UsingAProfile: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
     <WearablePreview profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6" />
   </div>
 )
+UsingAProfile.storyName = 'Using a profile'
 
 export const UsingAProfileEmote: ComponentStory<typeof WearablePreview> =
   () => (
@@ -208,6 +216,7 @@ export const UsingAProfileEmote: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+UsingAProfileEmote.storyName = 'Using a profile + emote'
 
 export const UsingAWearablePreviewProfileEmote: ComponentStory<
   typeof WearablePreview
@@ -221,6 +230,8 @@ export const UsingAWearablePreviewProfileEmote: ComponentStory<
     />
   </div>
 )
+UsingAWearablePreviewProfileEmote.storyName =
+  'Using a wearable + profile + emote'
 
 export const UsingStaticCamera: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -230,6 +241,7 @@ export const UsingStaticCamera: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+UsingStaticCamera.storyName = 'Using static camera'
 
 export const UsingOnLoadCallback: ComponentStory<typeof WearablePreview> =
   () => (
@@ -241,6 +253,7 @@ export const UsingOnLoadCallback: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+UsingOnLoadCallback.storyName = 'Using onLoad callback'
 
 export const UsingOnErrorCallback: ComponentStory<typeof WearablePreview> =
   () => (
@@ -252,6 +265,7 @@ export const UsingOnErrorCallback: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+UsingOnErrorCallback.storyName = 'Using onError callback'
 
 export const UseAsHero: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -276,6 +290,7 @@ export const UseAsHero: ComponentStory<typeof WearablePreview> = () => (
     <Footer />
   </div>
 )
+UseAsHero.storyName = 'Use as hero'
 
 export const WithHotReload: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -291,6 +306,7 @@ export const WithHotReload: ComponentStory<typeof WearablePreview> = () => (
     </RandomConfigProvider>
   </div>
 )
+WithHotReload.storyName = 'With hot reload'
 
 export const FromUrl: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -301,6 +317,7 @@ export const FromUrl: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+FromUrl.storyName = 'From URL'
 
 export const FromBase64: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -311,6 +328,7 @@ export const FromBase64: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+FromBase64.storyName = 'From base64'
 
 export const WithoutAutoRotation: ComponentStory<typeof WearablePreview> =
   () => (
@@ -318,6 +336,7 @@ export const WithoutAutoRotation: ComponentStory<typeof WearablePreview> =
       <WearablePreview profile="default" disableAutoRotate />
     </div>
   )
+WithoutAutoRotation.storyName = 'Without auto Rotation'
 
 export const WithoutBackgroundOrTransparentBackground: ComponentStory<
   typeof WearablePreview
@@ -326,6 +345,8 @@ export const WithoutBackgroundOrTransparentBackground: ComponentStory<
     <WearablePreview profile="default" disableBackground />
   </div>
 )
+WithoutBackgroundOrTransparentBackground.storyName =
+  'Without background or transparent background'
 
 export const WithCustomBackgroundColor: ComponentStory<typeof WearablePreview> =
   () => (
@@ -333,6 +354,7 @@ export const WithCustomBackgroundColor: ComponentStory<typeof WearablePreview> =
       <WearablePreview profile="default" background="ff0000" />
     </div>
   )
+WithCustomBackgroundColor.storyName = 'With custom background color'
 
 export const TakeScreenshotAndMetrics: ComponentStory<typeof WearablePreview> =
   () => {
@@ -373,6 +395,7 @@ export const TakeScreenshotAndMetrics: ComponentStory<typeof WearablePreview> =
       </div>
     )
   }
+TakeScreenshotAndMetrics.storyName = 'Take screenshot and metrics'
 
 export const WithTranslationControls: ComponentStory<typeof WearablePreview> =
   () => {
@@ -414,6 +437,7 @@ export const WithTranslationControls: ComponentStory<typeof WearablePreview> =
       </div>
     )
   }
+WithTranslationControls.storyName = 'With translation controls'
 
 export const WithZoomControls: ComponentStory<typeof WearablePreview> = () => {
   return (
@@ -434,6 +458,7 @@ export const WithZoomControls: ComponentStory<typeof WearablePreview> = () => {
     </div>
   )
 }
+WithZoomControls.storyName = 'With zoom controls'
 
 export const WithEmoteControls: ComponentStory<typeof WearablePreview> = () => {
   return (
@@ -452,6 +477,7 @@ export const WithEmoteControls: ComponentStory<typeof WearablePreview> = () => {
     </div>
   )
 }
+WithEmoteControls.storyName = 'With emote controls'
 
 export const EmoteEvents: ComponentStory<typeof WearablePreview> = () => {
   const [goTo, setGoTo] = React.useState('0')
@@ -526,6 +552,7 @@ export const EmoteEvents: ComponentStory<typeof WearablePreview> = () => {
     </div>
   )
 }
+EmoteEvents.storyName = 'Emote events'
 
 export const PreviewFromAFile: ComponentStory<typeof WearablePreview> = () => {
   const inputRef = React.useRef<HTMLInputElement>()
@@ -546,6 +573,7 @@ export const PreviewFromAFile: ComponentStory<typeof WearablePreview> = () => {
     </div>
   )
 }
+PreviewFromAFile.storyName = 'Preview from a file'
 
 export const EmoteThumbnailPicker: ComponentStory<typeof WearablePreview> =
   () => {
@@ -616,12 +644,14 @@ export const EmoteThumbnailPicker: ComponentStory<typeof WearablePreview> =
       </div>
     )
   }
+EmoteThumbnailPicker.storyName = 'Emote thumbnail picker'
 
 export const WithOffset: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
     <WearablePreview profile="default" offsetY={0.5} offsetX={0.5} />
   </div>
 )
+WithOffset.storyName = 'With offset'
 
 export const CameraFromTheFront: ComponentStory<typeof WearablePreview> =
   () => (
@@ -636,6 +666,7 @@ export const CameraFromTheFront: ComponentStory<typeof WearablePreview> =
       />
     </div>
   )
+CameraFromTheFront.storyName = 'Camera from the front'
 
 export const CameraFromTheTop: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -649,6 +680,7 @@ export const CameraFromTheTop: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+CameraFromTheTop.storyName = 'Camera from the top'
 
 export const DifferentProjections: ComponentStory<typeof WearablePreview> =
   () => (
@@ -680,6 +712,7 @@ export const DifferentProjections: ComponentStory<typeof WearablePreview> =
       </div>
     </div>
   )
+DifferentProjections.storyName = 'Different projections'
 
 export const CustomPeerUrl: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -689,6 +722,7 @@ export const CustomPeerUrl: ComponentStory<typeof WearablePreview> = () => (
     />
   </div>
 )
+CustomPeerUrl.storyName = 'Custom peer url'
 
 export const WithoutFadeEffect: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
@@ -699,3 +733,4 @@ export const WithoutFadeEffect: ComponentStory<typeof WearablePreview> = () => (
     </RandomConfigProvider>
   </div>
 )
+WithoutFadeEffect.storyName = 'Without fade effect'
