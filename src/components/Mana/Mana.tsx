@@ -7,7 +7,7 @@ import { Popup } from '../Popup/Popup'
 
 import './Mana.css'
 
-export interface ManaProps {
+export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
   inline?: boolean
   network?: Network
