@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import centered from '@storybook/addon-centered/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
 
 storiesOf('Mana', module)
-  .addDecorator(centered)
   .add('Symbol', () => <Mana />)
   .add('Symbol + MANA', () => <Mana>MANA</Mana>)
   .add('Total voted', () => (
@@ -62,6 +60,17 @@ storiesOf('Mana', module)
         1,000
       </Mana>
       <Mana network={Network.MATIC} size="tiny">
+        1,000
+      </Mana>
+    </>
+  ))
+  .add('Mana + Tooltip', () => (
+    <>
+      <Mana
+        toolTipText={`${Network.MATIC} 1,000`}
+        network={Network.MATIC}
+        size="small"
+      >
         1,000
       </Mana>
     </>
