@@ -14,7 +14,7 @@ export type ManaProps = {
   className?: string
   children?: React.ReactChild
   primary?: boolean
-  tooltipText?: string
+  showTooltip?: boolean
 }
 
 export class Mana extends React.Component<ManaProps & HeaderProps> {
@@ -32,7 +32,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
       children,
       network,
       primary,
-      toolTipText,
+      showTooltip,
       ...rest
     } = this.props
 
@@ -59,11 +59,11 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
       </Header>
     )
 
-    if (toolTipText) {
+    if (showTooltip) {
       return (
         <Popup
           position="top center"
-          content={toolTipText}
+          content={`${network} MANA`}
           trigger={ManaInner}
           basic
         />
