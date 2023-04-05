@@ -66,11 +66,7 @@ storiesOf('Mana', module)
   ))
   .add('Mana + Tooltip', () => (
     <>
-      <Mana
-        tooltipText={`${Network.MATIC} MANA`}
-        network={Network.MATIC}
-        size="small"
-      >
+      <Mana showTooltip={true} network={Network.MATIC} size="small">
         1,000
       </Mana>
     </>
