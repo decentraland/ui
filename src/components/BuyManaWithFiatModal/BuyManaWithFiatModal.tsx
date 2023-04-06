@@ -2,6 +2,7 @@ import * as React from 'react'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
+import { getNetworkName } from '../../lib/network'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
@@ -12,7 +13,6 @@ import {
 } from './Network'
 import './BuyManaWithFiatModal.css'
 import './Network.css'
-import { getNetworkName } from '../../lib/network'
 
 type SelectedNetwork = BuyManaWithFiatModalNetworkProps &
   BuyWithFiatNetworkProps

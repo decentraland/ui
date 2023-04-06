@@ -9,4 +9,5 @@ export const networksNames: NetworksNames = {
   [Network.MATIC]: 'Polygon'
 }
 
-export const getNetworkName = (network: Network) => networksNames[network]
+export const getNetworkName = (network: Network): string | undefined =>
+  networksNames[network]
