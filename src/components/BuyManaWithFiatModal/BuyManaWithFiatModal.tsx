@@ -8,11 +8,11 @@ import { Loader } from '../Loader/Loader'
 import {
   BuyWithFiatNetwork,
   NetworkGatewayProps,
-  BuyWithFiatNetworkProps,
-  networksNames
+  BuyWithFiatNetworkProps
 } from './Network'
 import './BuyManaWithFiatModal.css'
 import './Network.css'
+import { getNetworkName } from '../../lib/network'
 
 type SelectedNetwork = BuyManaWithFiatModalNetworkProps &
   BuyWithFiatNetworkProps
@@ -51,16 +51,20 @@ class BuyManaWithFiatModalNetwork extends React.PureComponent<BuyManaWithFiatMod
   render(): JSX.Element {
     const { type, i18n, onClick } = this.props
 
-    const cta: React.ReactNode = `${networksNames[type]} MANA`
+    const cta: React.ReactNode = `${getNetworkName(type)} MANA`
     let ctaSubtitle: React.ReactNode = ''
 
     switch (type) {
       case Network.MATIC:
-        ctaSubtitle = `Use it to buy most wearables and emotes in ${networksNames[type]}.`
+        ctaSubtitle = `Use it to buy most wearables and emotes in ${getNetworkName(
+          type
+        )}.`
         break
 
       case Network.ETHEREUM:
-        ctaSubtitle = `Use it to buy LAND, names and specific wearables in ${networksNames[type]}.`
+        ctaSubtitle = `Use it to buy LAND, names and specific wearables in ${getNetworkName(
+          type
+        )}.`
         break
     }
 
@@ -141,7 +145,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     const title: React.ReactNode =
       i18n?.title ||
       (selectedNetwork
-        ? `Buy ${networksNames[selectedNetwork.type]} MANA`
+        ? `Buy ${getNetworkName(selectedNetwork.type)} MANA`
         : 'Buy MANA')
     const defaultNetworkMessage: React.ReactNode =
       'If this is the first time you use any of these providers you will first need to create an account on their platform. If you have already have an account, you will just need to login.'

@@ -6,6 +6,7 @@ import { Header, HeaderProps } from '../Header/Header'
 import { Popup } from '../Popup/Popup'
 
 import './Mana.css'
+import { getNetworkName } from '../../lib/network'
 
 export type ManaProps = {
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'huge'
@@ -63,7 +64,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
       return (
         <Popup
           position="top center"
-          content={`${network} MANA`}
+          content={`${getNetworkName(network)} MANA`}
           trigger={ManaInner}
           basic
         />

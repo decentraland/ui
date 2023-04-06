@@ -1,25 +1,17 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import { Button } from '../Button/Button'
+import { getNetworkName } from '../../lib/network'
 import './Network.css'
-import classNames from 'classnames'
 
 export enum NetworkGatewayType {
   MOON_PAY = 'moonPay',
   TRANSAK = 'transak'
 }
 
-export type NetworksNames = {
-  [key in Network]: string
-}
-
 export type GatewaysNames = {
   [key in NetworkGatewayType]: string
-}
-
-export const networksNames: NetworksNames = {
-  [Network.ETHEREUM]: 'Ethereum',
-  [Network.MATIC]: 'Polygon'
 }
 
 export const gatewaysNames: GatewaysNames = {
@@ -71,7 +63,9 @@ class ButWithFiatNetworkGateway extends React.PureComponent<NetworkGatewayProps>
       onContinue
     } = this.props
 
-    const title: React.ReactNode = `Buy ${networksNames[network]} MANA with ${gatewaysNames[type]}`
+    const title: React.ReactNode = `Buy ${getNetworkName(network)} MANA with ${
+      gatewaysNames[type]
+    }`
     const subtitle: React.ReactNode =
       'You can buy with debit and credit cards, Apple Pay, Google Pay, or via bank transfer.'
     const continueButtonText: React.ReactNode = `Continue with ${gatewaysNames[type]}`
