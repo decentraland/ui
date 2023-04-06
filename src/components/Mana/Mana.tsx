@@ -1,7 +1,10 @@
 import * as React from 'react'
 import classNames from 'classnames'
+
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header, HeaderProps } from '../Header/Header'
+import { Popup } from '../Popup/Popup'
+
 import './Mana.css'
 
 export type ManaProps = {
@@ -11,6 +14,7 @@ export type ManaProps = {
   className?: string
   children?: React.ReactChild
   primary?: boolean
+  showTooltip?: boolean
 }
 
 export class Mana extends React.Component<ManaProps & HeaderProps> {
@@ -21,10 +25,18 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
   }
 
   render(): JSX.Element {
-    const { size, className, inline, children, network, primary, ...rest } =
-      this.props
+    const {
+      size,
+      className,
+      inline,
+      children,
+      network,
+      primary,
+      showTooltip,
+      ...rest
+    } = this.props
 
-    return (
+    const ManaInner = (
       <Header
         size={size}
         className={classNames(
@@ -46,5 +58,18 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
         {children}
       </Header>
     )
+
+    if (showTooltip) {
+      return (
+        <Popup
+          position="top center"
+          content={`${network} MANA`}
+          trigger={ManaInner}
+          basic
+        />
+      )
+    }
+
+    return ManaInner
   }
 }
