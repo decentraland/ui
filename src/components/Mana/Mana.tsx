@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
-import { getNetworkName } from '../../lib/network'
+import { getNetworkMANADescription } from '../../lib/network'
 import { Header, HeaderProps } from '../Header/Header'
 import { Popup } from '../Popup/Popup'
 import './Mana.css'
@@ -58,17 +58,15 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
       </Header>
     )
 
-    if (showTooltip) {
-      return (
-        <Popup
-          position="top center"
-          content={`${getNetworkName(network)} MANA`}
-          trigger={ManaInner}
-          basic
-        />
-      )
-    }
-
-    return ManaInner
+    return showTooltip ? (
+      <Popup
+        position="top center"
+        content={getNetworkMANADescription(network)}
+        trigger={ManaInner}
+        basic
+      />
+    ) : (
+      ManaInner
+    )
   }
 }

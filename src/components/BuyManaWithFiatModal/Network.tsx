@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
-import { getNetworkName } from '../../lib/network'
+import { getNetworkMANADescription } from '../../lib/network'
 import { Button } from '../Button/Button'
 import './Network.css'
 
@@ -63,9 +63,9 @@ class ButWithFiatNetworkGateway extends React.PureComponent<NetworkGatewayProps>
       onContinue
     } = this.props
 
-    const title: React.ReactNode = `Buy ${getNetworkName(network)} MANA with ${
-      gatewaysNames[type]
-    }`
+    const title: React.ReactNode = `Buy ${getNetworkMANADescription(
+      network
+    )} with ${gatewaysNames[type]}`
     const subtitle: React.ReactNode =
       'You can buy with debit and credit cards, Apple Pay, Google Pay, or via bank transfer.'
     const continueButtonText: React.ReactNode = `Continue with ${gatewaysNames[type]}`

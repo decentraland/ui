@@ -2,7 +2,7 @@ import * as React from 'react'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
-import { getNetworkName } from '../../lib/network'
+import { getNetworkMANADescription } from '../../lib/network'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
@@ -50,21 +50,18 @@ export type BuyManaWithFiatModalNetworkI18N = {
 class BuyManaWithFiatModalNetwork extends React.PureComponent<BuyManaWithFiatModalNetworkProps> {
   render(): JSX.Element {
     const { type, i18n, onClick } = this.props
+    const networkMANADescription = getNetworkMANADescription(type)
 
-    const cta: React.ReactNode = `${getNetworkName(type)} MANA`
+    const cta: React.ReactNode = networkMANADescription
     let ctaSubtitle: React.ReactNode = ''
 
     switch (type) {
       case Network.MATIC:
-        ctaSubtitle = `Use it to buy most wearables and emotes in ${getNetworkName(
-          type
-        )}.`
+        ctaSubtitle = `Use it to buy most wearables and emotes in ${networkMANADescription}.`
         break
 
       case Network.ETHEREUM:
-        ctaSubtitle = `Use it to buy LAND, names and specific wearables in ${getNetworkName(
-          type
-        )}.`
+        ctaSubtitle = `Use it to buy LAND, names and specific wearables in ${networkMANADescription}.`
         break
     }
 
@@ -145,7 +142,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
     const title: React.ReactNode =
       i18n?.title ||
       (selectedNetwork
-        ? `Buy ${getNetworkName(selectedNetwork.type)} MANA`
+        ? `Buy ${getNetworkMANADescription(selectedNetwork.type)}`
         : 'Buy MANA')
     const defaultNetworkMessage: React.ReactNode =
       'If this is the first time you use any of these providers you will first need to create an account on their platform. If you have already have an account, you will just need to login.'

@@ -11,3 +11,10 @@ export const networksNames: NetworksNames = {
 
 export const getNetworkName = (network: Network): string | undefined =>
   networksNames[network]
+
+export const getNetworkMANADescription = (
+  network: Network
+): string | undefined => {
+  const networkName = getNetworkName(network)
+  return networkName ? `${networkName} MANA` : 'MANA'
+}
