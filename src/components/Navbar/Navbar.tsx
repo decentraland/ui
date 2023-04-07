@@ -17,7 +17,14 @@ export type NavbarI18N = {
     agora: React.ReactNode
     dao: React.ReactNode
     blog: React.ReactNode
-    builder: React.ReactNode
+    builder: {
+      main: React.ReactNode
+      overview: React.ReactNode
+      collections: React.ReactNode
+      scenes: React.ReactNode
+      land: React.ReactNode
+      names: React.ReactNode
+    }
   }
   account: {
     signIn: React.ReactNode
@@ -25,22 +32,25 @@ export type NavbarI18N = {
   }
 }
 
+export enum NavbarPages {
+  MARKETPLACE = 'marketplace',
+  DOCS = 'docs',
+  EVENTS = 'events',
+  PLACES = 'places',
+  AGORA = 'agora',
+  DAO = 'dao',
+  BLOG = 'blog',
+  BUILDER = 'builder'
+}
+
 export type NavbarProps = {
   mana?: number
   address?: string
-  activePage?:
-    | 'marketplace'
-    | 'docs'
-    | 'events'
-    | 'places'
-    | 'agora'
-    | 'dao'
-    | 'blog'
-    | 'builder'
-    | string
+  activePage?: NavbarPages | string
   leftMenu?: React.ReactNode
   middleMenu?: React.ReactNode
   rightMenu?: React.ReactNode
+  enableSubMenuSection?: boolean
   i18n?: NavbarI18N
   isConnected?: boolean
   isConnecting?: boolean
@@ -55,6 +65,7 @@ export type NavbarProps = {
 
 export type NavbarState = {
   toggle: boolean
+  showSubMenu: Record<string, boolean>
 }
 
 export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
@@ -73,7 +84,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         agora: 'Agora',
         dao: 'DAO',
         blog: 'Blog',
-        builder: 'Builder'
+        builder: {
+          main: 'Builder',
+          overview: 'Overview',
+          collections: 'Collections',
+          scenes: 'Scenes',
+          land: 'Land',
+          names: 'Names'
+        }
       },
       account: {
         signIn: 'Sign In',
@@ -87,10 +105,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     isSignIn: false,
     onSignIn: null,
     onClickAccount: null,
-    isFullWidth: false
+    isFullWidth: false,
+    enableSubMenuSection: false
   }
   public state = {
-    toggle: false
+    toggle: false,
+    showSubMenu: {}
   }
   componentDidMount(): void {
     document.addEventListener('click', this.handleDocumentClick)
@@ -108,6 +128,16 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     this.setState({ toggle: false })
   }
 
+  handleClickBuilder = (section, toggle): void => {
+    this.setState({
+      showSubMenu: { ...this.state.showSubMenu, [section]: toggle }
+    })
+  }
+
+  shouldShowSubMenu = (section): boolean => {
+    return this.props.enableSubMenuSection && this.state.showSubMenu[section]
+  }
+
   renderLeftMenu(): React.ReactNode {
     const { activePage, i18n, leftMenu } = this.props
     if (leftMenu) {
@@ -116,43 +146,71 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     return (
       <>
         <Menu.Item
-          active={activePage === 'marketplace'}
+          active={activePage === NavbarPages.MARKETPLACE}
           href="https://market.decentraland.org"
         >
           {i18n.menu.marketplace}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'builder'}
-          href="https://builder.decentraland.org"
+          active={activePage === NavbarPages.BUILDER}
+          onMouseEnter={() =>
+            this.handleClickBuilder(NavbarPages.BUILDER, true)
+          }
+          onMouseLeave={() =>
+            this.handleClickBuilder(NavbarPages.BUILDER, false)
+          }
         >
-          {i18n.menu.builder}
+          <a className="item" href="https://builder.decentraland.org">
+            {i18n.menu.builder.main}
+          </a>
+          {this.shouldShowSubMenu(NavbarPages.BUILDER) && (
+            <Menu.Item className="submenu">
+              <Menu vertical>
+                <Menu.Item href="https://builder.decentraland.org/">
+                  {i18n.menu.builder.overview}
+                </Menu.Item>
+                <Menu.Item href="https://builder.decentraland.org/collections">
+                  {i18n.menu.builder.collections}
+                </Menu.Item>
+                <Menu.Item href="https://builder.decentraland.org/scenes">
+                  {i18n.menu.builder.scenes}
+                </Menu.Item>
+                <Menu.Item href="https://builder.decentraland.org/land">
+                  {i18n.menu.builder.land}
+                </Menu.Item>
+                <Menu.Item href="https://builder.decentraland.org/names">
+                  {i18n.menu.builder.names}
+                </Menu.Item>
+              </Menu>
+            </Menu.Item>
+          )}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'docs'}
+          active={activePage === NavbarPages.DOCS}
           href="https://docs.decentraland.org"
         >
           {i18n.menu.docs}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'places'}
+          active={activePage === NavbarPages.PLACES}
           href="https://places.decentraland.org"
         >
           {i18n.menu.places}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'events'}
+          active={activePage === NavbarPages.EVENTS}
           href="https://events.decentraland.org"
         >
           {i18n.menu.events}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'dao'}
+          active={activePage === NavbarPages.DAO}
           href="https://dao.decentraland.org"
         >
           {i18n.menu.dao}
         </Menu.Item>
         <Menu.Item
-          active={activePage === 'blog'}
+          active={activePage === NavbarPages.BLOG}
           href="https://decentraland.org/blog"
         >
           {i18n.menu.blog}
@@ -262,6 +320,17 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
                   <Logo />
                 </a>
                 {this.renderLeftMenu()}
+                {/* {this.state.showSubMenu && (
+                  <Menu.Item>
+                    <Menu vertical>
+                      <Menu.Item>Overview</Menu.Item>
+                      <Menu.Item>Collections</Menu.Item>
+                      <Menu.Item>Scenes</Menu.Item>
+                      <Menu.Item>LAND</Menu.Item>
+                      <Menu.Item>NAMEs</Menu.Item>
+                    </Menu>
+                  </Menu.Item>
+                )} */}
               </Menu>
             </NotMobile>
             <Mobile>
