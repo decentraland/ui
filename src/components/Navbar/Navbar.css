@@ -188,6 +188,12 @@
   cursor: default;
 }
 
+.dcl.navbar .ui.menu .item > a.item,
+.dcl.navbar .ui.menu .item .submenu {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .dcl.navbar .ui.menu .item .submenu {
   position: absolute;
   top: 18px;
