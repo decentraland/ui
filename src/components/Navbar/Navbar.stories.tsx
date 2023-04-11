@@ -208,3 +208,10 @@ storiesOf('Navbar', module)
       </div>
     )
   })
+  .add('With default submenus', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar enableSubMenuSection activePage="dao" />
+      </div>
+    )
+  })
