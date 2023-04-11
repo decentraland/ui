@@ -142,10 +142,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     isFullWidth: false,
     enableSubMenuSection: false
   }
+
   public state = {
     toggle: false,
     showSubMenu: {}
   }
+
   componentDidMount(): void {
     document.addEventListener('click', this.handleDocumentClick)
   }
@@ -153,192 +155,305 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   componentWillUnmount(): void {
     document.removeEventListener('click', this.handleDocumentClick)
   }
+
   handleToggle = (event: React.MouseEvent): void => {
     this.setState({ toggle: !this.state.toggle })
     event.stopPropagation()
     event.nativeEvent.stopImmediatePropagation()
   }
+
   handleDocumentClick = (): void => {
     this.setState({ toggle: false })
   }
 
-  handleToggleShowSubMenu = (section: NavbarPages, toggle: boolean): void => {
+  handleToggleShowSubMenu = (
+    event: React.MouseEvent,
+    section: NavbarPages
+  ): void => {
     if (this.props.enableSubMenuSection) {
+      const toggle = !!this.state.showSubMenu[section]
       this.setState({
-        showSubMenu: { [section]: toggle }
+        showSubMenu: { [section]: !toggle }
       })
     }
+    event.stopPropagation()
+    event.nativeEvent.stopImmediatePropagation()
   }
 
   shouldShowSubMenu = (section: NavbarPages): boolean => {
     return this.props.enableSubMenuSection && this.state.showSubMenu[section]
   }
 
+  renderMarketplaceSubMenu(): React.ReactNode {
+    const { i18n } = this.props
+    return (
+      <Menu.Item className="submenu">
+        <Menu vertical>
+          <Menu.Item href="https://market.decentraland.org">
+            {i18n.menu.marketplace.overview}
+          </Menu.Item>
+          <Menu.Item href="https://market.decentraland.org/browse">
+            {i18n.menu.marketplace.collectibles}
+          </Menu.Item>
+          <Menu.Item href="https://market.decentraland.org/lands">
+            {i18n.menu.marketplace.land}
+          </Menu.Item>
+          <Menu.Item href="https://market.decentraland.org/account">
+            {i18n.menu.marketplace.myAssets}
+          </Menu.Item>
+        </Menu>
+      </Menu.Item>
+    )
+  }
+
+  renderBuilderSubMenu(): React.ReactNode {
+    const { i18n } = this.props
+    return (
+      <Menu.Item className="submenu">
+        <Menu vertical>
+          <Menu.Item href="https://builder.decentraland.org">
+            {i18n.menu.builder.overview}
+          </Menu.Item>
+          <Menu.Item href="https://builder.decentraland.org/collections">
+            {i18n.menu.builder.collections}
+          </Menu.Item>
+          <Menu.Item href="https://builder.decentraland.org/scenes">
+            {i18n.menu.builder.scenes}
+          </Menu.Item>
+          <Menu.Item href="https://builder.decentraland.org/land">
+            {i18n.menu.builder.land}
+          </Menu.Item>
+          <Menu.Item href="https://builder.decentraland.org/names">
+            {i18n.menu.builder.names}
+          </Menu.Item>
+        </Menu>
+      </Menu.Item>
+    )
+  }
+
+  renderDocsSubMenu(): React.ReactNode {
+    const { i18n } = this.props
+    return (
+      <Menu.Item className="submenu">
+        <Menu vertical>
+          <Menu.Item href="https://docs.decentraland.org/player">
+            {i18n.menu.docs.players}
+          </Menu.Item>
+          <Menu.Item href="https://docs.decentraland.org/creator">
+            {i18n.menu.docs.creators}
+          </Menu.Item>
+          <Menu.Item href="https://docs.decentraland.org/contributor">
+            {i18n.menu.docs.contributors}
+          </Menu.Item>
+          <Menu.Item href="https://studios.decentraland.org">
+            {i18n.menu.docs.studios}
+          </Menu.Item>
+        </Menu>
+      </Menu.Item>
+    )
+  }
+
+  renderPlacesSubMenu(): React.ReactNode {
+    const { i18n } = this.props
+    return (
+      <Menu.Item className="submenu">
+        <Menu vertical>
+          <Menu.Item href="https://places.decentraland.org">
+            {i18n.menu.places.overview}
+          </Menu.Item>
+          <Menu.Item href="https://places.decentraland.org/places">
+            {i18n.menu.places.allPlaces}
+          </Menu.Item>
+          <Menu.Item href="https://docs.decentraland.org/creator/places/faq">
+            {i18n.menu.places.faq}
+          </Menu.Item>
+        </Menu>
+      </Menu.Item>
+    )
+  }
+
+  renderDaoSubMenu(): React.ReactNode {
+    const { i18n } = this.props
+    return (
+      <Menu.Item className="submenu">
+        <Menu vertical>
+          <Menu.Item href="https://governance.decentraland.org/proposals">
+            {i18n.menu.dao.list}
+          </Menu.Item>
+        </Menu>
+      </Menu.Item>
+    )
+  }
+
+  renderMobileMenuItem = (
+    section: NavbarPages,
+    title: React.ReactNode,
+    href: string,
+    children?: React.ReactNode
+  ): React.ReactNode => {
+    const { activePage, enableSubMenuSection } = this.props
+    const showSubMenu = enableSubMenuSection && !!children
+
+    return (
+      <>
+        <Menu.Item
+          active={activePage === section}
+          href={!enableSubMenuSection ? href : undefined}
+        >
+          {showSubMenu ? (
+            <Header
+              size="small"
+              className={`dcl active-page ${
+                this.shouldShowSubMenu(section) ? 'caret-up' : 'caret-down'
+              }`}
+              onClick={(e: React.MouseEvent) =>
+                this.handleToggleShowSubMenu(e, section)
+              }
+            >
+              {title}
+            </Header>
+          ) : (
+            title
+          )}
+        </Menu.Item>
+        {this.shouldShowSubMenu(section) && children}
+      </>
+    )
+  }
+
+  renderLeftMobileMenu(): React.ReactNode {
+    const { i18n } = this.props
+
+    return (
+      <>
+        {this.renderMobileMenuItem(
+          NavbarPages.MARKETPLACE,
+          i18n.menu.marketplace.main,
+          'https://market.decentraland.org',
+          this.renderMarketplaceSubMenu()
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.BUILDER,
+          i18n.menu.builder.main,
+          'https://builder.decentraland.org',
+          this.renderBuilderSubMenu()
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.DOCS,
+          i18n.menu.docs.main,
+          'https://docs.decentraland.org',
+          this.renderDocsSubMenu()
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.PLACES,
+          i18n.menu.places.main,
+          'https://places.decentraland.org',
+          this.renderPlacesSubMenu()
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.EVENTS,
+          i18n.menu.events,
+          'https://events.decentraland.org'
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.DAO,
+          i18n.menu.dao.main,
+          'https://governance.decentraland.org',
+          this.renderDaoSubMenu()
+        )}
+        {this.renderMobileMenuItem(
+          NavbarPages.BLOG,
+          i18n.menu.blog,
+          'https://decentraland.org/blog'
+        )}
+      </>
+    )
+  }
+
+  renderLeftDesktopMenu(): React.ReactNode {
+    const { i18n } = this.props
+
+    return (
+      <>
+        {this.renderMenuItem(
+          NavbarPages.MARKETPLACE,
+          i18n.menu.marketplace.main,
+          'https://market.decentraland.org',
+          this.renderMarketplaceSubMenu()
+        )}
+        {this.renderMenuItem(
+          NavbarPages.BUILDER,
+          i18n.menu.builder.main,
+          'https://builder.decentraland.org',
+          this.renderBuilderSubMenu()
+        )}
+        {this.renderMenuItem(
+          NavbarPages.DOCS,
+          i18n.menu.docs.main,
+          'https://docs.decentraland.org',
+          this.renderDocsSubMenu()
+        )}
+
+        {this.renderMenuItem(
+          NavbarPages.PLACES,
+          i18n.menu.places.main,
+          'https://places.decentraland.org',
+          this.renderPlacesSubMenu()
+        )}
+        {this.renderMenuItem(
+          NavbarPages.EVENTS,
+          i18n.menu.events,
+          'https://events.decentraland.org'
+        )}
+        {this.renderMenuItem(
+          NavbarPages.DAO,
+          i18n.menu.dao.main,
+          'https://dao.decentraland.org',
+          this.renderDaoSubMenu()
+        )}
+        {this.renderMenuItem(
+          NavbarPages.BLOG,
+          i18n.menu.blog,
+          'https://decentraland.org/blog'
+        )}
+      </>
+    )
+  }
+
+  renderMenuItem(
+    section: NavbarPages,
+    title: React.ReactNode,
+    href: string,
+    children?: React.ReactNode
+  ): React.ReactNode {
+    const { activePage } = this.props
+    return (
+      <Menu.Item
+        active={activePage === section}
+        onMouseEnter={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section)
+        }
+        onMouseLeave={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section)
+        }
+      >
+        <a className="item" href={href}>
+          {title}
+        </a>
+        {this.shouldShowSubMenu(section) && children}
+      </Menu.Item>
+    )
+  }
+
   renderLeftMenu(): React.ReactNode {
-    const { activePage, i18n, leftMenu } = this.props
+    const { leftMenu } = this.props
     if (leftMenu) {
       return leftMenu
     }
     return (
       <>
-        <Menu.Item
-          active={activePage === NavbarPages.MARKETPLACE}
-          onMouseEnter={() =>
-            this.handleToggleShowSubMenu(NavbarPages.MARKETPLACE, true)
-          }
-          onMouseLeave={() =>
-            this.handleToggleShowSubMenu(NavbarPages.MARKETPLACE, false)
-          }
-        >
-          <a className="item" href="https://market.decentraland.org">
-            {i18n.menu.marketplace.main}
-          </a>
-          {this.shouldShowSubMenu(NavbarPages.MARKETPLACE) && (
-            <Menu.Item className="submenu">
-              <Menu vertical>
-                <Menu.Item href="https://market.decentraland.org/">
-                  {i18n.menu.marketplace.overview}
-                </Menu.Item>
-                <Menu.Item href="https://market.decentraland.org/browse">
-                  {i18n.menu.marketplace.collectibles}
-                </Menu.Item>
-                <Menu.Item href="https://market.decentraland.org/lands">
-                  {i18n.menu.marketplace.land}
-                </Menu.Item>
-                <Menu.Item href="https://market.decentraland.org/account">
-                  {i18n.menu.marketplace.myAssets}
-                </Menu.Item>
-              </Menu>
-            </Menu.Item>
-          )}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.BUILDER}
-          onMouseEnter={() =>
-            this.handleToggleShowSubMenu(NavbarPages.BUILDER, true)
-          }
-          onMouseLeave={() =>
-            this.handleToggleShowSubMenu(NavbarPages.BUILDER, false)
-          }
-        >
-          <a className="item" href="https://builder.decentraland.org">
-            {i18n.menu.builder.main}
-          </a>
-          {this.shouldShowSubMenu(NavbarPages.BUILDER) && (
-            <Menu.Item className="submenu">
-              <Menu vertical>
-                <Menu.Item href="https://builder.decentraland.org/">
-                  {i18n.menu.builder.overview}
-                </Menu.Item>
-                <Menu.Item href="https://builder.decentraland.org/collections">
-                  {i18n.menu.builder.collections}
-                </Menu.Item>
-                <Menu.Item href="https://builder.decentraland.org/scenes">
-                  {i18n.menu.builder.scenes}
-                </Menu.Item>
-                <Menu.Item href="https://builder.decentraland.org/land">
-                  {i18n.menu.builder.land}
-                </Menu.Item>
-                <Menu.Item href="https://builder.decentraland.org/names">
-                  {i18n.menu.builder.names}
-                </Menu.Item>
-              </Menu>
-            </Menu.Item>
-          )}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.DOCS}
-          onMouseEnter={() =>
-            this.handleToggleShowSubMenu(NavbarPages.DOCS, true)
-          }
-          onMouseLeave={() =>
-            this.handleToggleShowSubMenu(NavbarPages.DOCS, false)
-          }
-        >
-          <a className="item" href="https://docs.decentraland.org">
-            {i18n.menu.docs.main}
-          </a>
-          {this.shouldShowSubMenu(NavbarPages.DOCS) && (
-            <Menu.Item className="submenu">
-              <Menu vertical>
-                <Menu.Item href="https://docs.decentraland.org/player">
-                  {i18n.menu.docs.players}
-                </Menu.Item>
-                <Menu.Item href="https://docs.decentraland.org/creator">
-                  {i18n.menu.docs.creators}
-                </Menu.Item>
-                <Menu.Item href="https://docs.decentraland.org/contributor">
-                  {i18n.menu.docs.contributors}
-                </Menu.Item>
-                <Menu.Item href="https://studios.decentraland.org">
-                  {i18n.menu.docs.studios}
-                </Menu.Item>
-              </Menu>
-            </Menu.Item>
-          )}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.PLACES}
-          onMouseEnter={() =>
-            this.handleToggleShowSubMenu(NavbarPages.PLACES, true)
-          }
-          onMouseLeave={() =>
-            this.handleToggleShowSubMenu(NavbarPages.PLACES, false)
-          }
-        >
-          <a className="item" href="https://places.decentraland.org">
-            {i18n.menu.places.main}
-          </a>
-          {this.shouldShowSubMenu(NavbarPages.PLACES) && (
-            <Menu.Item className="submenu">
-              <Menu vertical>
-                <Menu.Item href="https://places.decentraland.org">
-                  {i18n.menu.places.overview}
-                </Menu.Item>
-                <Menu.Item href="https://places.decentraland.org/places">
-                  {i18n.menu.places.allPlaces}
-                </Menu.Item>
-                <Menu.Item href="https://docs.decentraland.org/creator/places/faq">
-                  {i18n.menu.places.faq}
-                </Menu.Item>
-              </Menu>
-            </Menu.Item>
-          )}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.EVENTS}
-          href="https://events.decentraland.org"
-        >
-          {i18n.menu.events}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.DAO}
-          onMouseEnter={() =>
-            this.handleToggleShowSubMenu(NavbarPages.DAO, true)
-          }
-          onMouseLeave={() =>
-            this.handleToggleShowSubMenu(NavbarPages.DAO, false)
-          }
-        >
-          <a className="item" href="https://dao.decentraland.org">
-            {i18n.menu.dao.main}
-          </a>
-          {this.shouldShowSubMenu(NavbarPages.DAO) && (
-            <Menu.Item className="submenu">
-              <Menu vertical>
-                <Menu.Item href="https://governance.decentraland.org/proposals">
-                  {i18n.menu.dao.list}
-                </Menu.Item>
-              </Menu>
-            </Menu.Item>
-          )}
-        </Menu.Item>
-        <Menu.Item
-          active={activePage === NavbarPages.BLOG}
-          href="https://decentraland.org/blog"
-        >
-          {i18n.menu.blog}
-        </Menu.Item>
+        <NotMobile>{this.renderLeftDesktopMenu()}</NotMobile>
+        <Mobile>{this.renderLeftMobileMenu()}</Mobile>
       </>
     )
   }
