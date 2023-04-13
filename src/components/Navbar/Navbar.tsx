@@ -140,7 +140,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     onSignIn: null,
     onClickAccount: null,
     isFullWidth: false,
-    enableSubMenuSection: false
+    enableSubMenuSection: true
   }
 
   public state = {
