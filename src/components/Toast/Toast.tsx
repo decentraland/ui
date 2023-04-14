@@ -74,7 +74,7 @@ export class Toast extends React.PureComponent<ToastProps> {
         <div className="toast-info">
           {icon && <span className="toast-icon">{icon}</span>}
           <div>
-            {closable ? <Close small onClick={this.handleClose} /> : null}
+            {closable ? <Close onClick={this.handleClose} /> : null}
             <div className="title">{title}</div>
             <div className="body">{body}</div>
           </div>
