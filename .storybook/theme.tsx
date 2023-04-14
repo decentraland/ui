@@ -92,7 +92,7 @@ const DARK_THEME = `
   --navbar-popup-hover: #67637033;
   --card: #242129;
   --outline: 1px solid #00000005;
-  --toast: #38333d;
+  --toast: #3D3B43;
   --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
@@ -157,7 +157,13 @@ export const ThemePicker = () => {
   return (
     <div className="switch-theme" onClick={handleClick}>
       <Icon name={value ? 'moon' : 'sun'} />
-      <Radio toggle checked={value} name="theme" id="theme-toggle" aria-label="Theme"/>
+      <Radio
+        toggle
+        checked={value}
+        name="theme"
+        id="theme-toggle"
+        aria-label="Theme"
+      />
     </div>
   )
 }
