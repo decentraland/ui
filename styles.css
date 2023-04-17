@@ -2297,6 +2297,15 @@ a.ui.card:hover,
   height: 16px;
 }
 
+.dcl.toast .dcl.close {
+  width: 24px;
+  height: 24px;
+}
+
+.dcl.toast .dcl.close .close-icon {
+  background-size: 12px;
+}
+
 .dcl.close.small .close-icon {
   position: relative;
   width: 100%;
@@ -3988,7 +3997,6 @@ a.ui.card:hover,
 
 .dcl.toast .dcl.close {
   position: absolute;
-  top: 18px;
   right: 12px;
   cursor: pointer;
 }
@@ -3998,6 +4006,14 @@ a.ui.card:hover,
   font-size: 17px;
   font-weight: 700;
   color: var(--toast-text);
+}
+
+@media (max-width: 768px) {
+  .dcl.toast {
+    margin: auto;
+    width: 100vw;
+    max-width: initial;
+  }
 }
 
 .dcl.toasts {
