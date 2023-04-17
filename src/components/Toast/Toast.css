@@ -32,3 +32,11 @@
   font-weight: 700;
   color: var(--toast-text);
 }
+
+@media (max-width: 768px) {
+  .dcl.toast {
+    margin: auto;
+    width: 100vw;
+    max-width: initial;
+  }
+}
