@@ -21,7 +21,6 @@
 
 .dcl.toast .dcl.close {
   position: absolute;
-  top: 18px;
   right: 12px;
   cursor: pointer;
 }
