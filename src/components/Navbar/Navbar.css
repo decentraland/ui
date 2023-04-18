@@ -266,6 +266,9 @@
     opacity: 1;
     transform: translateY(0px);
     box-shadow: var(--shadow-3);
+    overflow-y: overlay;
+    overflow-x: hidden;
+    max-height: 395px;
   }
 
   .dcl.navbar .mobile-menu .item {
