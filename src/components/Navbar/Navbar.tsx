@@ -32,7 +32,12 @@ export type NavbarI18N = {
       faq: React.ReactNode
     }
     agora: React.ReactNode
-    dao: { main: React.ReactNode; list: React.ReactNode }
+    dao: {
+      main: React.ReactNode
+      overview: React.ReactNode
+      governance: React.ReactNode
+      transparency: React.ReactNode
+    }
     blog: React.ReactNode
     builder: {
       main: React.ReactNode
@@ -116,7 +121,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           faq: 'FAQ'
         },
         agora: 'Agora',
-        dao: { main: 'DAO', list: 'List' },
+        dao: {
+          main: 'DAO',
+          overview: 'Overview',
+          governance: 'Governance',
+          transparency: 'Transparency'
+        },
         blog: 'Blog',
         builder: {
           main: 'Builder',
@@ -168,12 +178,33 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
 
   handleToggleShowSubMenu = (
     event: React.MouseEvent,
-    section: NavbarPages
+    section: NavbarPages,
+    _toggle?: boolean
   ): void => {
     if (this.props.enableSubMenuSection) {
+      if (event.type === 'mouseleave') {
+        const container = event.currentTarget
+        const subMenu =
+          container.querySelectorAll(':scope > div.submenu').item(0) || null
+        const mousePosition = { x: event.clientX, y: event.clientY }
+        if (subMenu) {
+          const containerPosition = container.getBoundingClientRect()
+          const subMenuPosition = subMenu.getBoundingClientRect()
+          if (
+            mousePosition.x > containerPosition.left - 1 &&
+            mousePosition.x < containerPosition.right - 1 &&
+            mousePosition.y > containerPosition.top - 1 &&
+            mousePosition.x > subMenuPosition.left - 1 &&
+            mousePosition.x < subMenuPosition.right - 1 &&
+            mousePosition.y < subMenuPosition.bottom - 1
+          ) {
+            return
+          }
+        }
+      }
       const toggle = !!this.state.showSubMenu[section]
       this.setState({
-        showSubMenu: { [section]: !toggle }
+        showSubMenu: { [section]: _toggle ?? !toggle }
       })
     }
     event.stopPropagation()
@@ -277,8 +308,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
-          <Menu.Item href="https://governance.decentraland.org/proposals">
-            {i18n.menu.dao.list}
+          <Menu.Item href="https://dao.decentraland.org">
+            {i18n.menu.dao.overview}
+          </Menu.Item>
+          <Menu.Item href="https://governance.decentraland.org">
+            {i18n.menu.dao.governance}
+          </Menu.Item>
+          <Menu.Item href="https://governance.decentraland.org/transparency">
+            {i18n.menu.dao.transparency}
           </Menu.Item>
         </Menu>
       </Menu.Item>
@@ -370,6 +407,31 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     )
   }
 
+  renderMenuItem(
+    section: NavbarPages,
+    title: React.ReactNode,
+    href: string,
+    children?: React.ReactNode
+  ): React.ReactNode {
+    const { activePage } = this.props
+    return (
+      <Menu.Item
+        active={activePage === section}
+        onMouseEnter={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section, true)
+        }
+        onMouseLeave={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section, false)
+        }
+      >
+        <a className="item" href={href}>
+          {title}
+        </a>
+        {this.shouldShowSubMenu(section) && children}
+      </Menu.Item>
+    )
+  }
+
   renderLeftDesktopMenu(): React.ReactNode {
     const { i18n } = this.props
 
@@ -417,31 +479,6 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           'https://decentraland.org/blog'
         )}
       </>
-    )
-  }
-
-  renderMenuItem(
-    section: NavbarPages,
-    title: React.ReactNode,
-    href: string,
-    children?: React.ReactNode
-  ): React.ReactNode {
-    const { activePage } = this.props
-    return (
-      <Menu.Item
-        active={activePage === section}
-        onMouseEnter={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section)
-        }
-        onMouseLeave={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section)
-        }
-      >
-        <a className="item" href={href}>
-          {title}
-        </a>
-        {this.shouldShowSubMenu(section) && children}
-      </Menu.Item>
     )
   }
 

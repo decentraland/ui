@@ -126,7 +126,8 @@
 
 .dcl.navbar .ui.menu .item:hover,
 .dcl.navbar .ui.menu .item .item:has(+ .item.submenu),
-.dcl.navbar .ui.menu .item.active {
+.dcl.navbar .ui.menu .item.active,
+.dcl.navbar .ui.menu .item.active .item {
   color: var(--text);
   background: transparent;
   cursor: pointer;
@@ -196,7 +197,7 @@
 
 .dcl.navbar .ui.menu .item .submenu {
   position: absolute;
-  top: 18px;
+  top: 32px;
 }
 
 .dcl.navbar .ui.menu .item .submenu .ui.vertical.menu {
@@ -276,6 +277,7 @@
   }
 
   .dcl.navbar .mobile-menu .item.active,
+  .dcl.navbar .mobile-menu .item.active .item,
   .dcl.navbar .mobile-menu .item:has(+ .item.submenu) {
     background-color: var(--navbar-popup-hover);
     font-weight: bold;
