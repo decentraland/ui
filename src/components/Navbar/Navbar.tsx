@@ -178,33 +178,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
 
   handleToggleShowSubMenu = (
     event: React.MouseEvent,
-    section: NavbarPages,
-    _toggle?: boolean
+    section: NavbarPages
   ): void => {
     if (this.props.enableSubMenuSection) {
-      if (event.type === 'mouseleave') {
-        const container = event.currentTarget
-        const subMenu =
-          container.querySelectorAll(':scope > div.submenu').item(0) || null
-        const mousePosition = { x: event.clientX, y: event.clientY }
-        if (subMenu) {
-          const containerPosition = container.getBoundingClientRect()
-          const subMenuPosition = subMenu.getBoundingClientRect()
-          if (
-            mousePosition.x > containerPosition.left - 1 &&
-            mousePosition.x < containerPosition.right - 1 &&
-            mousePosition.y > containerPosition.top - 1 &&
-            mousePosition.x > subMenuPosition.left - 1 &&
-            mousePosition.x < subMenuPosition.right - 1 &&
-            mousePosition.y < subMenuPosition.bottom - 1
-          ) {
-            return
-          }
-        }
-      }
       const toggle = !!this.state.showSubMenu[section]
       this.setState({
-        showSubMenu: { [section]: _toggle ?? !toggle }
+        showSubMenu: { [section]: !toggle }
       })
     }
     event.stopPropagation()
@@ -418,10 +397,10 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <Menu.Item
         active={activePage === section}
         onMouseEnter={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section, true)
+          this.handleToggleShowSubMenu(e, section)
         }
         onMouseLeave={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section, false)
+          this.handleToggleShowSubMenu(e, section)
         }
       >
         <a className="item" href={href}>

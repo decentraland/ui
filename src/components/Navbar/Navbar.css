@@ -197,7 +197,8 @@
 
 .dcl.navbar .ui.menu .item .submenu {
   position: absolute;
-  top: 32px;
+  top: 0;
+  padding-top: 32px;
 }
 
 .dcl.navbar .ui.menu .item .submenu .ui.vertical.menu {
