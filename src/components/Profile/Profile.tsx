@@ -6,7 +6,7 @@ import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Blockie } from '../Blockie/Blockie'
 import './Profile.css'
 
-export type ProfileProps = {
+export type ProfileProps<T extends React.ElementType> = {
   address: string
   avatar?: Avatar | null
   textOnly?: boolean
@@ -16,13 +16,17 @@ export type ProfileProps = {
   sliceAddressBy?: number
   size?: 'normal' | 'large' | 'huge' | 'massive'
   isDecentraland?: boolean
-}
+  contentAs?: React.ElementType
+} & React.ComponentPropsWithoutRef<T>
 
-export class Profile extends React.PureComponent<ProfileProps> {
+export class Profile<T extends React.ElementType> extends React.PureComponent<
+  ProfileProps<T>
+> {
   static defaultProps = {
     inline: true,
     sliceAddressBy: 6,
-    size: 'normal'
+    size: 'normal',
+    contentAs: React.Fragment
   }
 
   render(): React.ReactNode {
@@ -35,7 +39,9 @@ export class Profile extends React.PureComponent<ProfileProps> {
       inline,
       size,
       sliceAddressBy,
-      isDecentraland
+      isDecentraland,
+      contentAs: ContentWrapper,
+      ...rest
     } = this.props
 
     const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
@@ -47,8 +53,10 @@ export class Profile extends React.PureComponent<ProfileProps> {
           className={`Profile decentraland ${size} ${inline ? 'inline' : ''}`}
           title={address}
         >
-          <Logo />
-          {imageOnly ? null : <span className="name">Decentraland</span>}
+          <ContentWrapper {...rest}>
+            <Logo />
+            {imageOnly ? null : <span className="name">Decentraland</span>}
+          </ContentWrapper>
         </span>
       )
     }
@@ -67,27 +75,31 @@ export class Profile extends React.PureComponent<ProfileProps> {
                 className={`Profile avatar ${size} ${inline ? 'inline' : ''}`}
                 title={address}
               >
-                <AvatarFace size="tiny" inline={inline} avatar={avatar} />
-                {imageOnly ? null : <span className="name">{name}</span>}
+                <ContentWrapper {...rest}>
+                  <AvatarFace size="tiny" inline={inline} avatar={avatar} />
+                  {imageOnly ? null : <span className="name">{name}</span>}
+                </ContentWrapper>
               </span>
             ) : (
               <span
                 className={`Profile blockie ${size} ${inline ? 'inline' : ''}`}
                 title={address}
               >
-                <Blockie
-                  seed={address}
-                  scale={
-                    size === 'large'
-                      ? 5
-                      : size === 'huge'
-                      ? 7
-                      : size === 'massive'
-                      ? 21
-                      : 3
-                  }
-                />
-                {imageOnly ? null : <span className="name">{name}</span>}
+                <ContentWrapper {...rest}>
+                  <Blockie
+                    seed={address}
+                    scale={
+                      size === 'large'
+                        ? 5
+                        : size === 'huge'
+                        ? 7
+                        : size === 'massive'
+                        ? 21
+                        : 3
+                    }
+                  />
+                  {imageOnly ? null : <span className="name">{name}</span>}
+                </ContentWrapper>
               </span>
             )
           }
