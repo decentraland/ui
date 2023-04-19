@@ -3258,7 +3258,8 @@ a.ui.card:hover,
 
 .dcl.navbar .ui.menu .item:hover,
 .dcl.navbar .ui.menu .item .item:has(+ .item.submenu),
-.dcl.navbar .ui.menu .item.active {
+.dcl.navbar .ui.menu .item.active,
+.dcl.navbar .ui.menu .item.active .item {
   color: var(--text);
   background: transparent;
   cursor: pointer;
@@ -3328,7 +3329,8 @@ a.ui.card:hover,
 
 .dcl.navbar .ui.menu .item .submenu {
   position: absolute;
-  top: 18px;
+  top: 0;
+  padding-top: 32px;
 }
 
 .dcl.navbar .ui.menu .item .submenu .ui.vertical.menu {
@@ -3396,6 +3398,9 @@ a.ui.card:hover,
     opacity: 1;
     transform: translateY(0px);
     box-shadow: var(--shadow-3);
+    overflow-y: overlay;
+    overflow-x: hidden;
+    max-height: 395px;
   }
 
   .dcl.navbar .mobile-menu .item {
@@ -3408,6 +3413,7 @@ a.ui.card:hover,
   }
 
   .dcl.navbar .mobile-menu .item.active,
+  .dcl.navbar .mobile-menu .item.active .item,
   .dcl.navbar .mobile-menu .item:has(+ .item.submenu) {
     background-color: var(--navbar-popup-hover);
     font-weight: bold;
