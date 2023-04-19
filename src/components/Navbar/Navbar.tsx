@@ -32,7 +32,12 @@ export type NavbarI18N = {
       faq: React.ReactNode
     }
     agora: React.ReactNode
-    dao: { main: React.ReactNode; list: React.ReactNode }
+    dao: {
+      main: React.ReactNode
+      overview: React.ReactNode
+      governance: React.ReactNode
+      transparency: React.ReactNode
+    }
     blog: React.ReactNode
     builder: {
       main: React.ReactNode
@@ -116,7 +121,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           faq: 'FAQ'
         },
         agora: 'Agora',
-        dao: { main: 'DAO', list: 'List' },
+        dao: {
+          main: 'DAO',
+          overview: 'Overview',
+          governance: 'Governance',
+          transparency: 'Transparency'
+        },
         blog: 'Blog',
         builder: {
           main: 'Builder',
@@ -140,7 +150,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     onSignIn: null,
     onClickAccount: null,
     isFullWidth: false,
-    enableSubMenuSection: false
+    enableSubMenuSection: true
   }
 
   public state = {
@@ -277,8 +287,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
-          <Menu.Item href="https://governance.decentraland.org/proposals">
-            {i18n.menu.dao.list}
+          <Menu.Item href="https://dao.decentraland.org">
+            {i18n.menu.dao.overview}
+          </Menu.Item>
+          <Menu.Item href="https://governance.decentraland.org">
+            {i18n.menu.dao.governance}
+          </Menu.Item>
+          <Menu.Item href="https://governance.decentraland.org/transparency">
+            {i18n.menu.dao.transparency}
           </Menu.Item>
         </Menu>
       </Menu.Item>
@@ -370,6 +386,31 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     )
   }
 
+  renderMenuItem(
+    section: NavbarPages,
+    title: React.ReactNode,
+    href: string,
+    children?: React.ReactNode
+  ): React.ReactNode {
+    const { activePage } = this.props
+    return (
+      <Menu.Item
+        active={activePage === section}
+        onMouseEnter={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section)
+        }
+        onMouseLeave={(e: React.MouseEvent) =>
+          this.handleToggleShowSubMenu(e, section)
+        }
+      >
+        <a className="item" href={href}>
+          {title}
+        </a>
+        {this.shouldShowSubMenu(section) && children}
+      </Menu.Item>
+    )
+  }
+
   renderLeftDesktopMenu(): React.ReactNode {
     const { i18n } = this.props
 
@@ -417,31 +458,6 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           'https://decentraland.org/blog'
         )}
       </>
-    )
-  }
-
-  renderMenuItem(
-    section: NavbarPages,
-    title: React.ReactNode,
-    href: string,
-    children?: React.ReactNode
-  ): React.ReactNode {
-    const { activePage } = this.props
-    return (
-      <Menu.Item
-        active={activePage === section}
-        onMouseEnter={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section)
-        }
-        onMouseLeave={(e: React.MouseEvent) =>
-          this.handleToggleShowSubMenu(e, section)
-        }
-      >
-        <a className="item" href={href}>
-          {title}
-        </a>
-        {this.shouldShowSubMenu(section) && children}
-      </Menu.Item>
     )
   }
 
