@@ -4286,7 +4286,7 @@ a.ui.card:hover,
   padding: 0;
   min-width: unset;
   margin-right: 16px;
-  background: rgba(0, 0, 0, 0.64);
+  background: rgba(0, 0, 0, 0.64) !important;
 }
 
 .EmoteControls input {
