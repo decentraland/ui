@@ -4051,6 +4051,12 @@ a.ui.card:hover,
   top: unset;
 }
 
+.dcl.toasts.center {
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+}
+
 .dcl.user-menu {
   display: flex;
   position: relative;
