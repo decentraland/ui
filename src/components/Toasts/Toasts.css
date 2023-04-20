@@ -26,3 +26,8 @@
 .dcl.toasts.bottom.center {
   top: unset;
 }
+
+.dcl.toasts.center {
+  width: min-content;
+  margin: auto;
+}
