@@ -1,30 +1,35 @@
 import * as React from 'react'
 import * as blockies from 'ethereum-blockies/blockies'
 import './Blockie.css'
+import { WrappedAsProps } from '../../types/as'
 
-export type BlockieProps = {
-  seed: string
-  color?: string
-  spotcolor?: string
-  bgcolor?: string
-  size?: number
-  scale?: number
-  className?: string
-  children?: React.ReactNode
-}
+export type BlockieProps<T extends React.ElementType = typeof React.Fragment> =
+  {
+    seed: string
+    color?: string
+    spotcolor?: string
+    bgcolor?: string
+    size?: number
+    scale?: number
+    className?: string
+    children?: React.ReactNode
+  } & WrappedAsProps<T>
 
 export type CanvasStateStore = {
   canvas?: HTMLCanvasElement
 }
 
-export class Blockie extends React.PureComponent<BlockieProps> {
+export class Blockie<T extends React.ElementType> extends React.PureComponent<
+  BlockieProps<T>
+> {
   static defaultProps = {
     color: '#e449c2',
     bgcolor: '#3149de',
     spotcolor: '#e449c2',
     size: 6,
     scale: 6,
-    className: ''
+    className: '',
+    as: React.Fragment
   }
 
   canvas = React.createRef<HTMLCanvasElement>()
@@ -63,7 +68,15 @@ export class Blockie extends React.PureComponent<BlockieProps> {
   }
 
   render(): JSX.Element {
-    const { size, scale, children, className } = this.props
+    const {
+      size,
+      scale,
+      children,
+      className,
+      as: Wrapper,
+      ...rest
+    } = this.props
+
     let classes = `dcl blockie ${className}`.trim()
     if (scale * size <= 16) {
       classes += ' mini'
@@ -78,11 +91,13 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     if (children) {
       return (
         <span className="dcl blockie-wrapper">
-          {canvas}
-          <span className="dcl blockie-children">{children}</span>
+          <Wrapper {...rest}>
+            {canvas}
+            <span className="dcl blockie-children">{children}</span>
+          </Wrapper>
         </span>
       )
     }
-    return canvas
+    return <Wrapper {...rest}>{canvas}</Wrapper>
   }
 }

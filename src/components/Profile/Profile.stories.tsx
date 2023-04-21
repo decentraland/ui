@@ -126,13 +126,24 @@ storiesOf('Profile', module)
       <Profile address="0xdeadbeef" inline={false} size="massive" imageOnly />
     </>
   ))
-  .add('Profile with a content linked to another site', () => (
+  .add('Profile with avatar and content linked to another site', () => (
     <>
       <Profile
         address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
         avatar={avatar}
         inline
-        contentAs="a"
+        as="a"
+        href="https://market.decentraland.zone/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        target="_blank"
+      />
+    </>
+  ))
+  .add('Profile with blockie and content linked to another site', () => (
+    <>
+      <Profile
+        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        inline
+        as="a"
         href="https://market.decentraland.zone/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
         target="_blank"
       />
