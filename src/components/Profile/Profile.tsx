@@ -20,23 +20,6 @@ export type ProfileProps<T extends React.ElementType = typeof React.Fragment> =
     isDecentraland?: boolean
   } & WrappedAsProps<T>
 
-class Name<T extends React.ElementType> extends React.PureComponent<
-  WrappedAsProps<T>
-> {
-  static defaultProps = {
-    as: React.Fragment
-  }
-
-  render() {
-    const { as: Wrapper, children, ...rest } = this.props
-    return (
-      <Wrapper {...rest}>
-        <span className="name">{children}</span>
-      </Wrapper>
-    )
-  }
-}
-
 export class Profile<T extends React.ElementType> extends React.PureComponent<
   ProfileProps<T>
 > {
@@ -64,9 +47,9 @@ export class Profile<T extends React.ElementType> extends React.PureComponent<
 
     const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
     const name = (avatar && avatar.name) || address.slice(0, sliceLimit)
+    const Wrapper = as
 
     if (isDecentraland) {
-      const Wrapper = as
       return (
         <span
           className={`Profile decentraland ${size} ${inline ? 'inline' : ''}`}
@@ -76,9 +59,9 @@ export class Profile<T extends React.ElementType> extends React.PureComponent<
             <Logo />
           </Wrapper>
           {imageOnly ? null : (
-            <Name as={as} {...rest}>
-              Decentraland
-            </Name>
+            <Wrapper {...rest}>
+              <span className="name">Decentraland</span>
+            </Wrapper>
           )}
         </span>
       )
@@ -98,17 +81,13 @@ export class Profile<T extends React.ElementType> extends React.PureComponent<
                 className={`Profile avatar ${size} ${inline ? 'inline' : ''}`}
                 title={address}
               >
-                <AvatarFace
-                  size="tiny"
-                  inline={inline}
-                  avatar={avatar}
-                  as={as}
-                  {...rest}
-                />
+                <Wrapper {...rest}>
+                  <AvatarFace size="tiny" inline={inline} avatar={avatar} />
+                </Wrapper>
                 {imageOnly ? null : (
-                  <Name as={as} {...rest}>
-                    {name}
-                  </Name>
+                  <Wrapper {...rest}>
+                    <span className="name">{name}</span>
+                  </Wrapper>
                 )}
               </span>
             ) : (
@@ -116,24 +95,26 @@ export class Profile<T extends React.ElementType> extends React.PureComponent<
                 className={`Profile blockie ${size} ${inline ? 'inline' : ''}`}
                 title={address}
               >
-                <Blockie
-                  seed={address}
-                  scale={
-                    size === 'large'
-                      ? 5
-                      : size === 'huge'
-                      ? 7
-                      : size === 'massive'
-                      ? 21
-                      : 3
-                  }
-                  as={as}
-                  {...rest}
-                />
+                <Wrapper {...rest}>
+                  <Blockie
+                    seed={address}
+                    scale={
+                      size === 'large'
+                        ? 5
+                        : size === 'huge'
+                        ? 7
+                        : size === 'massive'
+                        ? 21
+                        : 3
+                    }
+                    as={as}
+                    {...rest}
+                  />
+                </Wrapper>
                 {imageOnly ? null : (
-                  <Name as={as} {...rest}>
-                    {name}
-                  </Name>
+                  <Wrapper {...rest}>
+                    <span className="name">{name}</span>
+                  </Wrapper>
                 )}
               </span>
             )

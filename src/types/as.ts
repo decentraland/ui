@@ -4,5 +4,4 @@ export type WrappedAsProps<
   T extends React.ElementType = typeof React.Fragment
 > = {
   as?: T
-} & React.PropsWithChildren<T> &
-  React.ComponentPropsWithoutRef<T>
+} & { children?: React.ReactNode } & React.ComponentPropsWithoutRef<T>
