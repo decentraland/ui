@@ -167,7 +167,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   handleToggle = (event: React.MouseEvent): void => {
-    this.setState({ toggle: !this.state.toggle })
+    this.setState({ toggle: !this.state.toggle, showSubMenu: {} })
     event.stopPropagation()
     event.nativeEvent.stopImmediatePropagation()
   }
