@@ -3413,15 +3413,9 @@ a.ui.card:hover,
   }
 
   .dcl.navbar .mobile-menu .item.active,
-  .dcl.navbar .mobile-menu .item.active .item,
-  .dcl.navbar .mobile-menu .item:has(+ .item.submenu) {
+  .dcl.navbar .mobile-menu .item.active .item {
     background-color: var(--navbar-popup-hover);
     font-weight: bold;
-  }
-
-  .dcl.navbar .mobile-menu .item:hover {
-    color: var(--text);
-    background-color: var(--navbar-popup-hover);
   }
 
   .dcl.navbar .mobile-menu .item.submenu .ui.vertical.menu {
