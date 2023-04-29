@@ -5,7 +5,9 @@ module.exports = {
     'postcss-svg': true,
     'postcss-assets': true,
     'postcss-copy': {
-      dest: 'dist/assets'
-    },
+      'basePath': [`${__dirname}/src`],
+      'preservePath': true,
+      'dest': `${__dirname}/dist/assets`
+    }
   }
 }
