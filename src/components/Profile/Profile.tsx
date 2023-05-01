@@ -62,7 +62,7 @@ export const Profile = function <T extends React.ElementType>(
   }
 
   if (textOnly) {
-    return <>{name}</>
+    return <Wrapper {...rest}>{name}</Wrapper>
   } else {
     return (
       <Popup
