@@ -44,7 +44,7 @@ You can also use `decentraland-ui` as a CSS framework just by adding this tag in
 And then using [Semantic UI](https://semantic-ui.com/) classes like this:
 
 ```html
-<button class="ui button">Sabe</button>
+<button class="ui button">Click me!</button>
 ```
 
 🏌
