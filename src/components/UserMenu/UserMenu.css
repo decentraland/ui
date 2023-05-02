@@ -184,12 +184,12 @@
   }
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) {
-    height: calc(var(--navbar-height) + 12px);
+    height: calc(var(--navbar-height) + 16px);
   }
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) > .ui.container {
     align-items: flex-start;
-    padding-top: 12px;
+    padding-top: 8px;
   }
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.account-wrapper {
