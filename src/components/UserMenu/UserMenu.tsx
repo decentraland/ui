@@ -4,8 +4,10 @@ import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
+import { Mobile } from '../Media'
 import { Mana } from '../Mana/Mana'
 import { Button } from '../Button/Button'
+import { Column } from '../Column/Column'
 import { Row } from '../Row/Row'
 import './UserMenu.css'
 
@@ -86,6 +88,27 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
     this.mounted = false
   }
 
+  renderManaBalances = (): React.ReactNode => {
+    const { manaBalances, onClickBalance } = this.props
+
+    return (
+      <span className="dcl account-wrapper">
+        {Object.keys(manaBalances).map((network) => (
+          <Mana
+            key={network}
+            network={network as Network}
+            size="small"
+            className={onClickBalance ? 'clickable' : undefined}
+            title={`${manaBalances[network].toLocaleString()} MANA`}
+            href="https://account.decentraland.org"
+          >
+            {Number(manaBalances[network].toFixed(2)).toLocaleString()}
+          </Mana>
+        ))}
+      </span>
+    )
+  }
+
   render(): JSX.Element {
     const {
       avatar,
@@ -99,7 +122,6 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       onClickProfile,
       onClickActivity,
       onClickSettings,
-      onClickBalance,
       i18n,
       menuItems
     } = this.props
@@ -108,86 +130,86 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
 
     const name = avatar ? avatar.name : null
 
+    const isSomeBalanceTooHigh = Object.values(manaBalances).some(
+      (balance) => Number(balance.toFixed(2)).toLocaleString().length > 5
+    )
+
     return (
-      <Row className="dcl user-menu-wrapper">
-        <Menu.Item
-          className={isActivity ? 'activity-bell active' : 'activity-bell'}
-        >
-          {onClickActivity ? (
-            <Icon
-              className={hasActivity ? 'pending' : ''}
-              name="bell"
-              onClick={onClickActivity}
-            />
-          ) : null}
-        </Menu.Item>
-        <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
-          {isSignedIn && (
-            <>
-              <span className="dcl account-wrapper">
-                {Object.keys(manaBalances).map((network) => (
-                  <Mana
-                    key={network}
-                    network={network as Network}
-                    size="small"
-                    className={onClickBalance ? 'clickable' : undefined}
-                    title={`${manaBalances[network].toLocaleString()} MANA`}
-                    href="https://account.decentraland.org"
-                  >
-                    {Number(manaBalances[network].toFixed(2)).toLocaleString()}
-                  </Mana>
-                ))}
-              </span>
-              <div className="toggle" onClick={this.handleToggle}>
-                <AvatarFace size="medium" avatar={avatar} />
-              </div>
-              <div
-                className={`menu ${isOpen ? 'open' : ''} ${
-                  isClickable ? 'clickable' : ''
-                }`}
-              >
-                <div
-                  className={`info ${onClickProfile ? 'clickable' : ''}`}
-                  onClick={onClickProfile}
-                >
-                  <div className="image">
-                    <AvatarFace size="small" avatar={avatar} />
-                  </div>
-                  <div>
-                    <div className="name">{name || i18n.guest}</div>
-                  </div>
+      <Column align="right">
+        <Row className="dcl user-menu-wrapper">
+          <Menu.Item
+            className={isActivity ? 'activity-bell active' : 'activity-bell'}
+          >
+            {onClickActivity ? (
+              <Icon
+                className={hasActivity ? 'pending' : ''}
+                name="bell"
+                onClick={onClickActivity}
+              />
+            ) : null}
+          </Menu.Item>
+          <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
+            {isSignedIn && (
+              <>
+                {this.renderManaBalances()}
+                <div className="toggle" onClick={this.handleToggle}>
+                  <AvatarFace size="medium" avatar={avatar} />
                 </div>
-                <ul className="actions">
-                  <a href="https://account.decentraland.org">
-                    <li>
-                      <Icon name="user"></Icon>
-                      {i18n.account}
-                    </li>
-                  </a>
-                  {menuItems}
-                  {onClickSettings ? (
-                    <li onClick={onClickSettings}>
-                      <Icon name="cog"></Icon>
-                      {i18n.settings}
-                    </li>
-                  ) : null}
-                  {onSignOut ? (
-                    <li onClick={onSignOut}>
-                      <i className="sign-out-icon" />
-                      {i18n.signOut}
-                    </li>
-                  ) : null}
-                </ul>
-              </div>
-            </>
-          )}
-          {!isSignedIn && (
-            <Button primary disabled={isSigningIn} onClick={onSignIn}>
-              {i18n.signIn}
-            </Button>
-          )}
-        </div>
-      </Row>
+                <div
+                  className={`menu ${isOpen ? 'open' : ''} ${
+                    isClickable ? 'clickable' : ''
+                  }`}
+                >
+                  <div
+                    className={`info ${onClickProfile ? 'clickable' : ''}`}
+                    onClick={onClickProfile}
+                  >
+                    <div className="image">
+                      <AvatarFace size="small" avatar={avatar} />
+                    </div>
+                    <div>
+                      <div className="name">{name || i18n.guest}</div>
+                    </div>
+                  </div>
+                  <ul className="actions">
+                    <a href="https://account.decentraland.org">
+                      <li>
+                        <Icon name="user"></Icon>
+                        {i18n.account}
+                      </li>
+                    </a>
+                    {menuItems}
+                    {onClickSettings ? (
+                      <li onClick={onClickSettings}>
+                        <Icon name="cog"></Icon>
+                        {i18n.settings}
+                      </li>
+                    ) : null}
+                    {onSignOut ? (
+                      <li onClick={onSignOut}>
+                        <i className="sign-out-icon" />
+                        {i18n.signOut}
+                      </li>
+                    ) : null}
+                  </ul>
+                </div>
+              </>
+            )}
+            {!isSignedIn && (
+              <Button primary disabled={isSigningIn} onClick={onSignIn}>
+                {i18n.signIn}
+              </Button>
+            )}
+          </div>
+        </Row>
+        {isSignedIn && isSomeBalanceTooHigh && (
+          <Mobile>
+            <Row className="dcl mobile-user-balances-wrapper" align="right">
+              {this.renderManaBalances()}
+            </Row>
+          </Mobile>
+        )}
+      </Column>
     )
   }
 }
