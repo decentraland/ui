@@ -117,6 +117,7 @@
   padding: 0px;
   font-size: 13px;
   line-height: 18px;
+  z-index: 2;
 }
 
 .dcl.navbar .ui.menu .item.disabled {
@@ -131,6 +132,10 @@
   color: var(--text);
   background: transparent;
   cursor: pointer;
+}
+
+.dcl.navbar .ui.menu .item > .item {
+  z-index: 1;
 }
 
 .dcl.navbar .ui.menu .item.active {
@@ -195,10 +200,11 @@
   margin-right: 0;
 }
 
-.dcl.navbar .ui.menu .item .submenu {
+.dcl.navbar .ui.menu .item .item.submenu {
   position: absolute;
   top: 0;
   padding-top: 32px;
+  z-index: 0;
 }
 
 .dcl.navbar .ui.menu .item .submenu .ui.vertical.menu {
