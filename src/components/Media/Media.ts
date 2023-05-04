@@ -1,6 +1,11 @@
 import { useMediaQuery } from 'react-responsive'
 
 /**
+ * Media hook to determine if we're going to be rendering in a desktop environment with big screens.
+ */
+const useBigDesktopMediaQuery = (): boolean => useMediaQuery({ minWidth: 1920 })
+
+/**
  * Media hook to determine if we're going to be rendering in a desktop environment.
  */
 const useDesktopMediaQuery = (): boolean => useMediaQuery({ minWidth: 992 })
@@ -73,6 +78,7 @@ export {
   TabletAndBelow,
   Mobile,
   NotMobile,
+  useBigDesktopMediaQuery,
   useDesktopMediaQuery,
   useTabletMediaQuery,
   useTabletAndBelowMediaQuery,
