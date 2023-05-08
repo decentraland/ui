@@ -192,19 +192,30 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     event.nativeEvent.stopImmediatePropagation()
   }
 
+  handleClickMenuOption = (e: React.MouseEvent, section: string) => {
+    const { onClickMenuOption } = this.props
+
+    if (onClickMenuOption) {
+      onClickMenuOption(e, section)
+    }
+  }
+
   shouldShowSubMenu = (section: NavbarPages): boolean => {
     return this.props.enableSubMenuSection && this.state.showSubMenu[section]
   }
 
   renderMarketplaceSubMenu(): React.ReactNode {
-    const { i18n, onClickMenuOption } = this.props
+    const { i18n } = this.props
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
             href="https://market.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.MARKETPLACE}_overview`)
+              this.handleClickMenuOption(
+                e,
+                `${NavbarPages.MARKETPLACE}_overview`
+              )
             }
           >
             {i18n.menu.marketplace.overview}
@@ -212,7 +223,10 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://market.decentraland.org/browse"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.MARKETPLACE}_collectibles`)
+              this.handleClickMenuOption(
+                e,
+                `${NavbarPages.MARKETPLACE}_collectibles`
+              )
             }
           >
             {i18n.menu.marketplace.collectibles}
@@ -220,7 +234,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://market.decentraland.org/lands"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.MARKETPLACE}_land`)
+              this.handleClickMenuOption(e, `${NavbarPages.MARKETPLACE}_land`)
             }
           >
             {i18n.menu.marketplace.land}
@@ -228,7 +242,10 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://market.decentraland.org/account"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.MARKETPLACE}_myAssets`)
+              this.handleClickMenuOption(
+                e,
+                `${NavbarPages.MARKETPLACE}_myAssets`
+              )
             }
           >
             {i18n.menu.marketplace.myAssets}
@@ -239,14 +256,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderBuilderSubMenu(): React.ReactNode {
-    const { i18n, onClickMenuOption } = this.props
+    const { i18n } = this.props
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
             href="https://builder.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.BUILDER}_overview`)
+              this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_overview`)
             }
           >
             {i18n.menu.builder.overview}
@@ -254,7 +271,10 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://builder.decentraland.org/collections"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.BUILDER}_collections`)
+              this.handleClickMenuOption(
+                e,
+                `${NavbarPages.BUILDER}_collections`
+              )
             }
           >
             {i18n.menu.builder.collections}
@@ -262,7 +282,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://builder.decentraland.org/scenes"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.BUILDER}_scenes`)
+              this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_scenes`)
             }
           >
             {i18n.menu.builder.scenes}
@@ -270,7 +290,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://builder.decentraland.org/land"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.BUILDER}_land`)
+              this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_land`)
             }
           >
             {i18n.menu.builder.land}
@@ -278,7 +298,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://builder.decentraland.org/names"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.BUILDER}_names`)
+              this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_names`)
             }
           >
             {i18n.menu.builder.names}
@@ -289,14 +309,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderDocsSubMenu(): React.ReactNode {
-    const { i18n, onClickMenuOption } = this.props
+    const { i18n } = this.props
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
             href="https://docs.decentraland.org/player"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DOCS}_players`)
+              this.handleClickMenuOption(e, `${NavbarPages.DOCS}_players`)
             }
           >
             {i18n.menu.docs.players}
@@ -304,7 +324,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://docs.decentraland.org/creator"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DOCS}_creators`)
+              this.handleClickMenuOption(e, `${NavbarPages.DOCS}_creators`)
             }
           >
             {i18n.menu.docs.creators}
@@ -312,7 +332,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://docs.decentraland.org/contributor"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DOCS}_contributors`)
+              this.handleClickMenuOption(e, `${NavbarPages.DOCS}_contributors`)
             }
           >
             {i18n.menu.docs.contributors}
@@ -320,7 +340,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://studios.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DOCS}_studios`)
+              this.handleClickMenuOption(e, `${NavbarPages.DOCS}_studios`)
             }
           >
             {i18n.menu.docs.studios}
@@ -331,14 +351,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderPlacesSubMenu(): React.ReactNode {
-    const { i18n, onClickMenuOption } = this.props
+    const { i18n } = this.props
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
             href="https://places.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.PLACES}_overview`)
+              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_overview`)
             }
           >
             {i18n.menu.places.overview}
@@ -346,7 +366,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://places.decentraland.org/places"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.PLACES}_allPlaces`)
+              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_allPlaces`)
             }
           >
             {i18n.menu.places.allPlaces}
@@ -354,7 +374,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://docs.decentraland.org/creator/places/faq"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.PLACES}_faq`)
+              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_faq`)
             }
           >
             {i18n.menu.places.faq}
@@ -365,14 +385,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderDaoSubMenu(): React.ReactNode {
-    const { i18n, onClickMenuOption } = this.props
+    const { i18n } = this.props
     return (
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
             href="https://dao.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DAO}_overview`)
+              this.handleClickMenuOption(e, `${NavbarPages.DAO}_overview`)
             }
           >
             {i18n.menu.dao.overview}
@@ -380,7 +400,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://governance.decentraland.org"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DAO}_governance`)
+              this.handleClickMenuOption(e, `${NavbarPages.DAO}_governance`)
             }
           >
             {i18n.menu.dao.governance}
@@ -388,7 +408,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://governance.decentraland.org/transparency"
             onMouseDown={(e: React.MouseEvent) =>
-              onClickMenuOption(e, `${NavbarPages.DAO}_transparency`)
+              this.handleClickMenuOption(e, `${NavbarPages.DAO}_transparency`)
             }
           >
             {i18n.menu.dao.transparency}
@@ -489,7 +509,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     href: string,
     children?: React.ReactNode
   ): React.ReactNode {
-    const { activePage, onClickMenuOption } = this.props
+    const { activePage } = this.props
     return (
       <Menu.Item
         active={activePage === section}
@@ -503,7 +523,9 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         <a
           className="item"
           href={href}
-          onMouseDown={(e: React.MouseEvent) => onClickMenuOption(e, section)}
+          onMouseDown={(e: React.MouseEvent) =>
+            this.handleClickMenuOption(e, section)
+          }
         >
           {title}
         </a>
