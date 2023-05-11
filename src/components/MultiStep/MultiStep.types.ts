@@ -6,7 +6,7 @@ export type Step = {
   action?: string
   actionDescription?: string
   testId?: string
-  onActionClicked: () => void
+  onActionClick: () => void
 }
 
 export type Props = {

@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
-
-import { Button, Loader } from '../../index'
+import { Button } from '../Button/Button'
+import { Loader } from '../Loader/Loader'
 import { Props } from './MultiStep.types'
 import './MultiStep.css'
 
@@ -33,7 +33,7 @@ export function MultiStep({ steps, currentStep }: Props): JSX.Element {
                 <div className="step-action-container">
                   <Button
                     primary
-                    onClick={step.onActionClicked}
+                    onClick={step.onActionClick}
                     className="step-action"
                     disabled={isDisabled}
                   >
