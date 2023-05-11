@@ -23,7 +23,7 @@
 }
 
 .authorization-modal .ui.button.close-button::before {
-  content: url(../../../../images/simple_close.svg);
+  content: url(../../assets/close.svg);
   width: 16px;
   height: 16px;
 }
@@ -35,7 +35,7 @@
 }
 
 .authorization-modal .authorization-error::before {
-  content: url(../../../../images/simple_close.svg);
+  content: url(../../assets/close.svg);
   width: 16px;
   height: 16px;
 }
