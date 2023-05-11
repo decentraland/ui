@@ -1,0 +1,41 @@
+.authorization-modal {
+  padding: 45px 32px;
+  width: 100%;
+  max-width: 580px;
+}
+
+.authorization-modal .header {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 48px;
+  margin-top: 0;
+}
+
+.authorization-modal .contract-name {
+  color: var(--primary);
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.authorization-modal .ui.button.close-button::before {
+  content: url(../../../../images/simple_close.svg);
+  width: 16px;
+  height: 16px;
+}
+
+.authorization-modal .authorization-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.authorization-modal .authorization-error::before {
+  content: url(../../../../images/simple_close.svg);
+  width: 16px;
+  height: 16px;
+}
