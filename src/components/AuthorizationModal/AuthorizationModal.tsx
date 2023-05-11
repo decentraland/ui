@@ -1,15 +1,13 @@
 import React from 'react'
-import { Button, Modal, MultiStep} from '../../index'
-import {
-  Props
-} from './AuthorizationModal.types'
+import { Button, Modal, MultiStep } from '../../index'
+import { Props } from './AuthorizationModal.types'
 import './AuthorizationModal.css'
 
 export function AuthorizationModal({
   currentStep,
   header,
   steps,
-  onClose,
+  onClose
 }: Props) {
   return (
     <Modal
@@ -24,9 +22,7 @@ export function AuthorizationModal({
         className="close-button"
         onClick={onClose}
       />
-      <h1 className="header">
-        {header}
-      </h1>
+      <h1 className="header">{header}</h1>
       <MultiStep currentStep={currentStep} steps={steps} />
     </Modal>
   )

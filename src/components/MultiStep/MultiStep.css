@@ -69,7 +69,7 @@
 }
 
 .ui-multi-step .check-icon {
-  color: var(--primary)
+  color: var(--primary);
 }
 
 .ui-multi-step .step-message {
