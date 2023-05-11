@@ -20,7 +20,7 @@ export function AuthorizationModal({
     >
       <Button
         basic
-        aria-label={close}
+        aria-label="Close"
         className="close-button"
         onClick={onClose}
       />
