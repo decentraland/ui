@@ -43,7 +43,7 @@ export type LoginModalOptionI18N = {
   email: React.ReactNode
   mobile: React.ReactNode
   mobile_and_browser: React.ReactNode
-  metamask_mobile: React.ReactNode
+  metamask_mobile?: React.ReactNode | null
 }
 
 class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
@@ -65,7 +65,7 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
     switch (type) {
       case LoginModalOptionType.METAMASK_MOBILE:
         title = 'MetaMask'
-        subtitle = i18n.metamask_mobile
+        subtitle = i18n.metamask_mobile || i18n.mobile
         break
 
       case LoginModalOptionType.METAMASK:
