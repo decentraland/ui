@@ -5118,3 +5118,129 @@ a.ui.card:hover,
   padding: 0 6px;
 }
 
+.ui-multi-step {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ui-multi-step .step-container {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+}
+
+.ui-multi-step .step-container.disabled {
+  opacity: 0.5;
+}
+
+.ui-multi-step .step-position {
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-multi-step .step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ui-multi-step .step-title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.ui-multi-step .step-description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.ui-multi-step .step-action {
+  max-width: 230px;
+  width: 100%;
+}
+
+.ui-multi-step .step-action-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  align-items: center;
+}
+
+.ui-multi-step .disabled .step-action:disabled {
+  background: rgba(115, 110, 125, 0.5);
+  opacity: 1 !important; /** This is to override opacity: 0.45!important for buttons. The opacity will be given by upper component **/
+}
+
+.ui-multi-step .step-message .ui.loader {
+  position: relative;
+  top: 12px;
+  left: 10px;
+}
+
+.ui-multi-step .check-icon {
+  color: var(--primary);
+}
+
+.ui-multi-step .step-message {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  height: 44px;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+}
+
+.authorization-modal {
+  padding: 45px 32px;
+  width: 100%;
+  max-width: 580px;
+}
+
+.authorization-modal .header {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 48px;
+  margin-top: 0;
+}
+
+.authorization-modal .contract-name {
+  color: var(--primary);
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.authorization-modal .ui.button.close-button::before {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTS01LTVoMjR2MjRILTV6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEzLjcwNi4zNjNsLS4wNjktLjA2OWExIDEgMCAwIDAtMS40MTQgMEw3IDUuNTE3IDEuNzc3LjI5NGExIDEgMCAwIDAtMS40MTQgMEwuMjk0LjM2M2ExIDEgMCAwIDAgMCAxLjQxNEw1LjUxNyA3IC4yOTQgMTIuMjIzYTEgMSAwIDAgMCAwIDEuNDE0bC4wNjkuMDY5YTEgMSAwIDAgMCAxLjQxNCAwTDcgOC40ODNsNS4yMjMgNS4yMjNhMSAxIDAgMCAwIDEuNDE0IDBsLjA2OS0uMDY5YTEgMSAwIDAgMCAwLTEuNDE0TDguNDgzIDdsNS4yMjMtNS4yMjNhMSAxIDAgMCAwIDAtMS40MTR6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
+  width: 16px;
+  height: 16px;
+}
+
+.authorization-modal .authorization-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.authorization-modal .authorization-error::before {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTS01LTVoMjR2MjRILTV6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEzLjcwNi4zNjNsLS4wNjktLjA2OWExIDEgMCAwIDAtMS40MTQgMEw3IDUuNTE3IDEuNzc3LjI5NGExIDEgMCAwIDAtMS40MTQgMEwuMjk0LjM2M2ExIDEgMCAwIDAgMCAxLjQxNEw1LjUxNyA3IC4yOTQgMTIuMjIzYTEgMSAwIDAgMCAwIDEuNDE0bC4wNjkuMDY5YTEgMSAwIDAgMCAxLjQxNCAwTDcgOC40ODNsNS4yMjMgNS4yMjNhMSAxIDAgMCAwIDEuNDE0IDBsLjA2OS0uMDY5YTEgMSAwIDAgMCAwLTEuNDE0TDguNDgzIDdsNS4yMjMtNS4yMjNhMSAxIDAgMCAwIDAtMS40MTR6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
+  width: 16px;
+  height: 16px;
+}
+
