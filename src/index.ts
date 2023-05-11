@@ -80,7 +80,8 @@ export * from './components/Box'
 export * from './components/RangeField'
 export * from './components/SliderField/SliderField'
 export * from './components/BarChart/BarChart'
-
+export * from './components/MultiStep/MultiStep'
+export * from './components/AuthorizationModal'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
