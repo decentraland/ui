@@ -21,7 +21,6 @@
 
 .dcl.toast .dcl.close {
   position: absolute;
-  top: 18px;
   right: 12px;
   cursor: pointer;
 }
@@ -31,4 +30,12 @@
   font-size: 17px;
   font-weight: 700;
   color: var(--toast-text);
+}
+
+@media (max-width: 768px) {
+  .dcl.toast {
+    margin: auto;
+    width: 100vw;
+    max-width: initial;
+  }
 }

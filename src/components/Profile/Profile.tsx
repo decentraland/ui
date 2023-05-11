@@ -6,7 +6,7 @@ import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Blockie } from '../Blockie/Blockie'
 import './Profile.css'
 
-export type ProfileProps = {
+type Props<T extends React.ElementType> = {
   address: string
   avatar?: Avatar | null
   textOnly?: boolean
@@ -16,65 +16,80 @@ export type ProfileProps = {
   sliceAddressBy?: number
   size?: 'normal' | 'large' | 'huge' | 'massive'
   isDecentraland?: boolean
+  as?: T
 }
 
-export class Profile extends React.PureComponent<ProfileProps> {
-  static defaultProps = {
-    inline: true,
-    sliceAddressBy: 6,
-    size: 'normal'
+export type ProfileProps<T extends React.ElementType> = Props<T> &
+  Omit<React.ComponentPropsWithRef<T>, keyof Props<T>>
+
+export const Profile = function <T extends React.ElementType>(
+  props: ProfileProps<T>
+) {
+  const {
+    address,
+    avatar,
+    textOnly,
+    imageOnly,
+    hasPopup,
+    inline = true,
+    size = 'normal',
+    sliceAddressBy = 6,
+    isDecentraland,
+    as = React.Fragment,
+    ...rest
+  } = props
+
+  const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
+  const name = (avatar && avatar.name) || address.slice(0, sliceLimit)
+  const Wrapper = as
+
+  if (isDecentraland) {
+    return (
+      <span
+        className={`Profile decentraland ${size} ${inline ? 'inline' : ''}`}
+        title={address}
+      >
+        <Wrapper {...rest}>
+          <Logo />
+        </Wrapper>
+        {imageOnly ? null : (
+          <Wrapper {...rest}>
+            <span className="name">Decentraland</span>
+          </Wrapper>
+        )}
+      </span>
+    )
   }
 
-  render(): React.ReactNode {
-    const {
-      address,
-      avatar,
-      textOnly,
-      imageOnly,
-      hasPopup,
-      inline,
-      size,
-      sliceAddressBy,
-      isDecentraland
-    } = this.props
-
-    const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
-    const name = (avatar && avatar.name) || address.slice(0, sliceLimit)
-
-    if (isDecentraland) {
-      return (
-        <span
-          className={`Profile decentraland ${size} ${inline ? 'inline' : ''}`}
-          title={address}
-        >
-          <Logo />
-          {imageOnly ? null : <span className="name">Decentraland</span>}
-        </span>
-      )
-    }
-
-    if (textOnly) {
-      return name
-    } else {
-      return (
-        <Popup
-          content={name}
-          disabled={!hasPopup}
-          position="top center"
-          trigger={
-            avatar ? (
-              <span
-                className={`Profile avatar ${size} ${inline ? 'inline' : ''}`}
-                title={address}
-              >
+  if (textOnly) {
+    return <Wrapper {...rest}>{name}</Wrapper>
+  } else {
+    return (
+      <Popup
+        content={name}
+        disabled={!hasPopup}
+        position="top center"
+        trigger={
+          avatar ? (
+            <span
+              className={`Profile avatar ${size} ${inline ? 'inline' : ''}`}
+              title={address}
+            >
+              <Wrapper {...rest}>
                 <AvatarFace size="tiny" inline={inline} avatar={avatar} />
-                {imageOnly ? null : <span className="name">{name}</span>}
-              </span>
-            ) : (
-              <span
-                className={`Profile blockie ${size} ${inline ? 'inline' : ''}`}
-                title={address}
-              >
+              </Wrapper>
+              {imageOnly ? null : (
+                <Wrapper {...rest}>
+                  <span className="name">{name}</span>
+                </Wrapper>
+              )}
+            </span>
+          ) : (
+            <span
+              className={`Profile blockie ${size} ${inline ? 'inline' : ''}`}
+              title={address}
+            >
+              <Wrapper {...rest}>
                 <Blockie
                   seed={address}
                   scale={
@@ -86,13 +101,19 @@ export class Profile extends React.PureComponent<ProfileProps> {
                       ? 21
                       : 3
                   }
+                  as={as}
+                  {...rest}
                 />
-                {imageOnly ? null : <span className="name">{name}</span>}
-              </span>
-            )
-          }
-        />
-      )
-    }
+              </Wrapper>
+              {imageOnly ? null : (
+                <Wrapper {...rest}>
+                  <span className="name">{name}</span>
+                </Wrapper>
+              )}
+            </span>
+          )
+        }
+      />
+    )
   }
 }

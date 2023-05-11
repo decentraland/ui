@@ -33,6 +33,15 @@
   height: 16px;
 }
 
+.dcl.toast .dcl.close {
+  width: 24px;
+  height: 24px;
+}
+
+.dcl.toast .dcl.close .close-icon {
+  background-size: 12px;
+}
+
 .dcl.close.small .close-icon {
   position: relative;
   width: 100%;

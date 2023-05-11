@@ -64,6 +64,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
 
   render(): JSX.Element {
     const { size, scale, children, className } = this.props
+
     let classes = `dcl blockie ${className}`.trim()
     if (scale * size <= 16) {
       classes += ' mini'
