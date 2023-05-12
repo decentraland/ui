@@ -3270,7 +3270,8 @@ a.ui.card:hover,
   z-index: 1;
 }
 
-.dcl.navbar .ui.menu .item.active {
+.dcl.navbar .ui.menu .item.active,
+.dcl.navbar .ui.menu .item.active .item {
   font-weight: bold;
 }
 
