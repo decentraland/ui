@@ -30,12 +30,15 @@
 
 .authorization-modal .authorization-error {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 16px
 }
 
 .authorization-modal .authorization-error::before {
   content: url(../../assets/close.svg);
   width: 16px;
   height: 16px;
+  filter: invert(42%) sepia(92%) saturate(5601%) hue-rotate(333deg) brightness(103%) contrast(101%);
 }
