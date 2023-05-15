@@ -10,10 +10,12 @@ const steps: AuthorizationStep[] = [
   {
     title: 'Revoke',
     onActionClick: () => console.log('revoke'),
-    message: <span className="authorization-error">This is a big error message</span>,
+    message: (
+      <span className="authorization-error">This is a big error message</span>
+    ),
     status: AuthorizationStepStatus.ERROR,
     actionType: AuthorizationStepAction.REVOKE,
-    action: "Revoke"
+    action: 'Revoke'
   }
 ]
 
