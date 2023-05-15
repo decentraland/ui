@@ -3991,6 +3991,7 @@ a.ui.card:hover,
   position: relative;
   background-color: var(--toast);
   color: var(--toast-text);
+  width: 100vw;
   z-index: 2147483002; /* Appear over intercom */
 }
 
@@ -5209,12 +5210,12 @@ a.ui.card:hover,
   max-width: 580px;
 }
 
-.authorization-modal .header {
+.authorization-modal .authorization-header {
   font-weight: 700;
   font-size: 32px;
   line-height: 32px;
+  margin: 0;
   margin-bottom: 48px;
-  margin-top: 0;
 }
 
 .authorization-modal .contract-name {
