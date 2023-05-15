@@ -5172,7 +5172,7 @@ a.ui.card:hover,
 
 .ui-multi-step .step-action-container {
   display: flex;
-  gap: 10px;
+  gap: 24px;
   margin-top: 10px;
   font-size: 13px;
   align-items: center;
@@ -5235,13 +5235,17 @@ a.ui.card:hover,
 
 .authorization-modal .authorization-error {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .authorization-modal .authorization-error::before {
   content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTS01LTVoMjR2MjRILTV6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEzLjcwNi4zNjNsLS4wNjktLjA2OWExIDEgMCAwIDAtMS40MTQgMEw3IDUuNTE3IDEuNzc3LjI5NGExIDEgMCAwIDAtMS40MTQgMEwuMjk0LjM2M2ExIDEgMCAwIDAgMCAxLjQxNEw1LjUxNyA3IC4yOTQgMTIuMjIzYTEgMSAwIDAgMCAwIDEuNDE0bC4wNjkuMDY5YTEgMSAwIDAgMCAxLjQxNCAwTDcgOC40ODNsNS4yMjMgNS4yMjNhMSAxIDAgMCAwIDEuNDE0IDBsLjA2OS0uMDY5YTEgMSAwIDAgMCAwLTEuNDE0TDguNDgzIDdsNS4yMjMtNS4yMjNhMSAxIDAgMCAwIDAtMS40MTR6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
   width: 16px;
   height: 16px;
+  filter: invert(42%) sepia(92%) saturate(5601%) hue-rotate(333deg)
+    brightness(103%) contrast(101%);
 }
 
