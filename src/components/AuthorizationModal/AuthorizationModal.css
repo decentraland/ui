@@ -4,12 +4,12 @@
   max-width: 580px;
 }
 
-.authorization-modal .header {
+.authorization-modal .authorization-header {
   font-weight: 700;
   font-size: 32px;
   line-height: 32px;
+  margin: 0;
   margin-bottom: 48px;
-  margin-top: 0;
 }
 
 .authorization-modal .contract-name {
