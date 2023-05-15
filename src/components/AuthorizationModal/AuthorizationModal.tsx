@@ -24,7 +24,7 @@ export function AuthorizationModal({
         className="close-button"
         onClick={onClose}
       />
-      <h1 className="header">{header}</h1>
+      <h1 className="authorization-header">{header}</h1>
       <MultiStep currentStep={currentStep} steps={steps} />
     </Modal>
   )
