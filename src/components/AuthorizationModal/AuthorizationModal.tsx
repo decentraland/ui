@@ -14,18 +14,20 @@ export function AuthorizationModal({
   return (
     <Modal
       open
-      className="authorization-modal"
       onClose={onClose}
       data-testid="authorization-modal"
+      className="authorization-modal-container"
     >
-      <Button
-        basic
-        aria-label="Close"
-        className="close-button"
-        onClick={onClose}
-      />
-      <h1 className="authorization-header">{header}</h1>
-      <MultiStep currentStep={currentStep} steps={steps} />
+      <div className="authorization-modal">
+        <Button
+          basic
+          aria-label="Close"
+          className="close-button"
+          onClick={onClose}
+        />
+        <h1 className="authorization-header">{header}</h1>
+        <MultiStep currentStep={currentStep} steps={steps} />
+      </div>
     </Modal>
   )
 }
