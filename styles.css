@@ -474,13 +474,6 @@ a:hover {
   }
 }
 
-/* Wallet Connect V2 Modal */
-w3m-modal {
-  position: fixed;
-  /* login-modal is at 3000 */
-  z-index: 3001;
-}
-
 :root {
   /* global */
   --background: #ffffff;
