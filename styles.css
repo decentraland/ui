@@ -5197,10 +5197,14 @@ a.ui.card:hover,
   position: relative;
 }
 
+.authorization-modal-container {
+  width: 100%;
+  max-width: 580px;
+}
+
 .authorization-modal {
   padding: 45px 32px;
   width: 100%;
-  max-width: 580px;
 }
 
 .authorization-modal .authorization-header {
@@ -5241,5 +5245,11 @@ a.ui.card:hover,
   height: 16px;
   filter: invert(42%) sepia(92%) saturate(5601%) hue-rotate(333deg)
     brightness(103%) contrast(101%);
+}
+
+@media (max-width: 768px) {
+  .authorization-modal {
+    padding: 20px;
+  }
 }
 
