@@ -7,6 +7,7 @@ import Input, {
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
+import { getInputValueLength } from '../../lib/input'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
@@ -119,7 +120,7 @@ export class Field extends React.PureComponent<FieldProps> {
             {label ? <label htmlFor={id}>{label}</label> : null}
             {maxLength !== undefined ? (
               <span className="maxLength">
-                {value.length}/{maxLength}
+                {getInputValueLength(value)}/{maxLength}
               </span>
             ) : null}
           </Header>
