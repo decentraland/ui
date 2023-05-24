@@ -25,6 +25,18 @@ storiesOf('TextArea', module)
       cols="50"
     />
   ))
+  .add('Text area without label and max length', () => (
+    <TextAreaField maxLength={300} value={textAreaValue} rows="10" cols="50" />
+  ))
+  .add('Text area with label and max length', () => (
+    <TextAreaField
+      maxLength={300}
+      label="Description"
+      value={textAreaValue}
+      rows="10"
+      cols="50"
+    />
+  ))
   .add('Text area with label in form', () => (
     <Form>
       <TextAreaField
