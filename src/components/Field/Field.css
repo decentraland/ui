@@ -15,7 +15,6 @@
 
 .dcl.field .ui.header.sub {
   display: flex;
-  justify-content: end;
 }
 
 .dcl.field .ui.header.sub .maxLength {
