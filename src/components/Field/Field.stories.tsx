@@ -128,3 +128,6 @@ storiesOf('Field', module)
   .add('With maxLength and label', () => (
     <Field label="A label" maxLength={20} value="A value" />
   ))
+  .add('With a react element as a message', () => (
+    <Field label="A label" value="A value" message={<label>A message</label>} />
+  ))
