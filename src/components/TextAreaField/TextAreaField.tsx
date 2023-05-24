@@ -2,18 +2,12 @@ import * as React from 'react'
 import TextArea, {
   TextAreaProps
 } from 'semantic-ui-react/dist/commonjs/addons/TextArea/TextArea'
+import { getInputValueLength } from '../../lib/input'
 import './TextAreaField.css'
 
 export type TextAreaFieldProps = TextAreaProps & {
   label?: string
   maxLength?: number
-}
-
-function getValueLength(value: TextAreaFieldProps['value']) {
-  if (value === undefined) {
-    return 0
-  }
-  return typeof value === 'string' ? value.length : value.toString().length
 }
 
 export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
@@ -27,7 +21,7 @@ export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
           {props.label ? <label>{props.label}</label> : null}
           {props.maxLength ? (
             <span className="maxLength">
-              {getValueLength(props.value)}/{props.maxLength}
+              {getInputValueLength(props.value)}/{props.maxLength}
             </span>
           ) : null}
         </div>
