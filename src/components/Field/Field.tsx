@@ -114,11 +114,11 @@ export class Field extends React.PureComponent<FieldProps> {
 
     return (
       <div className={classes}>
-        {label ? (
+        {label || maxLength !== undefined ? (
           <Header sub>
-            <label htmlFor={id}>{label}</label>
+            {label ? <label htmlFor={id}>{label}</label> : null}
             {maxLength !== undefined ? (
-              <span>
+              <span className="maxLength">
                 {value.length}/{maxLength}
               </span>
             ) : null}

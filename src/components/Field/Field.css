@@ -15,7 +15,11 @@
 
 .dcl.field .ui.header.sub {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+}
+
+.dcl.field .ui.header.sub .maxLength {
+  margin-left: auto;
 }
 
 .dcl.field .ui.input input,
