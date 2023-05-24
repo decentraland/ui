@@ -7,6 +7,7 @@ import Input, {
   InputProps
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
+import { getInputValueLength } from '../../lib/input'
 import { Blockie } from '../Blockie/Blockie'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
@@ -31,6 +32,8 @@ export type FieldProps = InputProps & {
   fitContent?: boolean
   /** Boolean flag to determine if datepicker can be cleared, default on true */
   isClearable?: boolean
+  /** Defines the maximum number of characters the user can enter into the input */
+  maxLength?: number
 }
 
 export class Field extends React.PureComponent<FieldProps> {
@@ -90,6 +93,7 @@ export class Field extends React.PureComponent<FieldProps> {
       fitContent,
       isClearable = true,
       id,
+      maxLength,
       ...rest
     } = this.props
 
@@ -111,9 +115,14 @@ export class Field extends React.PureComponent<FieldProps> {
 
     return (
       <div className={classes}>
-        {label ? (
+        {label || maxLength !== undefined ? (
           <Header sub>
-            <label htmlFor={id}>{label}</label>
+            {label ? <label htmlFor={id}>{label}</label> : null}
+            {maxLength !== undefined ? (
+              <span className="maxLength">
+                {getInputValueLength(value)}/{maxLength}
+              </span>
+            ) : null}
           </Header>
         ) : null}
         {type === DATE_TYPE ? (
@@ -138,6 +147,7 @@ export class Field extends React.PureComponent<FieldProps> {
             icon={icon}
             loading={loading && !isAddress}
             disabled={disabled}
+            maxLength={maxLength}
             {...rest}
           />
         )}
