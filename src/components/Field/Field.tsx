@@ -31,6 +31,8 @@ export type FieldProps = InputProps & {
   fitContent?: boolean
   /** Boolean flag to determine if datepicker can be cleared, default on true */
   isClearable?: boolean
+  /** Defines the maximum number of characters the user can enter into the input */
+  maxLength?: number
 }
 
 export class Field extends React.PureComponent<FieldProps> {
@@ -90,6 +92,7 @@ export class Field extends React.PureComponent<FieldProps> {
       fitContent,
       isClearable = true,
       id,
+      maxLength,
       ...rest
     } = this.props
 
@@ -114,6 +117,11 @@ export class Field extends React.PureComponent<FieldProps> {
         {label ? (
           <Header sub>
             <label htmlFor={id}>{label}</label>
+            {maxLength !== undefined ? (
+              <span>
+                {value.length}/{maxLength}
+              </span>
+            ) : null}
           </Header>
         ) : null}
         {type === DATE_TYPE ? (
@@ -138,6 +146,7 @@ export class Field extends React.PureComponent<FieldProps> {
             icon={icon}
             loading={loading && !isAddress}
             disabled={disabled}
+            maxLength={maxLength}
             {...rest}
           />
         )}

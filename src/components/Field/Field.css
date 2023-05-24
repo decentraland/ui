@@ -13,6 +13,11 @@
   width: 100%;
 }
 
+.dcl.field .ui.header.sub {
+  display: flex;
+  justify-content: space-between;
+}
+
 .dcl.field .ui.input input,
 .ui.form .dcl.field .ui.input input {
   padding: 0px;

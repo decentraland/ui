@@ -122,3 +122,6 @@ storiesOf('Field', module)
       />
     </Form>
   ))
+  .add('With maxLength', () => (
+    <Field label="Label" maxLength={20} value="A value" />
+  ))
