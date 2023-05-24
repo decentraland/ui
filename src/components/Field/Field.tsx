@@ -21,7 +21,7 @@ export type FieldProps = InputProps & {
   /** Boolean flag to show an error, default on false*/
   error?: boolean
   /** Message to display below the input*/
-  message?: string
+  message?: React.ReactNode
   /** Button text to display before input to dispatch an action*/
   action?: string
   /** On action function*/
