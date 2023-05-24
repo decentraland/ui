@@ -3952,12 +3952,19 @@ a.ui.card:hover,
   flex-direction: column;
 }
 
-.dcl.text-area > .label {
+.dcl.text-area > .title {
   margin-bottom: 8px;
-  color: #736e7d;
+  font-size: 13px;
   font-family: var(--font-family);
   color: var(--secondary-text);
-  font-size: 13px;
+  display: flex;
+}
+
+.dcl.text-area > .title > .maxLength {
+  margin-left: auto;
+}
+
+.dcl.text-area > .title > label {
   text-transform: uppercase;
 }
 
