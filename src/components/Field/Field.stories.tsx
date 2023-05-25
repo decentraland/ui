@@ -122,12 +122,37 @@ storiesOf('Field', module)
       />
     </Form>
   ))
-  .add('With maxLength and no label', () => (
-    <Field maxLength={20} value="A value" />
-  ))
-  .add('With maxLength and label', () => (
-    <Field label="A label" maxLength={20} value="A value" />
+  .add('With max length and label', () => (
+    <>
+      <Field maxLength={20} value="A value" />
+      <Field label="A label" maxLength={20} value="A value" />
+    </>
   ))
   .add('With a react element as a message', () => (
     <Field label="A label" value="A value" message={<label>A message</label>} />
+  ))
+  .add('With warning, info and error messages', () => (
+    <>
+      <Field
+        label="A label"
+        maxLength={20}
+        value="An error value"
+        error
+        message={'This is an error!'}
+      />
+      <br />
+      <Field
+        label="A label"
+        maxLength={20}
+        value="A value"
+        warning={'The value is duplicated'}
+      />
+      <br />
+      <Field
+        label="A label"
+        maxLength={20}
+        value="A value"
+        info={'This input can have at maximum 20 characters'}
+      />
+    </>
   ))

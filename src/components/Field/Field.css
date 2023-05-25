@@ -145,6 +145,50 @@
   display: none;
 }
 
+/* Warning */
+
+.dcl.field.warning .ui.input input,
+.ui.form .dcl.field.warning .ui.input input {
+  border-bottom: 2px solid var(--danger);
+}
+
+.dcl.field.warning.full .ui.input input,
+.ui.form .dcl.field.warning .ui.input input {
+  border: 2px solid var(--danger);
+}
+
+.dcl.field.warning .message,
+.ui.form .dcl.field.warning .message {
+  color: var(--danger);
+}
+
+.dcl.field.warning .ui.header.sub,
+.ui.form .dcl.field.warning .ui.header.sub {
+  color: var(--danger);
+}
+
+/* Info */
+
+.dcl.field.info .ui.input input,
+.ui.form .dcl.field.info .ui.input input {
+  border-bottom: 2px solid var(--text);
+}
+
+.dcl.field.info.full .ui.input input,
+.ui.form .dcl.field.info .ui.input input {
+  border: 2px solid var(--text);
+}
+
+.dcl.field.info .message,
+.ui.form .dcl.field.info .message {
+  color: var(--text);
+}
+
+.dcl.field.info .ui.header.sub,
+.ui.form .dcl.field.info .ui.header.sub {
+  color: var(--text);
+}
+
 /* Address */
 
 .dcl.field.address .ui.input input,

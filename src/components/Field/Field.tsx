@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import SemanticDatepicker from 'react-semantic-ui-datepickers'
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 
@@ -34,6 +35,34 @@ export type FieldProps = InputProps & {
   isClearable?: boolean
   /** Defines the maximum number of characters the user can enter into the input */
   maxLength?: number
+}
+
+function renderMessage(props: FieldProps) {
+  const { error, warning, info, message } = props
+
+  if (error || message) {
+    return (
+      <>
+        {error && message ? <Icon name="remove circle" /> : null} {message}
+      </>
+    )
+  }
+
+  if (warning) {
+    return (
+      <>
+        <Icon name="warning sign" /> {warning}
+      </>
+    )
+  }
+
+  if (info) {
+    return (
+      <>
+        <Icon name="info circle" /> {info}
+      </>
+    )
+  }
 }
 
 export class Field extends React.PureComponent<FieldProps> {
@@ -83,7 +112,8 @@ export class Field extends React.PureComponent<FieldProps> {
       value,
       label,
       error,
-      message,
+      warning,
+      info,
       type,
       loading,
       action,
@@ -101,6 +131,8 @@ export class Field extends React.PureComponent<FieldProps> {
     const icon = error && !isAddress ? 'warning circle' : void 0
     const classes = classnames('dcl field', kind, {
       error,
+      warning: !error && warning,
+      info: !error && !warning && info,
       disabled,
       address: isAddress,
       resizable: fitContent,
@@ -160,7 +192,7 @@ export class Field extends React.PureComponent<FieldProps> {
         )}
         {this.isAddress() && value ? <Blockie seed={value} scale={4} /> : null}
         <p className="message">
-          {message}
+          {renderMessage(this.props)}
           &nbsp;
         </p>
       </div>
