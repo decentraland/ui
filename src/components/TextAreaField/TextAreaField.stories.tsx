@@ -47,3 +47,34 @@ storiesOf('TextArea', module)
       />
     </Form>
   ))
+  .add('Text area with error, warning or info', () => (
+    <>
+      <TextAreaField
+        value={textAreaValue}
+        maxLength={300}
+        label="Description"
+        rows="10"
+        cols="50"
+        error="An error occurred"
+      />
+      <br />
+      <TextAreaField
+        value={textAreaValue}
+        maxLength={300}
+        label="Description"
+        rows="10"
+        cols="50"
+        warning="There's a warning!"
+      />
+      <br />
+      <TextAreaField
+        value={textAreaValue}
+        maxLength={300}
+        label="Description"
+        rows="10"
+        cols="50"
+        info="This is some information"
+      />
+      <br />
+    </>
+  ))

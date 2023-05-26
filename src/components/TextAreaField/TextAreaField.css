@@ -39,3 +39,68 @@
   color: var(--text);
   outline: none !important;
 }
+
+.dcl.text-area > .message {
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* Error */
+
+.dcl.text-area.error > .title {
+  color: var(--error);
+}
+
+.ui.form .dcl.text-area.error textarea,
+.dcl.text-area.error > textarea {
+  border: 2px solid var(--error);
+}
+
+.ui.form .dcl.text-area.error textarea:focus,
+.dcl.text-area.error > textarea:focus {
+  border: 2px solid var(--error);
+}
+
+.dcl.text-area.error > .message {
+  color: var(--error);
+}
+
+/* Warning */
+
+.dcl.text-area.warning > .title {
+  color: var(--danger);
+}
+
+.ui.form .dcl.text-area.warning textarea,
+.dcl.text-area.warning > textarea {
+  border: 2px solid var(--danger);
+}
+
+.ui.form .dcl.text-area.warning textarea:focus,
+.dcl.text-area.warning > textarea:focus {
+  border: 2px solid var(--danger);
+}
+
+.dcl.text-area.warning > .message {
+  color: var(--danger);
+}
+
+/* Info */
+
+.dcl.text-area.info > .title {
+  color: var(--text);
+}
+
+.ui.form .dcl.text-area.info textarea,
+.dcl.text-area.info > textarea {
+  border: 2px solid var(--text);
+}
+
+.ui.form .dcl.text-area.info textarea:focus,
+.dcl.text-area.info > textarea:focus {
+  border: 2px solid var(--text);
+}
+
+.dcl.text-area.info > .message {
+  color: var(--text);
+}
