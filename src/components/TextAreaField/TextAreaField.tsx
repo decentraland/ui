@@ -67,10 +67,7 @@ export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
       ) : null}
 
       <TextArea {...restOfProps} />
-      <p className="message">
-        {renderMessage(props)}
-        &nbsp;
-      </p>
+      <p className="message">{renderMessage(props)}</p>
     </div>
   )
 }
