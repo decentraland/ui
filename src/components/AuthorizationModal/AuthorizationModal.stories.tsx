@@ -21,7 +21,7 @@ const steps: AuthorizationStep[] = [
 
 storiesOf('AuthorizationModal', module).add('Basic with error', () => (
   <AuthorizationModal
-    header="Authorization"
+    header="Authorization action"
     currentStep={0}
     steps={steps}
     onClose={() => console.log('Close')}
