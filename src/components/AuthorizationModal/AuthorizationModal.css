@@ -46,10 +46,15 @@
   height: 16px;
   filter: invert(42%) sepia(92%) saturate(5601%) hue-rotate(333deg)
     brightness(103%) contrast(101%);
+  margin-top: 3px;
 }
 
 @media (max-width: 768px) {
   .authorization-modal {
     padding: 20px;
+  }
+
+  .authorization-modal .authorization-header {
+    margin-top: 20px;
   }
 }
