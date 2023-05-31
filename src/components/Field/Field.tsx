@@ -102,6 +102,7 @@ export class Field extends React.PureComponent<FieldProps> {
     }
 
     const inputProps: InputOnChangeData = {
+      ...this.props,
       value: newValue
     }
     this.props.onChange && this.props.onChange(e, inputProps)
