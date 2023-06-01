@@ -69,7 +69,9 @@ export type NavbarProps = {
   mana?: number
   address?: string
   activePage?: NavbarPages | string
+  preLeftMenu?: React.ReactNode
   leftMenu?: React.ReactNode
+  postLeftMenu?: React.ReactNode
   middleMenu?: React.ReactNode
   rightMenu?: React.ReactNode
   enableSubMenuSection?: boolean
@@ -96,7 +98,9 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     mana: null,
     address: null,
     activePage: null,
+    preLeftMenu: null,
     leftMenu: null,
+    postLeftMenu: null,
     middleMenu: null,
     i18n: {
       menu: {
@@ -585,14 +589,16 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderLeftMenu(): React.ReactNode {
-    const { leftMenu } = this.props
+    const { leftMenu, preLeftMenu, postLeftMenu } = this.props
     if (leftMenu) {
       return leftMenu
     }
     return (
       <>
+        {preLeftMenu}
         <NotMobile>{this.renderLeftDesktopMenu()}</NotMobile>
         <Mobile>{this.renderLeftMobileMenu()}</Mobile>
+        {postLeftMenu}
       </>
     )
   }
