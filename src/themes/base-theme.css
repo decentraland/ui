@@ -31,7 +31,7 @@
   --millenial-orange: #fc9965;
   --oj-not-simpson: #ff7439;
   --dark: #18141a;
-  
+
   /* raw colors */
   --neon-blue-raw: 0, 211, 255;
   --summer-red-raw: 255, 45, 85;
@@ -49,13 +49,13 @@
   --dark-raw: 24, 20, 26;
 
   /* Rarity colors */
-  --common: #73D3D3;
-  --uncommon: #FF8362;
-  --rare: ##34CE76;
-  --epic: #438FFF;
-  --legendary: #A14BF3;
-  --mythic: #FF4BED;
-  --unique: #FEA217;
+  --common: #73d3d3;
+  --uncommon: #ff8362;
+  --rare: ##34ce76;
+  --epic: #438fff;
+  --legendary: #a14bf3;
+  --mythic: #ff4bed;
+  --unique: #fea217;
 
   /* Raw rarity colors */
   --common-raw: 115, 211, 211;
