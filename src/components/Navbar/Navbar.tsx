@@ -69,9 +69,8 @@ export type NavbarProps = {
   mana?: number
   address?: string
   activePage?: NavbarPages | string
-  preLeftMenu?: React.ReactNode
   leftMenu?: React.ReactNode
-  postLeftMenu?: React.ReactNode
+  leftMenuDecorator?: React.ComponentType<{ children: React.ReactNode }>
   middleMenu?: React.ReactNode
   rightMenu?: React.ReactNode
   enableSubMenuSection?: boolean
@@ -98,9 +97,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     mana: null,
     address: null,
     activePage: null,
-    preLeftMenu: null,
     leftMenu: null,
-    postLeftMenu: null,
+    leftMenuDecorator: null,
     middleMenu: null,
     i18n: {
       menu: {
@@ -589,18 +587,32 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
   }
 
   renderLeftMenu(): React.ReactNode {
-    const { leftMenu, preLeftMenu, postLeftMenu } = this.props
+    const { leftMenu, leftMenuDecorator } = this.props
+
+    if (leftMenu && leftMenuDecorator) {
+      throw new Error(
+        "Unnecessary to provide both 'leftMenu' and 'leftMenuDecorator' props"
+      )
+    }
+
     if (leftMenu) {
       return leftMenu
     }
-    return (
+
+    const defaultLeftMenu = (
       <>
-        {preLeftMenu}
         <NotMobile>{this.renderLeftDesktopMenu()}</NotMobile>
         <Mobile>{this.renderLeftMobileMenu()}</Mobile>
-        {postLeftMenu}
       </>
     )
+
+    if (leftMenuDecorator) {
+      const Decorator = leftMenuDecorator
+
+      return <Decorator>{defaultLeftMenu}</Decorator>
+    }
+
+    return defaultLeftMenu
   }
 
   renderRightMenu(): React.ReactNode {

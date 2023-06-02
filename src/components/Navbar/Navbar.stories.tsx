@@ -169,6 +169,28 @@ storiesOf('Navbar', module)
       </div>
     )
   })
+  .add('With Left Menu Decorator', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage="dao"
+          isConnected
+          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+          mana={200000}
+          onClickAccount={() => console.log('Clicked on account menu')}
+          leftMenuDecorator={(props: React.PropsWithChildren<{}>) => {
+            return (
+              <>
+                <Menu.Item>LEFT</Menu.Item>
+                {props.children}
+                <Menu.Item>RIGHT</Menu.Item>
+              </>
+            )
+          }}
+        />
+      </div>
+    )
+  })
   .add('Custom right menu', () => {
     return (
       <div className="Navbar-story-container">
