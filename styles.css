@@ -421,6 +421,24 @@ button[data-balloon]{overflow:visible}[data-balloon]{position:relative;cursor:po
   --millenial-orange-raw: 252, 153, 101;
   --oj-not-simpson-raw: 255, 116, 57;
   --dark-raw: 24, 20, 26;
+
+  /* Rarity colors */
+  --common: #73d3d3;
+  --uncommon: #ff8362;
+  --rare: #34ce76;
+  --epic: #438fff;
+  --legendary: #a14bf3;
+  --mythic: #ff4bed;
+  --unique: #fea217;
+
+  /* Raw rarity colors */
+  --common-raw: 115, 211, 211;
+  --uncommon-raw: 255, 131, 98;
+  --rare-raw: 52, 206, 118;
+  --epic-raw: 67, 143, 255;
+  --legendary-raw: 161, 75, 243;
+  --mythic-raw: 255, 75, 237;
+  --unique-raw: 254, 162, 23;
 }
 
 body {
