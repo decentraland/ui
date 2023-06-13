@@ -46,6 +46,7 @@ export type NavbarI18N = {
       scenes: React.ReactNode
       land: React.ReactNode
       names: React.ReactNode
+      worlds: React.ReactNode
     }
   }
   account: {
@@ -137,7 +138,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           collections: 'Collections',
           scenes: 'Scenes',
           land: 'Land',
-          names: 'Names'
+          names: 'Names',
+          worlds: 'Worlds'
         }
       },
       account: {
@@ -304,6 +306,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             }
           >
             {i18n.menu.builder.names}
+          </Menu.Item>
+          <Menu.Item
+            href="https://builder.decentraland.org/worlds"
+            onMouseDown={(e: React.MouseEvent) =>
+              this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_worlds`)
+            }
+          >
+            {i18n.menu.builder.worlds}
           </Menu.Item>
         </Menu>
       </Menu.Item>
