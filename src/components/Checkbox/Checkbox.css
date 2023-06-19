@@ -28,7 +28,7 @@
 .ui.checkbox input[type='checkbox'].hidden ~ label:hover:before,
 .ui.checkbox input[type='checkbox'].hidden:focus ~ label:hover:before {
   background-color: transparent;
-  border: 2px solid var(--dropdown);
+  border: 2px solid #dbd9d9;
 }
 
 /* Checked */
