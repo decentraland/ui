@@ -6,6 +6,7 @@ export type AvatarFaceProps = {
   avatar?: Avatar
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'responsive'
   inline?: boolean
+  className?: string
 }
 
 export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
@@ -14,8 +15,8 @@ export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
   }
 
   render(): JSX.Element {
-    const { avatar, size, inline } = this.props
-    const classes = ['dcl', 'avatar-face', size]
+    const { avatar, size, inline, className } = this.props
+    const classes = ['dcl', 'avatar-face', size, className]
     let face
     if (avatar) {
       face = <img src={avatar.avatar.snapshots.face256} alt="" />
