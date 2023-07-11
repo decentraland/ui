@@ -28,7 +28,8 @@ export type NavbarI18N = {
     places: {
       main: React.ReactNode
       overview: React.ReactNode
-      allPlaces: React.ReactNode
+      places: React.ReactNode
+      worlds: React.ReactNode
       faq: React.ReactNode
     }
     agora: React.ReactNode
@@ -121,7 +122,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         places: {
           main: 'Places',
           overview: 'Overview',
-          allPlaces: 'All Places',
+          places: 'Places',
+          worlds: 'Worlds',
           faq: 'FAQ'
         },
         agora: 'Agora',
@@ -378,10 +380,18 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           <Menu.Item
             href="https://places.decentraland.org/places"
             onMouseDown={(e: React.MouseEvent) =>
-              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_allPlaces`)
+              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_places`)
             }
           >
-            {i18n.menu.places.allPlaces}
+            {i18n.menu.places.places}
+          </Menu.Item>
+          <Menu.Item
+            href="https://places.decentraland.org/worlds"
+            onMouseDown={(e: React.MouseEvent) =>
+              this.handleClickMenuOption(e, `${NavbarPages.PLACES}_worlds`)
+            }
+          >
+            {i18n.menu.places.worlds}
           </Menu.Item>
           <Menu.Item
             href="https://docs.decentraland.org/creator/places/faq"
