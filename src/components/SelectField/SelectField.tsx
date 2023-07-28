@@ -4,7 +4,7 @@ import { Header } from '../Header/Header'
 import './SelectField.css'
 
 export type SelectFieldProps = DropdownProps & {
-  label?: string
+  label?: string | JSX.Element
   error?: boolean
   message?: string
   header?: JSX.Element
