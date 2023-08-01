@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { Network, Rarity, Item } from '@dcl/schemas'
 import { Mana } from '../Mana/Mana'
 import { Card } from '../Card/Card'
@@ -45,11 +46,11 @@ export const AssetCard = (props: AssetCardProps) => {
             name={asset.name}
             rarity={asset.rarity}
             src={imagensrc}
-            className={'AssetImage'}
+            className={'catalog'}
           />
           <Card.Content data-testid="asset-card-content" className={'catalog'}>
             <Card.Header>
-              <div className={'catalogTitle'}>
+              <div className={'title'}>
                 <span className={'textOverflow'}>{asset.name}</span>
                 {asset.network === Network.MATIC && (
                   <span className={'creator'}>
@@ -60,9 +61,10 @@ export const AssetCard = (props: AssetCardProps) => {
             </Card.Header>
             <div className={'CatalogItemInformation'}>
               <span
-                className={`${'extraInformation'} ${
-                  notForSale ? 'NotForSale' : ''
-                }`}
+                className={classNames(
+                  'extraInformation',
+                  notForSale && 'NotForSale'
+                )}
               >
                 <span>{action}</span>:&nbsp;
                 {actionIcon && <div className={'mintIcon'} />}

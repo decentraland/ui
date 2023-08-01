@@ -33,6 +33,8 @@ storiesOf('AssetCard', module).add('Catalog', () => (
         <Header>Asset Cards for Catalog Items</Header>
       </HeaderMenu.Left>
     </HeaderMenu>
-    <AssetCard {...props} />
+    <div>
+      <AssetCard {...props} />
+    </div>
   </Container>
 ))

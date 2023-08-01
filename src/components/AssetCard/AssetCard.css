@@ -1,3 +1,34 @@
+.AssetCard {
+  height: 360px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: var(--outline);
+  border-radius: 8px;
+  background-color: var(--card);
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+  min-width: 209px;
+  color: var(--text)
+}
+
+
+.AssetCard .AssetImage {
+  transition: height 0.3s;
+  border-radius: 8px 0px 8px 0px;
+  height: 209px;
+}
+
+.AssetCard .extraInformation {
+  display: flex;
+  visibility: hidden;
+  height: 0px;
+  opacity: 0;
+  transition: height 0.1s, opacity 0.6s;
+}
+
 .AssetCard .badge {
   display: inline-flex;
   align-items: center;
@@ -12,28 +43,13 @@
   margin-top: 10px;
 }
 
-.AssetCard.ui.cards a.card:hover,
-.AssetCard.ui.link.card:hover,
-.AssetCard.ui.link.cards .card:hover,
-.AssetCard.a.ui.card:hover {
-  background-color: var(--card);
+.AssetCard .textOverflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.AssetCard {
-  height: 345px;
-  overflow: visible;
-}
-
-.AssetCard.ui.card.AssetCard.catalog {
-  height: 360px;
-}
-
-.AssetCard.ui.card > .content.catalog {
-  padding: 14px 14px 18px 14px;
-}
-
-.AssetCard .header .catalogTitle {
-  flex: 1 2 auto;
+.AssetCard .header .title {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -44,33 +60,15 @@
   line-height: 24px;
 }
 
-.AssetCard .textOverflow {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.AssetCard.ui.card.AssetCard > .content,
-.AssetCard.ui.cards > .card.AssetCard > .content {
-  height: 185px;
-}
-
-.AssetCard.ui.card.AssetCard > .content > .header:not(.ui),
-.AssetCard.ui.cards > .card.AssetCard > .content > .header:not(.ui) {
-  flex: unset;
-}
-
-.AssetCard .header,
-.AssetCard .dcl.mana.inline {
-  font-size: 17px;
-  line-height: 26px;
-  letter-spacing: -0.2px;
-}
-
-.AssetCard .ui.header.small {
-  font-size: 14.5px;
+.AssetCard .creator {
+  font-size: 14px;
   font-weight: 400;
-  margin-top: -1px;
+  color: var(--secondary-text);
+}
+
+.AssetCard.ui.card>.content>.header:not(.ui),
+.AssetCard.ui.cards>.card>.content>.header:not(.ui) {
+  margin-bottom: 0px;
 }
 
 .AssetCard .CatalogItemInformation {
@@ -82,61 +80,10 @@
   flex: 1;
 }
 
-.AssetCard .CatalogItemInformation > span > img {
-  margin-left: 4px;
-}
-
-.AssetCard .header .title {
-  flex: 1 2 auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin-right: 20px;
-  margin-bottom: 0px;
-  display: flex;
-  flex-direction: column;
-}
-
-.AssetCard .creator {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--secondary-text);
-}
-
-.AssetCard.ui.card.AssetCard > .content > .header:not(.ui),
-.AssetCard.ui.cards > .card.AssetCard > .content > .header:not(.ui) {
-  display: flex;
-  margin-bottom: 0px;
-}
-
-.AssetCard .dcl.mana.inline {
-  margin: 0px;
-  flex: none;
-}
-
-.AssetCard.ui.cards > .ui.card.AssetCard.link .meta,
-.AssetCard.ui.card.link .meta {
-  margin-bottom: 4px;
-}
-
-.AssetCard .tags {
-  margin-top: 10px;
-}
-
-.AssetCard .sub-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: var(--text);
-}
-
-.AssetCard .card-meta {
-  margin-right: 10px;
-}
-.AssetCard .NotForSale {
-  font-weight: bold;
-  margin-top: 12px;
-  margin-bottom: 4px;
+.AssetCard .mintIcon {
+  width: 14px;
+  height: 14px;
+  background-image: url(../../assets/minting.svg);
 }
 
 .AssetCard .PriceInMana .ui.header.large {
@@ -147,138 +94,48 @@
   flex-direction: row;
 }
 
-.AssetCard .ens-subdomain {
-  overflow: hidden;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+/* Hover styles */
+
+.AssetCard.ui.link.card:hover,
+.AssetCard.a.ui.card:hover {
+  background-color: var(--card);
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 6px rgba(255, 255, 255, 0.37);
+  border: none !important;
 }
 
-.AssetCard .dcl.atlas {
-  overflow: hidden;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+.AssetCard:hover .AssetImage {
+  height: 161px;
 }
 
-.ui.card.AssetCard .AssetImage,
-.ui.card.AssetCard .AssetImage .rarity-background {
-  border-radius: 10px 10px 0px 0px !important;
-}
-
-.AssetCard .AssetImage .ens-subdomain {
-  background-size: 557px;
-  background-position-y: -133px;
-}
-
-.AssetCard .AssetImage .ens-subdomain .monospace {
-  margin-top: 0px;
-}
-
-.AssetCard .AssetImage {
-  height: 223px;
-  transition: height 0.3s !important;
-}
-
-.AssetCard .AssetImage.catalog {
-  height: 209px;
-  transition: height 0.3s !important;
-}
-
-.AssetCard .AssetImage.remove-margin {
-  margin-bottom: unset;
-}
-
-.AssetCard .extraInformation {
-  display: flex;
-  flex-direction: row;
+.AssetCard:hover .extraInformation {
+  visibility: visible;
+  margin-top: 5px;
+  height: auto;
+  opacity: 1;
   align-items: center;
 }
 
-@media (min-width: 1199px) {
-  .AssetCard .extraInformation {
-    display: flex;
-    visibility: hidden;
-    height: 0px;
-    opacity: 0;
-    transition: height 0.1s, opacity 0.6s;
-  }
-
-  .AssetCard:hover .AssetImage.catalog {
-    height: 161px;
-    transition: none;
-    transition: height 0.3s !important;
-  }
-
-  .ui.card.AssetCard:hover .AssetImage.catalog,
-  .ui.cards > .card.AssetCard:hover .AssetImage.catalog {
-    box-shadow: 0px 4px 34px 0px rgba(255, 255, 255, 0.37) !important;
-    border-radius: 10px !important;
-  }
-
-  .AssetCard:hover .extraInformation {
-    visibility: visible;
-    margin-top: 5px;
-    height: auto;
-    opacity: 1;
-    align-items: center;
-  }
-
-  .AssetCard.ui.cards > .ui.card.AssetCard.link:hover .meta,
-  .AssetCard.a.ui.card.link:hover .meta {
-    color: var(--secondary-text);
-  }
-
-  .AssetCard:hover .CatalogItemInformation {
-    margin-top: 2px;
-  }
-
-  .AssetCard.ui.cards a.card.AssetCard.catalog:hover,
-  .AssetCard.ui.link.card.AssetCard.catalog:hover,
-  .AssetCard.ui.link.cards .card.AssetCard.catalog:hover,
-  .AssetCard.a.ui.card.AssetCard.catalog:hover,
-  .AssetCard.ui.cards > .ui.card.AssetCard.catalog.link:hover,
-  .AssetCard.ui.card.AssetCard.catalog.link:hover {
-    border: none !important;
-  }
-
-  .AssetCard.ui.card.AssetCard:hover > .content.catalog.expandable,
-  .AssetCard.ui.cards > .card.AssetCard:hover > .content.catalog.expandable {
-    height: 222px;
-  }
-
-  .AssetCard.ui.card.AssetCard:hover > .content.catalog,
-  .AssetCard.ui.cards > .card.AssetCard:hover > .content.catalog {
-    position: absolute;
-    height: 206px;
-    margin-top: 161px;
-    width: 100%;
-    background-color: var(--card);
-    box-shadow: 0px 4px 34px 0px rgba(255, 255, 255, 0.37) !important;
-    border-radius: 0px 0px 10px 10px !important;
-  }
+.AssetCard:hover .CatalogItemInformation {
+  margin-top: 2px;
 }
 
-@media (max-width: 1199px) {
-  .AssetCard .LandBubble {
-    align-self: center;
-    font-size: x-small;
-    justify-content: center;
-    left: 11px;
-    line-height: 12px;
-    text-align: center;
-  }
-
-  .AssetCard .AssetImage.catalog,
-  .AssetImage.catalog .image-wrapper {
-    height: 123px;
-  }
+.ui.card:hover>.content.catalog,
+.ui.cards>.card:hover>.content.catalog {
+  position: absolute;
+  height: 206px;
+  margin-top: 161px;
+  width: 100%;
+  background-color: var(--card);
+  box-shadow: 0px 4px 34px 0px rgba(255, 255, 255, 0.37) !important;
+  border-radius: 0px 0px 10px 10px !important;
 }
+
+
+/* Responsive styles */
 
 @media (min-width: 768px) and (max-width: 992px) {
-  .AssetCard .header {
-    display: flex;
-    flex-direction: column;
-  }
-
   .AssetCard .header .title {
     margin-right: 0;
   }
@@ -289,31 +146,20 @@
     overflow: hidden;
     display: block;
   }
-
-  .AssetCard .LandBubble {
-    align-items: center;
-  }
 }
 
 @media (max-width: 768px) {
   .AssetCard.ui.card.AssetCard.catalog {
     height: 345px;
   }
-  .AssetCard.ui.card > .content.catalog,
-  .AssetCard.ui.cards > .AssetCard.card > .content.catalog {
+
+  .AssetCard.ui.card>.content.catalog,
+  .AssetCard.ui.cards>.AssetCard.card>.content.catalog {
     display: flex;
   }
 
-  .AssetCard .catalog .tags {
-    margin-top: auto;
-  }
-
-  .AssetBrowse .ui.cards .ui.card.AssetCard {
-    transform: translateY(0px);
-  }
-
-  .AssetCard.ui.card > .content.catalog > .header:not(.ui),
-  .AssetCard.ui.cards > .card > .content.catalog > .header:not(.ui) .header,
+  .AssetCard.ui.card>.content.catalog>.header:not(.ui),
+  .AssetCard.ui.cards>.card>.content.catalog>.header:not(.ui) .header,
   .AssetCard .CatalogItemInformation {
     font-size: 15px;
   }
@@ -334,35 +180,13 @@
     font-weight: normal;
   }
 
-  .AssetCard.ui.cards a.card.AssetCard.catalog:hover,
-  .AssetCard.ui.link.card.AssetCard.catalog:hover,
-  .AssetCard.ui.link.cards .card.AssetCard.catalog:hover,
-  .AssetCarda.ui.card.AssetCard.catalog:hover,
-  .AssetCard.ui.cards > .ui.card.AssetCard.catalog.link:hover,
-  .AssetCard.ui.card.AssetCard.catalog.link:hover {
-    transform: translateY(0px);
-  }
-
-  .AssetCard.ui.card > .content,
-  .AssetCard.ui.cards > .AssetCard.card > .content {
+  .AssetCard.ui.card>.content,
+  .AssetCard.ui.cards>.card>.content {
     display: block;
   }
 
-  .AssetCard .LandBubble {
-    align-items: flex-start;
-    align-self: flex-end;
-    font-size: small;
-    left: unset;
-    text-align: left;
-  }
-  .AssetCard .AssetImage.catalog,
-  .AssetImage.catalog .image-wrapper {
+  .AssetCard.catalog.AssetImage,
+  .AssetImage.catalog.image {
     height: 123px;
   }
-}
-
-.AssetCard .mintIcon {
-  width: 14px;
-  height: 14px;
-  background-image: url(../../assets/minting.svg);
 }

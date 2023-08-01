@@ -18,7 +18,7 @@ export const AssetImage = (props: AssetImageProps) => {
 
   return (
     <div
-      className={classNames('AssetImage', className ?? '')}
+      className={classNames('AssetImage', className)}
       style={{
         backgroundImage
       }}
