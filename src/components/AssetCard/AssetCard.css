@@ -21,13 +21,6 @@
   height: 209px;
 }
 
-.AssetCard .extraInformation {
-  display: flex;
-  visibility: hidden;
-  height: 0px;
-  opacity: 0;
-  transition: height 0.1s, opacity 0.6s;
-}
 
 .AssetCard .badge {
   display: inline-flex;
@@ -135,6 +128,16 @@
 
 /* Responsive styles */
 
+@media(min-width: 119px) {
+  .AssetCard .extraInformation {
+    display: flex;
+    visibility: hidden;
+    height: 0px;
+    opacity: 0;
+    transition: height 0.1s, opacity 0.6s;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   .AssetCard .header .title {
     margin-right: 0;
@@ -146,6 +149,16 @@
     overflow: hidden;
     display: block;
   }
+
+  .AssetCard .extraInformation {
+    margin-top: 6px;
+    visibility: visible;
+    height: unset;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 1;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -178,6 +191,7 @@
     height: unset;
     font-size: 12px;
     font-weight: normal;
+    opacity: 1;
   }
 
   .AssetCard.ui.card>.content,
