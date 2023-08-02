@@ -1853,9 +1853,10 @@ a.ui.card:hover,
 }
 
 .AssetCard .AssetImage {
-  transition: height 0.3s;
   border-radius: 8px 0px 8px 0px;
   height: 209px;
+  transition: height 0.3s;
+  width: 100%;
 }
 
 .AssetCard .badge {
@@ -1922,6 +1923,12 @@ a.ui.card:hover,
   margin: 0px;
   display: flex;
   flex-direction: row;
+}
+
+.AssetCard.ui.card {
+  flex: 1;
+  border: none;
+  margin: unset;
 }
 
 /* Hover styles */
