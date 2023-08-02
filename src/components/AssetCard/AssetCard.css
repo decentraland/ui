@@ -10,7 +10,6 @@
   flex-direction: column;
   min-height: 0;
   padding: 0;
-  min-width: 209px;
   color: var(--text);
 }
 
@@ -57,9 +56,10 @@
   color: var(--secondary-text);
 }
 
-.AssetCard.ui.card > .content > .header:not(.ui),
-.AssetCard.ui.cards > .card > .content > .header:not(.ui) {
+.AssetCard .ui.card>.content>.header:not(.ui),
+.AssetCard>.card>.content>.header:not(.ui) {
   margin-bottom: 0px;
+  flex: unset;
 }
 
 .AssetCard .CatalogItemInformation {
@@ -112,8 +112,8 @@
   margin-top: 2px;
 }
 
-.ui.card:hover > .content.catalog,
-.ui.cards > .card:hover > .content.catalog {
+.AssetCard.ui.card:hover>.content.catalog,
+.AssetCard.card:hover>.content.catalog {
   position: absolute;
   height: 206px;
   margin-top: 161px;
@@ -121,6 +121,11 @@
   background-color: var(--card);
   box-shadow: 0px 4px 34px 0px rgba(255, 255, 255, 0.37) !important;
   border-radius: 0px 0px 10px 10px !important;
+}
+
+.AssetCard .catalogHeader {
+  margin-bottom: unset !important;
+  flex: unset
 }
 
 /* Responsive styles */
@@ -155,6 +160,15 @@
     font-weight: normal;
     opacity: 1;
   }
+
+  .AssetImage.catalog,
+  .AssetImage .image {
+    height: 123px;
+  }
+
+  .AssetCard.ui.card>.content.catalog>.header:not(.ui) {
+    flex: unset;
+  }
 }
 
 @media (max-width: 768px) {
@@ -162,13 +176,15 @@
     height: 345px;
   }
 
-  .AssetCard.ui.card > .content.catalog,
-  .AssetCard.ui.cards > .AssetCard.card > .content.catalog {
+  .AssetCard.ui.card>.content.catalog {
     display: flex;
   }
 
-  .AssetCard.ui.card > .content.catalog > .header:not(.ui),
-  .AssetCard.ui.cards > .card > .content.catalog > .header:not(.ui) .header,
+  .AssetCard.ui.card>.content.catalog>.header:not(.ui) {
+    font-size: 15px;
+    flex: unset;
+  }
+
   .AssetCard .CatalogItemInformation {
     font-size: 15px;
   }
@@ -190,13 +206,12 @@
     opacity: 1;
   }
 
-  .AssetCard.ui.card > .content,
-  .AssetCard.ui.cards > .card > .content {
+  .AssetCard.ui.card>.content {
     display: block;
   }
 
-  .AssetCard.catalog.AssetImage,
-  .AssetImage.catalog.image {
+  .AssetImage.catalog,
+  .AssetImage .image {
     height: 123px;
   }
 }

@@ -49,7 +49,7 @@ export const AssetCard = (props: AssetCardProps) => {
             className={'catalog'}
           />
           <Card.Content data-testid="asset-card-content" className={'catalog'}>
-            <Card.Header>
+            <Card.Header className="catalogHeader">
               <div className={'title'}>
                 <span className={'textOverflow'}>{asset.name}</span>
                 {asset.network === Network.MATIC && (
