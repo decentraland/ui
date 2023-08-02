@@ -26,6 +26,8 @@ import './components/Radio/Radio.css'
 import './components/Segment/Segment.css'
 import './components/Table/Table.css'
 import './components/Checkbox/Checkbox'
+import './components/AssetCard/AssetCard'
+import './components/AssetImage/AssetImage'
 
 // Decentraland components
 export * from './components/Address/Address'
@@ -82,6 +84,8 @@ export * from './components/SliderField/SliderField'
 export * from './components/BarChart/BarChart'
 export * from './components/MultiStep/MultiStep'
 export * from './components/AuthorizationModal'
+export * from './components/AssetCard/AssetCard'
+export * from './components/AssetImage/AssetImage'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'

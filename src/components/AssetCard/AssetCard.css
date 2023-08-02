@@ -1,0 +1,215 @@
+.AssetCard {
+  height: 360px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: var(--outline);
+  border-radius: 8px;
+  background-color: var(--card);
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+.AssetCard .AssetImage {
+  transition: height 0.3s;
+  border-radius: 8px 0px 8px 0px;
+  height: 209px;
+}
+
+.AssetCard .badge {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3px 6px;
+  height: 24px;
+  font-size: 13px;
+  color: white;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.AssetCard .textOverflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.AssetCard .header .title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.AssetCard .creator {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondary-text);
+}
+
+.AssetCard.ui.card > .content > .header:not(.ui) {
+  margin-bottom: 0px;
+  flex: unset;
+}
+
+.AssetCard .CatalogItemInformation {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  transition: inherit;
+  flex: 1;
+}
+
+.AssetCard .mintIcon {
+  width: 14px;
+  height: 14px;
+  background-image: url(../../assets/minting.svg);
+}
+
+.AssetCard .PriceInMana .ui.header.large {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Hover styles */
+
+.AssetCard.ui.link.card:hover,
+.AssetCard.a.ui.card:hover {
+  background-color: var(--card);
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 6px rgba(255, 255, 255, 0.37);
+  border: none !important;
+}
+
+.AssetCard:hover .AssetImage {
+  height: 161px;
+}
+
+.AssetCard:hover .extraInformation {
+  visibility: visible;
+  margin-top: 5px;
+  height: auto;
+  opacity: 1;
+  align-items: center;
+}
+
+.AssetCard:hover .CatalogItemInformation {
+  margin-top: 2px;
+}
+
+.AssetCard.ui.card:hover > .content.catalog {
+  position: absolute;
+  height: 206px;
+  margin-top: 161px;
+  width: 100%;
+  background-color: var(--card);
+  box-shadow: 0px 4px 34px 0px rgba(255, 255, 255, 0.37) !important;
+  border-radius: 0px 0px 10px 10px !important;
+}
+
+.AssetCard .catalogHeader {
+  margin-bottom: unset !important;
+  flex: unset;
+}
+
+/* Responsive styles */
+
+@media (min-width: 119px) {
+  .AssetCard .extraInformation {
+    display: flex;
+    visibility: hidden;
+    height: 0px;
+    opacity: 0;
+    transition: height 0.1s, opacity 0.6s;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .AssetCard .header .title {
+    margin-right: 0;
+  }
+
+  .AssetCard .dcl.mana.inline {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+  }
+
+  .AssetCard .extraInformation {
+    margin-top: 6px;
+    visibility: visible;
+    height: unset;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 1;
+  }
+
+  .AssetImage.catalog,
+  .AssetImage .image {
+    height: 123px;
+  }
+
+  .AssetCard.ui.card > .content.catalog > .header:not(.ui) {
+    flex: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .AssetCard.ui.card.AssetCard.catalog {
+    height: 345px;
+  }
+
+  .AssetCard.ui.card > .content.catalog {
+    display: flex;
+  }
+
+  .AssetCard.ui.card > .content.catalog > .header:not(.ui) {
+    font-size: 15px;
+    flex: unset;
+  }
+
+  .AssetCard .CatalogItemInformation {
+    font-size: 15px;
+  }
+
+  .AssetCard .PriceInMana .ui.header.large {
+    font-size: 25px;
+  }
+
+  .AssetCard .PriceInMana {
+    margin-top: 6px;
+  }
+
+  .AssetCard .extraInformation {
+    margin-top: 6px;
+    visibility: visible;
+    height: unset;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 1;
+  }
+
+  .AssetCard.ui.card > .content {
+    display: block;
+  }
+
+  .AssetImage.catalog,
+  .AssetImage .image {
+    height: 123px;
+  }
+}

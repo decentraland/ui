@@ -1,0 +1,11 @@
+.AssetImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+}
+
+.AssetImage .image {
+  max-width: 100%;
+}
