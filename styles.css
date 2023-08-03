@@ -2070,7 +2070,9 @@ a.ui.card:hover,
 }
 
 .AssetImage .image {
-  max-width: 100%;
+  margin: auto;
+  max-height: 100%;
+  z-index: 0;
 }
 
 .dcl.address {
