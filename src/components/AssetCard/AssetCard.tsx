@@ -16,7 +16,6 @@ export type AssetCardProps = {
   notForSale: boolean
   price?: string
   owners?: string
-  onClickCardURL: string
 }
 
 export const AssetCard = (props: AssetCardProps) => {
@@ -27,19 +26,12 @@ export const AssetCard = (props: AssetCardProps) => {
     extraInformation,
     imagensrc,
     notForSale,
-    onClickCardURL,
     owners,
     price
   } = props
 
   return (
-    <Card
-      className={'AssetCard'}
-      link
-      as={'a'}
-      to={`${onClickCardURL}${asset.url}`}
-      id={asset.id}
-    >
+    <Card className={'AssetCard'} link id={asset.id}>
       {asset ? (
         <>
           <AssetImage

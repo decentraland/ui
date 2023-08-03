@@ -22,8 +22,7 @@ const props: AssetCardProps = {
   extraInformation: <span>1 listing</span>,
   notForSale: false,
   price: '10',
-  owners: '3 owners',
-  onClickCardURL: 'https://market.decentraland.zone'
+  owners: '3 owners'
 }
 
 storiesOf('AssetCard', module).add('Catalog', () => (
