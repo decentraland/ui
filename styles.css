@@ -4430,6 +4430,10 @@ a.ui.card:hover,
   margin: auto;
 }
 
+.WalletIcon {
+  fill: var(--text);
+}
+
 .dcl.user-menu {
   display: flex;
   position: relative;
@@ -4592,10 +4596,18 @@ a.ui.card:hover,
 }
 
 .dcl.user-menu .menu li .icon,
-.dcl.user-menu .menu .item .icon {
+.dcl.user-menu .menu .item .icon,
+.dcl.user-menu .menu li .WalletIcon,
+.dcl.user-menu .menu .item .WalletIcon {
   font-size: 13px;
   height: 18px;
   margin-right: 10px;
+}
+
+.dcl.user-menu .menu li .WalletIcon svg,
+.dcl.user-menu .menu .item .WalletIcon svg {
+  height: 100%;
+  width: 1.18em;
 }
 
 .dcl.user-menu .dcl.mana .symbol {
@@ -4664,10 +4676,6 @@ a.ui.card:hover,
     width: 36px;
     height: 36px;
   }
-}
-
-.WalletIcon {
-  fill: var(--text);
 }
 
 .WearableIcon {
