@@ -175,16 +175,16 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     </div>
                   </div>
                   <ul className="actions">
-                    <a href="https://account.decentraland.org">
-                      <li>
-                        <WalletIcon />
-                        {i18n.wallet}
-                      </li>
-                    </a>
                     <a href="https://profile.decentraland.org">
                       <li>
                         <Icon name="user" />
                         {i18n.profile}
+                      </li>
+                    </a>
+                    <a href="https://account.decentraland.org">
+                      <li>
+                        <WalletIcon />
+                        {i18n.wallet}
                       </li>
                     </a>
                     {menuItems}
