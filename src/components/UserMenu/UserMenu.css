@@ -169,7 +169,7 @@
 .dcl.user-menu .menu li .WalletIcon svg,
 .dcl.user-menu .menu .item .WalletIcon svg {
   height: 100%;
-  width: 100%;
+  width: 1.18em;
 }
 
 .dcl.user-menu .dcl.mana .symbol {
