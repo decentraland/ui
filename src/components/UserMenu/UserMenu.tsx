@@ -9,6 +9,7 @@ import { Mana } from '../Mana/Mana'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
 import { Row } from '../Row/Row'
+import { WalletIcon } from '../WalletIcon/WalletIcon'
 import './UserMenu.css'
 
 export type UserMenuI18N = {
@@ -16,7 +17,8 @@ export type UserMenuI18N = {
   signOut: React.ReactNode
   guest: React.ReactNode
   settings: React.ReactNode
-  account: React.ReactNode
+  wallet: React.ReactNode
+  profile: React.ReactNode
 }
 
 export type UserMenuProps = {
@@ -50,7 +52,8 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       signOut: 'Sign Out',
       guest: 'Guest',
       settings: 'Settings',
-      account: 'Account'
+      wallet: 'Wallet',
+      profile: 'Profile'
     }
   }
 
@@ -174,8 +177,14 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                   <ul className="actions">
                     <a href="https://account.decentraland.org">
                       <li>
-                        <Icon name="user"></Icon>
-                        {i18n.account}
+                        <WalletIcon />
+                        {i18n.wallet}
+                      </li>
+                    </a>
+                    <a href="https://profile.decentraland.org">
+                      <li>
+                        <Icon name="user" />
+                        {i18n.profile}
                       </li>
                     </a>
                     {menuItems}
