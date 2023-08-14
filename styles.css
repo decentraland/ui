@@ -1837,7 +1837,7 @@ a.ui.card:hover,
   height: 180px;
 }
 
-.CatalogCard {
+.AssetCard {
   height: 360px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: var(--outline);
@@ -1852,14 +1852,14 @@ a.ui.card:hover,
   color: var(--text);
 }
 
-.CatalogCard .AssetImage {
+.AssetCard .AssetImage {
   border-radius: 8px 0px 8px 0px;
   height: 209px;
   transition: height 0.3s;
   width: 100%;
 }
 
-.CatalogCard .badge {
+.AssetCard .badge {
   display: inline-flex;
   align-items: center;
   text-transform: uppercase;
@@ -1874,13 +1874,13 @@ a.ui.card:hover,
   margin-top: 10px;
 }
 
-.CatalogCard .textOverflow {
+.AssetCard .textOverflow {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.CatalogCard .header .title {
+.AssetCard .header .title {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1891,18 +1891,18 @@ a.ui.card:hover,
   line-height: 24px;
 }
 
-.CatalogCard .creator {
+.AssetCard .creator {
   font-size: 14px;
   font-weight: 400;
   color: var(--secondary-text);
 }
 
-.CatalogCard.ui.card > .content > .header:not(.ui) {
+.AssetCard.ui.card > .content > .header:not(.ui) {
   margin-bottom: 0px;
   flex: unset;
 }
 
-.CatalogCard .CatalogItemInformation {
+.AssetCard .CatalogItemInformation {
   color: white;
   display: flex;
   flex-direction: column;
@@ -1911,13 +1911,13 @@ a.ui.card:hover,
   flex: 1;
 }
 
-.CatalogCard .mintIcon {
+.AssetCard .mintIcon {
   width: 14px;
   height: 14px;
   background-image: url(4681c4394eec49bce9599519ba179a34.svg);
 }
 
-.CatalogCard .PriceInMana .ui.header.large {
+.AssetCard .PriceInMana .ui.header.large {
   font-size: 30px;
   font-weight: 600;
   margin: 0px;
@@ -1925,7 +1925,7 @@ a.ui.card:hover,
   flex-direction: row;
 }
 
-.CatalogCard.ui.card {
+.AssetCard.ui.card {
   flex: 1;
   border: none;
   margin: unset;
@@ -1933,8 +1933,8 @@ a.ui.card:hover,
 
 /* Hover styles */
 
-.CatalogCard.ui.link.card:hover,
-.CatalogCard.a.ui.card:hover {
+.AssetCard.ui.link.card:hover,
+.AssetCard.a.ui.card:hover {
   background-color: var(--card);
   padding: 0px;
   border-radius: 8px;
@@ -1942,11 +1942,11 @@ a.ui.card:hover,
   border: none !important;
 }
 
-.CatalogCard:hover .AssetImage {
+.AssetCard:hover .AssetImage {
   height: 161px;
 }
 
-.CatalogCard:hover .extraInformation {
+.AssetCard:hover .extraInformation {
   visibility: visible;
   margin-top: 5px;
   height: auto;
@@ -1954,11 +1954,11 @@ a.ui.card:hover,
   align-items: center;
 }
 
-.CatalogCard:hover .CatalogItemInformation {
+.AssetCard:hover .CatalogItemInformation {
   margin-top: 2px;
 }
 
-.CatalogCard.ui.card:hover > .content.catalog {
+.AssetCard.ui.card:hover > .content.catalog {
   position: absolute;
   height: 206px;
   margin-top: 161px;
@@ -1968,7 +1968,7 @@ a.ui.card:hover,
   border-radius: 0px 0px 10px 10px !important;
 }
 
-.CatalogCard .catalogHeader {
+.AssetCard .catalogHeader {
   margin-bottom: unset !important;
   flex: unset;
 }
@@ -1976,7 +1976,7 @@ a.ui.card:hover,
 /* Responsive styles */
 
 @media (min-width: 119px) {
-  .CatalogCard .extraInformation {
+  .AssetCard .extraInformation {
     display: flex;
     visibility: hidden;
     height: 0px;
@@ -1986,18 +1986,18 @@ a.ui.card:hover,
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  .CatalogCard .header .title {
+  .AssetCard .header .title {
     margin-right: 0;
   }
 
-  .CatalogCard .dcl.mana.inline {
+  .AssetCard .dcl.mana.inline {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
   }
 
-  .CatalogCard .extraInformation {
+  .AssetCard .extraInformation {
     margin-top: 6px;
     visibility: visible;
     height: unset;
@@ -2011,38 +2011,38 @@ a.ui.card:hover,
     height: 123px;
   }
 
-  .CatalogCard.ui.card > .content.catalog > .header:not(.ui) {
+  .AssetCard.ui.card > .content.catalog > .header:not(.ui) {
     flex: unset;
   }
 }
 
 @media (max-width: 768px) {
-  .CatalogCard.ui.card.CatalogCard.catalog {
+  .AssetCard.ui.card.AssetCard.catalog {
     height: 345px;
   }
 
-  .CatalogCard.ui.card > .content.catalog {
+  .AssetCard.ui.card > .content.catalog {
     display: flex;
   }
 
-  .CatalogCard.ui.card > .content.catalog > .header:not(.ui) {
+  .AssetCard.ui.card > .content.catalog > .header:not(.ui) {
     font-size: 15px;
     flex: unset;
   }
 
-  .CatalogCard .CatalogItemInformation {
+  .AssetCard .CatalogItemInformation {
     font-size: 15px;
   }
 
-  .CatalogCard .PriceInMana .ui.header.large {
+  .AssetCard .PriceInMana .ui.header.large {
     font-size: 25px;
   }
 
-  .CatalogCard .PriceInMana {
+  .AssetCard .PriceInMana {
     margin-top: 6px;
   }
 
-  .CatalogCard .extraInformation {
+  .AssetCard .extraInformation {
     margin-top: 6px;
     visibility: visible;
     height: unset;
@@ -2051,7 +2051,7 @@ a.ui.card:hover,
     opacity: 1;
   }
 
-  .CatalogCard.ui.card > .content {
+  .AssetCard.ui.card > .content {
     display: block;
   }
 
