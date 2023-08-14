@@ -4,10 +4,10 @@ import { Network, Rarity, Item } from '@dcl/schemas'
 import { Mana } from '../Mana/Mana'
 import { Card } from '../Card/Card'
 import { Profile } from '../Profile/Profile'
-import './AssetCard.css'
+import './CatalogCard.css'
 import { AssetImage } from '../AssetImage/AssetImage'
 
-export type AssetCardProps = {
+export type CatalogCardProps = {
   asset: Pick<Item, 'id' | 'url' | 'name' | 'rarity' | 'network' | 'creator'>
   action: React.ReactNode
   actionIcon?: React.ReactNode
@@ -18,7 +18,7 @@ export type AssetCardProps = {
   owners?: string
 }
 
-export const AssetCard = (props: AssetCardProps) => {
+export const CatalogCard = (props: CatalogCardProps) => {
   const {
     action,
     actionIcon,
@@ -31,7 +31,7 @@ export const AssetCard = (props: AssetCardProps) => {
   } = props
 
   return (
-    <Card className={'AssetCard'} link id={asset.id}>
+    <Card className={'CatalogCard'} link id={asset.id}>
       {asset ? (
         <>
           <AssetImage
