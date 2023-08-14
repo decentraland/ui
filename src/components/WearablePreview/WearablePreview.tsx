@@ -57,6 +57,10 @@ export type WearablePreviewProps = {
   disableFadeEffect?: boolean
   showSceneBoundaries?: boolean
   showThumbnailBoundaries?: boolean
+  panning?: boolean
+  lockAlpha?: boolean
+  lockBeta?: boolean
+  lockRadius?: boolean
   dev?: boolean
   baseUrl?: string
   peerUrl?: string
@@ -131,6 +135,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       disableFadeEffect,
       showSceneBoundaries,
       showThumbnailBoundaries,
+      panning,
+      lockAlpha,
+      lockBeta,
+      lockRadius,
       dev,
       baseUrl,
       peerUrl,
@@ -190,6 +198,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
     const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
     const typeParam = type ? `type=${type}` : ''
+    const panningParam = panning === false ? 'panning=false' : ''
+    const lockAlphaParam = lockAlpha ? 'lockAlpha=true' : ''
+    const lockBetaParam = lockBeta ? 'lockBeta=true' : ''
+    const lockRadiusParam = lockRadius ? 'lockRadius=true' : ''
     const envParam = dev ? `env=dev` : ''
     const url =
       baseUrl +
@@ -232,6 +244,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         peerUrlParam,
         nftServerUrlParam,
         typeParam,
+        panningParam,
+        lockAlphaParam,
+        lockBetaParam,
+        lockRadiusParam,
         envParam
       ]
         .filter((param) => !!param)

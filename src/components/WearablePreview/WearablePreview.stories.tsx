@@ -726,11 +726,50 @@ CustomPeerUrl.storyName = 'Custom peer url'
 
 export const WithoutFadeEffect: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
-    <RandomConfigProvider>
-      {(_hair, _skin, profile) => (
-        <WearablePreview profile={profile} disableFadeEffect />
-      )}
-    </RandomConfigProvider>
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      disableFadeEffect
+    />
   </div>
 )
 WithoutFadeEffect.storyName = 'Without fade effect'
+
+export const WithoutPanning: ComponentStory<typeof WearablePreview> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      panning={false}
+    />
+  </div>
+)
+WithoutPanning.storyName = 'Without panning'
+
+export const WithLockedAlpha: ComponentStory<typeof WearablePreview> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      lockAlpha={true}
+    />
+  </div>
+)
+WithLockedAlpha.storyName = 'With locked alpha'
+
+export const WithLockedBeta: ComponentStory<typeof WearablePreview> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      lockBeta={true}
+    />
+  </div>
+)
+WithLockedBeta.storyName = 'With locked beta'
+
+export const WithLockedRadius: ComponentStory<typeof WearablePreview> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      lockRadius={true}
+    />
+  </div>
+)
+WithLockedRadius.storyName = 'With locked radius'
