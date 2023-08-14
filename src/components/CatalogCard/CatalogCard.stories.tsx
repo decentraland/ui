@@ -3,10 +3,10 @@ import { storiesOf } from '@storybook/react'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
-import { AssetCard, AssetCardProps } from './AssetCard'
+import { CatalogCard, CatalogCardProps } from './CatalogCard'
 import { Rarity, Network } from '@dcl/schemas'
 
-const props: AssetCardProps = {
+const props: CatalogCardProps = {
   asset: {
     id: '0x10cd9f15bb7d58ac0c8f4ec5e1b77c0f5df0b652-0',
     url: '/contracts/0x10cd9f15bb7d58ac0c8f4ec5e1b77c0f5df0b652/items/0',
@@ -25,7 +25,7 @@ const props: AssetCardProps = {
   owners: '3 owners'
 }
 
-storiesOf('AssetCard', module).add('Catalog', () => (
+storiesOf('CatalogCard', module).add('Catalog', () => (
   <Container>
     <HeaderMenu>
       <HeaderMenu.Left>
@@ -33,7 +33,7 @@ storiesOf('AssetCard', module).add('Catalog', () => (
       </HeaderMenu.Left>
     </HeaderMenu>
     <div>
-      <AssetCard {...props} />
+      <CatalogCard {...props} />
     </div>
   </Container>
 ))
