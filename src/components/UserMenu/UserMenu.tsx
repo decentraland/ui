@@ -32,7 +32,6 @@ export type UserMenuProps = {
   avatar?: Avatar
   menuItems?: React.ReactNode
   i18n: UserMenuI18N
-  newMenu?: boolean
   onSignOut: () => void
   onSignIn: () => void
   onClickProfile: () => void
@@ -115,38 +114,6 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
     )
   }
 
-  renderOldMenuOptions() {
-    const { i18n } = this.props
-    return (
-      <a href="https://account.decentraland.org">
-        <li>
-          <Icon name="user" />
-          {i18n.account}
-        </li>
-      </a>
-    )
-  }
-
-  renderNewMenuOptions() {
-    const { i18n } = this.props
-    return (
-      <>
-        <a href="https://profile.decentraland.org">
-          <li>
-            <Icon name="user" />
-            {i18n.profile}
-          </li>
-        </a>
-        <a href="https://account.decentraland.org">
-          <li>
-            <WalletIcon />
-            {i18n.wallet}
-          </li>
-        </a>
-      </>
-    )
-  }
-
   render(): JSX.Element {
     const {
       avatar,
@@ -155,7 +122,6 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       isSigningIn,
       isActivity,
       hasActivity,
-      newMenu,
       onSignOut,
       onSignIn,
       onClickProfile,
@@ -211,10 +177,18 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     </div>
                   </div>
                   <ul className="actions">
-                    {/* TODO: Remove this prop after profile dApps release and leave only the new menu */}
-                    {newMenu
-                      ? this.renderNewMenuOptions()
-                      : this.renderOldMenuOptions()}
+                    <a href="https://profile.decentraland.org">
+                      <li>
+                        <Icon name="user" />
+                        {i18n.profile}
+                      </li>
+                    </a>
+                    <a href="https://account.decentraland.org">
+                      <li>
+                        <WalletIcon />
+                        {i18n.wallet}
+                      </li>
+                    </a>
                     {menuItems}
                     {onClickSettings ? (
                       <li onClick={onClickSettings}>
