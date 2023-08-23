@@ -32,7 +32,6 @@ export type UserMenuProps = {
   avatar?: Avatar
   menuItems?: React.ReactNode
   i18n: UserMenuI18N
-  newMenu?: boolean
   onSignOut: () => void
   onSignIn: () => void
   onClickProfile: () => void
