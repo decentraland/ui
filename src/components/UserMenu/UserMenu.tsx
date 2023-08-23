@@ -115,26 +115,6 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
     )
   }
 
-  renderNewMenuOptions() {
-    const { i18n } = this.props
-    return (
-      <>
-        <a href="https://profile.decentraland.org">
-          <li>
-            <Icon name="user" />
-            {i18n.profile}
-          </li>
-        </a>
-        <a href="https://account.decentraland.org">
-          <li>
-            <WalletIcon />
-            {i18n.wallet}
-          </li>
-        </a>
-      </>
-    )
-  }
-
   render(): JSX.Element {
     const {
       avatar,
