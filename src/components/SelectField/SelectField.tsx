@@ -8,15 +8,21 @@ export type SelectFieldProps = DropdownProps & {
   error?: boolean
   message?: string
   header?: JSX.Element
+  border?: boolean
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
   render(): JSX.Element {
-    const { label, header, options, message, error, ...rest } = this.props
+    const { label, header, options, message, error, border, ...rest } =
+      this.props
     let classes = 'dcl select-field'
 
     if (error) {
       classes += ' error warning circle'
+    }
+
+    if (border) {
+      classes += ' border'
     }
 
     return (
