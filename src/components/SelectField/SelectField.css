@@ -13,8 +13,19 @@
   min-height: 40px;
 }
 
+.dcl.select-field.border .ui.dropdown {
+  border: 2px solid var(--divider);
+  border-radius: 6px;
+  padding: 10px;
+}
+
 .dcl.select-field .ui.search.dropdown > input.search {
   padding: 0px 0px 10px 0px;
+}
+
+.dcl.select-field.border .ui.search.dropdown > input.search {
+  margin-top: 7px;
+  margin-left: 10px;
 }
 
 .dcl.select-field .ui.dropdown > .text,
@@ -37,10 +48,21 @@
   border-bottom: 2px solid var(--text);
 }
 
+.dcl.select-field.border .ui.selection.active.dropdown,
+.dcl.select-field.border .ui.selection.active.dropdown:hover {
+  border: 2px solid var(--text);
+  border-radius: 6px !important;
+}
+
 .dcl.select-field .ui.dropdown .dropdown.icon {
   padding-right: 0px;
   padding-top: 4px;
   color: var(--text);
+}
+
+.dcl.select-field.border .ui.dropdown .dropdown.icon {
+  right: 24px;
+  top: 18px;
 }
 
 .dcl.select-field .ui.dropdown .text,
@@ -98,6 +120,11 @@
   border-bottom: 2px solid var(--error);
 }
 
+.dcl.select-field.error.border .ui.selection.dropdown {
+  border: 2px solid var(--error);
+  border-radius: 6px;
+}
+
 .dcl.select-field.error .message {
   color: var(--error);
 }
@@ -113,6 +140,10 @@
   background-position: left center;
   padding-left: 32px;
   height: 36px;
+}
+
+.dcl.select-field.error.border .ui.selection.dropdown > i.icon {
+  background-position-y: 0px;
 }
 
 .dcl.select-field.error .ui.selection.dropdown > i.icon:before {
