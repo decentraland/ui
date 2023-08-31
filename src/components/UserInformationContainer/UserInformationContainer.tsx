@@ -69,7 +69,7 @@ export class UserInformationContainer extends React.Component<
   }
 
   state: UserInformationComponentState = {
-    isOpen: true,
+    isOpen: false,
     isClickable: false
   }
 
@@ -153,7 +153,11 @@ export class UserInformationContainer extends React.Component<
             {i18n.signIn}
           </Button>
         ) : (
-          <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
+          <div
+            className="dcl new-user-menu"
+            onBlur={this.handleClose}
+            tabIndex={0}
+          >
             <Button
               basic
               onClick={
