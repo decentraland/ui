@@ -43,6 +43,7 @@ const LIGHT_THEME = `
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
+  --clear-divider: #A09BA8;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
@@ -96,6 +97,8 @@ const DARK_THEME = `
   --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
+  --cloud-sky: #716B7C;
+  --clear-divider: #A09BA8;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);

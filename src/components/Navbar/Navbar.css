@@ -70,10 +70,11 @@
 
 .dcl.account-wrapper .dcl.mana {
   display: inline-block;
-  margin: 0px 20px 0px 0px;
+  margin: 0px 0px 0px 0px;
   color: var(--text);
   font-size: 13px;
   line-height: 18px;
+  font-weight: 400;
 }
 
 .dcl.account-wrapper .dcl.mana .symbol .ethereum {
@@ -134,7 +135,7 @@
   cursor: pointer;
 }
 
-.dcl.navbar .ui.menu .item > .item {
+.dcl.navbar .ui.menu .item>.item {
   z-index: 1;
 }
 
@@ -195,7 +196,7 @@
   cursor: default;
 }
 
-.dcl.navbar .ui.menu .item > a.item,
+.dcl.navbar .ui.menu .item>a.item,
 .dcl.navbar .ui.menu .item .submenu {
   margin-left: 0;
   margin-right: 0;

@@ -36,6 +36,7 @@
   --modal: #ffffff;
   --dimmer: #ffffffdd;
   --text-area-border: #67637033;
+  --clear-divider: #A09BA8;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
@@ -47,5 +48,6 @@
   --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 
   /* svgs */
-  --brightness: brightness(0.1); /* black svgs */
+  --brightness: brightness(0.1);
+  /* black svgs */
 }
