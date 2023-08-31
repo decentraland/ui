@@ -2,6 +2,8 @@
 import * as React from 'react'
 import { PreviewEmoteEventType } from '@dcl/schemas/dist/dapps/preview/preview-emote-event-type'
 import { IPreviewController } from '@dcl/schemas/dist/dapps/preview'
+import muteSrc from '../../assets/mute.svg'
+import volumeSrc from '../../assets/volume.svg'
 import { Button } from '../Button/Button'
 import { Icon, WearablePreview } from '../..'
 import './EmoteControls.css'
@@ -12,6 +14,7 @@ export type EmoteControlsProps = {
   hideFrameInput?: boolean
   hideProgressInput?: boolean
   hidePlayButton?: boolean
+  hideSoundButton?: boolean
   wearablePreviewController?: IPreviewController
 }
 
@@ -20,6 +23,8 @@ type EmoteControlsState = {
   isPlaying: boolean
   playingIntervalId?: number
   length?: number
+  isSoundEnabled: boolean
+  hasSound: boolean
 }
 
 export class EmoteControls extends React.PureComponent<
@@ -29,7 +34,9 @@ export class EmoteControls extends React.PureComponent<
   previewController: IPreviewController | undefined
   state: EmoteControlsState = {
     isPlaying: false,
-    frame: 0
+    frame: 0,
+    isSoundEnabled: false,
+    hasSound: undefined
   }
 
   handleAnimationLoop = () => {
@@ -106,6 +113,16 @@ export class EmoteControls extends React.PureComponent<
     }
   }
 
+  handleSoundToggle = () => {
+    const { isSoundEnabled } = this.state
+    if (isSoundEnabled) {
+      this.previewController?.emote.disableSound()
+    } else {
+      this.previewController?.emote.enableSound()
+    }
+    this.setState({ isSoundEnabled: !isSoundEnabled })
+  }
+
   handleFrameChange = async (value: number) => {
     if (isNaN(value)) {
       return
@@ -122,10 +139,23 @@ export class EmoteControls extends React.PureComponent<
     await this.previewController?.emote.goTo(targetValue / 100)
   }
 
+  async componentDidUpdate() {
+    if (this.state.hasSound === undefined) {
+      this.previewController.emote
+        .hasSound()
+        .then((hasSound) => this.setState({ hasSound }))
+    }
+  }
+
   render() {
-    const { className, hideFrameInput, hidePlayButton, hideProgressInput } =
-      this.props
-    const { frame, isPlaying, length } = this.state
+    const {
+      className,
+      hideFrameInput,
+      hidePlayButton,
+      hideSoundButton,
+      hideProgressInput
+    } = this.props
+    const { frame, isPlaying, length, hasSound, isSoundEnabled } = this.state
 
     return (
       <div className={`EmoteControls ${className}`}>
@@ -153,6 +183,11 @@ export class EmoteControls extends React.PureComponent<
               }
             ></input>
           </div>
+        )}
+        {hideSoundButton || !hasSound ? null : (
+          <Button className="sound-control" onClick={this.handleSoundToggle}>
+            <img src={isSoundEnabled ? volumeSrc : muteSrc} alt="muted" />
+          </Button>
         )}
       </div>
     )
