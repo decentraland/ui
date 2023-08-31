@@ -60,7 +60,10 @@ function createSendRequest(id: string) {
       | 'goTo'
       | 'play'
       | 'pause'
-      | 'stop',
+      | 'stop'
+      | 'enableSound'
+      | 'disableSound'
+      | 'hasSound',
     params: any[]
   ) {
     const iframe = document.getElementById(id) as HTMLIFrameElement
@@ -122,6 +125,15 @@ export function createController(id: string): IPreviewController {
       },
       stop() {
         return sendRequest<void>('emote', 'stop', [])
+      },
+      enableSound() {
+        return sendRequest<void>('emote', 'enableSound', [])
+      },
+      disableSound() {
+        return sendRequest<void>('emote', 'disableSound', [])
+      },
+      hasSound() {
+        return sendRequest<boolean>('emote', 'hasSound', [])
       },
       events
     }

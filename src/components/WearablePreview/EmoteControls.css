@@ -7,13 +7,22 @@
   width: 100%;
 }
 
-.EmoteControls .ui.button.play-control {
+.EmoteControls .ui.button.play-control,
+.EmoteControls .ui.button.sound-control {
   width: 56px;
   height: 44px;
   padding: 0;
   min-width: unset;
   margin-right: 16px;
   background: rgba(0, 0, 0, 0.64) !important;
+}
+
+.EmoteControls .ui.button.sound-control {
+  margin-right: 10px;
+}
+
+.EmoteControls .ui.button.sound-control i.icon {
+  margin-right: 0 !important;
 }
 
 .EmoteControls input {

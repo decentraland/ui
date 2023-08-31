@@ -385,6 +385,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         height="100%"
         frameBorder="0"
         ref={this.refIframe}
+        allow="autoplay"
       ></iframe>
     )
   }

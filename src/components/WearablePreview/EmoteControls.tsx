@@ -12,6 +12,7 @@ export type EmoteControlsProps = {
   hideFrameInput?: boolean
   hideProgressInput?: boolean
   hidePlayButton?: boolean
+  hideSoundButton?: boolean
   wearablePreviewController?: IPreviewController
 }
 
@@ -20,6 +21,8 @@ type EmoteControlsState = {
   isPlaying: boolean
   playingIntervalId?: number
   length?: number
+  isSoundEnabled: boolean
+  hasSound: boolean
 }
 
 export class EmoteControls extends React.PureComponent<
@@ -29,7 +32,9 @@ export class EmoteControls extends React.PureComponent<
   previewController: IPreviewController | undefined
   state: EmoteControlsState = {
     isPlaying: false,
-    frame: 0
+    frame: 0,
+    isSoundEnabled: false,
+    hasSound: undefined
   }
 
   handleAnimationLoop = () => {
@@ -106,6 +111,16 @@ export class EmoteControls extends React.PureComponent<
     }
   }
 
+  handleSoundToggle = () => {
+    const { isSoundEnabled } = this.state
+    if (isSoundEnabled) {
+      this.previewController?.emote.disableSound()
+    } else {
+      this.previewController?.emote.enableSound()
+    }
+    this.setState({ isSoundEnabled: !isSoundEnabled })
+  }
+
   handleFrameChange = async (value: number) => {
     if (isNaN(value)) {
       return
@@ -122,13 +137,31 @@ export class EmoteControls extends React.PureComponent<
     await this.previewController?.emote.goTo(targetValue / 100)
   }
 
+  async componentDidUpdate() {
+    if (this.state.hasSound === undefined) {
+      this.previewController.emote
+        .hasSound()
+        .then((hasSound) => this.setState({ hasSound }))
+    }
+  }
+
   render() {
-    const { className, hideFrameInput, hidePlayButton, hideProgressInput } =
-      this.props
-    const { frame, isPlaying, length } = this.state
+    const {
+      className,
+      hideFrameInput,
+      hidePlayButton,
+      hideSoundButton,
+      hideProgressInput
+    } = this.props
+    const { frame, isPlaying, length, hasSound, isSoundEnabled } = this.state
 
     return (
       <div className={`EmoteControls ${className}`}>
+        {hideSoundButton || !hasSound ? null : (
+          <Button className="sound-control" onClick={this.handleSoundToggle}>
+            <Icon name={isSoundEnabled ? 'volume up' : 'volume off'} />
+          </Button>
+        )}
         {hidePlayButton ? null : (
           <Button className="play-control" onClick={this.handlePlayPause}>
             <Icon name={isPlaying ? 'pause' : 'play'} />

@@ -479,6 +479,27 @@ export const WithEmoteControls: ComponentStory<typeof WearablePreview> = () => {
 }
 WithEmoteControls.storyName = 'With emote controls'
 
+export const WithSound: ComponentStory<typeof WearablePreview> = () => {
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        id="some-id"
+        profile="default"
+        contractAddress="0x8d8a55def3df0f3979819e52d67047e77c12aaaa"
+        itemId="0"
+        dev
+        disableBackground
+        disableAutoRotate
+        disableFace
+        disableDefaultWearables
+        skin="000000"
+      />
+      <EmoteControls wearablePreviewId="some-id" />
+    </div>
+  )
+}
+WithSound.storyName = 'With sound'
+
 export const EmoteEvents: ComponentStory<typeof WearablePreview> = () => {
   const [goTo, setGoTo] = React.useState('0')
   const [screenshot, setScreenshot] = React.useState('')
