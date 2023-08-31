@@ -23,7 +23,7 @@
 
   /* ui */
   --divider: #67637033;
-  --dropdown: #716B7C;
+  --dropdown: #716b7c;
   --dropdown-hover: #24212933;
   --popup: #676370;
   --popup-text: #ffffff;
@@ -36,8 +36,7 @@
   --modal: #242129;
   --dimmer: #000000dd;
   --text-area-border: #676370;
-  --clear-divider: #A09BA8;
-
+  --clear-divider: #a09ba8;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
