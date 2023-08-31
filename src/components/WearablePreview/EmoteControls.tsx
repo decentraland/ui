@@ -1,9 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-empty-function */
 import * as React from 'react'
+import classNames from 'classnames'
 import { PreviewEmoteEventType } from '@dcl/schemas/dist/dapps/preview/preview-emote-event-type'
 import { IPreviewController } from '@dcl/schemas/dist/dapps/preview'
-import muteSrc from '../../assets/mute.svg'
-import volumeSrc from '../../assets/volume.svg'
 import { Button } from '../Button/Button'
 import { Icon, WearablePreview } from '../..'
 import './EmoteControls.css'
@@ -185,9 +184,12 @@ export class EmoteControls extends React.PureComponent<
           </div>
         )}
         {hideSoundButton || !hasSound ? null : (
-          <Button className="sound-control" onClick={this.handleSoundToggle}>
-            <img src={isSoundEnabled ? volumeSrc : muteSrc} alt="muted" />
-          </Button>
+          <Button
+            className={classNames('sound-control', {
+              ['muted']: !isSoundEnabled
+            })}
+            onClick={this.handleSoundToggle}
+          />
         )}
       </div>
     )

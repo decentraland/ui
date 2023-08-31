@@ -23,8 +23,14 @@
   padding: 0;
 }
 
-.EmoteControls .ui.button.sound-control i.icon {
-  margin-right: 0 !important;
+.EmoteControls .ui.button.sound-control::after {
+  content: url('../../assets/volume.svg');
+  width: fit-content;
+  height: fit-content;
+}
+
+.EmoteControls .ui.button.sound-control.muted::after {
+  content: url('../../assets/mute.svg');
 }
 
 .EmoteControls input {
