@@ -3,6 +3,9 @@
   position: relative;
   text-align: left;
   outline: none;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
 }
 
 .dcl.new-user-menu .toggle,
@@ -153,14 +156,14 @@
     margin-top: 15px;
   }
 
-  .dcl.navbar .dcl.account-wrapper {
+  .dcl.navbar .dcl.new-account-wrapper {
     flex-direction: row;
     justify-content: end;
     order: 1;
     width: 100%;
   }
 
-  .dcl.navbar .dcl.account-wrapper .dcl.mana + .dcl.mana {
+  .dcl.navbar .dcl.new-account-wrapper .dcl.mana + .dcl.mana {
     padding: 0;
   }
 
@@ -173,12 +176,12 @@
     padding-top: 8px;
   }
 
-  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.account-wrapper {
+  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.new-account-wrapper {
     flex-direction: row;
   }
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
-    .dcl.account-wrapper
+    .dcl.new-account-wrapper
     .dcl.mana {
     margin-right: 8px;
     padding: 0;
@@ -186,12 +189,12 @@
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
     .dcl.new-user-menu
-    .dcl.account-wrapper {
+    .dcl.new-account-wrapper {
     display: none;
   }
 
   .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
-    .dcl.account-wrapper
+    .dcl.new-account-wrapper
     .dcl.mana:last-of-type {
     margin-right: 0;
   }
@@ -213,8 +216,6 @@
   }
 }
 
-/*********/
-
 .navbar-sign-in.ui.button {
   min-width: unset;
   max-width: 121px;
@@ -223,19 +224,12 @@
   align-items: center;
 }
 
-.dcl.new-user-menu {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  align-items: center;
-}
-
 .dcl.new-user-menu .activity-icon {
   padding: 0px !important;
   margin: 4px 0px 0px 0px;
 }
 
-.dcl.account-wrapper {
+.dcl.new-account-wrapper {
   display: flex;
   gap: 15px;
   align-items: center;

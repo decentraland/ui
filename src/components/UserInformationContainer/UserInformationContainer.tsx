@@ -104,7 +104,7 @@ export class UserInformationContainer extends React.Component<
     const { manaBalances, onClickBalance } = this.props
 
     return (
-      <div className="dcl account-wrapper">
+      <div className="dcl new-account-wrapper">
         {Object.keys(manaBalances).map((network) => (
           <Mana
             key={network}
