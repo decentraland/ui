@@ -42,11 +42,13 @@ export type UserInformationComponentProps = {
   i18n: UserInformationComponentI18N
   onSignOut: () => void
   onSignIn: () => void
-  onClickProfile: () => void
   onClickBalance: (network: Network) => void
   theme?: Theme
-  settingsURL?: string
-  activityURL?: string
+  onClickSettings?: () => void
+  onClickActivity?: () => void
+  onClickMyLists?: () => void
+  onClickMyAssets?: () => void
+  onClickProfile?: () => void
 }
 
 export type UserInformationComponentState = {
@@ -135,8 +137,10 @@ export class UserInformationContainer extends React.Component<
       onSignOut,
       onSignIn,
       onClickProfile,
-      activityURL,
-      settingsURL,
+      onClickSettings,
+      onClickActivity,
+      onClickMyAssets,
+      onClickMyLists,
       i18n,
       hasActivity,
       theme = Theme.DARK
@@ -161,7 +165,12 @@ export class UserInformationContainer extends React.Component<
           <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
             <Button
               basic
-              href={activityURL ?? 'https://market.decentraland.org/activity'}
+              onClick={
+                onClickActivity
+                  ? onClickActivity
+                  : () =>
+                      window.open('https://market.decentraland.org/activity')
+              }
               className="activity-icon"
             >
               <ActivityIcon theme={theme} hasActivity={hasActivity} />
@@ -191,8 +200,11 @@ export class UserInformationContainer extends React.Component<
               <Button
                 className="view-profile"
                 inverted
-                as="a"
-                href="https://profile.decentraland.org"
+                onClick={
+                  onClickProfile
+                    ? onClickProfile
+                    : () => window.open('https://profile.decentraland.org"')
+                }
               >
                 <AccountSettingsIcon theme={theme} /> &nbsp;
                 {i18n.profile}
@@ -204,28 +216,49 @@ export class UserInformationContainer extends React.Component<
                     {i18n.wallet}
                   </li>
                 </a>
-                <a href="https://https://market.decentraland.org/account?section=collections">
+                <div
+                  onClick={
+                    onClickMyAssets
+                      ? onClickMyAssets
+                      : () =>
+                          window.open(
+                            'https://market.decentraland.org/account?section=collections'
+                          )
+                  }
+                >
                   <li className="menu-option">
                     <GroupIcon theme={theme} /> &nbsp;
                     {i18n.myAssets}
                   </li>
-                </a>
-                <a href="https://market.decentraland.org/lists">
+                </div>
+                <div
+                  onClick={
+                    onClickMyLists
+                      ? onClickMyLists
+                      : () =>
+                          window.open('https://mdivrket.decentraland.org/lists')
+                  }
+                >
                   <li className="menu-option">
                     <BookmarkedIcon theme={theme} /> &nbsp;
                     {i18n.myLists}
                   </li>
-                </a>
-                <a
-                  href={
-                    settingsURL ?? 'https://market.decentraland.org/settings'
+                </div>
+                <div
+                  onClick={
+                    onClickSettings
+                      ? onClickSettings
+                      : () =>
+                          window.open(
+                            'https://market.decentraland.org/settings'
+                          )
                   }
                 >
                   <li className="menu-option">
                     <SettingsIcon theme={theme} /> &nbsp;
                     {i18n.settings}
                   </li>
-                </a>
+                </div>
                 <li onClick={onSignOut} className="menu-option">
                   <LogoutIcon theme={theme} /> &nbsp;
                   {i18n.signOut}

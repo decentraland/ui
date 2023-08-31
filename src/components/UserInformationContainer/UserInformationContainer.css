@@ -51,6 +51,8 @@
 .dcl.user-menu .menu.open {
   opacity: 1;
   transform: translate(0, 0);
+  display: flex;
+  flex-direction: column;
 }
 
 .dcl.user-menu .info {
@@ -158,9 +160,17 @@
 }
 
 @media (max-width: 768px) {
+  .dcl.user-menu {
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-top: 15px;
+  }
+
   .dcl.navbar .dcl.account-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: end;
     order: 1;
     width: 100%;
   }
@@ -258,4 +268,5 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  height: 35px;
 }
