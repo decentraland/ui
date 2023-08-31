@@ -135,7 +135,6 @@
   font-weight: normal;
 }
 
-
 .dcl.user-menu .dcl.mana .symbol {
   font-weight: bold;
   color: var(--primary);
@@ -161,7 +160,7 @@
     width: 100%;
   }
 
-  .dcl.navbar .dcl.account-wrapper .dcl.mana+.dcl.mana {
+  .dcl.navbar .dcl.account-wrapper .dcl.mana + .dcl.mana {
     padding: 0;
   }
 
@@ -169,7 +168,7 @@
     height: calc(var(--navbar-height) + 16px);
   }
 
-  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)>.ui.container {
+  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) > .ui.container {
     align-items: flex-start;
     padding-top: 8px;
   }
@@ -178,16 +177,22 @@
     flex-direction: row;
   }
 
-  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.account-wrapper .dcl.mana {
+  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
+    .dcl.account-wrapper
+    .dcl.mana {
     margin-right: 8px;
     padding: 0;
   }
 
-  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.user-menu .dcl.account-wrapper {
+  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
+    .dcl.user-menu
+    .dcl.account-wrapper {
     display: none;
   }
 
-  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper) .dcl.account-wrapper .dcl.mana:last-of-type {
+  .dcl.navbar:has(.dcl.mobile-user-balances-wrapper)
+    .dcl.account-wrapper
+    .dcl.mana:last-of-type {
     margin-right: 0;
   }
 
