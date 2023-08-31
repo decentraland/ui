@@ -86,6 +86,7 @@ export * from './components/MultiStep/MultiStep'
 export * from './components/AuthorizationModal'
 export * from './components/CatalogCard/CatalogCard'
 export * from './components/AssetImage/AssetImage'
+export * from './components/UserInformationContainer/UserInformationContainer'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
