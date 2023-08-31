@@ -4732,6 +4732,17 @@ a.ui.card:hover,
   background: rgba(0, 0, 0, 0.64) !important;
 }
 
+.EmoteControls .ui.button.sound-control {
+  margin-left: 20px;
+  min-width: 25px;
+  background: none;
+  padding: 0;
+}
+
+.EmoteControls .ui.button.sound-control i.icon {
+  margin-right: 0 !important;
+}
+
 .EmoteControls input {
   flex: 1;
 }
