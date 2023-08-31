@@ -69,7 +69,7 @@ export class UserInformationContainer extends React.Component<
   }
 
   state: UserInformationComponentState = {
-    isOpen: true,
+    isOpen: false,
     isClickable: false
   }
 
@@ -104,7 +104,7 @@ export class UserInformationContainer extends React.Component<
     const { manaBalances, onClickBalance } = this.props
 
     return (
-      <div className="dcl account-wrapper">
+      <div className="dcl new-account-wrapper">
         {Object.keys(manaBalances).map((network) => (
           <Mana
             key={network}
@@ -153,7 +153,11 @@ export class UserInformationContainer extends React.Component<
             {i18n.signIn}
           </Button>
         ) : (
-          <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
+          <div
+            className="dcl new-user-menu"
+            onBlur={this.handleClose}
+            tabIndex={0}
+          >
             <Button
               basic
               onClick={

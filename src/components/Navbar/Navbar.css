@@ -58,17 +58,19 @@
   margin-top: 2px;
 }
 
-.dcl.account-wrapper {
+.dcl.account-wrapper,
+.dcl.new-account-wrapper {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 }
 
-.dcl.account-wrapper.clickable {
+.dcl.account-wrapper.clickable,
+.dcl.new-account-wrapper.clickable {
   cursor: pointer;
 }
 
-.dcl.account-wrapper .dcl.mana {
+.dcl.new-account-wrapper .dcl.mana {
   display: inline-block;
   margin: 0px 0px 0px 0px;
   color: var(--text);
@@ -77,16 +79,23 @@
   font-weight: 400;
 }
 
-.dcl.account-wrapper .dcl.mana .symbol .ethereum {
+.dcl.account-wrapper .dcl.mana {
+  display: inline-block;
+  margin: 0px 20px 0px 0px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.dcl.account-wrapper .dcl.mana .symbol .ethereum,
+.dcl.new-account-wrapper .dcl.mana .symbol .ethereum {
   font-size: 14px;
 }
 
-.dcl.account-wrapper .dcl.blockie {
+.dcl.account-wrapper .dcl.blockie,
+.dcl.newaccount-wrapper .dcl.blockie {
   width: 32px;
   height: 32px;
-}
-
-.dcl.account-wrapper .dcl.blockie {
   margin-top: -0.2em;
 }
 
