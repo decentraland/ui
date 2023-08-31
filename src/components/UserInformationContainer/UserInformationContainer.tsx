@@ -15,11 +15,6 @@ import SettingsIcon from '../Icons/SettingsIcon'
 import GroupIcon from '../Icons/GroupIcon'
 import BookmarkedIcon from '../Icons/BookmarkedIcon'
 
-export enum Theme {
-  LIGHT = 'LIGHT_THEME',
-  DARK = 'DARK_THEME'
-}
-
 export type UserInformationComponentI18N = {
   signIn: React.ReactNode
   guest: React.ReactNode
@@ -43,7 +38,6 @@ export type UserInformationComponentProps = {
   onSignOut: () => void
   onSignIn: () => void
   onClickBalance: (network: Network) => void
-  theme?: Theme
   onClickSettings?: () => void
   onClickActivity?: () => void
   onClickMyLists?: () => void
@@ -80,8 +74,6 @@ export class UserInformationContainer extends React.Component<
   }
 
   mounted = false
-
-  ref: HTMLElement | null = null
 
   handleClose = (): void => {
     this.toggle(false)
@@ -142,8 +134,7 @@ export class UserInformationContainer extends React.Component<
       onClickMyAssets,
       onClickMyLists,
       i18n,
-      hasActivity,
-      theme = Theme.DARK
+      hasActivity
     } = this.props
 
     const { isOpen, isClickable } = this.state
@@ -173,7 +164,7 @@ export class UserInformationContainer extends React.Component<
               }
               className="activity-icon"
             >
-              <ActivityIcon theme={theme} hasActivity={hasActivity} />
+              <ActivityIcon hasActivity={hasActivity} />
             </Button>
             {this.renderManaBalances()}
             <div className="toggle" onClick={this.handleToggle}>
@@ -206,13 +197,13 @@ export class UserInformationContainer extends React.Component<
                     : () => window.open('https://profile.decentraland.org"')
                 }
               >
-                <AccountSettingsIcon theme={theme} /> &nbsp;
+                <AccountSettingsIcon /> &nbsp;
                 {i18n.profile}
               </Button>
               <ul className="actions">
                 <a href="https://account.decentraland.org">
                   <li className="menu-option">
-                    <Wallet theme={theme} /> &nbsp;
+                    <Wallet /> &nbsp;
                     {i18n.wallet}
                   </li>
                 </a>
@@ -227,7 +218,7 @@ export class UserInformationContainer extends React.Component<
                   }
                 >
                   <li className="menu-option">
-                    <GroupIcon theme={theme} /> &nbsp;
+                    <GroupIcon /> &nbsp;
                     {i18n.myAssets}
                   </li>
                 </div>
@@ -240,7 +231,7 @@ export class UserInformationContainer extends React.Component<
                   }
                 >
                   <li className="menu-option">
-                    <BookmarkedIcon theme={theme} /> &nbsp;
+                    <BookmarkedIcon /> &nbsp;
                     {i18n.myLists}
                   </li>
                 </div>
@@ -255,12 +246,12 @@ export class UserInformationContainer extends React.Component<
                   }
                 >
                   <li className="menu-option">
-                    <SettingsIcon theme={theme} /> &nbsp;
+                    <SettingsIcon /> &nbsp;
                     {i18n.settings}
                   </li>
                 </div>
                 <li onClick={onSignOut} className="menu-option">
-                  <LogoutIcon theme={theme} /> &nbsp;
+                  <LogoutIcon /> &nbsp;
                   {i18n.signOut}
                 </li>
               </ul>

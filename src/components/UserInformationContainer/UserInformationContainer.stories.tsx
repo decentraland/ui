@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { storiesOf } from '@storybook/react'
-import { Theme, UserInformationContainer } from './UserInformationContainer'
+import { UserInformationContainer } from './UserInformationContainer'
 import { avatar } from '../../data/avatar'
 
 storiesOf('UserInformationContainer', module)
@@ -28,6 +28,5 @@ storiesOf('UserInformationContainer', module)
       avatar={avatar}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       hasActivity
-      theme={Theme.LIGHT}
     />
   ))

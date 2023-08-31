@@ -1,8 +1,6 @@
 import React from 'react'
-import { Color } from '../../colors'
-import { Theme } from '../UserInformationContainer/UserInformationContainer'
 
-const BookmarkedIcon = ({ theme = Theme.DARK }: { theme?: Theme }) => (
+const BookmarkedIcon = () => (
   <svg
     width="24"
     height="24"
@@ -28,12 +26,7 @@ const BookmarkedIcon = ({ theme = Theme.DARK }: { theme?: Theme }) => (
         />
       </mask>
       <g mask="url(#mask0_68_24921)">
-        <rect
-          id="Base"
-          width="24"
-          height="24"
-          fill={theme === Theme.DARK ? Color.INNOCENCE : '#000000'}
-        />
+        <rect id="Base" width="24" height="24" fill={'var(--navbar-icons)'} />
       </g>
     </g>
   </svg>

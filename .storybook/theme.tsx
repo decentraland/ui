@@ -44,6 +44,7 @@ const LIGHT_THEME = `
   --modal: #ffffff;
   --dimmer: #ffffffdd;
   --clear-divider: #A09BA8;
+  --navbar-icons: #000;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
@@ -99,6 +100,7 @@ const DARK_THEME = `
   --dimmer: #000000dd;
   --cloud-sky: #716B7C;
   --clear-divider: #A09BA8;
+  --navbar-icons: #fff;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
