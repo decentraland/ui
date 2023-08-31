@@ -7,8 +7,7 @@
   width: 100%;
 }
 
-.EmoteControls .ui.button.play-control,
-.EmoteControls .ui.button.sound-control {
+.EmoteControls .ui.button.play-control {
   width: 56px;
   height: 44px;
   padding: 0;
@@ -18,7 +17,10 @@
 }
 
 .EmoteControls .ui.button.sound-control {
-  margin-right: 10px;
+  margin-left: 20px;
+  min-width: 25px;
+  background: none;
+  padding: 0;
 }
 
 .EmoteControls .ui.button.sound-control i.icon {

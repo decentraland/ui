@@ -84,7 +84,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "https://sdk-team-cdn.decentraland.org/@dcl/schemas/branch/fix/has-sound/dcl-schemas-9.4.1-6028384331.commit-415d86c.tgz",
+    "@dcl/schemas": "^9.4.1",
     "balloon-css": "^0.5.0",
     "classnames": "^2.3.2",
     "deep-equal": "^2.0.5",

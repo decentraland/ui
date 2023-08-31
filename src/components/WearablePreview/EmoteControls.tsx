@@ -2,6 +2,8 @@
 import * as React from 'react'
 import { PreviewEmoteEventType } from '@dcl/schemas/dist/dapps/preview/preview-emote-event-type'
 import { IPreviewController } from '@dcl/schemas/dist/dapps/preview'
+import muteSrc from '../../assets/mute.svg'
+import volumeSrc from '../../assets/volume.svg'
 import { Button } from '../Button/Button'
 import { Icon, WearablePreview } from '../..'
 import './EmoteControls.css'
@@ -157,11 +159,6 @@ export class EmoteControls extends React.PureComponent<
 
     return (
       <div className={`EmoteControls ${className}`}>
-        {hideSoundButton || !hasSound ? null : (
-          <Button className="sound-control" onClick={this.handleSoundToggle}>
-            <Icon name={isSoundEnabled ? 'volume up' : 'volume off'} />
-          </Button>
-        )}
         {hidePlayButton ? null : (
           <Button className="play-control" onClick={this.handlePlayPause}>
             <Icon name={isPlaying ? 'pause' : 'play'} />
@@ -186,6 +183,11 @@ export class EmoteControls extends React.PureComponent<
               }
             ></input>
           </div>
+        )}
+        {hideSoundButton || !hasSound ? null : (
+          <Button className="sound-control" onClick={this.handleSoundToggle}>
+            <img src={isSoundEnabled ? volumeSrc : muteSrc} alt="muted" />
+          </Button>
         )}
       </div>
     )
