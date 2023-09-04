@@ -3569,7 +3569,7 @@ a.ui.card:hover,
   color: var(--text);
   font-size: 13px;
   line-height: 18px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .dcl.account-wrapper .dcl.mana {
@@ -5814,7 +5814,7 @@ a.ui.card:hover,
 .dcl.new-user-menu .actions li,
 .dcl.new-user-menu .actions .item {
   cursor: pointer;
-  padding: 12px 16px;
+  padding: 0px 16px;
   display: flex;
   align-items: center;
 }
