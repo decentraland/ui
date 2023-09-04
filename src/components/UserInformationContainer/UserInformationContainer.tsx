@@ -198,7 +198,7 @@ export class UserInformationContainer extends React.Component<
                 onClick={
                   onClickProfile
                     ? onClickProfile
-                    : () => window.open('https://profile.decentraland.org"')
+                    : () => window.open('https://profile.decentraland.org')
                 }
               >
                 <AccountSettingsIcon /> &nbsp;
