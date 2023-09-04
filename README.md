@@ -117,7 +117,7 @@ Or you can create your own theme like this:
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
-  --clear-divider: #A09BA8;
+  --clear-divider: #a09ba8;
 
 
   /* shadows */
