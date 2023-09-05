@@ -73,6 +73,20 @@ storiesOf('Popup', module)
           on="hover"
         />
       </div>
+      <div className="Popup-story-row">
+        <Popup
+          content="Hello"
+          position="left center"
+          trigger={<b>Left Center</b>}
+          on="hover"
+        />
+        <Popup
+          content="Hello"
+          position="right center"
+          trigger={<b>Right Center</b>}
+          on="hover"
+        />
+      </div>
     </>
   ))
   .add('Closable', () => (
