@@ -205,7 +205,11 @@ export class UserInformationContainer extends React.Component<
                 {i18n.profile}
               </Button>
               <ul className="actions">
-                <a href="https://account.decentraland.org">
+                <a
+                  href="https://account.decentraland.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <li className="menu-option">
                     <Wallet /> &nbsp;
                     {i18n.wallet}
@@ -231,7 +235,7 @@ export class UserInformationContainer extends React.Component<
                     onClickMyLists
                       ? onClickMyLists
                       : () =>
-                          window.open('https://mdivrket.decentraland.org/lists')
+                          window.open('https://market.decentraland.org/lists')
                   }
                 >
                   <li className="menu-option">
