@@ -4988,7 +4988,8 @@ a.ui.card:hover,
 .dcl.select-field.border .ui.dropdown {
   border: 2px solid var(--divider);
   border-radius: 6px;
-  padding: 10px;
+  padding: 15px 10px;
+  margin-top: 0;
 }
 
 .dcl.select-field .ui.search.dropdown > input.search {
@@ -4996,7 +4997,7 @@ a.ui.card:hover,
 }
 
 .dcl.select-field.border .ui.search.dropdown > input.search {
-  margin-top: 7px;
+  margin-top: 13px;
   margin-left: 10px;
 }
 
@@ -5034,7 +5035,7 @@ a.ui.card:hover,
 
 .dcl.select-field.border .ui.dropdown .dropdown.icon {
   right: 24px;
-  top: 18px;
+  top: 22px;
 }
 
 .dcl.select-field .ui.dropdown .text,
