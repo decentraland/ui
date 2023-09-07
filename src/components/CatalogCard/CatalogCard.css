@@ -13,7 +13,7 @@
   color: var(--text);
 }
 
-.CatalogCard .DuiAssetImage {
+.CatalogCard .dui-asset-image {
   border-radius: 8px 0px 8px 0px;
   height: 209px;
   transition: height 0.3s;
@@ -102,7 +102,7 @@
   border: none !important;
 }
 
-.CatalogCard:hover .DuiAssetImage {
+.CatalogCard:hover .dui-asset-image {
   height: 161px;
 }
 
@@ -166,8 +166,8 @@
     opacity: 1;
   }
 
-  .DuiAssetImage.catalog,
-  .DuiAssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 
@@ -215,8 +215,8 @@
     display: block;
   }
 
-  .DuiAssetImage.catalog,
-  .DuiAssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 }

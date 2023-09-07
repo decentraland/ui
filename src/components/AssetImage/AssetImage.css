@@ -1,4 +1,4 @@
-.DuiAssetImage {
+.dui-asset-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   height: inherit;
 }
 
-.DuiAssetImage .image {
+.dui-asset-image__image {
   margin: auto;
   max-height: 100%;
   z-index: 0;
