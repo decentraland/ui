@@ -1,4 +1,4 @@
-.AssetImage {
+.uiAssetImage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   height: inherit;
 }
 
-.AssetImage .image {
+.uiAssetImage .image {
   margin: auto;
   max-height: 100%;
   z-index: 0;
