@@ -38,7 +38,15 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                     >
                       {item2.label}{' '}
                       {item2.children && (
-                        <i className="dui-category-filter__item-caret dropdown icon"></i>
+                        <i
+                          className={classNames(
+                            'dui-category-filter__item-caret dropdown icon',
+                            {
+                              'dui-category-filter__item-caret--open':
+                                value === item2.id
+                            }
+                          )}
+                        ></i>
                       )}
                     </div>
                     {item2.children &&
@@ -66,24 +74,6 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
           </>
         )
       })}
-      {/* <div className="dui-category-filter__item">Wearables</div>
-      <div className="dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-2">
-        Head <i className="dui-category-filter__item-caret dropdown icon"></i>
-      </div>
-      <div className="dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-3">
-        Facial Hair
-      </div>
-      <div className="dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-3 dui-category-filter__item--active">
-        Hair
-      </div>
-      <div className="dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-2">
-        Accessories{' '}
-        <i className="dui-category-filter__item-caret dui-category-filter__item-caret--open dropdown icon"></i>
-      </div>
-      <div className="dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-3">
-        Earring
-      </div>
-      <div className="dui-category-filter__item">Emotes</div> */}
     </div>
   )
 }
