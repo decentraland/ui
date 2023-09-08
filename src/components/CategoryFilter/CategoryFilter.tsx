@@ -66,7 +66,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                             'dui-category-filter__item-caret dropdown icon',
                             {
                               'dui-category-filter__item-caret--open':
-                                value === item2.id
+                                branch.has(item2.id)
                             }
                           )}
                         ></i>
