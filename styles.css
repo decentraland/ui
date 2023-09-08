@@ -1877,7 +1877,7 @@ a.ui.card:hover,
   color: var(--text);
 }
 
-.CatalogCard .AssetImage {
+.CatalogCard .dui-asset-image {
   border-radius: 8px 0px 8px 0px;
   height: 209px;
   transition: height 0.3s;
@@ -1967,7 +1967,7 @@ a.ui.card:hover,
   border: none !important;
 }
 
-.CatalogCard:hover .AssetImage {
+.CatalogCard:hover .dui-asset-image {
   height: 161px;
 }
 
@@ -2031,8 +2031,8 @@ a.ui.card:hover,
     opacity: 1;
   }
 
-  .AssetImage.catalog,
-  .AssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 
@@ -2080,13 +2080,13 @@ a.ui.card:hover,
     display: block;
   }
 
-  .AssetImage.catalog,
-  .AssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 }
 
-.AssetImage {
+.dui-asset-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2094,7 +2094,7 @@ a.ui.card:hover,
   height: inherit;
 }
 
-.AssetImage .image {
+.dui-asset-image__image {
   margin: auto;
   max-height: 100%;
   z-index: 0;
