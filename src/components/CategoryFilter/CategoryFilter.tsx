@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import classNames from 'classnames'
 
-import { Props } from './CategoryFilter.types'
+import { Item, Props } from './CategoryFilter.types'
 
 import './CategoryFilter.css'
 
 export const CategoryFilter = ({ title, items, value }: Props) => {
+  const branch = useMemo(() => {
+    const branch = new Set<string>()
+
+    const buildBranch = (items: Item[]) => {
+      for (const item of items) {
+        if (
+          item.id === value ||
+          (item.children && buildBranch(item.children))
+        ) {
+          branch.add(item.id)
+          return true
+        }
+      }
+
+      return false
+    }
+
+    buildBranch(items)
+
+    return branch
+  }, [items, value])
+
   return (
     <div className="dui-category-filter">
       <div className="dui-category-filter__title">{title}</div>
@@ -21,6 +43,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
               {item1.label}
             </div>
             {item1.children &&
+              branch.has(item1.id) &&
               item1.children.map((item2) => {
                 return (
                   <>
@@ -50,6 +73,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                       )}
                     </div>
                     {item2.children &&
+                      branch.has(item2.id) &&
                       item2.children.map((item3) => {
                         return (
                           <div
