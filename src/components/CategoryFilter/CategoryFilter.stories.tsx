@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof CategoryFilter> = (args) => (
 export const Primary = Template.bind({})
 Primary.args = {
   title: 'categories',
-  value: 'head',
+  value: 'wearables',
   items: [
     {
       id: 'wearables',
