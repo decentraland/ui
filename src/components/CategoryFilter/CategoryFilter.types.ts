@@ -8,4 +8,5 @@ export type Props = {
   title: string
   items: Item[]
   value: string
+  onClick?: (id: string) => void
 }

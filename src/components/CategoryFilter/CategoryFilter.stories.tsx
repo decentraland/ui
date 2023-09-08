@@ -5,7 +5,10 @@ import { CategoryFilter } from './CategoryFilter'
 
 export default {
   title: 'CategoryFilter',
-  component: CategoryFilter
+  component: CategoryFilter,
+  argTypes: {
+    onClick: { action: 'clicked' }
+  }
 } as ComponentMeta<typeof CategoryFilter>
 
 const Template: ComponentStory<typeof CategoryFilter> = (args) => (

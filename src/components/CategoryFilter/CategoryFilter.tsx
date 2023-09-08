@@ -5,7 +5,7 @@ import { Item, Props } from './CategoryFilter.types'
 
 import './CategoryFilter.css'
 
-export const CategoryFilter = ({ title, items, value }: Props) => {
+export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
   const branch = useMemo(() => {
     const branch = new Set<string>()
 
@@ -39,6 +39,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
               className={classNames('dui-category-filter__item', {
                 'dui-category-filter__item--active': value === item1.id
               })}
+              onClick={() => onClick(item1.id)}
             >
               {item1.label}
             </div>
@@ -58,6 +59,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                             value === item2.id
                         }
                       )}
+                      onClick={() => onClick(item2.id)}
                     >
                       {item2.label}
                       {item2.children && (
@@ -87,6 +89,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                                   value === item3.id
                               }
                             )}
+                            onClick={() => onClick(item3.id)}
                           >
                             {item3.label}
                           </div>
