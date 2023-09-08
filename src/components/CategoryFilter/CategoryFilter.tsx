@@ -27,7 +27,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                     <div
                       key={item2.id}
                       className={classNames(
-                        'dui-category-filter__item ',
+                        'dui-category-filter__item',
                         'dui-category-filter__item--secondary',
                         'dui-category-filter__item--level-2',
                         {
@@ -36,7 +36,7 @@ export const CategoryFilter = ({ title, items, value }: Props) => {
                         }
                       )}
                     >
-                      {item2.label}{' '}
+                      {item2.label}
                       {item2.children && (
                         <i
                           className={classNames(
