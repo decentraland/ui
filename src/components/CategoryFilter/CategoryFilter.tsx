@@ -51,9 +51,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                     <div
                       key={item2.id}
                       className={classNames(
-                        'dui-category-filter__item',
-                        'dui-category-filter__item--secondary',
-                        'dui-category-filter__item--level-2',
+                        'dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-2',
                         {
                           'dui-category-filter__item--active':
                             value === item2.id
@@ -81,9 +79,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                           <div
                             key={item3.id}
                             className={classNames(
-                              'dui-category-filter__item',
-                              'dui-category-filter__item--secondary',
-                              'dui-category-filter__item--level-3',
+                              'dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-3',
                               {
                                 'dui-category-filter__item--active':
                                   value === item3.id
