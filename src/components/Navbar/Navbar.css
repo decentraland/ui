@@ -146,7 +146,7 @@
   cursor: pointer;
 }
 
-.dcl.navbar .ui.menu .item>.item {
+.dcl.navbar .ui.menu .item > .item {
   z-index: 1;
 }
 
@@ -207,7 +207,7 @@
   cursor: default;
 }
 
-.dcl.navbar .ui.menu .item>a.item,
+.dcl.navbar .ui.menu .item > a.item,
 .dcl.navbar .ui.menu .item .submenu {
   margin-left: 0;
   margin-right: 0;
