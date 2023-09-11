@@ -43,7 +43,7 @@
   user-select: none;
   pointer-events: none;
   transform: translate(0, -4px);
-  min-width: 215px;
+  min-width: 270px;
   overflow: hidden;
 }
 
@@ -62,8 +62,7 @@
   color: var(--text);
   display: flex;
   align-items: center;
-  border-bottom: 0.5px solid var(--clear-divider);
-  padding: 12px 16px;
+  padding: 16px;
   justify-content: center;
 }
 
@@ -81,7 +80,7 @@
 
 .dcl.new-user-menu .name {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.19px;
 }
@@ -96,6 +95,11 @@
   padding: 0;
   margin: 0;
   font-size: 14px;
+  border-top: 0.5px solid var(--clear-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 16px 0px;
 }
 
 .dcl.new-user-menu .actions li,
@@ -240,7 +244,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px;
+  margin: 0px 16px 16px 16px;
+  width: 238px;
 }
 
 .dcl.new-user-menu .menu-option {

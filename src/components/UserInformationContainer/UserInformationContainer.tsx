@@ -8,7 +8,6 @@ import { Column } from '../Column/Column'
 import './UserInformationContainer.css'
 import ActivityIcon from '../Icons/ActivityIcon'
 import classNames from 'classnames'
-import AccountSettingsIcon from '../Icons/AccountSettingsIcon'
 import Wallet from '../Icons/Wallet'
 import LogoutIcon from '../Icons/LogoutIcon'
 import SettingsIcon from '../Icons/SettingsIcon'
@@ -201,7 +200,6 @@ export class UserInformationContainer extends React.Component<
                     : () => window.open('https://profile.decentraland.org')
                 }
               >
-                <AccountSettingsIcon /> &nbsp;
                 {i18n.profile}
               </Button>
               <ul className="actions">
@@ -211,7 +209,8 @@ export class UserInformationContainer extends React.Component<
                   rel="noreferrer"
                 >
                   <li className="menu-option">
-                    <Wallet /> &nbsp;
+                    <Wallet />
+                    &nbsp;
                     {i18n.wallet}
                   </li>
                 </a>

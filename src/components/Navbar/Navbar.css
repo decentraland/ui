@@ -37,7 +37,9 @@
 
 .dcl.navbar .navbar-mobile-menu .ui.header {
   font-weight: bold;
+  display: flex;
   margin-left: 16px;
+  align-items: center;
 }
 
 .dcl.navbar .ui.container {
