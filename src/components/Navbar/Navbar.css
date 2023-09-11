@@ -288,6 +288,7 @@
     overflow-y: overlay;
     overflow-x: hidden;
     max-height: 395px;
+    z-index: 9999;
   }
 
   .dcl.navbar .mobile-menu .item {
