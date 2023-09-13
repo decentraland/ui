@@ -24,6 +24,7 @@ type EmoteControlsState = {
   length?: number
   isSoundEnabled: boolean
   hasSound: boolean
+  shouldResumePlaying: boolean
 }
 
 export class EmoteControls extends React.PureComponent<
@@ -35,7 +36,8 @@ export class EmoteControls extends React.PureComponent<
     isPlaying: false,
     frame: 0,
     isSoundEnabled: false,
-    hasSound: undefined
+    hasSound: undefined,
+    shouldResumePlaying: false
   }
 
   handleAnimationLoop = () => {
@@ -134,8 +136,18 @@ export class EmoteControls extends React.PureComponent<
     this.setState({ frame: targetValue })
     if (isPlaying) {
       await this.previewController?.emote.pause()
+      this.setState({ shouldResumePlaying: true })
     }
     await this.previewController?.emote.goTo(targetValue / 100)
+  }
+
+  handleMouseUp = async () => {
+    const { shouldResumePlaying } = this.state
+    if (shouldResumePlaying) {
+      await this.previewController?.emote.play()
+      this.setState({ shouldResumePlaying: false })
+    }
+
   }
 
   async componentDidUpdate() {
@@ -171,6 +183,7 @@ export class EmoteControls extends React.PureComponent<
             min={0}
             step="1"
             onChange={(e) => this.handleFrameChange(Number(e.target.value))}
+            onMouseUp={this.handleMouseUp}
           />
         ) : null}
         {hideFrameInput ? null : (
