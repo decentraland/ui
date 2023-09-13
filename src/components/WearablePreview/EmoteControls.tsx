@@ -147,7 +147,6 @@ export class EmoteControls extends React.PureComponent<
       await this.previewController?.emote.play()
       this.setState({ shouldResumePlaying: false })
     }
-
   }
 
   async componentDidUpdate() {
