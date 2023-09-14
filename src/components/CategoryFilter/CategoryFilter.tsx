@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment, useCallback, useMemo } from 'react'
 
 import { Item, Props } from './CategoryFilter.types'
 import CategoryFilterItem from './CategoryFilterItem'
@@ -28,6 +28,11 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
     return branch
   }, [items, value])
 
+  const shouldRenderChildren = useCallback(
+    (item: Item) => item.children && branch.has(item.id),
+    [branch]
+  )
+
   return (
     <div className="dui-category-filter">
       <div className="dui-category-filter__title">{title}</div>
@@ -41,8 +46,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
               value={value}
               onClick={onClick}
             />
-            {item1.children &&
-              branch.has(item1.id) &&
+            {shouldRenderChildren(item1) &&
               item1.children.map((item2) => {
                 return (
                   <Fragment key={item2.id}>
@@ -53,8 +57,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                       value={value}
                       onClick={onClick}
                     />
-                    {item2.children &&
-                      branch.has(item2.id) &&
+                    {shouldRenderChildren(item2) &&
                       item2.children.map((item3) => {
                         return (
                           <CategoryFilterItem
