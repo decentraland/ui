@@ -1,0 +1,35 @@
+.dui-category-filter-item {
+  position: relative;
+  padding: 9px 16px 9px 0px;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2;
+  cursor: pointer;
+  text-transform: capitalize;
+  min-width: 280px;
+  margin-bottom: 8px;
+}
+
+.dui-category-filter-item:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.dui-category-filter-item--secondary {
+  color: #9791a3;
+}
+
+.dui-category-filter-item--active {
+  font-weight: 600;
+  color: white;
+  background-color: #37333d;
+}
+
+.dui-category-filter-item__caret {
+  position: absolute;
+  right: 16px;
+}
+
+.dui-category-filter-item__caret--open {
+  transform: rotate(180deg) translateY(-10px);
+}
