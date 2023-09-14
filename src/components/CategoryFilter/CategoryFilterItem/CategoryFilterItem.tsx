@@ -20,7 +20,6 @@ export const CategoryFilterItem = ({
 }: Props) => {
   return (
     <div
-      key={item.id}
       className={classNames('dui-category-filter-item', {
         'dui-category-filter-item--secondary': level !== 1,
         'dui-category-filter-item--active': value === item.id

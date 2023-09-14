@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { Fragment, useMemo } from 'react'
 
 import { Item, Props } from './CategoryFilter.types'
 import CategoryFilterItem from './CategoryFilterItem'
@@ -33,43 +33,44 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
       <div className="dui-category-filter__title">{title}</div>
       {items.map((item1) => {
         return (
-          <>
+          <Fragment key={item1.id}>
             <CategoryFilterItem
-              branch={branch}
-              value={value}
               item={item1}
               level={1}
+              branch={branch}
+              value={value}
               onClick={onClick}
-            ></CategoryFilterItem>
+            />
             {item1.children &&
               branch.has(item1.id) &&
               item1.children.map((item2) => {
                 return (
-                  <>
+                  <Fragment key={item2.id}>
                     <CategoryFilterItem
-                      branch={branch}
-                      value={value}
                       item={item2}
                       level={2}
+                      branch={branch}
+                      value={value}
                       onClick={onClick}
-                    ></CategoryFilterItem>
+                    />
                     {item2.children &&
                       branch.has(item2.id) &&
                       item2.children.map((item3) => {
                         return (
                           <CategoryFilterItem
-                            branch={branch}
-                            value={value}
+                            key={item3.id}
                             item={item3}
                             level={3}
+                            branch={branch}
+                            value={value}
                             onClick={onClick}
-                          ></CategoryFilterItem>
+                          />
                         )
                       })}
-                  </>
+                  </Fragment>
                 )
               })}
-          </>
+          </Fragment>
         )
       })}
     </div>

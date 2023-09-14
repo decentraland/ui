@@ -1,9 +1,9 @@
 import { Props as CategoryFilterProps, Item } from '../CategoryFilter.types'
 
 export type Props = {
-  branch: Set<string>
-  value: CategoryFilterProps['value']
   item: Item
   level: number
+  branch: Set<string>
+  value: CategoryFilterProps['value']
   onClick: CategoryFilterProps['onClick']
 }
