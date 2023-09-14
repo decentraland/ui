@@ -5,12 +5,6 @@ import { Props } from './CategoryFilterItem.types'
 
 import './CategoryFilterItem.css'
 
-const ITEM_PADDING_LEFT_BY_LEVEL = {
-  1: 24,
-  2: 32,
-  3: 48
-}
-
 export const CategoryFilterItem = ({
   branch,
   value,
@@ -20,11 +14,13 @@ export const CategoryFilterItem = ({
 }: Props) => {
   return (
     <div
-      className={classNames('dui-category-filter-item', {
-        'dui-category-filter-item--secondary': level !== 1,
-        'dui-category-filter-item--active': value === item.id
-      })}
-      style={{ paddingLeft: ITEM_PADDING_LEFT_BY_LEVEL[level] }}
+      className={classNames(
+        'dui-category-filter-item',
+        `dui-category-filter-item--level-${level}`,
+        {
+          'dui-category-filter-item--active': value === item.id
+        }
+      )}
       onClick={() => onClick(item.id)}
     >
       {item.label}

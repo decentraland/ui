@@ -1,6 +1,6 @@
 .dui-category-filter-item {
   position: relative;
-  padding: 9px 16px 9px 0px;
+  padding: 9px 16px 9px;
   font-size: 17px;
   line-height: 26px;
   letter-spacing: -0.2;
@@ -10,13 +10,24 @@
   margin-bottom: 8px;
 }
 
-.dui-category-filter-item:hover {
-  font-weight: 600;
+.dui-category-filter-item--level-1 {
+  padding-left: 24px;
   color: white;
 }
 
-.dui-category-filter-item--secondary {
+.dui-category-filter-item--level-2 {
+  padding-left: 32px;
   color: #9791a3;
+}
+
+.dui-category-filter-item--level-3 {
+  padding-left: 48px;
+  color: #9791a3;
+}
+
+.dui-category-filter-item:hover {
+  font-weight: 600;
+  color: white;
 }
 
 .dui-category-filter-item--active {
