@@ -13,7 +13,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
       for (const item of items) {
         if (
           item.id === value ||
-          (item.children && buildBranch(item.children))
+          (item.children && buildBranchOfSelectedItem(item.children))
         ) {
           branch.add(item.id)
           return true
