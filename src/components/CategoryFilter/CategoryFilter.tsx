@@ -5,6 +5,8 @@ import { Item, Props } from './CategoryFilter.types'
 
 import './CategoryFilter.css'
 
+const BASE_ITEM_PADDING_LEFT = 16
+
 export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
   const branch = useMemo(() => {
     const branch = new Set<string>()
@@ -39,6 +41,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
               className={classNames('dui-category-filter__item', {
                 'dui-category-filter__item--active': value === item1.id
               })}
+              style={{ paddingLeft: BASE_ITEM_PADDING_LEFT }}
               onClick={() => onClick(item1.id)}
             >
               {item1.label}
@@ -51,12 +54,13 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                     <div
                       key={item2.id}
                       className={classNames(
-                        'dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-2',
+                        'dui-category-filter__item dui-category-filter__item--secondary',
                         {
                           'dui-category-filter__item--active':
                             value === item2.id
                         }
                       )}
+                      style={{ paddingLeft: BASE_ITEM_PADDING_LEFT * 2 }}
                       onClick={() => onClick(item2.id)}
                     >
                       {item2.label}
@@ -79,12 +83,13 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
                           <div
                             key={item3.id}
                             className={classNames(
-                              'dui-category-filter__item dui-category-filter__item--secondary dui-category-filter__item--level-3',
+                              'dui-category-filter__item dui-category-filter__item--secondary',
                               {
                                 'dui-category-filter__item--active':
                                   value === item3.id
                               }
                             )}
+                            style={{ paddingLeft: BASE_ITEM_PADDING_LEFT * 3 }}
                             onClick={() => onClick(item3.id)}
                           >
                             {item3.label}
