@@ -9,7 +9,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
   const branch = useMemo(() => {
     const branch = new Set<string>()
 
-    const buildBranch = (items: Item[]) => {
+    const buildBranchOfSelectedItem = (items: Item[]) => {
       for (const item of items) {
         if (
           item.id === value ||
@@ -23,7 +23,7 @@ export const CategoryFilter = ({ title, items, value, onClick }: Props) => {
       return false
     }
 
-    buildBranch(items)
+    buildBranchOfSelectedItem(items)
 
     return branch
   }, [items, value])
