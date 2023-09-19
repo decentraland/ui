@@ -8,6 +8,7 @@ import { Mobile } from '../Media'
 import { Mana } from '../Mana/Mana'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
+import { config } from '../../config'
 import { Row } from '../Row/Row'
 import { WalletIcon } from '../WalletIcon/WalletIcon'
 import './UserMenu.css'
@@ -105,7 +106,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
             size="small"
             className={onClickBalance ? 'clickable' : undefined}
             title={`${manaBalances[network].toLocaleString()} MANA`}
-            href="https://account.decentraland.org"
+            href={config.get('ACCOUNT_URL')}
           >
             {Number(manaBalances[network].toFixed(2)).toLocaleString()}
           </Mana>
@@ -177,13 +178,13 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
                     </div>
                   </div>
                   <ul className="actions">
-                    <a href="https://profile.decentraland.org">
+                    <a href={config.get('PROFILE_URL')}>
                       <li>
                         <Icon name="user" />
                         {i18n.profile}
                       </li>
                     </a>
-                    <a href="https://account.decentraland.org">
+                    <a href={config.get('ACCOUNT_URL')}>
                       <li>
                         <WalletIcon />
                         {i18n.wallet}

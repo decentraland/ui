@@ -13,6 +13,7 @@ import LogoutIcon from '../Icons/LogoutIcon'
 import SettingsIcon from '../Icons/SettingsIcon'
 import GroupIcon from '../Icons/GroupIcon'
 import BookmarkedIcon from '../Icons/BookmarkedIcon'
+import { config } from '../../config'
 
 export type UserInformationComponentI18N = {
   signIn: React.ReactNode
@@ -111,7 +112,7 @@ export class UserInformationContainer extends React.Component<
             size="small"
             className={onClickBalance ? 'clickable' : undefined}
             title={`${manaBalances[network].toLocaleString()} MANA`}
-            href="https://account.decentraland.org"
+            href={config.get('ACCOUNT_URL')}
           >
             {Number(manaBalances[network].toFixed(2)).toLocaleString()}
           </Mana>
@@ -163,7 +164,7 @@ export class UserInformationContainer extends React.Component<
                 onClickActivity
                   ? onClickActivity
                   : () =>
-                      window.open('https://market.decentraland.org/activity')
+                      window.open(`${config.get('MARKETPLACE_URL')}/activity`)
               }
               className="activity-icon"
             >
@@ -197,14 +198,14 @@ export class UserInformationContainer extends React.Component<
                 onClick={
                   onClickProfile
                     ? onClickProfile
-                    : () => window.open('https://profile.decentraland.org')
+                    : () => window.open(config.get('PROFILE_URL'))
                 }
               >
                 {i18n.profile}
               </Button>
               <ul className="actions">
                 <a
-                  href="https://account.decentraland.org"
+                  href={config.get('ACCOUNT_URL')}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -220,7 +221,9 @@ export class UserInformationContainer extends React.Component<
                       ? onClickMyAssets
                       : () =>
                           window.open(
-                            'https://market.decentraland.org/account?section=collections'
+                            `${config.get(
+                              'MARKETPLACE_URL'
+                            )}/account?section=collections`
                           )
                   }
                 >
@@ -234,7 +237,7 @@ export class UserInformationContainer extends React.Component<
                     onClickMyLists
                       ? onClickMyLists
                       : () =>
-                          window.open('https://market.decentraland.org/lists')
+                          window.open(`${config.get('MARKETPLCE_URL')}/lists`)
                   }
                 >
                   <li className="menu-option">
@@ -248,7 +251,7 @@ export class UserInformationContainer extends React.Component<
                       ? onClickSettings
                       : () =>
                           window.open(
-                            'https://market.decentraland.org/settings'
+                            `${config.get('MARKETPLACE_URL')}/settings`
                           )
                   }
                 >
