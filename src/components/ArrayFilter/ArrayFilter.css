@@ -1,0 +1,48 @@
+.dui-array-filter .dui-array-filter__options {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.dui-array-filter .dui-array-filter__options .dui-array-filter__option {
+  padding: 5px 10px;
+  background-color: #37333d;
+  border-radius: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.dui-array-filter .dui-array-filter__options .dui-array-filter__option:focus {
+  outline: 1px solid white;
+}
+
+.dui-array-filter
+  .dui-array-filter__options
+  .dui-array-filter__option:last-child {
+  margin-right: 0px;
+}
+
+.dui-array-filter
+  .dui-array-filter__options
+  .dui-array-filter__option.dui-array-filter__selected-option {
+  background-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .dui-array-filter {
+    margin-bottom: 12px;
+  }
+
+  .dui-array-filter .dui-array-filter__options .dui-array-filter__option {
+    font-size: 13px;
+    line-height: 18px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .dui-array-filter .ui.sub.header.name {
+    font-weight: normal;
+  }
+}
