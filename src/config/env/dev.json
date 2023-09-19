@@ -1,0 +1,11 @@
+{
+  "WEARABLE_PREVIEW_URL": "https://wearable-preview.decentraland.zone",
+  "ACCOUNT_URL": "https://account.decentraland.zone",
+  "PROFILE_URL": "https://profile.decentraland.zone",
+  "MARKETPLACE_URL": "https://market.decentraland.zone",
+  "BUILDER_URL": "https://builder.decentraland.zone",
+  "DAO_URL": "https://dao.decentraland.zone",
+  "GOVERNANCE_URL": "https://governance.decentraland.zone",
+  "EVENTS_URL": "https://events.decentraland.zone",
+  "PLACES_URL": "https://places.decentraland.zone"
+}

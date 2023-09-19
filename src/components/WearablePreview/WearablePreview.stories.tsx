@@ -466,7 +466,9 @@ export const WithEmoteControls: ComponentStory<typeof WearablePreview> = () => {
       <WearablePreview
         id="some-id"
         profile="default"
-        emote={PreviewEmote.DANCE}
+        contractAddress='0xc89d1688f35485193c0649c310874bb6a034d9e4'
+        itemId='2'
+        dev
         disableBackground
         disableAutoRotate
         disableFace

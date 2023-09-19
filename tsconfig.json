@@ -16,6 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "strictFunctionTypes": true,
+    "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
+import { config } from '../../config'
 import { Mana } from '../Mana/Mana'
 import { Blockie } from '../Blockie/Blockie'
 import { Container } from '../Container/Container'
@@ -216,7 +217,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
-            href="https://market.decentraland.org"
+            href={config.get('MARKETPLACE_URL')}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(
                 e,
@@ -227,7 +228,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.marketplace.overview}
           </Menu.Item>
           <Menu.Item
-            href="https://market.decentraland.org/browse"
+            href={`${config.get('MARKETPLACE_URL')}/browse`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(
                 e,
@@ -238,7 +239,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.marketplace.collectibles}
           </Menu.Item>
           <Menu.Item
-            href="https://market.decentraland.org/lands"
+            href={`${config.get('MARKETPLACE_URL')}/lands`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.MARKETPLACE}_land`)
             }
@@ -246,7 +247,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.marketplace.land}
           </Menu.Item>
           <Menu.Item
-            href="https://market.decentraland.org/account"
+            href={`${config.get('MARKETPLACE_URL')}/account`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(
                 e,
@@ -267,7 +268,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
-            href="https://builder.decentraland.org"
+            href={config.get('BUILDER_URL')}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_overview`)
             }
@@ -275,7 +276,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.builder.overview}
           </Menu.Item>
           <Menu.Item
-            href="https://builder.decentraland.org/collections"
+            href={`${config.get('BUILDER_URL')}/collections`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(
                 e,
@@ -286,7 +287,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.builder.collections}
           </Menu.Item>
           <Menu.Item
-            href="https://builder.decentraland.org/scenes"
+            href={`${config.get('BUILDER_URL')}/scenes`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_scenes`)
             }
@@ -294,7 +295,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.builder.scenes}
           </Menu.Item>
           <Menu.Item
-            href="https://builder.decentraland.org/land"
+            href={`${config.get('BUILDER_URL')}/land`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_land`)
             }
@@ -302,7 +303,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.builder.land}
           </Menu.Item>
           <Menu.Item
-            href="https://builder.decentraland.org/names"
+            href={`${config.get('BUILDER_URL')}/names`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_names`)
             }
@@ -310,7 +311,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.builder.names}
           </Menu.Item>
           <Menu.Item
-            href="https://builder.decentraland.org/worlds"
+            href={`${config.get('BUILDER_URL')}/worlds`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.BUILDER}_worlds`)
             }
@@ -370,7 +371,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
-            href="https://places.decentraland.org"
+            href={config.get('PLACES_URL')}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.PLACES}_overview`)
             }
@@ -378,7 +379,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.places.overview}
           </Menu.Item>
           <Menu.Item
-            href="https://places.decentraland.org/places"
+            href={`${config.get('PLACES_URL')}/places`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.PLACES}_places`)
             }
@@ -386,7 +387,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.places.places}
           </Menu.Item>
           <Menu.Item
-            href="https://places.decentraland.org/worlds"
+            href={`${config.get('PLACES_URL')}/worlds`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.PLACES}_worlds`)
             }
@@ -412,7 +413,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       <Menu.Item className="submenu">
         <Menu vertical>
           <Menu.Item
-            href="https://dao.decentraland.org"
+            href={config.get('DAO_URL')}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.DAO}_overview`)
             }
@@ -420,7 +421,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.dao.overview}
           </Menu.Item>
           <Menu.Item
-            href="https://governance.decentraland.org"
+            href={config.get('GOVERNANCE_URL')}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.DAO}_governance`)
             }
@@ -428,7 +429,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.dao.governance}
           </Menu.Item>
           <Menu.Item
-            href="https://governance.decentraland.org/transparency"
+            href={`${config.get('GOVERNANCE_URL')}/transparency`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.DAO}_transparency`)
             }
@@ -484,13 +485,13 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         {this.renderMobileMenuItem(
           NavbarPages.MARKETPLACE,
           i18n.menu.marketplace.main,
-          'https://market.decentraland.org',
+          config.get('MARKETPLACE_URL'),
           this.renderMarketplaceSubMenu()
         )}
         {this.renderMobileMenuItem(
           NavbarPages.BUILDER,
           i18n.menu.builder.main,
-          'https://builder.decentraland.org',
+          config.get('BUILDER_URL'),
           this.renderBuilderSubMenu()
         )}
         {this.renderMobileMenuItem(
@@ -502,18 +503,18 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         {this.renderMobileMenuItem(
           NavbarPages.PLACES,
           i18n.menu.places.main,
-          'https://places.decentraland.org',
+          config.get('PLACES_URL'),
           this.renderPlacesSubMenu()
         )}
         {this.renderMobileMenuItem(
           NavbarPages.EVENTS,
           i18n.menu.events,
-          'https://events.decentraland.org'
+          config.get('EVENTS_URL')
         )}
         {this.renderMobileMenuItem(
           NavbarPages.DAO,
           i18n.menu.dao.main,
-          'https://governance.decentraland.org',
+          config.get('GOVERNANCE_URL'),
           this.renderDaoSubMenu()
         )}
         {this.renderMobileMenuItem(
@@ -564,13 +565,13 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         {this.renderMenuItem(
           NavbarPages.MARKETPLACE,
           i18n.menu.marketplace.main,
-          'https://market.decentraland.org',
+          config.get('MARKETPLACE_URL'),
           this.renderMarketplaceSubMenu()
         )}
         {this.renderMenuItem(
           NavbarPages.BUILDER,
           i18n.menu.builder.main,
-          'https://builder.decentraland.org',
+          config.get('BUILDER_URL'),
           this.renderBuilderSubMenu()
         )}
         {this.renderMenuItem(
@@ -583,18 +584,18 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         {this.renderMenuItem(
           NavbarPages.PLACES,
           i18n.menu.places.main,
-          'https://places.decentraland.org',
+          config.get('PLACES_URL'),
           this.renderPlacesSubMenu()
         )}
         {this.renderMenuItem(
           NavbarPages.EVENTS,
           i18n.menu.events,
-          'https://events.decentraland.org'
+          config.get('EVENTS_URL')
         )}
         {this.renderMenuItem(
           NavbarPages.DAO,
           i18n.menu.dao.main,
-          'https://dao.decentraland.org',
+          config.get('DAO_URL'),
           this.renderDaoSubMenu()
         )}
         {this.renderMenuItem(
