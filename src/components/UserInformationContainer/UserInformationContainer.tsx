@@ -221,7 +221,9 @@ export class UserInformationContainer extends React.Component<
                       ? onClickMyAssets
                       : () =>
                           window.open(
-                            `${config.get('MARKETPLACE_URL')}/account?section=collections`
+                            `${config.get(
+                              'MARKETPLACE_URL'
+                            )}/account?section=collections`
                           )
                   }
                 >
