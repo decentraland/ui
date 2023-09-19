@@ -87,6 +87,7 @@ export * from './components/AuthorizationModal'
 export * from './components/CatalogCard/CatalogCard'
 export * from './components/AssetImage/AssetImage'
 export * from './components/UserInformationContainer/UserInformationContainer'
+export * from './components/ArrayFilter'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
