@@ -45,7 +45,7 @@
 .ui.popup,
 .ui.inverted.popup {
   box-shadow: var(--shadow-1);
-  height: 32px;
+  height: auto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
