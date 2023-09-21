@@ -88,6 +88,9 @@ export * from './components/CatalogCard/CatalogCard'
 export * from './components/AssetImage/AssetImage'
 export * from './components/UserInformationContainer/UserInformationContainer'
 export * from './components/ArrayFilter'
+export * from './components/InfoTooltip'
+export * from './components/RarityFilter'
+
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'
