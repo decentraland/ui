@@ -9,7 +9,7 @@ storiesOf('InfoTooltip', module).add('Tooltip', () => {
       <span>Rarities</span>
       <InfoTooltip
         position="bottom center"
-        content="The Rarity determines the total number of NFTs that can be minted sdfdsfdsfdsfsdfsdfsfsdfdsfsdfs"
+        content="The Rarity determines the total number of NFTs that can be minted"
       />
     </div>
   )
