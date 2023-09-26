@@ -43,6 +43,8 @@ export type UserInformationComponentProps = {
   onClickMyLists?: () => void
   onClickMyAssets?: () => void
   onClickProfile?: () => void
+  trackOpenMenu?: () => void
+  onClickAccount?: () => void
 }
 
 export type UserInformationComponentState = {
@@ -80,6 +82,8 @@ export class UserInformationContainer extends React.Component<
   }
 
   handleToggle = (): void => {
+    if (!this.state.isOpen && this.props.trackOpenMenu)
+      this.props.trackOpenMenu()
     this.toggle(!this.state.isOpen)
   }
 
@@ -133,6 +137,7 @@ export class UserInformationContainer extends React.Component<
       onClickActivity,
       onClickMyAssets,
       onClickMyLists,
+      onClickAccount,
       i18n,
       hasActivity
     } = this.props
@@ -204,17 +209,19 @@ export class UserInformationContainer extends React.Component<
                 {i18n.profile}
               </Button>
               <ul className="actions">
-                <a
-                  href={config.get('ACCOUNT_URL')}
-                  target="_blank"
-                  rel="noreferrer"
+                <div
+                  onClick={
+                    onClickAccount
+                      ? onClickAccount
+                      : () => window.open(config.get('ACCOUNT_URL'))
+                  }
                 >
                   <li className="menu-option">
                     <Wallet />
                     &nbsp;
                     {i18n.wallet}
                   </li>
-                </a>
+                </div>
                 <div
                   onClick={
                     onClickMyAssets
