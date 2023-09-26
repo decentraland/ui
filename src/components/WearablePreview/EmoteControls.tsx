@@ -25,6 +25,7 @@ type EmoteControlsState = {
   isSoundEnabled: boolean
   hasSound: boolean
   shouldResumePlaying: boolean
+  isChangingFrame: boolean
 }
 
 export class EmoteControls extends React.PureComponent<
@@ -37,7 +38,8 @@ export class EmoteControls extends React.PureComponent<
     frame: 0,
     isSoundEnabled: false,
     hasSound: undefined,
-    shouldResumePlaying: false
+    shouldResumePlaying: false,
+    isChangingFrame: false
   }
 
   handleAnimationLoop = () => {
@@ -57,13 +59,14 @@ export class EmoteControls extends React.PureComponent<
   }
 
   handleAnimationPlay = async () => {
-    const { length: stateLength } = this.state
+    const { length: stateLength, isChangingFrame } = this.state
     let emoteLength = stateLength
     if (!stateLength) {
       emoteLength = await this.previewController.emote.getLength()
     }
-
-    this.setState({ isPlaying: true, length: emoteLength })
+    if (!isChangingFrame) {
+      this.setState({ isPlaying: true, length: emoteLength })
+    }
   }
 
   handleAnimationPlaying = ({ length }) => {
@@ -133,7 +136,7 @@ export class EmoteControls extends React.PureComponent<
     if (length * 100 < value) {
       targetValue = length * 100
     }
-    this.setState({ frame: targetValue })
+    this.setState({ frame: targetValue, isChangingFrame: true })
     if (isPlaying) {
       await this.previewController?.emote.pause()
       this.setState({ shouldResumePlaying: true })
@@ -143,6 +146,7 @@ export class EmoteControls extends React.PureComponent<
 
   handleMouseUp = async () => {
     const { shouldResumePlaying } = this.state
+    this.setState({ isChangingFrame: false })
     if (shouldResumePlaying) {
       await this.previewController?.emote.play()
       this.setState({ shouldResumePlaying: false })
