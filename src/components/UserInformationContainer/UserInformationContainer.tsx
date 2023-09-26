@@ -38,11 +38,13 @@ export type UserInformationComponentProps = {
   onSignOut: () => void
   onSignIn: () => void
   onClickBalance: (network: Network) => void
-  onClickSettings?: () => void
-  onClickActivity?: () => void
-  onClickMyLists?: () => void
-  onClickMyAssets?: () => void
-  onClickProfile?: () => void
+  onClickSettings: () => void
+  onClickActivity: () => void
+  onClickMyLists: () => void
+  onClickMyAssets: () => void
+  onClickProfile: () => void
+  trackOpenMenu: () => void
+  onClickAccount: () => void
 }
 
 export type UserInformationComponentState = {
@@ -80,6 +82,7 @@ export class UserInformationContainer extends React.Component<
   }
 
   handleToggle = (): void => {
+    if (!this.state.isOpen) this.props.trackOpenMenu()
     this.toggle(!this.state.isOpen)
   }
 
@@ -133,6 +136,7 @@ export class UserInformationContainer extends React.Component<
       onClickActivity,
       onClickMyAssets,
       onClickMyLists,
+      onClickAccount,
       i18n,
       hasActivity
     } = this.props
@@ -160,13 +164,9 @@ export class UserInformationContainer extends React.Component<
           >
             <Button
               basic
-              onClick={
-                onClickActivity
-                  ? onClickActivity
-                  : () =>
-                      window.open(`${config.get('MARKETPLACE_URL')}/activity`)
-              }
+              onClick={onClickActivity}
               className="activity-icon"
+              alt="View Transaction History"
             >
               <ActivityIcon hasActivity={hasActivity} />
             </Button>
@@ -195,66 +195,31 @@ export class UserInformationContainer extends React.Component<
               <Button
                 className="view-profile"
                 inverted
-                onClick={
-                  onClickProfile
-                    ? onClickProfile
-                    : () => window.open(config.get('PROFILE_URL'))
-                }
+                onClick={onClickProfile}
               >
                 {i18n.profile}
               </Button>
               <ul className="actions">
-                <a
-                  href={config.get('ACCOUNT_URL')}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <div onClick={onClickAccount}>
                   <li className="menu-option">
                     <Wallet />
                     &nbsp;
                     {i18n.wallet}
                   </li>
-                </a>
-                <div
-                  onClick={
-                    onClickMyAssets
-                      ? onClickMyAssets
-                      : () =>
-                          window.open(
-                            `${config.get(
-                              'MARKETPLACE_URL'
-                            )}/account?section=collections`
-                          )
-                  }
-                >
+                </div>
+                <div onClick={onClickMyAssets}>
                   <li className="menu-option">
                     <GroupIcon /> &nbsp;
                     {i18n.myAssets}
                   </li>
                 </div>
-                <div
-                  onClick={
-                    onClickMyLists
-                      ? onClickMyLists
-                      : () =>
-                          window.open(`${config.get('MARKETPLCE_URL')}/lists`)
-                  }
-                >
+                <div onClick={onClickMyLists}>
                   <li className="menu-option">
                     <BookmarkedIcon /> &nbsp;
                     {i18n.myLists}
                   </li>
                 </div>
-                <div
-                  onClick={
-                    onClickSettings
-                      ? onClickSettings
-                      : () =>
-                          window.open(
-                            `${config.get('MARKETPLACE_URL')}/settings`
-                          )
-                  }
-                >
+                <div onClick={onClickSettings}>
                   <li className="menu-option">
                     <SettingsIcon /> &nbsp;
                     {i18n.settings}
