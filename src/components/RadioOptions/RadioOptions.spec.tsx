@@ -1,5 +1,6 @@
 import React from 'react'
-import { fireEvent, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { RadioOptions } from './RadioOptions'
 import { RadioOptionsProps } from './RadioOptions.types'
 
@@ -65,7 +66,7 @@ describe('when clicking on an option', () => {
       const { getByText } = renderedComponent
 
       const radio = getByText(options[0].name).previousSibling
-      fireEvent.click(radio)
+      userEvent.click(radio as Element)
 
       expect(onChange).not.toHaveBeenCalledWith(value)
     })
@@ -81,7 +82,7 @@ describe('when clicking on an option', () => {
       const { getByText } = renderedComponent
 
       const radio = getByText(options[0].name).previousSibling
-      fireEvent.click(radio)
+      userEvent.click(radio as Element)
 
       expect(onChange).toHaveBeenCalledWith(options[0].value)
     })
