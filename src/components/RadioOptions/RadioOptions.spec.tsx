@@ -65,8 +65,8 @@ describe('when clicking on an option', () => {
     it('should not call the onChange callback', () => {
       const { getByText } = renderedComponent
 
-      const radio = getByText(options[0].name).previousSibling
-      userEvent.click(radio as Element)
+      const radio = getByText(options[0].name)
+      userEvent.click(radio)
 
       expect(onChange).not.toHaveBeenCalledWith(value)
     })
@@ -81,8 +81,8 @@ describe('when clicking on an option', () => {
     it('should call the onChange callback with the new value', () => {
       const { getByText } = renderedComponent
 
-      const radio = getByText(options[0].name).previousSibling
-      userEvent.click(radio as Element)
+      const radio = getByText(options[0].name)
+      userEvent.click(radio)
 
       expect(onChange).toHaveBeenCalledWith(options[0].value)
     })
