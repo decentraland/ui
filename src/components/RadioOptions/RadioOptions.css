@@ -1,0 +1,18 @@
+.dui-radio-options {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.dui-radio-options .ui.radio.checkbox {
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.dui-radio-options .ui.checkbox label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 6px;
+}
