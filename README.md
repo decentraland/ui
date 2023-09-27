@@ -136,6 +136,8 @@ Or you can create your own theme like this:
 
 ## Development
 
+Prerequisites: Node.js v16 (or compatible)
+
 Install dependencies and start Storybook:
 
 ```
