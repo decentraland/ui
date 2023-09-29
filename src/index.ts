@@ -90,6 +90,7 @@ export * from './components/UserInformationContainer/UserInformationContainer'
 export * from './components/ArrayFilter'
 export * from './components/InfoTooltip'
 export * from './components/RarityFilter'
+export * from './components/AssetStatusFilter'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
