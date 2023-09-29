@@ -6130,3 +6130,42 @@ a.ui.card:hover,
   }
 }
 
+.dui-radio-options {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.dui-radio-options .ui.radio.checkbox {
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.dui-radio-options .ui.checkbox label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.dui-asset-status-filter {
+  padding: 21px 24px;
+  background: #242129;
+  border: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .dui-asset-status-filter__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: none;
+    font-size: 17px;
+  }
+
+  .dui-asset-status-filter__name {
+    color: #fff;
+  }
+}
+
