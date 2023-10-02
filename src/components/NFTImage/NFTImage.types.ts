@@ -1,6 +1,6 @@
-import { NFT } from "@dcl/schemas"
+import { NFT } from '@dcl/schemas'
 
 export type Props = {
-  nft: NFT;
-  className?: string;
+  nft: NFT
+  className?: string
 }

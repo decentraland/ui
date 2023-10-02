@@ -60,7 +60,11 @@ export const NFTCard = (props: Props) => {
     }
 
     return (
-      <span className="dui-nft-card__badge" style={{ background: badge.color }} key={badge.label}>
+      <span
+        className="dui-nft-card__badge"
+        style={{ background: badge.color }}
+        key={badge.label}
+      >
         {badge.icon && (
           <i className={classNames('dui-nft-card__badge-icon', badge.icon)} />
         )}

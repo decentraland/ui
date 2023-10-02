@@ -1,4 +1,4 @@
-import { NFT, Network, WearableCategory } from "@dcl/schemas"
+import { NFT, Network, WearableCategory } from '@dcl/schemas'
 
 export type Badge = {
   label: string
@@ -10,25 +10,25 @@ export type Badge = {
 export type NFTCardI18N = {
   network: {
     [keyof in Network]: string
-  },
+  }
   bodyShape: {
-    male: string,
-    female: string,
+    male: string
+    female: string
     unisex: string
-  },
+  }
   playMode: {
-    loop: string,
+    loop: string
     once: string
-  },
+  }
   category: {
     [keyof in WearableCategory]: string
   }
-  withSound: string,
+  withSound: string
   smart: string
 }
 
 export type Props = {
-  nft: NFT,
+  nft: NFT
   i18n?: NFTCardI18N
   price?: string
   subtitle?: React.ReactNode | string

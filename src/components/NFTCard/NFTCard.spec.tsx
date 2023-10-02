@@ -1,5 +1,13 @@
 import React from 'react'
-import { BodyShape, EmoteCategory, NFT, NFTCategory, Network, Rarity, WearableCategory } from '@dcl/schemas'
+import {
+  BodyShape,
+  EmoteCategory,
+  NFT,
+  NFTCategory,
+  Network,
+  Rarity,
+  WearableCategory
+} from '@dcl/schemas'
 import { RenderResult, render } from '@testing-library/react'
 import { NFTCard } from './NFTCard'
 import { Props } from './NFTCard.types'
@@ -84,7 +92,7 @@ describe('when rendering an estate', () => {
   })
 })
 
-describe("when rendering a wearable", () => {
+describe('when rendering a wearable', () => {
   let wearableNFT: NFT
 
   beforeEach(() => {
@@ -111,20 +119,20 @@ describe("when rendering a wearable", () => {
     expect(screen.getByText(wearableNFT.name)).toBeInTheDocument()
   })
 
-  it("should render the trimmed wearable owner", () => {
+  it('should render the trimmed wearable owner', () => {
     expect(screen.getByText('0x1231')).toBeInTheDocument()
   })
 
-  it("should render the rarity tag", () => {
+  it('should render the rarity tag', () => {
     expect(screen.getByText(Rarity.COMMON)).toBeInTheDocument()
   })
 
-  it("should render smart tag", () => {
+  it('should render smart tag', () => {
     expect(screen.getByLabelText('Smart')).toBeInTheDocument()
   })
 })
 
-describe("when rendering an emote", () => {
+describe('when rendering an emote', () => {
   let emoteNFT: NFT
 
   beforeEach(() => {
@@ -147,12 +155,12 @@ describe("when rendering an emote", () => {
     screen = renderNFTCard({ nft: emoteNFT })
   })
 
-  it("should render the rarity tag", () => {
+  it('should render the rarity tag', () => {
     expect(screen.getByText(Rarity.COMMON)).toBeInTheDocument()
   })
 })
 
-describe("when a price is defined", () => {
+describe('when a price is defined', () => {
   let emoteNFT: NFT
 
   beforeEach(() => {
@@ -175,12 +183,12 @@ describe("when a price is defined", () => {
     screen = renderNFTCard({ nft: emoteNFT, price: '12' })
   })
 
-  it("should render the price in MANA", () => {
+  it('should render the price in MANA', () => {
     expect(screen.getByText('12')).toBeInTheDocument()
   })
 })
 
-describe("when a custom header is defined", () => {
+describe('when a custom header is defined', () => {
   let emoteNFT: NFT
 
   beforeEach(() => {
@@ -200,14 +208,18 @@ describe("when a custom header is defined", () => {
       }
     } as NFT
 
-    screen = renderNFTCard({ nft: emoteNFT, price: '12', header: 'My custom header' })
+    screen = renderNFTCard({
+      nft: emoteNFT,
+      price: '12',
+      header: 'My custom header'
+    })
   })
 
-  it("should render header text", () => {
+  it('should render header text', () => {
     expect(screen.getByText('My custom header')).toBeInTheDocument()
   })
 
-  it("should not render wearable name", () => {
+  it('should not render wearable name', () => {
     expect(screen.queryByText(emoteNFT.name)).not.toBeInTheDocument()
   })
 })

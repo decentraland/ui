@@ -7,7 +7,6 @@
   border-color: transparent;
 }
 
-
 .dui-nft-card .dui-nft-card__image {
   height: 200px;
 }
@@ -177,7 +176,6 @@
   background-image: url(../../assets/emotes/play-once.svg);
   filter: brightness(0) invert(1);
 }
-
 
 .dui-nft-card__badge-icon--loop {
   background-image: url(../../assets/emotes/play-loop.svg);
