@@ -127,7 +127,7 @@ describe('when rendering a wearable', () => {
     expect(screen.getByText(Rarity.COMMON)).toBeInTheDocument()
   })
 
-  it('should render smart tag', () => {
+  it('should render the smart tag', () => {
     expect(screen.getByLabelText('Smart')).toBeInTheDocument()
   })
 })
@@ -215,11 +215,11 @@ describe('when a custom header is defined', () => {
     })
   })
 
-  it('should render header text', () => {
+  it('should render the header text', () => {
     expect(screen.getByText('My custom header')).toBeInTheDocument()
   })
 
-  it('should not render wearable name', () => {
+  it('should not render the wearable name', () => {
     expect(screen.queryByText(emoteNFT.name)).not.toBeInTheDocument()
   })
 })
