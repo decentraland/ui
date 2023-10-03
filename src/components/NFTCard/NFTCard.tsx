@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react'
-import { Popup } from 'semantic-ui-react'
 import classNames from 'classnames'
 import { Card } from '../Card/Card'
+import { Popup } from '../Popup/Popup'
+import { Mana } from '../Mana/Mana'
 import { NFTImage } from '../NFTImage'
 import { getBadges, getSubtitle } from './utils'
 import { Badge, Props } from './NFTCard.types'
 import './NFTCard.css'
-import { Mana } from '../Mana/Mana'
 
 export const NFTCard = (props: Props) => {
   const { nft, i18n, header, subtitle, badges, price } = props

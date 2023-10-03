@@ -88,17 +88,13 @@ function _getParcelBadges(parcel: NFT['data']['parcel']) {
 export function getBadges(nft: NFT, i18n: NFTCardI18N): Badge[] {
   switch (nft.category) {
     case NFTCategory.EMOTE:
-      const emote = nft.data.emote
-      return _getEmoteBadges(emote, i18n)
+      return _getEmoteBadges(nft.data.emote, i18n)
     case NFTCategory.WEARABLE:
-      const wearable = nft.data.wearable
-      return _getWearableBadges(wearable, i18n)
+      return _getWearableBadges(nft.data.wearable, i18n)
     case NFTCategory.ESTATE:
-      const estate = nft.data.estate
-      return _getEstateBadges(estate)
+      return _getEstateBadges(nft.data.estate)
     case NFTCategory.PARCEL:
-      const parcel = nft.data.parcel
-      return _getParcelBadges(parcel)
+      return _getParcelBadges(nft.data.parcel)
     case NFTCategory.ENS:
       return []
   }
