@@ -1,5 +1,5 @@
 import { NFT, Network, WearableCategory } from '@dcl/schemas'
-import { CardProps } from 'semantic-ui-react'
+import { CardProps } from '../Card/Card'
 
 export type Badge = {
   label: string
