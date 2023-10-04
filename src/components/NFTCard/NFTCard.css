@@ -1,5 +1,6 @@
 .dui-nft-card.ui.card {
   margin: 0;
+  height: fit-content;
 }
 
 .dui-nft-card.ui.link.card:hover,
