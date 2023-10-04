@@ -9,7 +9,7 @@ import { Badge, Props } from './NFTCard.types'
 import './NFTCard.css'
 
 export const NFTCard = (props: Props) => {
-  const { nft, i18n, header, subtitle, badges, price } = props
+  const { nft, i18n, header, subtitle, badges, price, ...cardProps } = props
 
   const renderHeader = useCallback(() => {
     if (!header || typeof header === 'string') {
@@ -91,7 +91,7 @@ export const NFTCard = (props: Props) => {
   }, [])
 
   return (
-    <Card className="dui-nft-card" link id={nft.id}>
+    <Card className="dui-nft-card" link id={nft.id} {...cardProps}>
       <NFTImage nft={nft} className="dui-nft-card__image" />
       <Card.Content className="dui-nft-card__information">
         {renderHeader()}
