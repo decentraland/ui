@@ -6238,8 +6238,6 @@ a.ui.card:hover,
 }
 
 .dui-side-menu {
-  overflow: hidden;
-  padding-bottom: 21px;
   list-style-type: none;
   -webkit-margin-before: 0px;
           margin-block-start: 0px;
