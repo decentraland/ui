@@ -29,4 +29,41 @@
   .dui-category-filter__name {
     color: #fff;
   }
+
+  .dui-category-filter .dui-side-menu-item {
+    font-weight: 400;
+  }
+
+  .dui-category-filter .dui-side-menu-item--active {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-1 {
+    padding-left: 30px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-2 {
+    padding-left: 36px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-3 {
+    padding-left: 52px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--active::before {
+    top: 18px;
+    left: 10px;
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 10px;
+    background-image: url('../../assets/check.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    filter: invert(57%) sepia(80%) saturate(7429%) hue-rotate(335deg)
+      brightness(84%) contrast(103%);
+  }
 }
