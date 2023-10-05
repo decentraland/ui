@@ -1,4 +1,5 @@
 import { NFT, Network, WearableCategory } from '@dcl/schemas'
+import { CardProps } from '../Card/Card'
 
 export type Badge = {
   label: string
@@ -27,7 +28,7 @@ export type NFTCardI18N = {
   smart: string
 }
 
-export type Props = {
+export type Props = CardProps & {
   nft: NFT
   i18n?: NFTCardI18N
   price?: string

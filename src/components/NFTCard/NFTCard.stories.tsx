@@ -150,7 +150,8 @@ Estate.args = {
     createdAt: 1695892187000,
     updatedAt: 1696000955000,
     soldAt: 0
-  }
+  },
+  href: 'https://market.decentraland.org'
 }
 export const ENS = Template.bind({})
 ENS.args = {
