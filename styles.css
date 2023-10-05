@@ -6190,3 +6190,130 @@ a.ui.card:hover,
   }
 }
 
+.dui-side-menu-item {
+  position: relative;
+  padding: 9px 16px 9px;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2;
+  cursor: pointer;
+  text-transform: capitalize;
+  min-width: 280px;
+  margin-bottom: 8px;
+}
+
+.dui-side-menu-item--level-1 {
+  padding-left: 24px;
+  color: white;
+}
+
+.dui-side-menu-item--level-2 {
+  padding-left: 32px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item--level-3 {
+  padding-left: 48px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.dui-side-menu-item--active {
+  font-weight: 600;
+  color: white;
+  background-color: #37333d;
+}
+
+.dui-side-menu-item__caret {
+  position: absolute;
+  right: 16px;
+}
+
+.dui-side-menu-item__caret--open {
+  transform: rotate(180deg) translateY(-10px);
+}
+
+.dui-side-menu {
+  overflow: hidden;
+  padding-bottom: 21px;
+  list-style-type: none;
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
+.dui-category-filter.dcl.box {
+  background-color: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom: 21px;
+  border: none;
+  padding: 0px;
+}
+
+.dui-category-filter.dcl.box .box-header {
+  padding: 20px 20px 10px 20px;
+  color: var(--secondary-text);
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .dui-category-filter__header {
+    display: flex;
+    justify-content: space-between;
+    text-transform: none;
+    font-size: 17px;
+  }
+
+  .dui-category-filter.dcl.box {
+    background: transparent;
+  }
+
+  .dui-category-filter__name {
+    color: #fff;
+  }
+
+  .dui-category-filter .dui-side-menu-item {
+    font-weight: 400;
+  }
+
+  .dui-category-filter .dui-side-menu-item--active {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-1 {
+    padding-left: 30px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-2 {
+    padding-left: 36px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--level-3 {
+    padding-left: 52px;
+  }
+
+  .dui-category-filter .dui-side-menu-item--active::before {
+    top: 18px;
+    left: 10px;
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 10px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE4IDE0Ij4KICAgIDxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTS41OCA3Ljc5NmEuODQ3Ljg0NyAwIDAgMS0uMjQ3LS41NTdjMC0uMTYuMDgyLS4zOTguMjQ2LS41NTdsMS4xNS0xLjExNWEuODEuODEgMCAwIDEgMS4xNDggMEw2LjEzOCA5LjA1Yy4xNjUuMTU5LjQxLjE1OS41NzUgMGw4LjQxLTguNDc4YS44MS44MSAwIDAgMSAxLjE0OSAwbDEuMTQ5IDEuMTE1YS43NTQuNzU0IDAgMCAxIDAgMS4xMTRMNi45NTkgMTMuNDI4YS43NTYuNzU2IDAgMCAxLS41NzQuMjM5Ljc1Ni43NTYgMCAwIDEtLjU3NS0uMjRMLjU4IDcuNzk3eiIvPgo8L3N2Zz4K);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    filter: invert(57%) sepia(80%) saturate(7429%) hue-rotate(335deg)
+      brightness(84%) contrast(103%);
+  }
+}
+
