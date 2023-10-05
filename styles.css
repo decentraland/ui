@@ -6248,8 +6248,6 @@ a.ui.card:hover,
 .dui-category-filter.dcl.box {
   background-color: var(--card);
   border-radius: 10px;
-  overflow: hidden;
-  padding-bottom: 21px;
   border: none;
   padding: 0px;
 }
