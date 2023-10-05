@@ -131,8 +131,10 @@
 
 .dcl.sliderfield-track .slider-from {
   left: -8px;
+  white-space: nowrap;
 }
 
 .dcl.sliderfield-track .slider-to {
   right: -3px;
+  white-space: nowrap;
 }
