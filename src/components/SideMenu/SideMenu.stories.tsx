@@ -1,25 +1,22 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { CategoryFilter } from './CategoryFilter'
-import './CategoryFilter.stories.css'
+
+import { SideMenu } from './SideMenu'
 
 export default {
-  title: 'CategoryFilter',
-  component: CategoryFilter,
+  title: 'SideMenu',
+  component: SideMenu,
   argTypes: {
     onClick: { action: 'clicked' }
   }
-} as ComponentMeta<typeof CategoryFilter>
+} as ComponentMeta<typeof SideMenu>
 
-const Template: ComponentStory<typeof CategoryFilter> = (args) => (
-  <CategoryFilter {...args} />
+const Template: ComponentStory<typeof SideMenu> = (args) => (
+  <SideMenu {...args} />
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  i18n: {
-    title: 'Categories'
-  },
   value: 'wearables',
   items: [
     {

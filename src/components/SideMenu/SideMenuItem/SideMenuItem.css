@@ -1,0 +1,85 @@
+.dui-side-menu-item {
+  position: relative;
+  padding: 9px 16px 9px;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2;
+  cursor: pointer;
+  text-transform: capitalize;
+  min-width: 280px;
+  margin-bottom: 8px;
+}
+
+.dui-side-menu-item--level-1 {
+  padding-left: 24px;
+  color: white;
+}
+
+.dui-side-menu-item--level-2 {
+  padding-left: 32px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item--level-3 {
+  padding-left: 48px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.dui-side-menu-item--active {
+  font-weight: 600;
+  color: white;
+  background-color: #37333d;
+}
+
+.dui-side-menu-item__caret {
+  position: absolute;
+  right: 16px;
+}
+
+.dui-side-menu-item__caret--open {
+  transform: rotate(180deg) translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .dui-side-menu-item {
+    font-weight: 400;
+  }
+
+  .dui-side-menu-item--active {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .dui-side-menu-item--level-1 {
+    padding-left: 30px;
+  }
+
+  .dui-side-menu-item--level-2 {
+    padding-left: 36px;
+  }
+
+  .dui-side-menu-item--level-3 {
+    padding-left: 52px;
+  }
+
+  .dui-side-menu-item--active::before {
+    top: 18px;
+    left: 10px;
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 10px;
+    background-image: url('../../../assets/check.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    filter: invert(57%) sepia(80%) saturate(7429%) hue-rotate(335deg)
+      brightness(84%) contrast(103%);
+  }
+}

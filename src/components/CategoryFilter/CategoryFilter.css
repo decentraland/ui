@@ -1,18 +1,32 @@
-.dui-category-filter {
+.dui-category-filter.dcl.box {
   background-color: var(--card);
   border-radius: 10px;
   overflow: hidden;
   padding-bottom: 21px;
+  border: none;
+  padding: 0px;
 }
 
-.dui-category-filter__title {
-  padding-left: 24px;
-  padding-top: 17px;
-  padding-bottom: 22px;
-  text-transform: none;
+.dui-category-filter.dcl.box .box-header {
+  padding: 20px 20px 10px 20px;
   color: var(--secondary-text);
-  font-size: 13px;
-  line-height: 18px;
   font-weight: normal;
   text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .dui-category-filter__header {
+    display: flex;
+    justify-content: space-between;
+    text-transform: none;
+    font-size: 17px;
+  }
+
+  .dui-category-filter.dcl.box {
+    background: transparent;
+  }
+
+  .dui-category-filter__name {
+    color: #fff;
+  }
 }

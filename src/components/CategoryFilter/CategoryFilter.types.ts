@@ -1,12 +1,11 @@
-export type Item = {
-  id: string
-  label: string
-  children?: Item[]
-}
+import { Item } from '../SideMenu/SideMenuItem'
 
-export type Props = {
-  title: string
+export type CategoryFilterProps = {
+  i18n: {
+    title: string
+  }
   items: Item[]
   value: string
+  className?: string
   onClick?: (id: string) => void
 }

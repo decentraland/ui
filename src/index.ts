@@ -92,6 +92,8 @@ export * from './components/InfoTooltip'
 export * from './components/RarityFilter'
 export * from './components/AssetStatusFilter'
 export * from './components/BackToTopButton'
+export * from './components/SideMenu'
+export * from './components/CategoryFilter'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
