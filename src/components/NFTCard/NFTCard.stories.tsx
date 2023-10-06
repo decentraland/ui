@@ -22,7 +22,7 @@ Wearable.args = {
     activeOrderId: null,
     openRentalId: null,
     owner: '0xa4f689625f6f51adf691a64d38772be8509087d2',
-    name: 'Boxing Gloves',
+    name: 'Boxing Gloves with a long long long long long name',
     image:
       'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:mumbai:collections-v2:0xaa40af0b4a18e0555ff3c87beab1d5b591947abe:0/thumbnail',
     url: '/contracts/0xaa40af0b4a18e0555ff3c87beab1d5b591947abe/tokens/1',
@@ -48,6 +48,7 @@ Wearable.args = {
 
 export const Emote = Template.bind({})
 Emote.args = {
+  price: '1000',
   nft: {
     id: 'emote-test',
     tokenId: '2',
