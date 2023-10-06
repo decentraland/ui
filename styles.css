@@ -4096,18 +4096,6 @@ a.ui.card:hover,
           user-select: auto;
 }
 
-.dcl.smart-icon {
-  position: relative;
-  display: inline-block;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOSAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik05LjE3Njg0IDcuOTQ4MDZDOS4xMjE2MSA3Ljk0ODA2IDkuMDc2ODQgNy45MDMyOSA5LjA3Njg0IDcuODQ4MDZWMi42MzU5QzkuMDc2ODQgMi41Mzk2MSA4Ljk1NDA5IDIuNDk4OTUgOC44OTY2MSAyLjU3NjIxTDMuNjMwMzEgOS42NTQwMUMzLjUwNzU5IDkuODE4OTMgMy42MjUzMSAxMC4wNTMyIDMuODMwODggMTAuMDUzMkg2LjgyM0M2Ljg3ODIzIDEwLjA1MzIgNi45MjMgMTAuMDk4IDYuOTIzIDEwLjE1MzJWMTUuMzY1NEM2LjkyMyAxNS40NjE3IDcuMDQ1NzUgMTUuNTAyNCA3LjEwMzIzIDE1LjQyNTFMMTIuMzY5NSA4LjM0NzNDMTIuNDkyMiA4LjE4MjM3IDEyLjM3NDUgNy45NDgwNiAxMi4xNjkgNy45NDgwNkg5LjE3Njg0WiIgZmlsbD0id2hpdGUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC43NSIvPgo8L3N2Zz4K);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 16px;
-  height: 16px;
-  filter: var(--brightness);
-}
-
 .dcl.stats {
   display: inline-flex;
   flex-flow: column nowrap;
