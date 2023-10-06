@@ -35,12 +35,19 @@
 
 .dui-nft-card__price.ui.header {
   margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
 }
 
 .dui-nft-card__title {
   color: var(--text);
   font-size: 14px;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  flex: 1;
 }
 
 .dui-nft-card__subtitle {

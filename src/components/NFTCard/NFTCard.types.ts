@@ -35,4 +35,5 @@ export type Props = StrictCardProps & {
   subtitle?: React.ReactNode | string
   header?: React.ReactNode | string
   badges?: React.ReactNode | string
+  target?: string
 }
