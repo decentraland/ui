@@ -8,9 +8,9 @@ const IconBadge = ({ icon, text, onClick, className, children }: Props) => {
     () => (
       <>
         {children ? (
-          <span className="custom-icon">{children}</span>
+          <span className="dui-icon-badge__custom-icon">{children}</span>
         ) : (
-          <span className={classNames(icon && 'icon', icon)} />
+          <span className={classNames(icon && 'dui-icon-badge__icon', icon)} />
         )}
         <span className="text">{text}</span>
       </>
@@ -19,7 +19,7 @@ const IconBadge = ({ icon, text, onClick, className, children }: Props) => {
   )
 
   return (
-    <div className={classNames('IconBadge', className)} onClick={onClick}>
+    <div className={classNames('dui-icon-badge', className)} onClick={onClick}>
       {childrenInt}
     </div>
   )

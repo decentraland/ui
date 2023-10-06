@@ -43,7 +43,7 @@ export const SmartWearableFilter = (props: SmartWearableFilterProps) => {
           <>
             <span className="dui-smart-wearable-filter__name">{title}</span>
             {isOnlySmart ? (
-              <span className="box-filter-value">{selected}</span>
+              <span className="dui-smart-wearable-filter__value">{selected}</span>
             ) : null}
           </>
         ) : (
