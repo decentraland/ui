@@ -1,0 +1,147 @@
+.dui-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #37333d;
+}
+
+.dui-icon-badge .text {
+  font-size: 13px;
+}
+
+.dui-icon-badge .dui-icon-badge__icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dui-icon-badge .dui-icon-badge__custom-icon {
+  margin-right: 10px;
+}
+
+/* Icons */
+
+.dui-icon-badge .BaseMale {
+  background-image: url(../../images/wearables/MaleIcon.svg);
+}
+
+.dui-icon-badge .BaseFemale {
+  background-image: url(../../images/wearables/FemaleIcon.svg);
+}
+
+.dui-icon-badge .Unisex {
+  background-image: url(../../images/wearables/UnisexIcon.svg);
+}
+
+.dui-icon-badge .body_shape {
+  background-image: url(../../images/wearables/BodyShapeIcon.svg);
+}
+
+.dui-icon-badge .earring {
+  background-image: url(../../images/wearables/EarringsIcon.svg);
+}
+
+.dui-icon-badge .eyebrows {
+  background-image: url(../../images/wearables/EyebrowIcon.svg);
+}
+
+.dui-icon-badge .eyes {
+  background-image: url(../../images/wearables/EyesIcon.svg);
+}
+
+.dui-icon-badge .eyewear {
+  background-image: url(../../images/wearables/EyewearIcon.svg);
+}
+
+.dui-icon-badge .facial_hair {
+  background-image: url(../../images/wearables/FacilHairIcon.svg);
+}
+
+.dui-icon-badge .feet {
+  background-image: url(../../images/wearables/FeetIcon.svg);
+}
+
+.dui-icon-badge .hair {
+  background-image: url(../../images/wearables/HairIcon.svg);
+}
+
+.dui-icon-badge .hat {
+  background-image: url(../../images/wearables/HatIcon.svg);
+}
+
+.dui-icon-badge .helmet {
+  background-image: url(../../images/wearables/HelmetIcon.svg);
+}
+
+.dui-icon-badge .lower_body {
+  background-image: url(../../images/wearables/LowerBodyIcon.svg);
+}
+
+.dui-icon-badge .mask {
+  background-image: url(../../images/wearables/MaskIcon.svg);
+}
+
+.dui-icon-badge .mouth {
+  background-image: url(../../images/wearables/MouthIcon.svg);
+}
+
+.dui-icon-badge .tiara {
+  background-image: url(../../images/wearables/TiaraIcon.svg);
+}
+
+.dui-icon-badge .top_head {
+  background-image: url(../../images/wearables/TopHeadIcon.svg);
+}
+
+.dui-icon-badge .upper_body {
+  background-image: url(../../images/wearables/UpperBodyIcon.svg);
+}
+
+.dui-icon-badge .skin {
+  background-image: url(../../images/wearables/SkinIcon.svg);
+}
+
+.dui-icon-badge .hands_wear {
+  background-size: contain;
+  background-image: url(../../images/wearables/HandsIcon.svg);
+}
+
+.dui-icon-badge .play-once {
+  background-image: url(../../images/emotes/play-once.svg);
+  width: 19px;
+  filter: brightness(0) invert(1);
+}
+
+.dui-icon-badge .play-loop {
+  background-image: url(../../images/emotes/play-loop.svg);
+  width: 19px;
+  filter: brightness(0) invert(1);
+}
+
+.dui-icon-badge .smart-wearable {
+  background-image: url(../../images/wearables/smart.svg);
+  width: 14px;
+  height: 14px;
+}
+
+.dui-icon-badge .sound {
+  background-image: url(../../images/emotes/sound.svg);
+  width: 19px;
+}
+
+.dui-icon-badge .props {
+  background-image: url(../../images/emotes/props.svg);
+  background-size: contain;
+  width: 19px;
+}
+
+.dui-icon-badge .sparkles {
+  filter: brightness(0) invert(1);
+  background-image: url(../../images/sparkles.svg);
+  background-size: cover;
+}
