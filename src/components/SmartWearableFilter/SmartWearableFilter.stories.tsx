@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { SmartWearableFilter } from './SmartWearableFilter'
-import './SmartWearableFilter.stories.css'
 
 storiesOf('SmartWearableFilter', module).add('Select SW', () => {
   const i18n = {
