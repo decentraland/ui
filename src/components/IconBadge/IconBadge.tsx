@@ -3,7 +3,13 @@ import classNames from 'classnames'
 import { Props } from './IconBadge.types'
 import './IconBadge.css'
 
-const IconBadge = ({ icon, text, onClick, className, children }: Props) => {
+export const IconBadge = ({
+  icon,
+  text,
+  onClick,
+  className,
+  children
+}: Props) => {
   const childrenInt = React.useMemo(
     () => (
       <>
@@ -24,5 +30,3 @@ const IconBadge = ({ icon, text, onClick, className, children }: Props) => {
     </div>
   )
 }
-
-export default React.memo(IconBadge)

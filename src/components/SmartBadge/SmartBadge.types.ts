@@ -1,4 +1,4 @@
-export type Props =
+export type SmartBadgeProps =
   | {
       clickable?: false
       i18n?: {

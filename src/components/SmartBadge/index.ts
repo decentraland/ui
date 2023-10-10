@@ -1,3 +1,2 @@
-import SmartBadge from './SmartBadge'
-
-export default SmartBadge
+export * from './SmartBadge'
+export * from './SmartBadge.types'

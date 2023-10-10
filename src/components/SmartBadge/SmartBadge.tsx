@@ -1,10 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
-import IconBadge from '../IconBadge'
-import { Props } from './SmartBadge.types'
+import { IconBadge } from '../IconBadge/IconBadge'
+import { SmartBadgeProps } from './SmartBadge.types'
 import './SmartBadge.css'
 
-const SmartBadge = ({ clickable = true, i18n }: Props) => {
+export const SmartBadge = ({ clickable = true, i18n }: SmartBadgeProps) => {
   const { title = 'Smart' } = i18n || {}
 
   return (
@@ -15,5 +15,3 @@ const SmartBadge = ({ clickable = true, i18n }: Props) => {
     />
   )
 }
-
-export default React.memo(SmartBadge)
