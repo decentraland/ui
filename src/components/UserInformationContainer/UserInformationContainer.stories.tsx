@@ -12,6 +12,10 @@ storiesOf('UserInformationContainer', module)
       isSignedIn
       avatar={avatar}
       onClickBalance={(network: Network) => console.log(network)}
+      onMenuItemClick={(id: string, trackId: string) =>
+        console.log(id, trackId)
+      }
+      onOpen={(trackId: string) => console.log(trackId)}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
     />
   ))

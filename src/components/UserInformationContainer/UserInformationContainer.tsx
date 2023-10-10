@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
@@ -43,8 +44,18 @@ export type UserInformationComponentProps = {
   onClickMyLists?: () => void
   onClickMyAssets?: () => void
   onClickProfile?: () => void
-  onOpen?: () => void
+  onMenuItemClick?: (id: MenuItemType, trackingId: string) => void
+  onOpen?: (trackId: string) => void
   onClickAccount?: () => void
+}
+
+export enum MenuItemType {
+  ACTIVITY = 'Activity',
+  MY_ASSETS = 'My Assets',
+  SETTINGS = 'Settings',
+  MY_LISTS = 'My Lists',
+  ACCOUNT = 'Account',
+  PROFILE = 'Profile'
 }
 
 export type UserInformationComponentState = {
@@ -75,6 +86,7 @@ export class UserInformationContainer extends React.Component<
     isClickable: false
   }
 
+  trackingId: string | null = null
   mounted = false
 
   handleClose = (): void => {
@@ -82,8 +94,11 @@ export class UserInformationContainer extends React.Component<
   }
 
   handleToggle = (): void => {
-    if (!this.state.isOpen && this.props.onOpen) {
-      this.props.onOpen()
+    if (!this.state.isOpen) {
+      this.trackingId = uuidv4()
+      if (this.props.onOpen) {
+        this.props.onOpen(this.trackingId)
+      }
     }
     this.toggle(!this.state.isOpen)
   }
@@ -131,6 +146,82 @@ export class UserInformationContainer extends React.Component<
     )
   }
 
+  handleClickActivity = (): void => {
+    const { onClickActivity, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.ACTIVITY, this.trackingId)
+    }
+    onClickActivity
+      ? onClickActivity()
+      : window.open(
+          `${config.get('MARKETPLACE_URL')}/activity`,
+          '_blank',
+          'noopener'
+        )
+  }
+
+  handleClickMyAssets = (): void => {
+    const { onClickMyAssets, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.MY_ASSETS, this.trackingId)
+    }
+    onClickMyAssets
+      ? onClickMyAssets()
+      : window.open(
+          `${config.get('MARKETPLACE_URL')}/account?section=collections`,
+          '_blank',
+          'noopener'
+        )
+  }
+
+  handleClickSettings = (): void => {
+    const { onClickSettings, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.SETTINGS, this.trackingId)
+    }
+    onClickSettings
+      ? onClickSettings()
+      : window.open(
+          `${config.get('MARKETPLACE_URL')}/settings`,
+          '_blank',
+          'noopener'
+        )
+  }
+
+  handleClickMyLists = (): void => {
+    const { onClickMyLists, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.MY_LISTS, this.trackingId)
+    }
+    onClickMyLists
+      ? onClickMyLists()
+      : window.open(
+          `${config.get('MARKETPLACE_URL')}/lists`,
+          '_blank',
+          'noopener'
+        )
+  }
+
+  handleClickAccount = (): void => {
+    const { onClickAccount, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.ACCOUNT, this.trackingId)
+    }
+    onClickAccount
+      ? onClickAccount()
+      : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+  }
+
+  handleClickProfile = (): void => {
+    const { onClickProfile, onMenuItemClick } = this.props
+    if (onMenuItemClick) {
+      onMenuItemClick(MenuItemType.PROFILE, this.trackingId)
+    }
+    onClickProfile
+      ? onClickProfile()
+      : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
+  }
+
   render(): JSX.Element {
     const {
       avatar,
@@ -139,11 +230,6 @@ export class UserInformationContainer extends React.Component<
       onSignOut,
       onSignIn,
       onClickProfile,
-      onClickSettings,
-      onClickActivity,
-      onClickMyAssets,
-      onClickMyLists,
-      onClickAccount,
       i18n,
       hasActivity
     } = this.props
@@ -171,12 +257,7 @@ export class UserInformationContainer extends React.Component<
           >
             <Button
               basic
-              onClick={
-                onClickActivity
-                  ? onClickActivity
-                  : () =>
-                      window.open(`${config.get('MARKETPLACE_URL')}/activity`)
-              }
+              onClick={this.handleClickActivity}
               className="activity-icon"
             >
               <ActivityIcon hasActivity={hasActivity} />
@@ -194,7 +275,7 @@ export class UserInformationContainer extends React.Component<
             >
               <div
                 className={`info ${onClickProfile ? 'clickable' : ''}`}
-                onClick={onClickProfile}
+                onClick={this.handleClickProfile}
               >
                 <div className="image">
                   <AvatarFace size="small" avatar={avatar} />
@@ -206,68 +287,31 @@ export class UserInformationContainer extends React.Component<
               <Button
                 className="view-profile"
                 inverted
-                onClick={
-                  onClickProfile
-                    ? onClickProfile
-                    : () => window.open(config.get('PROFILE_URL'))
-                }
+                onClick={this.handleClickProfile}
               >
                 {i18n.profile}
               </Button>
               <ul className="actions">
-                <div
-                  onClick={
-                    onClickAccount
-                      ? onClickAccount
-                      : () => window.open(config.get('ACCOUNT_URL'))
-                  }
-                >
+                <div onClick={this.handleClickAccount}>
                   <li className="menu-option">
                     <Wallet />
                     &nbsp;
                     {i18n.wallet}
                   </li>
                 </div>
-                <div
-                  onClick={
-                    onClickMyAssets
-                      ? onClickMyAssets
-                      : () =>
-                          window.open(
-                            `${config.get(
-                              'MARKETPLACE_URL'
-                            )}/account?section=collections`
-                          )
-                  }
-                >
+                <div onClick={this.handleClickMyAssets}>
                   <li className="menu-option">
                     <GroupIcon /> &nbsp;
                     {i18n.myAssets}
                   </li>
                 </div>
-                <div
-                  onClick={
-                    onClickMyLists
-                      ? onClickMyLists
-                      : () =>
-                          window.open(`${config.get('MARKETPLCE_URL')}/lists`)
-                  }
-                >
+                <div onClick={this.handleClickMyLists}>
                   <li className="menu-option">
                     <BookmarkedIcon /> &nbsp;
                     {i18n.myLists}
                   </li>
                 </div>
-                <div
-                  onClick={
-                    onClickSettings
-                      ? onClickSettings
-                      : () =>
-                          window.open(
-                            `${config.get('MARKETPLACE_URL')}/settings`
-                          )
-                  }
-                >
+                <div onClick={this.handleClickSettings}>
                   <li className="menu-option">
                     <SettingsIcon /> &nbsp;
                     {i18n.settings}
