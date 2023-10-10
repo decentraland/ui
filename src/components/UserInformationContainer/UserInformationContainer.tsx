@@ -36,7 +36,7 @@ export type UserInformationComponentProps = {
   hasActivity: boolean
   menuItems?: React.ReactNode
   i18n: UserInformationComponentI18N
-  onSignOut: () => void
+  onSignOut: (trackingId: string) => void
   onSignIn: () => void
   onClickBalance?: (network: Network) => void
   onClickSettings?: () => void
@@ -222,12 +222,16 @@ export class UserInformationContainer extends React.Component<
       : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
   }
 
+  handleSignOut = (): void => {
+    const { onSignOut } = this.props
+    onSignOut(this.trackingId)
+  }
+
   render(): JSX.Element {
     const {
       avatar,
       isSignedIn,
       isSigningIn,
-      onSignOut,
       onSignIn,
       onClickProfile,
       i18n,
@@ -317,7 +321,7 @@ export class UserInformationContainer extends React.Component<
                     {i18n.settings}
                   </li>
                 </div>
-                <li onClick={onSignOut} className="menu-option">
+                <li onClick={this.handleSignOut} className="menu-option">
                   <LogoutIcon /> &nbsp;
                   {i18n.signOut}
                 </li>
