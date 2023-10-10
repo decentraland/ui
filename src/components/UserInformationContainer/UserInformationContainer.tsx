@@ -37,7 +37,7 @@ export type UserInformationComponentProps = {
   i18n: UserInformationComponentI18N
   onSignOut: () => void
   onSignIn: () => void
-  onClickBalance: (network: Network) => void
+  onClickBalance?: (network: Network) => void
   onClickSettings?: () => void
   onClickActivity?: () => void
   onClickMyLists?: () => void
@@ -116,8 +116,13 @@ export class UserInformationContainer extends React.Component<
             network={network as Network}
             size="small"
             className={onClickBalance ? 'clickable' : undefined}
+            onClick={() => {
+              if (onClickBalance) {
+                onClickBalance(network as Network)
+              }
+              window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+            }}
             title={`${manaBalances[network].toLocaleString()} MANA`}
-            href={config.get('ACCOUNT_URL')}
           >
             {Number(manaBalances[network].toFixed(2)).toLocaleString()}
           </Mana>
