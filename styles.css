@@ -5844,6 +5844,10 @@ a.ui.card:hover,
   cursor: pointer;
 }
 
+.dcl.new-user-menu .dcl.new-account-wrapper .clickable {
+  cursor: pointer;
+}
+
 .dcl.new-user-menu .info.clickable:hover {
   background-color: var(--dropdown-hover);
 }
