@@ -135,7 +135,13 @@ export class UserInformationContainer extends React.Component<
               if (onClickBalance) {
                 onClickBalance(network as Network)
               }
-              window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+              // Waits for any possible tracking to finish
+              setTimeout(
+                () => {
+                  window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+                },
+                onClickBalance ? 300 : 0
+              )
             }}
             title={`${manaBalances[network].toLocaleString()} MANA`}
           >
@@ -151,13 +157,18 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.ACTIVITY, this.trackingId)
     }
-    onClickActivity
-      ? onClickActivity()
-      : window.open(
-          `${config.get('MARKETPLACE_URL')}/activity`,
-          '_blank',
-          'noopener'
-        )
+    setTimeout(
+      () => {
+        onClickActivity
+          ? onClickActivity()
+          : window.open(
+              `${config.get('MARKETPLACE_URL')}/activity`,
+              '_blank',
+              'noopener'
+            )
+      },
+      onClickActivity ? 300 : 0
+    )
   }
 
   handleClickMyAssets = (): void => {
@@ -165,13 +176,19 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.MY_ASSETS, this.trackingId)
     }
-    onClickMyAssets
-      ? onClickMyAssets()
-      : window.open(
-          `${config.get('MARKETPLACE_URL')}/account?section=collections`,
-          '_blank',
-          'noopener'
-        )
+
+    setTimeout(
+      () => {
+        onClickMyAssets
+          ? onClickMyAssets()
+          : window.open(
+              `${config.get('MARKETPLACE_URL')}/account?section=collections`,
+              '_blank',
+              'noopener'
+            )
+      },
+      onMenuItemClick ? 300 : 0
+    )
   }
 
   handleClickSettings = (): void => {
@@ -179,13 +196,19 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.SETTINGS, this.trackingId)
     }
-    onClickSettings
-      ? onClickSettings()
-      : window.open(
-          `${config.get('MARKETPLACE_URL')}/settings`,
-          '_blank',
-          'noopener'
-        )
+
+    setTimeout(
+      () => {
+        onClickSettings
+          ? onClickSettings()
+          : window.open(
+              `${config.get('MARKETPLACE_URL')}/settings`,
+              '_blank',
+              'noopener'
+            )
+      },
+      onMenuItemClick ? 300 : 0
+    )
   }
 
   handleClickMyLists = (): void => {
@@ -193,13 +216,19 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.MY_LISTS, this.trackingId)
     }
-    onClickMyLists
-      ? onClickMyLists()
-      : window.open(
-          `${config.get('MARKETPLACE_URL')}/lists`,
-          '_blank',
-          'noopener'
-        )
+
+    setTimeout(
+      () => {
+        onClickMyLists
+          ? onClickMyLists()
+          : window.open(
+              `${config.get('MARKETPLACE_URL')}/lists`,
+              '_blank',
+              'noopener'
+            )
+      },
+      onMenuItemClick ? 300 : 0
+    )
   }
 
   handleClickAccount = (): void => {
@@ -207,9 +236,15 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.ACCOUNT, this.trackingId)
     }
-    onClickAccount
-      ? onClickAccount()
-      : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+
+    setTimeout(
+      () => {
+        onClickAccount
+          ? onClickAccount()
+          : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+      },
+      onMenuItemClick ? 300 : 0
+    )
   }
 
   handleClickProfile = (): void => {
@@ -217,9 +252,15 @@ export class UserInformationContainer extends React.Component<
     if (onMenuItemClick) {
       onMenuItemClick(MenuItemType.PROFILE, this.trackingId)
     }
-    onClickProfile
-      ? onClickProfile()
-      : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
+
+    setTimeout(
+      () => {
+        onClickProfile
+          ? onClickProfile()
+          : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
+      },
+      onMenuItemClick ? 300 : 0
+    )
   }
 
   handleSignOut = (): void => {
