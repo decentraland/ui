@@ -11,6 +11,7 @@ storiesOf('UserInformationContainer', module)
     <UserInformationContainer
       isSignedIn
       avatar={avatar}
+      onClickBalance={(network: Network) => console.log(network)}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
     />
   ))
