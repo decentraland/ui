@@ -5765,6 +5765,11 @@ a.ui.card:hover,
   }
 }
 
+.iconContainer {
+  width: 24px;
+  height: 24px;
+}
+
 .dcl.new-user-menu {
   display: flex;
   position: relative;
@@ -6022,11 +6027,6 @@ a.ui.card:hover,
   flex-direction: row;
   gap: 10px;
   height: 35px;
-}
-
-.iconContainer {
-  width: 24px;
-  height: 24px;
 }
 
 .dui-array-filter .dui-array-filter__options {
