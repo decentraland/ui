@@ -1,19 +1,19 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Mana } from '../Mana/Mana'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
-import './UserInformationContainer.css'
 import ActivityIcon from '../Icons/ActivityIcon'
-import classNames from 'classnames'
 import Wallet from '../Icons/Wallet'
 import LogoutIcon from '../Icons/LogoutIcon'
 import SettingsIcon from '../Icons/SettingsIcon'
 import GroupIcon from '../Icons/GroupIcon'
 import BookmarkedIcon from '../Icons/BookmarkedIcon'
 import { config } from '../../config'
+import './UserInformationContainer.css'
 
 export type UserInformationComponentI18N = {
   signIn: React.ReactNode
@@ -43,7 +43,7 @@ export type UserInformationComponentProps = {
   onClickMyLists?: () => void
   onClickMyAssets?: () => void
   onClickProfile?: () => void
-  trackOpenMenu?: () => void
+  onOpen?: () => void
   onClickAccount?: () => void
 }
 
@@ -82,8 +82,9 @@ export class UserInformationContainer extends React.Component<
   }
 
   handleToggle = (): void => {
-    if (!this.state.isOpen && this.props.trackOpenMenu)
-      this.props.trackOpenMenu()
+    if (!this.state.isOpen && this.props.onOpen) {
+      this.props.onOpen()
+    }
     this.toggle(!this.state.isOpen)
   }
 
