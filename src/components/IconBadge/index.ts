@@ -1,3 +1,2 @@
-import IconBadge from './IconBadge'
-
-export default IconBadge
+export * from './IconBadge'
+export * from './IconBadge.types'

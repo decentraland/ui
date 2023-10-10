@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import IconBadge from './IconBadge'
+import { IconBadge } from './IconBadge'
 
 storiesOf('IconBadge', module)
   .add('With Icon', () => (

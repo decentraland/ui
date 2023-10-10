@@ -94,8 +94,9 @@ export * from './components/BackToTopButton'
 export * from './components/SideMenu'
 export * from './components/CategoryFilter'
 export * from './components/IconBadge/IconBadge'
-export * from './components/SmartWearableFilter/SmartWearableFilter'
-export * from './components/SmartBadge/SmartBadge'
+export * from './components/SmartWearableFilter'
+export * from './components/SmartBadge'
+export * from './components/SmartIcon'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
