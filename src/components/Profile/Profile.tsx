@@ -16,6 +16,9 @@ type Props<T extends React.ElementType> = {
   sliceAddressBy?: number
   size?: 'normal' | 'large' | 'huge' | 'massive'
   isDecentraland?: boolean
+  i18n?: {
+    defaultName: string
+  }
   as?: T
 }
 
@@ -40,7 +43,19 @@ export const Profile = function <T extends React.ElementType>(
   } = props
 
   const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
-  const name = (avatar && avatar.name) || address.slice(0, sliceLimit)
+  const name = React.useMemo(() => {
+    if (!avatar || !avatar.name) {
+      return address.slice(0, sliceLimit)
+    }
+
+    if (avatar.hasClaimedName) {
+      return avatar.name
+    }
+
+    const lastPart = `#${avatar?.userId.slice(-4)}`
+    return avatar.name.endsWith(lastPart) ? avatar.name : avatar.name + lastPart
+  }, [avatar, address, sliceLimit])
+
   const Wrapper = as
 
   if (isDecentraland) {

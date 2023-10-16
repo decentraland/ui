@@ -16,6 +16,19 @@ storiesOf('Profile', module)
       <Profile address="0xdeadbeef" avatar={avatar} />
     </>
   ))
+  .add('Avatar without name', () => (
+    <>
+      <Profile address="0xdeadbeef" avatar={{ ...avatar, name: null }} />
+    </>
+  ))
+  .add('Avatar with an unclaimed name', () => (
+    <>
+      <Profile
+        address="0xdeadbeef"
+        avatar={{ ...avatar, hasClaimedName: false }}
+      />
+    </>
+  ))
   .add('Image only', () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} imageOnly />
