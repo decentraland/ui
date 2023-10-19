@@ -31,6 +31,7 @@ export type UserInformationComponentProps = {
   isSignedIn: boolean
   isSigningIn: boolean
   address?: string
+  sliceAddressBy?: number
   manaBalances?: Partial<Record<Network, number>>
   avatar?: Avatar
   hasActivity: boolean
@@ -268,6 +269,21 @@ export class UserInformationContainer extends React.Component<
     onSignOut(this.trackingId)
   }
 
+  getAvatarName = () => {
+    const { avatar, address, sliceAddressBy } = this.props
+    const sliceLimit = Math.max(Math.min(sliceAddressBy, 42), 6)
+    if (!avatar || !avatar.name) {
+      return address.slice(0, sliceLimit)
+    }
+
+    if (avatar.hasClaimedName) {
+      return avatar.name
+    }
+
+    const lastPart = `#${avatar?.userId.slice(-4)}`
+    return avatar.name.endsWith(lastPart) ? avatar.name : avatar.name + lastPart
+  }
+
   render(): JSX.Element {
     const {
       avatar,
@@ -281,7 +297,7 @@ export class UserInformationContainer extends React.Component<
 
     const { isOpen, isClickable } = this.state
 
-    const name = avatar ? avatar.name : null
+    const name = avatar ? this.getAvatarName() : null
 
     return (
       <Column align="right">
