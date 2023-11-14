@@ -280,7 +280,8 @@ export class UserInformationContainer extends React.Component<
       return avatar.name
     }
 
-    const lastPart = address ? `#${address.slice(-4)}` : ''
+    const userId = address || avatar.userId
+    const lastPart = userId ? `#${userId.slice(-4)}` : ''
     return avatar.name.endsWith(lastPart) ? avatar.name : avatar.name + lastPart
   }
 
