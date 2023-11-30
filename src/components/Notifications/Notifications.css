@@ -1,0 +1,31 @@
+.dcl.notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dcl.notifications-bell {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: filter 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.dcl.notifications-counter {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 11px;
+  background-color: var(--primary);
+  position: relative;
+  top: -21px;
+  left: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
