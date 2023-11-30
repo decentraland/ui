@@ -85,22 +85,25 @@ const i18N = {
   }
 }
 
-const NotificationHandler = ({ locale, notification }: { notification: DCLNotification, locale: NotificationLocale }) => {
+const NotificationHandler = ({
+  locale,
+  notification
+}: {
+  notification: DCLNotification
+  locale: NotificationLocale
+}) => {
   switch (notification.type) {
     case 'item_sold':
       return (
-        <ItemSoldNotification
-        notification={notification}
-        locale={locale}
-      />
-    )
-    case 'royalties_earned': 
-    return (
-      <RoyaltiesEarnedNotification 
-        notification={notification}
-        locale={locale}
-      />
-    )
+        <ItemSoldNotification notification={notification} locale={locale} />
+      )
+    case 'royalties_earned':
+      return (
+        <RoyaltiesEarnedNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
     default:
       return null
   }
@@ -190,11 +193,15 @@ export default function NotificationsFeed({
                 {activeTab == 'newest' ? (
                   <>
                     <div>
-                      {unreadNotifications.map((notification) => <NotificationHandler notification={notification} locale={locale} /> )}
+                      {unreadNotifications.map((notification) => (
+                        <NotificationHandler
+                          notification={notification}
+                          locale={locale}
+                        />
+                      ))}
                     </div>
-                    {
-                      previousNotifications.length > 0 && (
-                        <div>
+                    {previousNotifications.length > 0 && (
+                      <div>
                         <p
                           style={{
                             fontSize: '16px',
@@ -205,14 +212,23 @@ export default function NotificationsFeed({
                         >
                           Previous
                         </p>
-                        {previousNotifications.map((notification) => <NotificationHandler notification={notification} locale={locale} />)}
+                        {previousNotifications.map((notification) => (
+                          <NotificationHandler
+                            notification={notification}
+                            locale={locale}
+                          />
+                        ))}
                       </div>
-                      )
-                    }
+                    )}
                   </>
                 ) : (
                   <>
-                    {readNotifications.map((notification) =>  <NotificationHandler notification={notification} locale={locale} />)}
+                    {readNotifications.map((notification) => (
+                      <NotificationHandler
+                        notification={notification}
+                        locale={locale}
+                      />
+                    ))}
                   </>
                 )}
               </div>

@@ -43,11 +43,11 @@ storiesOf('Notifications Toggle', module)
                 rarity: 'epic' as Rarity,
                 seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
                 nftName: 'Green Atari Tee',
-                network: "ethereum",
-                category: "wearable" as NFTCategory
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
           locale="en"
@@ -79,11 +79,11 @@ storiesOf('Notifications Toggle', module)
                 rarity: 'epic' as Rarity,
                 seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
                 nftName: 'Green Atari Tee',
-                network: "ethereum",
-                category: "wearable" as NFTCategory
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
           activeTab="newest"
@@ -106,21 +106,22 @@ storiesOf('Notifications Toggle', module)
           userNotifications={[
             {
               read: false,
-              type: "royalties_earned",
+              type: 'royalties_earned',
               address: '0xA',
               timestamp: 1701198655 * 1000,
               metadata: {
-                link: "https://market.decentraland.zone/contracts/0xb726634ed82ac04e6bca66b3b97cc41a2c10ec31/tokens/9",
-                image: 'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: "common" as Rarity,
-                network: "polygon",
-                nftName: "NJacket",
-                category: "wearable" as NFTCategory,
-                royaltiesCut: "0.3",
-                royaltiesCollector: "0x2a39d4f68133491f0442496f601cde2a945b6d31"
+                link: 'https://market.decentraland.zone/contracts/0xb726634ed82ac04e6bca66b3b97cc41a2c10ec31/tokens/9',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'common' as Rarity,
+                network: 'polygon',
+                nftName: 'NJacket',
+                category: 'wearable' as NFTCategory,
+                royaltiesCut: '0.3',
+                royaltiesCollector: '0x2a39d4f68133491f0442496f601cde2a945b6d31'
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               read: true,
@@ -134,11 +135,11 @@ storiesOf('Notifications Toggle', module)
                 rarity: 'uncommon' as Rarity,
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Binance US Hoodie',
-                network: "ethereum",
-                category: "wearable" as NFTCategory
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               read: true,
@@ -152,11 +153,11 @@ storiesOf('Notifications Toggle', module)
                 rarity: 'uncommon' as Rarity,
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Binance US Hoodie',
-                network: "ethereum",
-                category: "wearable" as NFTCategory
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               read: true,
@@ -170,11 +171,11 @@ storiesOf('Notifications Toggle', module)
                 rarity: 'uncommon' as Rarity,
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Binance US Hoodie',
-                network: "ethereum",
-                category: "wearable" as NFTCategory
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
-              created_at:  "2023-11-29T12:51:00.600Z",
-              updated_at:  "2023-11-29T12:51:00.600Z"
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
           activeTab="newest"
