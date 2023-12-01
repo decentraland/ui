@@ -66,12 +66,12 @@ const RoyaltiesEarnedNotification = ({
             </a>
           </span>{' '}
           {i18N[locale].description_2}
-          {Number(notification.metadata.royaltiesCut)}
+          {Number(notification.metadata.royaltiesCut)} MANA 
         </p>
       ) : (
         <p className="dcl notification-item__content__description">
           {i18N[locale].description_1}
-          {Number(notification.metadata.royaltiesCut)}{' '}
+          {Number(notification.metadata.royaltiesCut)} MANA {' '}
           {i18N[locale].description_2}
           <span>
             <a
