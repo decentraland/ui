@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+.dcl.notifications > div {
+  width: 32px;
+  height: 32px;
+}
+
 .dcl.notifications-bell {
   display: flex;
   background: none;
