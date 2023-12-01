@@ -146,7 +146,7 @@ storiesOf('Profile', module)
         avatar={avatar}
         inline
         as="a"
-        href="https://market.decentraland.zone/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        href="https://decentraland.zone/marketplace/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
         target="_blank"
       />
     </>
@@ -157,7 +157,7 @@ storiesOf('Profile', module)
         address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
         inline
         as={'a'}
-        href="https://market.decentraland.zone/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
+        href="https://decentraland.zone/marketplace/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
         target="_blank"
       />
     </>
