@@ -1,5 +1,5 @@
 {
-  "1": "https://wearable-preview.decentraland.org",
+  "WEARABLE_PREVIEW_URL": "https://wearable-preview.decentraland.org",
   "ACCOUNT_URL": "https://decentraland.org/account",
   "PROFILE_URL": "https://decentraland.org/profile",
   "MARKETPLACE_URL": "https://decentraland.org/marketplace",
