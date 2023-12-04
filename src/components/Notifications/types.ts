@@ -15,7 +15,11 @@ type RawDecentralandNotification<T extends DecentralandNotificationType, M> = {
   metadata: M
 }
 
-export type DecentralandNotificationType = 'item_sold' | 'royalties_earned' | 'bid_accepted' | 'bid_received'
+export type DecentralandNotificationType =
+  | 'item_sold'
+  | 'royalties_earned'
+  | 'bid_accepted'
+  | 'bid_received'
 
 type CommonNFTMetadata = {
   link: string
@@ -36,11 +40,11 @@ type RoyalitesEarnedMetadata = CommonNFTMetadata & {
 }
 
 type BidAcceptedMetadata = CommonNFTMetadata & {
-
+  price: string
 }
 
 type BidReceivedMetadata = CommonNFTMetadata & {
-
+  price: string
 }
 
 export type MetadataTypes = ItemSoldMetadata | RoyalitesEarnedMetadata
@@ -55,8 +59,18 @@ export type RoyalitesEarnedNotification = RawDecentralandNotification<
   RoyalitesEarnedMetadata
 >
 
-export type BidAcceptedNotification = RawDecentralandNotification<'bid_accepted', BidAcceptedMetadata>
+export type BidAcceptedNotification = RawDecentralandNotification<
+  'bid_accepted',
+  BidAcceptedMetadata
+>
 
-export type BidReceivedNotification = RawDecentralandNotification<'bid_received', BidReceivedMetadata>
+export type BidReceivedNotification = RawDecentralandNotification<
+  'bid_received',
+  BidReceivedMetadata
+>
 
-export type DCLNotification = ItemSoldNotification | RoyalitesEarnedNotification | BidAcceptedNotification | BidReceivedNotification
+export type DCLNotification =
+  | ItemSoldNotification
+  | RoyalitesEarnedNotification
+  | BidAcceptedNotification
+  | BidReceivedNotification

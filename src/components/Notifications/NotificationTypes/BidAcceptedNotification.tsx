@@ -4,6 +4,7 @@ import { BidAcceptedNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import BidAccepted from '../../Icons/Notifications/BidAccepted'
 import { Rarity } from '@dcl/schemas'
+import { formatMana } from '../utils'
 
 interface BidAcceptedNotificationProps {
   notification: BidAcceptedNotification
@@ -19,15 +20,21 @@ const i18N = {
       `Your bid of ${mana} MANA was accepted for ${nftName}`,
     title: 'Bid Accepted'
   },
-  es: { description: (
-    mana: React.ReactNode,
-    nftName: React.ReactNode
-  ): React.ReactNode =>
-    `Tu oferta de ${mana} MANA fue aceptada para ${nftName}`, title: 'Oferta aceptada' },
-  zh: { description: (
-    mana: React.ReactNode,
-    nftName: React.ReactNode
-  ): React.ReactNode => `您的出价 ${mana} MANA 已被接受 ${nftName}` , title: '接受投标' }
+  es: {
+    description: (
+      mana: React.ReactNode,
+      nftName: React.ReactNode
+    ): React.ReactNode =>
+      `Tu oferta de ${mana} MANA fue aceptada para ${nftName}`,
+    title: 'Oferta aceptada'
+  },
+  zh: {
+    description: (
+      mana: React.ReactNode,
+      nftName: React.ReactNode
+    ): React.ReactNode => `您的出价 ${mana} MANA 已被接受 ${nftName}`,
+    title: '接受投标'
+  }
 }
 
 const BidAcceptedNotification = ({
@@ -48,18 +55,20 @@ const BidAcceptedNotification = ({
         {i18N[locale].title}
       </p>
       <p className="dcl notification-item__content__description">
-        {i18N[locale].description}{' '}
-        <span>
-          <a
-            href={notification.metadata.link}
-            style={{
-              color: `${Rarity.getColor(notification.metadata.rarity)}`,
-              textDecoration: 'underline'
-            }}
-          >
-            {notification.metadata.nftName}
-          </a>
-        </span>
+        {i18N[locale].description(
+          formatMana(notification.metadata.price),
+          <span>
+            <a
+              href={notification.metadata.link}
+              style={{
+                color: `${Rarity.getColor(notification.metadata.rarity)}`,
+                textDecoration: 'underline'
+              }}
+            >
+              {notification.metadata.nftName}
+            </a>
+          </span>
+        )}
       </p>
     </NotificationItem>
   )

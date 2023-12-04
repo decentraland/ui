@@ -108,17 +108,11 @@ const NotificationHandler = ({
       )
     case 'bid_accepted':
       return (
-        <BidAcceptedNotification 
-          notification={notification}
-          locale={locale}
-        />
+        <BidAcceptedNotification notification={notification} locale={locale} />
       )
     case 'bid_received':
       return (
-        <BidReceivedNotification 
-          notification={notification}
-          locale={locale}
-        />
+        <BidReceivedNotification notification={notification} locale={locale} />
       )
     default:
       return null
