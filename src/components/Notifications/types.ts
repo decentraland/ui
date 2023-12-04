@@ -5,6 +5,7 @@ export type ActiveTab = 'newest' | 'read'
 export type NotificationLocale = 'en' | 'es' | 'zh'
 
 type RawDecentralandNotification<T extends DecentralandNotificationType, M> = {
+  id: string
   type: T
   address: string
   timestamp: number
@@ -14,7 +15,7 @@ type RawDecentralandNotification<T extends DecentralandNotificationType, M> = {
   metadata: M
 }
 
-export type DecentralandNotificationType = 'item_sold' | 'royalties_earned'
+export type DecentralandNotificationType = 'item_sold' | 'royalties_earned' | 'bid_accepted' | 'bid_received'
 
 type CommonNFTMetadata = {
   link: string
@@ -34,6 +35,14 @@ type RoyalitesEarnedMetadata = CommonNFTMetadata & {
   royaltiesCut: string
 }
 
+type BidAcceptedMetadata = CommonNFTMetadata & {
+
+}
+
+type BidReceivedMetadata = CommonNFTMetadata & {
+
+}
+
 export type MetadataTypes = ItemSoldMetadata | RoyalitesEarnedMetadata
 
 export type ItemSoldNotification = RawDecentralandNotification<
@@ -46,4 +55,8 @@ export type RoyalitesEarnedNotification = RawDecentralandNotification<
   RoyalitesEarnedMetadata
 >
 
-export type DCLNotification = ItemSoldNotification | RoyalitesEarnedNotification
+export type BidAcceptedNotification = RawDecentralandNotification<'bid_accepted', BidAcceptedMetadata>
+
+export type BidReceivedNotification = RawDecentralandNotification<'bid_received', BidReceivedMetadata>
+
+export type DCLNotification = ItemSoldNotification | RoyalitesEarnedNotification | BidAcceptedNotification | BidReceivedNotification
