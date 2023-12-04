@@ -1,22 +1,16 @@
 .dcl.notifications-feed {
   width: 384px;
-  min-height: 200px;
-  max-height: 385px;
-  height: 100%;
-  overflow-y: scroll;
   pointer-events: visible;
-  opacity: 1;
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 5px;
+  position: absolute;
+  top: 40px;
   z-index: 100;
   border-radius: 8px;
   border: 1px solid hsla(260, 6%, 46%, 0.24);
   background: var(--background);
   box-shadow: 0px 1px 24px 0px hsla(260, 6%, 46%, 0.24);
   transition: opacity 0.3s ease;
-  overscroll-behavior-y: contain;
 }
 
 .dcl.notifications-feed::before {
@@ -26,8 +20,8 @@
   height: 28px;
   background: var(--background);
   transform: rotate(-45deg);
-  top: -0.30714286em;
-  left: 46.5%;
+  top: -2px;
+  left: calc(50% - 14px);
   box-shadow: -1px -1px 0 0 var(--background);
 }
 
@@ -41,6 +35,12 @@
   letter-spacing: 0;
   font-size: 14px;
   padding: 8px 16px;
+}
+
+.dcl.notifications-feed__content
+  > .dcl.tabs.notifications-feed__tabs
+  > .ui.container {
+  justify-content: flex-start !important;
 }
 
 @media (max-width: 768px) {
@@ -63,17 +63,14 @@
   font-weight: 600;
 }
 
-.dcl.notifications-feed__header > .ui.basic.button.notifications-feed__markit {
-  color: #a09ba8 !important;
-  font-size: 12px;
-  padding: 8px 12px;
-}
-
 .dcl.notifications-feed__list-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  max-height: 290px;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
 }
 
 .dcl.notifications-feed__list {

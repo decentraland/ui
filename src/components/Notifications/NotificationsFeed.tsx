@@ -5,11 +5,13 @@ import { ActiveTab, DCLNotification, NotificationLocale } from './types'
 
 import './NotificationsFeed.css'
 import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
+import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
+import BidAcceptedNotification from './NotificationTypes/BidAcceptedNotification'
 import EmptyInbox from '../Icons/Notifications/EmptyInbox'
 import { Tabs } from '../Tabs/Tabs'
 import { Button } from '../Button/Button'
 import Time from '../../lib/time'
-import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
+import BidReceivedNotification from './NotificationTypes/BidReceivedNotification'
 
 interface NotificationsFeedProps {
   userNotifications: DCLNotification[]
@@ -104,6 +106,20 @@ const NotificationHandler = ({
           locale={locale}
         />
       )
+    case 'bid_accepted':
+      return (
+        <BidAcceptedNotification 
+          notification={notification}
+          locale={locale}
+        />
+      )
+    case 'bid_received':
+      return (
+        <BidReceivedNotification 
+          notification={notification}
+          locale={locale}
+        />
+      )
     default:
       return null
   }
@@ -122,6 +138,7 @@ export default function NotificationsFeed({
     () => userNotifications.filter((notification) => !notification.read),
     [userNotifications]
   )
+
   const previousNotifications = useMemo(
     () =>
       userNotifications.filter((notification) => {
@@ -134,8 +151,14 @@ export default function NotificationsFeed({
       }),
     [userNotifications]
   )
+
   const readNotifications = useMemo(
-    () => userNotifications.filter((notification) => notification.read),
+    () =>
+      userNotifications.filter(
+        (notification) =>
+          notification.read &&
+          !previousNotifications.find(({ id }) => id === notification.id)
+      ),
     [userNotifications]
   )
 
@@ -171,83 +194,89 @@ export default function NotificationsFeed({
       </div>
       {!isLoading && (
         <div className="dcl notifications-feed__content">
-          {userNotifications.length > 0 && (
-            <Tabs>
-              <Tabs.Tab
-                active={activeTab === 'newest'}
-                onClick={(e) => onChangeTab(e, 'newest')}
-              >
-                {i18N[locale].feed.tabs.newest}
-              </Tabs.Tab>
+          <Tabs className="notifications-feed__tabs">
+            <Tabs.Tab
+              active={activeTab === 'newest'}
+              onClick={(e) => onChangeTab(e, 'newest')}
+            >
+              {i18N[locale].feed.tabs.newest}
+            </Tabs.Tab>
+            {readNotifications.length > 0 && (
               <Tabs.Tab
                 active={activeTab === 'read'}
                 onClick={(e) => onChangeTab(e, 'read')}
               >
                 {i18N[locale].feed.tabs.read}
               </Tabs.Tab>
-            </Tabs>
-          )}
-          {userNotifications.length > 0 && (
-            <div className="dcl notifications-feed__list-container">
-              <div className="dcl notifications-feed__list">
-                {activeTab == 'newest' ? (
-                  <>
-                    <div>
-                      {unreadNotifications.map((notification) => (
-                        <NotificationHandler
-                          notification={notification}
-                          locale={locale}
-                        />
-                      ))}
-                    </div>
-                    {previousNotifications.length > 0 && (
+            )}
+          </Tabs>
+          <div className="dcl notifications-feed__list-container">
+            <div className="dcl notifications-feed__list">
+              {activeTab == 'newest' ? (
+                <>
+                  {!unreadNotifications.length &&
+                  !previousNotifications.length ? (
+                    <NoNotifications locale={locale} />
+                  ) : (
+                    <>
                       <div>
-                        <p
-                          style={{
-                            fontSize: '16px',
-                            fontWeight: 600,
-                            paddingLeft: '16px',
-                            marginBottom: 0
-                          }}
-                        >
-                          Previous
-                        </p>
-                        {previousNotifications.map((notification) => (
+                        {unreadNotifications.map((notification) => (
                           <NotificationHandler
                             notification={notification}
                             locale={locale}
                           />
                         ))}
                       </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {readNotifications.map((notification) => (
-                      <NotificationHandler
-                        notification={notification}
-                        locale={locale}
-                      />
-                    ))}
-                  </>
-                )}
-              </div>
+                      {previousNotifications.length > 0 && (
+                        <div>
+                          <p
+                            style={{
+                              fontSize: '16px',
+                              fontWeight: 600,
+                              paddingLeft: '16px',
+                              marginBottom: 0
+                            }}
+                          >
+                            Previous
+                          </p>
+                          {previousNotifications.map((notification) => (
+                            <NotificationHandler
+                              notification={notification}
+                              locale={locale}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  {readNotifications.map((notification) => (
+                    <NotificationHandler
+                      notification={notification}
+                      locale={locale}
+                    />
+                  ))}
+                </>
+              )}
             </div>
-          )}
-          {!userNotifications.length && (
-            <div className="dcl notifications-feed__emptyview">
-              <EmptyInbox />
-              <p className="dcl notifications-feed__emptyview__title">
-                {i18N[locale].feed.empty.title}
-              </p>
-              <p className="dcl notifications-feed__emptyview__description">
-                {i18N[locale].feed.empty.description}
-              </p>
-            </div>
-          )}
+          </div>
         </div>
       )}
       {isLoading && <Loader active />}
     </div>
   )
 }
+
+const NoNotifications = ({ locale }: { locale: NotificationLocale }) => (
+  <div className="dcl notifications-feed__emptyview">
+    <EmptyInbox />
+    <p className="dcl notifications-feed__emptyview__title">
+      {i18N[locale].feed.empty.title}
+    </p>
+    <p className="dcl notifications-feed__emptyview__description">
+      {i18N[locale].feed.empty.description}
+    </p>
+  </div>
+)
