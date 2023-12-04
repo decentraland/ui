@@ -4,6 +4,7 @@ import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
 import { NFTCategory, Rarity } from '@dcl/schemas'
 import BidReceived from '../Icons/Notifications/BidReceived'
+import { ActiveTab } from './types'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -32,6 +33,7 @@ storiesOf('Notifications Toggle', module)
           isOnboarding={false}
           userNotifications={[
             {
+              id: 'A',
               read: false,
               type: 'item_sold',
               address: '0xA',
@@ -68,6 +70,7 @@ storiesOf('Notifications Toggle', module)
           isOnboarding
           userNotifications={[
             {
+              id: 'A',
               read: false,
               type: 'item_sold',
               address: '0xA',
@@ -96,6 +99,7 @@ storiesOf('Notifications Toggle', module)
     )
   })
   .add('Open not loading', () => {
+    const [tab, setTab] = React.useState('newest')
     return (
       <div>
         <Notifications
@@ -105,10 +109,11 @@ storiesOf('Notifications Toggle', module)
           locale="en"
           userNotifications={[
             {
+              id: 'B',
               read: false,
               type: 'royalties_earned',
               address: '0xA',
-              timestamp: 1701198655 * 1000,
+              timestamp: new Date().getTime(),
               metadata: {
                 link: 'https://market.decentraland.zone/contracts/0xb726634ed82ac04e6bca66b3b97cc41a2c10ec31/tokens/9',
                 image:
@@ -124,6 +129,28 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'AC',
               read: true,
               type: 'item_sold',
               address: '0xA',
@@ -142,24 +169,7 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: 1701123003 * 1000,
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'uncommon' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Binance US Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
+              id: 'AS',
               read: true,
               type: 'item_sold',
               address: '0xA',
@@ -178,8 +188,8 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
-          activeTab="newest"
-          onChangeTab={(e, newTab) => console.log(newTab)}
+          activeTab={tab as ActiveTab}
+          onChangeTab={(e, newTab) => setTab(newTab)}
           onClickToggle={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
