@@ -1,0 +1,24 @@
+.dcl.notification-image__container {
+  height: 48px;
+  width: 48px;
+}
+
+.dcl.notification-image {
+  border-radius: 100%;
+  background-color: rgba(var(--bluish-steel-raw), 0.4);
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dcl.notification-image img {
+  width: 80%;
+}
+
+.dcl.notification-icon {
+  position: relative;
+  top: -20px;
+  left: -8px;
+}
