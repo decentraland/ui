@@ -3,18 +3,20 @@ import React, { useMemo } from 'react'
 import { Loader } from '../Loader/Loader'
 import { ActiveTab, DCLNotification, NotificationLocale } from './types'
 
-import './NotificationsFeed.css'
 import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
 import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
 import BidAcceptedNotification from './NotificationTypes/BidAcceptedNotification'
+import BidReceivedNotification from './NotificationTypes/BidReceivedNotification'
 import EmptyInbox from '../Icons/Notifications/EmptyInbox'
 import { Tabs } from '../Tabs/Tabs'
 import { Button } from '../Button/Button'
 import Time from '../../lib/time'
-import BidReceivedNotification from './NotificationTypes/BidReceivedNotification'
+
+import './NotificationsFeed.css'
+
 
 interface NotificationsFeedProps {
-  userNotifications: DCLNotification[]
+  items: DCLNotification[]
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
@@ -120,7 +122,7 @@ const NotificationHandler = ({
 }
 
 export default function NotificationsFeed({
-  userNotifications,
+  items,
   isLoading,
   locale,
   isOnboarding,
@@ -129,13 +131,13 @@ export default function NotificationsFeed({
   onBegin
 }: NotificationsFeedProps) {
   const unreadNotifications = useMemo(
-    () => userNotifications.filter((notification) => !notification.read),
-    [userNotifications]
+    () => items.filter((notification) => !notification.read),
+    [items]
   )
 
   const previousNotifications = useMemo(
     () =>
-      userNotifications.filter((notification) => {
+      items.filter((notification) => {
         if (!notification.read) return false
 
         const diff = Time(notification.timestamp).diff(new Date(), 'hour')
@@ -143,17 +145,17 @@ export default function NotificationsFeed({
           return true
         }
       }),
-    [userNotifications]
+    [items]
   )
 
   const readNotifications = useMemo(
     () =>
-      userNotifications.filter(
+      items.filter(
         (notification) =>
           notification.read &&
           !previousNotifications.find(({ id }) => id === notification.id)
       ),
-    [userNotifications]
+    [items]
   )
 
   if (isOnboarding) {
@@ -162,10 +164,10 @@ export default function NotificationsFeed({
         <div className="dcl notifications-feed__content">
           <div className="dcl notifications-feed__onboarding">
             <div className="dcl notifications-feed__onboarding-bell"></div>
-            <p className="dcl notifications-feed__emptyview__title">
+            <p className="dcl notifications-feed__emptyview-title">
               {i18N[locale].onboarding.title}
             </p>
-            <p className="dcl notifications-feed__emptyview__description">
+            <p className="dcl notifications-feed__emptyview-description">
               {i18N[locale].onboarding.description}
             </p>
             <div>
@@ -266,10 +268,10 @@ export default function NotificationsFeed({
 const NoNotifications = ({ locale }: { locale: NotificationLocale }) => (
   <div className="dcl notifications-feed__emptyview">
     <EmptyInbox />
-    <p className="dcl notifications-feed__emptyview__title">
+    <p className="dcl notifications-feed__emptyview-title">
       {i18N[locale].feed.empty.title}
     </p>
-    <p className="dcl notifications-feed__emptyview__description">
+    <p className="dcl notifications-feed__emptyview-description">
       {i18N[locale].feed.empty.description}
     </p>
   </div>

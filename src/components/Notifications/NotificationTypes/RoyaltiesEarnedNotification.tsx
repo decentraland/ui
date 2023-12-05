@@ -37,7 +37,7 @@ const RoyaltiesEarnedNotification = ({
   return (
     <NotificationItem
       image={{
-        imageLink: notification.metadata.image,
+        url: notification.metadata.image,
         rarity: notification.metadata.rarity,
         icon:
           notification.metadata.network === 'ethereum' ? (
@@ -49,11 +49,11 @@ const RoyaltiesEarnedNotification = ({
       timestamp={notification.timestamp}
       isNew={!notification.read}
     >
-      <p className="dcl notification-item__content__title">
+      <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
       {locale == 'zh' ? (
-        <p className="dcl notification-item__content__description">
+        <p className="dcl notification-item__content-description">
           {i18N[locale].description_1}
           <span>
             <a
@@ -70,7 +70,7 @@ const RoyaltiesEarnedNotification = ({
           {formatMana(notification.metadata.royaltiesCut)} MANA
         </p>
       ) : (
-        <p className="dcl notification-item__content__description">
+        <p className="dcl notification-item__content-description">
           {i18N[locale].description_1}
           {formatMana(notification.metadata.royaltiesCut)} MANA{' '}
           {i18N[locale].description_2}

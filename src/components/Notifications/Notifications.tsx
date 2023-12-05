@@ -10,12 +10,12 @@ import './Notifications.css'
 
 export interface NotificationsProps {
   isOpen: boolean
-  userNotifications: DCLNotification[]
+  items: DCLNotification[]
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
   activeTab: ActiveTab
-  onClickToggle: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     newActiveTab: ActiveTab
@@ -25,34 +25,34 @@ export interface NotificationsProps {
 
 export default function Notifications({
   isOpen,
-  userNotifications,
+  items,
   isLoading,
   locale,
   isOnboarding,
   activeTab,
-  onClickToggle,
+  onClick,
   onChangeTab,
   onBegin
 }: NotificationsProps) {
-  const unseenNotifications = userNotifications.filter(
+  const newNotificationsCount = items.filter(
     (notification) => !notification.read
   ).length
 
   return (
     <div className="dcl notifications">
       <div>
-        <button className="dcl notifications-bell" onClick={onClickToggle}>
+        <button className="dcl notifications-bell" onClick={onClick}>
           {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         </button>
-        {!isOpen && unseenNotifications > 0 && (
+        {!isOpen && newNotificationsCount > 0 && (
           <div className="dcl notifications-counter">
-            {unseenNotifications > 9 ? '9+' : unseenNotifications}
+            {newNotificationsCount > 9 ? '9+' : newNotificationsCount}
           </div>
         )}
       </div>
       {isOpen && (
         <NotificationsFeed
-          userNotifications={userNotifications}
+          items={items}
           isLoading={isLoading}
           locale={locale}
           isOnboarding={isOnboarding}

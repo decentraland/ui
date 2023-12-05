@@ -93,14 +93,14 @@
   text-align: center;
 }
 
-.dcl.notifications-feed__emptyview__title {
+.dcl.notifications-feed__emptyview-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 0;
   width: 345px;
 }
 
-.dcl.notifications-feed__emptyview__description {
+.dcl.notifications-feed__emptyview-description {
   font-size: 16px;
   color: #a09ba8;
 }

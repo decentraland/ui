@@ -23,17 +23,17 @@ const ItemSoldNotification = ({
   return (
     <NotificationItem
       image={{
-        imageLink: notification.metadata.image,
+        url: notification.metadata.image,
         rarity: notification.metadata.rarity,
         icon: <ItemSold />
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
     >
-      <p className="dcl notification-item__content__title">
+      <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
-      <p className="dcl notification-item__content__description">
+      <p className="dcl notification-item__content-description">
         {i18N[locale].description}{' '}
         <span>
           <a

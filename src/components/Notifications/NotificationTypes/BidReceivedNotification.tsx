@@ -44,17 +44,17 @@ const BidReceivedNotification = ({
   return (
     <NotificationItem
       image={{
-        imageLink: notification.metadata.image,
+        url: notification.metadata.image,
         rarity: notification.metadata.rarity,
         icon: <BidAccepted />
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
     >
-      <p className="dcl notification-item__content__title">
+      <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
-      <p className="dcl notification-item__content__description">
+      <p className="dcl notification-item__content-description">
         {i18N[locale].description(
           formatMana(notification.metadata.price),
           <span>

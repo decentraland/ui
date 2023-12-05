@@ -27,15 +27,11 @@ export default function NotificationItem({
       </div>
       <div className="dcl notification-item__content">
         {children}
-        <p className="dcl notification-item__content__timestamp">
+        <p className="dcl notification-item__content-timestamp">
           {Time(timestamp).fromNow()}
         </p>
       </div>
-      {isNew && (
-        <span>
-          <NewNotification />
-        </span>
-      )}
+      {isNew && (<NewNotification />)}
     </div>
   )
 }

@@ -7,13 +7,13 @@ import './NotificationItemImage.css'
 export interface NotificationItemImageProps {
   rarity?: Rarity
   backgroundColor?: string
-  imageLink: string
+  url: string
   icon?: ReactNode
 }
 
 export default function NotificationItemImage({
   rarity,
-  imageLink,
+  url,
   backgroundColor,
   icon
 }: NotificationItemImageProps) {
@@ -24,14 +24,14 @@ export default function NotificationItemImage({
     : null
 
   return (
-    <div className="dcl notification-image-container">
+    <div className="dcl notification-image__container">
       <div
         className="dcl notification-image"
         style={{
           backgroundImage: `radial-gradient(${bgColor})`
         }}
       >
-        <img src={imageLink} alt="Notification Image" />
+        <img src={url} alt="Notification Image" />
       </div>
       {icon && <span className="dcl notification-icon">{icon}</span>}
     </div>

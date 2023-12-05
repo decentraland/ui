@@ -17,18 +17,18 @@
   margin-left: 16px;
 }
 
-.dcl.notification-item__content__title {
+.dcl.notification-item__content-title {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 0;
 }
 
-.dcl.notification-item__content__description {
+.dcl.notification-item__content-description {
   color: #a09ba8;
   margin: 4px 0;
 }
 
-.dcl.notification-item__content__timestamp {
+.dcl.notification-item__content-timestamp {
   font-size: 12px;
   font-weight: 600;
 }

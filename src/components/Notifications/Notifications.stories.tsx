@@ -14,11 +14,11 @@ storiesOf('Notifications Toggle', module)
           isOpen={false}
           isLoading={false}
           isOnboarding={false}
-          userNotifications={[]}
+          items={[]}
           locale="en"
           activeTab="newest"
           onChangeTab={(e, newTab) => console.log(newTab)}
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -31,7 +31,7 @@ storiesOf('Notifications Toggle', module)
           isOpen={false}
           isLoading={false}
           isOnboarding={false}
-          userNotifications={[
+          items={[
             {
               id: 'A',
               read: false,
@@ -55,7 +55,7 @@ storiesOf('Notifications Toggle', module)
           locale="en"
           activeTab="newest"
           onChangeTab={(e, newTab) => console.log(newTab)}
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -68,7 +68,7 @@ storiesOf('Notifications Toggle', module)
           isOpen
           isLoading={false}
           isOnboarding
-          userNotifications={[
+          items={[
             {
               id: 'A',
               read: false,
@@ -92,7 +92,7 @@ storiesOf('Notifications Toggle', module)
           activeTab="newest"
           onChangeTab={(e, newTab) => console.log(newTab)}
           locale="en"
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -107,7 +107,7 @@ storiesOf('Notifications Toggle', module)
           isLoading={false}
           isOnboarding={false}
           locale="en"
-          userNotifications={[
+          items={[
             {
               id: 'B',
               read: false,
@@ -190,7 +190,7 @@ storiesOf('Notifications Toggle', module)
           ]}
           activeTab={tab as ActiveTab}
           onChangeTab={(e, newTab) => setTab(newTab)}
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -204,10 +204,10 @@ storiesOf('Notifications Toggle', module)
           isLoading={false}
           isOnboarding={false}
           locale="en"
-          userNotifications={[]}
+          items={[]}
           activeTab="newest"
           onChangeTab={(e, newTab) => console.log(newTab)}
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -221,10 +221,10 @@ storiesOf('Notifications Toggle', module)
           isLoading={true}
           isOnboarding={false}
           locale="en"
-          userNotifications={[]}
+          items={[]}
           activeTab="newest"
           onChangeTab={(e, newTab) => console.log(newTab)}
-          onClickToggle={() => console.log('Toggle button')}
+          onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
         />
       </div>
@@ -235,7 +235,7 @@ storiesOf('Notifications Toggle', module)
       <div>
         <NotificationItemImage
           rarity={Rarity.EPIC}
-          imageLink="https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail"
+          url="https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail"
           icon={<BidReceived />}
         />
       </div>
