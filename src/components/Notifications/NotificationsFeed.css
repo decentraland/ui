@@ -25,6 +25,10 @@
   box-shadow: -1px -1px 0 0 var(--background);
 }
 
+.dcl.notifications-feed__loader {
+  height: 290px;
+}
+
 .dcl.notifications-feed__content > .dcl.tabs {
   margin-bottom: 0;
   height: auto;

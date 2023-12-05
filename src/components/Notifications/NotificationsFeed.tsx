@@ -259,7 +259,11 @@ export default function NotificationsFeed({
           </div>
         </div>
       )}
-      {isLoading && <Loader active />}
+      {isLoading && (
+        <div className="dcl notifications-feed__loader">
+          <Loader active />
+        </div>
+      )}
     </div>
   )
 }
