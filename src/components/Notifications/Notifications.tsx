@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import NotificationsFeed from './NotificationsFeed'
 import { ActiveTab, DCLNotification, NotificationLocale } from './types'
@@ -34,9 +34,9 @@ export default function Notifications({
   onChangeTab,
   onBegin
 }: NotificationsProps) {
-  const newNotificationsCount = items.filter(
-    (notification) => !notification.read
-  ).length
+  const newNotificationsCount = useMemo(() => {
+    return items.filter((notification) => !notification.read).length
+  }, [items])
 
   return (
     <div className="dcl notifications">
