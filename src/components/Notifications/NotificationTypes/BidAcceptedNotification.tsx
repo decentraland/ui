@@ -16,23 +16,33 @@ const i18N = {
     description: (
       mana: React.ReactNode,
       nftName: React.ReactNode
-    ): React.ReactNode =>
-      <>Your bid of {mana} MANA was accepted for {nftName}</>,
+    ): React.ReactNode => (
+      <>
+        Your bid of {mana} MANA was accepted for {nftName}
+      </>
+    ),
     title: 'Bid Accepted'
   },
   es: {
     description: (
       mana: React.ReactNode,
       nftName: React.ReactNode
-    ): React.ReactNode =>
-      <>Tu oferta de {mana} MANA fue aceptada para {nftName}</>,
+    ): React.ReactNode => (
+      <>
+        Tu oferta de {mana} MANA fue aceptada para {nftName}
+      </>
+    ),
     title: 'Oferta aceptada'
   },
   zh: {
     description: (
       mana: React.ReactNode,
       nftName: React.ReactNode
-    ): React.ReactNode => <>您的出价 {mana} MANA 已被接受 {nftName}</>,
+    ): React.ReactNode => (
+      <>
+        您的出价 {mana} MANA 已被接受 {nftName}
+      </>
+    ),
     title: '接受投标'
   }
 }

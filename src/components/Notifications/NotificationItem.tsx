@@ -31,7 +31,7 @@ export default function NotificationItem({
           {Time(timestamp).fromNow()}
         </p>
       </div>
-      {isNew && (<NewNotification />)}
+      {isNew && <NewNotification />}
     </div>
   )
 }

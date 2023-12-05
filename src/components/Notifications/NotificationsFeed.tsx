@@ -14,7 +14,6 @@ import Time from '../../lib/time'
 
 import './NotificationsFeed.css'
 
-
 interface NotificationsFeedProps {
   items: DCLNotification[]
   isLoading: boolean
