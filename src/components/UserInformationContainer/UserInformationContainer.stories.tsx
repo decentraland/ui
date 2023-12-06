@@ -47,3 +47,23 @@ storiesOf('UserInformationContainer', module)
       hasActivity
     />
   ))
+  .add('notifications', () => (
+    <UserInformationContainer
+      isSignedIn
+      avatar={avatar}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+      hasActivity
+      notifications={{
+        isOnboarding: false,
+        isOpen: false,
+        isLoading: false,
+        items: [],
+        locale: 'en',
+        activeTab: 'newest',
+        onBegin: console.log,
+        onChangeTab: console.log,
+        onClick: console.log,
+        onCloseModalMobile: console.log
+      }}
+    />
+  ))
