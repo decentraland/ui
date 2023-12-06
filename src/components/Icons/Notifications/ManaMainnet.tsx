@@ -19,8 +19,8 @@ const ManaMainnet = (props: React.SVGAttributes<SVGElement>) => {
           y2="24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#34CE76" />
-          <stop offset="1" stop-color="#229754" />
+          <stop stopColor="#34CE76" />
+          <stop offset="1" stopColor="#229754" />
         </linearGradient>
       </defs>
     </svg>
