@@ -20,7 +20,7 @@ export default function NotificationItem({
   image,
   timestamp,
   isNew,
-  children, 
+  children,
   locale
 }: React.PropsWithChildren<NotificationItemProps>) {
   return (
