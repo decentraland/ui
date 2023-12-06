@@ -4,8 +4,9 @@ import { NotificationLocale, RoyalitesEarnedNotification } from '../types'
 import NotificationItem from '../NotificationItem'
 import ManaMainnet from '../../Icons/Notifications/ManaMainnet'
 import ManaPolygon from '../../Icons/Notifications/ManaPoly'
-import { Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@dcl/schemas'
 import { formatMana } from '../utils'
+import { Mana } from '../../Mana/Mana'
 
 interface RoyaltiesEarnedNotificationProps {
   notification: RoyalitesEarnedNotification
@@ -67,12 +68,30 @@ const RoyaltiesEarnedNotification = ({
             </a>
           </span>{' '}
           {i18N[locale].description_2}
-          {formatMana(notification.metadata.royaltiesCut)} MANA
+          <Mana
+            inline
+            network={
+              notification.metadata.network === 'polygon'
+                ? Network.MATIC
+                : Network.ETHEREUM
+            }
+          >
+            {formatMana(notification.metadata.royaltiesCut)}
+          </Mana>
         </p>
       ) : (
         <p className="dcl notification-item__content-description">
           {i18N[locale].description_1}
-          {formatMana(notification.metadata.royaltiesCut)} MANA{' '}
+          <Mana
+            inline
+            network={
+              notification.metadata.network === 'polygon'
+                ? Network.MATIC
+                : Network.ETHEREUM
+            }
+          >
+            {formatMana(notification.metadata.royaltiesCut)}
+          </Mana>{' '}
           {i18N[locale].description_2}
           <span>
             <a

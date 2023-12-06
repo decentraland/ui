@@ -3,8 +3,9 @@ import React from 'react'
 import { BidAcceptedNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import BidAccepted from '../../Icons/Notifications/BidAccepted'
-import { Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@dcl/schemas'
 import { formatMana } from '../utils'
+import { Mana } from '../../Mana/Mana'
 
 interface BidAcceptedNotificationProps {
   notification: BidAcceptedNotification
@@ -66,7 +67,16 @@ const BidAcceptedNotification = ({
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description(
-          formatMana(notification.metadata.price),
+          <Mana
+            inline
+            network={
+              notification.metadata.network === 'polygon'
+                ? Network.MATIC
+                : Network.ETHEREUM
+            }
+          >
+            {formatMana(notification.metadata.price)}
+          </Mana>,
           <span>
             <a
               href={notification.metadata.link}
