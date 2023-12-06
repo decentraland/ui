@@ -4,7 +4,5 @@ export function formatMana(
   mana: string,
   maximumFractionDigits = MAXIMUM_FRACTION_DIGITS
 ): string {
-  return (Number(mana || '0') / 1e18)
-    .toFixed(maximumFractionDigits)
-    .toLocaleString()
+  return (Number(mana) / 1e18).toFixed(maximumFractionDigits).toLocaleString()
 }

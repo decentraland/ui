@@ -122,7 +122,7 @@ storiesOf('Notifications Toggle', module)
                 network: 'polygon',
                 nftName: 'NJacket',
                 category: 'wearable' as NFTCategory,
-                royaltiesCut: '0.3',
+                royaltiesCut: '30000000000000000',
                 royaltiesCollector: '0x2a39d4f68133491f0442496f601cde2a945b6d31'
               },
               created_at: '2023-11-29T12:51:00.600Z',
