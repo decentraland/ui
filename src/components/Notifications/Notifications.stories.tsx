@@ -20,6 +20,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -57,6 +58,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -94,6 +96,7 @@ storiesOf('Notifications Toggle', module)
           locale="en"
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -124,6 +127,174 @@ storiesOf('Notifications Toggle', module)
                 category: 'wearable' as NFTCategory,
                 royaltiesCut: '30000000000000000',
                 royaltiesCollector: '0x2a39d4f68133491f0442496f601cde2a945b6d31'
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
               updated_at: '2023-11-29T12:51:00.600Z'
@@ -192,6 +363,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => setTab(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -209,6 +381,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -226,6 +399,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
+          onCloseModalMobile={(_, m) => console.log(m)}
         />
       </div>
     )

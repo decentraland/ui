@@ -7,6 +7,7 @@ import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'
 
 import './Notifications.css'
+import { ModalProps } from '../Modal/Modal'
 
 export interface NotificationsProps {
   isOpen: boolean
@@ -21,6 +22,10 @@ export interface NotificationsProps {
     newActiveTab: ActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onCloseModalMobile: (
+    event: React.MouseEvent<HTMLElement>,
+    data: ModalProps
+  ) => void
 }
 
 export default function Notifications({
@@ -32,7 +37,8 @@ export default function Notifications({
   activeTab,
   onClick,
   onChangeTab,
-  onBegin
+  onBegin,
+  onCloseModalMobile
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length
@@ -52,6 +58,7 @@ export default function Notifications({
       </div>
       {isOpen && (
         <NotificationsFeed
+          isOpen={isOpen}
           items={items}
           isLoading={isLoading}
           locale={locale}
@@ -59,6 +66,7 @@ export default function Notifications({
           activeTab={activeTab}
           onChangeTab={onChangeTab}
           onBegin={onBegin}
+          onCloseModalMobile={onCloseModalMobile}
         />
       )}
     </div>

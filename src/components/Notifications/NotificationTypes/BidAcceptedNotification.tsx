@@ -61,6 +61,8 @@ const BidAcceptedNotification = ({
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
+      locale={locale}
+
     >
       <p className="dcl notification-item__content-title">
         {i18N[locale].title}
