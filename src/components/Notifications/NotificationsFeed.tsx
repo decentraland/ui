@@ -217,6 +217,7 @@ export default function NotificationsFeed({
                       <div>
                         {unreadNotifications.map((notification) => (
                           <NotificationHandler
+                            key={notification.id}
                             notification={notification}
                             locale={locale}
                           />
@@ -236,6 +237,7 @@ export default function NotificationsFeed({
                           </p>
                           {previousNotifications.map((notification) => (
                             <NotificationHandler
+                              key={notification.id}
                               notification={notification}
                               locale={locale}
                             />
@@ -249,6 +251,7 @@ export default function NotificationsFeed({
                 <>
                   {readNotifications.map((notification) => (
                     <NotificationHandler
+                      key={notification.id}
                       notification={notification}
                       locale={locale}
                     />
