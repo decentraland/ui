@@ -19,7 +19,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Your bid of {mana} MANA was accepted for {nftName}
+        Your bid of {mana} was accepted for {nftName}
       </>
     ),
     title: 'Bid Accepted'
@@ -30,7 +30,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Tu oferta de {mana} MANA fue aceptada para {nftName}
+        Tu oferta de {mana} fue aceptada para {nftName}
       </>
     ),
     title: 'Oferta aceptada'
@@ -41,7 +41,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        您的出价 {mana} MANA 已被接受 {nftName}
+        您的出价 {mana} 已被接受 {nftName}
       </>
     ),
     title: '接受投标'
