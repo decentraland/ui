@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react'
 
 import NotificationsFeed from './NotificationsFeed'
-import { NotificationActiveTab, DCLNotification, NotificationLocale } from './types'
+import {
+  NotificationActiveTab,
+  DCLNotification,
+  NotificationLocale
+} from './types'
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'

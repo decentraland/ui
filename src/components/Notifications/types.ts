@@ -1,8 +1,8 @@
 import { NFTCategory, Rarity } from '@dcl/schemas'
 
 export enum NotificationActiveTab {
-  NEWEST = "newest",
-  READ = "read"
+  NEWEST = 'newest',
+  READ = 'read'
 }
 
 export type NotificationLocale = 'en' | 'es' | 'zh'

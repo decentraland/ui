@@ -1,7 +1,11 @@
 import React, { useEffect, useMemo } from 'react'
 
 import { Loader } from '../Loader/Loader'
-import { NotificationActiveTab, DCLNotification, NotificationLocale } from './types'
+import {
+  NotificationActiveTab,
+  DCLNotification,
+  NotificationLocale
+} from './types'
 
 import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
 import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
