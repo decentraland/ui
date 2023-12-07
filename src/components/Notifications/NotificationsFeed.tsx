@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 
 import { Loader } from '../Loader/Loader'
-import { ActiveTab, DCLNotification, NotificationLocale } from './types'
+import { NotificationActiveTab, DCLNotification, NotificationLocale } from './types'
 
 import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
 import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
@@ -23,11 +23,11 @@ interface NotificationsFeedProps {
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
-  activeTab: ActiveTab
+  activeTab: NotificationActiveTab
   isOpen: boolean
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    newActiveTab: ActiveTab
+    newActiveTab: NotificationActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
   onClose: (
@@ -327,10 +327,10 @@ const Feed = ({
   previousNotifications: DCLNotification[]
   readNotifications: DCLNotification[]
   locale: NotificationLocale
-  activeTab: ActiveTab
+  activeTab: NotificationActiveTab
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    newActiveTab: ActiveTab
+    newActiveTab: NotificationActiveTab
   ) => void
 }) => (
   <>
@@ -340,14 +340,14 @@ const Feed = ({
     <div className="dcl notifications-feed__content">
       <Tabs className="notifications-feed__tabs">
         <Tabs.Tab
-          active={activeTab === 'newest'}
-          onClick={(e) => onChangeTab(e, 'newest')}
+          active={activeTab === NotificationActiveTab.NEWEST}
+          onClick={(e) => onChangeTab(e, NotificationActiveTab.NEWEST)}
         >
           {i18N[locale].feed.tabs.newest}
         </Tabs.Tab>
         <Tabs.Tab
-          active={activeTab === 'read'}
-          onClick={(e) => onChangeTab(e, 'read')}
+          active={activeTab === NotificationActiveTab.READ}
+          onClick={(e) => onChangeTab(e, NotificationActiveTab.READ)}
         >
           {i18N[locale].feed.tabs.read}
         </Tabs.Tab>

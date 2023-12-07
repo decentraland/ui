@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 
 import NotificationsFeed from './NotificationsFeed'
-import { ActiveTab, DCLNotification, NotificationLocale } from './types'
+import { NotificationActiveTab, DCLNotification, NotificationLocale } from './types'
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'
@@ -15,11 +15,11 @@ export interface NotificationsProps {
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
-  activeTab: ActiveTab
+  activeTab: NotificationActiveTab
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    newActiveTab: ActiveTab
+    newActiveTab: NotificationActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
   onClose: (
