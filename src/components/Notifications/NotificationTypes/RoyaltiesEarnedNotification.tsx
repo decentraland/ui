@@ -4,9 +4,10 @@ import { NotificationLocale, RoyalitesEarnedNotification } from '../types'
 import NotificationItem from '../NotificationItem'
 import ManaMainnet from '../../Icons/Notifications/ManaMainnet'
 import ManaPolygon from '../../Icons/Notifications/ManaPoly'
-import { Network, Rarity } from '@dcl/schemas'
+import { Network } from '@dcl/schemas'
 import { formatMana } from '../utils'
 import { Mana } from '../../Mana/Mana'
+import NotificationItemNFTLink from '../NotificationItemNFTLink'
 
 interface RoyaltiesEarnedNotificationProps {
   notification: RoyalitesEarnedNotification
@@ -15,18 +16,36 @@ interface RoyaltiesEarnedNotificationProps {
 
 const i18N = {
   en: {
-    description_1: `You earned `,
-    description_2: `for selling `,
+    description: (
+      mana: React.ReactNode,
+      nftName: React.ReactNode
+    ): React.ReactNode => (
+      <>
+        You earned {mana} for {nftName}
+      </>
+    ),
     title: 'Royalties Earned'
   },
   es: {
-    description_1: `Ganaste `,
-    description_2: `por vender `,
+    description: (
+      mana: React.ReactNode,
+      nftName: React.ReactNode
+    ): React.ReactNode => (
+      <>
+        Ganaste {mana} por {nftName}
+      </>
+    ),
     title: 'Regalias ganadas'
   },
   zh: {
-    description_1: `您通过出售 `,
-    description_2: `赚取了 `,
+    description: (
+      mana: React.ReactNode,
+      nftName: React.ReactNode
+    ): React.ReactNode => (
+      <>
+        您为 {nftName} 赢得了 {mana}
+      </>
+    ),
     title: '所得版税'
   }
 }
@@ -54,21 +73,8 @@ const RoyaltiesEarnedNotification = ({
       <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
-      {locale == 'zh' ? (
-        <p className="dcl notification-item__content-description">
-          {i18N[locale].description_1}
-          <span>
-            <a
-              href={notification.metadata.link}
-              style={{
-                color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
-              }}
-            >
-              {notification.metadata.nftName}
-            </a>
-          </span>{' '}
-          {i18N[locale].description_2}
+      <p className="dcl notification-item__content-description">
+        {i18N[locale].description(
           <Mana
             inline
             network={
@@ -78,35 +84,14 @@ const RoyaltiesEarnedNotification = ({
             }
           >
             {formatMana(notification.metadata.royaltiesCut)}
-          </Mana>
-        </p>
-      ) : (
-        <p className="dcl notification-item__content-description">
-          {i18N[locale].description_1}
-          <Mana
-            inline
-            network={
-              notification.metadata.network === 'polygon'
-                ? Network.MATIC
-                : Network.ETHEREUM
-            }
-          >
-            {formatMana(notification.metadata.royaltiesCut)}
-          </Mana>{' '}
-          {i18N[locale].description_2}
-          <span>
-            <a
-              href={notification.metadata.link}
-              style={{
-                color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
-              }}
-            >
-              {notification.metadata.nftName}
-            </a>
-          </span>
-        </p>
-      )}
+          </Mana>,
+          <NotificationItemNFTLink
+            link={notification.metadata.link}
+            rarity={notification.metadata.rarity}
+            name={notification.metadata.nftName}
+          />
+        )}
+      </p>
     </NotificationItem>
   )
 }
