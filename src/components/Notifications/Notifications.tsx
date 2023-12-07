@@ -1,12 +1,17 @@
 import React, { useMemo } from 'react'
 
 import NotificationsFeed from './NotificationsFeed'
-import { ActiveTab, DCLNotification, NotificationLocale } from './types'
+import {
+  NotificationActiveTab,
+  DCLNotification,
+  NotificationLocale
+} from './types'
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'
 
 import './Notifications.css'
+import { ModalProps } from '../Modal/Modal'
 
 export interface NotificationsProps {
   isOpen: boolean
@@ -14,13 +19,17 @@ export interface NotificationsProps {
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
-  activeTab: ActiveTab
+  activeTab: NotificationActiveTab
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    newActiveTab: ActiveTab
+    newActiveTab: NotificationActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClose: (
+    event: React.MouseEvent<HTMLElement> | MouseEvent,
+    data?: ModalProps
+  ) => void
 }
 
 export default function Notifications({
@@ -32,7 +41,8 @@ export default function Notifications({
   activeTab,
   onClick,
   onChangeTab,
-  onBegin
+  onBegin,
+  onClose
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length
@@ -52,6 +62,7 @@ export default function Notifications({
       </div>
       {isOpen && (
         <NotificationsFeed
+          isOpen={isOpen}
           items={items}
           isLoading={isLoading}
           locale={locale}
@@ -59,6 +70,7 @@ export default function Notifications({
           activeTab={activeTab}
           onChangeTab={onChangeTab}
           onBegin={onBegin}
+          onClose={onClose}
         />
       )}
     </div>

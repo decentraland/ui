@@ -3,8 +3,9 @@ import React from 'react'
 import { BidAcceptedNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import BidAccepted from '../../Icons/Notifications/BidAccepted'
-import { Rarity } from '@dcl/schemas'
+import { Network, Rarity } from '@dcl/schemas'
 import { formatMana } from '../utils'
+import { Mana } from '../../Mana/Mana'
 
 interface BidAcceptedNotificationProps {
   notification: BidAcceptedNotification
@@ -18,7 +19,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Your bid of {mana} MANA was accepted for {nftName}
+        Your bid of {mana} was accepted for {nftName}
       </>
     ),
     title: 'Bid Accepted'
@@ -29,7 +30,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Tu oferta de {mana} MANA fue aceptada para {nftName}
+        Tu oferta de {mana} fue aceptada para {nftName}
       </>
     ),
     title: 'Oferta aceptada'
@@ -40,7 +41,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        您的出价 {mana} MANA 已被接受 {nftName}
+        您的出价 {mana} 已被接受 {nftName}
       </>
     ),
     title: '接受投标'
@@ -60,13 +61,23 @@ const BidAcceptedNotification = ({
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
+      locale={locale}
     >
       <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description(
-          formatMana(notification.metadata.price),
+          <Mana
+            inline
+            network={
+              notification.metadata.network === 'polygon'
+                ? Network.MATIC
+                : Network.ETHEREUM
+            }
+          >
+            {formatMana(notification.metadata.price)}
+          </Mana>,
           <span>
             <a
               href={notification.metadata.link}
