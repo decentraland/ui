@@ -244,6 +244,7 @@ export default function NotificationsFeed({
               unreadNotifications={unreadNotifications}
               onChangeTab={onChangeTab}
               activeTab={activeTab}
+              isModal
             />
           </div>
         </Modal>
@@ -325,6 +326,7 @@ const Feed = ({
   previousNotifications,
   readNotifications,
   activeTab,
+  isModal,
   onChangeTab
 }: {
   unreadNotifications: DCLNotification[]
@@ -332,6 +334,7 @@ const Feed = ({
   readNotifications: DCLNotification[]
   locale: NotificationLocale
   activeTab: NotificationActiveTab
+  isModal?: boolean
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     newActiveTab: NotificationActiveTab
@@ -356,7 +359,7 @@ const Feed = ({
           {i18N[locale].feed.tabs.read}
         </Tabs.Tab>
       </Tabs>
-      <div className="dcl notifications-feed-modal__list-container">
+      <div className={`dcl ${isModal ? "notifications-feed-modal__list-container" : "notifications-feed__list-container"}`}>
         <div className="dcl notifications-feed__list">
           {activeTab == 'newest' ? (
             <>
