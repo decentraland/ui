@@ -359,7 +359,13 @@ const Feed = ({
           {i18N[locale].feed.tabs.read}
         </Tabs.Tab>
       </Tabs>
-      <div className={`dcl ${isModal ? "notifications-feed-modal__list-container" : "notifications-feed__list-container"}`}>
+      <div
+        className={`dcl ${
+          isModal
+            ? 'notifications-feed-modal__list-container'
+            : 'notifications-feed__list-container'
+        }`}
+      >
         <div className="dcl notifications-feed__list">
           {activeTab == 'newest' ? (
             <>
