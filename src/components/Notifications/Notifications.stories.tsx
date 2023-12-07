@@ -20,7 +20,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -58,7 +58,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -96,7 +96,7 @@ storiesOf('Notifications Toggle', module)
           locale="en"
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -363,7 +363,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => setTab(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -381,7 +381,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )
@@ -399,7 +399,7 @@ storiesOf('Notifications Toggle', module)
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
-          onCloseModalMobile={(_, m) => console.log(m)}
+          onClose={(_, m) => console.log(m)}
         />
       </div>
     )

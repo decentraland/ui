@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 
 import { Loader } from '../Loader/Loader'
 import { ActiveTab, DCLNotification, NotificationLocale } from './types'
@@ -30,9 +30,9 @@ interface NotificationsFeedProps {
     newActiveTab: ActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
-  onCloseModalMobile: (
-    event: React.MouseEvent<HTMLElement>,
-    data: ModalProps
+  onClose: (
+    event: React.MouseEvent<HTMLElement> | MouseEvent,
+    data?: ModalProps
   ) => void
 }
 
@@ -151,7 +151,7 @@ export default function NotificationsFeed({
   isOpen,
   onChangeTab,
   onBegin,
-  onCloseModalMobile
+  onClose
 }: NotificationsFeedProps) {
   const unreadNotifications = useMemo(
     () => items.filter((notification) => !notification.read),
@@ -181,6 +181,29 @@ export default function NotificationsFeed({
     [items]
   )
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const element = document.querySelector(".notifications-feed")
+      if (element && !element.contains(event.target as Node)) {
+        event.preventDefault()
+        event.stopPropagation()
+        onClose(event)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+  }, [isOpen])
+
+
   if (isOnboarding) {
     return (
       <>
@@ -209,7 +232,7 @@ export default function NotificationsFeed({
           closeIcon={<Close />}
           closeOnDocumentClick
           closeOnTriggerClick
-          onClose={onCloseModalMobile}
+          onClose={onClose}
         >
           <div className="dcl notifications-feed-modal">
             <Feed

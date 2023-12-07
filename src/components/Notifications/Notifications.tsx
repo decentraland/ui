@@ -22,9 +22,9 @@ export interface NotificationsProps {
     newActiveTab: ActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
-  onCloseModalMobile: (
-    event: React.MouseEvent<HTMLElement>,
-    data: ModalProps
+  onClose: (
+    event: React.MouseEvent<HTMLElement> | MouseEvent,
+    data?: ModalProps
   ) => void
 }
 
@@ -38,7 +38,7 @@ export default function Notifications({
   onClick,
   onChangeTab,
   onBegin,
-  onCloseModalMobile
+  onClose
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length
@@ -66,7 +66,7 @@ export default function Notifications({
           activeTab={activeTab}
           onChangeTab={onChangeTab}
           onBegin={onBegin}
-          onCloseModalMobile={onCloseModalMobile}
+          onClose={onClose}
         />
       )}
     </div>
