@@ -4,7 +4,7 @@ import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
 import { NFTCategory, Rarity } from '@dcl/schemas'
 import BidReceived from '../Icons/Notifications/BidReceived'
-import { ActiveTab } from './types'
+import { NotificationActiveTab } from './types'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -16,7 +16,7 @@ storiesOf('Notifications Toggle', module)
           isOnboarding={false}
           items={[]}
           locale="en"
-          activeTab="newest"
+          activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
@@ -54,7 +54,7 @@ storiesOf('Notifications Toggle', module)
             }
           ]}
           locale="en"
-          activeTab="newest"
+          activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
@@ -91,7 +91,7 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
-          activeTab="newest"
+          activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
           locale="en"
           onClick={() => console.log('Toggle button')}
@@ -359,7 +359,7 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
-          activeTab={tab as ActiveTab}
+          activeTab={tab as NotificationActiveTab}
           onChangeTab={(e, newTab) => setTab(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
@@ -377,7 +377,7 @@ storiesOf('Notifications Toggle', module)
           isOnboarding={false}
           locale="en"
           items={[]}
-          activeTab="newest"
+          activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
@@ -395,7 +395,7 @@ storiesOf('Notifications Toggle', module)
           isOnboarding={false}
           locale="en"
           items={[]}
-          activeTab="newest"
+          activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
