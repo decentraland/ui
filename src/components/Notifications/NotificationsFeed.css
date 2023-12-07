@@ -7,9 +7,8 @@
   top: 40px;
   z-index: 100;
   border-radius: 8px;
-  border: 1px solid hsla(260, 6%, 46%, 0.24);
   background: var(--background);
-  box-shadow: 0px 1px 24px 0px hsla(260, 6%, 46%, 0.24);
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease;
 }
 
@@ -131,8 +130,9 @@
 }
 
 .dcl.notifications-feed__onboarding-bell {
-  background-image: url(../../assets/bell-onboarding.png);
+  background-image: var(--notification-onboarding-bell);
   border-radius: 50%;
   width: 120px;
   height: 120px;
+  margin-top: 10px;
 }
