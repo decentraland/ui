@@ -3,6 +3,7 @@ import { Network } from '@dcl/schemas/dist/dapps/network'
 import { storiesOf } from '@storybook/react'
 import { UserInformationContainer } from './UserInformationContainer'
 import { avatar } from '../../data/avatar'
+import { NotificationActiveTab } from '../Notifications/types'
 
 storiesOf('UserInformationContainer', module)
   .add('Signed out', () => <UserInformationContainer />)
@@ -59,7 +60,7 @@ storiesOf('UserInformationContainer', module)
         isLoading: false,
         items: [],
         locale: 'en',
-        activeTab: 'newest',
+        activeTab: NotificationActiveTab.NEWEST,
         onBegin: console.log,
         onChangeTab: console.log,
         onClick: console.log,
