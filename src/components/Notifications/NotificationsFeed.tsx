@@ -183,7 +183,7 @@ export default function NotificationsFeed({
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      const element = document.querySelector(".notifications-feed")
+      const element = document.querySelector('.notifications-feed')
       if (element && !element.contains(event.target as Node)) {
         event.preventDefault()
         event.stopPropagation()
@@ -200,9 +200,7 @@ export default function NotificationsFeed({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-
   }, [isOpen])
-
 
   if (isOnboarding) {
     return (
