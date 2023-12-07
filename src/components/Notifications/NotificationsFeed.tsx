@@ -168,7 +168,7 @@ export default function NotificationsFeed({
         if (!notification.read) return false
 
         const diff = Time(notification.timestamp).diff(new Date(), 'hour')
-        if (diff >= -24 && diff <= 0) {
+        if (diff >= -48 && diff <= 0) {
           return true
         }
       }),
