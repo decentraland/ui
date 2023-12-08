@@ -79,7 +79,11 @@ const BidReceivedNotification = ({
           >
             {formatMana(notification.metadata.price)}
           </Mana>,
-          <NotificationItemNFTLink name={notification.metadata.nftName} rarity={notification.metadata.rarity} link={notification.metadata.link} />
+          <NotificationItemNFTLink
+            name={notification.metadata.nftName}
+            rarity={notification.metadata.rarity}
+            link={notification.metadata.link}
+          />
         )}
       </p>
     </NotificationItem>

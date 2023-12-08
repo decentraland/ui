@@ -390,7 +390,7 @@ const Feed = ({
                           fontWeight: 600,
                           paddingLeft: '16px',
                           marginBottom: 0,
-                          marginTop: "16px"
+                          marginTop: '16px'
                         }}
                       >
                         Previous
