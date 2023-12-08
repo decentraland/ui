@@ -12,8 +12,7 @@ const Counter = ({ count, ...rest }: CounterProps) => {
     return null
   }
 
-  const Component =
-    count <= MAX_COUNT ? Numbers[`Number${count}`] : Numbers['Number9Plus']
+  const Component = Numbers[`Number${count <= MAX_COUNT ? count : '9Plus'}`]
 
   return <Component {...rest} />
 }
