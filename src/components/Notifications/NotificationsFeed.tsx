@@ -168,7 +168,7 @@ export default function NotificationsFeed({
         if (!notification.read) return false
 
         const diff = Time(notification.timestamp).diff(new Date(), 'hour')
-        if (diff >= -24 && diff < 0) {
+        if (diff >= -48 && diff <= 0) {
           return true
         }
       }),
@@ -384,14 +384,7 @@ const Feed = ({
                   </div>
                   {previousNotifications.length > 0 && (
                     <div>
-                      <p
-                        style={{
-                          fontSize: '16px',
-                          fontWeight: 600,
-                          paddingLeft: '16px',
-                          marginBottom: 0
-                        }}
-                      >
+                      <p className="dcl notification-feed__list-previous-title">
                         Previous
                       </p>
                       {previousNotifications.map((notification) => (

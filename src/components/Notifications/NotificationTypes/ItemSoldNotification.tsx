@@ -3,7 +3,7 @@ import React from 'react'
 import { ItemSoldNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import ItemSold from '../../Icons/Notifications/ItemSold'
-import { Rarity } from '@dcl/schemas'
+import NotificationItemNFTLink from '../NotificationItemNFTLink'
 
 interface ItemSoldNotificationProps {
   notification: ItemSoldNotification
@@ -36,17 +36,11 @@ const ItemSoldNotification = ({
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description}{' '}
-        <span>
-          <a
-            href={notification.metadata.link}
-            style={{
-              color: `${Rarity.getColor(notification.metadata.rarity)}`,
-              textDecoration: 'underline'
-            }}
-          >
-            {notification.metadata.nftName}
-          </a>
-        </span>
+        <NotificationItemNFTLink
+          rarity={notification.metadata.rarity}
+          name={notification.metadata.nftName}
+          link={notification.metadata.link}
+        />
       </p>
     </NotificationItem>
   )

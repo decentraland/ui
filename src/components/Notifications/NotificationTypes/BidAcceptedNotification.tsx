@@ -3,9 +3,10 @@ import React from 'react'
 import { BidAcceptedNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import BidAccepted from '../../Icons/Notifications/BidAccepted'
-import { Network, Rarity } from '@dcl/schemas'
+import { Network } from '@dcl/schemas'
 import { formatMana } from '../utils'
 import { Mana } from '../../Mana/Mana'
+import NotificationItemNFTLink from '../NotificationItemNFTLink'
 
 interface BidAcceptedNotificationProps {
   notification: BidAcceptedNotification
@@ -78,17 +79,11 @@ const BidAcceptedNotification = ({
           >
             {formatMana(notification.metadata.price)}
           </Mana>,
-          <span>
-            <a
-              href={notification.metadata.link}
-              style={{
-                color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
-              }}
-            >
-              {notification.metadata.nftName}
-            </a>
-          </span>
+          <NotificationItemNFTLink
+            name={notification.metadata.nftName}
+            rarity={notification.metadata.rarity}
+            link={notification.metadata.link}
+          />
         )}
       </p>
     </NotificationItem>
