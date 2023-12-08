@@ -51,4 +51,6 @@
   /* svgs */
   --brightness: brightness(100);
   /* black svgs */
+
+  --notification-onboarding-bell: url(97f915110ca07da8.png);
 }
