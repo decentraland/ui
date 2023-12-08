@@ -384,15 +384,7 @@ const Feed = ({
                   </div>
                   {previousNotifications.length > 0 && (
                     <div>
-                      <p
-                        style={{
-                          fontSize: '16px',
-                          fontWeight: 600,
-                          paddingLeft: '16px',
-                          marginBottom: 0,
-                          marginTop: '16px'
-                        }}
-                      >
+                      <p className="dcl notification-feed__list-previous-title">
                         Previous
                       </p>
                       {previousNotifications.map((notification) => (

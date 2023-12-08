@@ -93,6 +93,14 @@
   flex-direction: column;
 }
 
+.dcl.notification-feed__list-previous-title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 16px;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
 .dcl.notifications-feed__content {
   height: 100%;
 }
