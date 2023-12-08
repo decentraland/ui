@@ -9,9 +9,10 @@ import {
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'
+import { ModalProps } from '../Modal/Modal'
+import Counter from '../Icons/Notifications/CounterIcons'
 
 import './Notifications.css'
-import { ModalProps } from '../Modal/Modal'
 
 export interface NotificationsProps {
   isOpen: boolean
@@ -55,9 +56,7 @@ export default function Notifications({
           {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         </button>
         {!isOpen && newNotificationsCount > 0 && (
-          <div className="dcl notifications-counter">
-            {newNotificationsCount > 9 ? '9+' : newNotificationsCount}
-          </div>
+          <div className="dcl notifications-counter"><Counter count={newNotificationsCount} /></div>
         )}
       </div>
       {isOpen && (
