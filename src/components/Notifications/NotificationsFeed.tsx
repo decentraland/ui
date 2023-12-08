@@ -43,31 +43,30 @@ interface NotificationsFeedProps {
 const i18N = {
   en: {
     onboarding: {
-      title: 'Introducing Decentraland Inbox System',
+      title: 'Welcome to Decentraland Notifications',
       description:
-        'Never miss anything anymore! Now you will get notified every time something relevant happens to your account.',
+        "Never miss a thing! Now, you'll receive a notification each time something relevant happens with your account.",
       button: "Let's begin"
     },
     feed: {
       title: 'Notifications',
       tabs: {
-        newest: 'Newest',
-        read: 'Read'
+        newest: 'New',
+        read: 'Seen'
       },
       empty: {
         title: "You're all caught up!",
-        description:
-          "We'll let you know if there are new notifications for you."
+        description: 'No new notifications.'
       },
       history: {
         title: 'Notifications History',
-        description: 'Here will appear a detailed list of past Notifications'
+        description: "You'll be able to access old notifications here."
       }
     }
   },
   es: {
     onboarding: {
-      title: 'Presentacion de Decentraland Inbox',
+      title: 'Tus Notificaciones de Decentraland',
       description:
         '¡No te pierdas nada nunca más! Ahora recibirás una notificación cada vez que ocurra algo relevante en tu cuenta.',
       button: 'Continuar'
@@ -75,8 +74,8 @@ const i18N = {
     feed: {
       title: 'Notificaciones',
       tabs: {
-        newest: 'Mas reciente',
-        read: 'Leidas'
+        newest: 'Reciente',
+        read: 'Visto'
       },
       empty: {
         title: '¡Ya estas al día!',
@@ -91,7 +90,7 @@ const i18N = {
   },
   zh: {
     onboarding: {
-      title: '介绍 Decentraland 收件箱系统 ',
+      title: '欢迎访问 Decentraland 通知',
       description:
         '不再错过任何信息！现在，每当您的账户发生相关事件，您都会收到通知。',
       button: '讓我們開始'
@@ -99,16 +98,16 @@ const i18N = {
     feed: {
       title: '通知',
       tabs: {
-        newest: '最新',
-        read: '阅读'
+        newest: '新',
+        read: '看到的'
       },
       empty: {
         title: '你们都赶上了！',
-        description: '如果有新的通知，我们会及时通知您'
+        description: '没有新通知。'
       },
       history: {
         title: '通知历史',
-        description: '这里将显示过去通知的详细列表'
+        description: '您可以在这里访问旧通知。'
       }
     }
   }
