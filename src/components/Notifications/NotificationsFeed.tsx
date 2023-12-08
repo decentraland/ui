@@ -56,8 +56,7 @@ const i18N = {
       },
       empty: {
         title: "You're all caught up!",
-        description:
-          "No new notifications."
+        description: 'No new notifications.'
       },
       history: {
         title: 'Notifications History',
