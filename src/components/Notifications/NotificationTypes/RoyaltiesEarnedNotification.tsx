@@ -21,7 +21,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        You earned {mana} for {nftName}
+        You've earned {mana} in royalties for {nftName}
       </>
     ),
     title: 'Royalties Earned'
@@ -32,7 +32,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Ganaste {mana} por {nftName}
+        Ganaste {mana} en regalias por {nftName}
       </>
     ),
     title: 'Regalias ganadas'

@@ -11,9 +11,9 @@ interface ItemSoldNotificationProps {
 }
 
 const i18N = {
-  en: { description: 'You just sold ', title: 'Item Sold' },
-  es: { description: 'Vendiste ', title: 'Item vendido' },
-  zh: { description: '你剛剛賣了 ', title: '已售商品' }
+  en: { description: 'Someone just bought your ', title: 'Item Sold' },
+  es: { description: 'Alguien acaba de comprar tu ', title: 'Item vendido' },
+  zh: { description: '有人刚买了你的 ', title: '已售商品' }
 }
 
 const ItemSoldNotification = ({
