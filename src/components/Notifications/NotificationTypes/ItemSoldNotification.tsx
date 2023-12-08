@@ -36,7 +36,11 @@ const ItemSoldNotification = ({
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description}{' '}
-        <NotificationItemNFTLink rarity={notification.metadata.rarity} name={notification.metadata.nftName} link={notification.metadata.link} />
+        <NotificationItemNFTLink
+          rarity={notification.metadata.rarity}
+          name={notification.metadata.nftName}
+          link={notification.metadata.link}
+        />
       </p>
     </NotificationItem>
   )
