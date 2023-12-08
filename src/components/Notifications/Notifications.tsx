@@ -56,7 +56,9 @@ export default function Notifications({
           {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         </button>
         {!isOpen && newNotificationsCount > 0 && (
-          <div className="dcl notifications-counter"><Counter count={newNotificationsCount} /></div>
+          <div className="dcl notifications-counter">
+            <Counter count={newNotificationsCount} />
+          </div>
         )}
       </div>
       {isOpen && (

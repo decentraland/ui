@@ -6,7 +6,8 @@ type CounterProps = React.SVGAttributes<SVGElement> & {
 }
 
 const Counter = ({ count, ...rest }: CounterProps) => {
-  const Component = count <= 9 ? Numbers[`Number${count}`] : Numbers['Number9Plus']
+  const Component =
+    count <= 9 ? Numbers[`Number${count}`] : Numbers['Number9Plus']
 
   return <Component {...rest} />
 }
