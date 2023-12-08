@@ -5,9 +5,15 @@ type CounterProps = React.SVGAttributes<SVGElement> & {
   count: number
 }
 
+const MAX_COUNT = 9
+
 const Counter = ({ count, ...rest }: CounterProps) => {
+  if (count <= 0) {
+    return null
+  }
+
   const Component =
-    count <= 9 ? Numbers[`Number${count}`] : Numbers['Number9Plus']
+    count <= MAX_COUNT ? Numbers[`Number${count}`] : Numbers['Number9Plus']
 
   return <Component {...rest} />
 }
