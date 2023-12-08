@@ -80,7 +80,7 @@ module.exports = {
     new CopyWebpackPlugin([{ 
         from: 'src/themes/alternative', 
         to: './',
-        // transform this with postcss to generate the css file
+        // transform themes file because now they contain a relative path to the assets
         transform: (content, path) => {
             return postcss([
               postcssPresetEnv({
