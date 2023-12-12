@@ -60,7 +60,7 @@ storiesOf('UserInformationContainer', module)
         isLoading: false,
         items: [],
         locale: 'en',
-        activeTab: NotificationActiveTab.NEWEST,
+        activeTab: NotificationActiveTab.NEW,
         onBegin: console.log,
         onChangeTab: console.log,
         onClick: console.log,
