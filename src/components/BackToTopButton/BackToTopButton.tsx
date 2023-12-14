@@ -13,7 +13,7 @@ const BackToTopButton = ({
   className,
   threshold = MIN_HEIGHT_SCROLL_BACK,
   scrollToOptions = DEFAULT_SCROLL_TO_OPTS,
-  i18n
+  i18n,
 }: Props) => {
   const { title = 'Back to top' } = i18n || {}
   const isDesktop = useNotMobileMediaQuery()

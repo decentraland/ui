@@ -8,7 +8,7 @@ export type SectionProps = {
 
 export class Section extends React.PureComponent<SectionProps> {
   static defaultProps = {
-    size: 'medium'
+    size: 'medium',
   }
 
   render(): JSX.Element {

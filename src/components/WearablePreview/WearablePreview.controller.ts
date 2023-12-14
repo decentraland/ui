@@ -5,7 +5,7 @@ import {
   IPreviewController,
   PreviewMessagePayload,
   PreviewMessageType,
-  sendMessage
+  sendMessage,
 } from '@dcl/schemas/dist/dapps/preview'
 import { Metrics } from '@dcl/schemas/dist/platform/item/metrics'
 
@@ -105,7 +105,7 @@ export function createController(id: string): IPreviewController {
       },
       changeCameraPosition: function (position) {
         return sendRequest('scene', 'changeCameraPosition', [position])
-      }
+      },
     },
     emote: {
       getLength() {
@@ -135,7 +135,7 @@ export function createController(id: string): IPreviewController {
       hasSound() {
         return sendRequest<boolean>('emote', 'hasSound', [])
       },
-      events
-    }
+      events,
+    },
   }
 }

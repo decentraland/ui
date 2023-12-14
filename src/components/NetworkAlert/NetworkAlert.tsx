@@ -16,8 +16,8 @@ export class NetworkAlert extends React.PureComponent<Props> {
           app. <a href="">Learn more</a>
         </span>
       ),
-      action: 'Switch Network'
-    }
+      action: 'Switch Network',
+    },
   }
 
   render() {

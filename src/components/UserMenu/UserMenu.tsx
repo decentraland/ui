@@ -56,13 +56,13 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       settings: 'Settings',
       wallet: 'Wallet',
       profile: 'Profile',
-      account: 'Account'
-    }
+      account: 'Account',
+    },
   }
 
   state: UserMenuState = {
     isOpen: false,
-    isClickable: false
+    isClickable: false,
   }
 
   mounted = false
@@ -129,7 +129,7 @@ export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
       onClickActivity,
       onClickSettings,
       i18n,
-      menuItems
+      menuItems,
     } = this.props
 
     const { isOpen, isClickable } = this.state

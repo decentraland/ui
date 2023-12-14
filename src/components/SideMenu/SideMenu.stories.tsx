@@ -7,8 +7,8 @@ export default {
   title: 'SideMenu',
   component: SideMenu,
   argTypes: {
-    onClick: { action: 'clicked' }
-  }
+    onClick: { action: 'clicked' },
+  },
 } as ComponentMeta<typeof SideMenu>
 
 const Template: ComponentStory<typeof SideMenu> = (args) => (
@@ -29,27 +29,27 @@ Primary.args = {
           children: [
             {
               id: 'facial-hair',
-              label: 'Facial Hair'
+              label: 'Facial Hair',
             },
             {
               id: 'hair',
-              label: 'Hair'
+              label: 'Hair',
             },
             {
               id: 'eyes',
-              label: 'Eyes'
-            }
-          ]
+              label: 'Eyes',
+            },
+          ],
         },
         {
           id: 'upper-body',
-          label: 'Upper Body'
+          label: 'Upper Body',
         },
         {
           id: 'hand-wear',
-          label: 'Hand Wear'
-        }
-      ]
+          label: 'Hand Wear',
+        },
+      ],
     },
     {
       id: 'emotes',
@@ -57,17 +57,17 @@ Primary.args = {
       children: [
         {
           id: 'dance',
-          label: 'Dance'
+          label: 'Dance',
         },
         {
           id: 'poses',
-          label: 'Poses'
+          label: 'Poses',
         },
         {
           id: 'fun',
-          label: 'Fun'
-        }
-      ]
-    }
-  ]
+          label: 'Fun',
+        },
+      ],
+    },
+  ],
 }

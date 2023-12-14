@@ -7,7 +7,7 @@ export type HeaderMenuProps = {
 
 export class HeaderMenu extends React.PureComponent<HeaderMenuProps> {
   static defaultProps: Partial<HeaderMenuProps> = {
-    stackable: false
+    stackable: false,
   }
 
   static Left = ({ children }: { children: React.ReactNode }): JSX.Element => (

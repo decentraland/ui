@@ -14,7 +14,7 @@ const RarityFilter = (props: RarityFilterProps) => {
     rarities,
     i18n,
     className,
-    defaultCollapsed = false
+    defaultCollapsed = false,
   } = props
 
   const isMobileOrTablet = useTabletAndBelowMediaQuery()
@@ -24,7 +24,7 @@ const RarityFilter = (props: RarityFilterProps) => {
       .reverse() as string[]
     return options.map((rarity) => ({
       value: rarity,
-      text: i18n.rarities[rarity as Rarity]
+      text: i18n.rarities[rarity as Rarity],
     }))
   }, [])
 

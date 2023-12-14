@@ -6,7 +6,7 @@ export type NetworksNames = {
 
 export const networksNames: NetworksNames = {
   [Network.ETHEREUM]: 'Ethereum',
-  [Network.MATIC]: 'Polygon'
+  [Network.MATIC]: 'Polygon',
 }
 
 export const getNetworkName = (network: Network): string | undefined =>

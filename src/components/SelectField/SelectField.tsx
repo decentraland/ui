@@ -41,7 +41,7 @@ export class SelectField extends React.PureComponent<SelectFieldProps> {
                     onClick={(e) =>
                       this.props.onChange(e, {
                         ...this.props,
-                        value: opt.value
+                        value: opt.value,
                       })
                     }
                   />

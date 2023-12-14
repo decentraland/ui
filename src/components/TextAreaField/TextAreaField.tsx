@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import TextArea, {
-  TextAreaProps
+  TextAreaProps,
 } from 'semantic-ui-react/dist/commonjs/addons/TextArea/TextArea'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { getInputValueLength } from '../../lib/input'
@@ -52,7 +52,7 @@ export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
       className={classNames('dcl', 'text-area', {
         error: error,
         warning: !error && warning,
-        info: !error && !warning && info
+        info: !error && !warning && info,
       })}
     >
       {props.label || props.maxLength !== undefined ? (

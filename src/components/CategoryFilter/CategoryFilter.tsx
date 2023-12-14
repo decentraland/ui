@@ -12,7 +12,7 @@ export const CategoryFilter = ({
   i18n,
   items,
   value,
-  onClick
+  onClick,
 }: CategoryFilterProps) => {
   const isMobileOrTablet = useTabletAndBelowMediaQuery()
   const { title } = i18n

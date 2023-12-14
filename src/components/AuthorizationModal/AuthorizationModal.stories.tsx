@@ -15,8 +15,8 @@ const steps: AuthorizationStep[] = [
     ),
     status: AuthorizationStepStatus.ERROR,
     actionType: AuthorizationStepAction.REVOKE,
-    action: 'Revoke'
-  }
+    action: 'Revoke',
+  },
 ]
 
 storiesOf('AuthorizationModal', module).add('Basic with error', () => (

@@ -12,5 +12,5 @@ export enum Color {
   SUNISH = '#FFBC5B',
   MILLENIAL_ORANGE = '#FC9965',
   OJ_NOT_SIMPSON = '#FF7439',
-  DARK = '#18141A'
+  DARK = '#18141A',
 }

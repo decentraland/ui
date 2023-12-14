@@ -14,7 +14,7 @@ export type TranslationControlsProp = {
 
 export enum VerticalPosition {
   LEFT = 'left',
-  RIGHT = 'right'
+  RIGHT = 'right',
 }
 
 export const TranslationControls: React.FC<TranslationControlsProp> = (

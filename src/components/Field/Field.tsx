@@ -5,7 +5,7 @@ import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 
 import Input, {
   InputOnChangeData,
-  InputProps
+  InputProps,
 } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
 import { getInputValueLength } from '../../lib/input'
@@ -68,7 +68,7 @@ function renderMessage(props: FieldProps) {
 export class Field extends React.PureComponent<FieldProps> {
   static defaultProps = {
     kind: 'simple',
-    fitContent: false
+    fitContent: false,
   }
 
   hasAction(): boolean {
@@ -103,7 +103,7 @@ export class Field extends React.PureComponent<FieldProps> {
 
     const inputProps: InputOnChangeData = {
       ...this.props,
-      value: newValue
+      value: newValue,
     }
     this.props.onChange && this.props.onChange(e, inputProps)
   }
@@ -137,7 +137,7 @@ export class Field extends React.PureComponent<FieldProps> {
       disabled,
       address: isAddress,
       resizable: fitContent,
-      ['has-label']: label
+      ['has-label']: label,
     })
 
     if (isAddress && action) {

@@ -32,7 +32,7 @@ export default function Notifications({
   activeTab,
   onClick,
   onChangeTab,
-  onBegin
+  onBegin,
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length

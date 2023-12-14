@@ -51,4 +51,12 @@
   /* svgs */
   --brightness: brightness(100);
   /* black svgs */
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-hover: #fff;
+  --navbar-item-text-enabled: #cfcdd4;
+  --navbar-item-text-hover: #fff;
+  --navbar-item-border-enabled: #716b7c;
+  --navbar-item-border-hover: #cfcdd4;
 }

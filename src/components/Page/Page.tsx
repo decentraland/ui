@@ -11,7 +11,7 @@ export class Page extends React.PureComponent<PageProps> {
   static defaultProps = {
     hasHero: false,
     heroHeight: 302,
-    isFullscreen: false
+    isFullscreen: false,
   }
 
   render(): JSX.Element {

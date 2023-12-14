@@ -13,7 +13,7 @@ export const avatar: Avatar = {
     snapshots: {
       face256:
         'https://peer-ec1.decentraland.org/content/contents/QmcDmQ7WbDFU65idd4PEwEKBM1bgQi88Y6CByCWFMN8raV',
-      body: 'https://peer-ec1.decentraland.org/content/contents/QmaE1YgiBJAbEqCkBtmDe8fTMzqBUgvUCY6HifrjV1WAnY'
+      body: 'https://peer-ec1.decentraland.org/content/contents/QmaE1YgiBJAbEqCkBtmDe8fTMzqBUgvUCY6HifrjV1WAnY',
     },
     eyes: { color: { r: 0.37109375, g: 0.22265625, b: 0.1953125 } },
     hair: { color: { r: 0.109375, g: 0.109375, b: 0.109375 } },
@@ -27,9 +27,9 @@ export const avatar: Avatar = {
       'urn:decentraland:off-chain:base-avatars:elegant_blue_trousers',
       'urn:decentraland:off-chain:base-avatars:classic_shoes',
       'urn:decentraland:matic:collections-v2:0x93d2c265957cd7924260193c288a8ecfc785c0d1:1',
-      'urn:decentraland:matic:collections-v2:0x50f4d59172ec5edc54b7fd05350372d00b154ccf:0'
-    ]
+      'urn:decentraland:matic:collections-v2:0x50f4d59172ec5edc54b7fd05350372d00b154ccf:0',
+    ],
   },
   tutorialStep: 256,
-  interests: []
+  interests: [],
 }

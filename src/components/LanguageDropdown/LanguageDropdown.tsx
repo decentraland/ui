@@ -36,8 +36,8 @@ export class LanguageDropdown extends React.PureComponent<LanguageDropdownProps>
       fr: 'French',
       ja: 'Japanese',
       zh: 'Chinese',
-      ko: 'Korean'
-    }
+      ko: 'Korean',
+    },
   }
 
   renderOption = (locale: Locale): JSX.Element => {
@@ -57,7 +57,7 @@ export class LanguageDropdown extends React.PureComponent<LanguageDropdownProps>
         options={locales.map((key) => ({
           key,
           value: key,
-          text: this.renderOption(key as Locale)
+          text: this.renderOption(key as Locale),
         }))}
         onChange={onChange}
       />

@@ -24,7 +24,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
     spotcolor: '#e449c2',
     size: 6,
     scale: 6,
-    className: ''
+    className: '',
   }
 
   canvas = React.createRef<HTMLCanvasElement>()
@@ -48,7 +48,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
       spotcolor,
       bgcolor,
       size,
-      scale
+      scale,
     }
   }
 

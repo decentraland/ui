@@ -6,7 +6,7 @@ import {
   Bar,
   Cell,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { RangeField } from '../RangeField'
@@ -27,7 +27,7 @@ import {
   CHART_LOG_SCALE,
   roundRange,
   roundNumber,
-  fixedNumber
+  fixedNumber,
 } from './utils'
 import { BarChartProps, BarChartSource } from './BarChart.types'
 import { BarChartTooltip } from './BarChartTooltip'
@@ -56,7 +56,7 @@ export const BarChart = ({
   sliderStep = DEFAULT_SLIDER_STEP,
   errorMessage,
   rangeDecimals = 2,
-  id = 'bar-chart'
+  id = 'bar-chart',
 }: BarChartProps) => {
   const [value, setValue] = useState<[string, string]>([min, max])
   const [ranges, setRanges] = useState<Range[]>()
@@ -208,7 +208,7 @@ export const BarChart = ({
 
         const newValue: [string, string] = [
           roundNumber(formattedMin, rangeDecimals).toString(),
-          roundNumber(formattedMax, rangeDecimals).toString()
+          roundNumber(formattedMax, rangeDecimals).toString(),
         ]
         setValue(newValue)
         handleChange(newValue, null, 'slider')
@@ -306,13 +306,13 @@ export const BarChart = ({
           icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
           placeholder: 0,
-          onWheel: onRangeWheel
+          onWheel: onRangeWheel,
         }}
         maxProps={{
           icon: isMana ? <Mana network={network} /> : null,
           iconPosition: 'left',
           placeholder: 1000,
-          onWheel: onRangeWheel
+          onWheel: onRangeWheel,
         }}
         onChange={handleChange}
         onBlur={handleBlur}

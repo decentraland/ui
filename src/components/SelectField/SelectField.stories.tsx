@@ -12,7 +12,7 @@ storiesOf('SelectField', module)
         options={[
           { key: 1, text: 'Choice 1', value: 1 },
           { key: 2, text: 'Choice 2', value: 2 },
-          { key: 3, text: 'Choice 3', value: 3 }
+          { key: 3, text: 'Choice 3', value: 3 },
         ]}
         onChange={(_, a) => console.log(a)}
       />
@@ -26,7 +26,7 @@ storiesOf('SelectField', module)
       options={[
         { key: 1, text: 'Choice 1', value: 1 },
         { key: 2, text: 'Choice 2', value: 2 },
-        { key: 3, text: 'Choice 3', value: 3 }
+        { key: 3, text: 'Choice 3', value: 3 },
       ]}
       onChange={(_, a) => console.log(a)}
     />
@@ -40,7 +40,7 @@ storiesOf('SelectField', module)
       options={[
         { key: 1, text: 'Choice 1', value: 1 },
         { key: 2, text: 'Choice 2', value: 2 },
-        { key: 3, text: 'Choice 3', value: 3 }
+        { key: 3, text: 'Choice 3', value: 3 },
       ]}
       onChange={(_, a) => console.log(a)}
     />
@@ -54,7 +54,7 @@ storiesOf('SelectField', module)
           { key: 1, text: 'Choice 1', value: 1 },
           { key: 2, text: 'Choice 2', value: 2, disabled: true },
           { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true }
+          { key: 4, text: 'Choice 4', value: 4, disabled: true },
         ]}
         onChange={(_, a) => console.log(a)}
       />
@@ -69,7 +69,7 @@ storiesOf('SelectField', module)
           { key: 1, text: 'Choice 1', value: 1 },
           { key: 2, text: 'Choice 2', value: 2, disabled: true },
           { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true }
+          { key: 4, text: 'Choice 4', value: 4, disabled: true },
         ]}
         disabled
       />
@@ -84,7 +84,7 @@ storiesOf('SelectField', module)
           { key: 1, text: 'Choice 1', value: 8 },
           { key: 2, text: 'Choice 2', value: 2, disabled: true },
           { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true }
+          { key: 4, text: 'Choice 4', value: 4, disabled: true },
         ]}
         defaultValue={8}
       />
@@ -106,7 +106,7 @@ storiesOf('SelectField', module)
           { key: 7, text: 'Choice 7', value: 5 },
           { key: 8, text: 'Choice 8', value: 5 },
           { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
+          { key: 10, text: 'Choice 10', value: 5 },
         ]}
       />
     </>
@@ -127,7 +127,7 @@ storiesOf('SelectField', module)
           { key: 7, text: 'Choice 7', value: 5 },
           { key: 8, text: 'Choice 8', value: 5 },
           { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
+          { key: 10, text: 'Choice 10', value: 5 },
         ]}
       />
     </>
@@ -150,7 +150,7 @@ storiesOf('SelectField', module)
           { key: 7, text: 'Choice 7', value: 5 },
           { key: 8, text: 'Choice 8', value: 5 },
           { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
+          { key: 10, text: 'Choice 10', value: 5 },
         ]}
       />
     </>

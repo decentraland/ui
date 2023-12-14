@@ -14,7 +14,7 @@ function _getEmoteBadges(emote: NFT['data']['emote'], i18n: NFTCardI18N) {
       icon: emote.loop
         ? 'dui-nft-card__badge-icon--loop'
         : 'dui-nft-card__badge-icon--once',
-      hideLabel: true
+      hideLabel: true,
     },
     ...(emote.hasSound
       ? [
@@ -22,10 +22,10 @@ function _getEmoteBadges(emote: NFT['data']['emote'], i18n: NFTCardI18N) {
             color: DEFAULT_BADGE_COLOR,
             label: i18n.withSound,
             icon: 'dui-nft-card__badge-icon--sound',
-            hideLabel: true
-          }
+            hideLabel: true,
+          },
         ]
-      : [])
+      : []),
   ]
 }
 
@@ -45,13 +45,13 @@ function _getWearableBadges(
       color: DEFAULT_BADGE_COLOR,
       label: i18n.category[wearable.category],
       icon: `dui-nft-card__badge-icon--${wearable.category}`,
-      hideLabel: true
+      hideLabel: true,
     },
     {
       color: DEFAULT_BADGE_COLOR,
       label: i18n.bodyShape[bodyShape],
       icon: `dui-nft-card__badge-icon--${bodyShape}`,
-      hideLabel: true
+      hideLabel: true,
     },
     ...(wearable.isSmart
       ? [
@@ -59,10 +59,10 @@ function _getWearableBadges(
             color: DEFAULT_BADGE_COLOR,
             label: i18n.smart,
             icon: 'dui-nft-card__badge-icon--smart',
-            hideLabel: true
-          }
+            hideLabel: true,
+          },
         ]
-      : [])
+      : []),
   ]
 }
 
@@ -70,8 +70,8 @@ function _getEstateBadges(estate: NFT['data']['estate']) {
   return [
     {
       color: DEFAULT_BADGE_COLOR,
-      label: `${estate.parcels.length} LAND`
-    }
+      label: `${estate.parcels.length} LAND`,
+    },
   ]
 }
 
@@ -80,8 +80,8 @@ function _getParcelBadges(parcel: NFT['data']['parcel']) {
     {
       color: DEFAULT_BADGE_COLOR,
       label: `${parcel.x},${parcel.y}`,
-      icon: 'dui-nft-card__badge-icon--parcel'
-    }
+      icon: 'dui-nft-card__badge-icon--parcel',
+    },
   ]
 }
 

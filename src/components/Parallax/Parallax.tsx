@@ -25,7 +25,7 @@ export class Parallax extends React.PureComponent {
   }: React.HTMLAttributes<HTMLDivElement> & { depth: number }): JSX.Element => {
     const props = {
       'data-depth': depth,
-      ...rest
+      ...rest,
     }
     return (
       <div className="layer" {...props}>

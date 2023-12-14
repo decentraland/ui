@@ -15,7 +15,7 @@ export const AssetStatusFilter = (props: AssetStatusFilterProps) => {
       Object.values(AssetStatus).map((opt) => ({
         value: opt as AssetStatus,
         name: i18n.status[opt],
-        info: i18n.tooltips[opt]
+        info: i18n.tooltips[opt],
       })),
     [i18n.status, i18n.tooltips]
   )

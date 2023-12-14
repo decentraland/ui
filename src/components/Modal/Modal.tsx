@@ -1,5 +1,5 @@
 export {
   default as Modal,
-  ModalProps
+  ModalProps,
 } from 'semantic-ui-react/dist/commonjs/modules/Modal/Modal'
 import './Modal.css'

@@ -21,7 +21,7 @@ const i18N = {
         Your bid of {mana} MANA was accepted for {nftName}
       </>
     ),
-    title: 'Bid Accepted'
+    title: 'Bid Accepted',
   },
   es: {
     description: (
@@ -32,7 +32,7 @@ const i18N = {
         Tu oferta de {mana} MANA fue aceptada para {nftName}
       </>
     ),
-    title: 'Oferta aceptada'
+    title: 'Oferta aceptada',
   },
   zh: {
     description: (
@@ -43,20 +43,20 @@ const i18N = {
         您的出价 {mana} MANA 已被接受 {nftName}
       </>
     ),
-    title: '接受投标'
-  }
+    title: '接受投标',
+  },
 }
 
 const BidAcceptedNotification = ({
   notification,
-  locale
+  locale,
 }: BidAcceptedNotificationProps) => {
   return (
     <NotificationItem
       image={{
         url: notification.metadata.image,
         rarity: notification.metadata.rarity,
-        icon: <BidAccepted />
+        icon: <BidAccepted />,
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
@@ -72,7 +72,7 @@ const BidAcceptedNotification = ({
               href={notification.metadata.link}
               style={{
                 color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
+                textDecoration: 'underline',
               }}
             >
               {notification.metadata.nftName}

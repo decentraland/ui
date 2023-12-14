@@ -8,7 +8,7 @@ export const IconBadge = ({
   text,
   onClick,
   className,
-  children
+  children,
 }: Props) => {
   const childrenInt = React.useMemo(
     () => (

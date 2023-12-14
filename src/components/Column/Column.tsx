@@ -18,7 +18,7 @@ export class Column extends React.PureComponent<ColumnProps> {
     center: false,
     grow: true,
     shrink: true,
-    className: ''
+    className: '',
   }
 
   render(): JSX.Element {
@@ -31,7 +31,7 @@ export class Column extends React.PureComponent<ColumnProps> {
       height,
       grow,
       shrink,
-      onClick
+      onClick,
     } = this.props
     const classes = ['dcl', 'column']
     if (center) {

@@ -11,7 +11,7 @@ import {
   sendMessage,
   WearableWithBlobs,
   EmoteWithBlobs,
-  PreviewType
+  PreviewType,
 } from '@dcl/schemas/dist/dapps/preview'
 import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
@@ -85,7 +85,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     baseUrl: config.get('WEARABLE_PREVIEW_URL'),
     onLoad: () => {},
     onError: () => {},
-    onUpdate: () => {}
+    onUpdate: () => {},
   }
 
   static createController(id: string) {
@@ -95,7 +95,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   state: WearablePreviewState = {
     isReady: false,
     pendingOptions: null,
-    lastOptions: null
+    lastOptions: null,
   }
 
   iframe: HTMLIFrameElement | null = null
@@ -144,7 +144,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       baseUrl,
       peerUrl,
       nftServerUrl,
-      type
+      type,
     } = this.props
 
     const contractParam = contractAddress ? `contract=${contractAddress}` : ''
@@ -249,7 +249,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         lockAlphaParam,
         lockBetaParam,
         lockRadiusParam,
-        envParam
+        envParam,
       ]
         .filter((param) => !!param)
         .join('&')
@@ -335,7 +335,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     if (!lastOptions || !equal(options, lastOptions)) {
       // send message to iframe
       sendMessage(this.iframe.contentWindow, PreviewMessageType.UPDATE, {
-        options
+        options,
       })
       // callback
       const { onUpdate } = this.props

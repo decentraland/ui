@@ -17,7 +17,7 @@ export const BarChartTooltip = ({
   active,
   payload,
   network,
-  isMana
+  isMana,
 }: BarChartTooltipProps) => {
   if (active && payload && payload.length && payload[0].payload.amount) {
     const values = payload[0].payload.values

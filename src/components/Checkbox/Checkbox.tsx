@@ -1,5 +1,5 @@
 export {
   default as Checkbox,
-  CheckboxProps
+  CheckboxProps,
 } from 'semantic-ui-react/dist/commonjs/modules/Checkbox'
 import './Checkbox.css'

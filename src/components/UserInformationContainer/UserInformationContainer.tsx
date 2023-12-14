@@ -56,7 +56,7 @@ export enum MenuItemType {
   SETTINGS = 'Settings',
   MY_LISTS = 'My Lists',
   ACCOUNT = 'Account',
-  PROFILE = 'Profile'
+  PROFILE = 'Profile',
 }
 
 export type UserInformationComponentState = {
@@ -78,13 +78,13 @@ export class UserInformationContainer extends React.Component<
       myAssets: 'My Assets',
       myLists: 'My Lists',
       settings: 'Account Settings',
-      signOut: 'Log Out'
-    }
+      signOut: 'Log Out',
+    },
   }
 
   state: UserInformationComponentState = {
     isOpen: false,
-    isClickable: false
+    isClickable: false,
   }
 
   trackingId: string | null = null
@@ -293,7 +293,7 @@ export class UserInformationContainer extends React.Component<
       onSignIn,
       onClickProfile,
       i18n,
-      hasActivity
+      hasActivity,
     } = this.props
 
     const { isOpen, isClickable } = this.state

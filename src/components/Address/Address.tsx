@@ -13,7 +13,7 @@ export class Address extends React.Component<AddressProps> {
   static defaultProps = {
     className: '',
     strong: false,
-    shorten: true
+    shorten: true,
   }
 
   render(): JSX.Element {

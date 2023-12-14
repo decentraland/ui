@@ -83,5 +83,5 @@ export {
   useTabletMediaQuery,
   useTabletAndBelowMediaQuery,
   useMobileMediaQuery,
-  useNotMobileMediaQuery
+  useNotMobileMediaQuery,
 }

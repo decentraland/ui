@@ -11,7 +11,7 @@ export type AvatarFaceProps = {
 
 export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
   static defaultProps: Partial<AvatarFaceProps> = {
-    size: 'medium'
+    size: 'medium',
   }
 
   render(): JSX.Element {

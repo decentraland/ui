@@ -60,23 +60,23 @@ storiesOf('BuyManaWithFiatModal', module)
               {
                 type: NetworkGatewayType.TRANSAK,
                 learnMoreLink: 'https://transak.com/',
-                onContinue: () => undefined
-              }
-            ]
+                onContinue: () => undefined,
+              },
+            ],
           },
           {
             type: Network.ETHEREUM,
             gateways: [
               {
                 type: NetworkGatewayType.MOON_PAY,
-                onContinue: () => undefined
+                onContinue: () => undefined,
               },
               {
                 type: NetworkGatewayType.TRANSAK,
-                onContinue: () => undefined
-              }
-            ]
-          }
+                onContinue: () => undefined,
+              },
+            ],
+          },
         ]}
         onClose={() => undefined}
         onInfo={() => undefined}
@@ -91,7 +91,7 @@ storiesOf('BuyManaWithFiatModal', module)
         i18n={{
           title: 'Title of the modal',
           subtitle: 'Subtitle of the modal',
-          error: 'Could not render the modal'
+          error: 'Could not render the modal',
         }}
         networks={[
           {
@@ -100,7 +100,7 @@ storiesOf('BuyManaWithFiatModal', module)
               cta: 'Call to action',
               ctaSubtitle: 'The subtitle of the CTA',
               title: 'Title of the network',
-              error: 'Could not render the network'
+              error: 'Could not render the network',
             },
             message: 'This is a custom message',
             gateways: [
@@ -110,25 +110,25 @@ storiesOf('BuyManaWithFiatModal', module)
                   title: 'Title of the gateway',
                   subtitle: 'Subtitle of the gateway',
                   continueButtonText: 'Continue with gateway',
-                  learnMoreText: 'Learn more about the gateway'
+                  learnMoreText: 'Learn more about the gateway',
                 },
-                onContinue: () => undefined
-              }
-            ]
+                onContinue: () => undefined,
+              },
+            ],
           },
           {
             type: Network.ETHEREUM,
             gateways: [
               {
                 type: NetworkGatewayType.MOON_PAY,
-                onContinue: () => undefined
+                onContinue: () => undefined,
               },
               {
                 type: NetworkGatewayType.TRANSAK,
-                onContinue: () => undefined
-              }
-            ]
-          }
+                onContinue: () => undefined,
+              },
+            ],
+          },
         ]}
         onClose={() => undefined}
         onInfo={() => undefined}
@@ -149,10 +149,10 @@ storiesOf('BuyManaWithFiatModal', module)
                 {
                   type: NetworkGatewayType.TRANSAK,
                   learnMoreLink: 'https://transak.com/',
-                  onContinue: () => undefined
-                }
-              ]
-            }
+                  onContinue: () => undefined,
+                },
+              ],
+            },
           ]}
           onClose={() => undefined}
           onInfo={() => undefined}
@@ -172,15 +172,15 @@ storiesOf('BuyManaWithFiatModal', module)
               {
                 type: NetworkGatewayType.MOON_PAY,
                 learnMoreLink: 'https://moonpay.com/',
-                onContinue: () => undefined
+                onContinue: () => undefined,
               },
               {
                 type: NetworkGatewayType.TRANSAK,
                 learnMoreLink: 'https://transak.com/',
-                onContinue: () => undefined
-              }
-            ]
-          }
+                onContinue: () => undefined,
+              },
+            ],
+          },
         ]}
         onClose={() => undefined}
         onInfo={() => undefined}
@@ -228,7 +228,7 @@ storiesOf('BuyManaWithFiatModal', module)
           statusTitle: 'The transaction is processing',
           description:
             'Wait a few minutes while the transaction is being processed',
-          goToText: 'Go to MoonPay tab'
+          goToText: 'Go to MoonPay tab',
         }}
         selectedNetwork={Network.ETHEREUM}
         selectedGateway={NetworkGatewayType.MOON_PAY}
@@ -251,7 +251,7 @@ storiesOf('BuyManaWithFiatModal', module)
             'You can try again with Moon Pay or select other provider',
           goToText: 'Go to MoonPay tab',
           cta: 'Try again',
-          secondaryCta: 'Select other provider'
+          secondaryCta: 'Select other provider',
         }}
         selectedNetwork={Network.ETHEREUM}
         selectedGateway={NetworkGatewayType.MOON_PAY}
@@ -272,7 +272,7 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
         networks={[
           { type: Network.MATIC, gateways: [] },
-          { type: Network.ETHEREUM, gateways: [] }
+          { type: Network.ETHEREUM, gateways: [] },
         ]}
       />
     </div>
@@ -287,7 +287,7 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
         networks={[
           { type: Network.MATIC, gateways: [] },
-          { type: Network.ETHEREUM, gateways: [] }
+          { type: Network.ETHEREUM, gateways: [] },
         ]}
       />
     </div>
@@ -302,7 +302,7 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
         networks={[
           { type: Network.MATIC, gateways: [] },
-          { type: Network.ETHEREUM, gateways: [] }
+          { type: Network.ETHEREUM, gateways: [] },
         ]}
       />
     </div>
@@ -319,7 +319,7 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
         networks={[
           { type: Network.MATIC, gateways: [] },
-          { type: Network.ETHEREUM, gateways: [] }
+          { type: Network.ETHEREUM, gateways: [] },
         ]}
       />
     </div>

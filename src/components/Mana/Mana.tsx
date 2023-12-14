@@ -20,7 +20,7 @@ export class Mana extends React.Component<ManaProps & HeaderProps> {
   static defaultProps = {
     className: '',
     network: Network.ETHEREUM,
-    primary: false
+    primary: false,
   }
 
   render(): JSX.Element {

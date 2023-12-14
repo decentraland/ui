@@ -13,19 +13,19 @@ interface ItemSoldNotificationProps {
 const i18N = {
   en: { description: 'You just sold ', title: 'Item Sold' },
   es: { description: 'Vendiste ', title: 'Item vendido' },
-  zh: { description: '你剛剛賣了 ', title: '已售商品' }
+  zh: { description: '你剛剛賣了 ', title: '已售商品' },
 }
 
 const ItemSoldNotification = ({
   notification,
-  locale
+  locale,
 }: ItemSoldNotificationProps) => {
   return (
     <NotificationItem
       image={{
         url: notification.metadata.image,
         rarity: notification.metadata.rarity,
-        icon: <ItemSold />
+        icon: <ItemSold />,
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
@@ -40,7 +40,7 @@ const ItemSoldNotification = ({
             href={notification.metadata.link}
             style={{
               color: `${Rarity.getColor(notification.metadata.rarity)}`,
-              textDecoration: 'underline'
+              textDecoration: 'underline',
             }}
           >
             {notification.metadata.nftName}

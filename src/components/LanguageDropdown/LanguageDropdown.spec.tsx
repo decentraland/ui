@@ -28,7 +28,7 @@ it('should show all locales as options with correct names', () => {
     zh: 'Chinese lang',
     fr: 'French lang',
     ja: 'Japanese lang',
-    ko: 'Korean lang'
+    ko: 'Korean lang',
   }
   const screen = renderLanguageDropdown({ locales, i18n: i18nLocales })
   locales.forEach((locale) => {

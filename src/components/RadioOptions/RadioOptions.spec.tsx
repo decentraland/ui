@@ -23,7 +23,7 @@ describe('when rendering the component', () => {
     options = [
       { name: 'First option', value: 'first_option' },
       { name: 'Second option', value: 'second_option' },
-      { name: 'Third option', value: 'third_option', info: 'Some info!' }
+      { name: 'Third option', value: 'third_option', info: 'Some info!' },
     ]
     renderedComponent = renderRadioOptions({ options })
   })
@@ -52,7 +52,7 @@ describe('when clicking on an option', () => {
     options = [
       { name: 'First option', value: 'first_option' },
       { name: 'Second option', value: 'second_option' },
-      { name: 'Third option', value: 'third_option', info: 'Some info!' }
+      { name: 'Third option', value: 'third_option', info: 'Some info!' },
     ]
   })
 

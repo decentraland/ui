@@ -16,23 +16,23 @@ const i18N = {
   en: {
     description_1: `You earned `,
     description_2: `for selling `,
-    title: 'Royalties Earned'
+    title: 'Royalties Earned',
   },
   es: {
     description_1: `Ganaste `,
     description_2: `por vender `,
-    title: 'Regalias ganadas'
+    title: 'Regalias ganadas',
   },
   zh: {
     description_1: `您通过出售 `,
     description_2: `赚取了 `,
-    title: '所得版税'
-  }
+    title: '所得版税',
+  },
 }
 
 const RoyaltiesEarnedNotification = ({
   notification,
-  locale
+  locale,
 }: RoyaltiesEarnedNotificationProps) => {
   return (
     <NotificationItem
@@ -44,7 +44,7 @@ const RoyaltiesEarnedNotification = ({
             <ManaMainnet />
           ) : (
             <ManaPolygon />
-          )
+          ),
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
@@ -60,7 +60,7 @@ const RoyaltiesEarnedNotification = ({
               href={notification.metadata.link}
               style={{
                 color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
+                textDecoration: 'underline',
               }}
             >
               {notification.metadata.nftName}
@@ -79,7 +79,7 @@ const RoyaltiesEarnedNotification = ({
               href={notification.metadata.link}
               style={{
                 color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline'
+                textDecoration: 'underline',
               }}
             >
               {notification.metadata.nftName}

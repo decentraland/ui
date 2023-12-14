@@ -50,13 +50,13 @@ describe('when clicking on non-selected options', () => {
     options = [
       { text: 'Mainnet', value: 'mainnet' },
       { text: 'Rinkeby', value: 'rinkeby' },
-      { text: 'Mumbai', value: 'mumbai' }
+      { text: 'Mumbai', value: 'mumbai' },
     ]
     preSelectedOptions = ['mainnet', 'rinkeby']
     renderedComponent = renderArrayFilter({
       options,
       values: preSelectedOptions,
-      onChange: onChangeMock
+      onChange: onChangeMock,
     })
   })
 
@@ -76,13 +76,13 @@ describe('when clicking on a selected option', () => {
     options = [
       { text: 'Mainnet', value: 'mainnet' },
       { text: 'Rinkeby', value: 'rinkeby' },
-      { text: 'Mumbai', value: 'mumbai' }
+      { text: 'Mumbai', value: 'mumbai' },
     ]
     preSelectedOptions = ['mainnet', 'rinkeby']
     renderedComponent = renderArrayFilter({
       options,
       values: preSelectedOptions,
-      onChange: onChangeMock
+      onChange: onChangeMock,
     })
   })
 
@@ -102,13 +102,13 @@ describe('when down pressing a key on non-selected options', () => {
     options = [
       { text: 'Mainnet', value: 'mainnet' },
       { text: 'Rinkeby', value: 'rinkeby' },
-      { text: 'Mumbai', value: 'mumbai' }
+      { text: 'Mumbai', value: 'mumbai' },
     ]
     preSelectedOptions = ['mainnet', 'rinkeby']
     renderedComponent = renderArrayFilter({
       options,
       values: preSelectedOptions,
-      onChange: onChangeMock
+      onChange: onChangeMock,
     })
   })
 
@@ -128,13 +128,13 @@ describe('when down pressing a key on a selected option', () => {
     options = [
       { text: 'Mainnet', value: 'mainnet' },
       { text: 'Rinkeby', value: 'rinkeby' },
-      { text: 'Mumbai', value: 'mumbai' }
+      { text: 'Mumbai', value: 'mumbai' },
     ]
     preSelectedOptions = ['mainnet', 'rinkeby']
     renderedComponent = renderArrayFilter({
       options,
       values: preSelectedOptions,
-      onChange: onChangeMock
+      onChange: onChangeMock,
     })
   })
 

@@ -24,7 +24,7 @@ export const SmartWearableFilter = (props: SmartWearableFilterProps) => {
     onChange,
     i18n,
     className,
-    defaultCollapsed = false
+    defaultCollapsed = false,
   } = props
   const { title = 'Smart', selected = 'Only Smart' } = i18n || {}
   const isMobileOrTablet = useTabletAndBelowMediaQuery()

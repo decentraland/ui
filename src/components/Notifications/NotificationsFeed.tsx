@@ -33,64 +33,64 @@ const i18N = {
       title: 'Introducing Decentraland Inbox System',
       description:
         'Never miss anything anymore! Now you will get notified every time something relevant happens to your account.',
-      button: "Let's begin"
+      button: "Let's begin",
     },
     feed: {
       title: 'Notifications',
       tabs: {
         newest: 'Newest',
-        read: 'Read'
+        read: 'Read',
       },
       empty: {
         title: "You're all caught up!",
         description:
-          "We'll let you know if there are new notifications for you."
-      }
-    }
+          "We'll let you know if there are new notifications for you.",
+      },
+    },
   },
   es: {
     onboarding: {
       title: 'Presentacion de Decentraland Inbox',
       description:
         '¡No te pierdas nada nunca más! Ahora recibirás una notificación cada vez que ocurra algo relevante en tu cuenta.',
-      button: 'Continuar'
+      button: 'Continuar',
     },
     feed: {
       title: 'Notificaciones',
       tabs: {
         newest: 'Mas reciente',
-        read: 'Leidas'
+        read: 'Leidas',
       },
       empty: {
         title: '¡Ya estas al día!',
-        description: 'Te avisaremos si hay nuevas notificaciones para ti.'
-      }
-    }
+        description: 'Te avisaremos si hay nuevas notificaciones para ti.',
+      },
+    },
   },
   zh: {
     onboarding: {
       title: '介绍 Decentraland 收件箱系统 ',
       description:
         '不再错过任何信息！现在，每当您的账户发生相关事件，您都会收到通知。',
-      button: '讓我們開始'
+      button: '讓我們開始',
     },
     feed: {
       title: '通知',
       tabs: {
         newest: '最新',
-        read: '阅读'
+        read: '阅读',
       },
       empty: {
         title: '你们都赶上了！',
-        description: '如果有新的通知，我们会及时通知您'
-      }
-    }
-  }
+        description: '如果有新的通知，我们会及时通知您',
+      },
+    },
+  },
 }
 
 const NotificationHandler = ({
   locale,
-  notification
+  notification,
 }: {
   notification: DCLNotification
   locale: NotificationLocale
@@ -127,7 +127,7 @@ export default function NotificationsFeed({
   isOnboarding,
   activeTab,
   onChangeTab,
-  onBegin
+  onBegin,
 }: NotificationsFeedProps) {
   const unreadNotifications = useMemo(
     () => items.filter((notification) => !notification.read),
@@ -229,7 +229,7 @@ export default function NotificationsFeed({
                               fontSize: '16px',
                               fontWeight: 600,
                               paddingLeft: '16px',
-                              marginBottom: 0
+                              marginBottom: 0,
                             }}
                           >
                             Previous

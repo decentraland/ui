@@ -19,7 +19,7 @@ export class Row extends React.PureComponent<RowProps> {
     center: false,
     grow: true,
     shrink: true,
-    className: ''
+    className: '',
   }
 
   render(): JSX.Element {
@@ -33,7 +33,7 @@ export class Row extends React.PureComponent<RowProps> {
       height,
       stacked,
       grow,
-      shrink
+      shrink,
     } = this.props
 
     const classes = ['dcl', 'row']

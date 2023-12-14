@@ -120,16 +120,16 @@ NFTCard.defaultProps = {
   i18n: {
     network: {
       ethereum: 'Ethereum',
-      matic: 'Matic'
+      matic: 'Matic',
     },
     bodyShape: {
       male: 'Male',
       female: 'Female',
-      unisex: 'Unisex'
+      unisex: 'Unisex',
     },
     playMode: {
       loop: 'Loop',
-      once: 'Once'
+      once: 'Once',
     },
     category: {
       body_shape: 'Body Shape',
@@ -150,9 +150,9 @@ NFTCard.defaultProps = {
       top_head: 'Top Head',
       upper_body: 'Upper Body',
       skin: 'Skin',
-      hands_wear: 'Handwear'
+      hands_wear: 'Handwear',
     },
     withSound: 'With sound',
-    smart: 'Smart'
-  }
+    smart: 'Smart',
+  },
 }

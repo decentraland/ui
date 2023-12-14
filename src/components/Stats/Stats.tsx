@@ -9,7 +9,7 @@ export type StatsProps = {
 
 export class Stats extends React.Component<StatsProps> {
   static defaultProps = {
-    className: ''
+    className: '',
   }
   render(): JSX.Element {
     const { title, className, children } = this.props

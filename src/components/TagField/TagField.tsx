@@ -17,7 +17,7 @@ export class TagField extends React.PureComponent<TagFieldProps> {
     const value = this.props.value ?? []
     return value.map((value) => ({
       text: value.toString(),
-      value: value.toString()
+      value: value.toString(),
     }))
   }
 

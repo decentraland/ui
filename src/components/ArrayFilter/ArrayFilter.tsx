@@ -48,7 +48,7 @@ const ArrayFilter = (props: ArrayFilterProps) => {
               aria-checked={isActive}
               key={option.text}
               className={classNames('dui-array-filter__option', {
-                ['dui-array-filter__selected-option']: isActive
+                ['dui-array-filter__selected-option']: isActive,
               })}
               onClick={handleOnClick(option.value)}
               onKeyDown={handleKeyDown(option.value)}

@@ -12,7 +12,7 @@ storiesOf('ArrayFilter', module).add('Multiple selectable values', () => {
       options={[
         { text: 'Mainnet', value: 'mainnet' },
         { text: 'Rinkeby', value: 'rinkeby' },
-        { text: 'Mumbai', value: 'mumbai' }
+        { text: 'Mumbai', value: 'mumbai' },
       ]}
       onChange={setValues}
     />

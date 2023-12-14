@@ -11,7 +11,7 @@ export type TabsProps = {
 
 export class Tabs extends React.PureComponent<TabsProps> {
   static defaultProps: Partial<TabsProps> = {
-    isFullscreen: false
+    isFullscreen: false,
   }
   static Left = ({ children }: { children: React.ReactNode }): JSX.Element => (
     <div className="dcl tabs-left">{children}</div>
@@ -24,7 +24,7 @@ export class Tabs extends React.PureComponent<TabsProps> {
   static Tab = ({
     active,
     onClick,
-    children
+    children,
   }: {
     active?: boolean
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
