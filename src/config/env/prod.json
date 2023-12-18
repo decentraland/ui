@@ -5,7 +5,7 @@
   "MARKETPLACE_URL": "https://decentraland.org/marketplace",
   "BUILDER_URL": "https://decentraland.org/builder",
   "DAO_URL": "https://decentraland.org/dao",
-  "GOVERNANCE_URL": "https://governance.decentraland.org",
-  "EVENTS_URL": "https://events.decentraland.org",
-  "PLACES_URL": "https://places.decentraland.org"
+  "GOVERNANCE_URL": "https://decentraland.org/governance",
+  "EVENTS_URL": "https://decentraland.org/events",
+  "PLACES_URL": "https://decentraland.org/places"
 }
