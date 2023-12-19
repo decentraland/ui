@@ -379,7 +379,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
   const handleToggle = useCallback(
     (e: React.MouseEvent, section: Navbar2Pages, show: boolean) => {
       setToggle(show)
-      console.log('DATA IN TOGGLE', show, section)
       show && setSelectedMenu(section)
 
       /* if (onClickMenuOption) {
@@ -388,8 +387,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     },
     [setToggle, onClickMenuOption]
   )
-
-  console.log(selectedMenu)
 
   const classNameMerged = classNames({
     dcl: true,
@@ -408,7 +405,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
 
   return (
     <div className={classNameMerged} role="navigation">
-      <Container className="full-width">
+      <Container>
         <div className={classNames('dcl', 'navbar2-menu')}>
           <NotMobile>
             <div className={classNames('dcl', 'navbar2-wrapper')}>
