@@ -43,7 +43,8 @@ const LIGHT_THEME = `
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
-  --clear-divider: #A09BA8;
+  --text-area-border: #67637033;
+  --clear-divider: #a09ba8;
   --navbar-icons: #000;
 
   /* shadows */
@@ -56,7 +57,16 @@ const LIGHT_THEME = `
   --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 
   /* svgs */
-  --brightness: brightness(0.1); /* black svgs */
+  --brightness: brightness(0.1);
+  /* black svgs */
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-hover: #000;
+  --navbar-item-text-enable: #716b7c;
+  --navbar-item-text-hover: #000;
+  --navbar-item-border-enabled: #cfcdd4;
+  --navbar-item-border-hover: #000;
 }
 `
 
@@ -86,7 +96,7 @@ const DARK_THEME = `
 
   /* ui */
   --divider: #67637033;
-  --dropdown: #676370;
+  --dropdown: #716b7c;
   --dropdown-hover: #24212933;
   --popup: #676370;
   --popup-text: #ffffff;
@@ -98,8 +108,8 @@ const DARK_THEME = `
   --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
-  --cloud-sky: #716B7C;
-  --clear-divider: #A09BA8;
+  --text-area-border: #676370;
+  --clear-divider: #a09ba8;
   --navbar-icons: #fff;
 
   /* shadows */
@@ -112,7 +122,16 @@ const DARK_THEME = `
   --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.32);
 
   /* svgs */
-  --brightness: brightness(100); /* black svgs */
+  --brightness: brightness(100);
+  /* black svgs */
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-hover: #fff;
+  --navbar-item-text-enabled: #cfcdd4;
+  --navbar-item-text-hover: #fff;
+  --navbar-item-border-enabled: #716b7c;
+  --navbar-item-border-hover: #cfcdd4;
 }
 `
 
