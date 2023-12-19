@@ -124,7 +124,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         places: {
           main: 'Places',
           overview: 'Overview',
-          places: 'Places',
+          places: 'Genesis City',
           worlds: 'Worlds',
           faq: 'FAQ'
         },
@@ -381,7 +381,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.places.overview}
           </Menu.Item>
           <Menu.Item
-            href={`${config.get('PLACES_URL')}/places`}
+            href={`${config.get('PLACES_URL')}/genesis`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.PLACES}_places`)
             }
