@@ -9,13 +9,13 @@ import { Logo } from '../Logo/Logo'
 import { /* Mobile, */ NotMobile } from '../Media'
 import classNames from 'classnames'
 import {
-  ColumnMenuProps,
-  ItemSubMenuProps,
+  SubMenuColumnProps,
+  SubMenuItemProps,
   Navbar2I18N,
   Navbar2Pages,
   Navbar2Props,
-  RenderLeftDesktopMenuProps,
-  RenderMenuItemProps,
+  MenuLeftDesktopProps,
+  MenuItemProps,
   SubMenuProps,
 } from './Navbar2.types'
 import './Navbar2.css'
@@ -208,7 +208,7 @@ const onClickMenuOption = (event: React.MouseEvent, section: string) => {
   console.log(event, section)
 }
 
-const ItemSubMenu = (props: ItemSubMenuProps) => {
+const SubMenuItem = (props: SubMenuItemProps) => {
   const { title, description, href, isExternal, className } = props
   return (
     <div
@@ -226,7 +226,7 @@ const ItemSubMenu = (props: ItemSubMenuProps) => {
   )
 }
 
-const ColumnMenu = (props: ColumnMenuProps) => {
+const SubMenuColumn = (props: SubMenuColumnProps) => {
   const { children, title, className } = props
   return (
     <div
@@ -263,9 +263,9 @@ const SubMenu = (props: SubMenuProps) => {
             }
           >
             <div className="submenu-column__wrapper">
-              <ColumnMenu title={submenu.column1Title}>
+              <SubMenuColumn title={submenu.column1Title}>
                 {submenu.column1.map((item, index) => (
-                  <ItemSubMenu
+                  <SubMenuItem
                     key={index}
                     isExternal={item.isExternal}
                     title={item.title}
@@ -273,10 +273,10 @@ const SubMenu = (props: SubMenuProps) => {
                     href={item.url}
                   />
                 ))}
-              </ColumnMenu>
-              <ColumnMenu title={submenu.column2Title}>
+              </SubMenuColumn>
+              <SubMenuColumn title={submenu.column2Title}>
                 {submenu.column2.map((item, index) => (
-                  <ItemSubMenu
+                  <SubMenuItem
                     key={index}
                     isExternal={item.isExternal}
                     title={item.title}
@@ -284,11 +284,11 @@ const SubMenu = (props: SubMenuProps) => {
                     href={item.url}
                   />
                 ))}
-              </ColumnMenu>
+              </SubMenuColumn>
               {!!submenu.column3 && (
-                <ColumnMenu title={submenu.column3Title}>
+                <SubMenuColumn title={submenu.column3Title}>
                   {submenu.column3.map((item, index) => (
-                    <ItemSubMenu
+                    <SubMenuItem
                       key={index}
                       isExternal={item.isExternal}
                       title={item.title}
@@ -296,7 +296,7 @@ const SubMenu = (props: SubMenuProps) => {
                       href={item.url}
                     />
                   ))}
-                </ColumnMenu>
+                </SubMenuColumn>
               )}
             </div>
           </Menu.Item>
@@ -306,7 +306,7 @@ const SubMenu = (props: SubMenuProps) => {
   )
 }
 
-const MenuItem = (props: RenderMenuItemProps) => {
+const MenuItem = (props: MenuItemProps) => {
   const { activePage, section, title, onToggleShowSubMenu } = props
 
   return (
@@ -325,7 +325,7 @@ const MenuItem = (props: RenderMenuItemProps) => {
   )
 }
 
-const RenderLeftDesktopMenu = (props: RenderLeftDesktopMenuProps) => {
+const MenuLeftDesktop = (props: MenuLeftDesktopProps) => {
   const { activePage, onToggleShowSubMenu } = props
 
   return (
@@ -369,8 +369,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     // activePage,
     className,
     isSignIn,
-    isFullscreen,
-    isOverlay,
   } = props
 
   const [toggle, setToggle] = useState(false)
@@ -380,12 +378,8 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     (e: React.MouseEvent, section: Navbar2Pages, show: boolean) => {
       setToggle(show)
       show && setSelectedMenu(section)
-
-      /* if (onClickMenuOption) {
-        onClickMenuOption(e, section)
-      } */
     },
-    [setToggle, onClickMenuOption]
+    [setToggle]
   )
 
   const classNameMerged = classNames({
@@ -398,8 +392,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     vote: toggle && selectedMenu === Navbar2Pages.VOTE,
     unselected: !toggle,
     'sign-in': isSignIn,
-    fullscreen: isFullscreen,
-    overlay: isOverlay,
     className: className,
   })
 
@@ -415,7 +407,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
               >
                 <Logo />
               </a>
-              <RenderLeftDesktopMenu
+              <MenuLeftDesktop
                 activePage={''}
                 onToggleShowSubMenu={handleToggle}
               />

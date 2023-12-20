@@ -13,7 +13,7 @@ import './Navbar2.stories.css'
 import { Navbar2Pages } from './Navbar2.types'
 
 storiesOf('Navbar2', module)
-  .add('DAO', () => {
+  .add('LEARN', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2 activePage={Navbar2Pages.LEARN} />
@@ -74,56 +74,6 @@ storiesOf('Navbar2', module)
           mana={200000}
           onClickAccount={() => console.log('Clicked on account menu')}
         />
-      </div>
-    )
-  })
-  .add('Fullscreen', () => {
-    return (
-      <div className="navbar2-story-container">
-        <div className="background" />
-        <Navbar2
-          activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          isFullscreen
-        />
-      </div>
-    )
-  })
-  .add('With hero', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2 activePage={Navbar2Pages.LEARN} isFullscreen />
-        <Hero height={442} centered>
-          <Hero.Header>Help us build Decentraland</Hero.Header>
-          <Hero.Description>Join the discussion</Hero.Description>
-          <Hero.Content>
-            <Parallax>
-              <Parallax.Layer depth={0.3}>
-                <div className="homepage-pyramid small" />
-              </Parallax.Layer>
-              <Parallax.Layer depth={1.5}>
-                <div className="homepage-pyramid large" />
-              </Parallax.Layer>
-            </Parallax>
-          </Hero.Content>
-        </Hero>
-      </div>
-    )
-  })
-  .add('With Overlay over Hero', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2 activePage={Navbar2Pages.LEARN} isFullscreen isOverlay />
-        <Hero className="over-gradient" height={442} centered>
-          <Hero.Header>Help us build Decentraland</Hero.Header>
-          <Hero.Description>Join the discussion</Hero.Description>
-          <Hero.Content>
-            <div className="color-layer" />
-          </Hero.Content>
-        </Hero>
       </div>
     )
   })

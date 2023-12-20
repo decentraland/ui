@@ -47,7 +47,7 @@ export enum Navbar2Pages {
   VOTE = 'vote',
 }
 
-export type ItemSubMenuProps = {
+export type SubMenuItemProps = {
   title: string
   description: string
   href: string
@@ -55,7 +55,7 @@ export type ItemSubMenuProps = {
   className?: string
 }
 
-export type ColumnMenuProps = {
+export type SubMenuColumnProps = {
   children: React.ReactNode
   title?: string
   isExternal?: boolean
@@ -72,7 +72,7 @@ export type SubMenuProps = {
   onClickMenuOption: (e: React.MouseEvent, section: string) => void
 }
 
-export type RenderMenuItemProps = {
+export type MenuItemProps = {
   activePage: Navbar2Pages | string
   section: Navbar2Pages
   title: React.ReactNode
@@ -83,7 +83,7 @@ export type RenderMenuItemProps = {
   ) => void
 }
 
-export type RenderLeftDesktopMenuProps = {
+export type MenuLeftDesktopProps = {
   activePage: Navbar2Pages | string
   onToggleShowSubMenu: (
     e: React.MouseEvent,
@@ -112,8 +112,6 @@ export type Navbar2Props = {
   isConnected?: boolean
   isConnecting?: boolean
   isSignIn?: boolean
-  isFullscreen?: boolean
-  isOverlay?: boolean
   className?: string
   onSignIn?: () => void
   onClickAccount?: () => void
