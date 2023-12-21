@@ -7,5 +7,6 @@
   "DAO_URL": "https://decentraland.today/dao",
   "GOVERNANCE_URL": "https://governance.decentraland.today",
   "EVENTS_URL": "https://events.decentraland.today",
-  "PLACES_URL": "https://places.decentraland.today"
+  "PLACES_URL": "https://places.decentraland.today",
+  "EXPLORER_URL": "https://play.decentraland.today"
 }

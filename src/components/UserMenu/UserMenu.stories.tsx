@@ -1,90 +1,82 @@
 import * as React from 'react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
-import MenuItem from 'semantic-ui-react/dist/commonjs/collections/Menu/MenuItem'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
 import { UserMenu } from './UserMenu'
 import { avatar } from '../../data/avatar'
 
+import './UserMenu.stories.css'
+
 storiesOf('UserMenu', module)
-  .add('Signed out', () => <UserMenu />)
-  .add('Signed in', () => <UserMenu isSignedIn avatar={avatar} />)
-  .add('Guest', () => <UserMenu isSignedIn />)
+  .add('Signed out', () => (
+    <div className="usermenu-story-container">
+      <UserMenu />
+    </div>
+  ))
+  .add('Signed in', () => (
+    <div className="usermenu-story-container">
+      <UserMenu isSignedIn avatar={avatar} />
+    </div>
+  ))
+  .add('Guest', () => (
+    <div className="usermenu-story-container">
+      <UserMenu
+        isSignedIn
+        avatar={{ ...avatar, hasClaimedName: false }}
+        manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+        onClickOpen={(
+          event: React.MouseEvent<HTMLElement, MouseEvent>,
+          trackId: string
+        ) => console.log(event, trackId)}
+        onClickBalance={(
+          event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+          network: Network
+        ) => console.log(event, network)}
+      />
+    </div>
+  ))
   .add('Clickable profile', () => (
-    <UserMenu isSignedIn avatar={avatar} onClickProfile={() => undefined} />
-  ))
-  .add('Sign Out', () => (
-    <UserMenu isSignedIn avatar={avatar} onSignOut={() => undefined} />
-  ))
-  .add('Settings', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      onSignOut={() => undefined}
-      onClickSettings={() => undefined}
-    />
-  ))
-  .add('Extra actions', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      onClickSettings={() => undefined}
-      menuItems={
-        <>
-          <MenuItem>
-            <Icon name="users" />
-            &nbsp;Friends
-          </MenuItem>
-        </>
-      }
-    />
+    <div className="usermenu-story-container">
+      <UserMenu isSignedIn avatar={avatar} onClickProfile={() => undefined} />
+    </div>
   ))
   .add('Mana', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      manaBalances={{ [Network.ETHEREUM]: 1000 }}
-    />
+    <div className="usermenu-story-container">
+      <UserMenu
+        isSignedIn
+        avatar={avatar}
+        manaBalances={{ [Network.ETHEREUM]: 1000 }}
+      />
+    </div>
   ))
   .add('Mana L2', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
-    />
+    <div className="usermenu-story-container">
+      <UserMenu
+        isSignedIn
+        avatar={avatar}
+        manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+      />
+    </div>
   ))
   .add('Activity', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      onClickSettings={() => undefined}
-      onClickActivity={() => undefined}
-      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
-      menuItems={
-        <>
-          <MenuItem>
-            <Icon name="users" />
-            &nbsp;Friends
-          </MenuItem>
-        </>
-      }
-    />
+    <div className="usermenu-story-container">
+      <UserMenu
+        isSignedIn
+        avatar={avatar}
+        onClickSettings={() => undefined}
+        onClickActivity={() => undefined}
+        manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+      />
+    </div>
   ))
   .add('Activity pending', () => (
-    <UserMenu
-      isSignedIn
-      avatar={avatar}
-      onClickSettings={() => undefined}
-      onClickActivity={() => undefined}
-      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
-      hasActivity
-      menuItems={
-        <>
-          <MenuItem>
-            <Icon name="users" />
-            &nbsp;Friends
-          </MenuItem>
-        </>
-      }
-    />
+    <div className="usermenu-story-container">
+      <UserMenu
+        isSignedIn
+        avatar={avatar}
+        onClickSettings={() => undefined}
+        onClickActivity={() => undefined}
+        manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+        hasActivity
+      />
+    </div>
   ))
