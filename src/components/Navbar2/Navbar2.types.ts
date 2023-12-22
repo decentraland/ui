@@ -1,4 +1,5 @@
 import React from 'react'
+import { UserMenuProps } from '../UserMenu/UserMenu.types'
 
 export type SubMenui18nProps = {
   main: string
@@ -92,30 +93,7 @@ export type MenuLeftDesktopProps = {
   ) => void
 }
 
-export type renderLeftMenu = {
-  leftMenu?: React.ReactNode
-  leftMenuDecorator?: React.ComponentType<{ children: React.ReactNode }>
-  activePage: Navbar2Pages | string
-  onToggleShowSubMenu: (
-    e: React.MouseEvent,
-    section: Navbar2Pages,
-    show: boolean
-  ) => void
-}
-
-export type Navbar2Props = {
-  mana?: number
-  address?: string
-  middleMenu?: React.ReactNode
-  rightMenu?: React.ReactNode
-  enableSubMenuSection?: boolean
-  isConnected?: boolean
-  isConnecting?: boolean
-  isSignIn?: boolean
+export type Navbar2Props = UserMenuProps & {
   className?: string
-  onSignIn?: () => void
-  onClickAccount?: () => void
-  leftMenu?: React.ReactNode
-  leftMenuDecorator?: React.ComponentType<{ children: React.ReactNode }>
   activePage: Navbar2Pages | string
 }

@@ -1,16 +1,11 @@
 import * as React from 'react'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../Button/Button'
-import { Hero } from '../Hero/Hero'
-import { Parallax } from '../Parallax/Parallax'
-import { UserMenu } from '../UserMenu/UserMenu'
 import { avatar } from '../../data/avatar'
 
 import { Navbar2 } from './Navbar2'
 import './Navbar2.stories.css'
 import { Navbar2Pages } from './Navbar2.types'
+import { Network } from '@dcl/schemas/dist/dapps/network'
 
 storiesOf('Navbar2', module)
   .add('LEARN', () => {
@@ -30,159 +25,75 @@ storiesOf('Navbar2', module)
       </div>
     )
   })
-  .add('Sign In Page', () => {
+  .add('Signed in', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
-          isSignIn
+          isSignedIn
+          avatar={avatar}
           onSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
   })
-  .add('Connecting', () => {
+  .add('Signed in', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
+          isSignedIn
+          avatar={avatar}
           onSignIn={() => console.log('Clicked on sign in')}
-          isConnecting
         />
       </div>
     )
   })
-  .add('Connected', () => {
+  .add('With Balance', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
+          isSignedIn
+          avatar={avatar}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onSignOut={(e) => console.log('Clicked on sign in', e)}
         />
       </div>
     )
   })
-  .add('On click account', () => {
+  .add('Width Activity', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-        />
-      </div>
-    )
-  })
-  .add('Custom middle menu', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          middleMenu={
-            <Menu.Item>
-              <Icon
-                name="bell"
-                onClick={() => console.log('Clicked on notification bell')}
-              />
-            </Menu.Item>
+          isSignedIn
+          avatar={avatar}
+          onSignOut={(e) => console.log('Clicked on sign in', e)}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickBalance={(e, network) =>
+            console.log('Clicked on balance ', e, network)
           }
+          onClickActivity={(e) => console.log('Clicked on activity ', e)}
         />
       </div>
     )
   })
-  .add('Custom left menu', () => {
+  .add('Width Activity pending', () => {
     return (
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          leftMenu={
-            <>
-              <Menu.Item>Home</Menu.Item>
-              <Menu.Item>About</Menu.Item>
-              <Menu.Item>Contact Us</Menu.Item>
-            </>
+          isSignedIn
+          avatar={avatar}
+          onSignOut={(e) => console.log('Clicked on sign in ', e)}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickBalance={(e, network) =>
+            console.log('Clicked on balance ', e, network)
           }
+          onClickActivity={(e) => console.log('Clicked on activity ', e)}
+          hasActivity
         />
-      </div>
-    )
-  })
-  .add('With Left Menu Decorator', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          leftMenu={
-            <>
-              <Menu.Item>Home</Menu.Item>
-              <Menu.Item>About</Menu.Item>
-              <Menu.Item>Contact Us</Menu.Item>
-            </>
-          }
-          leftMenuDecorator={(props: { children: React.ReactNode }) => {
-            return (
-              <>
-                <Menu.Item>LEFT</Menu.Item>
-                {props.children}
-                <Menu.Item>RIGHT</Menu.Item>
-              </>
-            )
-          }}
-        />
-      </div>
-    )
-  })
-  .add('Custom right menu', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          rightMenu={
-            <Button primary size="small" style={{ minWidth: 100 }}>
-              Get Started
-            </Button>
-          }
-        />
-      </div>
-    )
-  })
-  .add('With UserMenu', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.LEARN}
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          rightMenu={<UserMenu avatar={avatar} isSignedIn />}
-        />
-      </div>
-    )
-  })
-  .add('With default submenus', () => {
-    return (
-      <div className="navbar2-story-container">
-        <Navbar2 enableSubMenuSection activePage={Navbar2Pages.LEARN} />
       </div>
     )
   })

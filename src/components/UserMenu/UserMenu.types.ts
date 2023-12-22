@@ -14,7 +14,7 @@ export type UserMenuProps = ManaBalancesProps & {
   isSignedIn?: boolean
   isSigningIn?: boolean
   isActivity?: boolean
-  onSignIn?: () => void
+  onSignIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 
   hasActivity?: boolean
   avatar?: Avatar

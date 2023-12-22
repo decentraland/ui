@@ -59,4 +59,6 @@
   --navbar-item-text-hover: #fff;
   --navbar-item-border-enabled: #716b7c;
   --navbar-item-border-hover: #cfcdd4;
+  --usermenu-item-text-enabled: #cfcdd4;
+  --usermenu-item-border-enabled: #cfcdd4;
 }

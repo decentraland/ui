@@ -19,6 +19,7 @@ import {
   SubMenuProps,
 } from './Navbar2.types'
 import './Navbar2.css'
+import { UserMenu } from '../UserMenu/UserMenu'
 
 export const i18n = {
   menu: {
@@ -365,12 +366,8 @@ const MenuLeftDesktop = (props: MenuLeftDesktopProps) => {
 }
 
 export const Navbar2 = React.memo((props: Navbar2Props) => {
-  const {
-    // activePage,
-    className,
-    isSignIn,
-  } = props
-
+  const { activePage, className, isSignedIn, ...userMenuProps } = props
+  console.log(activePage)
   const [toggle, setToggle] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState<Navbar2Pages | boolean>()
 
@@ -391,7 +388,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     learn: toggle && selectedMenu === Navbar2Pages.LEARN,
     vote: toggle && selectedMenu === Navbar2Pages.VOTE,
     unselected: !toggle,
-    'sign-in': isSignIn,
+    'sign-in': isSignedIn,
     className: className,
   })
 
@@ -446,7 +443,9 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
           </Mobile> */}
         </div>
 
-        {/* <div className="dcl navbar2-account">{this.renderRightMenu()}</div> */}
+        <div className="dcl navbar2-account">
+          <UserMenu {...userMenuProps} isSignedIn={isSignedIn}></UserMenu>
+        </div>
       </Container>
       <SubMenu
         selectedMenu={selectedMenu}

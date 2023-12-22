@@ -50,7 +50,7 @@
 }
 
 .dcl.user-menu .menu-wrapper .menu-wearable-preview {
-  height: 508px;
+  height: 110%;
   margin-left: -100px;
   margin-bottom: -100px;
 }
@@ -74,7 +74,7 @@
   align-items: center;
   border: none;
   padding: 64px 0 47px;
-  color: var(--navbar-item-text-enabled);
+  color: var(--usermenu-item-text-enabled);
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -137,8 +137,8 @@
   padding: 40px 0 23.66px;
   display: flex;
   align-items: center;
-  border-bottom-color: var(--navbar-item-border-enabled);
-  color: var(--navbar-item-text-enabled);
+  border-bottom-color: var(--usermenu-item-border-enabled);
+  color: var(--usermenu-item-text-enabled);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -177,7 +177,7 @@
 .dcl.user-menu .menu-actions li:hover,
 .dcl.user-menu .menu-actions .item:hover {
   background-color: var(--dropdown-hover);
-  color: var(--navbar-item-text-hover);
+  color: var(--usermenu-item-text-hover);
 }
 
 .dcl.user-menu .menu-actions li img {

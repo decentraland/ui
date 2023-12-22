@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect, useMemo } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import classNames from 'classnames'
 
 import { AvatarFace } from '../AvatarFace/AvatarFace'
@@ -274,7 +273,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     onClickMenuItem,
   } = props
 
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const [isClickable, setIsClickable] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const [trackingId, setTrackingId] = useState<string | null>(null)
@@ -306,7 +305,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   )
 
   const handleClose = useCallback(() => {
-    setIsOpen(true)
+    setIsOpen(false)
   }, [setIsOpen])
 
   const handleClickJumpIn = useCallback(
@@ -341,13 +340,11 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
         <Menu.Item
           className={classNames('activity-bell', isActivity && 'active')}
         >
-          {onClickActivity ? (
-            <Icon
-              className={classNames(hasActivity && 'pending')}
-              name="bell"
-              onClick={onClickActivity}
-            />
-          ) : null}
+          {onClickActivity && (
+            <Button basic onClick={onClickActivity} className="activity-icon">
+              <ActivityIcon hasActivity={hasActivity} />
+            </Button>
+          )}
         </Menu.Item>
         <div
           className={classNames('dcl', 'user-menu')}
