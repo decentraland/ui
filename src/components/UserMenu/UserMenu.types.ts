@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
+import { NotificationsProps } from '../Notifications/Notifications'
 
 export type ManaBalancesProps = {
   manaBalances?: Partial<Record<Network, number>>
@@ -18,6 +19,7 @@ export type UserMenuProps = ManaBalancesProps & {
 
   hasActivity?: boolean
   avatar?: Avatar
+  notifications?: NotificationsProps
   onSignOut?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     trackingId: string

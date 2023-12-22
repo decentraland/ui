@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Network } from '@dcl/schemas/dist/dapps/network'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import classNames from 'classnames'
 
 import { AvatarFace } from '../AvatarFace/AvatarFace'
@@ -21,6 +20,7 @@ import {
   UserMenuLabelsType,
 } from './UserMenu.types'
 import './UserMenu.css'
+import Notifications from '../Notifications/Notifications'
 
 const ManaBalances = (props: ManaBalancesProps) => {
   const { manaBalances, onClickBalance } = props
@@ -55,6 +55,7 @@ const SignedIn = (props: SignedInProps) => {
     isClickable,
     isOpen,
     trackingId,
+    notifications,
     onClickToggle,
     onClickBalance,
     onClickActivity,
@@ -197,6 +198,7 @@ const SignedIn = (props: SignedInProps) => {
 
   return (
     <>
+      {notifications && <Notifications {...notifications} />}
       <Button basic onClick={handleClickActivity} className="activity-icon">
         <ActivityIcon hasActivity={hasActivity} />
       </Button>
@@ -256,21 +258,23 @@ const SignedIn = (props: SignedInProps) => {
 
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
-    avatar,
+    /* avatar,
     manaBalances,
+    hasActivity,
+    onClickMenuItem,
+    onClickProfile,
+    onClickSettings,
+    onSignOut,
+    onClickActivity, */
     isSignedIn,
     isSigningIn,
-    isActivity,
-    hasActivity,
+    manaBalances,
     onSignIn,
-    onSignOut,
-    onClickActivity,
     onClickBalance,
-    onClickProfile,
     onClickOpen,
     onClickJumpIn,
-    onClickSettings,
     onClickMenuItem,
+    ...signInProps
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
@@ -337,15 +341,6 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   return (
     <Column align="right">
       <Row className={classNames('dcl', 'user-menu-wrapper')}>
-        <Menu.Item
-          className={classNames('activity-bell', isActivity && 'active')}
-        >
-          {onClickActivity && (
-            <Button basic onClick={onClickActivity} className="activity-icon">
-              <ActivityIcon hasActivity={hasActivity} />
-            </Button>
-          )}
-        </Menu.Item>
         <div
           className={classNames('dcl', 'user-menu')}
           onBlur={handleClose}
@@ -353,16 +348,13 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
         >
           {isSignedIn && (
             <SignedIn
+              {...signInProps}
               manaBalances={manaBalances}
-              avatar={avatar}
               trackingId={trackingId}
               isOpen={isOpen}
               isClickable={isClickable}
               onClickToggle={handleToggle}
               onClickMenuItem={onClickMenuItem}
-              onClickProfile={onClickProfile}
-              onClickSettings={onClickSettings}
-              onSignOut={onSignOut}
             />
           )}
           {!isSignedIn && (
