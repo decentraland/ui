@@ -1,10 +1,16 @@
 import React, { useMemo } from 'react'
 
 import NotificationsFeed from './NotificationsFeed'
-import { ActiveTab, DCLNotification, NotificationLocale } from './types'
+import {
+  NotificationActiveTab,
+  DCLNotification,
+  NotificationLocale
+} from './types'
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
 import NotificationBellActive from '../Icons/Notifications/NotificationBellActive'
+import { ModalProps } from '../Modal/Modal'
+import Counter from '../Icons/Notifications/CounterIcons'
 
 import './Notifications.css'
 
@@ -14,13 +20,17 @@ export interface NotificationsProps {
   isLoading: boolean
   locale: NotificationLocale
   isOnboarding: boolean
-  activeTab: ActiveTab
+  activeTab: NotificationActiveTab
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    newActiveTab: ActiveTab
+    newActiveTab: NotificationActiveTab
   ) => void
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClose: (
+    event: React.MouseEvent<HTMLElement> | MouseEvent,
+    data?: ModalProps
+  ) => void
 }
 
 export default function Notifications({
@@ -33,6 +43,7 @@ export default function Notifications({
   onClick,
   onChangeTab,
   onBegin,
+  onClose
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length
@@ -46,12 +57,13 @@ export default function Notifications({
         </button>
         {!isOpen && newNotificationsCount > 0 && (
           <div className="dcl notifications-counter">
-            {newNotificationsCount > 9 ? '9+' : newNotificationsCount}
+            <Counter count={newNotificationsCount} />
           </div>
         )}
       </div>
       {isOpen && (
         <NotificationsFeed
+          isOpen={isOpen}
           items={items}
           isLoading={isLoading}
           locale={locale}
@@ -59,6 +71,7 @@ export default function Notifications({
           activeTab={activeTab}
           onChangeTab={onChangeTab}
           onBegin={onBegin}
+          onClose={onClose}
         />
       )}
     </div>

@@ -65,6 +65,7 @@
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "mini-css-extract-plugin": "^0.7.0",
+    "postcss": "^8.4.32",
     "postcss-assets": "^5.0.0",
     "postcss-cli": "^7.1.2",
     "postcss-copy": "^7.1.0",
@@ -84,7 +85,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^9.7.0",
+    "@dcl/schemas": "^9.10.0",
     "@dcl/ui-env": "^1.4.0",
     "balloon-css": "^0.5.0",
     "classnames": "^2.3.2",

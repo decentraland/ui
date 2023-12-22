@@ -17,8 +17,8 @@ const ItemAirdropped = (props: React.SVGAttributes<SVGElement>) => {
           y2="24.6316"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF4BED" />
-          <stop offset="1" stop-color="#AF2BA2" />
+          <stop stopColor="#FF4BED" />
+          <stop offset="1" stopColor="#AF2BA2" />
         </linearGradient>
       </defs>
     </svg>

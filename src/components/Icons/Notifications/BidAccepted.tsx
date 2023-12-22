@@ -17,8 +17,8 @@ const BidAccepted = (props: React.SVGAttributes<SVGElement>) => {
           y2="24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#438FFF" />
-          <stop offset="1" stop-color="#2969C7" />
+          <stop stopColor="#438FFF" />
+          <stop offset="1" stopColor="#2969C7" />
         </linearGradient>
       </defs>
     </svg>

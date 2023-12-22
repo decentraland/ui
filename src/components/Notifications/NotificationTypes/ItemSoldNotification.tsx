@@ -3,7 +3,7 @@ import React from 'react'
 import { ItemSoldNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import ItemSold from '../../Icons/Notifications/ItemSold'
-import { Rarity } from '@dcl/schemas'
+import NotificationItemNFTLink from '../NotificationItemNFTLink'
 
 interface ItemSoldNotificationProps {
   notification: ItemSoldNotification
@@ -11,9 +11,9 @@ interface ItemSoldNotificationProps {
 }
 
 const i18N = {
-  en: { description: 'You just sold ', title: 'Item Sold' },
-  es: { description: 'Vendiste ', title: 'Item vendido' },
-  zh: { description: '你剛剛賣了 ', title: '已售商品' },
+  en: { description: 'Someone just bought your ', title: 'Item Sold' },
+  es: { description: 'Alguien acaba de comprar tu ', title: 'Item vendido' },
+  zh: { description: '有人刚买了你的 ', title: '已售商品' }
 }
 
 const ItemSoldNotification = ({
@@ -29,23 +29,18 @@ const ItemSoldNotification = ({
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
+      locale={locale}
     >
       <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description}{' '}
-        <span>
-          <a
-            href={notification.metadata.link}
-            style={{
-              color: `${Rarity.getColor(notification.metadata.rarity)}`,
-              textDecoration: 'underline',
-            }}
-          >
-            {notification.metadata.nftName}
-          </a>
-        </span>
+        <NotificationItemNFTLink
+          rarity={notification.metadata.rarity}
+          name={notification.metadata.nftName}
+          link={notification.metadata.link}
+        />
       </p>
     </NotificationItem>
   )

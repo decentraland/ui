@@ -3,8 +3,10 @@ import React from 'react'
 import { BidAcceptedNotification, NotificationLocale } from '../types'
 import NotificationItem from '../NotificationItem'
 import BidAccepted from '../../Icons/Notifications/BidAccepted'
-import { Rarity } from '@dcl/schemas'
+import { Network } from '@dcl/schemas'
 import { formatMana } from '../utils'
+import { Mana } from '../../Mana/Mana'
+import NotificationItemNFTLink from '../NotificationItemNFTLink'
 
 interface BidAcceptedNotificationProps {
   notification: BidAcceptedNotification
@@ -18,10 +20,10 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Your bid of {mana} MANA was accepted for {nftName}
+        Your offer of {mana} was accepted for {nftName}
       </>
     ),
-    title: 'Bid Accepted',
+    title: 'Offer Accepted'
   },
   es: {
     description: (
@@ -29,7 +31,7 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Tu oferta de {mana} MANA fue aceptada para {nftName}
+        Tu oferta de {mana} fue aceptada para {nftName}
       </>
     ),
     title: 'Oferta aceptada',
@@ -40,11 +42,11 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        您的出价 {mana} MANA 已被接受 {nftName}
+        您的出价 {mana} 已被接受 {nftName}
       </>
     ),
-    title: '接受投标',
-  },
+    title: '接受报价'
+  }
 }
 
 const BidAcceptedNotification = ({
@@ -60,24 +62,28 @@ const BidAcceptedNotification = ({
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
+      locale={locale}
     >
       <p className="dcl notification-item__content-title">
         {i18N[locale].title}
       </p>
       <p className="dcl notification-item__content-description">
         {i18N[locale].description(
-          formatMana(notification.metadata.price),
-          <span>
-            <a
-              href={notification.metadata.link}
-              style={{
-                color: `${Rarity.getColor(notification.metadata.rarity)}`,
-                textDecoration: 'underline',
-              }}
-            >
-              {notification.metadata.nftName}
-            </a>
-          </span>
+          <Mana
+            inline
+            network={
+              notification.metadata.network === 'polygon'
+                ? Network.MATIC
+                : Network.ETHEREUM
+            }
+          >
+            {formatMana(notification.metadata.price)}
+          </Mana>,
+          <NotificationItemNFTLink
+            name={notification.metadata.nftName}
+            rarity={notification.metadata.rarity}
+            link={notification.metadata.link}
+          />
         )}
       </p>
     </NotificationItem>

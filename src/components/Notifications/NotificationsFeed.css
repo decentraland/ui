@@ -7,9 +7,8 @@
   top: 40px;
   z-index: 100;
   border-radius: 8px;
-  border: 1px solid hsla(260, 6%, 46%, 0.24);
   background: var(--background);
-  box-shadow: 0px 1px 24px 0px hsla(260, 6%, 46%, 0.24);
+  box-shadow: 0px 8px 16px 12px rgba(0, 0, 0, 0.8);
   transition: opacity 0.3s ease;
 }
 
@@ -23,6 +22,11 @@
   top: -2px;
   left: calc(50% - 14px);
   box-shadow: -1px -1px 0 0 var(--background);
+}
+
+.dcl.notifications-feed-modal {
+  display: flex;
+  flex-direction: column;
 }
 
 .dcl.notifications-feed__loader {
@@ -77,9 +81,24 @@
   overscroll-behavior-y: contain;
 }
 
+.dcl.notifications-feed-modal__list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
 .dcl.notifications-feed__list {
   display: flex;
   flex-direction: column;
+}
+
+.dcl.notification-feed__list-previous-title {
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 16px;
+  margin-bottom: 0;
+  margin-top: 16px;
 }
 
 .dcl.notifications-feed__content {
@@ -119,8 +138,9 @@
 }
 
 .dcl.notifications-feed__onboarding-bell {
-  background-image: url(../../assets/bell-onboarding.png);
+  background-image: var(--notification-onboarding-bell);
   border-radius: 50%;
   width: 120px;
   height: 120px;
+  margin-top: 10px;
 }

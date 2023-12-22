@@ -21,8 +21,8 @@ const RentPeriodEnding = (props: React.SVGAttributes<SVGElement>) => {
           y2="24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7439" />
-          <stop offset="1" stop-color="#BF5122" />
+          <stop stopColor="#FF7439" />
+          <stop offset="1" stopColor="#BF5122" />
         </linearGradient>
       </defs>
     </svg>

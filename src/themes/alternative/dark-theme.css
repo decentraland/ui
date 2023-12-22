@@ -52,6 +52,8 @@
   --brightness: brightness(100);
   /* black svgs */
 
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-dark.png);
+
   /* Navbar2 */
   --navbar-menu-enabled: #a09ba8;
   --navbar-menu-hover: #fff;

@@ -51,6 +51,7 @@
   /* svgs */
   --brightness: brightness(0.1);
   /* black svgs */
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-light.png);
 
   /* Navbar2 */
   --navbar-menu-enabled: #a09ba8;
