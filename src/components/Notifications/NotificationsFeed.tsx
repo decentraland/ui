@@ -4,7 +4,7 @@ import { Loader } from '../Loader/Loader'
 import {
   NotificationActiveTab,
   DCLNotification,
-  NotificationLocale
+  NotificationLocale,
 } from './types'
 
 import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
@@ -46,23 +46,23 @@ const i18N = {
       title: 'Welcome to Decentraland Notifications',
       description:
         "Never miss a thing! Now, you'll receive a notification each time something relevant happens with your account.",
-      button: "Let's begin"
+      button: "Let's begin",
     },
     feed: {
       title: 'Notifications',
       tabs: {
         newest: 'New',
-        read: 'Seen'
+        read: 'Seen',
       },
       empty: {
         title: "You're all caught up!",
-        description: 'No new notifications.'
+        description: 'No new notifications.',
       },
       history: {
         title: 'Notifications History',
-        description: "You'll be able to access old notifications here."
-      }
-    }
+        description: "You'll be able to access old notifications here.",
+      },
+    },
   },
   es: {
     onboarding: {
@@ -75,18 +75,18 @@ const i18N = {
       title: 'Notificaciones',
       tabs: {
         newest: 'Reciente',
-        read: 'Visto'
+        read: 'Visto',
       },
       empty: {
         title: '¡Ya estas al día!',
-        description: 'Te avisaremos si hay nuevas notificaciones para ti.'
+        description: 'Te avisaremos si hay nuevas notificaciones para ti.',
       },
       history: {
         title: 'Historial de Notificaciones',
         description:
-          'Aquí aparecerá una lista detallada de las Notificaciones pasadas'
-      }
-    }
+          'Aquí aparecerá una lista detallada de las Notificaciones pasadas',
+      },
+    },
   },
   zh: {
     onboarding: {
@@ -99,18 +99,18 @@ const i18N = {
       title: '通知',
       tabs: {
         newest: '新',
-        read: '看到的'
+        read: '看到的',
       },
       empty: {
         title: '你们都赶上了！',
-        description: '没有新通知。'
+        description: '没有新通知。',
       },
       history: {
         title: '通知历史',
-        description: '您可以在这里访问旧通知。'
-      }
-    }
-  }
+        description: '您可以在这里访问旧通知。',
+      },
+    },
+  },
 }
 
 const NotificationHandler = ({
@@ -154,7 +154,7 @@ export default function NotificationsFeed({
   isOpen,
   onChangeTab,
   onBegin,
-  onClose
+  onClose,
 }: NotificationsFeedProps) {
   const unreadNotifications = useMemo(
     () => items.filter((notification) => !notification.read),
@@ -296,7 +296,7 @@ const NoReadNotifications = ({ locale }: { locale: NotificationLocale }) => (
 
 const Onboarding = ({
   locale,
-  onBegin
+  onBegin,
 }: {
   locale: NotificationLocale
   onBegin: (e: React.MouseEvent<HTMLButtonElement>) => void
@@ -326,7 +326,7 @@ const Feed = ({
   readNotifications,
   activeTab,
   isModal,
-  onChangeTab
+  onChangeTab,
 }: {
   unreadNotifications: DCLNotification[]
   previousNotifications: DCLNotification[]

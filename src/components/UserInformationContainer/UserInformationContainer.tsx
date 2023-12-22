@@ -15,7 +15,7 @@ import GroupIcon from '../Icons/GroupIcon'
 import BookmarkedIcon from '../Icons/BookmarkedIcon'
 import { config } from '../../config'
 import Notifications, {
-  NotificationsProps
+  NotificationsProps,
 } from '../Notifications/Notifications'
 import './UserInformationContainer.css'
 
@@ -298,7 +298,7 @@ export class UserInformationContainer extends React.Component<
       onClickProfile,
       i18n,
       hasActivity,
-      notifications
+      notifications,
     } = this.props
 
     const { isOpen, isClickable } = this.state

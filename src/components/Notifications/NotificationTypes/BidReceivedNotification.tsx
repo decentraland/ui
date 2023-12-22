@@ -23,7 +23,7 @@ const i18N = {
         You received an offer of {mana} for {nftName}
       </>
     ),
-    title: 'Offer Received'
+    title: 'Offer Received',
   },
   es: {
     description: (
@@ -34,7 +34,7 @@ const i18N = {
         Recibiste una oferta de {mana} para {nftName}
       </>
     ),
-    title: 'Oferta recibida'
+    title: 'Oferta recibida',
   },
   zh: {
     description: (
@@ -45,8 +45,8 @@ const i18N = {
         您为 {nftName} 出价 {mana} 已被接受
       </>
     ),
-    title: '收到报价'
-  }
+    title: '收到报价',
+  },
 }
 
 const BidReceivedNotification = ({

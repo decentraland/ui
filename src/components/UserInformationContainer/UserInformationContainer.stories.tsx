@@ -64,7 +64,7 @@ storiesOf('UserInformationContainer', module)
         onBegin: console.log,
         onChangeTab: console.log,
         onClick: console.log,
-        onClose: console.log
+        onClose: console.log,
       }}
     />
   ))

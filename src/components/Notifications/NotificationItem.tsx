@@ -21,7 +21,7 @@ export default function NotificationItem({
   timestamp,
   isNew,
   children,
-  locale
+  locale,
 }: React.PropsWithChildren<NotificationItemProps>) {
   return (
     <div className="dcl notification-item">

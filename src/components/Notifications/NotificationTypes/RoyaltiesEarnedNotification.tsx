@@ -24,7 +24,7 @@ const i18N = {
         You've earned {mana} in royalties for {nftName}
       </>
     ),
-    title: 'Royalties Earned'
+    title: 'Royalties Earned',
   },
   es: {
     description: (
@@ -35,7 +35,7 @@ const i18N = {
         Ganaste {mana} en regalias por {nftName}
       </>
     ),
-    title: 'Regalias ganadas'
+    title: 'Regalias ganadas',
   },
   zh: {
     description: (
@@ -46,8 +46,8 @@ const i18N = {
         您为 {nftName} 赢得了 {mana}
       </>
     ),
-    title: '所得版税'
-  }
+    title: '所得版税',
+  },
 }
 
 const RoyaltiesEarnedNotification = ({
