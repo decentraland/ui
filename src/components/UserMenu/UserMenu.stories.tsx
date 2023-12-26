@@ -65,7 +65,7 @@ storiesOf('UserMenu', module)
       <UserMenu
         isSignedIn
         avatar={avatar}
-        onClickSettings={() => undefined}
+        onClickAccountSettings={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -77,7 +77,7 @@ storiesOf('UserMenu', module)
       <UserMenu
         isSignedIn
         avatar={avatar}
-        onClickSettings={() => undefined}
+        onClickAccountSettings={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -101,7 +101,7 @@ storiesOf('UserMenu', module)
       <UserMenu
         isSignedIn
         avatar={avatar}
-        onClickSettings={() => undefined}
+        onClickAccountSettings={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity

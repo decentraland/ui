@@ -231,12 +231,13 @@
   background-color: transparent;
   height: 0;
   opacity: 0;
-  transition: height 200ms ease-in-out 1ms, opacity 100ms ease-in-out 50ms, background-color 100ms ease-in-out 0ms;
+  transition: height 200ms ease-in-out 1ms, opacity 100ms ease-in-out 50ms,
+    background-color 100ms ease-in-out 0ms;
 }
 
 .dcl.navbar2.marketplace .submenu-container.marketplace-selected,
 .dcl.navbar2.discover .submenu-container.discover-selected,
-.dcl.navbar2.learn .submenu-container.learn-selected, 
+.dcl.navbar2.learn .submenu-container.learn-selected,
 .dcl.navbar2.vote .submenu-container.vote-selected {
   height: 390px;
   opacity: 1;

@@ -23,7 +23,7 @@ storiesOf('Navbar2', module)
       <div className="navbar2-story-container">
         <Navbar2
           activePage={Navbar2Pages.LEARN}
-          onSignIn={() => console.log('Clicked on sign in')}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
@@ -35,7 +35,7 @@ storiesOf('Navbar2', module)
           activePage={Navbar2Pages.LEARN}
           isSignedIn
           avatar={avatar}
-          onSignIn={() => console.log('Clicked on sign in')}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
@@ -47,7 +47,7 @@ storiesOf('Navbar2', module)
           activePage={Navbar2Pages.LEARN}
           isSignedIn
           avatar={avatar}
-          onSignIn={() => console.log('Clicked on sign in')}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
@@ -60,7 +60,7 @@ storiesOf('Navbar2', module)
           isSignedIn
           avatar={avatar}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
-          onSignOut={(e) => console.log('Clicked on sign in', e)}
+          onClickSignOut={(e) => console.log('Clicked on sign in', e)}
         />
       </div>
     )
@@ -72,7 +72,7 @@ storiesOf('Navbar2', module)
           activePage={Navbar2Pages.LEARN}
           isSignedIn
           avatar={avatar}
-          onSignOut={(e) => console.log('Clicked on sign in ', e)}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
           onClickBalance={(e, network) =>
             console.log('Clicked on balance ', e, network)
@@ -90,7 +90,7 @@ storiesOf('Navbar2', module)
           activePage={Navbar2Pages.LEARN}
           isSignedIn
           avatar={avatar}
-          onSignOut={(e) => console.log('Clicked on sign in ', e)}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
           onClickBalance={(e, network) =>
             console.log('Clicked on balance ', e, network)
@@ -140,7 +140,7 @@ storiesOf('Navbar2', module)
           activePage={Navbar2Pages.LEARN}
           isSignedIn
           avatar={avatar}
-          onSignOut={(e) => console.log('Clicked on sign in ', e)}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
           onClickBalance={(e, network) =>
             console.log('Clicked on balance ', e, network)

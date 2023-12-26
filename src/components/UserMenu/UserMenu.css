@@ -10,6 +10,8 @@
   margin-left: 24px;
 }
 
-@media (max-width: 768px) {
-  
+@media (max-width: 991px) {
+  .dcl .user-menu__jump-in {
+    display: none;
+  }
 }

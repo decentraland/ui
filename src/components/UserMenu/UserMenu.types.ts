@@ -11,57 +11,58 @@ export type ManaBalancesProps = {
   ) => void
 }
 
-export type UserMenuProps = ManaBalancesProps & {
+export type UserMenuSignedInProps = ManaBalancesProps & {
+  avatar?: Avatar
+  isOpen?: boolean
+  trackingId?: string | null
+  hasActivity?: boolean
+  isClickable?: boolean
+  notifications?: NotificationsProps
+  onClickAccountSettings?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => void
+  onClickActivity?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickMyAssets?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickProfile?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickSignOut?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    trackingId: string
+  ) => void
+  onClickToggle?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickWallet?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickMenuItem?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    id: UserMenuLabels,
+    trackingId?: string
+  ) => void
+}
+
+export type UserMenuProps = Omit<
+  UserMenuSignedInProps,
+  'isOpen' | 'isClickable' | 'trackingId' | 'onClickToggle'
+> & {
   isSignedIn?: boolean
   isSigningIn?: boolean
   isActivity?: boolean
-  onSignIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-
-  hasActivity?: boolean
-  avatar?: Avatar
-  notifications?: NotificationsProps
-  onSignOut?: (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-    trackingId: string
-  ) => void
+  onClickSignIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickOpen?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    trackId: string
-  ) => void
-  onClickAccount?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickActivity?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickProfile?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickJumpIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickSettings?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickMenuItem?: (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-    id: UserMenuLabelsType,
     trackingId: string
   ) => void
-  onClickMyAssets?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickMyLists?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickJumpIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 }
 
-export type SignedInProps = Omit<
-  UserMenuProps,
-  'isSignedIn' | 'isSigningIn' | 'isActivity' | 'onSignIn'
-> & {
-  isOpen?: boolean
-  isClickable?: boolean
-  trackingId: string | null
-  onClickToggle?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-}
-
-export enum UserMenuLabelsType {
+export enum UserMenuLabels {
   ACTIVITY = 'Activity',
   MY_ASSETS = 'My Assets',
-  SETTINGS = 'Settings',
+  SETTINGS = 'Account Settings',
   MY_LISTS = 'My Lists',
   ACCOUNT = 'Account',
   PROFILE = 'Profile',
+  VIEW_PROFILE = 'View Profile',
   SIGN_IN = 'Sign In',
   SIGN_OUT = 'Sign out',
   GUEST = 'Guest',
-  WALLET = 'Wallet',
+  WALLET = 'My Wallet',
   JUMP_IN = 'Jump In',
 }

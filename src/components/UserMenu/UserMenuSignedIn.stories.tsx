@@ -15,21 +15,40 @@ storiesOf('UserMenuSignedIn', module)
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         avatar={{ ...avatar, hasClaimedName: false }}
-        trackingId=''
+        trackingId=""
         isOpen
+        onClickAccountSettings={console.log}
+        onClickActivity={console.log}
+        onClickMyAssets={console.log}
+        onClickProfile={console.log}
+        onClickSignOut={console.log}
+        onClickToggle={console.log}
+        onClickWallet={console.log}
       />
     </div>
   ))
   .add('Signed in', () => (
     <div className="usermenu-story-container">
-      <UserMenuSignedIn avatar={avatar} trackingId='' isOpen />
+      <UserMenuSignedIn
+        avatar={avatar}
+        manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+        trackingId=""
+        isOpen
+        onClickAccountSettings={console.log}
+        onClickActivity={console.log}
+        onClickMyAssets={console.log}
+        onClickProfile={console.log}
+        onClickSignOut={console.log}
+        onClickToggle={console.log}
+        onClickWallet={console.log}
+      />
     </div>
   ))
   .add('Complete', () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
-        avatar={ avatar }
-        trackingId=''
+        avatar={avatar}
+        trackingId=""
         isOpen
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -65,6 +84,13 @@ storiesOf('UserMenuSignedIn', module)
           onClick: console.log,
           onClose: console.log,
         }}
+        onClickAccountSettings={console.log}
+        onClickActivity={console.log}
+        onClickMyAssets={console.log}
+        onClickProfile={console.log}
+        onClickSignOut={console.log}
+        onClickToggle={console.log}
+        onClickWallet={console.log}
       />
     </div>
   ))

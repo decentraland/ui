@@ -4,10 +4,7 @@ import classNames from 'classnames'
 
 import { ManaBalances } from './ManaBalances'
 import { UserMenuSignedIn } from './UserMenuSignedIn'
-import {
-  UserMenuProps,
-  UserMenuLabelsType,
-} from './UserMenu.types'
+import { UserMenuProps, UserMenuLabels } from './UserMenu.types'
 import './UserMenu.css'
 import { Mobile } from '../Media'
 import { Button } from '../Button/Button'
@@ -20,7 +17,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     isSignedIn,
     isSigningIn,
     manaBalances,
-    onSignIn,
+    onClickSignIn,
     onClickBalance,
     onClickOpen,
     onClickJumpIn,
@@ -66,7 +63,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   const handleClickJumpIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.PROFILE, trackingId)
+        onClickMenuItem(event, UserMenuLabels.PROFILE, trackingId)
 
       setTimeout(
         () => {
@@ -106,11 +103,12 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
               isClickable={isClickable}
               onClickToggle={handleToggle}
               onClickMenuItem={onClickMenuItem}
+              onClickBalance={onClickBalance}
             />
           )}
           {!isSignedIn && (
-            <Button inverted disabled={isSigningIn} onClick={onSignIn}>
-              {UserMenuLabelsType.SIGN_IN}
+            <Button inverted disabled={isSigningIn} onClick={onClickSignIn}>
+              {UserMenuLabels.SIGN_IN}
             </Button>
           )}
           <Button
@@ -119,7 +117,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
             disabled={isSigningIn}
             onClick={handleClickJumpIn}
           >
-            {UserMenuLabelsType.JUMP_IN}
+            {UserMenuLabels.JUMP_IN}
           </Button>
         </div>
       </Row>

@@ -2,46 +2,41 @@ import React, { useCallback } from 'react'
 import classNames from 'classnames'
 
 import { ManaBalances } from './ManaBalances'
-import {
-  SignedInProps,
-  UserMenuLabelsType,
-} from './UserMenu.types'
+import { UserMenuSignedInProps, UserMenuLabels } from './UserMenu.types'
 import './UserMenu.css'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Button } from '../Button/Button'
 import { config } from '../../config'
 import ActivityIcon from '../Icons/ActivityIcon'
 import LogoutIcon from '../Icons/LogoutIcon'
-import { WearablePreview } from '../WearablePreview/WearablePreview'
 import Notifications from '../Notifications/Notifications'
 
 import './UserMenuSignedIn.css'
 
-export const UserMenuSignedIn = (props: SignedInProps) => {
+export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
   const {
     manaBalances,
-    onClickProfile,
-    onClickSettings,
-    onSignOut,
     avatar,
     hasActivity,
     isClickable,
     isOpen,
     trackingId,
     notifications,
-    onClickToggle,
-    onClickBalance,
+    onClickAccountSettings,
     onClickActivity,
-    onClickMyAssets,
-    onClickMyLists,
+    onClickBalance,
     onClickMenuItem,
-    onClickAccount,
+    onClickMyAssets,
+    onClickProfile,
+    onClickSignOut,
+    onClickToggle,
+    onClickWallet,
   } = props
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.ACTIVITY, trackingId)
+        onClickMenuItem(event, UserMenuLabels.ACTIVITY, trackingId)
       setTimeout(
         () => {
           onClickActivity
@@ -61,7 +56,7 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
   const handleClickMyAssets = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.MY_ASSETS, trackingId)
+        onClickMenuItem(event, UserMenuLabels.MY_ASSETS, trackingId)
 
       setTimeout(
         () => {
@@ -79,15 +74,15 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
     [onClickMyAssets, onClickMenuItem, trackingId]
   )
 
-  const handleClickSettings = useCallback(
+  const handleClickAccountSettings = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.SETTINGS, trackingId)
+        onClickMenuItem(event, UserMenuLabels.SETTINGS, trackingId)
 
       setTimeout(
         () => {
-          onClickSettings
-            ? onClickSettings(event)
+          onClickAccountSettings
+            ? onClickAccountSettings(event)
             : window.open(
                 `${config.get('MARKETPLACE_URL')}/settings`,
                 '_blank',
@@ -97,51 +92,13 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
         onClickMenuItem ? 300 : 0
       )
     },
-    [onClickSettings, onClickMenuItem, trackingId]
-  )
-
-  const handleClickMyLists = useCallback(
-    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.MY_LISTS, trackingId)
-
-      setTimeout(
-        () => {
-          onClickMyLists
-            ? onClickMyLists(event)
-            : window.open(
-                `${config.get('MARKETPLACE_URL')}/lists`,
-                '_blank',
-                'noopener'
-              )
-        },
-        onClickMenuItem ? 300 : 0
-      )
-    },
-    [onClickMyLists, onClickMenuItem, trackingId]
-  )
-
-  const handleClickAccount = useCallback(
-    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.ACCOUNT, trackingId)
-
-      setTimeout(
-        () => {
-          onClickAccount
-            ? onClickAccount(event)
-            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
-        },
-        onClickMenuItem ? 300 : 0
-      )
-    },
-    [onClickAccount, onClickMenuItem, trackingId]
+    [onClickAccountSettings, onClickMenuItem, trackingId]
   )
 
   const handleClickProfile = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabelsType.PROFILE, trackingId)
+        onClickMenuItem(event, UserMenuLabels.PROFILE, trackingId)
 
       setTimeout(
         () => {
@@ -155,11 +112,28 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
     [onClickProfile, onClickMenuItem, trackingId]
   )
 
-  const handleSignOut = useCallback(
+  const handleClickWallet = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onSignOut(event, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuLabels.WALLET, trackingId)
+
+      setTimeout(
+        () => {
+          onClickWallet
+            ? onClickWallet(event)
+            : window.open(config.get('WALLET_URL'), '_blank', 'noopener')
+        },
+        onClickMenuItem ? 300 : 0
+      )
     },
-    [onSignOut, trackingId]
+    [onClickWallet, onClickMenuItem, trackingId]
+  )
+
+  const handleClickSignOut = useCallback(
+    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      onClickSignOut(event, trackingId)
+    },
+    [onClickSignOut, trackingId]
   )
 
   const handleClickToggle = useCallback(
@@ -190,15 +164,12 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
         )}
       >
         <div className="menu-wearable-preview">
-          {/* <img src={avatar.avatar.snapshots.body} /> */}
-          <WearablePreview profile={avatar.ethAddress} disableBackground />
+          <img src={avatar.avatar.snapshots.body} />
+          {/* <WearablePreview profile={avatar.ethAddress} disableBackground /> */}
         </div>
         <div className="menu-actions__wrapper">
-          <div
-            className={classNames('menu-info', onClickProfile && 'clickable')}
-            onClick={handleClickProfile}
-          >
-            {avatar?.name || UserMenuLabelsType.GUEST}{' '}
+          <div className={'menu-info'}>
+            {avatar?.name || UserMenuLabels.GUEST}{' '}
             {!avatar.hasClaimedName && (
               <span>
                 #{avatar.ethAddress.substring(avatar.ethAddress.length - 4)}
@@ -206,21 +177,21 @@ export const UserMenuSignedIn = (props: SignedInProps) => {
             )}
           </div>
           <ul className="menu-actions">
-            <div onClick={handleClickAccount}>
-              <li>{UserMenuLabelsType.WALLET}</li>
+            <div onClick={handleClickProfile}>
+              <li>{UserMenuLabels.VIEW_PROFILE}</li>
             </div>
             <div onClick={handleClickMyAssets}>
-              <li>{UserMenuLabelsType.MY_ASSETS}</li>
+              <li>{UserMenuLabels.MY_ASSETS}</li>
             </div>
-            <div onClick={handleClickMyLists}>
-              <li>{UserMenuLabelsType.MY_LISTS}</li>
+            <div onClick={handleClickWallet}>
+              <li>{UserMenuLabels.WALLET}</li>
             </div>
-            <div onClick={handleClickSettings}>
-              <li>{UserMenuLabelsType.SETTINGS}</li>
+            <div onClick={handleClickAccountSettings}>
+              <li>{UserMenuLabels.SETTINGS}</li>
             </div>
           </ul>
-          <div onClick={handleSignOut} className="menu-option__sign-out">
-            {UserMenuLabelsType.SIGN_OUT}
+          <div onClick={handleClickSignOut} className="menu-option__sign-out">
+            {UserMenuLabels.SIGN_OUT}
             <LogoutIcon />
           </div>
         </div>
