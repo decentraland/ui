@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import classNames from 'classnames'
 
 import { ManaBalances } from './ManaBalances'
-import { SignedIn } from './SignIn'
+import { UserMenuSignedIn } from './UserMenuSignedIn'
 import {
   UserMenuProps,
   UserMenuLabelsType,
@@ -98,7 +98,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
           tabIndex={0}
         >
           {isSignedIn && (
-            <SignedIn
+            <UserMenuSignedIn
               {...signInProps}
               manaBalances={manaBalances}
               trackingId={trackingId}

@@ -15,7 +15,9 @@ import LogoutIcon from '../Icons/LogoutIcon'
 import { WearablePreview } from '../WearablePreview/WearablePreview'
 import Notifications from '../Notifications/Notifications'
 
-export const SignedIn = (props: SignedInProps) => {
+import './UserMenuSignedIn.css'
+
+export const UserMenuSignedIn = (props: SignedInProps) => {
   const {
     manaBalances,
     onClickProfile,
@@ -168,7 +170,7 @@ export const SignedIn = (props: SignedInProps) => {
   )
 
   return (
-    <>
+    <div className={classNames('dcl', 'user-menu-sign-in')}>
       {notifications && <Notifications {...notifications} />}
       <Button basic onClick={handleClickActivity} className="activity-icon">
         <ActivityIcon hasActivity={hasActivity} />
@@ -223,6 +225,6 @@ export const SignedIn = (props: SignedInProps) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

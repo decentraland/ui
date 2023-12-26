@@ -59,6 +59,7 @@ const LIGHT_THEME = `
   /* svgs */
   --brightness: brightness(0.1);
   /* black svgs */
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-light.png);
 
   /* Navbar2 */
   --navbar-menu-enabled: #a09ba8;
@@ -67,6 +68,8 @@ const LIGHT_THEME = `
   --navbar-item-text-hover: #000;
   --navbar-item-border-enabled: #cfcdd4;
   --navbar-item-border-hover: #000;
+  --usermenu-item-text-enabled: #43404a;
+  --usermenu-item-border-enabled: #43404a;
 }
 `
 
@@ -125,6 +128,8 @@ const DARK_THEME = `
   --brightness: brightness(100);
   /* black svgs */
 
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-dark.png);
+
   /* Navbar2 */
   --navbar-menu-enabled: #a09ba8;
   --navbar-menu-hover: #fff;
@@ -132,6 +137,8 @@ const DARK_THEME = `
   --navbar-item-text-hover: #fff;
   --navbar-item-border-enabled: #716b7c;
   --navbar-item-border-hover: #cfcdd4;
+  --usermenu-item-text-enabled: #cfcdd4;
+  --usermenu-item-border-enabled: #cfcdd4;
 }
 `
 
