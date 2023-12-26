@@ -227,6 +227,28 @@
   margin-right: 0;
 }
 
+.dcl.navbar2 .submenu-container {
+  background-color: transparent;
+  height: 0;
+  opacity: 0;
+  transition: height 200ms ease-in-out 1ms, opacity 100ms ease-in-out 50ms, background-color 100ms ease-in-out 0ms;
+}
+
+.dcl.navbar2.marketplace .submenu-container.marketplace-selected,
+.dcl.navbar2.discover .submenu-container.discover-selected,
+.dcl.navbar2.learn .submenu-container.learn-selected, 
+.dcl.navbar2.vote .submenu-container.vote-selected {
+  height: 390px;
+  opacity: 1;
+  background-color: var(--background);
+}
+
+.dcl.navbar2.create .submenu-container.create-selected {
+  height: 430px;
+  opacity: 1;
+  background-color: var(--background);
+}
+
 .dcl.navbar2 .item.submenu {
   background-size: 100% 100%;
   background-position: 0px 0px, 0px 0px;
@@ -245,7 +267,7 @@
   align-items: center;
 
   transition: top 200ms ease-in-out 1ms, box-shadow 200ms ease-in-out 200ms,
-    height 200ms ease-in-out 100ms;
+    height 200ms ease 100ms;
 }
 
 .dcl.navbar2:not(.unselected)
@@ -332,7 +354,7 @@
       transparent 150%
     ),
     radial-gradient(350px 200px at 1280px 120%, #691fa933 0%, #073aff00 100%);
-  height: 290px;
+  height: 390px;
 }
 
 .dcl.navbar2 .item.submenu.create-submenu {
@@ -352,7 +374,7 @@
       transparent 150%
     ),
     radial-gradient(350px 200px at 1280px 120%, #3dd0ff33 0%, #073aff00 100%);
-  height: 284px;
+  height: 390px;
 }
 
 .dcl.navbar2 .item.submenu.learn-submenu {
@@ -362,7 +384,7 @@
       transparent 150%
     ),
     radial-gradient(350px 200px at 1280px 120%, #a6746433 0%, #073aff00 100%);
-  height: 284px;
+  height: 390px;
 }
 
 .dcl.navbar2 .item.submenu.vote-submenu {
@@ -372,7 +394,7 @@
       transparent 150%
     ),
     radial-gradient(350px 200px at 1280px 120%, #ff3dec33 0%, #073aff00 100%);
-  height: 284px;
+  height: 390px;
 }
 
 .dcl.navbar2 .item.submenu .submenu-column__wrapper {
