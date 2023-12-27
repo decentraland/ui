@@ -50,7 +50,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       setIsOpen((prev) => {
         !prev && setTrackingId(trackId)
         !prev && onClickOpen && onClickOpen(event, trackId)
-        return true
+        return !prev
       })
     },
     [setIsOpen, onClickOpen]

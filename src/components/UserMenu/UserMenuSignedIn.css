@@ -39,8 +39,8 @@
 }
 
 .dcl.user-menu-sign-in .menu-wrapper {
-  position: absolute;
-  top: 56px;
+  position: fixed;
+  top: 64px;
   right: 0;
   z-index: 1;
   background-color: var(--background);
@@ -214,6 +214,8 @@
     align-items: flex-start;
     left: 0;
     right: 0;
+    position: fixed;
+    box-shadow: none;
   }
 
   .dcl.user-menu-sign-in .menu-actions__wrapper {

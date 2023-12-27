@@ -30,9 +30,9 @@ export type Navbar2I18N = {
   menu: {
     marketplace: SubMenui18nProps
     create: SubMenui18nProps
-    discover: SubMenui18nProps
+    explore: SubMenui18nProps
     learn: SubMenui18nProps
-    vote: SubMenui18nProps
+    governance: SubMenui18nProps
   }
   account: {
     signIn: React.ReactNode
@@ -43,9 +43,9 @@ export type Navbar2I18N = {
 export enum Navbar2Pages {
   MARKETPLACE = 'marketplace',
   CREATE = 'create',
-  DISCOVER = 'discover',
+  EXPLORE = 'explore',
   LEARN = 'learn',
-  VOTE = 'vote',
+  GOVERNANCE = 'governance',
 }
 
 export type SubMenuItemProps = {
@@ -67,10 +67,11 @@ export type SubMenuProps = {
   selectedMenu: Navbar2Pages | boolean
   onToggleShowSubMenu: (
     e: React.MouseEvent,
-    section: Navbar2Pages,
-    show: boolean
+    show: boolean,
+    section?: Navbar2Pages
   ) => void
   onClickMenuOption: (e: React.MouseEvent, section: string) => void
+  isMobile?: boolean
 }
 
 export type MenuItemProps = {
@@ -79,18 +80,20 @@ export type MenuItemProps = {
   title: React.ReactNode
   onToggleShowSubMenu: (
     e: React.MouseEvent,
-    section: Navbar2Pages,
-    show: boolean
+    show: boolean,
+    section?: Navbar2Pages
   ) => void
+  isMobile?: boolean
 }
 
 export type MenuLeftDesktopProps = {
   activePage: Navbar2Pages | string
   onToggleShowSubMenu: (
     e: React.MouseEvent,
-    section: Navbar2Pages,
-    show: boolean
+    show: boolean,
+    section?: Navbar2Pages
   ) => void
+  isMobile?: boolean
 }
 
 export type Navbar2Props = UserMenuProps & {

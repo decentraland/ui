@@ -3,18 +3,19 @@ import { storiesOf } from '@storybook/react'
 import { avatar } from '../../data/avatar'
 
 import { Navbar2 } from './Navbar2'
-import './Navbar2.stories.css'
 import { Navbar2Pages } from './Navbar2.types'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 import { NotificationActiveTab } from '../Notifications/types'
 
+import './Navbar2.stories.css'
+
 storiesOf('Navbar2', module)
-  .add('LEARN', () => {
+  .add('Marketplace', () => {
     return (
       <div className="navbar2-story-container">
-        <Navbar2 activePage={Navbar2Pages.LEARN} />
+        <Navbar2 activePage={Navbar2Pages.MARKETPLACE} />
       </div>
     )
   })
@@ -22,7 +23,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
@@ -32,7 +33,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignIn={() => console.log('Clicked on sign in')}
@@ -44,7 +45,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignIn={() => console.log('Clicked on sign in')}
@@ -56,7 +57,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
@@ -69,7 +70,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
@@ -87,7 +88,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
@@ -137,7 +138,7 @@ storiesOf('Navbar2', module)
     return (
       <div className="navbar2-story-container">
         <Navbar2
-          activePage={Navbar2Pages.LEARN}
+          activePage={Navbar2Pages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
