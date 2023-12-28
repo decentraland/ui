@@ -407,6 +407,10 @@
   height: 60px;
 }
 
+.dcl.navbar2 .item.submenu .submenu-item a {
+  width: 100%;
+}
+
 .dcl.navbar2 .item.submenu .submenu-item.submenu-item-external {
   position: relative;
 }
