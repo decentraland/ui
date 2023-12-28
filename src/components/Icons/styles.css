@@ -2,3 +2,16 @@
   width: 24px;
   height: 24px;
 }
+
+.icon-container.centered {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer.rotate-180 svg,
+.icon-container.rotate-180 svg {
+  transform: rotateZ(180deg);
+}

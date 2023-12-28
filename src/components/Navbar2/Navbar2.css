@@ -32,25 +32,13 @@
   height: 100%;
 }
 
-.dcl.navbar2 .menu-item::after {
-  content: ' ';
-  width: 12px;
-  height: 7px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-  margin-left: 8px;
-  filter: var(--brightness);
-  background-image: url('../../assets/arrow-down.svg');
-  transition: transform 0.25s ease;
+.dcl.navbar2 .menu-item .icon-container.centered {
+  margin-top: 4px;
+  margin-left: 4px;
 }
 
-.dcl.navbar2.marketplace .menu-item.marketplace::after,
-.dcl.navbar2.create .menu-item.create::after,
-.dcl.navbar2.explore .menu-item.explore::after,
-.dcl.navbar2.learn .menu-item.learn::after,
-.dcl.navbar2.governance .menu-item.governance::after {
-  transform: rotateZ(180deg) translateY(-1px);
+.dcl.navbar2 .menu-item .icon-container.centered svg path:nth-child(2) {
+  fill: var(--secondary-text);
 }
 
 .dcl.navbar2 .dcl.navbar2-wrapper {
@@ -168,6 +156,10 @@
   color: var(--text);
   background: transparent;
   cursor: pointer;
+}
+
+.dcl.navbar2 .dcl.navbar2-wrapper .menu-item.item:hover .icon-container.centered svg path:nth-child(2) {
+  fill: var(--text)
 }
 
 .dcl.navbar2 .dcl.navbar2-wrapper .item > .item {
