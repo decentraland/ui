@@ -7,8 +7,8 @@ export default {
   title: 'BackToTopButton',
   component: BackToTopButton,
   argTypes: {
-    threshold: { action: 'clicked' },
-  },
+    threshold: { action: 'clicked' }
+  }
 } as ComponentMeta<typeof BackToTopButton>
 
 const Template: ComponentStory<typeof BackToTopButton> = (args) => (
@@ -22,5 +22,5 @@ const Template: ComponentStory<typeof BackToTopButton> = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  threshold: 400,
+  threshold: 400
 }

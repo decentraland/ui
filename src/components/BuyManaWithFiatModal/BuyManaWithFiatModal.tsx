@@ -9,7 +9,7 @@ import { Loader } from '../Loader/Loader'
 import {
   BuyWithFiatNetwork,
   NetworkGatewayProps,
-  BuyWithFiatNetworkProps,
+  BuyWithFiatNetworkProps
 } from './Network'
 import './BuyManaWithFiatModal.css'
 import './Network.css'
@@ -85,7 +85,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
   state: Readonly<{
     selectedNetwork: SelectedNetwork
   }> = {
-    selectedNetwork: null,
+    selectedNetwork: null
   }
 
   static defaultProps = {
@@ -96,8 +96,8 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
       title: 'Buy MANA',
       subtitle: 'Select which mana you want to buy',
       message: '',
-      error: 'Could not process the payment',
-    },
+      error: 'Could not process the payment'
+    }
   }
 
   static Network = BuyManaWithFiatModalNetwork
@@ -127,7 +127,7 @@ export class BuyManaWithFiatModal extends React.Component<BuyManaWithFiatModalPr
 
   handleNetworkOnClick = (network: SelectedNetwork) => {
     this.setState({
-      selectedNetwork: network,
+      selectedNetwork: network
     })
     network.onClick?.()
   }

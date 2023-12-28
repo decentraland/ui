@@ -13,12 +13,12 @@ import './FeedbackModal.css'
 export enum TransactionStatus {
   PENDING = 'pending',
   SUCCESS = 'success',
-  FAILURE = 'failure',
+  FAILURE = 'failure'
 }
 
 const iconNames = {
   [TransactionStatus.PENDING]: 'clock outline',
-  [TransactionStatus.FAILURE]: 'warning circle',
+  [TransactionStatus.FAILURE]: 'warning circle'
 }
 
 export type FeedbackModalProps = {
@@ -60,8 +60,8 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       description:
         'The MANA has been added to your account. If you still don’t see it in your balance, refresh this page.',
       cta: 'Done',
-      viewTransaction: 'View Transaction in Exporer',
-    },
+      viewTransaction: 'View Transaction in Exporer'
+    }
   }
 
   renderActions(): JSX.Element {
@@ -72,7 +72,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       transactionUrl,
       onClickCta,
       onClickSecondaryCta,
-      onClose,
+      onClose
     } = this.props
 
     switch (status) {
@@ -153,7 +153,7 @@ export class FeedbackModal extends React.Component<FeedbackModalProps> {
       status,
       selectedGateway,
       onClose,
-      onInfo,
+      onInfo
     } = this.props
 
     return (

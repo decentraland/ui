@@ -1,5 +1,5 @@
 export {
   default as Button,
-  ButtonProps,
+  ButtonProps
 } from 'semantic-ui-react/dist/commonjs/elements/Button/Button'
 import './Button.css'

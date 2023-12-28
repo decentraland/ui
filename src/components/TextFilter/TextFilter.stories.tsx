@@ -4,7 +4,7 @@ import { TextFilter } from './TextFilter'
 
 function generateValueAndChangeFunction() {
   const result = {
-    fieldValue: undefined,
+    fieldValue: undefined
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any
 

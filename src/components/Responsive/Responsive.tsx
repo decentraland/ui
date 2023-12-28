@@ -2,7 +2,7 @@ import * as React from 'react'
 import {
   eventStack,
   getElementType,
-  isBrowser,
+  isBrowser
 } from 'semantic-ui-react/dist/commonjs/lib'
 import { ResponsiveProps } from './Responsive.types'
 
@@ -22,7 +22,7 @@ const isVisible = (
   width,
   {
     maxWidth,
-    minWidth,
+    minWidth
   }: { maxWidth?: number | string; minWidth?: number | string }
 ) => fitsMinWidth(width, minWidth) && fitsMaxWidth(width, maxWidth)
 
@@ -38,13 +38,13 @@ export default class Responsive extends React.Component<ResponsiveProps> {
   static readonly onlyLargeScreen = { minWidth: 1200, maxWidth: 1919 }
   static readonly onlyWidescreen = { minWidth: 1920 }
   static defaultProps = {
-    getWidth: () => (isBrowser() ? window.innerWidth : 0),
+    getWidth: () => (isBrowser() ? window.innerWidth : 0)
   }
   private ticking: boolean
   private frameId: number
 
   state = {
-    visible: true,
+    visible: true
   }
 
   static getDerivedStateFromProps(props) {

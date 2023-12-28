@@ -91,7 +91,7 @@ storiesOf('UserMenu', module)
           onBegin: console.log,
           onChangeTab: console.log,
           onClick: console.log,
-          onClose: console.log,
+          onClose: console.log
         }}
       />
     </div>
@@ -124,18 +124,18 @@ storiesOf('UserMenu', module)
                 seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
                 nftName: 'Green Atari Tee',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
-            },
+              updated_at: '2023-11-29T12:51:00.600Z'
+            }
           ],
           locale: 'en',
           activeTab: NotificationActiveTab.NEWEST,
           onBegin: console.log,
           onChangeTab: console.log,
           onClick: console.log,
-          onClose: console.log,
+          onClose: console.log
         }}
       />
     </div>

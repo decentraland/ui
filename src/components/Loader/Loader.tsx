@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
 import BaseLoader, {
-  LoaderProps as BaseLoaderProps,
+  LoaderProps as BaseLoaderProps
 } from 'semantic-ui-react/dist/commonjs/elements/Loader/Loader'
 import './Loader.css'
 

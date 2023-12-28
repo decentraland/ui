@@ -7,13 +7,13 @@ export enum AuthorizationStepStatus {
   PROCESSING = 'processing',
   ALLOWANCE_AMOUNT_ERROR = 'allowance_amount_error',
   ERROR = 'error',
-  DONE = 'done',
+  DONE = 'done'
 }
 
 export enum AuthorizationStepAction {
   REVOKE = 'revoke',
   GRANT = 'grant',
-  CONFIRM = 'confirm',
+  CONFIRM = 'confirm'
 }
 
 export type AuthorizationStep = Step & {

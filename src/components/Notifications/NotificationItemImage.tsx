@@ -15,7 +15,7 @@ export default function NotificationItemImage({
   rarity,
   url,
   backgroundColor,
-  icon,
+  icon
 }: NotificationItemImageProps) {
   const bgColor = rarity
     ? Rarity.getGradient(rarity).join()
@@ -28,7 +28,7 @@ export default function NotificationItemImage({
       <div
         className="dcl notification-image"
         style={{
-          backgroundImage: `radial-gradient(${bgColor})`,
+          backgroundImage: `radial-gradient(${bgColor})`
         }}
       >
         <img src={url} alt="Notification Image" />

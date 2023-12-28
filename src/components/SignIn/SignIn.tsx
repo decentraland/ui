@@ -55,8 +55,8 @@ export class SignIn extends React.PureComponent<SignInProps> {
       connect: 'Connect',
       connecting: 'Connecting...',
       connected: 'Connected',
-      error: 'Could not connect to wallet.',
-    },
+      error: 'Could not connect to wallet.'
+    }
   }
 
   render(): JSX.Element {

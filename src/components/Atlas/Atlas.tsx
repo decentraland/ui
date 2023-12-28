@@ -41,17 +41,17 @@ const COLOR_BY_TYPE = Object.freeze({
   11: '#09080A', // unowned pacel/estate
   12: '#18141a', // background
   13: '#110e13', // loading odd
-  14: '#0d0b0e', // loading even
+  14: '#0d0b0e' // loading even
 })
 
 export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   static defaultProps = {
     ...TileMap.defaultProps,
-    layers: [],
+    layers: []
   }
 
   state = {
-    tiles: this.props.tiles,
+    tiles: this.props.tiles
   }
 
   mounted = true
@@ -65,11 +65,11 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
         color: COLOR_BY_TYPE[tile.type],
         top: !!tile.top,
         left: !!tile.left,
-        topLeft: !!tile.topLeft,
+        topLeft: !!tile.topLeft
       }
     } else {
       return {
-        color: (x + y) % 2 === 0 ? COLOR_BY_TYPE[13] : COLOR_BY_TYPE[14],
+        color: (x + y) % 2 === 0 ? COLOR_BY_TYPE[13] : COLOR_BY_TYPE[14]
       }
     }
   }

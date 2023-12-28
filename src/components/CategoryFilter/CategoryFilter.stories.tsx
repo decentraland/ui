@@ -7,8 +7,8 @@ export default {
   title: 'CategoryFilter',
   component: CategoryFilter,
   argTypes: {
-    onClick: { action: 'clicked' },
-  },
+    onClick: { action: 'clicked' }
+  }
 } as ComponentMeta<typeof CategoryFilter>
 
 const Template: ComponentStory<typeof CategoryFilter> = (args) => (
@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof CategoryFilter> = (args) => (
 export const Primary = Template.bind({})
 Primary.args = {
   i18n: {
-    title: 'Categories',
+    title: 'Categories'
   },
   value: 'wearables',
   items: [
@@ -32,27 +32,27 @@ Primary.args = {
           children: [
             {
               id: 'facial-hair',
-              label: 'Facial Hair',
+              label: 'Facial Hair'
             },
             {
               id: 'hair',
-              label: 'Hair',
+              label: 'Hair'
             },
             {
               id: 'eyes',
-              label: 'Eyes',
-            },
-          ],
+              label: 'Eyes'
+            }
+          ]
         },
         {
           id: 'upper-body',
-          label: 'Upper Body',
+          label: 'Upper Body'
         },
         {
           id: 'hand-wear',
-          label: 'Hand Wear',
-        },
-      ],
+          label: 'Hand Wear'
+        }
+      ]
     },
     {
       id: 'emotes',
@@ -60,17 +60,17 @@ Primary.args = {
       children: [
         {
           id: 'dance',
-          label: 'Dance',
+          label: 'Dance'
         },
         {
           id: 'poses',
-          label: 'Poses',
+          label: 'Poses'
         },
         {
           id: 'fun',
-          label: 'Fun',
-        },
-      ],
-    },
-  ],
+          label: 'Fun'
+        }
+      ]
+    }
+  ]
 }

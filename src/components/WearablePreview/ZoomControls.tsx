@@ -17,7 +17,7 @@ const ZOOM_DELTA = 0.1
 
 export enum Position {
   LEFT = 'left',
-  RIGHT = 'right',
+  RIGHT = 'right'
 }
 
 export const ZoomControls: React.FC<ZoomControlsProp> = (props) => {

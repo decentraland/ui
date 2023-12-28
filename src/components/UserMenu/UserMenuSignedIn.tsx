@@ -30,7 +30,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     onClickProfile,
     onClickSignOut,
     onClickToggle,
-    onClickWallet,
+    onClickWallet
   } = props
 
   const handleClickActivity = useCallback(

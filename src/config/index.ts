@@ -6,5 +6,5 @@ import prod from './env/prod.json'
 export const config = createConfig({
   [Env.DEVELOPMENT]: dev,
   [Env.STAGING]: stg,
-  [Env.PRODUCTION]: prod,
+  [Env.PRODUCTION]: prod
 })

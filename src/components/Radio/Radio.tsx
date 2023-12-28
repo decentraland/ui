@@ -1,5 +1,5 @@
 export {
   default as Radio,
-  RadioProps,
+  RadioProps
 } from 'semantic-ui-react/dist/commonjs/addons/Radio/Radio'
 import './Radio.css'

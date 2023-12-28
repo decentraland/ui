@@ -6,7 +6,7 @@ import { NFTCard } from './NFTCard'
 
 export default {
   title: 'NFTCard',
-  component: NFTCard,
+  component: NFTCard
 } as ComponentMeta<typeof NFTCard>
 
 const Template: ComponentStory<typeof NFTCard> = (args) => <NFTCard {...args} />
@@ -32,8 +32,8 @@ Wearable.args = {
         category: 'hands_wear',
         description: '',
         rarity: 'common',
-        isSmart: false,
-      },
+        isSmart: false
+      }
     },
     issuedId: '1',
     itemId: '0',
@@ -42,8 +42,8 @@ Wearable.args = {
     createdAt: 1691090569000,
     updatedAt: 1691090569000,
     soldAt: 0,
-    urn: 'urn:decentraland:mumbai:collections-v2:wearable-test:0',
-  },
+    urn: 'urn:decentraland:mumbai:collections-v2:wearable-test:0'
+  }
 }
 
 export const Emote = Template.bind({})
@@ -69,8 +69,8 @@ Emote.args = {
         rarity: 'common',
         loop: false,
         hasSound: true,
-        hasGeometry: true,
-      },
+        hasGeometry: true
+      }
     },
     issuedId: '2',
     itemId: '1',
@@ -79,8 +79,8 @@ Emote.args = {
     createdAt: 1695732723000,
     updatedAt: 1695732723000,
     soldAt: 0,
-    urn: 'urn:decentraland:mumbai:collections-v2:0x2e57cf122eae1ba0f4b2fe02101558eb4b4eea23:1',
-  },
+    urn: 'urn:decentraland:mumbai:collections-v2:0x2e57cf122eae1ba0f4b2fe02101558eb4b4eea23:1'
+  }
 }
 
 export const Parcel = Template.bind({})
@@ -100,8 +100,8 @@ Parcel.args = {
         description: null,
         x: '26',
         y: '20',
-        estate: null,
-      },
+        estate: null
+      }
     },
     issuedId: null,
     itemId: null,
@@ -110,8 +110,8 @@ Parcel.args = {
     chainId: 11155111,
     createdAt: 1689742440000,
     updatedAt: 1689742440000,
-    soldAt: 0,
-  },
+    soldAt: 0
+  }
 }
 
 export const Estate = Template.bind({})
@@ -134,14 +134,14 @@ Estate.args = {
         parcels: [
           {
             x: 104,
-            y: 54,
+            y: 54
           },
           {
             x: 105,
-            y: 54,
-          },
-        ],
-      },
+            y: 54
+          }
+        ]
+      }
     },
     issuedId: null,
     itemId: null,
@@ -150,9 +150,9 @@ Estate.args = {
     chainId: 1,
     createdAt: 1695892187000,
     updatedAt: 1696000955000,
-    soldAt: 0,
+    soldAt: 0
   },
-  href: 'https://decentraland.org/marketplace',
+  href: 'https://decentraland.org/marketplace'
 }
 export const ENS = Template.bind({})
 ENS.args = {
@@ -169,8 +169,8 @@ ENS.args = {
     url: '/contracts/0x7518456ae93eb98f3e64571b689c626616bb7f30/tokens/99973385244939087850806505944511194249152123896043388233553873349152167589727',
     data: {
       ens: {
-        subdomain: 'melitest3',
-      },
+        subdomain: 'melitest3'
+      }
     },
     issuedId: null,
     itemId: null,
@@ -179,6 +179,6 @@ ENS.args = {
     chainId: 11155111,
     createdAt: 1689710628000,
     updatedAt: 1689710628000,
-    soldAt: 0,
-  },
+    soldAt: 0
+  }
 }

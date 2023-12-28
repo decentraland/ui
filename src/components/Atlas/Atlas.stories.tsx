@@ -77,7 +77,7 @@ const hoverStrokeLayer: Layer = (x, y) => {
   if (isHighlighted(x, y)) {
     return {
       color: isValid() ? '#44ff00' : '#ff0044',
-      scale: 1.5,
+      scale: 1.5
     }
   }
   return null
@@ -87,7 +87,7 @@ const hoverFillLayer: Layer = (x, y) => {
   if (isHighlighted(x, y)) {
     return {
       color: isValid() ? '#99ff90' : '#ff9990',
-      scale: 1.2,
+      scale: 1.2
     }
   }
   return null

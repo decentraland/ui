@@ -5,7 +5,7 @@ import { SmartWearableFilter } from './SmartWearableFilter'
 storiesOf('SmartWearableFilter', module).add('Select SW', () => {
   const i18n = {
     title: 'Smart',
-    selected: 'Only Smart',
+    selected: 'Only Smart'
   }
 
   const [isOnlySmart, setIsOnlySmart] = useState(false)

@@ -64,5 +64,5 @@ export enum UserMenuLabels {
   SIGN_OUT = 'Sign out',
   GUEST = 'Guest',
   WALLET = 'My Wallet',
-  JUMP_IN = 'Jump In',
+  JUMP_IN = 'Jump In'
 }

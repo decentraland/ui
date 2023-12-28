@@ -4,7 +4,7 @@ import NotificationsFeed from './NotificationsFeed'
 import {
   NotificationActiveTab,
   DCLNotification,
-  NotificationLocale,
+  NotificationLocale
 } from './types'
 
 import NotificationBell from '../Icons/Notifications/NotificationBell'
@@ -43,7 +43,7 @@ export default function Notifications({
   onClick,
   onChangeTab,
   onBegin,
-  onClose,
+  onClose
 }: NotificationsProps) {
   const newNotificationsCount = useMemo(() => {
     return items.filter((notification) => !notification.read).length

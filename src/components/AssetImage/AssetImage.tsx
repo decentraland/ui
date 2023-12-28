@@ -20,7 +20,7 @@ export const AssetImage = (props: AssetImageProps) => {
     <div
       className={classNames('dui-asset-image', className)}
       style={{
-        backgroundImage,
+        backgroundImage
       }}
     >
       <img alt={name} className="dui-asset-image__image" src={src} />

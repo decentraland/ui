@@ -47,11 +47,11 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
                 nftName: 'Green Atari Tee',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
-            },
+              updated_at: '2023-11-29T12:51:00.600Z'
+            }
           ]}
           locale="en"
           activeTab={NotificationActiveTab.NEWEST}
@@ -85,11 +85,11 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
                 nftName: 'Green Atari Tee',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
-            },
+              updated_at: '2023-11-29T12:51:00.600Z'
+            }
           ]}
           activeTab={NotificationActiveTab.NEWEST}
           onChangeTab={(e, newTab) => console.log(newTab)}
@@ -126,11 +126,10 @@ storiesOf('Notifications Toggle', module)
                 nftName: 'NJacket',
                 category: 'wearable' as NFTCategory,
                 royaltiesCut: '30000000000000000',
-                royaltiesCollector:
-                  '0x2a39d4f68133491f0442496f601cde2a945b6d31',
+                royaltiesCollector: '0x2a39d4f68133491f0442496f601cde2a945b6d31'
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -148,10 +147,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -169,10 +168,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -190,10 +189,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -211,10 +210,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -232,10 +231,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -253,10 +252,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -274,10 +273,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -295,10 +294,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -316,10 +315,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -337,10 +336,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -358,10 +357,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -379,10 +378,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -400,10 +399,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -421,10 +420,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -442,10 +441,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -463,10 +462,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'A',
@@ -484,10 +483,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Exclusive Binance Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'AC',
@@ -503,10 +502,10 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Binance US Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
               id: 'AS',
@@ -522,11 +521,11 @@ storiesOf('Notifications Toggle', module)
                 seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
                 nftName: 'Binance US Hoodie',
                 network: 'ethereum',
-                category: 'wearable' as NFTCategory,
+                category: 'wearable' as NFTCategory
               },
               created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z',
-            },
+              updated_at: '2023-11-29T12:51:00.600Z'
+            }
           ]}
           activeTab={tab as NotificationActiveTab}
           onChangeTab={(e, newTab) => setTab(newTab)}

@@ -6,7 +6,7 @@ import './Toast.css'
 export enum ToastType {
   INFO = 'info',
   WARN = 'warn',
-  ERROR = 'error',
+  ERROR = 'error'
 }
 
 export type ToastProps = {
@@ -65,7 +65,7 @@ export class Toast extends React.PureComponent<ToastProps> {
       body,
       closable,
       icon,
-      className,
+      className
     } = this.props
     return (
       <div

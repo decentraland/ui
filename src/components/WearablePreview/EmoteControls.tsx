@@ -39,7 +39,7 @@ export class EmoteControls extends React.PureComponent<
     isSoundEnabled: false,
     hasSound: undefined,
     shouldResumePlaying: false,
-    isChangingFrame: false,
+    isChangingFrame: false
   }
 
   handleAnimationLoop = () => {
@@ -50,7 +50,7 @@ export class EmoteControls extends React.PureComponent<
     const { frame, length } = this.state
     this.setState({
       isPlaying: false,
-      frame: frame >= Math.floor(length * 100) ? 0 : frame, // using to Fixed(1)
+      frame: frame >= Math.floor(length * 100) ? 0 : frame // using to Fixed(1)
     })
   }
 
@@ -167,7 +167,7 @@ export class EmoteControls extends React.PureComponent<
       hideFrameInput,
       hidePlayButton,
       hideSoundButton,
-      hideProgressInput,
+      hideProgressInput
     } = this.props
     const { frame, isPlaying, length, hasSound, isSoundEnabled } = this.state
 
@@ -202,7 +202,7 @@ export class EmoteControls extends React.PureComponent<
         {hideSoundButton || !hasSound ? null : (
           <Button
             className={classNames('sound-control', {
-              ['muted']: !isSoundEnabled,
+              ['muted']: !isSoundEnabled
             })}
             onClick={this.handleSoundToggle}
           />

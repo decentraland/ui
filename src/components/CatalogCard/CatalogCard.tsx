@@ -27,7 +27,7 @@ export const CatalogCard = (props: CatalogCardProps) => {
     imagensrc,
     notForSale,
     owners,
-    price,
+    price
   } = props
 
   return (
@@ -82,7 +82,7 @@ export const CatalogCard = (props: CatalogCardProps) => {
             <div
               className={'badge'}
               style={{
-                backgroundColor: Rarity.getColor(asset.rarity),
+                backgroundColor: Rarity.getColor(asset.rarity)
               }}
               title={asset.rarity}
             >

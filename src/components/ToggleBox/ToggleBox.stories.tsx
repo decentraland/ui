@@ -9,7 +9,7 @@ storiesOf('ToggleBox', module)
       items={[
         { title: 'Item 1', description: 'Description of the item 1' },
         { title: 'Item 2', description: 'Description of the item 2' },
-        { title: 'Item 3', description: 'Description of the item 3' },
+        { title: 'Item 3', description: 'Description of the item 3' }
       ]}
     />
   ))
@@ -21,18 +21,18 @@ storiesOf('ToggleBox', module)
         {
           title: 'Item 1',
           description: 'Description of the item 1',
-          value: 1,
+          value: 1
         },
         {
           title: 'Item 2',
           description: 'Description of the Active item 2',
-          value: 2,
+          value: 2
         },
         {
           title: 'Item 3',
           description: 'Description of the item 3',
-          value: 3,
-        },
+          value: 3
+        }
       ]}
     />
   ))
@@ -45,20 +45,20 @@ storiesOf('ToggleBox', module)
           title: 'Item 1',
           description: 'Description of the active item 1',
           value: 1,
-          disabled: false,
+          disabled: false
         },
         {
           title: 'Item 2',
           description: 'Description of the disabled item 2',
           value: 2,
-          disabled: true,
+          disabled: true
         },
         {
           title: 'Item 3',
           description: 'Description of the item 3',
           value: 3,
-          disabled: false,
-        },
+          disabled: false
+        }
       ]}
     />
   ))
@@ -72,20 +72,20 @@ storiesOf('ToggleBox', module)
           title: 'Item 1',
           description: 'Description of the active item 1',
           value: 1,
-          disabled: false,
+          disabled: false
         },
         {
           title: 'Item 2',
           description: 'Description of the disabled item 2',
           value: 2,
-          disabled: true,
+          disabled: true
         },
         {
           title: 'Item 3',
           description: 'Description of the item 3',
           value: 3,
-          disabled: false,
-        },
+          disabled: false
+        }
       ]}
     />
   ))

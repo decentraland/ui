@@ -3,7 +3,7 @@ import { Container } from '../Container/Container'
 import {
   LanguageDropdownI18N,
   LanguageDropdownProps,
-  LanguageDropdown,
+  LanguageDropdown
 } from '../LanguageDropdown/LanguageDropdown'
 import { Locale } from '../Language/Language'
 import './Footer.css'
@@ -40,16 +40,16 @@ export class Footer extends React.PureComponent<FooterProps> {
         fr: 'French',
         ja: 'Japanese',
         zh: 'Chinese',
-        ko: 'Korean',
+        ko: 'Korean'
       },
       links: {
         home: 'Home',
         privacy: 'Privacy Policy',
         terms: 'Terms of Use',
         content: 'Content Policy',
-        ethics: 'Code of Ethics',
-      },
-    },
+        ethics: 'Code of Ethics'
+      }
+    }
   }
 
   render(): JSX.Element {
@@ -60,7 +60,7 @@ export class Footer extends React.PureComponent<FooterProps> {
       i18n,
       isFullscreen,
       className,
-      isFullWidth,
+      isFullWidth
     } = this.props
 
     let classes = 'dcl footer'

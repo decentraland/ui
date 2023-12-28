@@ -45,7 +45,7 @@ export enum Navbar2Pages {
   CREATE = 'create',
   EXPLORE = 'explore',
   LEARN = 'learn',
-  GOVERNANCE = 'governance',
+  GOVERNANCE = 'governance'
 }
 
 export type SubMenuItemProps = {

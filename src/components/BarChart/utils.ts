@@ -6,7 +6,7 @@ export const CHART_LOG_SCALE = 5
 const CHART_BAR_QTY = 24
 
 export const numberFormatter = Intl.NumberFormat('en', {
-  notation: 'compact',
+  notation: 'compact'
 } as Intl.NumberFormatOptions)
 
 export const formatAndRoundNumberString = (number: string) => {
@@ -61,7 +61,7 @@ export const createExponentialRange = (
         ? roundNumber(Math.pow(CHART_LOG_SCALE, interval), decimals)
         : interval
     ),
-    ...(upperBound && max > upperBound ? [upperBound] : []),
+    ...(upperBound && max > upperBound ? [upperBound] : [])
   ]
 }
 
@@ -102,9 +102,9 @@ export const getBarChartRanges = (
       final.push({
         values: [
           Number(maxOfInterval),
-          nextInterval ? Number(nextInterval[0]) : Number(maxOfInterval),
+          nextInterval ? Number(nextInterval[0]) : Number(maxOfInterval)
         ],
-        amount,
+        amount
       })
       interval = nextInterval
     }
@@ -141,6 +141,6 @@ export const getDatasetBounds = (data: Record<string, number>) => {
   const formattedData = Object.keys(data).map((key) => Number(key))
   return {
     min: Math.min(...formattedData),
-    max: Math.max(...formattedData),
+    max: Math.max(...formattedData)
   }
 }

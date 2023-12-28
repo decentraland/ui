@@ -18,7 +18,7 @@ export function MultiStep({ steps, currentStep }: Props): JSX.Element {
             key={`step-${index}`}
             data-testid={step.testId || `step-${index}`}
             className={classNames('step-container', {
-              disabled: isDisabled,
+              disabled: isDisabled
             })}
           >
             <div>

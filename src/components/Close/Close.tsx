@@ -8,7 +8,7 @@ export type CloseProps = {
 
 export class Close extends React.PureComponent<CloseProps> {
   static defaultProps: CloseProps = {
-    onClick: () => undefined,
+    onClick: () => undefined
   }
 
   render(): JSX.Element {

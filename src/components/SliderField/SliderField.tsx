@@ -40,14 +40,14 @@ export type SliderFieldProps = SimpleSliderProps | RangeSliderProps
 
 export enum SliderLastInteraction {
   'from',
-  'to',
+  'to'
 }
 
 export const SliderDefault = {
   MIN: 0,
   MAX: 100,
   FROM: 0,
-  TO: 100,
+  TO: 100
 }
 
 export type SliderFieldState = {
@@ -68,7 +68,7 @@ export class SliderField extends React.PureComponent<
   state = {
     from: SliderDefault.FROM,
     to: SliderDefault.TO,
-    lastInteraction: SliderLastInteraction.from,
+    lastInteraction: SliderLastInteraction.from
   }
 
   componentDidMount(): void {
@@ -82,18 +82,18 @@ export class SliderField extends React.PureComponent<
         return {
           ...prevState,
           from: valueFrom ? valueFrom : minValue,
-          to: valueTo ? valueTo : maxValue,
+          to: valueTo ? valueTo : maxValue
         }
       })
     } else {
       if (Array.isArray(defaultValue)) {
         this.setState({
           from: defaultValue[0],
-          to: defaultValue[1],
+          to: defaultValue[1]
         })
       } else {
         this.setState({
-          to: Number(defaultValue),
+          to: Number(defaultValue)
         })
       }
     }
@@ -104,7 +104,7 @@ export class SliderField extends React.PureComponent<
     if (valueFrom !== prevProps.valueFrom || valueTo !== prevProps.valueTo) {
       this.setState({
         from: valueFrom ?? prevProps.valueFrom,
-        to: valueTo ?? prevProps.valueTo,
+        to: valueTo ?? prevProps.valueTo
       })
     }
   }
@@ -120,7 +120,7 @@ export class SliderField extends React.PureComponent<
         return {
           ...prevState,
           from: Math.min(Number(input.value), prevState.to),
-          lastInteraction: SliderLastInteraction.from,
+          lastInteraction: SliderLastInteraction.from
         }
       },
       () => {
@@ -140,7 +140,7 @@ export class SliderField extends React.PureComponent<
         return {
           ...prevState,
           to: Math.max(Number(input.value), prevState.from),
-          lastInteraction: SliderLastInteraction.to,
+          lastInteraction: SliderLastInteraction.to
         }
       },
       () => {
@@ -179,7 +179,7 @@ export class SliderField extends React.PureComponent<
 
     return {
       left: trackLeft,
-      right: trackRight,
+      right: trackRight
     }
   }
 
@@ -191,7 +191,7 @@ export class SliderField extends React.PureComponent<
 
     return {
       left: leftStyle,
-      right: rightStyle,
+      right: rightStyle
     }
   }
 
@@ -205,7 +205,7 @@ export class SliderField extends React.PureComponent<
       valueTo,
       label,
       labelFrom,
-      labelTo,
+      labelTo
     } = this.props
 
     const min = this.props.min || SliderDefault.MIN
@@ -239,7 +239,7 @@ export class SliderField extends React.PureComponent<
                 zIndex:
                   this.state.lastInteraction == SliderLastInteraction.from
                     ? 4
-                    : 3,
+                    : 3
               }}
               onMouseUp={this.handleMouseUp}
               className="sliderfield-input-left"
@@ -257,7 +257,7 @@ export class SliderField extends React.PureComponent<
             onChange={this.handleChangeTo}
             style={{
               zIndex:
-                this.state.lastInteraction == SliderLastInteraction.to ? 4 : 3,
+                this.state.lastInteraction == SliderLastInteraction.to ? 4 : 3
             }}
             onMouseUp={this.handleMouseUp}
             className="sliderfield-input-right"

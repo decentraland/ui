@@ -10,14 +10,14 @@ interface NotificationItemNFTLinkProps {
 const NotificationItemNFTLink = ({
   link,
   rarity,
-  name,
+  name
 }: NotificationItemNFTLinkProps) => {
   return (
     <a
       href={link}
       style={{
         color: `${Rarity.getColor(rarity)}`,
-        textDecoration: 'underline',
+        textDecoration: 'underline'
       }}
     >
       {name}

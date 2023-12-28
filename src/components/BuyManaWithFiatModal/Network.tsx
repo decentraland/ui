@@ -7,7 +7,7 @@ import './Network.css'
 
 export enum NetworkGatewayType {
   MOON_PAY = 'moonPay',
-  TRANSAK = 'transak',
+  TRANSAK = 'transak'
 }
 
 export type GatewaysNames = {
@@ -16,7 +16,7 @@ export type GatewaysNames = {
 
 export const gatewaysNames: GatewaysNames = {
   [NetworkGatewayType.MOON_PAY]: 'MoonPay',
-  [NetworkGatewayType.TRANSAK]: 'Transak',
+  [NetworkGatewayType.TRANSAK]: 'Transak'
 }
 
 export type BuyWithFiatNetworkProps = {
@@ -60,7 +60,7 @@ class ButWithFiatNetworkGateway extends React.PureComponent<NetworkGatewayProps>
       i18n,
       learnMoreLink,
       disabled = false,
-      onContinue,
+      onContinue
     } = this.props
 
     const title: React.ReactNode = `Buy ${getNetworkMANADescription(

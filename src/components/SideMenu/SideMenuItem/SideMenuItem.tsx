@@ -10,7 +10,7 @@ export const SideMenuItem = ({
   value,
   item,
   level,
-  onClick,
+  onClick
 }: SideMenuItemProps) => {
   return (
     <li
@@ -18,7 +18,7 @@ export const SideMenuItem = ({
         'dui-side-menu-item',
         `dui-side-menu-item--level-${level}`,
         {
-          'dui-side-menu-item--active': value === item.id,
+          'dui-side-menu-item--active': value === item.id
         }
       )}
       onClick={() => onClick(item.id)}
@@ -27,7 +27,7 @@ export const SideMenuItem = ({
       {level === 2 && item.children && (
         <i
           className={classNames('dui-side-menu-item__caret dropdown icon', {
-            'dui-side-menu-item__caret--open': branch.has(item.id),
+            'dui-side-menu-item__caret--open': branch.has(item.id)
           })}
         ></i>
       )}

@@ -9,9 +9,9 @@ storiesOf('RadioOptions', module).add('Select options', () => {
     {
       name: 'Second option',
       info: 'This is the second option',
-      value: 'second',
+      value: 'second'
     },
-    { name: 'Third option', value: 'third' },
+    { name: 'Third option', value: 'third' }
   ]
   const [value, onValueChange] = useState(undefined)
 

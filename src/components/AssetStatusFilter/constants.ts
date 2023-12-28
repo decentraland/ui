@@ -6,7 +6,7 @@ export const i18n = {
     [AssetStatus.NOT_FOR_SALE]: 'Not For Sale',
     [AssetStatus.ONLY_LISTING]: 'Only Listings',
     [AssetStatus.ONLY_MINTING]: 'Only Available For Minting',
-    [AssetStatus.ON_SALE]: 'On Sale',
+    [AssetStatus.ON_SALE]: 'On Sale'
   },
   tooltips: {
     [AssetStatus.NOT_FOR_SALE]:
@@ -15,6 +15,6 @@ export const i18n = {
     [AssetStatus.ONLY_MINTING]:
       'Only includes items that are available for minting (buying directly from the creators).',
     [AssetStatus.ON_SALE]:
-      'Includes items available for minting and/or with available listings.',
-  },
+      'Includes items available for minting and/or with available listings.'
+  }
 }

@@ -2,7 +2,7 @@ export enum AssetStatus {
   ON_SALE = 'on_sale',
   ONLY_MINTING = 'only_minting',
   ONLY_LISTING = 'only_listing',
-  NOT_FOR_SALE = 'not_for_sale',
+  NOT_FOR_SALE = 'not_for_sale'
 }
 
 export type AssetStatusFilterProps = {

@@ -66,7 +66,7 @@ export enum NavbarPages {
   AGORA = 'agora',
   DAO = 'dao',
   BLOG = 'blog',
-  BUILDER = 'builder',
+  BUILDER = 'builder'
 }
 
 export type NavbarProps = {
@@ -111,14 +111,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           overview: 'Overview',
           collectibles: 'Collectibles',
           land: 'LAND',
-          myAssets: 'My Assets',
+          myAssets: 'My Assets'
         },
         docs: {
           main: 'Docs',
           players: 'Players',
           creators: 'Content Creators',
           contributors: 'Contributors',
-          studios: 'Studios',
+          studios: 'Studios'
         },
         events: 'Events',
         places: {
@@ -126,7 +126,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           overview: 'Overview',
           places: 'Genesis City',
           worlds: 'Worlds',
-          faq: 'FAQ',
+          faq: 'FAQ'
         },
         agora: 'Agora',
         dao: {
@@ -134,7 +134,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           overview: 'Overview',
           governance: 'Governance',
           transparency: 'Transparency',
-          grants: 'Grants',
+          grants: 'Grants'
         },
         blog: 'Blog',
         builder: {
@@ -144,13 +144,13 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           scenes: 'Scenes',
           land: 'Land',
           names: 'Names',
-          worlds: 'Worlds',
-        },
+          worlds: 'Worlds'
+        }
       },
       account: {
         signIn: 'Sign In',
-        connecting: 'Connecting...',
-      },
+        connecting: 'Connecting...'
+      }
     },
     isConnected: false,
     isConnecting: false,
@@ -161,12 +161,12 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     onClickAccount: null,
     onClickMenuOption: null,
     isFullWidth: false,
-    enableSubMenuSection: true,
+    enableSubMenuSection: true
   }
 
   public state = {
     toggle: false,
-    showSubMenu: {},
+    showSubMenu: {}
   }
 
   componentDidMount(): void {
@@ -194,7 +194,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
     if (this.props.enableSubMenuSection) {
       const toggle = !!this.state.showSubMenu[section]
       this.setState({
-        showSubMenu: { [section]: !toggle },
+        showSubMenu: { [section]: !toggle }
       })
     }
     event.stopPropagation()
@@ -657,7 +657,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       isConnecting,
       isSignIn,
       i18n,
-      onSignIn,
+      onSignIn
     } = this.props
     if (rightMenu) {
       return rightMenu
@@ -712,7 +712,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
       isSignIn,
       isFullscreen,
       isOverlay,
-      isFullWidth,
+      isFullWidth
     } = this.props
 
     let classes = `dcl navbar`

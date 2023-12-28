@@ -13,7 +13,7 @@ const props: CatalogCardProps = {
     name: 'Upper body sci',
     rarity: Rarity.EPIC,
     network: Network.MATIC,
-    creator: '0xd4fec88a49eb514e9347ec655d0481d8483a9ae0',
+    creator: '0xd4fec88a49eb514e9347ec655d0481d8483a9ae0'
   },
   action: 'Buy directly from creator',
   actionIcon: 'mintIcon',
@@ -22,7 +22,7 @@ const props: CatalogCardProps = {
   extraInformation: <span>1 listing</span>,
   notForSale: false,
   price: '10',
-  owners: '3 owners',
+  owners: '3 owners'
 }
 
 storiesOf('CatalogCard', module).add('Catalog', () => (

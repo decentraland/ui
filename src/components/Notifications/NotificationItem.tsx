@@ -1,7 +1,7 @@
 import React from 'react'
 
 import NotificationItemImage, {
-  NotificationItemImageProps,
+  NotificationItemImageProps
 } from './NotificationItemImage'
 import Time from '../../lib/time'
 
@@ -21,7 +21,7 @@ export default function NotificationItem({
   timestamp,
   isNew,
   children,
-  locale,
+  locale
 }: React.PropsWithChildren<NotificationItemProps>) {
   return (
     <div className="dcl notification-item">

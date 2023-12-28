@@ -9,7 +9,7 @@ export function AuthorizationModal({
   currentStep,
   header,
   steps,
-  onClose,
+  onClose
 }: Props) {
   return (
     <Modal

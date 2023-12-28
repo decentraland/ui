@@ -13,7 +13,7 @@ export enum LoginModalOptionType {
   SAMSUNG = 'samsung-blockchain-wallet',
   WALLET_CONNECT = 'wallet-connect',
   WALLET_LINK = 'wallet-link',
-  METAMASK_MOBILE = 'metamask-mobile',
+  METAMASK_MOBILE = 'metamask-mobile'
 }
 
 export type LoginModalProps = {
@@ -53,8 +53,8 @@ class LoginModalOption extends React.PureComponent<LoginModalOptionProps> {
       email: 'Using your email',
       mobile: 'Using your mobile wallet',
       mobile_and_browser: 'Using your mobile or browser extension',
-      metamask_mobile: 'Using the MetaMask app',
-    },
+      metamask_mobile: 'Using the MetaMask app'
+    }
   }
 
   render(): JSX.Element {
@@ -125,8 +125,8 @@ export class LoginModal extends React.Component<LoginModalProps> {
       title: 'Sign In',
       subtitle: 'Choose a method to connect',
       message: '',
-      error: 'Could not connect wallet',
-    },
+      error: 'Could not connect wallet'
+    }
   }
 
   static Option = LoginModalOption
@@ -140,7 +140,7 @@ export class LoginModal extends React.Component<LoginModalProps> {
       loading,
       onClose,
       i18n,
-      children,
+      children
     } = this.props
 
     let errorClasses = 'error'

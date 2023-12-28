@@ -31,7 +31,7 @@ export const RangeField = ({
   maxProps,
   id = 'range-field',
   onChange,
-  onBlur,
+  onBlur
 }: RangeFieldProps): JSX.Element => {
   const [min, max] = value
 

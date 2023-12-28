@@ -6,7 +6,7 @@ import {
   NFTCategory,
   Network,
   Rarity,
-  WearableCategory,
+  WearableCategory
 } from '@dcl/schemas'
 import { RenderResult, render } from '@testing-library/react'
 import { NFTCard } from './NFTCard'
@@ -28,9 +28,9 @@ describe('when rendering an ens', () => {
       network: Network.ETHEREUM,
       data: {
         ens: {
-          subdomain: 'subdomain',
-        },
-      },
+          subdomain: 'subdomain'
+        }
+      }
     } as NFT
     screen = renderNFTCard({ nft: ensNFT })
   })
@@ -55,9 +55,9 @@ describe('when rendering a parcel', () => {
       data: {
         parcel: {
           x: '1',
-          y: '2',
-        },
-      },
+          y: '2'
+        }
+      }
     } as NFT
     screen = renderNFTCard({ nft: parcelNFT })
   })
@@ -79,10 +79,10 @@ describe('when rendering an estate', () => {
         estate: {
           parcels: [
             { x: 1, y: 2 },
-            { x: 1, y: 1 },
-          ],
-        },
-      },
+            { x: 1, y: 1 }
+          ]
+        }
+      }
     } as NFT
     screen = renderNFTCard({ nft: estateNFT })
   })
@@ -107,9 +107,9 @@ describe('when rendering a wearable', () => {
           category: WearableCategory.EYES,
           bodyShapes: [BodyShape.FEMALE],
           isSmart: true,
-          rarity: Rarity.COMMON,
-        },
-      },
+          rarity: Rarity.COMMON
+        }
+      }
     } as NFT
 
     screen = renderNFTCard({ nft: wearableNFT })
@@ -147,9 +147,9 @@ describe('when rendering an emote', () => {
           loop: true,
           hasSound: true,
           rarity: Rarity.COMMON,
-          category: EmoteCategory.FUN,
-        },
-      },
+          category: EmoteCategory.FUN
+        }
+      }
     } as NFT
 
     screen = renderNFTCard({ nft: emoteNFT })
@@ -175,9 +175,9 @@ describe('when a price is defined', () => {
           loop: true,
           hasSound: true,
           rarity: Rarity.COMMON,
-          category: EmoteCategory.FUN,
-        },
-      },
+          category: EmoteCategory.FUN
+        }
+      }
     } as NFT
 
     screen = renderNFTCard({ nft: emoteNFT, price: '12' })
@@ -203,15 +203,15 @@ describe('when a custom header is defined', () => {
           loop: true,
           hasSound: true,
           rarity: Rarity.COMMON,
-          category: EmoteCategory.FUN,
-        },
-      },
+          category: EmoteCategory.FUN
+        }
+      }
     } as NFT
 
     screen = renderNFTCard({
       nft: emoteNFT,
       price: '12',
-      header: 'My custom header',
+      header: 'My custom header'
     })
   })
 

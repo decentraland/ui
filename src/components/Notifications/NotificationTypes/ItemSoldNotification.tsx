@@ -13,19 +13,19 @@ interface ItemSoldNotificationProps {
 const i18N = {
   en: { description: 'Someone just bought your ', title: 'Item Sold' },
   es: { description: 'Alguien acaba de comprar tu ', title: 'Item vendido' },
-  zh: { description: '有人刚买了你的 ', title: '已售商品' },
+  zh: { description: '有人刚买了你的 ', title: '已售商品' }
 }
 
 const ItemSoldNotification = ({
   notification,
-  locale,
+  locale
 }: ItemSoldNotificationProps) => {
   return (
     <NotificationItem
       image={{
         url: notification.metadata.image,
         rarity: notification.metadata.rarity,
-        icon: <ItemSold />,
+        icon: <ItemSold />
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}

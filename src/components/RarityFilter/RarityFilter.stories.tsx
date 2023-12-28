@@ -13,8 +13,7 @@ storiesOf('RarityFilter', module).add('Select rarities', () => {
     title: 'Rarities',
     all_rarities: 'All rarities',
     count_rarities: (count: number) => `${count} rarities`,
-    tooltip:
-      'The Rarity determines the total number of NFTs that can be minted',
+    tooltip: 'The Rarity determines the total number of NFTs that can be minted'
   }
 
   const [rarities, setRarities] = useState([])

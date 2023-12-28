@@ -7,7 +7,7 @@ export type SmartIconProps = {
 
 export class SmartIcon extends React.PureComponent<SmartIconProps> {
   static defaultProps = {
-    className: '',
+    className: ''
   }
 
   render() {
