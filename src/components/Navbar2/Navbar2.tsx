@@ -7,7 +7,7 @@ import { Logo } from '../Logo/Logo'
 import { Desktop, TabletAndBelow, useTabletAndBelowMediaQuery } from '../Media'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { Back } from '../Back/Back'
-import ArrowIcon from '../Icons/ArrowIcon'
+import ChevronIcon from '../Icons/ChevronIcon'
 
 import { config } from '../../config'
 
@@ -339,7 +339,7 @@ const MenuItem = (props: MenuItemProps) => {
       className={classNames('menu-item', section, isMobile && 'mobile')}
     >
       {title}
-      <ArrowIcon down={true} />
+      {!isMobile && <ChevronIcon down={true} />}
     </Menu.Item>
   )
 }

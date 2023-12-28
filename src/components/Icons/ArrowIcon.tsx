@@ -3,23 +3,19 @@ import classNames from 'classnames'
 
 import './styles.css'
 
-const ArrowIcon = ({ down = false }: { down?: boolean }) => (
-  <div
-    className={classNames('icon-container', 'centered', down && 'rotate-180')}
-  >
+const ArrowIcon = () => (
+  <div className={classNames('icon-container', 'centered')}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="10"
-      height="6"
-      viewBox="0 0 10 6"
+      width="19"
+      height="16"
+      viewBox="0 0 19 16"
+      fill="none"
     >
-      <g fill="none" fill-rule="evenodd">
-        <path d="M-7 15h24V-9H-7z" />
-        <path
-          fill={'var(--navbar-icons)'}
-          d="M5 0l4.756 4.6a.806.806 0 0 1 .002 1.156.856.856 0 0 1-1.192.003L5 2.317 1.434 5.759a.856.856 0 0 1-1.192-.003A.806.806 0 0 1 .244 4.6L5 0z"
-        />
-      </g>
+      <path
+        fill={'var(--navbar-icons)'}
+        d="M10.303 15.8894L8.94081 14.5416L14.5763 8.92003H0.016949L0.021785 6.96933L14.5812 6.96933L8.97347 1.36549L10.3424 0L18.2674 7.94468L10.303 15.8894Z"
+      />
     </svg>
   </div>
 )

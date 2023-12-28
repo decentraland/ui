@@ -131,6 +131,7 @@
   font-weight: 400;
   line-height: 18px;
   border-bottom-style: solid;
+  justify-content: space-between;
 }
 
 .dcl.user-menu-sign-in .menu-option__sign-out {
@@ -164,11 +165,11 @@
 .dcl.user-menu-sign-in .menu-actions li:hover,
 .dcl.user-menu-sign-in .menu-actions .item:hover,
 .dcl.user-menu-sign-in .menu-option__sign-out:hover {
-  color: var(--usermenu-item-text-hover);
+  color: var(--navbar-item-text-hover);
 }
 
 .dcl.user-menu-sign-in .menu-option__sign-out:hover .iconContainer svg g rect {
-  fill: var(--usermenu-item-text-hover);
+  fill: var(--navbar-item-text-hover);
 }
 
 .dcl.user-menu-sign-in .menu-actions li img {
@@ -186,6 +187,10 @@
 .dcl.user-menu-sign-in .menu-wrapper a {
   color: var(--text);
   font-weight: normal;
+}
+
+.dcl.user-menu-sign-in .menu-actions li .icon-container {
+  display: none;
 }
 
 @media (max-width: 991px) {
@@ -243,14 +248,20 @@
     position: relative;
   }
 
-  .dcl.user-menu-sign-in .menu-actions li::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 0;
-    background-image: url(../../assets/icon-arrow-right.png);
-    background-repeat: no-repeat;
-    background-position: center;
+  .dcl.user-menu-sign-in .menu-actions li .icon-container {
+    display: flex;
+  }
+
+  .dcl.user-menu-sign-in .menu-actions li .icon-container.centered svg path {
+    fill: var(--usermenu-item-text-enabled);
+  }
+
+  .dcl.user-menu-sign-in
+    .menu-actions
+    li:hover
+    .icon-container.centered
+    svg
+    path {
+    fill: var(--navbar-item-text-hover);
   }
 }

@@ -8,6 +8,7 @@ import { Button } from '../Button/Button'
 import ActivityIcon from '../Icons/ActivityIcon'
 import LogoutIcon from '../Icons/LogoutIcon'
 import Notifications from '../Notifications/Notifications'
+import ArrowIcon from '../Icons/ArrowIcon'
 import { config } from '../../config'
 
 import './UserMenu.css'
@@ -178,16 +179,28 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
           </div>
           <ul className="menu-actions">
             <div onClick={handleClickProfile}>
-              <li>{UserMenuLabels.VIEW_PROFILE}</li>
+              <li>
+                {UserMenuLabels.VIEW_PROFILE}
+                <ArrowIcon />
+              </li>
             </div>
             <div onClick={handleClickMyAssets}>
-              <li>{UserMenuLabels.MY_ASSETS}</li>
+              <li>
+                {UserMenuLabels.MY_ASSETS}
+                <ArrowIcon />
+              </li>
             </div>
             <div onClick={handleClickWallet}>
-              <li>{UserMenuLabels.WALLET}</li>
+              <li>
+                {UserMenuLabels.WALLET}
+                <ArrowIcon />
+              </li>
             </div>
             <div onClick={handleClickAccountSettings}>
-              <li>{UserMenuLabels.SETTINGS}</li>
+              <li>
+                {UserMenuLabels.SETTINGS}
+                <ArrowIcon />
+              </li>
             </div>
           </ul>
           <div onClick={handleClickSignOut} className="menu-option__sign-out">
