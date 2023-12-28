@@ -144,7 +144,7 @@
   font-weight: normal;
   color: var(--secondary-text);
   border-radius: 6px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-family: var(--font-family);
   margin-left: 24px;
   padding: 0px;

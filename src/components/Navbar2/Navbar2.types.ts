@@ -97,6 +97,7 @@ export type MenuLeftDesktopProps = {
 }
 
 export type Navbar2Props = UserMenuProps & {
-  className?: string
   activePage: Navbar2Pages | string
+  onClickMenuOption: (e: React.MouseEvent, section: string) => void
+  className?: string
 }

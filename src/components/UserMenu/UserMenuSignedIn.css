@@ -163,7 +163,6 @@
 
 .dcl.user-menu-sign-in .menu-actions li:hover,
 .dcl.user-menu-sign-in .menu-actions .item:hover {
-  background-color: var(--dropdown-hover);
   color: var(--usermenu-item-text-hover);
 }
 
