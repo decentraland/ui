@@ -158,8 +158,13 @@
   cursor: pointer;
 }
 
-.dcl.navbar2 .dcl.navbar2-wrapper .menu-item.item:hover .icon-container.centered svg path:nth-child(2) {
-  fill: var(--text)
+.dcl.navbar2
+  .dcl.navbar2-wrapper
+  .menu-item.item:hover
+  .icon-container.centered
+  svg
+  path:nth-child(2) {
+  fill: var(--text);
 }
 
 .dcl.navbar2 .dcl.navbar2-wrapper .item > .item {

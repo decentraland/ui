@@ -383,7 +383,13 @@ const MainMenu = (props: MainMenuProps) => {
 }
 
 export const Navbar2 = React.memo((props: Navbar2Props) => {
-  const { activePage, className, isSignedIn, onClickMenuOption, ...userMenuProps } = props
+  const {
+    activePage,
+    className,
+    isSignedIn,
+    onClickMenuOption,
+    ...userMenuProps
+  } = props
   const [toggle, setToggle] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState<Navbar2Pages | boolean>()
   const [menuMobileOpen, setMenuMobileOpen] = useState(false)
