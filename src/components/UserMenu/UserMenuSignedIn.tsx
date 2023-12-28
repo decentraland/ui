@@ -63,7 +63,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
           onClickMyAssets
             ? onClickMyAssets(event)
             : window.open(
-                `${config.get('MARKETPLACE_URL')}/account?section=collections`,
+                `${config.get('MARKETPLACE_MY_ASSETS_URL')}`,
                 '_blank',
                 'noopener'
               )
