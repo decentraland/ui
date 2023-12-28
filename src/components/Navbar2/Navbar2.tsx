@@ -30,7 +30,7 @@ export const i18n = {
       column1: [
         {
           title: 'Overview',
-          description: 'See what\'s trending & new',
+          description: "See what's trending & new",
           url: config.get('MARKETPLACE_URL')
         },
         {
@@ -151,7 +151,7 @@ export const i18n = {
       column2: [
         {
           title: 'Blog',
-          description: "News, Community Highlights, & more",
+          description: 'News, Community Highlights, & more',
           url: config.get('BLOG_URL'),
           isExternal: true
         },
