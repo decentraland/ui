@@ -8,6 +8,8 @@ import { Desktop, TabletAndBelow, useTabletAndBelowMediaQuery } from '../Media'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { Back } from '../Back/Back'
 
+import { config } from '../../config'
+
 import {
   SubMenuColumnProps,
   SubMenuItemProps,
@@ -28,37 +30,37 @@ export const i18n = {
       column1: [
         {
           title: 'Overview',
-          description: 'Uncover what’s happening in the market',
-          url: 'https://market.decentraland.org'
+          description: 'See what\'s trending & new',
+          url: config.get('MARKETPLACE_URL')
         },
         {
-          title: 'LANDs',
-          description: 'Buy and Rent Lands',
-          url: 'https://market.decentraland.org'
+          title: 'NAMEs',
+          description: 'Claim a NAME, get a whole World',
+          url: config.get('MARKETPLACE_NAMES_URL')
         }
       ],
       column2: [
         {
-          title: 'Avatar Shop',
-          description: 'Buy Wearables and Emotes',
-          url: 'https://market.decentraland.org'
+          title: 'Wearables',
+          description: 'Customize your digital identity',
+          url: config.get('MARKETPLACE_WEARABLES_URL')
         },
         {
-          title: 'NAMEs',
-          description: 'Claim a Unique Name and Own a World',
-          url: 'https://market.decentraland.org'
+          title: 'LAND',
+          description: 'Buy or Rent parcels on the Genesis City map',
+          url: config.get('MARKETPLACE_LANDS_URL')
         }
       ],
       column3: [
         {
-          title: 'My Assets',
-          description: 'Manage all your assets at a glace',
-          url: 'https://market.decentraland.org'
+          title: 'Emotes',
+          description: 'Animate your avatar',
+          url: config.get('MARKETPLACE_EMOTES_URL')
         },
         {
-          title: 'My Lists',
-          description: 'Save and find all your wished items here',
-          url: 'https://market.decentraland.org'
+          title: 'My Assets',
+          description: 'Manage your assets, listings, bids, &and more',
+          url: config.get('MARKETPLACE_MY_ASSETS_URL')
         }
       ]
     },
@@ -67,40 +69,40 @@ export const i18n = {
       column1Title: 'PUBLISH',
       column1: [
         {
-          title: 'Wearables and Emotes',
-          description: 'Monetize your style. Sell your own collections.',
-          url: 'https://market.decentraland.org'
+          title: 'Wearables & Emotes',
+          description: 'Publish & manage Marketplace collections',
+          url: config.get('BUILDER_WEARABLE_EMOTES_URL')
         },
         {
           title: 'Scenes',
-          description: 'Build virtual spaces for Worlds or LANDs.',
-          url: 'https://market.decentraland.org'
+          description: 'Create & publish scenes to LAND or Worlds',
+          url: config.get('BUILDER_SCENES_URL')
         }
       ],
       column2Title: 'MANAGE',
       column2: [
         {
           title: 'My NAMEs',
-          description: 'Control your digital identity and brand',
-          url: 'https://market.decentraland.org'
+          description: 'Create & manage NAMEs',
+          url: config.get('BUILDER_NAMES_URL')
         },
         {
           title: 'My Worlds',
-          description: 'Own a name? Unlock your personal world.',
-          url: 'https://market.decentraland.org'
+          description: 'Manage Worlds & Worlds storage',
+          url: config.get('BUILDER_WORLDS_URL')
         },
         {
           title: 'My LAND',
-          description: 'Manage permissions and create estates.',
-          url: 'https://market.decentraland.org'
+          description: 'Manage parcel permissions & more',
+          url: config.get('BUILDER_LAND_URL')
         }
       ],
       column3Title: 'HIRE',
       column3: [
         {
           title: 'Decentraland Studios',
-          description: 'Work with top-tier talent for your projects.',
-          url: 'https://market.decentraland.org',
+          description: 'Hire pros to transform your ideas to reality',
+          url: config.get('STUDIOS_URL'),
           isExternal: true
         }
       ]
@@ -110,25 +112,25 @@ export const i18n = {
       column1: [
         {
           title: 'Events',
-          description: 'Find and connect with your metaverse tribe.',
-          url: 'https://market.decentraland.org'
+          description: 'Find an event to jump into',
+          url: config.get('EVENTS_URL')
         },
         {
           title: 'My Events',
-          description: 'Track your virtual events.',
-          url: 'https://market.decentraland.org'
+          description: 'See saved events & events you’re hosting',
+          url: config.get('EVENTS_MY_EVENTS_URL')
         }
       ],
       column2: [
         {
           title: 'Places',
-          description: 'Discover the wonders of Decentraland.',
-          url: 'https://market.decentraland.org'
+          description: 'Browse locations in Genesis City & Worlds',
+          url: config.get('PLACES_URL')
         },
         {
           title: 'My Favorite Places',
-          description: 'Your personal pick of places.',
-          url: 'https://market.decentraland.org'
+          description: 'See your saved locations',
+          url: config.get('PLACES_MY_FAVORITE_URL')
         }
       ]
     },
@@ -137,25 +139,26 @@ export const i18n = {
       column1: [
         {
           title: 'About Decentraland',
-          description: 'Learn the essentials of Decentraland.',
-          url: 'https://market.decentraland.org'
+          description: 'FAQs, Whitepaper, & DAO docs',
+          url: config.get('DOCS_ABOUT_URL')
         },
         {
           title: 'Creator Docs',
-          description: 'Your go-to guide to crafting in Decentraland.',
-          url: 'https://market.decentraland.org'
+          description: 'Make Wearables, Emotes, scenes, games, & more',
+          url: config.get('DOCS_CREATORS_URL')
         }
       ],
       column2: [
         {
           title: 'Blog',
-          description: "Stay updated with Decentraland's latest",
-          url: 'https://market.decentraland.org'
+          description: "News, Community Highlights, & more",
+          url: config.get('BLOG_URL'),
+          isExternal: true
         },
         {
-          title: 'Contributor Docs',
-          description: 'Help forge the technical core of Decentraland.',
-          url: 'https://market.decentraland.org'
+          title: 'Open Protocol Docs',
+          description: 'See how Decentraland works & contribute',
+          url: config.get('DOCS_CONTRIBUTOR_URL')
         }
       ]
     },
@@ -164,37 +167,38 @@ export const i18n = {
       column1: [
         {
           title: 'Overview',
-          description: 'Help shape Decentraland’s future',
-          url: 'https://market.decentraland.org'
+          description: 'The latest in Decentraland governance',
+          url: config.get('GOVERNANCE_URL')
         },
         {
-          title: 'DAO Funds',
-          description: 'Track the DAO’s financial footprint',
-          url: 'https://market.decentraland.org'
+          title: 'DAO Transparency',
+          description: 'Treasury, Activity Dashboards, & more',
+          url: config.get('GOVERNANCE_TRANSPARENCY_URL')
         }
       ],
       column2: [
         {
           title: 'Proposals',
-          description: 'Use your voting power and participate',
-          url: 'https://market.decentraland.org'
+          description: 'Vote on active proposals',
+          url: config.get('GOVERNANCE_PROPOSALS_URL')
         },
         {
-          title: 'My DAO Profile',
-          description: 'Dashboard for all your DAO activity',
-          url: 'https://market.decentraland.org'
+          title: 'DAO Grants',
+          description: 'Fund your project, contribute to the platform.',
+          url: config.get('DAO_GRANTS_URL'),
+          isExternal: true
         }
       ],
       column3: [
         {
           title: 'Active Grants',
-          description: 'Progress tracker for grant initiatives',
-          url: 'https://market.decentraland.org'
+          description: 'Browse grant-funded community projects',
+          url: config.get('GOVERNANCE_PROJECTS_URL')
         },
         {
-          title: 'What is a DAO?',
-          description: 'Learn the essentials about the DAO.',
-          url: 'https://market.decentraland.org'
+          title: 'DAO Docs',
+          description: 'Learn about the DAO & how to participate',
+          url: config.get('DOCS_DAO_URL')
         }
       ]
     }
