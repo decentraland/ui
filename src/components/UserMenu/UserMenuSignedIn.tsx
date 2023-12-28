@@ -3,14 +3,14 @@ import classNames from 'classnames'
 
 import { ManaBalances } from './ManaBalances'
 import { UserMenuSignedInProps, UserMenuLabels } from './UserMenu.types'
-import './UserMenu.css'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Button } from '../Button/Button'
-import { config } from '../../config'
 import ActivityIcon from '../Icons/ActivityIcon'
 import LogoutIcon from '../Icons/LogoutIcon'
 import Notifications from '../Notifications/Notifications'
+import { config } from '../../config'
 
+import './UserMenu.css'
 import './UserMenuSignedIn.css'
 
 export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
@@ -84,7 +84,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
           onClickAccountSettings
             ? onClickAccountSettings(event)
             : window.open(
-                `${config.get('MARKETPLACE_URL')}/settings`,
+                `${config.get('MARKETPLACE_SETTINGS_URL')}`,
                 '_blank',
                 'noopener'
               )
@@ -121,7 +121,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         () => {
           onClickWallet
             ? onClickWallet(event)
-            : window.open(config.get('WALLET_URL'), '_blank', 'noopener')
+            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
         },
         onClickMenuItem ? 300 : 0
       )

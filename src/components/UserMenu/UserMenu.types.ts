@@ -63,6 +63,6 @@ export enum UserMenuLabels {
   SIGN_IN = 'Sign In',
   SIGN_OUT = 'Sign out',
   GUEST = 'Guest',
-  WALLET = 'My Wallet',
+  WALLET = 'Manage Wallet',
   JUMP_IN = 'Jump In'
 }
