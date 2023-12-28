@@ -3,6 +3,11 @@
   height: fit-content;
 }
 
+.ui.cards > .dui-nft-card.ui.card.link:hover,
+.dui-nft-card.ui.card.link:hover {
+  border: 0 !important; /** override Card important style */
+}
+
 .dui-nft-card.ui.link.card:hover,
 .dui-nft-card.a.ui.card:hover {
   background-color: var(--card);
