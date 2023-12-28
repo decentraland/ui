@@ -134,7 +134,7 @@
 }
 
 .dcl.user-menu-sign-in .menu-option__sign-out {
-  color: var(--navbar-menu-enabled);
+  color: var(--usermenu-item-text-enabled);
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -158,28 +158,23 @@
 }
 
 .dcl.user-menu-sign-in .menu-option__sign-out .iconContainer svg g rect {
-  fill: var(--navbar-menu-enabled);
+  fill: var(--usermenu-item-text-enabled);
 }
 
 .dcl.user-menu-sign-in .menu-actions li:hover,
-.dcl.user-menu-sign-in .menu-actions .item:hover {
+.dcl.user-menu-sign-in .menu-actions .item:hover,
+.dcl.user-menu-sign-in .menu-option__sign-out:hover {
   color: var(--usermenu-item-text-hover);
+}
+
+.dcl.user-menu-sign-in .menu-option__sign-out:hover .iconContainer svg g rect {
+  fill: var(--usermenu-item-text-hover);
 }
 
 .dcl.user-menu-sign-in .menu-actions li img {
   margin-right: 12px;
   display: block;
   filter: var(--brightness);
-}
-
-.dcl.user-menu-sign-in .menu-actions .sign-out-icon {
-  width: 12px;
-  height: 12px;
-  filter: var(--brightness);
-  background: url(../../assets/signout.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-right: 12px;
 }
 
 .dcl.user-menu-sign-in .toggle {
