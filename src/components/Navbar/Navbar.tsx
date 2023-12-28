@@ -39,6 +39,7 @@ export type NavbarI18N = {
       overview: React.ReactNode
       governance: React.ReactNode
       transparency: React.ReactNode
+      grants: React.ReactNode
     }
     blog: React.ReactNode
     builder: {
@@ -123,7 +124,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
         places: {
           main: 'Places',
           overview: 'Overview',
-          places: 'Places',
+          places: 'Genesis City',
           worlds: 'Worlds',
           faq: 'FAQ'
         },
@@ -132,7 +133,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           main: 'DAO',
           overview: 'Overview',
           governance: 'Governance',
-          transparency: 'Transparency'
+          transparency: 'Transparency',
+          grants: 'Grants'
         },
         blog: 'Blog',
         builder: {
@@ -379,7 +381,7 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             {i18n.menu.places.overview}
           </Menu.Item>
           <Menu.Item
-            href={`${config.get('PLACES_URL')}/places`}
+            href={`${config.get('PLACES_URL')}/genesis`}
             onMouseDown={(e: React.MouseEvent) =>
               this.handleClickMenuOption(e, `${NavbarPages.PLACES}_places`)
             }
@@ -435,6 +437,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             }
           >
             {i18n.menu.dao.transparency}
+          </Menu.Item>
+          <Menu.Item
+            href={`${config.get('DAO_URL')}/grants`}
+            onMouseDown={(e: React.MouseEvent) =>
+              this.handleClickMenuOption(e, `${NavbarPages.DAO}_grants`)
+            }
+          >
+            {i18n.menu.dao.grants}
           </Menu.Item>
         </Menu>
       </Menu.Item>

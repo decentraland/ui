@@ -14,6 +14,9 @@ import SettingsIcon from '../Icons/SettingsIcon'
 import GroupIcon from '../Icons/GroupIcon'
 import BookmarkedIcon from '../Icons/BookmarkedIcon'
 import { config } from '../../config'
+import Notifications, {
+  NotificationsProps
+} from '../Notifications/Notifications'
 import './UserInformationContainer.css'
 
 export type UserInformationComponentI18N = {
@@ -37,6 +40,7 @@ export type UserInformationComponentProps = {
   hasActivity: boolean
   menuItems?: React.ReactNode
   i18n: UserInformationComponentI18N
+  notifications?: NotificationsProps
   onSignOut: (trackingId: string) => void
   onSignIn: () => void
   onClickBalance?: (network: Network) => void
@@ -280,7 +284,8 @@ export class UserInformationContainer extends React.Component<
       return avatar.name
     }
 
-    const lastPart = `#${avatar?.userId.slice(-4)}`
+    const userId = address || avatar.userId
+    const lastPart = userId ? `#${userId.slice(-4)}` : ''
     return avatar.name.endsWith(lastPart) ? avatar.name : avatar.name + lastPart
   }
 
@@ -292,7 +297,8 @@ export class UserInformationContainer extends React.Component<
       onSignIn,
       onClickProfile,
       i18n,
-      hasActivity
+      hasActivity,
+      notifications
     } = this.props
 
     const { isOpen, isClickable } = this.state
@@ -316,6 +322,7 @@ export class UserInformationContainer extends React.Component<
             onBlur={this.handleClose}
             tabIndex={0}
           >
+            {notifications && <Notifications {...notifications} />}
             <Button
               basic
               onClick={this.handleClickActivity}

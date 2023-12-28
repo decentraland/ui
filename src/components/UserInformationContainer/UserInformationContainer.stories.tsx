@@ -3,6 +3,7 @@ import { Network } from '@dcl/schemas/dist/dapps/network'
 import { storiesOf } from '@storybook/react'
 import { UserInformationContainer } from './UserInformationContainer'
 import { avatar } from '../../data/avatar'
+import { NotificationActiveTab } from '../Notifications/types'
 
 storiesOf('UserInformationContainer', module)
   .add('Signed out', () => <UserInformationContainer />)
@@ -45,5 +46,25 @@ storiesOf('UserInformationContainer', module)
       avatar={avatar}
       manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       hasActivity
+    />
+  ))
+  .add('notifications', () => (
+    <UserInformationContainer
+      isSignedIn
+      avatar={avatar}
+      manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+      hasActivity
+      notifications={{
+        isOnboarding: false,
+        isOpen: false,
+        isLoading: false,
+        items: [],
+        locale: 'en',
+        activeTab: NotificationActiveTab.NEWEST,
+        onBegin: console.log,
+        onChangeTab: console.log,
+        onClick: console.log,
+        onClose: console.log
+      }}
     />
   ))
