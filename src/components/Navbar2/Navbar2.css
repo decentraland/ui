@@ -29,6 +29,7 @@
 
 .dcl.navbar2 .dcl.navbar2-menu .dcl.navbar2__menu-main {
   display: flex;
+  height: 100%;
 }
 
 .dcl.navbar2 .menu-item::after {
@@ -526,7 +527,7 @@
   background-color: var(--background);
   width: 100vw;
   height: 100vh;
-  top: -100vh;
+  top: -150vh;
   left: 0;
   transition: top 200ms ease-in-out;
 }
