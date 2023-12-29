@@ -506,17 +506,34 @@
 
 .dcl.navbar2 .dcl.navbar2-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 22px;
-  width: 22px;
+  height: 9px;
+  width: 32px;
+  position: relative
+}
+
+.dcl.navbar2 .dcl.navbar2-toggle {
+  transition: all 200ms ease-in-out;
 }
 
 .dcl.navbar2 .dcl.navbar2-toggle span {
-  transition: all 200ms ease-in-out;
-  height: 3px;
+  transition: top 200ms ease-in-out, 
+    left 200ms ease-in-out, 
+    width 200ms ease-in-out, 
+    transform 200ms ease-in-out;
+  height: 2px;
   width: 100%;
   background-color: var(--usermenu-item-text-enabled);
+  position: absolute;
+}
+
+.dcl.navbar2 .dcl.navbar2-toggle span:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+
+.dcl.navbar2 .dcl.navbar2-toggle span:nth-of-type(2) {
+  top: 100%;
+  left: 0;
 }
 
 .dcl.navbar2 .dcl.navbar2__menu-mobile {
@@ -569,22 +586,29 @@
 
   .dcl.navbar2 .dcl.navbar2-toggle {
     display: flex;
-  }
-
-  .dcl.navbar2 .dcl.navbar2-toggle:hover {
     cursor: pointer;
   }
 
+  .dcl.navbar2 .dcl.navbar2-toggle.open {
+    position: relative;
+    height: 24px;
+    width: 24px;
+}
+
   .dcl.navbar2 .dcl.navbar2-toggle.open span:nth-of-type(1) {
-    transform: rotate(45deg);
-    transform-origin: top left;
-    width: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 33.94px;
   }
 
   .dcl.navbar2 .dcl.navbar2-toggle.open span:nth-of-type(2) {
-    transform: rotate(-45deg);
-    transform-origin: bottom left;
-    width: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 33.94px;
   }
 
   .dcl.navbar2 .item.submenu.marketplace-submenu,
