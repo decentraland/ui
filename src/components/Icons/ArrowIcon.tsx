@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import './styles.css'
 
 const ArrowIcon = () => (
-  <div className={classNames('icon-container', 'centered')}>
+  <div className={classNames('dui-icon-container', 'centered')}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="19"

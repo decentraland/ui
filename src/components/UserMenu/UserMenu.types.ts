@@ -1,22 +1,13 @@
 import * as React from 'react'
-import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import { NotificationsProps } from '../Notifications/Notifications'
-
-export type ManaBalancesProps = {
-  manaBalances?: Partial<Record<Network, number>>
-  onClickBalance?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    network: Network
-  ) => void
-}
+import { ManaBalancesProps } from './ManaBalances/ManaBalances.types'
 
 export type UserMenuSignedInProps = ManaBalancesProps & {
   avatar?: Avatar
   isOpen?: boolean
   trackingId?: string | null
   hasActivity?: boolean
-  isClickable?: boolean
   notifications?: NotificationsProps
   onClickAccountSettings?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>
@@ -32,7 +23,7 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
   onClickWallet?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickMenuItem?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    id: UserMenuLabels,
+    id: string,
     trackingId?: string
   ) => void
 }
@@ -52,17 +43,18 @@ export type UserMenuProps = Omit<
   onClickJumpIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 }
 
-export enum UserMenuLabels {
-  ACTIVITY = 'Activity',
-  MY_ASSETS = 'My Assets',
-  SETTINGS = 'Account Settings',
-  MY_LISTS = 'My Lists',
-  ACCOUNT = 'Account',
-  PROFILE = 'Profile',
-  VIEW_PROFILE = 'View Profile',
-  SIGN_IN = 'Sign In',
-  SIGN_OUT = 'Sign out',
-  GUEST = 'Guest',
-  WALLET = 'Manage Wallet',
-  JUMP_IN = 'Jump In'
-}
+export type UserMenuI18N = Record<
+  | 'activity'
+  | 'myAssets'
+  | 'settings'
+  | 'myLists'
+  | 'account'
+  | 'profile'
+  | 'viewProfile'
+  | 'signIn'
+  | 'signOut'
+  | 'guest'
+  | 'wallet'
+  | 'jumpIn',
+  string
+>

@@ -1,16 +1,18 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import classNames from 'classnames'
 
-import { ManaBalances } from './ManaBalances'
-import { UserMenuSignedIn } from './UserMenuSignedIn'
-import { UserMenuProps, UserMenuLabels } from './UserMenu.types'
-import './UserMenu.css'
+import { ManaBalances } from './ManaBalances/ManaBalances'
+import { UserMenuSignedIn } from './UserMenuSignedIn/UserMenuSignedIn'
+import { i18n } from './UserMenu.i18n'
+import { UserMenuProps } from './UserMenu.types'
 import { Mobile } from '../Media'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
 import { config } from '../../config'
 import { Row } from '../Row/Row'
+
+import './UserMenu.css'
 
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
@@ -26,30 +28,18 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
-  const [isClickable, setIsClickable] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
   const [trackingId, setTrackingId] = useState<string | null>(null)
-
-  useEffect(() => {
-    setIsOpen(isOpen)
-    setTimeout(() => {
-      if (isMounted) {
-        setIsClickable(isOpen)
-      }
-    }, 250)
-  }, [isOpen, setIsOpen, setIsClickable, setIsMounted])
-
-  useEffect(() => {
-    setIsMounted(true)
-    return () => setIsMounted(false)
-  }, [])
 
   const handleToggle = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       const trackId = uuidv4()
       setIsOpen((prev) => {
-        !prev && setTrackingId(trackId)
-        !prev && onClickOpen && onClickOpen(event, trackId)
+        if (!prev) {
+          setTrackingId(trackId)
+        }
+        if (!prev && onClickOpen) {
+          onClickOpen(event, trackId)
+        }
         return !prev
       })
     },
@@ -62,8 +52,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
   const handleClickJumpIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.PROFILE, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.profile, trackingId)
 
       setTimeout(
         () => {
@@ -100,7 +89,6 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
               manaBalances={manaBalances}
               trackingId={trackingId}
               isOpen={isOpen}
-              isClickable={isClickable}
               onClickToggle={handleToggle}
               onClickMenuItem={onClickMenuItem}
               onClickBalance={onClickBalance}
@@ -108,7 +96,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
           )}
           {!isSignedIn && (
             <Button inverted disabled={isSigningIn} onClick={onClickSignIn}>
-              {UserMenuLabels.SIGN_IN}
+              {i18n.signIn}
             </Button>
           )}
           <Button
@@ -117,7 +105,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
             disabled={isSigningIn}
             onClick={handleClickJumpIn}
           >
-            {UserMenuLabels.JUMP_IN}
+            {i18n.jumpIn}
           </Button>
         </div>
       </Row>

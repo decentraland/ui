@@ -3,9 +3,9 @@ import React from 'react'
 import { Network } from '@dcl/schemas'
 import classNames from 'classnames'
 
-import { ManaBalancesProps } from './UserMenu.types'
-import { Mana } from '../Mana/Mana'
-import { config } from '../../config'
+import { ManaBalancesProps } from './ManaBalances.types'
+import { Mana } from '../../Mana/Mana'
+import { config } from '../../../config'
 
 export const ManaBalances = (props: ManaBalancesProps) => {
   const { manaBalances, onClickBalance } = props

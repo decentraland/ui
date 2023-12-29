@@ -1,17 +1,18 @@
 import React, { useCallback } from 'react'
 import classNames from 'classnames'
 
-import { ManaBalances } from './ManaBalances'
-import { UserMenuSignedInProps, UserMenuLabels } from './UserMenu.types'
-import { AvatarFace } from '../AvatarFace/AvatarFace'
-import { Button } from '../Button/Button'
-import ActivityIcon from '../Icons/ActivityIcon'
-import LogoutIcon from '../Icons/LogoutIcon'
-import Notifications from '../Notifications/Notifications'
-import ArrowIcon from '../Icons/ArrowIcon'
-import { config } from '../../config'
+import { ManaBalances } from '../ManaBalances/ManaBalances'
+import { i18n } from '../UserMenu.i18n'
+import { UserMenuSignedInProps } from '../UserMenu.types'
+import { AvatarFace } from '../../AvatarFace/AvatarFace'
+import { Button } from '../../Button/Button'
+import ActivityIcon from '../../Icons/ActivityIcon'
+import LogoutIcon from '../../Icons/LogoutIcon'
+import Notifications from '../../Notifications/Notifications'
+import ArrowIcon from '../../Icons/ArrowIcon'
+import { config } from '../../../config'
 
-import './UserMenu.css'
+import '../UserMenu.css'
 import './UserMenuSignedIn.css'
 
 export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
@@ -19,7 +20,6 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     manaBalances,
     avatar,
     hasActivity,
-    isClickable,
     isOpen,
     trackingId,
     notifications,
@@ -36,8 +36,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.ACTIVITY, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.activity, trackingId)
       setTimeout(
         () => {
           onClickActivity
@@ -56,8 +55,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickMyAssets = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.MY_ASSETS, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.myAssets, trackingId)
 
       setTimeout(
         () => {
@@ -77,8 +75,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickAccountSettings = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.SETTINGS, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.settings, trackingId)
 
       setTimeout(
         () => {
@@ -98,8 +95,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickProfile = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.PROFILE, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.profile, trackingId)
 
       setTimeout(
         () => {
@@ -115,8 +111,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickWallet = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuLabels.WALLET, trackingId)
+      onClickMenuItem && onClickMenuItem(event, i18n.wallet, trackingId)
 
       setTimeout(
         () => {
@@ -145,7 +140,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
   )
 
   return (
-    <div className={classNames('dcl', 'user-menu-sign-in')}>
+    <div className={classNames('dui-user-menu-sign-in')}>
       {notifications && <Notifications {...notifications} />}
       <Button basic onClick={handleClickActivity} className="activity-icon">
         <ActivityIcon hasActivity={hasActivity} />
@@ -157,20 +152,13 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
       <div className="toggle" onClick={handleClickToggle}>
         <AvatarFace size="medium" avatar={avatar} />
       </div>
-      <div
-        className={classNames(
-          'menu-wrapper',
-          isOpen && 'open',
-          isClickable && 'clickable'
-        )}
-      >
+      <div className={classNames('menu-wrapper', isOpen && 'open')}>
         <div className="menu-wearable-preview">
           <img src={avatar.avatar.snapshots.body} />
-          {/* <WearablePreview profile={avatar.ethAddress} disableBackground /> */}
         </div>
         <div className="menu-actions__wrapper">
           <div className={'menu-info'}>
-            {avatar?.name || UserMenuLabels.GUEST}{' '}
+            {avatar?.name || i18n.guest}{' '}
             {!avatar.hasClaimedName && (
               <span>
                 #{avatar.ethAddress.substring(avatar.ethAddress.length - 4)}
@@ -180,31 +168,31 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
           <ul className="menu-actions">
             <div onClick={handleClickProfile}>
               <li>
-                {UserMenuLabels.VIEW_PROFILE}
+                {i18n.viewProfile}
                 <ArrowIcon />
               </li>
             </div>
             <div onClick={handleClickMyAssets}>
               <li>
-                {UserMenuLabels.MY_ASSETS}
+                {i18n.myAssets}
                 <ArrowIcon />
               </li>
             </div>
             <div onClick={handleClickWallet}>
               <li>
-                {UserMenuLabels.WALLET}
+                {i18n.wallet}
                 <ArrowIcon />
               </li>
             </div>
             <div onClick={handleClickAccountSettings}>
               <li>
-                {UserMenuLabels.SETTINGS}
+                {i18n.settings}
                 <ArrowIcon />
               </li>
             </div>
           </ul>
           <div onClick={handleClickSignOut} className="menu-option__sign-out">
-            {UserMenuLabels.SIGN_OUT}
+            {i18n.signOut}
             <LogoutIcon />
           </div>
         </div>

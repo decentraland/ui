@@ -3,7 +3,7 @@
   height: 24px;
 }
 
-.icon-container.centered {
+.dui-icon-container.centered {
   width: 24px;
   height: 24px;
   display: flex;
@@ -12,6 +12,6 @@
 }
 
 .iconContainer.rotate-180 svg,
-.icon-container.rotate-180 svg {
+.dui-icon-container.rotate-180 svg {
   transform: rotateZ(180deg);
 }

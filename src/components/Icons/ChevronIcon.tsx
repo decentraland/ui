@@ -5,7 +5,11 @@ import './styles.css'
 
 const ChevronIcon = ({ down = false }: { down?: boolean }) => (
   <div
-    className={classNames('icon-container', 'centered', down && 'rotate-180')}
+    className={classNames(
+      'dui-icon-container',
+      'centered',
+      down && 'rotate-180'
+    )}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

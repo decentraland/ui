@@ -5,16 +5,31 @@ import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 
 import { UserMenuSignedIn } from './UserMenuSignedIn'
-import { NotificationActiveTab } from '../Notifications/types'
-import { avatar } from '../../data/avatar'
+import { NotificationActiveTab } from '../../Notifications/types'
+import { avatar } from '../../../data/avatar'
 
-import './UserMenu.stories.css'
+import '../UserMenu.stories.css'
 
 storiesOf('UserMenuSignedIn', module)
   .add('Guest', () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         avatar={{ ...avatar, hasClaimedName: false }}
+        trackingId=""
+        isOpen
+        onClickAccountSettings={console.log}
+        onClickActivity={console.log}
+        onClickMyAssets={console.log}
+        onClickProfile={console.log}
+        onClickSignOut={console.log}
+        onClickToggle={console.log}
+        onClickWallet={console.log}
+      />
+    </div>
+  ))
+  .add('Without profile', () => (
+    <div className="usermenu-story-container">
+      <UserMenuSignedIn
         trackingId=""
         isOpen
         onClickAccountSettings={console.log}
