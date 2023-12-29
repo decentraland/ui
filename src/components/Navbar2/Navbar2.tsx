@@ -23,6 +23,7 @@ import {
 } from './Navbar2.types'
 
 import './Navbar2.css'
+import ArrowIcon from '../Icons/ArrowIcon'
 
 export const i18n = {
   menu: {
@@ -340,6 +341,7 @@ const MenuItem = (props: MenuItemProps) => {
     >
       {title}
       {!isMobile && <ChevronIcon down={true} />}
+      {isMobile && <ArrowIcon />}
     </Menu.Item>
   )
 }
