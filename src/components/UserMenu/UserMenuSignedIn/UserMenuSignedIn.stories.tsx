@@ -31,6 +31,7 @@ storiesOf('UserMenuSignedIn', module)
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         trackingId=""
+        address={avatar.ethAddress}
         isOpen
         onClickAccountSettings={console.log}
         onClickActivity={console.log}

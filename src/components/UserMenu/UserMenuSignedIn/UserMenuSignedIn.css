@@ -67,6 +67,14 @@
   margin-bottom: -100px;
 }
 
+.dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview.default-avatar {
+  margin-left: -50px;
+}
+
+.dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview.default-avatar img {
+  height: 100%;
+}
+
 .dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview .WearablePreview {
   background: var(--background);
 }
@@ -218,6 +226,7 @@
     margin-left: 25px;
     margin-right: 22px;
     width: calc(100% - 25px - 22px);
+    height: auto;
   }
 
   .dui-user-menu-sign-in .menu-actions {
@@ -226,13 +235,21 @@
   }
 
   .dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview {
-    margin-left: 0;
-    margin-bottom: 0;
+    margin-left: -60px;
+    margin-bottom: -200px;
   }
 
-  .dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview {
-    margin-left: -60px;
-    margin-bottom: -60px;
+  .dui-user-menu-sign-in .menu-wrapper .menu-wearable-preview.default-avatar {
+    margin-left: -30px;
+    height: 400px;
+    margin-bottom: -100px;
+  }
+
+  .dui-user-menu-sign-in
+    .menu-wrapper
+    .menu-wearable-preview.default-avatar
+    img {
+    height: 400px;
   }
 
   .dui-user-menu-sign-in .menu-option__sign-out {

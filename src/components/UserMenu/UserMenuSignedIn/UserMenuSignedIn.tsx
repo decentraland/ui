@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 
 import { ManaBalances } from '../ManaBalances/ManaBalances'
 import { i18n } from '../UserMenu.i18n'
-import { UserMenuSignedInProps } from '../UserMenu.types'
+import { UserMenuSignedInProps } from './UserMenuSignedIn.types'
 import { AvatarFace } from '../../AvatarFace/AvatarFace'
 import { Button } from '../../Button/Button'
 import ActivityIcon from '../../Icons/ActivityIcon'
@@ -11,6 +11,7 @@ import LogoutIcon from '../../Icons/LogoutIcon'
 import Notifications from '../../Notifications/Notifications'
 import ArrowIcon from '../../Icons/ArrowIcon'
 import { config } from '../../../config'
+import mansDefault from '../../../assets/man-default.png'
 
 import '../UserMenu.css'
 import './UserMenuSignedIn.css'
@@ -19,6 +20,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
   const {
     manaBalances,
     avatar,
+    address,
     hasActivity,
     isOpen,
     trackingId,
@@ -139,6 +141,11 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     [onClickToggle, trackingId]
   )
 
+  const userAddress = useMemo(
+    () => avatar?.ethAddress || address,
+    [avatar, address]
+  )
+
   return (
     <div className={classNames('dui-user-menu-sign-in')}>
       {notifications && <Notifications {...notifications} />}
@@ -153,16 +160,19 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         <AvatarFace size="medium" avatar={avatar} />
       </div>
       <div className={classNames('menu-wrapper', isOpen && 'open')}>
-        <div className="menu-wearable-preview">
-          <img src={avatar.avatar.snapshots.body} />
+        <div
+          className={classNames(
+            'menu-wearable-preview',
+            !avatar && 'default-avatar'
+          )}
+        >
+          <img src={avatar?.avatar?.snapshots?.body || mansDefault} />
         </div>
         <div className="menu-actions__wrapper">
           <div className={'menu-info'}>
             {avatar?.name || i18n.guest}{' '}
-            {!avatar.hasClaimedName && (
-              <span>
-                #{avatar.ethAddress.substring(avatar.ethAddress.length - 4)}
-              </span>
+            {!avatar?.hasClaimedName && userAddress && (
+              <span>#{userAddress.substring(userAddress.length - 4)}</span>
             )}
           </div>
           <ul className="menu-actions">
