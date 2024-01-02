@@ -150,6 +150,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  cursor: pointer;
 }
 
 .dui-user-menu-sign-in .menu-option__sign-out .iconContainer {
