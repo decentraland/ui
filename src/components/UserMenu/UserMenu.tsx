@@ -1,12 +1,10 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import React, { useState, useCallback } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import classNames from 'classnames'
 
-import { ManaBalances } from './ManaBalances/ManaBalances'
 import { UserMenuSignedIn } from './UserMenuSignedIn/UserMenuSignedIn'
 import { i18n } from './UserMenu.i18n'
 import { UserMenuProps } from './UserMenu.types'
-import { Mobile } from '../Media'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
 import { config } from '../../config'
@@ -66,15 +64,6 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     [onClickJumpIn, onClickMenuItem, trackingId]
   )
 
-  const isSomeBalanceTooHigh = useMemo(
-    () =>
-      manaBalances &&
-      Object.values(manaBalances).some(
-        (balance) => Number(balance.toFixed(2)).toLocaleString().length > 5
-      ),
-    [manaBalances]
-  )
-
   return (
     <Column align="right">
       <Row className={classNames('dcl', 'user-menu-wrapper')}>
@@ -109,19 +98,6 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
           </Button>
         </div>
       </Row>
-      {isSignedIn && isSomeBalanceTooHigh && (
-        <Mobile>
-          <Row
-            className={classNames('dcl', 'mobile-user-balances-wrapper')}
-            align="right"
-          >
-            <ManaBalances
-              manaBalances={manaBalances}
-              onClickBalance={onClickBalance}
-            />
-          </Row>
-        </Mobile>
-      )}
     </Column>
   )
 })
