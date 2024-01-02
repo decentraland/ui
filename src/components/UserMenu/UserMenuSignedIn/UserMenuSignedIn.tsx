@@ -159,7 +159,10 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
       <div className="toggle" onClick={handleClickToggle}>
         <AvatarFace size="medium" avatar={avatar} />
       </div>
-      <div className={classNames('menu-wrapper', isOpen && 'open')}>
+      <div
+        className={classNames('menu-wrapper', isOpen && 'open')}
+        onMouseLeave={handleClickToggle}
+      >
         <div
           className={classNames(
             'menu-wearable-preview',
