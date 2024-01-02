@@ -162,7 +162,7 @@ export const i18n = {
         },
         {
           title: 'DAO Grants',
-          description: 'Fund your project, contribute to the platform.',
+          description: 'Community grants overview, highlights, & resources',
           url: config.get('DAO_GRANTS_URL'),
           isExternal: true
         }
