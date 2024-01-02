@@ -48,54 +48,6 @@ export enum Navbar2Pages {
   GOVERNANCE = 'governance'
 }
 
-export type SubMenuItemProps = {
-  title: string
-  description: string
-  href: string
-  isExternal?: boolean
-  className?: string
-}
-
-export type SubMenuColumnProps = {
-  children: React.ReactNode
-  title?: string
-  isExternal?: boolean
-  className?: string
-}
-
-export type SubMenuProps = {
-  selectedMenu: Navbar2Pages | boolean
-  onToggleShowSubMenu: (
-    e: React.MouseEvent,
-    show: boolean,
-    section?: Navbar2Pages
-  ) => void
-  onClickMenuOption: (e: React.MouseEvent, section: string) => void
-  isMobile?: boolean
-}
-
-export type MenuItemProps = {
-  activePage: Navbar2Pages | string
-  section: Navbar2Pages
-  title: React.ReactNode
-  onToggleShowSubMenu: (
-    e: React.MouseEvent,
-    show: boolean,
-    section?: Navbar2Pages
-  ) => void
-  isMobile?: boolean
-}
-
-export type MenuLeftDesktopProps = {
-  activePage: Navbar2Pages | string
-  onToggleShowSubMenu: (
-    e: React.MouseEvent,
-    show: boolean,
-    section?: Navbar2Pages
-  ) => void
-  isMobile?: boolean
-}
-
 export type Navbar2Props = UserMenuProps & {
   activePage: Navbar2Pages | string
   onClickMenuOption?: (e: React.MouseEvent, section: string) => void
