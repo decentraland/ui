@@ -13,7 +13,7 @@ export const MainMenu = (props: MainMenuProps) => {
     <div
       className={classNames(
         'dui-navbar2__menu',
-        !props.isMobile && 'dui-navbar2__menu-main',
+        !props.isMobile && 'dui-navbar2__menu-desktop',
         props.isMobile && 'dui-navbar2__menu-mobile'
       )}
     >

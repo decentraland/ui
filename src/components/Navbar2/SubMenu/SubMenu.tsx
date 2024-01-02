@@ -35,7 +35,6 @@ export const SubMenu = (props: SubMenuProps) => {
               !isMobile && onToggleShowSubMenu(e, false, section)
             }
           >
-            {/* React.MouseEventHandler<HTMLDivElement> */}
             <div className="submenu-column__wrapper">
               {isMobile && (
                 <Back

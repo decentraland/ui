@@ -61,7 +61,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
         onClickMenuItem ? 300 : 0
       )
     },
-    [onClickJumpIn, onClickMenuItem, trackingId]
+    [onClickJumpIn, onClickMenuItem, i18n.profile, trackingId]
   )
 
   return (

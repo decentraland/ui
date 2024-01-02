@@ -52,7 +52,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickActivity ? 300 : 0
       )
     },
-    [onClickActivity, trackingId]
+    [onClickActivity, onClickMenuItem, i18n.activity, trackingId]
   )
 
   const handleClickMyAssets = useCallback(
@@ -72,7 +72,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickMenuItem ? 300 : 0
       )
     },
-    [onClickMyAssets, onClickMenuItem, trackingId]
+    [onClickMyAssets, onClickMenuItem, i18n.myAssets, trackingId]
   )
 
   const handleClickAccountSettings = useCallback(
@@ -138,7 +138,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickToggle(event)
     },
-    [onClickToggle, trackingId]
+    [onClickToggle]
   )
 
   const userAddress = useMemo(
@@ -147,7 +147,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
   )
 
   return (
-    <div className={classNames('dui-user-menu-sign-in')}>
+    <div className={classNames('dui-user-menu-signed-in')}>
       {notifications && <Notifications {...notifications} />}
       <Button basic onClick={handleClickActivity} className="activity-icon">
         <ActivityIcon hasActivity={hasActivity} />
