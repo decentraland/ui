@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 
 import { Back } from '../../Back/Back'
-import { i18n } from '../Navbar2.i18n'
 import { Navbar2Pages } from '../Navbar2.types'
 import { SubMenuProps } from './SubMenu.types'
 import { SubMenuColumn } from '../SubMenuColumn/SubMenuColumn'
@@ -12,7 +11,13 @@ import { SubMenuItem } from '../SubMenuItem/SubMenuItem'
 import './SubMenu.css'
 
 export const SubMenu = (props: SubMenuProps) => {
-  const { selectedMenu, onToggleShowSubMenu, isMobile } = props
+  const {
+    selectedMenu,
+    onToggleShowSubMenu,
+    onClickMenuOption,
+    isMobile,
+    i18n
+  } = props
 
   return (
     <div
@@ -27,6 +32,7 @@ export const SubMenu = (props: SubMenuProps) => {
         const submenu = i18n.menu[section]
         return (
           <Menu.Item
+            key={key}
             className={classNames('submenu', `${section}-submenu`)}
             onMouseEnter={(e: React.MouseEvent) =>
               !isMobile && onToggleShowSubMenu(e, true, section)
@@ -52,6 +58,8 @@ export const SubMenu = (props: SubMenuProps) => {
                     title={item.title}
                     description={item.description}
                     href={item.url}
+                    eventTracking={item.eventTracking}
+                    onClickMenuOption={onClickMenuOption}
                   />
                 ))}
               </SubMenuColumn>
@@ -63,6 +71,8 @@ export const SubMenu = (props: SubMenuProps) => {
                     title={item.title}
                     description={item.description}
                     href={item.url}
+                    eventTracking={item.eventTracking}
+                    onClickMenuOption={onClickMenuOption}
                   />
                 ))}
               </SubMenuColumn>
@@ -75,6 +85,8 @@ export const SubMenu = (props: SubMenuProps) => {
                       title={item.title}
                       description={item.description}
                       href={item.url}
+                      eventTracking={item.eventTracking}
+                      onClickMenuOption={onClickMenuOption}
                     />
                   ))}
                 </SubMenuColumn>

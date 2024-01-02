@@ -8,6 +8,8 @@ import { UserMenu } from '../UserMenu/UserMenu'
 import { Navbar2Pages, Navbar2Props } from './Navbar2.types'
 import { SubMenu } from './SubMenu/SubMenu'
 import { MainMenu } from './MainMenu/MainMenu'
+import { i18n as i18nNavbarDefault } from './Navbar2.i18n'
+import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar2.css'
 
@@ -16,7 +18,9 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     activePage,
     className,
     isSignedIn,
-    onClickMenuOption,
+    i18nNavbar = i18nNavbarDefault,
+    i18nUserMenu = i18nUserMenuDefault,
+    onClickMenuItem,
     ...userMenuProps
   } = props
   const [toggle, setToggle] = useState(false)
@@ -39,6 +43,16 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
       setMenuMobileOpen(show)
     },
     [setToggle, setMenuMobileOpen]
+  )
+
+  const handleClickMenu = useCallback(
+    (
+      event: React.MouseEvent<HTMLElement, MouseEvent>,
+      eventTracking: string
+    ) => {
+      onClickMenuItem && onClickMenuItem(event, eventTracking)
+    },
+    [onClickMenuItem]
   )
 
   return (
@@ -74,6 +88,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
               <MainMenu
                 activePage={activePage}
                 onToggleShowSubMenu={handleToggle}
+                i18n={i18nNavbar}
               />
             </Desktop>
           </div>
@@ -83,7 +98,12 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
             </a>
           </TabletAndBelow>
           <div className="dui-navbar2-account">
-            <UserMenu {...userMenuProps} isSignedIn={isSignedIn}></UserMenu>
+            <UserMenu
+              {...userMenuProps}
+              isSignedIn={isSignedIn}
+              i18n={i18nUserMenu}
+              onClickMenuItem={onClickMenuItem}
+            ></UserMenu>
           </div>
         </div>
       </Container>
@@ -91,14 +111,16 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
       <SubMenu
         selectedMenu={selectedMenu}
         onToggleShowSubMenu={handleToggle}
-        onClickMenuOption={onClickMenuOption}
+        onClickMenuOption={handleClickMenu}
         isMobile={isTabletAndBelow}
+        i18n={i18nNavbar}
       />
       <TabletAndBelow>
         <MainMenu
           activePage={activePage}
           onToggleShowSubMenu={handleToggle}
           isMobile={isTabletAndBelow}
+          i18n={i18nNavbar}
         />
       </TabletAndBelow>
     </div>

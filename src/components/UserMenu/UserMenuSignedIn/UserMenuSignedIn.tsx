@@ -2,7 +2,6 @@ import React, { useCallback, useMemo } from 'react'
 import classNames from 'classnames'
 
 import { ManaBalances } from '../ManaBalances/ManaBalances'
-import { i18n } from '../UserMenu.i18n'
 import { UserMenuSignedInProps } from './UserMenuSignedIn.types'
 import { AvatarFace } from '../../AvatarFace/AvatarFace'
 import { Button } from '../../Button/Button'
@@ -12,6 +11,7 @@ import Notifications from '../../Notifications/Notifications'
 import ArrowIcon from '../../Icons/ArrowIcon'
 import { config } from '../../../config'
 import mansDefault from '../../../assets/man-default.png'
+import { UserMenuEventId } from '../UserMenu.types'
 
 import '../UserMenu.css'
 import './UserMenuSignedIn.css'
@@ -25,6 +25,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     isOpen,
     trackingId,
     notifications,
+    i18n,
     onClickAccountSettings,
     onClickActivity,
     onClickBalance,
@@ -38,7 +39,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem && onClickMenuItem(event, i18n.activity, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.ACTIVITY, trackingId)
       setTimeout(
         () => {
           onClickActivity
@@ -52,12 +54,13 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickActivity ? 300 : 0
       )
     },
-    [onClickActivity, onClickMenuItem, i18n.activity, trackingId]
+    [onClickActivity, onClickMenuItem, trackingId]
   )
 
   const handleClickMyAssets = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem && onClickMenuItem(event, i18n.myAssets, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.MY_ASSETS, trackingId)
 
       setTimeout(
         () => {
@@ -72,12 +75,13 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickMenuItem ? 300 : 0
       )
     },
-    [onClickMyAssets, onClickMenuItem, i18n.myAssets, trackingId]
+    [onClickMyAssets, onClickMenuItem, trackingId]
   )
 
   const handleClickAccountSettings = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem && onClickMenuItem(event, i18n.settings, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.SETTINGS, trackingId)
 
       setTimeout(
         () => {
@@ -97,7 +101,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickProfile = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem && onClickMenuItem(event, i18n.profile, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.PROFILE, trackingId)
 
       setTimeout(
         () => {
@@ -113,7 +118,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickWallet = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem && onClickMenuItem(event, i18n.wallet, trackingId)
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.WALLET, trackingId)
 
       setTimeout(
         () => {
@@ -129,9 +135,11 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickSignOut = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.SIGN_OUT, trackingId)
       onClickSignOut(event, trackingId)
     },
-    [onClickSignOut, trackingId]
+    [onClickSignOut, onClickMenuItem, trackingId]
   )
 
   const handleClickToggle = useCallback(

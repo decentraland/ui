@@ -1,6 +1,7 @@
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import { NotificationsProps } from '../../Notifications/Notifications'
 import { ManaBalancesProps } from '../ManaBalances/ManaBalances.types'
+import { UserMenuI18N } from '../UserMenu.types'
 
 export type UserMenuSignedInProps = ManaBalancesProps & {
   avatar?: Avatar
@@ -9,6 +10,7 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
   trackingId?: string | null
   hasActivity?: boolean
   notifications?: NotificationsProps
+  i18n: UserMenuI18N
   onClickAccountSettings?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>
   ) => void

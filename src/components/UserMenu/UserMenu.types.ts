@@ -8,6 +8,7 @@ export type UserMenuProps = Omit<
   isSignedIn?: boolean
   isSigningIn?: boolean
   isActivity?: boolean
+  i18n?: UserMenuI18N
   onClickSignIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickOpen?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
@@ -17,12 +18,9 @@ export type UserMenuProps = Omit<
 }
 
 export type UserMenuI18N = Record<
-  | 'activity'
   | 'myAssets'
   | 'settings'
-  | 'myLists'
   | 'account'
-  | 'profile'
   | 'viewProfile'
   | 'signIn'
   | 'signOut'
@@ -31,3 +29,15 @@ export type UserMenuI18N = Record<
   | 'jumpIn',
   string
 >
+
+export enum UserMenuEventId {
+  ACTIVITY = 'activity',
+  MY_ASSETS = 'my_assets',
+  SETTINGS = 'settings',
+  PROFILE = 'profile',
+  SIGN_IN = 'sign_in',
+  SIGN_OUT = 'sign_out',
+  GUEST = 'guest',
+  WALLET = 'wallet',
+  JUMP_IN = 'jump_in'
+}

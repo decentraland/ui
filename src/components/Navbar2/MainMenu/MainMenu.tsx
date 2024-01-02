@@ -2,13 +2,13 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { MenuItem } from '../MenuItem/MenuItem'
-import { i18n } from '../Navbar2.i18n'
 import { Navbar2Pages } from '../Navbar2.types'
 import { MainMenuProps } from './MainMenu.types'
 
 import './MainMenu.css'
 
 export const MainMenu = (props: MainMenuProps) => {
+  const { i18n, ...menuItemProps } = props
   return (
     <div
       className={classNames(
@@ -18,27 +18,27 @@ export const MainMenu = (props: MainMenuProps) => {
       )}
     >
       <MenuItem
-        {...props}
+        {...menuItemProps}
         section={Navbar2Pages.MARKETPLACE}
         title={i18n.menu.marketplace.main}
       />
       <MenuItem
-        {...props}
+        {...menuItemProps}
         section={Navbar2Pages.CREATE}
         title={i18n.menu.create.main}
       />
       <MenuItem
-        {...props}
+        {...menuItemProps}
         section={Navbar2Pages.EXPLORE}
         title={i18n.menu.explore.main}
       />
       <MenuItem
-        {...props}
+        {...menuItemProps}
         section={Navbar2Pages.LEARN}
         title={i18n.menu.learn.main}
       />
       <MenuItem
-        {...props}
+        {...menuItemProps}
         section={Navbar2Pages.GOVERNANCE}
         title={i18n.menu.governance.main}
       />

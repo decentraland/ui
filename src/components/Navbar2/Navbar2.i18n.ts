@@ -9,36 +9,42 @@ export const i18n = {
         {
           title: 'Overview',
           description: "See what's trending & new",
-          url: config.get('MARKETPLACE_URL')
+          url: config.get('MARKETPLACE_URL'),
+          eventTracking: 'marketplace_overview'
         },
         {
           title: 'NAMEs',
           description: 'Claim a NAME, get a whole World',
-          url: config.get('MARKETPLACE_NAMES_URL')
+          url: config.get('MARKETPLACE_NAMES_URL'),
+          eventTracking: 'marketplace_names'
         }
       ],
       column2: [
         {
           title: 'Wearables',
           description: 'Customize your digital identity',
-          url: config.get('MARKETPLACE_WEARABLES_URL')
+          url: config.get('MARKETPLACE_WEARABLES_URL'),
+          eventTracking: 'marketplace_wearables'
         },
         {
           title: 'LAND',
           description: 'Buy or Rent parcels on the Genesis City map',
-          url: config.get('MARKETPLACE_LANDS_URL')
+          url: config.get('MARKETPLACE_LANDS_URL'),
+          eventTracking: 'marketplace_lands'
         }
       ],
       column3: [
         {
           title: 'Emotes',
           description: 'Animate your avatar',
-          url: config.get('MARKETPLACE_EMOTES_URL')
+          url: config.get('MARKETPLACE_EMOTES_URL'),
+          eventTracking: 'marketplace_emotes'
         },
         {
           title: 'My Assets',
           description: 'Manage your assets, listings, bids, &and more',
-          url: config.get('MARKETPLACE_MY_ASSETS_URL')
+          url: config.get('MARKETPLACE_MY_ASSETS_URL'),
+          eventTracking: 'marketplace_my_assets'
         }
       ]
     },
@@ -49,12 +55,14 @@ export const i18n = {
         {
           title: 'Wearables & Emotes',
           description: 'Publish & manage Marketplace collections',
-          url: config.get('BUILDER_WEARABLE_EMOTES_URL')
+          url: config.get('BUILDER_WEARABLE_EMOTES_URL'),
+          eventTracking: 'builder_wearables_emotes'
         },
         {
           title: 'Scenes',
           description: 'Create & publish scenes to LAND or Worlds',
-          url: config.get('BUILDER_SCENES_URL')
+          url: config.get('BUILDER_SCENES_URL'),
+          eventTracking: 'builder_scenes'
         }
       ],
       column2Title: 'MANAGE',
@@ -62,17 +70,20 @@ export const i18n = {
         {
           title: 'My NAMEs',
           description: 'Create & manage NAMEs',
-          url: config.get('BUILDER_NAMES_URL')
+          url: config.get('BUILDER_NAMES_URL'),
+          eventTracking: 'builder_names'
         },
         {
           title: 'My Worlds',
           description: 'Manage Worlds & Worlds storage',
-          url: config.get('BUILDER_WORLDS_URL')
+          url: config.get('BUILDER_WORLDS_URL'),
+          eventTracking: 'builder_worlds'
         },
         {
           title: 'My LAND',
           description: 'Manage parcel permissions & more',
-          url: config.get('BUILDER_LAND_URL')
+          url: config.get('BUILDER_LAND_URL'),
+          eventTracking: 'builder_land'
         }
       ],
       column3Title: 'HIRE',
@@ -81,6 +92,7 @@ export const i18n = {
           title: 'Decentraland Studios',
           description: 'Hire pros to transform your ideas to reality',
           url: config.get('STUDIOS_URL'),
+          eventTracking: 'studios',
           isExternal: true
         }
       ]
@@ -91,24 +103,28 @@ export const i18n = {
         {
           title: 'Events',
           description: 'Find an event to jump into',
-          url: config.get('EVENTS_URL')
+          url: config.get('EVENTS_URL'),
+          eventTracking: 'events'
         },
         {
           title: 'My Events',
           description: 'See saved events & events you’re hosting',
-          url: config.get('EVENTS_MY_EVENTS_URL')
+          url: config.get('EVENTS_MY_EVENTS_URL'),
+          eventTracking: 'events_my_events'
         }
       ],
       column2: [
         {
           title: 'Places',
           description: 'Browse locations in Genesis City & Worlds',
-          url: config.get('PLACES_URL')
+          url: config.get('PLACES_URL'),
+          eventTracking: 'places'
         },
         {
           title: 'My Favorite Places',
           description: 'See your saved locations',
-          url: config.get('PLACES_MY_FAVORITE_URL')
+          url: config.get('PLACES_MY_FAVORITE_URL'),
+          eventTracking: 'places_my_favorite'
         }
       ]
     },
@@ -118,12 +134,14 @@ export const i18n = {
         {
           title: 'About Decentraland',
           description: 'FAQs, Whitepaper, & DAO docs',
-          url: config.get('DOCS_ABOUT_URL')
+          url: config.get('DOCS_ABOUT_URL'),
+          eventTracking: 'docs_about'
         },
         {
           title: 'Creator Docs',
           description: 'Make Wearables, Emotes, scenes, games, & more',
-          url: config.get('DOCS_CREATORS_URL')
+          url: config.get('DOCS_CREATORS_URL'),
+          eventTracking: 'docs_creators'
         }
       ],
       column2: [
@@ -131,12 +149,14 @@ export const i18n = {
           title: 'Blog',
           description: 'News, Community Highlights, & more',
           url: config.get('BLOG_URL'),
+          eventTracking: 'blog',
           isExternal: true
         },
         {
           title: 'Open Protocol Docs',
           description: 'See how Decentraland works & contribute',
-          url: config.get('DOCS_CONTRIBUTOR_URL')
+          url: config.get('DOCS_CONTRIBUTOR_URL'),
+          eventTracking: 'docs_contributor'
         }
       ]
     },
@@ -146,24 +166,28 @@ export const i18n = {
         {
           title: 'Overview',
           description: 'The latest in Decentraland governance',
-          url: config.get('GOVERNANCE_URL')
+          url: config.get('GOVERNANCE_URL'),
+          eventTracking: 'governance_overview'
         },
         {
           title: 'DAO Transparency',
           description: 'Treasury, Activity Dashboards, & more',
-          url: config.get('GOVERNANCE_TRANSPARENCY_URL')
+          url: config.get('GOVERNANCE_TRANSPARENCY_URL'),
+          eventTracking: 'governance_transparency'
         }
       ],
       column2: [
         {
           title: 'Proposals',
           description: 'Vote on active proposals',
-          url: config.get('GOVERNANCE_PROPOSALS_URL')
+          url: config.get('GOVERNANCE_PROPOSALS_URL'),
+          eventTracking: 'governance_proposals'
         },
         {
           title: 'DAO Grants',
           description: 'Community grants overview, highlights, & resources',
           url: config.get('DAO_GRANTS_URL'),
+          eventTracking: 'dao_grants',
           isExternal: true
         }
       ],
@@ -171,12 +195,14 @@ export const i18n = {
         {
           title: 'Active Grants',
           description: 'Browse grant-funded community projects',
-          url: config.get('GOVERNANCE_PROJECTS_URL')
+          url: config.get('GOVERNANCE_PROJECTS_URL'),
+          eventTracking: 'governance_active_grants'
         },
         {
           title: 'DAO Docs',
           description: 'Learn about the DAO & how to participate',
-          url: config.get('DOCS_DAO_URL')
+          url: config.get('DOCS_DAO_URL'),
+          eventTracking: 'docs_dao'
         }
       ]
     }

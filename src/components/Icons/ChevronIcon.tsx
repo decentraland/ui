@@ -17,7 +17,7 @@ const ChevronIcon = ({ down = false }: { down?: boolean }) => (
       height="6"
       viewBox="0 0 10 6"
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path d="M-7 15h24V-9H-7z" />
         <path
           fill={'var(--navbar-icons)'}

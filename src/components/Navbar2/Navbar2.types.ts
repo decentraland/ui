@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserMenuProps } from '../UserMenu/UserMenu.types'
+import { UserMenuI18N, UserMenuProps } from '../UserMenu/UserMenu.types'
 
 export type SubMenui18nProps = {
   main: string
@@ -8,6 +8,7 @@ export type SubMenui18nProps = {
     title: string
     description: string
     url: string
+    eventTracking: string
     isExternal?: boolean
   }[]
   column2Title: string
@@ -15,6 +16,7 @@ export type SubMenui18nProps = {
     title: string
     description: string
     url: string
+    eventTracking: string
     isExternal?: boolean
   }[]
   column3Title: string
@@ -22,6 +24,7 @@ export type SubMenui18nProps = {
     title: string
     description: string
     url: string
+    eventTracking: string
     isExternal?: boolean
   }[]
 }
@@ -48,8 +51,9 @@ export enum Navbar2Pages {
   GOVERNANCE = 'governance'
 }
 
-export type Navbar2Props = UserMenuProps & {
+export type Navbar2Props = Omit<UserMenuProps, 'i18n'> & {
+  i18nNavbar?: Navbar2I18N
+  i18nUserMenu?: UserMenuI18N
   activePage: Navbar2Pages | string
-  onClickMenuOption?: (e: React.MouseEvent, section: string) => void
   className?: string
 }

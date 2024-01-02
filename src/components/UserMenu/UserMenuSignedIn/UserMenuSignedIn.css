@@ -71,7 +71,10 @@
   margin-left: -50px;
 }
 
-.dui-user-menu-signed-in .menu-wrapper .menu-wearable-preview.default-avatar img {
+.dui-user-menu-signed-in
+  .menu-wrapper
+  .menu-wearable-preview.default-avatar
+  img {
   height: 100%;
 }
 
@@ -174,7 +177,12 @@
   color: var(--navbar-item-text-hover);
 }
 
-.dui-user-menu-signed-in .menu-option__sign-out:hover .iconContainer svg g rect {
+.dui-user-menu-signed-in
+  .menu-option__sign-out:hover
+  .iconContainer
+  svg
+  g
+  rect {
   fill: var(--navbar-item-text-hover);
 }
 
