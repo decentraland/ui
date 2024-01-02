@@ -116,7 +116,7 @@
 
 .dui-navbar2 .dui-navbar2-wrapper .item:not(.mobile) {
   font-weight: normal;
-  color: var(--secondary-text);
+  color: var(--navbar-item-text-enabled);
   border-radius: 6px;
   text-transform: capitalize;
   font-family: var(--font-family);

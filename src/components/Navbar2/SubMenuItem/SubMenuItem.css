@@ -4,18 +4,25 @@
 
 .dui-submenu-item.dui-submenu-item-external {
   position: relative;
+  padding-right: 20px;
+  width: calc(100% - 20px);
 }
 
-.dui-submenu-item.dui-submenu-item-external::after {
-  content: '';
-  background-image: url('../../../assets/link-external-icon.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 16px;
-  width: 16px;
+.dui-submenu-item.dui-submenu-item-external .dui-icon-container {
   position: absolute;
+  top: 50%;
   right: 0;
-  height: 100%;
+  width: 14px;
+  height: 15px;
+  transform: translateY(-50%);
+}
+
+.dui-submenu-item.dui-submenu-item-external .dui-icon-container svg path {
+  fill: var(--navbar-item-text-enabled);
+}
+
+.dui-submenu-item.dui-submenu-item-external:hover .dui-icon-container svg path {
+  fill: var(--navbar-item-text-hover);
 }
 
 .dui-submenu-item {
@@ -39,7 +46,7 @@
 
 .dui-submenu-item h1,
 .dui-submenu-item p {
-  color: var(--navbar-item-text-enable);
+  color: var(--navbar-item-text-enabled);
 }
 
 .dui-submenu-item:hover h1,

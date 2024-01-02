@@ -64,7 +64,7 @@ const LIGHT_THEME = `
   /* Navbar2 */
   --navbar-menu-enabled: #a09ba8;
   --navbar-menu-hover: #000;
-  --navbar-item-text-enable: #716b7c;
+  --navbar-item-text-enabled: #716b7c;
   --navbar-item-text-hover: #000;
   --navbar-item-border-enabled: #cfcdd4;
   --navbar-item-border-hover: #000;
@@ -131,7 +131,7 @@ const DARK_THEME = `
   --notification-onboarding-bell: url(../../assets/bell-onboarding-dark.png);
 
   /* Navbar2 */
-  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-enabled: #ecebed;
   --navbar-menu-hover: #fff;
   --navbar-item-text-enabled: #cfcdd4;
   --navbar-item-text-hover: #fff;

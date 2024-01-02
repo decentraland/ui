@@ -2,6 +2,7 @@ import React from 'react'
 
 import classNames from 'classnames'
 import { SubMenuItemProps } from './SubMenuItem.types'
+import ExternalIcon from '../../Icons/ExternalIcon'
 
 import './SubMenuItem.css'
 
@@ -18,6 +19,7 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
       <a href={href}>
         <h1>{title}</h1>
         <p>{description}</p>
+        {isExternal && <ExternalIcon />}
       </a>
     </div>
   )

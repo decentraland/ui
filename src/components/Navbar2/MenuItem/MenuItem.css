@@ -4,7 +4,12 @@
 }
 
 .dui-menu-item .dui-icon-container.centered svg path:nth-child(2) {
-  fill: var(--secondary-text);
+  fill: var(--navbar-item-text-enabled);
+}
+
+.dui-menu-item.active .dui-icon-container.centered svg path:nth-child(2),
+.dui-menu-item:hover .dui-icon-container.centered svg path:nth-child(2) {
+  fill: var(--text);
 }
 
 @media (max-width: 991px) {

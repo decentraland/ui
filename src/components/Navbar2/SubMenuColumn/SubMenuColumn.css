@@ -14,7 +14,7 @@
 }
 
 .dui-submenu-column.dui-submenu-column-title > h1 {
-  color: #a09ba8;
+  color: val(--navbar-menu-enabled);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
