@@ -7,6 +7,7 @@ import { Hero } from '../Hero/Hero'
 import { Parallax } from '../Parallax/Parallax'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { avatar } from '../../data/avatar'
+import { i18n as i18nUserMenu } from '../UserMenu/UserMenu.i18n'
 
 import { Navbar } from './Navbar'
 import './Navbar.stories.css'
@@ -218,7 +219,9 @@ storiesOf('Navbar', module)
           address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
           mana={200000}
           onClickAccount={() => console.log('Clicked on account menu')}
-          rightMenu={<UserMenu avatar={avatar} isSignedIn />}
+          rightMenu={
+            <UserMenu avatar={avatar} isSignedIn i18n={i18nUserMenu} />
+          }
         />
       </div>
     )

@@ -9,6 +9,7 @@ import { NotificationActiveTab } from '../../Notifications/types'
 import { avatar } from '../../../data/avatar'
 
 import '../UserMenu.stories.css'
+import { i18n } from '../UserMenu.i18n'
 
 storiesOf('UserMenuSignedIn', module)
   .add('Guest', () => (
@@ -24,6 +25,7 @@ storiesOf('UserMenuSignedIn', module)
         onClickSignOut={console.log}
         onClickToggle={console.log}
         onClickWallet={console.log}
+        i18n={i18n}
       />
     </div>
   ))
@@ -40,6 +42,7 @@ storiesOf('UserMenuSignedIn', module)
         onClickSignOut={console.log}
         onClickToggle={console.log}
         onClickWallet={console.log}
+        i18n={i18n}
       />
     </div>
   ))
@@ -57,6 +60,7 @@ storiesOf('UserMenuSignedIn', module)
         onClickSignOut={console.log}
         onClickToggle={console.log}
         onClickWallet={console.log}
+        i18n={i18n}
       />
     </div>
   ))
@@ -107,6 +111,7 @@ storiesOf('UserMenuSignedIn', module)
         onClickSignOut={console.log}
         onClickToggle={console.log}
         onClickWallet={console.log}
+        i18n={i18n}
       />
     </div>
   ))

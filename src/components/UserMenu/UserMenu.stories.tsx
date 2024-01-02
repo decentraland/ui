@@ -8,21 +8,23 @@ import './UserMenu.stories.css'
 import { NotificationActiveTab } from '../Notifications/types'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
+import { i18n } from './UserMenu.i18n'
 
 storiesOf('UserMenu', module)
   .add('Signed out', () => (
     <div className="usermenu-story-container">
-      <UserMenu />
+      <UserMenu i18n={i18n} />
     </div>
   ))
   .add('Signed in', () => (
     <div className="usermenu-story-container">
-      <UserMenu isSignedIn avatar={avatar} />
+      <UserMenu i18n={i18n} isSignedIn avatar={avatar} />
     </div>
   ))
   .add('Guest', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={{ ...avatar, hasClaimedName: false }}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
@@ -39,12 +41,18 @@ storiesOf('UserMenu', module)
   ))
   .add('Clickable profile', () => (
     <div className="usermenu-story-container">
-      <UserMenu isSignedIn avatar={avatar} onClickProfile={() => undefined} />
+      <UserMenu
+        i18n={i18n}
+        isSignedIn
+        avatar={avatar}
+        onClickProfile={() => undefined}
+      />
     </div>
   ))
   .add('Mana', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={avatar}
         manaBalances={{ [Network.ETHEREUM]: 1000 }}
@@ -54,6 +62,7 @@ storiesOf('UserMenu', module)
   .add('Mana L2', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={avatar}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
@@ -63,6 +72,7 @@ storiesOf('UserMenu', module)
   .add('Has activity', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={avatar}
         onClickAccountSettings={() => undefined}
@@ -75,6 +85,7 @@ storiesOf('UserMenu', module)
   .add('Notification', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={avatar}
         onClickAccountSettings={() => undefined}
@@ -99,6 +110,7 @@ storiesOf('UserMenu', module)
   .add('Notification pending', () => (
     <div className="usermenu-story-container">
       <UserMenu
+        i18n={i18n}
         isSignedIn
         avatar={avatar}
         onClickAccountSettings={() => undefined}
