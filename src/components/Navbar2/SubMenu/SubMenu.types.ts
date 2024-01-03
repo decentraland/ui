@@ -1,8 +1,8 @@
-import { Navbar2I18N, Navbar2Pages } from '../Navbar2.types'
+import { Navbar2SubmenuProps, Navbar2Pages } from '../Navbar2.types'
 
 export type SubMenuProps = {
   selectedMenu: Navbar2Pages | boolean
-  i18n: Navbar2I18N
+  submenus: Navbar2SubmenuProps
   onToggleShowSubMenu: (
     e: React.MouseEvent,
     show: boolean,

@@ -13,7 +13,7 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
     href,
     isExternal,
     className,
-    eventTracking,
+    eventTrackingName,
     onClickMenuOption
   } = props
   return (
@@ -24,7 +24,7 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
         isExternal && 'dui-submenu-item-external'
       )}
     >
-      <a href={href} onClick={(e) => onClickMenuOption(e, eventTracking)}>
+      <a href={href} onClick={(e) => onClickMenuOption(e, eventTrackingName)}>
         <h1>{title}</h1>
         <p>{description}</p>
         {isExternal && <ExternalIcon />}

@@ -1,4 +1,4 @@
-import { Navbar2I18N, Navbar2Pages } from '../Navbar2.types'
+import { Navbar2MenuI18nProps, Navbar2Pages } from '../Navbar2.types'
 
 export type MainMenuProps = {
   activePage: Navbar2Pages | string
@@ -7,6 +7,6 @@ export type MainMenuProps = {
     show: boolean,
     section?: Navbar2Pages
   ) => void
-  i18n: Navbar2I18N
+  i18n: Navbar2MenuI18nProps
   isMobile?: boolean
 }

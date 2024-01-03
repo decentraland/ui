@@ -16,7 +16,7 @@ export const SubMenu = (props: SubMenuProps) => {
     onToggleShowSubMenu,
     onClickMenuOption,
     isMobile,
-    i18n
+    submenus
   } = props
 
   return (
@@ -27,9 +27,9 @@ export const SubMenu = (props: SubMenuProps) => {
         isMobile && 'mobile'
       )}
     >
-      {Object.keys(i18n.menu).map((key) => {
+      {Object.keys(submenus).map((key) => {
         const section = key as Navbar2Pages
-        const submenu = i18n.menu[section]
+        const submenu = submenus[section]
         return (
           <Menu.Item
             key={key}
@@ -58,7 +58,7 @@ export const SubMenu = (props: SubMenuProps) => {
                     title={item.title}
                     description={item.description}
                     href={item.url}
-                    eventTracking={item.eventTracking}
+                    eventTrackingName={item.eventTrackingName}
                     onClickMenuOption={onClickMenuOption}
                   />
                 ))}
@@ -71,7 +71,7 @@ export const SubMenu = (props: SubMenuProps) => {
                     title={item.title}
                     description={item.description}
                     href={item.url}
-                    eventTracking={item.eventTracking}
+                    eventTrackingName={item.eventTrackingName}
                     onClickMenuOption={onClickMenuOption}
                   />
                 ))}
@@ -85,7 +85,7 @@ export const SubMenu = (props: SubMenuProps) => {
                       title={item.title}
                       description={item.description}
                       href={item.url}
-                      eventTracking={item.eventTracking}
+                      eventTrackingName={item.eventTrackingName}
                       onClickMenuOption={onClickMenuOption}
                     />
                   ))}

@@ -20,27 +20,27 @@ export const MainMenu = (props: MainMenuProps) => {
       <MenuItem
         {...menuItemProps}
         section={Navbar2Pages.MARKETPLACE}
-        title={i18n.menu.marketplace.main}
+        title={i18n.marketplace}
       />
       <MenuItem
         {...menuItemProps}
         section={Navbar2Pages.CREATE}
-        title={i18n.menu.create.main}
+        title={i18n.create}
       />
       <MenuItem
         {...menuItemProps}
         section={Navbar2Pages.EXPLORE}
-        title={i18n.menu.explore.main}
+        title={i18n.explore}
       />
       <MenuItem
         {...menuItemProps}
         section={Navbar2Pages.LEARN}
-        title={i18n.menu.learn.main}
+        title={i18n.learn}
       />
       <MenuItem
         {...menuItemProps}
         section={Navbar2Pages.GOVERNANCE}
-        title={i18n.menu.governance.main}
+        title={i18n.governance}
       />
     </div>
   )

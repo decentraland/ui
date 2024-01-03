@@ -8,7 +8,7 @@ import { UserMenu } from '../UserMenu/UserMenu'
 import { Navbar2Pages, Navbar2Props } from './Navbar2.types'
 import { SubMenu } from './SubMenu/SubMenu'
 import { MainMenu } from './MainMenu/MainMenu'
-import { i18n as i18nNavbarDefault } from './Navbar2.i18n'
+import { navbarMainTitlesI18N as i18nNavbarTitlesDefault, navbarSubmenu } from './Navbar2.i18n'
 import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar2.css'
@@ -18,8 +18,9 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     activePage,
     className,
     isSignedIn,
-    i18nNavbar = i18nNavbarDefault,
+    i18nNavbarMainTitles = i18nNavbarTitlesDefault,
     i18nUserMenu = i18nUserMenuDefault,
+    submenuItems = navbarSubmenu,
     onClickMenuItem,
     ...userMenuProps
   } = props
@@ -88,7 +89,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
               <MainMenu
                 activePage={activePage}
                 onToggleShowSubMenu={handleToggle}
-                i18n={i18nNavbar}
+                i18n={i18nNavbarMainTitles}
               />
             </Desktop>
           </div>
@@ -113,14 +114,14 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
         onToggleShowSubMenu={handleToggle}
         onClickMenuOption={handleClickMenu}
         isMobile={isTabletAndBelow}
-        i18n={i18nNavbar}
+        submenus={submenuItems}
       />
       <TabletAndBelow>
         <MainMenu
           activePage={activePage}
           onToggleShowSubMenu={handleToggle}
           isMobile={isTabletAndBelow}
-          i18n={i18nNavbar}
+          i18n={i18nNavbarMainTitles}
         />
       </TabletAndBelow>
     </div>

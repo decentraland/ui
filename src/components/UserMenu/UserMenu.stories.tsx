@@ -1,14 +1,15 @@
 import * as React from 'react'
-import { Network } from '@dcl/schemas/dist/dapps/network'
 import { storiesOf } from '@storybook/react'
-import { UserMenu } from './UserMenu'
+import { Network } from '@dcl/schemas/dist/dapps/network'
+import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
+import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
+
 import { avatar } from '../../data/avatar'
+import { NotificationActiveTab } from '../Notifications/types'
+import { UserMenu } from './UserMenu'
+import { i18n } from './UserMenu.i18n'
 
 import './UserMenu.stories.css'
-import { NotificationActiveTab } from '../Notifications/types'
-import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
-import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
-import { i18n } from './UserMenu.i18n'
 
 storiesOf('UserMenu', module)
   .add('Signed out', () => (
