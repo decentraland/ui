@@ -46,7 +46,7 @@ export type Navbar2SubmenuProps = {
 }
 
 export type Navbar2Props = Omit<UserMenuProps, 'i18n'> & {
-  i18nNavbarMainTitles?: Navbar2MenuI18nProps
+  i18nNavbar?: Navbar2MenuI18nProps
   submenuItems?: Navbar2SubmenuProps
   i18nUserMenu?: UserMenuI18N
   activePage: Navbar2Pages | string

@@ -21,7 +21,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     activePage,
     className,
     isSignedIn,
-    i18nNavbarMainTitles = i18nNavbarTitlesDefault,
+    i18nNavbar = i18nNavbarTitlesDefault,
     i18nUserMenu = i18nUserMenuDefault,
     submenuItems = navbarSubmenu,
     onClickMenuItem,
@@ -92,7 +92,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
               <MainMenu
                 activePage={activePage}
                 onToggleShowSubMenu={handleToggle}
-                i18n={i18nNavbarMainTitles}
+                i18n={i18nNavbar}
               />
             </Desktop>
           </div>
@@ -124,7 +124,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
           activePage={activePage}
           onToggleShowSubMenu={handleToggle}
           isMobile={isTabletAndBelow}
-          i18n={i18nNavbarMainTitles}
+          i18n={i18nNavbar}
         />
       </TabletAndBelow>
     </div>
