@@ -10,7 +10,6 @@ import LogoutIcon from '../../Icons/LogoutIcon'
 import Notifications from '../../Notifications/Notifications'
 import ArrowIcon from '../../Icons/ArrowIcon'
 import { config } from '../../../config'
-import mansDefault from '../../../assets/man-default.png'
 import { UserMenuEventId } from '../UserMenu.types'
 
 import '../UserMenu.css'
@@ -177,7 +176,13 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
             !avatar && 'default-avatar'
           )}
         >
-          <img src={avatar?.avatar?.snapshots?.body || mansDefault} />
+          <div
+            style={
+              avatar?.avatar?.snapshots?.body && {
+                backgroundImage: `url(${avatar?.avatar?.snapshots?.body})`
+              }
+            }
+          ></div>
         </div>
         <div className="menu-actions__wrapper">
           <div className={'menu-info'}>

@@ -65,10 +65,26 @@
   height: 110%;
   margin-left: -100px;
   margin-bottom: -100px;
+  width: 100%;
 }
 
 .dui-user-menu-signed-in .menu-wrapper .menu-wearable-preview.default-avatar {
   margin-left: -50px;
+  height: 100%;
+}
+
+.dui-user-menu-signed-in .menu-wrapper .menu-wearable-preview div {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.dui-user-menu-signed-in
+  .menu-wrapper
+  .menu-wearable-preview.default-avatar
+  div {
+  background-image: url('../../../assets/man-default.png');
 }
 
 .dui-user-menu-signed-in
@@ -250,15 +266,15 @@
 
   .dui-user-menu-signed-in .menu-wrapper .menu-wearable-preview.default-avatar {
     margin-left: -30px;
-    height: 400px;
     margin-bottom: -100px;
   }
 
   .dui-user-menu-signed-in
     .menu-wrapper
     .menu-wearable-preview.default-avatar
-    img {
-    height: 400px;
+    div {
+    margin-top: 50px;
+    margin-left: 50px;
   }
 
   .dui-user-menu-signed-in .menu-option__sign-out {
