@@ -1,0 +1,14 @@
+.usermenu-story-container {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .usermenu-story-container {
+    left: 0;
+    right: 0;
+  }
+}

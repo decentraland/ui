@@ -1,227 +1,115 @@
-import * as React from 'react'
-import { Network } from '@dcl/schemas/dist/dapps/network'
-import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
-import { AvatarFace } from '../AvatarFace/AvatarFace'
-import { Mobile } from '../Media'
-import { Mana } from '../Mana/Mana'
+import React, { useState, useCallback } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import classNames from 'classnames'
+
+import { UserMenuSignedIn } from './UserMenuSignedIn/UserMenuSignedIn'
+import { i18n as i18nUserMenu } from './UserMenu.i18n'
+import { UserMenuProps, UserMenuEventId } from './UserMenu.types'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
 import { config } from '../../config'
 import { Row } from '../Row/Row'
-import { WalletIcon } from '../WalletIcon/WalletIcon'
+
 import './UserMenu.css'
 
-export type UserMenuI18N = {
-  signIn: React.ReactNode
-  signOut: React.ReactNode
-  guest: React.ReactNode
-  settings: React.ReactNode
-  wallet: React.ReactNode
-  profile: React.ReactNode
-  account: React.ReactNode
-}
+export const UserMenu = React.memo((props: UserMenuProps) => {
+  const {
+    isSignedIn,
+    isSigningIn,
+    manaBalances,
+    i18n = i18nUserMenu,
+    onClickSignIn,
+    onClickBalance,
+    onClickOpen,
+    onClickJumpIn,
+    onClickMenuItem,
+    ...signInProps
+  } = props
 
-export type UserMenuProps = {
-  isSignedIn: boolean
-  isSigningIn: boolean
-  isActivity: boolean
-  hasActivity: boolean
-  address?: string
-  manaBalances?: Partial<Record<Network, number>>
-  avatar?: Avatar
-  menuItems?: React.ReactNode
-  i18n: UserMenuI18N
-  onSignOut: () => void
-  onSignIn: () => void
-  onClickProfile: () => void
-  onClickActivity: () => void
-  onClickSettings: () => void
-  onClickBalance: (network: Network) => void
-}
+  const [isOpen, setIsOpen] = useState(false)
+  const [trackingId, setTrackingId] = useState<string | null>(null)
+  const handleToggle = useCallback(
+    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      const trackId = uuidv4()
+      setIsOpen((prev) => {
+        if (!prev) {
+          setTrackingId(trackId)
+        }
+        if (!prev && onClickOpen) {
+          onClickOpen(event, trackId)
+        }
+        return !prev
+      })
+    },
+    [setIsOpen, onClickOpen]
+  )
 
-export type UserMenuState = {
-  isOpen: boolean
-  isClickable: boolean
-}
+  const handleClose = useCallback(() => {
+    setIsOpen(false)
+  }, [setIsOpen])
 
-export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
-  static defaultProps: Partial<UserMenuProps> = {
-    manaBalances: {},
-    i18n: {
-      signIn: 'Sign In',
-      signOut: 'Sign Out',
-      guest: 'Guest',
-      settings: 'Settings',
-      wallet: 'Wallet',
-      profile: 'Profile',
-      account: 'Account'
-    }
-  }
+  const handleClickJumpIn = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.JUMP_IN, trackingId)
 
-  state: UserMenuState = {
-    isOpen: false,
-    isClickable: false
-  }
+      setTimeout(
+        () => {
+          onClickJumpIn
+            ? onClickJumpIn(event)
+            : window.open(config.get('EXPLORER_URL'), '_blank', 'noopener')
+        },
+        onClickMenuItem ? 300 : 0
+      )
+    },
+    [onClickJumpIn, onClickMenuItem, trackingId]
+  )
 
-  mounted = false
+  const handleClickSignIn = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      onClickMenuItem &&
+        onClickMenuItem(event, UserMenuEventId.SIGN_IN, trackingId)
 
-  ref: HTMLElement | null = null
+      onClickSignIn(event)
+    },
+    [onClickSignIn, onClickMenuItem, trackingId]
+  )
 
-  handleClose = (): void => {
-    this.toggle(false)
-  }
-
-  handleToggle = (): void => {
-    this.toggle(!this.state.isOpen)
-  }
-
-  toggle(value: boolean): void {
-    this.setState({ isOpen: value })
-    setTimeout(() => {
-      if (this.mounted) {
-        this.setState({ isClickable: value })
-      }
-    }, 250)
-  }
-
-  componentDidMount(): void {
-    this.mounted = true
-  }
-
-  componentWillUnmount(): void {
-    this.mounted = false
-  }
-
-  renderManaBalances = (): React.ReactNode => {
-    const { manaBalances, onClickBalance } = this.props
-
-    return (
-      <span className="dcl account-wrapper">
-        {Object.keys(manaBalances).map((network) => (
-          <Mana
-            key={network}
-            network={network as Network}
-            size="small"
-            className={onClickBalance ? 'clickable' : undefined}
-            title={`${manaBalances[network].toLocaleString()} MANA`}
-            href={config.get('ACCOUNT_URL')}
+  return (
+    <Column align="right">
+      <Row className={classNames('dcl', 'user-menu-wrapper')}>
+        <div
+          className={classNames('dcl', 'user-menu')}
+          onBlur={handleClose}
+          tabIndex={0}
+        >
+          {isSignedIn && (
+            <UserMenuSignedIn
+              {...signInProps}
+              manaBalances={manaBalances}
+              trackingId={trackingId}
+              isOpen={isOpen}
+              i18n={i18n}
+              onClickToggle={handleToggle}
+              onClickMenuItem={onClickMenuItem}
+              onClickBalance={onClickBalance}
+            />
+          )}
+          {!isSignedIn && (
+            <Button inverted disabled={isSigningIn} onClick={handleClickSignIn}>
+              {i18n.signIn}
+            </Button>
+          )}
+          <Button
+            className="user-menu__jump-in"
+            primary
+            disabled={isSigningIn}
+            onClick={handleClickJumpIn}
           >
-            {Number(manaBalances[network].toFixed(2)).toLocaleString()}
-          </Mana>
-        ))}
-      </span>
-    )
-  }
-
-  render(): JSX.Element {
-    const {
-      avatar,
-      manaBalances,
-      isSignedIn,
-      isSigningIn,
-      isActivity,
-      hasActivity,
-      onSignOut,
-      onSignIn,
-      onClickProfile,
-      onClickActivity,
-      onClickSettings,
-      i18n,
-      menuItems
-    } = this.props
-
-    const { isOpen, isClickable } = this.state
-
-    const name = avatar ? avatar.name : null
-
-    const isSomeBalanceTooHigh = Object.values(manaBalances).some(
-      (balance) => Number(balance.toFixed(2)).toLocaleString().length > 5
-    )
-
-    return (
-      <Column align="right">
-        <Row className="dcl user-menu-wrapper">
-          <Menu.Item
-            className={isActivity ? 'activity-bell active' : 'activity-bell'}
-          >
-            {onClickActivity ? (
-              <Icon
-                className={hasActivity ? 'pending' : ''}
-                name="bell"
-                onClick={onClickActivity}
-              />
-            ) : null}
-          </Menu.Item>
-          <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
-            {isSignedIn && (
-              <>
-                {this.renderManaBalances()}
-                <div className="toggle" onClick={this.handleToggle}>
-                  <AvatarFace size="medium" avatar={avatar} />
-                </div>
-                <div
-                  className={`menu ${isOpen ? 'open' : ''} ${
-                    isClickable ? 'clickable' : ''
-                  }`}
-                >
-                  <div
-                    className={`info ${onClickProfile ? 'clickable' : ''}`}
-                    onClick={onClickProfile}
-                  >
-                    <div className="image">
-                      <AvatarFace size="small" avatar={avatar} />
-                    </div>
-                    <div>
-                      <div className="name">{name || i18n.guest}</div>
-                    </div>
-                  </div>
-                  <ul className="actions">
-                    <a href={config.get('PROFILE_URL')}>
-                      <li>
-                        <Icon name="user" />
-                        {i18n.profile}
-                      </li>
-                    </a>
-                    <a href={config.get('ACCOUNT_URL')}>
-                      <li>
-                        <WalletIcon />
-                        {i18n.wallet}
-                      </li>
-                    </a>
-                    {menuItems}
-                    {onClickSettings ? (
-                      <li onClick={onClickSettings}>
-                        <Icon name="cog"></Icon>
-                        {i18n.settings}
-                      </li>
-                    ) : null}
-                    {onSignOut ? (
-                      <li onClick={onSignOut}>
-                        <i className="sign-out-icon" />
-                        {i18n.signOut}
-                      </li>
-                    ) : null}
-                  </ul>
-                </div>
-              </>
-            )}
-            {!isSignedIn && (
-              <Button primary disabled={isSigningIn} onClick={onSignIn}>
-                {i18n.signIn}
-              </Button>
-            )}
-          </div>
-        </Row>
-        {isSignedIn && isSomeBalanceTooHigh && (
-          <Mobile>
-            <Row className="dcl mobile-user-balances-wrapper" align="right">
-              {this.renderManaBalances()}
-            </Row>
-          </Mobile>
-        )}
-      </Column>
-    )
-  }
-}
+            {i18n.jumpIn}
+          </Button>
+        </div>
+      </Row>
+    </Column>
+  )
+})

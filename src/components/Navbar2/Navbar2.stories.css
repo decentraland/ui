@@ -1,0 +1,64 @@
+.dui-navbar2-story-container {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.dui-navbar2-story-container .color-layer {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #060d2b, #132d7d 52%, #9763c1);
+  position: absolute;
+}
+
+.dui-navbar2-story-container .over-gradient .ui.header {
+  color: white;
+}
+
+.dui-navbar2-story-container .homepage-pyramid {
+  background: url('../../assets/pyramid.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.dui-navbar2-story-container .homepage-pyramid.small {
+  width: 400px;
+  height: 400px;
+  margin-left: -100px;
+  margin-top: 250px;
+  filter: var(--pyramid-small-brightness);
+}
+
+.dui-navbar2-story-container .homepage-pyramid.large {
+  width: 1000px;
+  height: 1000px;
+  margin-top: -200px;
+  margin-left: 300px;
+  filter: var(--pyramid-large-brightness);
+}
+
+.dui-navbar2-story-container .dcl.dui-navbar2 .dcl.hero {
+  background-color: #f2f2f5;
+}
+
+.dui-navbar2-story-container .background {
+  background-image: url(../../assets/background.png);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  .dui-navbar2-story-container {
+    width: 100%;
+  }
+}

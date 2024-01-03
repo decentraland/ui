@@ -321,6 +321,174 @@ storiesOf('Notifications Toggle', module)
               updated_at: '2023-11-29T12:51:00.600Z'
             },
             {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'A',
+              read: true,
+              type: 'item_sold',
+              address: '0xA',
+              timestamp: new Date(
+                new Date().setHours(new Date().getHours() - 19)
+              ).getTime(),
+              metadata: {
+                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
+                image:
+                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
+                rarity: 'epic' as Rarity,
+                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
+                nftName: 'Exclusive Binance Hoodie',
+                network: 'ethereum',
+                category: 'wearable' as NFTCategory
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
               id: 'AC',
               read: true,
               type: 'item_sold',

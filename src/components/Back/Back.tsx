@@ -4,7 +4,7 @@ import './Back.css'
 export type BackProps = {
   className?: string
   absolute?: boolean
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent) => void
 }
 
 export class Back extends React.PureComponent<BackProps> {
