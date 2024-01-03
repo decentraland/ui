@@ -52,4 +52,14 @@
   --brightness: brightness(0.1);
   /* black svgs */
   --notification-onboarding-bell: url(0509f566c9b731af.png);
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-hover: #000;
+  --navbar-item-text-enabled: #716b7c;
+  --navbar-item-text-hover: #000;
+  --navbar-item-border-enabled: #cfcdd4;
+  --navbar-item-border-hover: #000;
+  --usermenu-item-text-enabled: #43404a;
+  --usermenu-item-border-enabled: #43404a;
 }

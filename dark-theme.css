@@ -53,4 +53,14 @@
   /* black svgs */
 
   --notification-onboarding-bell: url(97f915110ca07da8.png);
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #ecebed;
+  --navbar-menu-hover: #fff;
+  --navbar-item-text-enabled: #cfcdd4;
+  --navbar-item-text-hover: #fff;
+  --navbar-item-border-enabled: #716b7c;
+  --navbar-item-border-hover: #cfcdd4;
+  --usermenu-item-text-enabled: #cfcdd4;
+  --usermenu-item-border-enabled: #cfcdd4;
 }
