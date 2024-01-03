@@ -8,7 +8,10 @@ import { UserMenu } from '../UserMenu/UserMenu'
 import { Navbar2Pages, Navbar2Props } from './Navbar2.types'
 import { SubMenu } from './SubMenu/SubMenu'
 import { MainMenu } from './MainMenu/MainMenu'
-import { navbarMainTitlesI18N as i18nNavbarTitlesDefault, navbarSubmenu } from './Navbar2.i18n'
+import {
+  navbarMainTitlesI18N as i18nNavbarTitlesDefault,
+  navbarSubmenu
+} from './Navbar2.i18n'
 import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar2.css'

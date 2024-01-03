@@ -6,9 +6,8 @@ export const navbarMainTitlesI18N = {
   create: 'create',
   explore: 'explore',
   learn: 'learn',
-  governance: 'governance',
+  governance: 'governance'
 } as Navbar2MenuI18nProps
-
 
 export const navbarSubmenu = {
   marketplace: {
