@@ -11,7 +11,7 @@ import { MainMenu } from './MainMenu/MainMenu'
 import {
   navbarMainTitlesI18N as i18nNavbarTitlesDefault,
   navbarSubmenu
-} from './Navbar2.i18n'
+} from './Navbar2.defaults'
 import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar2.css'
