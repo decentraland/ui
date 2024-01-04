@@ -40,5 +40,5 @@ export enum UserMenuEventId {
   GUEST = 'guest',
   WALLET = 'wallet',
   JUMP_IN = 'jump_in',
-  BALANCE = 'balance',
+  BALANCE = 'balance'
 }

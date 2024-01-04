@@ -87,7 +87,10 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   )
 
   const handleClickBalance = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, network: Network) => {
+    (
+      event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+      network: Network
+    ) => {
       event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
