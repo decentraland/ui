@@ -4940,9 +4940,7 @@ a.ui.card:hover,
 .dui-user-menu-signed-in .menu-actions li,
 .dui-user-menu-signed-in .menu-actions .item {
   cursor: pointer;
-  padding: 40px 0 23.66px;
-  display: flex;
-  align-items: center;
+  padding: 0;
   border-bottom-color: var(--usermenu-item-border-enabled);
   color: var(--usermenu-item-text-enabled);
   font-size: 20px;
@@ -4950,6 +4948,13 @@ a.ui.card:hover,
   font-weight: 400;
   line-height: 18px;
   border-bottom-style: solid;
+}
+
+.dui-user-menu-signed-in .menu-actions li > div {
+  padding: 40px 0 23.66px;
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -5014,7 +5019,7 @@ a.ui.card:hover,
   font-weight: normal;
 }
 
-.dui-user-menu-signed-in .menu-actions li .dui-icon-container {
+.dui-user-menu-signed-in .menu-actions li div .dui-icon-container {
   display: none;
 }
 
@@ -5082,13 +5087,14 @@ a.ui.card:hover,
     position: relative;
   }
 
-  .dui-user-menu-signed-in .menu-actions li .dui-icon-container {
+  .dui-user-menu-signed-in .menu-actions li div.dui-icon-container {
     display: flex;
   }
 
   .dui-user-menu-signed-in
     .menu-actions
     li
+    div
     .dui-icon-container.centered
     svg
     path {
@@ -5098,6 +5104,7 @@ a.ui.card:hover,
   .dui-user-menu-signed-in
     .menu-actions
     li:hover
+    div
     .dui-icon-container.centered
     svg
     path {
