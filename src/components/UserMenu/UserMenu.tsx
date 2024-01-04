@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import classNames from 'classnames'
+import { Network } from '@dcl/schemas/dist/dapps/network'
 
 import { UserMenuSignedIn } from './UserMenuSignedIn/UserMenuSignedIn'
 import { i18n as i18nUserMenu } from './UserMenu.i18n'
@@ -50,6 +51,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
   const handleClickJumpIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
           eventTrackingName: UserMenuEventId.JUMP_IN,
@@ -71,6 +73,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
   const handleClickSignIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
           eventTrackingName: UserMenuEventId.SIGN_IN,
@@ -81,6 +84,19 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       onClickSignIn(event)
     },
     [onClickSignIn, onClickUserMenuItem, trackingId]
+  )
+
+  const handleClickBalance = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, network: Network) => {
+      event.preventDefault()
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.BALANCE
+        })
+
+      onClickBalance(event, network)
+    },
+    [onClickBalance, onClickUserMenuItem, trackingId]
   )
 
   return (
@@ -100,7 +116,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
               i18n={i18n}
               onClickToggle={handleToggle}
               onClickUserMenuItem={onClickUserMenuItem}
-              onClickBalance={onClickBalance}
+              onClickBalance={handleClickBalance}
             />
           )}
           {!isSignedIn && (
@@ -113,6 +129,8 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
             primary
             disabled={isSigningIn}
             onClick={handleClickJumpIn}
+            as={'a'}
+            href={config.get('EXPLORER_URL')}
           >
             {i18n.jumpIn}
           </Button>

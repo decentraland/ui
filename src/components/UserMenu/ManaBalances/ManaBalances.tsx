@@ -21,6 +21,7 @@ export const ManaBalances = (props: ManaBalancesProps) => {
             className={classNames(onClickBalance && 'clickable')}
             title={`${manaBalances[network].toLocaleString()} MANA`}
             href={config.get('ACCOUNT_URL')}
+            onClick={onClickBalance}
           >
             {Number(manaBalances[network].toFixed(2)).toLocaleString()}
           </Mana>
