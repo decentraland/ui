@@ -24,6 +24,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     i18nNavbar = i18nNavbarTitlesDefault,
     i18nUserMenu = i18nUserMenuDefault,
     submenuItems = navbarSubmenu,
+    isFullScreen = false,
     onClickNavbarItem,
     ...userMenuProps
   } = props
@@ -61,13 +62,12 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
 
   return (
     <div
-      className={classNames(
-        'dui-navbar2',
-        toggle && selectedMenu,
-        menuMobileOpen && 'dui-navbar2__mobile-open',
-        !toggle && 'unselected',
-        className
-      )}
+      className={classNames('dui-navbar2', className, {
+        [`${selectedMenu}`]: toggle,
+        'dui-navbar2__mobile-open': menuMobileOpen,
+        unselected: !toggle,
+        fullscreen: isFullScreen
+      })}
       role="navigation"
     >
       <Container className="dui-navbar2-container">

@@ -418,6 +418,11 @@
   fill: var(--text);
 }
 
+.dui-navbar2.fullscreen > .ui.container {
+  width: 100%;
+  max-width: 100% !important;
+}
+
 @media (max-width: 1280px) {
   .dui-navbar2 .item.submenu {
     padding-left: 48px;
