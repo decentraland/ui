@@ -97,7 +97,14 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
           eventTrackingName: UserMenuEventId.BALANCE
         })
 
-      onClickBalance(event, network)
+      setTimeout(
+        () => {
+          onClickBalance
+            ? onClickBalance(event, network)
+            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+        },
+        onClickUserMenuItem ? 300 : 0
+      )
     },
     [onClickBalance, onClickUserMenuItem, trackingId]
   )
