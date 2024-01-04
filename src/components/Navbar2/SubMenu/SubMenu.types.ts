@@ -10,7 +10,7 @@ export type SubMenuProps = {
   ) => void
   onClickMenuOption?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    eventTracking: string
+    options: { eventTrackingName: string; url?: string; isExternal?: boolean }
   ) => void
   isMobile?: boolean
 }

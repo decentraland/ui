@@ -51,4 +51,8 @@ export type Navbar2Props = Omit<UserMenuProps, 'i18n'> & {
   i18nUserMenu?: UserMenuI18N
   activePage: Navbar2Pages | string
   className?: string
+  onClickNavbarItem?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    options: { eventTrackingName: string; url?: string; isExternal?: boolean }
+  ) => void
 }

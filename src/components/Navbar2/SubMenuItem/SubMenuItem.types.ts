@@ -7,6 +7,6 @@ export type SubMenuItemProps = {
   className?: string
   onClickMenuOption?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    eventTrackingName: string
+    options: { eventTrackingName: string; url?: string; isExternal?: boolean }
   ) => void
 }
