@@ -23,9 +23,8 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
   ) => void
   onClickToggle?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickWallet?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickMenuItem?: (
+  onClickUserMenuItem?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    id: string,
-    trackingId?: string
+    options: { eventTrackingName: string; url?: string; trackingId?: string }
   ) => void
 }

@@ -22,7 +22,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     onClickBalance,
     onClickOpen,
     onClickJumpIn,
-    onClickMenuItem,
+    onClickUserMenuItem,
     ...signInProps
   } = props
 
@@ -50,8 +50,12 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
   const handleClickJumpIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.JUMP_IN, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.JUMP_IN,
+          trackingId,
+          url: config.get('EXPLORER_URL')
+        })
 
       setTimeout(
         () => {
@@ -59,20 +63,24 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
             ? onClickJumpIn(event)
             : window.open(config.get('EXPLORER_URL'), '_blank', 'noopener')
         },
-        onClickMenuItem ? 300 : 0
+        onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickJumpIn, onClickMenuItem, trackingId]
+    [onClickJumpIn, onClickUserMenuItem, trackingId]
   )
 
   const handleClickSignIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.SIGN_IN, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.SIGN_IN,
+          trackingId,
+          url: config.get('MARKETPLACE_URL')
+        })
 
       onClickSignIn(event)
     },
-    [onClickSignIn, onClickMenuItem, trackingId]
+    [onClickSignIn, onClickUserMenuItem, trackingId]
   )
 
   return (
@@ -91,7 +99,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
               isOpen={isOpen}
               i18n={i18n}
               onClickToggle={handleToggle}
-              onClickMenuItem={onClickMenuItem}
+              onClickUserMenuItem={onClickUserMenuItem}
               onClickBalance={onClickBalance}
             />
           )}

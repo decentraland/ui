@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import classNames from 'classnames'
 import { SubMenuItemProps } from './SubMenuItem.types'
@@ -16,6 +16,22 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
     eventTrackingName,
     onClickMenuOption
   } = props
+
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      event.preventDefault()
+      onClickMenuOption &&
+        onClickMenuOption(event, { eventTrackingName, url: href, isExternal })
+      setTimeout(
+        () => {
+          window.open(href, isExternal ? '_blank' : '_self', 'noopener')
+        },
+        onClickMenuOption ? 300 : 0
+      )
+    },
+    [onClickMenuOption, eventTrackingName, href, isExternal]
+  )
+
   return (
     <div
       className={classNames(
@@ -24,7 +40,7 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
         isExternal && 'dui-submenu-item-external'
       )}
     >
-      <a href={href} onClick={(e) => onClickMenuOption(e, eventTrackingName)}>
+      <a href={href} onClick={handleClick}>
         <h1>{title}</h1>
         <p>{description}</p>
         {isExternal && <ExternalIcon />}

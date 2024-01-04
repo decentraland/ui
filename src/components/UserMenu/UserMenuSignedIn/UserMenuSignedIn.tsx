@@ -28,7 +28,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     onClickAccountSettings,
     onClickActivity,
     onClickBalance,
-    onClickMenuItem,
+    onClickUserMenuItem,
     onClickMyAssets,
     onClickProfile,
     onClickSignOut,
@@ -38,8 +38,12 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.ACTIVITY, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.ACTIVITY,
+          trackingId,
+          url: `${config.get('MARKETPLACE_URL')}/activity`
+        })
       setTimeout(
         () => {
           onClickActivity
@@ -53,13 +57,17 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickActivity ? 300 : 0
       )
     },
-    [onClickActivity, onClickMenuItem, trackingId]
+    [onClickActivity, onClickUserMenuItem, trackingId]
   )
 
   const handleClickMyAssets = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.MY_ASSETS, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.MY_ASSETS,
+          trackingId,
+          url: config.get('MARKETPLACE_MY_ASSETS_URL')
+        })
 
       setTimeout(
         () => {
@@ -71,17 +79,20 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
                 'noopener'
               )
         },
-        onClickMenuItem ? 300 : 0
+        onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickMyAssets, onClickMenuItem, trackingId]
+    [onClickMyAssets, onClickUserMenuItem, trackingId]
   )
 
   const handleClickAccountSettings = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.SETTINGS, trackingId)
-
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.SETTINGS,
+          trackingId,
+          url: config.get('MARKETPLACE_SETTINGS_URL')
+        })
       setTimeout(
         () => {
           onClickAccountSettings
@@ -92,16 +103,20 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
                 'noopener'
               )
         },
-        onClickMenuItem ? 300 : 0
+        onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickAccountSettings, onClickMenuItem, trackingId]
+    [onClickAccountSettings, onClickUserMenuItem, trackingId]
   )
 
   const handleClickProfile = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.PROFILE, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.PROFILE,
+          trackingId,
+          url: config.get('PROFILE_URL')
+        })
 
       setTimeout(
         () => {
@@ -109,16 +124,20 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
             ? onClickProfile(event)
             : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
         },
-        onClickMenuItem ? 300 : 0
+        onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickProfile, onClickMenuItem, trackingId]
+    [onClickProfile, onClickUserMenuItem, trackingId]
   )
 
   const handleClickWallet = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.WALLET, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.WALLET,
+          trackingId,
+          url: config.get('ACCOUNT_URL')
+        })
 
       setTimeout(
         () => {
@@ -126,19 +145,22 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
             ? onClickWallet(event)
             : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
         },
-        onClickMenuItem ? 300 : 0
+        onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickWallet, onClickMenuItem, trackingId]
+    [onClickWallet, onClickUserMenuItem, trackingId]
   )
 
   const handleClickSignOut = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickMenuItem &&
-        onClickMenuItem(event, UserMenuEventId.SIGN_OUT, trackingId)
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          eventTrackingName: UserMenuEventId.SIGN_OUT,
+          trackingId
+        })
       onClickSignOut(event, trackingId)
     },
-    [onClickSignOut, onClickMenuItem, trackingId]
+    [onClickSignOut, onClickUserMenuItem, trackingId]
   )
 
   const handleClickToggle = useCallback(
@@ -192,30 +214,30 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
             )}
           </div>
           <ul className="menu-actions">
-            <div onClick={handleClickProfile}>
-              <li>
+            <li>
+              <div onClick={handleClickProfile}>
                 {i18n.viewProfile}
                 <ArrowIcon />
-              </li>
-            </div>
-            <div onClick={handleClickMyAssets}>
-              <li>
+              </div>
+            </li>
+            <li>
+              <div onClick={handleClickMyAssets}>
                 {i18n.myAssets}
                 <ArrowIcon />
-              </li>
-            </div>
-            <div onClick={handleClickWallet}>
-              <li>
+              </div>
+            </li>
+            <li>
+              <div onClick={handleClickWallet}>
                 {i18n.wallet}
                 <ArrowIcon />
-              </li>
-            </div>
-            <div onClick={handleClickAccountSettings}>
-              <li>
+              </div>
+            </li>
+            <li>
+              <div onClick={handleClickAccountSettings}>
                 {i18n.settings}
                 <ArrowIcon />
-              </li>
-            </div>
+              </div>
+            </li>
           </ul>
           <div onClick={handleClickSignOut} className="menu-option__sign-out">
             {i18n.signOut}

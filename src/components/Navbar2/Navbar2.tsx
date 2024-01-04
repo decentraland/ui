@@ -24,7 +24,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     i18nNavbar = i18nNavbarTitlesDefault,
     i18nUserMenu = i18nUserMenuDefault,
     submenuItems = navbarSubmenu,
-    onClickMenuItem,
+    onClickNavbarItem,
     ...userMenuProps
   } = props
   const [toggle, setToggle] = useState(false)
@@ -52,11 +52,11 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
   const handleClickMenu = useCallback(
     (
       event: React.MouseEvent<HTMLElement, MouseEvent>,
-      eventTracking: string
+      options: { eventTrackingName: string; url?: string; isExternal?: boolean }
     ) => {
-      onClickMenuItem && onClickMenuItem(event, eventTracking)
+      onClickNavbarItem && onClickNavbarItem(event, options)
     },
-    [onClickMenuItem]
+    [onClickNavbarItem]
   )
 
   return (
@@ -106,7 +106,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
               {...userMenuProps}
               isSignedIn={isSignedIn}
               i18n={i18nUserMenu}
-              onClickMenuItem={onClickMenuItem}
             ></UserMenu>
           </div>
         </div>
