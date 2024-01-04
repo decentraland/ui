@@ -39,5 +39,6 @@ export enum UserMenuEventId {
   SIGN_OUT = 'sign_out',
   GUEST = 'guest',
   WALLET = 'wallet',
-  JUMP_IN = 'jump_in'
+  JUMP_IN = 'jump_in',
+  BALANCE = 'balance'
 }
