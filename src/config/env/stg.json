@@ -3,7 +3,7 @@
   "ACCOUNT_URL": "https://decentraland.today/account",
   "PROFILE_URL": "https://decentraland.today/profile",
   "MARKETPLACE_URL": "https://decentraland.today/marketplace",
-  "MARKETPLACE_NAMES_URL": "https://decentraland.today/marketplace/browse?assetType=nft&section=ens&vendor=decentraland&page=1&sortBy=newest&onlyOnSale=true",
+  "MARKETPLACE_NAMES_URL": "https://decentraland.today/names/claim",
   "MARKETPLACE_WEARABLES_URL": "https://decentraland.today/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale",
   "MARKETPLACE_LANDS_URL": "https://decentraland.today/marketplace/lands",
   "MARKETPLACE_EMOTES_URL": "https://decentraland.today/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=newest&status=on_sale",
