@@ -17,6 +17,7 @@ export type NavbarI18N = {
       collectibles: React.ReactNode
       land: React.ReactNode
       myAssets: React.ReactNode
+      names: React.ReactNode
     }
     docs: {
       main: React.ReactNode
@@ -111,7 +112,8 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
           overview: 'Overview',
           collectibles: 'Collectibles',
           land: 'LAND',
-          myAssets: 'My Assets'
+          myAssets: 'My Assets',
+          names: 'NAMEs'
         },
         docs: {
           main: 'Docs',
@@ -247,6 +249,14 @@ export class Navbar extends React.PureComponent<NavbarProps, NavbarState> {
             }
           >
             {i18n.menu.marketplace.land}
+          </Menu.Item>
+          <Menu.Item
+            href={`${config.get('MARKETPLACE_URL')}/names/claim`}
+            onMouseDown={(e: React.MouseEvent) =>
+              this.handleClickMenuOption(e, `${NavbarPages.MARKETPLACE}_names`)
+            }
+          >
+            {i18n.menu.marketplace.names}
           </Menu.Item>
           <Menu.Item
             href={`${config.get('MARKETPLACE_URL')}/account`}
