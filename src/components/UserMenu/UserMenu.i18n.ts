@@ -9,7 +9,7 @@ export const i18n = {
   profile: 'Profile',
   viewProfile: 'View Profile',
   signIn: 'Sign In',
-  signOut: 'Sign out',
+  signOut: 'Log Out',
   guest: 'Guest',
   wallet: 'Manage Wallet',
   jumpIn: 'Jump In'
