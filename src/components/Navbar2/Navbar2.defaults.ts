@@ -113,7 +113,7 @@ export const navbarSubmenu = {
       {
         title: 'My Events',
         description: 'See saved events & events you’re hosting',
-        url: config.get('EVENTS_MY_EVENTS_URL'),
+        url: config.get('EVENTS_MY_EVENTS'),
         eventTrackingName: 'events_my_events'
       }
     ],
