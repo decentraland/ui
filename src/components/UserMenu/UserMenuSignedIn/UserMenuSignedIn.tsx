@@ -171,12 +171,9 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     [onClickToggle]
   )
 
-  const handleClickClose = useCallback(
-    () => {
-      onClickClose()
-    },
-    [onClickClose]
-  )
+  const handleClickClose = useCallback(() => {
+    onClickClose()
+  }, [onClickClose])
 
   const userAddress = useMemo(
     () => avatar?.ethAddress || address,
