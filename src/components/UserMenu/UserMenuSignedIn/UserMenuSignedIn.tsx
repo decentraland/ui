@@ -28,6 +28,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     onClickAccountSettings,
     onClickActivity,
     onClickBalance,
+    onClickClose,
     onClickUserMenuItem,
     onClickMyAssets,
     onClickProfile,
@@ -170,6 +171,10 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     [onClickToggle]
   )
 
+  const handleClickClose = useCallback(() => {
+    onClickClose()
+  }, [onClickClose])
+
   const userAddress = useMemo(
     () => avatar?.ethAddress || address,
     [avatar, address]
@@ -190,7 +195,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
       </div>
       <div
         className={classNames('menu-wrapper', isOpen && 'open')}
-        onMouseLeave={handleClickToggle}
+        onMouseLeave={handleClickClose}
+        onScroll={handleClickClose}
       >
         <div
           className={classNames(

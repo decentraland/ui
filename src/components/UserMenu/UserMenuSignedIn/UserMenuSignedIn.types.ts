@@ -15,6 +15,7 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
     event: React.MouseEvent<HTMLElement, MouseEvent>
   ) => void
   onClickActivity?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickClose?: () => void
   onClickMyAssets?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickProfile?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickSignOut?: (
