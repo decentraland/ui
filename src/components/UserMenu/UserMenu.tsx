@@ -125,6 +125,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
               isOpen={isOpen}
               i18n={i18n}
               onClickToggle={handleToggle}
+              onClickClose={handleClose}
               onClickUserMenuItem={onClickUserMenuItem}
               onClickBalance={handleClickBalance}
             />
