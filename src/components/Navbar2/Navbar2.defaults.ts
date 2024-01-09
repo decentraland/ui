@@ -48,7 +48,7 @@ export const navbarSubmenu = {
       },
       {
         title: 'My Assets',
-        description: 'Manage your assets, listings, bids, &and more',
+        description: 'Manage your assets, listings, bids, & more',
         url: config.get('MARKETPLACE_MY_ASSETS_URL'),
         eventTrackingName: 'marketplace_my_assets'
       }
