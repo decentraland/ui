@@ -240,6 +240,12 @@
     height 200ms ease 100ms, left 200ms ease-in-out 1ms;
 }
 
+@media (max-width: 991px) {
+  .dui-navbar2 .item.submenu {
+    position: fixed;
+  }
+}
+
 .dui-navbar2:not(.unselected)
   .dui-submenu-container.marketplace-selected
   .item.submenu.marketplace-submenu,
@@ -435,6 +441,10 @@
 
   .dui-navbar2 .item.submenu .submenu-column__wrapper {
     flex-flow: row wrap;
+  }
+
+  .dui-navbar2 .item.submenu::after {
+    content: none;
   }
 }
 
