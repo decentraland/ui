@@ -206,9 +206,11 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         >
           <div
             style={
-              avatar?.avatar?.snapshots?.body && {
-                backgroundImage: `url(${avatar?.avatar?.snapshots?.body})`
-              }
+              avatar?.avatar?.snapshots?.body
+                ? {
+                    backgroundImage: `url(${avatar?.avatar?.snapshots?.body})`
+                  }
+                : undefined
             }
           ></div>
         </div>
