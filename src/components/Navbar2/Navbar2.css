@@ -436,6 +436,10 @@
   .dui-navbar2 .item.submenu .submenu-column__wrapper {
     flex-flow: row wrap;
   }
+
+  .dui-navbar2 .item.submenu::after {
+    content: none;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -575,5 +579,9 @@
   .dui-navbar2.dui-navbar2__mobile-open .item.submenu .dui-submenu-item h1,
   .dui-navbar2.dui-navbar2__mobile-open .item.submenu .dui-submenu-item p {
     color: var(--navbar-menu-hover);
+  }
+
+  .dui-navbar2 .item.submenu {
+    position: fixed;
   }
 }
