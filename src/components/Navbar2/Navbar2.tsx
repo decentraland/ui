@@ -41,10 +41,6 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     [setToggle, setSelectedMenu]
   )
   
-  function noScroll() {
-    window.scrollTo(0,0)
-  }
-
   const handleMobileToggle = useCallback(
     (e: React.MouseEvent, show: boolean) => {
       if (!show) {
@@ -138,3 +134,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     </div>
   )
 })
+
+function noScroll() {
+  window.scrollTo(0,0)
+}

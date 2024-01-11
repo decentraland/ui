@@ -240,12 +240,6 @@
     height 200ms ease 100ms, left 200ms ease-in-out 1ms;
 }
 
-@media (max-width: 991px) {
-  .dui-navbar2 .item.submenu {
-    position: fixed;
-  }
-}
-
 .dui-navbar2:not(.unselected)
   .dui-submenu-container.marketplace-selected
   .item.submenu.marketplace-submenu,
@@ -585,5 +579,9 @@
   .dui-navbar2.dui-navbar2__mobile-open .item.submenu .dui-submenu-item h1,
   .dui-navbar2.dui-navbar2__mobile-open .item.submenu .dui-submenu-item p {
     color: var(--navbar-menu-hover);
+  }
+
+  .dui-navbar2 .item.submenu {
+    position: fixed;
   }
 }
