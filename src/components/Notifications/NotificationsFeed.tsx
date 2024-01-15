@@ -51,8 +51,8 @@ const i18N = {
     feed: {
       title: 'Notifications',
       tabs: {
-        newest: 'New',
-        read: 'Seen'
+        new: 'New',
+        seen: 'Seen'
       },
       empty: {
         title: "You're all caught up!",
@@ -74,8 +74,8 @@ const i18N = {
     feed: {
       title: 'Notificaciones',
       tabs: {
-        newest: 'Reciente',
-        read: 'Visto'
+        new: 'Reciente',
+        seen: 'Visto'
       },
       empty: {
         title: '¡Ya estas al día!',
@@ -98,8 +98,8 @@ const i18N = {
     feed: {
       title: '通知',
       tabs: {
-        newest: '新',
-        read: '看到的'
+        new: '新',
+        seen: '看到的'
       },
       empty: {
         title: '你们都赶上了！',
@@ -346,16 +346,16 @@ const Feed = ({
     <div className="dcl notifications-feed__content">
       <Tabs className="notifications-feed__tabs">
         <Tabs.Tab
-          active={activeTab === NotificationActiveTab.NEWEST}
-          onClick={(e) => onChangeTab(e, NotificationActiveTab.NEWEST)}
+          active={activeTab === NotificationActiveTab.NEW}
+          onClick={(e) => onChangeTab(e, NotificationActiveTab.NEW)}
         >
-          {i18N[locale].feed.tabs.newest}
+          {i18N[locale].feed.tabs.new}
         </Tabs.Tab>
         <Tabs.Tab
-          active={activeTab === NotificationActiveTab.READ}
-          onClick={(e) => onChangeTab(e, NotificationActiveTab.READ)}
+          active={activeTab === NotificationActiveTab.SEEN}
+          onClick={(e) => onChangeTab(e, NotificationActiveTab.SEEN)}
         >
-          {i18N[locale].feed.tabs.read}
+          {i18N[locale].feed.tabs.seen}
         </Tabs.Tab>
       </Tabs>
       <div
@@ -366,7 +366,7 @@ const Feed = ({
         }`}
       >
         <div className="dcl notifications-feed__list">
-          {activeTab == 'newest' ? (
+          {activeTab == NotificationActiveTab.NEW ? (
             <>
               {!unreadNotifications.length && !previousNotifications.length ? (
                 <NoNotifications locale={locale} />
