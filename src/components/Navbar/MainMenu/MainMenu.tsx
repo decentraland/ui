@@ -12,9 +12,9 @@ export const MainMenu = (props: MainMenuProps) => {
   return (
     <div
       className={classNames(
-        'dui-navbar2__menu',
-        !props.isMobile && 'dui-navbar2__menu-desktop',
-        props.isMobile && 'dui-navbar2__menu-mobile'
+        'dui-navbar__menu',
+        !props.isMobile && 'dui-navbar__menu-desktop',
+        props.isMobile && 'dui-navbar__menu-mobile'
       )}
     >
       <MenuItem

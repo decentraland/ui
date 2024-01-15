@@ -77,21 +77,21 @@ export const Navbar = React.memo((props: NavbarProps) => {
   return (
     <div
       className={classNames(
-        'dui-navbar2',
+        'dui-navbar',
         toggle && selectedMenu,
-        menuMobileOpen && 'dui-navbar2__mobile-open',
+        menuMobileOpen && 'dui-navbar__mobile-open',
         !toggle && 'unselected',
         className
       )}
       role="navigation"
     >
-      <Container className="dui-navbar2-container">
-        <div className="dui-navbar2-menu">
-          <div className="dui-navbar2-wrapper">
+      <Container className="dui-navbar-container">
+        <div className="dui-navbar-menu">
+          <div className="dui-navbar-wrapper">
             <TabletAndBelow>
               <div
                 className={classNames(
-                  'dui-navbar2-toggle',
+                  'dui-navbar-toggle',
                   menuMobileOpen && 'open'
                 )}
                 onClick={(e) => handleMobileToggle(e, !menuMobileOpen)}
@@ -101,7 +101,7 @@ export const Navbar = React.memo((props: NavbarProps) => {
               </div>
             </TabletAndBelow>
             <Desktop>
-              <a className="dui-navbar2-logo" href="https://decentraland.org">
+              <a className="dui-navbar-logo" href="https://decentraland.org">
                 <Logo />
               </a>
               <MainMenu
@@ -112,11 +112,11 @@ export const Navbar = React.memo((props: NavbarProps) => {
             </Desktop>
           </div>
           <TabletAndBelow>
-            <a className="dui-navbar2-logo" href="https://decentraland.org">
+            <a className="dui-navbar-logo" href="https://decentraland.org">
               <Logo />
             </a>
           </TabletAndBelow>
-          <div className="dui-navbar2-account">
+          <div className="dui-navbar-account">
             <UserMenu
               {...userMenuProps}
               onClickOpen={

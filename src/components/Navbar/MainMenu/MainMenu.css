@@ -1,9 +1,9 @@
-.dui-navbar2__menu.dui-navbar2__menu-desktop {
+.dui-navbar__menu.dui-navbar__menu-desktop {
   display: flex;
   height: 100%;
 }
 
-.dui-navbar2__menu.dui-navbar2__menu-mobile {
+.dui-navbar__menu.dui-navbar__menu-mobile {
   position: absolute;
   display: none;
   flex-direction: column;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 991px) {
-  .dui-navbar2__menu.dui-navbar2__menu-mobile {
+  .dui-navbar__menu.dui-navbar__menu-mobile {
     display: flex;
   }
 }

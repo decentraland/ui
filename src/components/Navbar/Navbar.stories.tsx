@@ -14,14 +14,14 @@ import './Navbar.stories.css'
 storiesOf('Navbar', module)
   .add('Marketplace', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar activePage={NavbarPages.MARKETPLACE} />
       </div>
     )
   })
   .add('Sign In', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           onClickSignIn={() => console.log('Clicked on sign in')}
@@ -31,7 +31,7 @@ storiesOf('Navbar', module)
   })
   .add('Signed in', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
@@ -43,7 +43,7 @@ storiesOf('Navbar', module)
   })
   .add('Signed in', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
@@ -55,7 +55,7 @@ storiesOf('Navbar', module)
   })
   .add('With Balance', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
@@ -68,7 +68,7 @@ storiesOf('Navbar', module)
   })
   .add('Width Activity pending', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
@@ -86,7 +86,7 @@ storiesOf('Navbar', module)
   })
   .add('With Notification', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
@@ -136,7 +136,7 @@ storiesOf('Navbar', module)
   })
   .add('With Notification pending', () => {
     return (
-      <div className="dui-navbar2-story-container">
+      <div className="dui-navbar-story-container">
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
