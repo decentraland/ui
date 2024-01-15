@@ -12,6 +12,7 @@ import { config } from '../../config'
 import { Row } from '../Row/Row'
 
 import './UserMenu.css'
+import { useTabletAndBelowMediaQuery } from '../Media'
 
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
@@ -27,6 +28,8 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     ...signInProps
   } = props
 
+  const isTabletAndBelow = useTabletAndBelowMediaQuery()
+
   const [isOpen, setIsOpen] = useState(false)
   const [trackingId, setTrackingId] = useState<string | null>(null)
   const handleToggle = useCallback(
@@ -39,6 +42,15 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
         if (!prev && onClickOpen) {
           onClickOpen(event, trackId)
         }
+
+        if (isTabletAndBelow) {
+          if (!prev) {
+            window.addEventListener("scroll", noScroll)
+          } else {
+            window.removeEventListener("scroll", noScroll)
+          }
+        }
+
         return !prev
       })
     },
@@ -47,6 +59,9 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
   const handleClose = useCallback(() => {
     setIsOpen(false)
+    if (isTabletAndBelow) {
+      window.removeEventListener("scroll", noScroll)
+    }
   }, [setIsOpen])
 
   const handleClickJumpIn = useCallback(
@@ -150,3 +165,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     </Column>
   )
 })
+
+function noScroll() {
+  window.scrollTo(0, 0)
+}

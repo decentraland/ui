@@ -11,6 +11,8 @@ import Notifications from '../../Notifications/Notifications'
 import ArrowIcon from '../../Icons/ArrowIcon'
 import { config } from '../../../config'
 import { UserMenuEventId } from '../UserMenu.types'
+import { useTabletAndBelowMediaQuery } from '../../Media'
+
 
 import '../UserMenu.css'
 import './UserMenuSignedIn.css'
@@ -36,6 +38,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     onClickToggle,
     onClickWallet
   } = props
+
+  const isTabletAndBelow = useTabletAndBelowMediaQuery()
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -196,7 +200,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
       <div
         className={classNames('menu-wrapper', isOpen && 'open')}
         onMouseLeave={handleClickClose}
-        onScroll={handleClickClose}
+        onScroll={!isTabletAndBelow ? handleClickClose : undefined}
       >
         <div
           className={classNames(
