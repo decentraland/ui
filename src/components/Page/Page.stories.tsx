@@ -230,7 +230,7 @@ storiesOf('Page', module)
   ))
   .add('Table page', () => (
     <>
-      <Navbar activePage='marketplace' />
+      <Navbar activePage="marketplace" />
       <Tabs>
         <Tabs.Tab active>Land</Tabs.Tab>
         <Tabs.Tab>Scenes</Tabs.Tab>
