@@ -11,7 +11,7 @@ import { NotificationActiveTab } from '../Notifications/types'
 
 import './Navbar.stories.css'
 
-storiesOf('Navbar2', module)
+storiesOf('Navbar', module)
   .add('Marketplace', () => {
     return (
       <div className="dui-navbar2-story-container">
