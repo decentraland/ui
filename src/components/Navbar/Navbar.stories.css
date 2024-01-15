@@ -1,4 +1,4 @@
-.dui-navbar-story-container {
+.Navbar-story-container {
   position: absolute;
   overflow: hidden;
   width: 100%;
@@ -7,24 +7,24 @@
   top: 0;
 }
 
-.dui-navbar-story-container .color-layer {
+.Navbar-story-container .color-layer {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to bottom, #060d2b, #132d7d 52%, #9763c1);
   position: absolute;
 }
 
-.dui-navbar-story-container .over-gradient .ui.header {
+.Navbar-story-container .over-gradient .ui.header {
   color: white;
 }
 
-.dui-navbar-story-container .homepage-pyramid {
+.Navbar-story-container .homepage-pyramid {
   background: url('../../assets/pyramid.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.dui-navbar-story-container .homepage-pyramid.small {
+.Navbar-story-container .homepage-pyramid.small {
   width: 400px;
   height: 400px;
   margin-left: -100px;
@@ -32,7 +32,7 @@
   filter: var(--pyramid-small-brightness);
 }
 
-.dui-navbar-story-container .homepage-pyramid.large {
+.Navbar-story-container .homepage-pyramid.large {
   width: 1000px;
   height: 1000px;
   margin-top: -200px;
@@ -40,11 +40,11 @@
   filter: var(--pyramid-large-brightness);
 }
 
-.dui-navbar-story-container .dcl.dui-navbar .dcl.hero {
+.Navbar-story-container .dcl.Navbar .dcl.hero {
   background-color: #f2f2f5;
 }
 
-.dui-navbar-story-container .background {
+.Navbar-story-container .background {
   background-image: url(../../assets/background.png);
 
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: 768px) {
-  .dui-navbar-story-container {
+  .Navbar-story-container {
     width: 100%;
   }
 }
