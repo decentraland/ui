@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 
 import { Back } from '../../Back/Back'
-import { Navbar2Pages } from '../Navbar.types'
+import { NavbarPages } from '../Navbar.types'
 import { SubMenuProps } from './SubMenu.types'
 import { SubMenuColumn } from '../SubMenuColumn/SubMenuColumn'
 import { SubMenuItem } from '../SubMenuItem/SubMenuItem'
@@ -28,7 +28,7 @@ export const SubMenu = (props: SubMenuProps) => {
       )}
     >
       {Object.keys(submenus).map((key) => {
-        const section = key as Navbar2Pages
+        const section = key as NavbarPages
         const submenu = submenus[section]
         return (
           <Menu.Item

@@ -5,7 +5,7 @@ import { Container } from '../Container/Container'
 import { Logo } from '../Logo/Logo'
 import { Desktop, TabletAndBelow, useTabletAndBelowMediaQuery } from '../Media'
 import { UserMenu } from '../UserMenu/UserMenu'
-import { Navbar2Pages, Navbar2Props } from './Navbar.types'
+import { NavbarPages, NavbarProps } from './Navbar.types'
 import { SubMenu } from './SubMenu/SubMenu'
 import { MainMenu } from './MainMenu/MainMenu'
 import {
@@ -16,7 +16,7 @@ import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar.css'
 
-export const Navbar2 = React.memo((props: Navbar2Props) => {
+export const Navbar = React.memo((props: NavbarProps) => {
   const {
     activePage,
     className,
@@ -28,13 +28,13 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     ...userMenuProps
   } = props
   const [toggle, setToggle] = useState(false)
-  const [selectedMenu, setSelectedMenu] = useState<Navbar2Pages | boolean>()
+  const [selectedMenu, setSelectedMenu] = useState<NavbarPages | boolean>()
   const [menuMobileOpen, setMenuMobileOpen] = useState(false)
 
   const isTabletAndBelow = useTabletAndBelowMediaQuery()
 
   const handleToggle = useCallback(
-    (e: React.MouseEvent, show: boolean, section: Navbar2Pages) => {
+    (e: React.MouseEvent, show: boolean, section: NavbarPages) => {
       setToggle(show)
       show && setSelectedMenu(section)
     },

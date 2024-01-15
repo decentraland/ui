@@ -1,6 +1,6 @@
 import { UserMenuI18N, UserMenuProps } from '../UserMenu/UserMenu.types'
 
-export enum Navbar2Pages {
+export enum NavbarPages {
   MARKETPLACE = 'marketplace',
   CREATE = 'create',
   EXPLORE = 'explore',
@@ -8,9 +8,9 @@ export enum Navbar2Pages {
   GOVERNANCE = 'governance'
 }
 
-export type Navbar2MenuI18nProps = Record<Navbar2Pages, Navbar2Pages>
+export type NavbarMenuI18nProps = Record<NavbarPages, NavbarPages>
 
-export type Navbar2SubMenuItemsProps = {
+export type NavbarSubMenuItemsProps = {
   column1Title?: string
   column1: {
     title: string
@@ -37,19 +37,19 @@ export type Navbar2SubMenuItemsProps = {
   }[]
 }
 
-export type Navbar2SubmenuProps = {
-  marketplace: Navbar2SubMenuItemsProps
-  create: Navbar2SubMenuItemsProps
-  explore: Navbar2SubMenuItemsProps
-  learn: Navbar2SubMenuItemsProps
-  governance: Navbar2SubMenuItemsProps
+export type NavbarSubmenuProps = {
+  marketplace: NavbarSubMenuItemsProps
+  create: NavbarSubMenuItemsProps
+  explore: NavbarSubMenuItemsProps
+  learn: NavbarSubMenuItemsProps
+  governance: NavbarSubMenuItemsProps
 }
 
-export type Navbar2Props = Omit<UserMenuProps, 'i18n'> & {
-  i18nNavbar?: Navbar2MenuI18nProps
-  submenuItems?: Navbar2SubmenuProps
+export type NavbarProps = Omit<UserMenuProps, 'i18n'> & {
+  i18nNavbar?: NavbarMenuI18nProps
+  submenuItems?: NavbarSubmenuProps
   i18nUserMenu?: UserMenuI18N
-  activePage: Navbar2Pages | string
+  activePage: NavbarPages | string
   className?: string
   onClickNavbarItem?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,

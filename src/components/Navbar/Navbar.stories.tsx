@@ -2,8 +2,8 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { avatar } from '../../data/avatar'
 
-import { Navbar2 } from './Navbar'
-import { Navbar2Pages } from './Navbar.types'
+import { Navbar } from './Navbar'
+import { NavbarPages } from './Navbar.types'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
@@ -15,15 +15,15 @@ storiesOf('Navbar2', module)
   .add('Marketplace', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2 activePage={Navbar2Pages.MARKETPLACE} />
+        <Navbar activePage={NavbarPages.MARKETPLACE} />
       </div>
     )
   })
   .add('Sign In', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
@@ -32,8 +32,8 @@ storiesOf('Navbar2', module)
   .add('Signed in', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignIn={() => console.log('Clicked on sign in')}
@@ -44,8 +44,8 @@ storiesOf('Navbar2', module)
   .add('Signed in', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignIn={() => console.log('Clicked on sign in')}
@@ -56,8 +56,8 @@ storiesOf('Navbar2', module)
   .add('With Balance', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
@@ -69,8 +69,8 @@ storiesOf('Navbar2', module)
   .add('Width Activity pending', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
@@ -87,8 +87,8 @@ storiesOf('Navbar2', module)
   .add('With Notification', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
@@ -137,8 +137,8 @@ storiesOf('Navbar2', module)
   .add('With Notification pending', () => {
     return (
       <div className="dui-navbar2-story-container">
-        <Navbar2
-          activePage={Navbar2Pages.MARKETPLACE}
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
           isSignedIn
           avatar={avatar}
           onClickSignOut={(e) => console.log('Clicked on sign in ', e)}

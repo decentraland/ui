@@ -1,12 +1,12 @@
-import { Navbar2MenuI18nProps, Navbar2Pages } from '../Navbar.types'
+import { NavbarMenuI18nProps, NavbarPages } from '../Navbar.types'
 
 export type MainMenuProps = {
-  activePage: Navbar2Pages | string
+  activePage: NavbarPages | string
   onToggleShowSubMenu: (
     e: React.MouseEvent,
     show: boolean,
-    section?: Navbar2Pages
+    section?: NavbarPages
   ) => void
-  i18n: Navbar2MenuI18nProps
+  i18n: NavbarMenuI18nProps
   isMobile?: boolean
 }

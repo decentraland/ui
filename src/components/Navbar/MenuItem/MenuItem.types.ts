@@ -1,13 +1,13 @@
-import { Navbar2Pages } from '../Navbar.types'
+import { NavbarPages } from '../Navbar.types'
 
 export type MenuItemProps = {
-  activePage: Navbar2Pages | string
-  section: Navbar2Pages
+  activePage: NavbarPages | string
+  section: NavbarPages
   title: React.ReactNode
   onToggleShowSubMenu: (
     e: React.MouseEvent,
     show: boolean,
-    section?: Navbar2Pages
+    section?: NavbarPages
   ) => void
   isMobile?: boolean
 }
