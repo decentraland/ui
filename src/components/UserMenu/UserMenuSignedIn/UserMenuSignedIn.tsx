@@ -13,7 +13,6 @@ import { config } from '../../../config'
 import { UserMenuEventId } from '../UserMenu.types'
 import { useTabletAndBelowMediaQuery } from '../../Media'
 
-
 import '../UserMenu.css'
 import './UserMenuSignedIn.css'
 

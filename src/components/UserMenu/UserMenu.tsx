@@ -45,9 +45,9 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
 
         if (isTabletAndBelow) {
           if (!prev) {
-            window.addEventListener("scroll", noScroll)
+            window.addEventListener('scroll', noScroll)
           } else {
-            window.removeEventListener("scroll", noScroll)
+            window.removeEventListener('scroll', noScroll)
           }
         }
 
@@ -60,7 +60,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   const handleClose = useCallback(() => {
     setIsOpen(false)
     if (isTabletAndBelow) {
-      window.removeEventListener("scroll", noScroll)
+      window.removeEventListener('scroll', noScroll)
     }
   }, [setIsOpen])
 

@@ -69,7 +69,7 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     trackingId: string
   ) => {
     if (userMenuProps.onClickOpen) {
-      userMenuProps.onClickOpen(event, trackingId) 
+      userMenuProps.onClickOpen(event, trackingId)
     }
     handleMobileToggle(event, false)
   }
@@ -119,7 +119,11 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
           <div className="dui-navbar2-account">
             <UserMenu
               {...userMenuProps}
-              onClickOpen={isTabletAndBelow ? handleUserMenuOpen : userMenuProps.onClickOpen}
+              onClickOpen={
+                isTabletAndBelow
+                  ? handleUserMenuOpen
+                  : userMenuProps.onClickOpen
+              }
               isSignedIn={isSignedIn}
               i18n={i18nUserMenu}
             />
