@@ -1,4 +1,4 @@
-import { Navbar2SubmenuProps, Navbar2Pages } from '../Navbar2.types'
+import { Navbar2SubmenuProps, Navbar2Pages } from '../Navbar.types'
 
 export type SubMenuProps = {
   selectedMenu: Navbar2Pages | boolean

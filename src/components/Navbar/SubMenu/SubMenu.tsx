@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 
 import { Back } from '../../Back/Back'
-import { Navbar2Pages } from '../Navbar2.types'
+import { Navbar2Pages } from '../Navbar.types'
 import { SubMenuProps } from './SubMenu.types'
 import { SubMenuColumn } from '../SubMenuColumn/SubMenuColumn'
 import { SubMenuItem } from '../SubMenuItem/SubMenuItem'

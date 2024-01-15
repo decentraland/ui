@@ -1,4 +1,4 @@
-import { Navbar2Pages } from '../Navbar2.types'
+import { Navbar2Pages } from '../Navbar.types'
 
 export type MenuItemProps = {
   activePage: Navbar2Pages | string

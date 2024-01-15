@@ -1,4 +1,4 @@
-import { Navbar2MenuI18nProps, Navbar2Pages } from '../Navbar2.types'
+import { Navbar2MenuI18nProps, Navbar2Pages } from '../Navbar.types'
 
 export type MainMenuProps = {
   activePage: Navbar2Pages | string

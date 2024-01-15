@@ -1,5 +1,5 @@
 import { config } from '../../config'
-import { Navbar2SubmenuProps, Navbar2MenuI18nProps } from './Navbar2.types'
+import { Navbar2SubmenuProps, Navbar2MenuI18nProps } from './Navbar.types'
 
 export const navbarMainTitlesI18N = {
   marketplace: 'marketplace',

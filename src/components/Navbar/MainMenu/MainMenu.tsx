@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { MenuItem } from '../MenuItem/MenuItem'
-import { Navbar2Pages } from '../Navbar2.types'
+import { Navbar2Pages } from '../Navbar.types'
 import { MainMenuProps } from './MainMenu.types'
 
 import './MainMenu.css'

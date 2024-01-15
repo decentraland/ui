@@ -2,14 +2,14 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { avatar } from '../../data/avatar'
 
-import { Navbar2 } from './Navbar2'
-import { Navbar2Pages } from './Navbar2.types'
+import { Navbar2 } from './Navbar'
+import { Navbar2Pages } from './Navbar.types'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 import { NotificationActiveTab } from '../Notifications/types'
 
-import './Navbar2.stories.css'
+import './Navbar.stories.css'
 
 storiesOf('Navbar2', module)
   .add('Marketplace', () => {
