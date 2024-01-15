@@ -64,6 +64,16 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
     [onClickNavbarItem]
   )
 
+  const handleUserMenuOpen = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    trackingId: string
+  ) => {
+    if (userMenuProps.onClickOpen) {
+      userMenuProps.onClickOpen(event, trackingId)
+    }
+    handleMobileToggle(event, false)
+  }
+
   return (
     <div
       className={classNames(
@@ -109,9 +119,14 @@ export const Navbar2 = React.memo((props: Navbar2Props) => {
           <div className="dui-navbar2-account">
             <UserMenu
               {...userMenuProps}
+              onClickOpen={
+                isTabletAndBelow
+                  ? handleUserMenuOpen
+                  : userMenuProps.onClickOpen
+              }
               isSignedIn={isSignedIn}
               i18n={i18nUserMenu}
-            ></UserMenu>
+            />
           </div>
         </div>
       </Container>
