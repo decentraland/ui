@@ -95,7 +95,7 @@ const hoverFillLayer: Layer = (x, y) => {
 
 const App = ({ children }) => (
   <>
-    <Navbar activePage="marketplace" isFullscreen />
+    <Navbar activePage="marketplace" />
     <Page isFullscreen>{children}</Page>
     <Footer isFullscreen />
   </>
