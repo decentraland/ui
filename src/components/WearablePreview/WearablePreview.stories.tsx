@@ -269,7 +269,7 @@ UsingOnErrorCallback.storyName = 'Using onError callback'
 
 export const UseAsHero: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
-    <Navbar isFullscreen activePage="marketplace" />
+    <Navbar activePage="marketplace" />
     <Tabs isFullscreen>
       <Tabs.Tab active>Atlas</Tabs.Tab>
       <Tabs.Tab>Market</Tabs.Tab>

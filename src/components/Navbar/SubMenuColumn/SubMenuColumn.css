@@ -28,14 +28,14 @@
     max-width: 100%;
   }
 
-  .dui-navbar2
+  .dui-navbar
     .item.submenu
     .submenu-column__wrapper
     .dui-submenu-column:nth-child(2) {
     margin-top: 37px;
   }
 
-  .dui-navbar2.dui-navbar2__mobile-open
+  .dui-navbar.dui-navbar__mobile-open
     .item.submenu
     .dui-submenu-column.dui-submenu-column-title
     > h1 {

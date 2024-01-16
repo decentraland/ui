@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { MenuItem } from '../MenuItem/MenuItem'
-import { Navbar2Pages } from '../Navbar2.types'
+import { NavbarPages } from '../Navbar.types'
 import { MainMenuProps } from './MainMenu.types'
 
 import './MainMenu.css'
@@ -12,34 +12,34 @@ export const MainMenu = (props: MainMenuProps) => {
   return (
     <div
       className={classNames(
-        'dui-navbar2__menu',
-        !props.isMobile && 'dui-navbar2__menu-desktop',
-        props.isMobile && 'dui-navbar2__menu-mobile'
+        'dui-navbar__menu',
+        !props.isMobile && 'dui-navbar__menu-desktop',
+        props.isMobile && 'dui-navbar__menu-mobile'
       )}
     >
       <MenuItem
         {...menuItemProps}
-        section={Navbar2Pages.MARKETPLACE}
+        section={NavbarPages.MARKETPLACE}
         title={i18n.marketplace}
       />
       <MenuItem
         {...menuItemProps}
-        section={Navbar2Pages.CREATE}
+        section={NavbarPages.CREATE}
         title={i18n.create}
       />
       <MenuItem
         {...menuItemProps}
-        section={Navbar2Pages.EXPLORE}
+        section={NavbarPages.EXPLORE}
         title={i18n.explore}
       />
       <MenuItem
         {...menuItemProps}
-        section={Navbar2Pages.LEARN}
+        section={NavbarPages.LEARN}
         title={i18n.learn}
       />
       <MenuItem
         {...menuItemProps}
-        section={Navbar2Pages.GOVERNANCE}
+        section={NavbarPages.GOVERNANCE}
         title={i18n.governance}
       />
     </div>

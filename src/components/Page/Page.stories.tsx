@@ -57,7 +57,7 @@ storiesOf('Page', module)
   .add('Menu page', () => {
     return (
       <div className="Page-story-container">
-        <Navbar isFullscreen activePage="marketplace" />
+        <Navbar activePage="marketplace" />
         <Tabs>
           <Tabs.Tab active>Atlas</Tabs.Tab>
           <Tabs.Tab>Market</Tabs.Tab>
@@ -74,7 +74,7 @@ storiesOf('Page', module)
   .add('Menu and submenu page', () => {
     return (
       <div className="Page-story-container">
-        <Navbar isFullscreen activePage="marketplace" />
+        <Navbar activePage="marketplace" />
         <Tabs>
           <Tabs.Tab active>Atlas</Tabs.Tab>
           <Tabs.Tab>Market</Tabs.Tab>
@@ -110,7 +110,7 @@ storiesOf('Page', module)
   .add('Menu and fullscreen page', () => {
     return (
       <div className="Page-story-container">
-        <Navbar isFullscreen activePage="marketplace" />
+        <Navbar activePage="marketplace" />
         <Tabs isFullscreen>
           <Tabs.Tab active>Atlas</Tabs.Tab>
           <Tabs.Tab>Market</Tabs.Tab>
@@ -126,7 +126,7 @@ storiesOf('Page', module)
   .add('Hero page', () => {
     return (
       <div className="Page-story-container">
-        <Navbar isFullscreen activePage="marketplace" />
+        <Navbar activePage="marketplace" />
         <Page isFullscreen>
           <Hero centered>
             <Hero.Header>ATLAS</Hero.Header>
@@ -144,7 +144,7 @@ storiesOf('Page', module)
   .add('Fullscreen page', () => {
     return (
       <div className="Page-story-container">
-        <Navbar isFullscreen activePage="marketplace" />
+        <Navbar activePage="marketplace" />
         <Page isFullscreen>
           <Center>
             <Header size="huge">Oops</Header>
@@ -230,7 +230,7 @@ storiesOf('Page', module)
   ))
   .add('Table page', () => (
     <>
-      <Navbar isFullscreen />
+      <Navbar activePage="marketplace" />
       <Tabs>
         <Tabs.Tab active>Land</Tabs.Tab>
         <Tabs.Tab>Scenes</Tabs.Tab>
