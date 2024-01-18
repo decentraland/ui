@@ -22,19 +22,19 @@
   border: 1px solid var(--divider);
 }
 
-.dui-table-content.radiusEnding .ui.table tr:last-child td:first-child {
+.dui-table-content--radius-ending .ui.table tr:last-child td:first-child {
   border-bottom-left-radius: 10px;
 }
 
-.dui-table-content.radiusEnding .ui.table tr:last-child td:last-child {
+.dui-table-content--radius-ending .ui.table tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
 }
 
-.dui-table-content.emptyHeaders .ui.table th:first-child {
+.dui-table-content__headers--empty .ui.table th:first-child {
   border-top-left-radius: 10px;
 }
 
-.dui-table-content.emptyHeaders .ui.table th:last-child {
+.dui-table-content__headers--empty .ui.table th:last-child {
   border-top-right-radius: 10px;
 }
 
@@ -63,7 +63,7 @@
   margin-left: 8px;
 }
 
-.dui-table-content .emptyTable {
+.dui-table-content__table--empty {
   width: 100%;
   height: 404px;
   display: flex;
@@ -72,7 +72,7 @@
   position: relative;
 }
 
-.dui-table-content .pagination {
+.dui-table-content__pagination {
   justify-content: flex-end;
   gap: 20px;
   display: flex;
@@ -94,21 +94,21 @@
     align-items: center;
     padding: 0;
   }
-  .dui-table-content .pagination {
+  .dui-table-content__pagination {
     flex-direction: column;
   }
-  .dui-table-content .pagination .ui.pagination.menu {
+  .dui-table-content__pagination .ui.pagination.menu {
     display: flex;
     flex-direction: row;
   }
-  .dui-table-content .pagination .ui.pagination.menu .item + .item {
+  .dui-table-content__pagination .ui.pagination.menu .item + .item {
     margin: 0;
   }
-  .dui-table-content .pagination .ui.pagination.menu {
+  .dui-table-content__pagination .ui.pagination.menu {
     width: 100%;
     justify-content: center;
   }
-  .dui-table-content .pagination {
+  .dui-table-content__pagination {
     grid-gap: 10px;
     gap: 10px;
   }

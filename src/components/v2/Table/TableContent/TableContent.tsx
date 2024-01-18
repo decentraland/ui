@@ -1,6 +1,8 @@
 import React from 'react'
-import { Loader, Pagination, Table } from '../../../../'
 import { useMobileMediaQuery } from '../../../Media'
+import { Table } from '../../../Table/Table'
+import { Loader } from '../../../Loader/Loader'
+import { Pagination } from '../../../Pagination/Pagination'
 import { Props } from './TableContent.types'
 import './TableContent.css'
 
@@ -28,17 +30,17 @@ const TableContent = (props: Props) => {
 
   return (
     <div
-      className={`dui-table-content ${!hasPagination ? 'radiusEnding' : ''} ${
-        !hasHeaders ? 'emptyHeaders' : ''
+      className={`dui-table-content ${!hasPagination ? 'dui-table-content--radius-ending' : ''} ${
+        !hasHeaders ? 'dui-table-content__headers--empty' : ''
       }`}
     >
       {isLoading ? (
-        <div className={'emptyTable'}>
+        <div className='dui-table-content__table--empty'>
           <Loader active data-testid="loader" />
         </div>
       ) : headers ? (
         <Table basic="very" data-testid="table-content">
-          <Table.Body className={isLoading ? 'is-loading' : ''}>
+          <Table.Body className={isLoading ? 'dui-table-content__table--loading' : ''}>
             <Table.Row>
               {headers.map((header) => (
                 <Table.HeaderCell key={header}>
@@ -66,7 +68,7 @@ const TableContent = (props: Props) => {
         empty()
       )}
       {hasPagination && total && props.activePage !== undefined ? (
-        <div className="pagination">
+        <div className="dui-table-content__pagination">
           {`${i18n.sortBy.showing} ${
             (activePage - 1) * rowsPerPage + 1
           }-${Math.min(activePage * rowsPerPage, total)}  ${

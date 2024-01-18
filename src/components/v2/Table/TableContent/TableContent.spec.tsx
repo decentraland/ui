@@ -1,7 +1,7 @@
 import React from 'react'
+import { render, within } from '@testing-library/react'
 import { DataTableType } from './TableContent.types'
 import TableContent, { ROWS_PER_PAGE } from './TableContent'
-import { render, within } from '@testing-library/react'
 
 describe('Table content', () => {
   let data: DataTableType[] = [

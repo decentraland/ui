@@ -1,6 +1,6 @@
 import React from 'react'
 import { forwardRef } from 'react'
-import { Dropdown } from '../../../../'
+import { Dropdown } from '../../../Dropdown/Dropdown'
 import { Tabs } from '../../../Tabs/Tabs'
 import { Props } from './TableContianer.types'
 import './TableContainer.css'
@@ -19,7 +19,7 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div className="dui-table-container" ref={ref}>
       {tabsList.length || sortbyList?.length ? (
-        <div className="filtertabsContainer">
+        <div className="dui-table-container--filters">
           {tabsList.length > 0 ? (
             <Tabs isFullscreen>
               {tabsList.map((tab) => (
@@ -30,7 +30,9 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
                     handleTabChange && handleTabChange(tab.value)
                   }}
                 >
-                  <div className="tabStyle">{tab.displayValue}</div>
+                  <div className="dui-table-container__tabs">
+                    {tab.displayValue}
+                  </div>
                 </Tabs.Tab>
               ))}
             </Tabs>
@@ -38,10 +40,10 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
           {sortbyList && (
             <Dropdown
               direction="left"
-              className="sortByDropdown"
+              className="dui-table-container__sory-by"
               value={sortBy}
               onChange={(_event, data) => {
-                const value = data.value as string
+                const value = data.value.toString()
                 handleSortByChange && handleSortByChange(value)
               }}
               options={sortbyList}

@@ -8,7 +8,7 @@
   gap: 8px;
 }
 
-.dui-table-container .filtertabsContainer {
+.dui-table-container__filters {
   display: flex;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -17,7 +17,7 @@
   padding-left: 20px;
 }
 
-.dui-table-container .filtertabsContainer .dcl.tab {
+.dui-table-container__filters .dcl.tab {
   padding: 0px;
   height: 46px;
   align-items: center;
@@ -32,7 +32,7 @@
   background-color: var(--secondary);
 }
 
-.dui-table-container .sortByDropdown {
+.dui-table-container__sort-by .sortByDropdown {
   border-radius: 12px;
   margin-right: 20px;
   justify-content: space-between;
@@ -40,7 +40,7 @@
   flex-direction: row;
 }
 
-.dui-table-container .filtertabsContainer .ui.dropdown {
+.dui-table-container__filters .ui.dropdown {
   display: flex;
   align-items: center;
   font-size: 13px;
@@ -48,13 +48,13 @@
   right: 20px;
 }
 
-.dui-table-container .filtertabsContainer .ui.dropdown > .icon {
+.dui-table-container__filters .ui.dropdown > .icon {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.dui-table-container .tabStyle {
+.dui-table-container__tabs {
   font-size: 22px;
   font-weight: 700;
 }
@@ -64,16 +64,16 @@
     text-align: left;
   }
 
-  .dui-table-container .filtertabsContainer {
+  .dui-table-container__filters {
     flex-direction: column;
     padding: unset;
   }
 
-  .dui-table-container .tabStyle {
+  .dui-table-container__tabs {
     padding-left: unset;
   }
 
-  .dui-table-container .filtertabsContainer .ui.dropdown {
+  .dui-table-container__filters .ui.dropdown {
     position: relative;
     left: 0;
     margin: 16px 12px 16px 0px;
