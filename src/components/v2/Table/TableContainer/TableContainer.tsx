@@ -19,7 +19,7 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div className="dui-table-container" ref={ref}>
       {tabsList.length || sortbyList?.length ? (
-        <div className="dui-table-container--filters">
+        <div className="dui-table-container__filters">
           {tabsList.length > 0 ? (
             <Tabs isFullscreen>
               {tabsList.map((tab) => (

@@ -1,4 +1,4 @@
-import { DropdownItemProps } from '../../../../'
+import { DropdownItemProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/DropdownItem'
 import React, { RefObject } from 'react'
 
 export type Props = {

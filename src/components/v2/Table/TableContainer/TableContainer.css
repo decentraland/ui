@@ -1,13 +1,3 @@
-.dui-table-container .supply {
-  color: var(--secondary-text);
-}
-
-.dui-table-container .ownerButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .dui-table-container__filters {
   display: flex;
   border-top-right-radius: 10px;
@@ -15,6 +5,7 @@
   align-items: center;
   border-bottom: 1px solid var(--divider);
   padding-left: 20px;
+  position: relative;
 }
 
 .dui-table-container__filters .dcl.tab {
@@ -32,7 +23,7 @@
   background-color: var(--secondary);
 }
 
-.dui-table-container__sort-by .sortByDropdown {
+.dui-table-container__sort-by {
   border-radius: 12px;
   margin-right: 20px;
   justify-content: space-between;
