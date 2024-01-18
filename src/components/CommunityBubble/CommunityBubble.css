@@ -1,0 +1,30 @@
+.dui-community-bubble {
+  display: flex;
+  color: white;
+  border-radius: 12px;
+  padding: 7px 14px 7px 14px;
+  background: #161518;
+  align-items: center;
+  gap: 5px;
+}
+
+.dui-community-bubble__icon {
+  background-image: url('../../assets/discord.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 19px;
+  width: 28px;
+  margin-right: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.dui-community-bubble__text--bold {
+  font-weight: 600;
+}
+
+.dui-community-bubble__text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 12px;
+}

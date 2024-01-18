@@ -96,6 +96,7 @@ export * from './components/IconBadge/IconBadge'
 export * from './components/SmartWearableFilter'
 export * from './components/SmartBadge'
 export * from './components/SmartIcon'
+export * from './components/CommunityBubble'
 
 // Semantic components
 /* eslint-disable no-restricted-imports */
