@@ -7033,3 +7033,33 @@ a.ui.card:hover,
   filter: var(--brightness);
 }
 
+.dui-community-bubble {
+  display: flex;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 34px 10px 19px;
+  background: #161518;
+  align-items: center;
+  gap: 15px;
+}
+
+.dui-community-bubble__icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE4IDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTS0xLTNoMjB2MjBILTF6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iIzY3NjM3MCIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNNi41NDYuNzc4Yy0uMjM1IDAtMi4xODUuMDU2LTQuMjQxIDEuNTg0IDAgMC0yLjE5NCAzLjk0Ni0yLjE5NCA4LjgwNSAwIDAgMS4yOCAyLjE5NCA0LjY0NiAyLjMgMCAwIC41NjQtLjY3IDEuMDIxLTEuMjQ5LTEuOTM1LS41NzgtMi42NjYtMS43ODItMi42NjYtMS43ODJzLjE1My4xMDcuNDI3LjI2Yy4wMTUgMCAuMDMuMDE0LjA2LjAzLjA0Ni4wMy4wOTIuMDQ1LjEzOC4wNzYuMzguMjEzLjc2MS4zOCAxLjExMi41MTguNjI0LjI1OSAxLjM3LjQ4NyAyLjI0LjY1NSAxLjE0Mi4yMTMgMi40ODIuMjkgMy45NDUuMDE1YTEwLjkyNSAxMC45MjUgMCAwIDAgMi4yMDktLjY1NSA4LjcxNyA4LjcxNyAwIDAgMCAxLjc1MS0uODk5cy0uNzYxIDEuMjM0LTIuNzU3IDEuNzk4Yy40NTcuNTYzIDEuMDA2IDEuMjE4IDEuMDA2IDEuMjE4IDMuMzY2LS4xMDYgNC42NDYtMi4zIDQuNjQ2LTIuMjg1IDAtNC44Ni0yLjE5NC04LjgwNS0yLjE5NC04LjgwNUMxMy41MTcuNzMyIDExLjQzLjc3OCAxMS40My43NzhsLS4yMTMuMjQ0YzIuNTkuNzc3IDMuNzkzIDEuOTIgMy43OTMgMS45MmExMi42NjQgMTIuNjY0IDAgMCAwLTQuNTg2LTEuNDQ4IDEyLjg5IDEyLjg5IDAgMCAwLTMuMDc3LjAzYy0uMDkxIDAtLjE2Ny4wMTYtLjI1OS4wMy0uNTMzLjA2Mi0xLjgyOC4yNDUtMy40NTguOTYtLjU2NC4yNDQtLjg5OS40MjctLjg5OS40MjdzMS4yNS0xLjIwMyAzLjk5Mi0xLjk4TDYuNTcuNzc4aC0uMDI0ek02LjE2IDYuMzk5Yy44NjggMCAxLjU2OS43NDcgMS41NTQgMS42NzYgMCAuOTMtLjY4NiAxLjY3Ni0xLjU1NCAxLjY3Ni0uODUzIDAtMS41NTQtLjc0Ny0xLjU1NC0xLjY3NiAwLS45My42ODYtMS42NzYgMS41NTQtMS42NzZ6bTUuNTYgMGMuODUzIDAgMS41NTQuNzQ3IDEuNTU0IDEuNjc2IDAgLjkzLS42ODUgMS42NzYtMS41NTQgMS42NzYtLjg1MyAwLTEuNTU0LS43NDctMS41NTQtMS42NzYgMC0uOTMuNjg2LTEuNjc2IDEuNTU0LTEuNjc2eiIvPgogICAgPC9nPgo8L3N2Zz4K);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+  width: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.dui-community-bubble__text--bold {
+  font-weight: 600;
+}
+
+.dui-community-bubble__text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 12px;
+}
+
