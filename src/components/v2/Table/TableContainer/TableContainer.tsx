@@ -40,7 +40,7 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
           {sortbyList && (
             <Dropdown
               direction="left"
-              className="dui-table-container__sory-by"
+              className="dui-table-container__sort-by"
               value={sortBy}
               onChange={(_event, data) => {
                 const value = data.value.toString()

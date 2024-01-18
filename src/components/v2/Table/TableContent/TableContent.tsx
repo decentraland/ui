@@ -30,17 +30,19 @@ const TableContent = (props: Props) => {
 
   return (
     <div
-      className={`dui-table-content ${!hasPagination ? 'dui-table-content--radius-ending' : ''} ${
-        !hasHeaders ? 'dui-table-content__headers--empty' : ''
-      }`}
+      className={`dui-table-content ${
+        !hasPagination ? 'dui-table-content--radius-ending' : ''
+      } ${!hasHeaders ? 'dui-table-content__headers--empty' : ''}`}
     >
       {isLoading ? (
-        <div className='dui-table-content__table--empty'>
+        <div className="dui-table-content__table--empty">
           <Loader active data-testid="loader" />
         </div>
       ) : headers ? (
         <Table basic="very" data-testid="table-content">
-          <Table.Body className={isLoading ? 'dui-table-content__table--loading' : ''}>
+          <Table.Body
+            className={isLoading ? 'dui-table-content__table--loading' : ''}
+          >
             <Table.Row>
               {headers.map((header) => (
                 <Table.HeaderCell key={header}>
