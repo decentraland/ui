@@ -10,8 +10,14 @@ import { Props } from './AddressField.types'
 import './AddressField.css'
 
 export default function AddressField(props: Props) {
-  const { className, fieldClassName, i18n, resolveName, onChange, ...otherProps } =
-    props
+  const {
+    className,
+    fieldClassName,
+    i18n,
+    resolveName,
+    onChange,
+    ...otherProps
+  } = props
   const [inputValue, setInputValue] = useState('')
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
@@ -67,7 +73,14 @@ export default function AddressField(props: Props) {
 
   const additionalProps = valid
     ? {
-        icon: <Icon color="green" data-testid="check-icon" size="large" name="check circle" />
+        icon: (
+          <Icon
+            color="green"
+            data-testid="check-icon"
+            size="large"
+            name="check circle"
+          />
+        )
       }
     : {}
 
@@ -95,7 +108,9 @@ export default function AddressField(props: Props) {
         placeholder={props.placeholder ?? 'Address or name'}
         value={inputValue || ''}
         message={
-          valid === false ? (i18n?.errorMessage || 'This is not a valid name or address') : undefined
+          valid === false
+            ? i18n?.errorMessage || 'This is not a valid name or address'
+            : undefined
         }
         error={valid === false}
         loading={loading}

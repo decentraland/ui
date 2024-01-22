@@ -86,7 +86,9 @@ describe('when user inputs a name', () => {
 
     it('should show an error', async () => {
       await waitFor(() =>
-        expect(screen.getByText('This is not a valid name or address')).toBeInTheDocument()
+        expect(
+          screen.getByText('This is not a valid name or address')
+        ).toBeInTheDocument()
       )
     })
   })
