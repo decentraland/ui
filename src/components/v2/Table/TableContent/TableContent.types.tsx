@@ -11,6 +11,7 @@ export type Props = {
   rowsPerPage?: number
   mobileTableBody?: React.ReactNode
   hasHeaders?: boolean
+  customHeaders?: Record<string, string | React.ReactNode>
   i18n?: {
     sortBy: {
       showing: string
