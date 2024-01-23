@@ -18,17 +18,11 @@ export default function AddressField(props: Props) {
     onChange,
     ...otherProps
   } = props
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(props.value || '')
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const [valid, setValid] = useState<boolean>()
   const [loading, setLoading] = useState<boolean>()
-
-  useEffect(() => {
-    if (props.value && props.value !== address) {
-      setInputValue(props.value)
-    }
-  }, [props.value, address])
 
   useEffect(() => {
     return () => {
