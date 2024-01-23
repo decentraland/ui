@@ -113,13 +113,13 @@ export default function AddressField(props: Props) {
         placeholder={props.placeholder ?? 'Address or name'}
         value={inputValue || ''}
         message={
-          valid === false
+          (valid === false
             ? i18n?.errorMessage || 'This is not a valid name or address'
-            : undefined
+            : undefined) || props.message
         }
-        error={valid === false}
-        loading={loading}
-        disabled={loading}
+        error={valid === false || props.error}
+        loading={props.loading || loading}
+        disabled={props.disabled || loading}
         input={{ autoComplete: 'off', name: 'address', id: 'address' }}
         onChange={handleChange}
         className={classNames(fieldClassName, {
