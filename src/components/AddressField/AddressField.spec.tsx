@@ -32,11 +32,11 @@ describe('when user inputs an address', () => {
     expect(resolveNameMock).not.toHaveBeenCalled()
   })
 
-  it('should show address as the input value', () => {
+  it('should show the address as the input value', () => {
     expect(screen.getByPlaceholderText('test address')).toHaveValue(address)
   })
 
-  it('should not show resolved address', () => {
+  it('should not show the resolved address', () => {
     expect(screen.queryByTestId('resolved-address')).not.toBeInTheDocument()
   })
 })
@@ -60,11 +60,11 @@ describe('when user inputs a name', () => {
       expect(screen.getByPlaceholderText('test address')).toHaveValue(name)
     })
 
-    it('should show resolved address', () => {
+    it('should show the resolved address', () => {
       expect(screen.queryByTestId('resolved-address')).toBeInTheDocument()
     })
 
-    it('should show cropped address', () => {
+    it('should show the cropped address', () => {
       expect(screen.queryByText(shorten(address))).toBeInTheDocument()
     })
   })

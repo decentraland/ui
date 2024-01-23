@@ -22,7 +22,7 @@ export default function AddressField(props: Props) {
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const [valid, setValid] = useState<boolean>()
-  const [loading, setLaoding] = useState<boolean>()
+  const [loading, setLoading] = useState<boolean>()
 
   useEffect(() => {
     if (props.value && props.value !== address) {
@@ -54,18 +54,23 @@ export default function AddressField(props: Props) {
           return
         }
 
-        setLaoding(true)
-        const resolvedAddress = await resolveName(data.value)
-        if (resolvedAddress) {
-          setValid(true)
-          setAddress(resolvedAddress)
-          if (onChange) {
-            onChange(evt, { value: resolvedAddress })
+        setLoading(true)
+        try {
+          const resolvedAddress = await resolveName(data.value)
+          if (resolvedAddress) {
+            setValid(true)
+            setAddress(resolvedAddress)
+            if (onChange) {
+              onChange(evt, { value: resolvedAddress })
+            }
+          } else {
+            setValid(false)
           }
-        } else {
+        } catch (e) {
+          console.error('Error resolving address', e)
           setValid(false)
         }
-        setLaoding(false)
+        setLoading(false)
       }, 800)
     },
     [onChange]
@@ -114,6 +119,7 @@ export default function AddressField(props: Props) {
         }
         error={valid === false}
         loading={loading}
+        disabled={loading}
         input={{ autoComplete: 'off', name: 'address', id: 'address' }}
         onChange={handleChange}
         className={classNames(fieldClassName, {
