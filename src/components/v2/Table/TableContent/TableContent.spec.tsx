@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, within } from '@testing-library/react'
+import { RenderResult, render, within } from '@testing-library/react'
 import { DataTableType } from './TableContent.types'
 import TableContent, { ROWS_PER_PAGE } from './TableContent'
 
@@ -78,6 +78,29 @@ describe('Table content', () => {
       expect(getByText('second text')).not.toBe(null)
       expect(getByText('second content header 1')).not.toBe(null)
       expect(getByText('second text header 2')).not.toBe(null)
+    })
+  })
+
+  describe('when custom headers are defined', () => {
+    const customHeaderText = 'My super custom header'
+    let screen: RenderResult
+    beforeEach(() => {
+      screen = render(
+        <TableContent
+          data={data}
+          customHeaders={{ first_header: customHeaderText }}
+          isLoading={false}
+          empty={() => <div>empty table</div>}
+          total={0}
+        />
+      )
+    })
+    it('should render custom headers correctly', () => {
+      expect(screen.getByText(customHeaderText)).toBeInTheDocument()
+    })
+
+    it('should render attribute key as header for non defined custom headers', () => {
+      expect(screen.getByText('second_header')).toBeInTheDocument()
     })
   })
 

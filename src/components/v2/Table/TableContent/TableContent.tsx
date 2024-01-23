@@ -21,11 +21,12 @@ const TableContent = (props: Props) => {
     total,
     rowsPerPage = ROWS_PER_PAGE,
     hasHeaders = false,
+    customHeaders = {},
     i18n
   } = props
 
   const isMobile = useMobileMediaQuery()
-  const headers = data.length > 0 ? Object.keys(data[0]) : null
+  const attributes = data.length > 0 ? Object.keys(data[0]) : null
   const hasPagination = totalPages && totalPages > 1
 
   return (
@@ -38,28 +39,30 @@ const TableContent = (props: Props) => {
         <div className="dui-table-content__table--empty">
           <Loader active data-testid="loader" />
         </div>
-      ) : headers ? (
+      ) : attributes ? (
         <Table basic="very" data-testid="table-content">
           <Table.Body
             className={isLoading ? 'dui-table-content__table--loading' : ''}
           >
             <Table.Row>
-              {headers.map((header) => (
-                <Table.HeaderCell key={header}>
-                  <span>{header}</span>
+              {attributes.map((attr) => (
+                <Table.HeaderCell key={attr}>
+                  <span>
+                    {customHeaders[attr] ? customHeaders[attr] : attr}
+                  </span>
                 </Table.HeaderCell>
               ))}
             </Table.Row>
             {data?.map((data: unknown, index) => (
               <Table.Row key={index}>
-                {headers.map((header: string) => (
+                {attributes.map((attr: string) => (
                   <Table.Cell
                     style={{
-                      width: `${100 / headers.length}%`
+                      width: `${100 / attributes.length}%`
                     }}
-                    key={header}
+                    key={attr}
                   >
-                    {data[header]}
+                    {data[attr]}
                   </Table.Cell>
                 ))}
               </Table.Row>
