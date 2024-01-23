@@ -1,2 +1,4 @@
 import AddressField from './AddressField'
-export default AddressField
+import { Props as AddressFieldProps } from './AddressField.types'
+
+export { AddressField, AddressFieldProps }
