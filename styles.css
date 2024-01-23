@@ -7073,7 +7073,7 @@ a.ui.card:hover,
 .dui-address-field__address {
   color: var(--secondary-text);
   position: absolute;
-  top: 10px;
+  bottom: 42px;
   right: 48px;
   font-size: 20px;
   z-index: 1;
