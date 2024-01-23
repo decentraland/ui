@@ -100,7 +100,7 @@ describe('Table content', () => {
     describe('Should have pagination', () => {
       it('should render the pagination correctly', async () => {
         data = Array(ROWS_PER_PAGE).fill({
-          first_header: 'contetnt 1',
+          first_header: 'content 1',
           second_header: 'content 2'
         })
 
@@ -111,6 +111,7 @@ describe('Table content', () => {
             empty={() => <div>empty table</div>}
             total={data.length}
             totalPages={2}
+            activePage={1}
           />
         )
 
