@@ -6,7 +6,7 @@ import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Inpu
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup'
 import { Field } from '../Field/Field'
 import { shorten, isValid } from './utils'
-import { Props } from './AddressField.types'
+import { AddressFieldErrors, Props } from './AddressField.types'
 import './AddressField.css'
 
 export default function AddressField(props: Props) {
@@ -40,31 +40,34 @@ export default function AddressField(props: Props) {
       }
 
       timeout.current = setTimeout(async () => {
+        let address = data.value
+        let error = undefined
+
         if (isValid(data.value)) {
           setValid(true)
-          if (onChange) {
-            onChange(evt, data)
-          }
-          return
-        }
-
-        setLoading(true)
-        try {
-          const resolvedAddress = await resolveName(data.value)
-          if (resolvedAddress) {
-            setValid(true)
-            setAddress(resolvedAddress)
-            if (onChange) {
-              onChange(evt, { value: resolvedAddress })
+        } else {
+          // If address is not valid try to resolve it as a name
+          setLoading(true)
+          try {
+            const resolvedAddress = await resolveName(data.value)
+            if (resolvedAddress) {
+              setValid(true)
+              setAddress(resolvedAddress)
+              address = resolvedAddress
+            } else {
+              setValid(false)
+              error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
             }
-          } else {
+          } catch (e) {
+            error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
             setValid(false)
           }
-        } catch (e) {
-          console.error('Error resolving address', e)
-          setValid(false)
+          setLoading(false)
         }
-        setLoading(false)
+
+        if (onChange) {
+          onChange(evt, { ...data, value: address, error })
+        }
       }, 800)
     },
     [onChange]
