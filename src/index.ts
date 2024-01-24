@@ -97,7 +97,7 @@ export * from './components/SmartWearableFilter'
 export * from './components/SmartBadge'
 export * from './components/SmartIcon'
 export * from './components/CommunityBubble'
-
+export * from './components/AddressField'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'

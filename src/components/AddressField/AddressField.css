@@ -1,0 +1,23 @@
+.dui-address-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.dui-address-field__address {
+  color: var(--secondary-text);
+  position: absolute;
+  bottom: 42px;
+  right: 48px;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.dui-address-field__input--with-address.ui.icon.input input {
+  padding-right: 200px !important;
+}
+
+.dui-address-field__address-popup.ui.popup {
+  z-index: 9999;
+}

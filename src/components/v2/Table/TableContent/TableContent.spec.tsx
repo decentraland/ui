@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, within } from '@testing-library/react'
+import { RenderResult, render, within } from '@testing-library/react'
 import { DataTableType } from './TableContent.types'
 import TableContent, { ROWS_PER_PAGE } from './TableContent'
 
@@ -81,6 +81,29 @@ describe('Table content', () => {
     })
   })
 
+  describe('when custom headers are defined', () => {
+    const customHeaderText = 'My super custom header'
+    let screen: RenderResult
+    beforeEach(() => {
+      screen = render(
+        <TableContent
+          data={data}
+          customHeaders={{ first_header: customHeaderText }}
+          isLoading={false}
+          empty={() => <div>empty table</div>}
+          total={0}
+        />
+      )
+    })
+    it('should render custom headers correctly', () => {
+      expect(screen.getByText(customHeaderText)).toBeInTheDocument()
+    })
+
+    it('should render attribute key as header for non defined custom headers', () => {
+      expect(screen.getByText('second_header')).toBeInTheDocument()
+    })
+  })
+
   describe('Should render the loader if its loading', () => {
     it('should render the loader', async () => {
       const screen = render(
@@ -100,7 +123,7 @@ describe('Table content', () => {
     describe('Should have pagination', () => {
       it('should render the pagination correctly', async () => {
         data = Array(ROWS_PER_PAGE).fill({
-          first_header: 'contetnt 1',
+          first_header: 'content 1',
           second_header: 'content 2'
         })
 
@@ -111,6 +134,7 @@ describe('Table content', () => {
             empty={() => <div>empty table</div>}
             total={data.length}
             totalPages={2}
+            activePage={1}
           />
         )
 
