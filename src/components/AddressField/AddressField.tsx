@@ -65,6 +65,8 @@ export default function AddressField(props: Props) {
           setLoading(false)
         }
 
+        evt.target.focus()
+
         if (onChange) {
           onChange(evt, { ...data, value: address, error })
         }
