@@ -14,6 +14,7 @@ export type LinksI18N = {
   terms: React.ReactNode
   content: React.ReactNode
   ethics: React.ReactNode
+  feature: React.ReactNode
 }
 
 export type FooterI18N = {
@@ -47,7 +48,8 @@ export class Footer extends React.PureComponent<FooterProps> {
         privacy: 'Privacy Policy',
         terms: 'Terms of Use',
         content: 'Content Policy',
-        ethics: 'Code of Ethics'
+        ethics: 'Code of Ethics',
+        feature: 'Feature Request'
       }
     }
   }
@@ -91,6 +93,7 @@ export class Footer extends React.PureComponent<FooterProps> {
             <a href="https://decentraland.org/terms">{i18n.links.terms}</a>
             <a href="https://decentraland.org/content">{i18n.links.content}</a>
             <a href="https://decentraland.org/ethics">{i18n.links.ethics}</a>
+            <a href="https://decentraland.canny.io">{i18n.links.feature}</a>
           </div>
         </div>
         <div className="secondary-footer">
