@@ -2988,7 +2988,7 @@ a.ui.card:hover,
   color: var(--secondary-text);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .dcl.footer {
     flex-flow: column nowrap;
     margin-bottom: 12px;
