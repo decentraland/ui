@@ -31,5 +31,6 @@
   "DOCS_CREATORS_URL": "https://docs.decentraland.org/creator/",
   "DOCS_CONTRIBUTOR_URL": "https://docs.decentraland.org/contributor/",
   "DOCS_DAO_URL": "https://docs.decentraland.org/player/general/dao/overview/what-is-the-dao/",
-  "BLOG_URL": "https://decentraland.zone/blog/"
+  "BLOG_URL": "https://decentraland.zone/blog/",
+  "LANDING_CREATORS_URL": "https://decentraland.zone/create/"
 }

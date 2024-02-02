@@ -94,6 +94,12 @@ export const navbarSubmenu = {
     column3Title: 'HIRE',
     column3: [
       {
+        title: 'Create in Decentraland',
+        description: 'Discover all the benefits and possibilities',
+        url: config.get('LANDING_CREATORS_URL'),
+        eventTrackingName: 'landing_creators',
+      },
+      {
         title: 'Decentraland Studios',
         description: 'Hire pros to transform your ideas to reality',
         url: config.get('STUDIOS_URL'),
