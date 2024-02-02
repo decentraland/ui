@@ -55,8 +55,24 @@ export const navbarSubmenu = {
     ]
   },
   create: {
-    column1Title: 'PUBLISH',
+    column1Title: ' ',
     column1: [
+      {
+        title: 'Create in Decentraland',
+        description: 'Discover all the benefits and possibilities',
+        url: config.get('LANDING_CREATORS_URL'),
+        eventTrackingName: 'landing_creators'
+      },
+      {
+        title: 'Decentraland Studios',
+        description: 'Hire pros to transform your ideas to reality',
+        url: config.get('STUDIOS_URL'),
+        eventTrackingName: 'studios',
+        isExternal: true
+      }
+    ],
+    column2Title: 'PUBLISH',
+    column2: [
       {
         title: 'Wearables & Emotes',
         description: 'Publish & manage Marketplace collections',
@@ -70,8 +86,8 @@ export const navbarSubmenu = {
         eventTrackingName: 'builder_scenes'
       }
     ],
-    column2Title: 'MANAGE',
-    column2: [
+    column3Title: 'MANAGE',
+    column3: [
       {
         title: 'My NAMEs',
         description: 'Create & manage NAMEs',
@@ -89,16 +105,6 @@ export const navbarSubmenu = {
         description: 'Manage parcel permissions & more',
         url: config.get('BUILDER_LAND_URL'),
         eventTrackingName: 'builder_land'
-      }
-    ],
-    column3Title: 'HIRE',
-    column3: [
-      {
-        title: 'Decentraland Studios',
-        description: 'Hire pros to transform your ideas to reality',
-        url: config.get('STUDIOS_URL'),
-        eventTrackingName: 'studios',
-        isExternal: true
       }
     ]
   },
