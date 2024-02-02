@@ -55,7 +55,7 @@ export const navbarSubmenu = {
     ]
   },
   create: {
-    column1Title: '',
+    column1Title: ' ',
     column1: [
       {
         title: 'Create in Decentraland',
