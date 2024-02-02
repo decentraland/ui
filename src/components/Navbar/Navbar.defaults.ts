@@ -97,7 +97,7 @@ export const navbarSubmenu = {
         title: 'Create in Decentraland',
         description: 'Discover all the benefits and possibilities',
         url: config.get('LANDING_CREATORS_URL'),
-        eventTrackingName: 'landing_creators',
+        eventTrackingName: 'landing_creators'
       },
       {
         title: 'Decentraland Studios',
