@@ -91,7 +91,6 @@ export const navbarSubmenu = {
         eventTrackingName: 'builder_land'
       }
     ],
-    column3Title: 'HIRE',
     column3: [
       {
         title: 'Create in Decentraland',
