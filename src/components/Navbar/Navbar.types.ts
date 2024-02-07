@@ -1,4 +1,8 @@
 import { UserMenuI18N, UserMenuProps } from '../UserMenu/UserMenu.types'
+import {
+  ChainSelectorProps,
+  ChainSelectori18n
+} from '../ChainSelector/ChainSelector.props'
 
 export enum NavbarPages {
   MARKETPLACE = 'marketplace',
@@ -45,14 +49,16 @@ export type NavbarSubmenuProps = {
   governance: NavbarSubMenuItemsProps
 }
 
-export type NavbarProps = Omit<UserMenuProps, 'i18n'> & {
-  i18nNavbar?: NavbarMenuI18nProps
-  submenuItems?: NavbarSubmenuProps
-  i18nUserMenu?: UserMenuI18N
-  activePage: NavbarPages | string
-  className?: string
-  onClickNavbarItem?: (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-    options: { eventTrackingName: string; url?: string; isExternal?: boolean }
-  ) => void
-}
+export type NavbarProps = Omit<UserMenuProps, 'i18n'> &
+  Partial<ChainSelectorProps> & {
+    i18nNavbar?: NavbarMenuI18nProps
+    submenuItems?: NavbarSubmenuProps
+    i18nUserMenu?: UserMenuI18N
+    i18nChainSelector?: ChainSelectori18n
+    activePage: NavbarPages | string
+    className?: string
+    onClickNavbarItem?: (
+      event: React.MouseEvent<HTMLElement, MouseEvent>,
+      options: { eventTrackingName: string; url?: string; isExternal?: boolean }
+    ) => void
+  }

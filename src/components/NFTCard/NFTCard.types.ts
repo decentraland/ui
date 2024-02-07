@@ -9,9 +9,7 @@ export type Badge = {
 }
 
 export type NFTCardI18N = {
-  network: {
-    [keyof in Network]: string
-  }
+  network: Partial<{ [key in keyof typeof Network]: string }>;
   bodyShape: {
     male: string
     female: string

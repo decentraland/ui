@@ -418,6 +418,11 @@
   fill: var(--text);
 }
 
+.dui-navbar .ui.button.dui-chain-selector__button {
+  margin-left: auto;
+  margin-right: 12px;
+}
+
 @media (max-width: 1280px) {
   .dui-navbar .item.submenu {
     padding-left: 48px;

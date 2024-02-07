@@ -5,10 +5,12 @@ import { Container } from '../Container/Container'
 import { Logo } from '../Logo/Logo'
 import { Desktop, TabletAndBelow, useTabletAndBelowMediaQuery } from '../Media'
 import { UserMenu } from '../UserMenu/UserMenu'
+import { ChainSelector } from '../ChainSelector/ChainSelector'
 import { NavbarPages, NavbarProps } from './Navbar.types'
 import { SubMenu } from './SubMenu/SubMenu'
 import { MainMenu } from './MainMenu/MainMenu'
 import {
+  i18nChainSelectorDefault,
   navbarMainTitlesI18N as i18nNavbarTitlesDefault,
   navbarSubmenu
 } from './Navbar.defaults'
@@ -18,11 +20,16 @@ import './Navbar.css'
 
 export const Navbar = React.memo((props: NavbarProps) => {
   const {
+    chains,
+    chainBeingConfirmed,
+    onSelectChain,
+    selectedChain,
     activePage,
     className,
     isSignedIn,
     i18nNavbar = i18nNavbarTitlesDefault,
     i18nUserMenu = i18nUserMenuDefault,
+    i18nChainSelector = i18nChainSelectorDefault,
     submenuItems = navbarSubmenu,
     onClickNavbarItem,
     ...userMenuProps
@@ -116,6 +123,15 @@ export const Navbar = React.memo((props: NavbarProps) => {
               <Logo />
             </a>
           </TabletAndBelow>
+          {isSignedIn && chains?.length && selectedChain ? (
+            <ChainSelector
+              chains={chains}
+              selectedChain={selectedChain}
+              chainBeingConfirmed={chainBeingConfirmed}
+              i18n={i18nChainSelector}
+              onSelectChain={onSelectChain}
+            />
+          ) : null}
           <div className="dui-navbar-account">
             <UserMenu
               {...userMenuProps}
