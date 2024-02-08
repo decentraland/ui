@@ -100,3 +100,17 @@
   background-color: var(--unique);
   margin-left: 8px;
 }
+
+@media screen and (max-width: 768px) {
+  .dui-navbar .ui.button.dui-chain-selector__button {
+    min-width: 50px;
+  }
+
+  .ui.button.dui-chain-selector__button .dui-chain-icon {
+    margin-right: 0;
+  }
+
+  .dui-chain-selector__modal.ui.modal .content {
+    margin: 0;
+  }
+}

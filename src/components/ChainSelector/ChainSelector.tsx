@@ -3,9 +3,10 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button'
 import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
 import classNames from 'classnames'
 import { ChainId, getChainName } from '@dcl/schemas'
-import { ChainSelectorProps } from './ChainSelector.props'
+import { useTabletAndBelowMediaQuery } from '../Media'
 import { Modal } from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
+import { ChainSelectorProps } from './ChainSelector.props'
 import './ChainSelector.css'
 
 const ChainNameIconMap = {
@@ -23,6 +24,7 @@ export const ChainSelector = (props: ChainSelectorProps) => {
     props
 
   const chainBeingConfirmedRef = useRef(chainBeingConfirmed)
+  const isMobileOrTablet = useTabletAndBelowMediaQuery()
 
   // This effect is used to close the modal when the chain being confirmed changes
   useEffect(() => {
@@ -48,18 +50,17 @@ export const ChainSelector = (props: ChainSelectorProps) => {
             ChainNameIconMap[selectedChain]
           )}
         />
-        {getChainName(selectedChain)}
+        {!isMobileOrTablet ? getChainName(selectedChain) : null}
       </Button>
       <Modal
-        className="dui-chain-selector__modal"
         open={showModal}
+        className="dui-chain-selector__modal"
         onClose={() => setShowModal(false)}
       >
-        <ModalNavigation title={title} />
+        <ModalNavigation title={title} onClose={() => setShowModal(false)} />
         <ModalContent>
           <ul className="dui-chain-selector__list">
             {chains.map((chain) => {
-              console.log('chain: ', chain)
               const chainName = getChainName(chain)
               return (
                 <button
