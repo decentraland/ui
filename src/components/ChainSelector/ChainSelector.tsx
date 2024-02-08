@@ -28,11 +28,11 @@ export const ChainSelector = (props: ChainSelectorProps) => {
 
   // This effect is used to close the modal when the chain being confirmed changes
   useEffect(() => {
-    if (chainBeingConfirmed !== chainBeingConfirmedRef.current) {
-      chainBeingConfirmedRef.current = chainBeingConfirmed
+    if (selectedChain && selectedChain === chainBeingConfirmedRef.current) {
+      chainBeingConfirmedRef.current = undefined
       setShowModal(false)
     }
-  }, [chainBeingConfirmed])
+  }, [selectedChain])
 
   const [showModal, setShowModal] = useState(false)
 
@@ -41,6 +41,12 @@ export const ChainSelector = (props: ChainSelectorProps) => {
   const onButtonClick = useCallback(() => {
     setShowModal(!showModal)
   }, [])
+
+  const onSelectChainHandler = useCallback((chainId: ChainId) => {
+    onSelectChain(chainId)
+    chainBeingConfirmedRef.current = chainId
+  }, [])
+
   return (
     <>
       <Button className="dui-chain-selector__button" onClick={onButtonClick}>
@@ -69,7 +75,7 @@ export const ChainSelector = (props: ChainSelectorProps) => {
                     'dui-chain-selector__element-selected':
                       chain === selectedChain
                   })}
-                  onClick={() => onSelectChain(chain)}
+                  onClick={() => onSelectChainHandler(chain)}
                 >
                   <div
                     className={classNames(
