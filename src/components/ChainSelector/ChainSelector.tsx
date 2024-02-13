@@ -11,7 +11,9 @@ import './ChainSelector.css'
 
 const ChainNameIconMap = {
   [ChainId.ETHEREUM_MAINNET]: 'ethereum',
+  [ChainId.ETHEREUM_SEPOLIA]: 'ethereum',
   [ChainId.MATIC_MAINNET]: 'polygon',
+  [ChainId.MATIC_MUMBAI]: 'polygon',
   [ChainId.ARBITRUM_MAINNET]: 'arbitrum',
   [ChainId.OPTIMISM_MAINNET]: 'optimism',
   [ChainId.FANTOM_MAINNET]: 'fantom',

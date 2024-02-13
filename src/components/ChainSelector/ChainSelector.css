@@ -101,7 +101,7 @@
   margin-left: 8px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .dui-navbar .ui.button.dui-chain-selector__button {
     min-width: 50px;
   }
