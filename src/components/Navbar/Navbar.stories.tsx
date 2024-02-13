@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import { ChainId } from '@dcl/schemas'
 import { avatar } from '../../data/avatar'
 
 import { Navbar } from './Navbar'
@@ -47,6 +48,30 @@ storiesOf('Navbar', module)
         <Navbar
           activePage={NavbarPages.MARKETPLACE}
           isSignedIn
+          avatar={avatar}
+          onClickSignIn={() => console.log('Clicked on sign in')}
+        />
+      </div>
+    )
+  })
+  .add('With Chain Selector', () => {
+    return (
+      <div className="Navbar-story-container">
+        <Navbar
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          chains={[
+            ChainId.ETHEREUM_MAINNET,
+            ChainId.MATIC_MAINNET,
+            ChainId.ARBITRUM_MAINNET,
+            ChainId.OPTIMISM_MAINNET,
+            ChainId.BSC_MAINNET,
+            ChainId.FANTOM_MAINNET,
+            ChainId.AVALANCHE_MAINNET
+          ]}
+          chainBeingConfirmed={ChainId.MATIC_MAINNET}
+          selectedChain={ChainId.ETHEREUM_MAINNET}
+          onSelectChain={(chain) => console.log('Selected chain', chain)}
           avatar={avatar}
           onClickSignIn={() => console.log('Clicked on sign in')}
         />

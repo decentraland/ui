@@ -1,4 +1,5 @@
 import { config } from '../../config'
+import { ChainSelectori18n } from '../ChainSelector/ChainSelector.props'
 import { NavbarSubmenuProps, NavbarMenuI18nProps } from './Navbar.types'
 
 export const navbarMainTitlesI18N = {
@@ -8,6 +9,12 @@ export const navbarMainTitlesI18N = {
   learn: 'learn',
   governance: 'governance'
 } as NavbarMenuI18nProps
+
+export const i18nChainSelectorDefault = {
+  title: 'Select a network',
+  connected: 'Connected',
+  confirmInWallet: 'Confirm in wallet'
+} as ChainSelectori18n
 
 export const navbarSubmenu = {
   marketplace: {

@@ -1,0 +1,116 @@
+.dui-chain-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.ethereum {
+  background-image: url('../../assets/chains/ethereum.svg');
+}
+
+.bsc {
+  background-image: url('../../assets/chains/bsc.svg');
+}
+
+.optimism {
+  background-image: url('../../assets/chains/optimism.svg');
+}
+
+.polygon {
+  background-image: url('../../assets/chains/polygon.svg');
+}
+
+.fantom {
+  background-image: url('../../assets/chains/fantom.svg');
+}
+
+.arbitrum {
+  background-image: url('../../assets/chains/arbitrum.svg');
+}
+
+.avalanche {
+  background-image: url('../../assets/chains/avalanche.svg');
+}
+
+.ui.button.dui-chain-selector__button {
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+
+.dui-chain-selector__element.dui-chain-selector__element-selected {
+  background-color: var(--navbar-popup-hover);
+}
+
+.ui.button.dui-chain-selector__button .dui-chain-icon {
+  margin-right: 8px;
+}
+
+.dui-chain-selector__list {
+  padding-left: 0;
+}
+
+.dui-chain-selector__element {
+  background: none;
+  border-radius: 12px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin: 8px 0;
+  height: 40px;
+  padding: 6px 8px;
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+.dui-chain-selector__element:hover {
+  background-color: var(--navbar-popup-hover);
+}
+
+.dui-chain-selector__element .dui-chain-icon {
+  margin-right: 8px;
+}
+
+.dui-chain-selector__modal.ui.modal {
+  width: 360px;
+}
+
+.dui-chain-selector__modal.ui.modal .content {
+  margin: 20px;
+}
+
+.selector__button-connected {
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.selector__button-connected-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--rare);
+  margin-left: 8px;
+}
+
+.selector__button-confirm-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--unique);
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 991px) {
+  .dui-navbar .ui.button.dui-chain-selector__button {
+    min-width: 50px;
+  }
+
+  .ui.button.dui-chain-selector__button .dui-chain-icon {
+    margin-right: 0;
+  }
+
+  .dui-chain-selector__modal.ui.modal .content {
+    margin: 0;
+  }
+}
