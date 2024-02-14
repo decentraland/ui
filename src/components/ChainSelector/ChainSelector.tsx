@@ -58,7 +58,11 @@ export const ChainSelector = (props: ChainSelectorProps) => {
             ChainNameIconMap[selectedChain]
           )}
         />
-        {!isMobileOrTablet ? getChainName(selectedChain) : null}
+        {!isMobileOrTablet
+          ? selectedChain === ChainId.ETHEREUM_MAINNET
+            ? 'Ethereum'
+            : getChainName(selectedChain)
+          : null}
       </Button>
       <Modal
         open={showModal}
@@ -69,7 +73,10 @@ export const ChainSelector = (props: ChainSelectorProps) => {
         <ModalContent>
           <ul className="dui-chain-selector__list">
             {chains.map((chain) => {
-              const chainName = getChainName(chain)
+              const chainName =
+                chain === ChainId.ETHEREUM_MAINNET
+                  ? 'Ethereum'
+                  : getChainName(chain)
               return (
                 <button
                   key={chain}
