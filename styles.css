@@ -4274,7 +4274,7 @@ a.ui.card:hover,
 }
 
 .dui-chain-icon {
-  width: 28px;
+  min-width: 28px;
   height: 28px;
 }
 
@@ -4337,6 +4337,7 @@ a.ui.card:hover,
   border: none;
   color: white;
   width: 100%;
+  text-wrap: nowrap;
 }
 
 .dui-chain-selector__element:hover {
@@ -4358,10 +4359,11 @@ a.ui.card:hover,
 .selector__button-connected {
   font-size: 14px;
   margin-left: auto;
+  text-wrap: wrap;
 }
 
 .selector__button-connected-circle {
-  width: 8px;
+  min-width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: var(--rare);
@@ -4369,7 +4371,7 @@ a.ui.card:hover,
 }
 
 .selector__button-confirm-circle {
-  width: 8px;
+  min-width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: var(--unique);
@@ -4377,14 +4379,16 @@ a.ui.card:hover,
 }
 
 @media screen and (max-width: 991px) {
-  .dui-navbar .ui.button.dui-chain-selector__button {
+  .ui.button.dui-chain-selector__button {
     min-width: 50px;
   }
 
   .ui.button.dui-chain-selector__button .dui-chain-icon {
     margin-right: 0;
   }
+}
 
+@media screen and (max-width: 768px) {
   .dui-chain-selector__modal.ui.modal .content {
     margin: 0;
   }
