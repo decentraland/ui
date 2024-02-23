@@ -13,6 +13,7 @@ import { ModalProps } from '../Modal/Modal'
 import Counter from '../Icons/Notifications/CounterIcons'
 
 import './Notifications.css'
+import classNames from 'classnames'
 
 export interface NotificationsProps {
   isOpen: boolean
@@ -52,7 +53,12 @@ export default function Notifications({
   return (
     <div className="dcl notifications">
       <div>
-        <button className="dcl notifications-bell" onClick={onClick}>
+        <button
+          className={classNames('dcl notifications-bell', {
+            'notifications-active': newNotificationsCount > 0
+          })}
+          onClick={onClick}
+        >
           {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         </button>
         {!isOpen && newNotificationsCount > 0 && (
