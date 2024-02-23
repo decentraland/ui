@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import classNames from 'classnames'
 
 import NotificationsFeed from './NotificationsFeed'
 import {
@@ -52,7 +53,12 @@ export default function Notifications({
   return (
     <div className="dcl notifications">
       <div>
-        <button className="dcl notifications-bell" onClick={onClick}>
+        <button
+          className={classNames('dcl notifications-bell', {
+            'notifications-active': newNotificationsCount > 0
+          })}
+          onClick={onClick}
+        >
           {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         </button>
         {!isOpen && newNotificationsCount > 0 && (
