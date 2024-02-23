@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import classNames from 'classnames'
 
 import NotificationsFeed from './NotificationsFeed'
 import {
@@ -13,7 +14,6 @@ import { ModalProps } from '../Modal/Modal'
 import Counter from '../Icons/Notifications/CounterIcons'
 
 import './Notifications.css'
-import classNames from 'classnames'
 
 export interface NotificationsProps {
   isOpen: boolean

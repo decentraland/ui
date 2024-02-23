@@ -23,7 +23,7 @@
 }
 
 .dcl.notifications-bell.notifications-active {
-  animation: shake 0.5s;
+  animation: shake 0.8s;
   animation-iteration-count: 4;
 }
 
