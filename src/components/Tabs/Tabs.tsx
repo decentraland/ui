@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Mobile, NotMobile } from '../Media'
 import { Container } from '../Container/Container'
 import './Tabs.css'
@@ -40,7 +41,7 @@ export class Tabs extends React.PureComponent<TabsProps> {
     const { children, isFullscreen, onClick, className } = this.props
     return (
       <div
-        className={`dcl tabs ${isFullscreen ? 'fullscreen' : ''} ${className}`}
+        className={classNames('dcl', 'tabs', isFullscreen && 'fullscreen', className)}
         onClick={onClick}
       >
         <NotMobile>
