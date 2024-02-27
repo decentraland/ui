@@ -7,13 +7,15 @@ on:
 name: Publish NPM package
 jobs:
   build:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 19.x
+        uses: actions/setup-node@v4.0.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -46,10 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4.0.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -95,10 +97,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4.0.1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
