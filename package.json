@@ -7,10 +7,10 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "start": "start-storybook -p 6006",
+    "start": "node --openssl-legacy-provider ./node_modules/.bin/start-storybook -p 6006",
     "build": "npm run build:lib && npm run build:dist ",
-    "build:lib": "rimraf lib && webpack --config webpack.config.js",
-    "build:storybook": "build-storybook && cp ./static/* ./storybook-static && node postbuild",
+    "build:lib": "rimraf lib && node --openssl-legacy-provider ./node_modules/.bin/webpack --config webpack.config.js",
+    "build:storybook": "node --openssl-legacy-provider ./node_modules/.bin/build-storybook && cp ./static/* ./storybook-static && node postbuild",
     "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css'",
     "check:prettier": "prettier -c 'src/**/*.{js,ts,json,yml,md,tsx,html,css}'",
     "check:code": "eslint . --max-warnings=0",
@@ -104,6 +104,9 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": "18"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
