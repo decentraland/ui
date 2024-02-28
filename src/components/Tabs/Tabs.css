@@ -25,9 +25,17 @@
   line-height: 26px;
   letter-spacing: -0.2px;
   cursor: pointer;
+  color: var(--navbar-item-text-enabled);
+  font-weight: 400;
 }
+
 .dcl.tab.active {
+  color: var(--text);
   font-weight: 600;
+}
+
+.dcl.tab:hover {
+  color: var(--text);
 }
 
 .dcl.tab .active-bar {
