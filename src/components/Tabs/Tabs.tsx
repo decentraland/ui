@@ -41,7 +41,12 @@ export class Tabs extends React.PureComponent<TabsProps> {
     const { children, isFullscreen, onClick, className } = this.props
     return (
       <div
-        className={classNames('dcl', 'tabs', isFullscreen && 'fullscreen', className)}
+        className={classNames(
+          'dcl',
+          'tabs',
+          isFullscreen && 'fullscreen',
+          className
+        )}
         onClick={onClick}
       >
         <NotMobile>
