@@ -3,31 +3,38 @@
   height: 28px;
 }
 
-.ethereum {
+.dui-chain-selector__modal .ethereum,
+.dui-chain-selector__button .ethereum {
   background-image: url('../../assets/chains/ethereum.svg');
 }
 
-.bsc {
+.dui-chain-selector__modal .bsc,
+.dui-chain-selector__button .bsc {
   background-image: url('../../assets/chains/bsc.svg');
 }
 
-.optimism {
+.dui-chain-selector__modal .optimism,
+.dui-chain-selector__button .optimism {
   background-image: url('../../assets/chains/optimism.svg');
 }
 
-.polygon {
+.dui-chain-selector__modal .polygon,
+.dui-chain-selector__button .polygon {
   background-image: url('../../assets/chains/polygon.svg');
 }
 
-.fantom {
+.dui-chain-selector__modal .fantom,
+.dui-chain-selector__button .fantom {
   background-image: url('../../assets/chains/fantom.svg');
 }
 
-.arbitrum {
+.dui-chain-selector__modal .arbitrum,
+.dui-chain-selector__button .arbitrum {
   background-image: url('../../assets/chains/arbitrum.svg');
 }
 
-.avalanche {
+.dui-chain-selector__modal .avalanche,
+.dui-chain-selector__button .avalanche {
   background-image: url('../../assets/chains/avalanche.svg');
 }
 
