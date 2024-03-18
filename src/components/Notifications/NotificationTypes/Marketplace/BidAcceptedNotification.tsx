@@ -1,17 +1,12 @@
 import React from 'react'
 
-import { BidAcceptedNotification, NotificationLocale } from '../types'
-import NotificationItem from '../NotificationItem'
-import BidAccepted from '../../Icons/Notifications/BidAccepted'
+import { BidAcceptedNotification, CommonNotificationProps } from '../../types'
+import NotificationItem from '../../NotificationItem'
+import BidAccepted from '../../../Icons/Notifications/BidAccepted'
 import { Network } from '@dcl/schemas'
-import { formatMana } from '../utils'
-import { Mana } from '../../Mana/Mana'
-import NotificationItemNFTLink from '../NotificationItemNFTLink'
-
-interface BidAcceptedNotificationProps {
-  notification: BidAcceptedNotification
-  locale: NotificationLocale
-}
+import { formatMana, getBGColorByRarity } from '../../utils'
+import { Mana } from '../../../Mana/Mana'
+import NotificationItemNFTLink from '../../NotificationItemNFTLink'
 
 const i18N = {
   en: {
@@ -52,12 +47,12 @@ const i18N = {
 const BidAcceptedNotification = ({
   notification,
   locale
-}: BidAcceptedNotificationProps) => {
+}: CommonNotificationProps<BidAcceptedNotification>) => {
   return (
     <NotificationItem
       image={{
-        url: notification.metadata.image,
-        rarity: notification.metadata.rarity,
+        image: notification.metadata.image,
+        backgroundColor: getBGColorByRarity(notification.metadata.rarity),
         icon: <BidAccepted />
       }}
       timestamp={notification.timestamp}

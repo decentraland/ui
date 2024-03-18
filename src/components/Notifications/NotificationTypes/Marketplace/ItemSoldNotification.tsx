@@ -1,14 +1,10 @@
 import React from 'react'
 
-import { ItemSoldNotification, NotificationLocale } from '../types'
-import NotificationItem from '../NotificationItem'
-import ItemSold from '../../Icons/Notifications/ItemSold'
-import NotificationItemNFTLink from '../NotificationItemNFTLink'
-
-interface ItemSoldNotificationProps {
-  notification: ItemSoldNotification
-  locale: NotificationLocale
-}
+import { CommonNotificationProps, ItemSoldNotification } from '../../types'
+import NotificationItem from '../../NotificationItem'
+import ItemSold from '../../../Icons/Notifications/ItemSold'
+import NotificationItemNFTLink from '../../NotificationItemNFTLink'
+import { getBGColorByRarity } from '../../utils'
 
 const i18N = {
   en: { description: 'Someone just bought your ', title: 'Item Sold' },
@@ -19,12 +15,12 @@ const i18N = {
 const ItemSoldNotification = ({
   notification,
   locale
-}: ItemSoldNotificationProps) => {
+}: CommonNotificationProps<ItemSoldNotification>) => {
   return (
     <NotificationItem
       image={{
-        url: notification.metadata.image,
-        rarity: notification.metadata.rarity,
+        image: notification.metadata.image,
+        backgroundColor: getBGColorByRarity(notification.metadata.rarity),
         icon: <ItemSold />
       }}
       timestamp={notification.timestamp}
