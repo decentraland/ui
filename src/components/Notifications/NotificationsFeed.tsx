@@ -153,7 +153,10 @@ const NotificationHandler = ({
       return <GovernanceAnnouncementNotification notification={notification} />
     case 'governance_coauthor_requested':
       return (
-        <GovernanceCoauthorRequestedNotification notification={notification} locale={locale} />
+        <GovernanceCoauthorRequestedNotification
+          notification={notification}
+          locale={locale}
+        />
       )
     case 'governance_authored_proposal_finished':
       return (
@@ -171,18 +174,39 @@ const NotificationHandler = ({
       )
     case 'governance_proposal_enacted':
       return (
-        <GovernanceProposalEnactedNotification notification={notification} locale={locale} />
+        <GovernanceProposalEnactedNotification
+          notification={notification}
+          locale={locale}
+        />
       )
     case 'governance_voting_ended_voter':
       return (
-        <GovernanceVotingEndedVoterNotification notification={notification} locale={locale} />
+        <GovernanceVotingEndedVoterNotification
+          notification={notification}
+          locale={locale}
+        />
       )
     case 'worlds_missing_resources':
-      return <WorldsMissingResourcesNotification notification={notification} locale={locale} />
+      return (
+        <WorldsMissingResourcesNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
     case 'worlds_access_restored':
-      return <WorldsAccessRestoredNotification notification={notification} locale={locale} />
+      return (
+        <WorldsAccessRestoredNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
     case 'worlds_access_restricted':
-      return <WorldsAccessRestrictedNotification notification={notification} locale={locale} />
+      return (
+        <WorldsAccessRestrictedNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
     default:
       return null
   }

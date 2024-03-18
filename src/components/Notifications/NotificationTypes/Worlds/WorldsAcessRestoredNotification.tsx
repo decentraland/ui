@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { CommonNotificationProps, WorldsAccessRestoredNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  WorldsAccessRestoredNotification
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import AccessRestored from '../../../Icons/Notifications/AccessRestoredIcon'
 
@@ -15,7 +18,7 @@ const i18N = {
   },
   zh: {
     description: '您的 "世界 "访问权限已恢复.',
-    title: "可用的世界"
+    title: '可用的世界'
   }
 }
 

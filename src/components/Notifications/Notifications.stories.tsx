@@ -353,7 +353,7 @@ storiesOf('Notifications Toggle', module)
           }}
         />
         <GovernanceAuthoredProposalFinishedNotification
-          locale='en'
+          locale="en"
           notification={{
             id: 'AA',
             read: true,
@@ -372,7 +372,7 @@ storiesOf('Notifications Toggle', module)
           }}
         />
         <GovernanceCoauthorRequestedNotification
-          locale='en'
+          locale="en"
           notification={{
             id: 'AA',
             read: true,
@@ -391,7 +391,7 @@ storiesOf('Notifications Toggle', module)
           }}
         />
         <GovernanceNewCommentOnProposalNotification
-          locale='en'
+          locale="en"
           notification={{
             id: 'AA',
             read: true,
@@ -410,7 +410,7 @@ storiesOf('Notifications Toggle', module)
           }}
         />
         <GovernanceProposalEnactedNotification
-          locale='en'
+          locale="en"
           notification={{
             id: 'AA',
             read: true,
@@ -429,7 +429,7 @@ storiesOf('Notifications Toggle', module)
           }}
         />
         <GovernanceVotingEndedVoterNotification
-          locale='en'
+          locale="en"
           notification={{
             id: 'AA',
             read: true,

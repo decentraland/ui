@@ -1,36 +1,44 @@
 import React from 'react'
 
 import NotificationItem from '../../NotificationItem'
-import { CommonNotificationProps, GovernanceNewCommentOnProposalNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  GovernanceNewCommentOnProposalNotification
+} from '../../types'
 import NewCommentIcon from '../../../Icons/Notifications/NewCommentIcon'
 
 const i18N = {
   en: {
-    description: (
-      link: string
-    ): React.ReactNode => (
+    description: (link: string): React.ReactNode => (
       <>
-        Engage in a productive conversation by replying to <a href={link} className="dcl notification-link">this comment</a>.
+        Engage in a productive conversation by replying to{' '}
+        <a href={link} className="dcl notification-link">
+          this comment
+        </a>
+        .
       </>
     ),
     title: 'New comment posted on proposal'
   },
   es: {
-    description: (
-      link: string
-    ): React.ReactNode => (
+    description: (link: string): React.ReactNode => (
       <>
-        Participe en una conversación productiva respondiendo a <a href={link} className="dcl notification-link">este comentario</a>.
+        Participe en una conversación productiva respondiendo a{' '}
+        <a href={link} className="dcl notification-link">
+          este comentario
+        </a>
+        .
       </>
     ),
     title: 'Nuevo comentation en tu propuesta'
   },
   zh: {
-    description: (
-      link: string
-    ): React.ReactNode => (
+    description: (link: string): React.ReactNode => (
       <>
-        <a href={link} className="dcl notification-link">回复此评论</a>，参与富有成效的对话
+        <a href={link} className="dcl notification-link">
+          回复此评论
+        </a>
+        ，参与富有成效的对话
       </>
     ),
     title: '就提案发表的新评论'
@@ -54,8 +62,7 @@ const GovernanceNewCommentOnProposalNotification = ({
       </span>
     </p>
     <p className="dcl notification-item__content-description">
-      {i18N[locale].description(notification.metadata.link)}
-      .
+      {i18N[locale].description(notification.metadata.link)}.
     </p>
   </NotificationItem>
 )
