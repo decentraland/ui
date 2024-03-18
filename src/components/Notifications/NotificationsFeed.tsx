@@ -7,10 +7,19 @@ import {
   NotificationLocale
 } from './types'
 
-import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
-import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
-import BidAcceptedNotification from './NotificationTypes/BidAcceptedNotification'
-import BidReceivedNotification from './NotificationTypes/BidReceivedNotification'
+import ItemSoldNotification from './NotificationTypes/Marketplace/ItemSoldNotification'
+import RoyaltiesEarnedNotification from './NotificationTypes/Marketplace/RoyaltiesEarnedNotification'
+import BidAcceptedNotification from './NotificationTypes/Marketplace/BidAcceptedNotification'
+import BidReceivedNotification from './NotificationTypes/Marketplace/BidReceivedNotification'
+import GovernanceAnnouncementNotification from './NotificationTypes/Governance/GovernanceAnnouncementNotification'
+import GovernanceCoauthorRequestedNotification from './NotificationTypes/Governance/GovernanceCoauthorRequestedNotification'
+import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
+import GovernanceNewCommentOnProposalNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProposalNotification'
+import GovernanceProposalEnactedNotification from './NotificationTypes/Governance/GovernanceProposalEnactedNotification'
+import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governance/GovernanceVotingEndedVoterNotification'
+import WorldsMissingResourcesNotification from './NotificationTypes/Worlds/WorldsMissingResourcesNotification'
+import WorldsAccessRestoredNotification from './NotificationTypes/Worlds/WorldsAcessRestoredNotification'
+import WorldsAccessRestrictedNotification from './NotificationTypes/Worlds/WorldsAccessRestrictedNotification'
 import EmptyInbox from '../Icons/Notifications/EmptyInbox'
 import { Tabs } from '../Tabs/Tabs'
 import { Button } from '../Button/Button'
@@ -121,16 +130,16 @@ const NotificationHandler = ({
   locale: NotificationLocale
 }) => {
   switch (notification.type) {
-    case 'item_sold':
-      return (
-        <ItemSoldNotification notification={notification} locale={locale} />
-      )
     case 'royalties_earned':
       return (
         <RoyaltiesEarnedNotification
           notification={notification}
           locale={locale}
         />
+      )
+    case 'item_sold':
+      return (
+        <ItemSoldNotification notification={notification} locale={locale} />
       )
     case 'bid_accepted':
       return (
@@ -140,6 +149,40 @@ const NotificationHandler = ({
       return (
         <BidReceivedNotification notification={notification} locale={locale} />
       )
+    case 'governance_announcement':
+      return <GovernanceAnnouncementNotification notification={notification} />
+    case 'governance_coauthor_requested':
+      return (
+        <GovernanceCoauthorRequestedNotification notification={notification} locale={locale} />
+      )
+    case 'governance_authored_proposal_finished':
+      return (
+        <GovernanceAuthoredProposalFinishedNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
+    case 'governance_new_comment_on_proposal':
+      return (
+        <GovernanceNewCommentOnProposalNotification
+          notification={notification}
+          locale={locale}
+        />
+      )
+    case 'governance_proposal_enacted':
+      return (
+        <GovernanceProposalEnactedNotification notification={notification} locale={locale} />
+      )
+    case 'governance_voting_ended_voter':
+      return (
+        <GovernanceVotingEndedVoterNotification notification={notification} locale={locale} />
+      )
+    case 'worlds_missing_resources':
+      return <WorldsMissingResourcesNotification notification={notification} locale={locale} />
+    case 'worlds_access_restored':
+      return <WorldsAccessRestoredNotification notification={notification} locale={locale} />
+    case 'worlds_access_restricted':
+      return <WorldsAccessRestrictedNotification notification={notification} locale={locale} />
     default:
       return null
   }
