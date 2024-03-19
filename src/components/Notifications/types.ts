@@ -21,7 +21,7 @@ export type RawDecentralandNotification<
   metadata: M
 }
 
-export enum DecentralandNotificationType {
+export const enum DecentralandNotificationType {
   ITEM_SOLD = 'item_sold',
   ROYALTIES_EARNED = 'royalties_earned',
   BID_ACCEPTED = 'bid_accepted',

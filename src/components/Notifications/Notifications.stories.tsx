@@ -4,7 +4,7 @@ import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
 import { NFTCategory, Rarity } from '@dcl/schemas'
 import BidReceived from '../Icons/Notifications/BidReceived'
-import { NotificationActiveTab } from './types'
+import { DecentralandNotificationType, NotificationActiveTab } from './types'
 import { getBGColorByRarity } from './utils'
 import GovernanceAnnouncementNotification from './NotificationTypes/Governance/GovernanceAnnouncementNotification'
 import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
@@ -43,7 +43,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -81,7 +81,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -121,7 +121,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AA',
               read: true,
-              type: 'governance_authored_proposal_finished',
+              type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -137,7 +137,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'B',
               read: true,
-              type: 'royalties_earned',
+              type: DecentralandNotificationType.ROYALTIES_EARNED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -157,7 +157,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -178,7 +178,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -199,7 +199,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -220,7 +220,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -241,7 +241,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AC',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -260,7 +260,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AS',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -340,7 +340,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_announcement',
+            type: DecentralandNotificationType.GOVERNANCE_ANNOUNCEMENT,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -351,13 +351,14 @@ storiesOf('Notifications Toggle', module)
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'
           }}
+          locale="en"
         />
         <GovernanceAuthoredProposalFinishedNotification
           locale="en"
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_authored_proposal_finished',
+            type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -376,7 +377,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_coauthor_requested',
+            type: DecentralandNotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -395,7 +396,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_new_comment_on_proposal',
+            type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -414,7 +415,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_proposal_enacted',
+            type: DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -433,7 +434,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: 'governance_voting_ended_voter',
+            type: DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {

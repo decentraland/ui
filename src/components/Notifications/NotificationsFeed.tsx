@@ -17,7 +17,7 @@ import { Close } from '../Close/Close'
 import History from '../Icons/Notifications/History'
 
 import './NotificationsFeed.css'
-import { NotificationByType } from './utils'
+import { NotificationComponentByType } from './utils'
 
 interface NotificationsFeedProps {
   items: DCLNotification[]
@@ -117,7 +117,7 @@ const NotificationHandler = ({
   notification: DCLNotification
   locale: NotificationLocale
 }) => {
-  const NotificationComponent = NotificationByType[notification.type]
+  const NotificationComponent = NotificationComponentByType[notification.type]
   return <NotificationComponent notification={notification} locale={locale} />
 }
 
