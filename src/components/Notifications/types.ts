@@ -7,7 +7,10 @@ export enum NotificationActiveTab {
 
 export type NotificationLocale = 'en' | 'es' | 'zh'
 
-type RawDecentralandNotification<T extends DecentralandNotificationType, M> = {
+export type RawDecentralandNotification<
+  T extends DecentralandNotificationType,
+  M
+> = {
   id: string
   type: T
   address: string
@@ -33,10 +36,6 @@ export enum DecentralandNotificationType {
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored'
 }
-
-export const CURRENT_AVAILABLE_NOTIFICATIONS = [
-  
-] as const
 
 // Marketplace Notifications
 

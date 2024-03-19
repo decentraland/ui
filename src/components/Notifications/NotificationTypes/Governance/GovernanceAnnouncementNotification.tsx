@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { CommonNotificationProps, GovernanceAnnouncementNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  GovernanceAnnouncementNotification
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import GovernanceIcon from '../../../Icons/Notifications/GovernanceIcon'
 
