@@ -68,3 +68,7 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [DecentralandNotificationType.WORLDS_ACCESS_RESTRICTED]:
       WorldsAccessRestrictedNotification
   }
+
+export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(
+  DecentralandNotificationType
+)
