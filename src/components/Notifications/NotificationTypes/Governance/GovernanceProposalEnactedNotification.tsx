@@ -55,7 +55,7 @@ const GovernanceProposalEnactedNotification = ({
     image={{ image: <ProjectEnactedIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}
     isNew={!notification.read}
-    locale="en"
+    locale={locale}
   >
     <p className="dcl notification-item__content-title">{i18N[locale].title}</p>
     <p className="dcl notification-item__content-description">

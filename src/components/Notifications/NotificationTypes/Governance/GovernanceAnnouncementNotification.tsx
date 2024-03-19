@@ -1,19 +1,18 @@
 import React from 'react'
 
-import { GovernanceAnnouncementNotification } from '../../types'
+import { CommonNotificationProps, GovernanceAnnouncementNotification } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import GovernanceIcon from '../../../Icons/Notifications/GovernanceIcon'
 
 const GovernanceAnnouncementNotification = ({
-  notification
-}: {
-  notification: GovernanceAnnouncementNotification
-}) => (
+  notification,
+  locale
+}: CommonNotificationProps<GovernanceAnnouncementNotification>) => (
   <NotificationItem
     image={{ image: <GovernanceIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}
     isNew={!notification.read}
-    locale="en"
+    locale={locale}
   >
     <p className="dcl notification-item__content-title">
       {notification.metadata.title}

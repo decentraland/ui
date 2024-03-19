@@ -18,26 +18,25 @@ type RawDecentralandNotification<T extends DecentralandNotificationType, M> = {
   metadata: M
 }
 
+export enum DecentralandNotificationType {
+  ITEM_SOLD = 'item_sold',
+  ROYALTIES_EARNED = 'royalties_earned',
+  BID_ACCEPTED = 'bid_accepted',
+  BID_RECEIVED = 'bid_received',
+  GOVERNANCE_ANNOUNCEMENT = 'governance_announcement',
+  GOVERNANCE_PROPOSAL_ENACTED = 'governance_proposal_enacted',
+  GOVERNANCE_COAUTHOR_REQUESTED = 'governance_coauthor_requested',
+  GOVERNANCE_AUTHORED_PROPOSAL_FINISHED = 'governance_authored_proposal_finished',
+  GOVERNANCE_VOTING_ENDED_VOTER = 'governance_voting_ended_voter',
+  GOVERNANCE_NEW_COMMENT_ON_PROPOSAL = 'governance_new_comment_on_proposal',
+  WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
+  WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
+  WORLDS_ACCESS_RESTORED = 'worlds_access_restored'
+}
+
 export const CURRENT_AVAILABLE_NOTIFICATIONS = [
-  'item_sold',
-  'royalties_earned',
-  'bid_accepted',
-  'bid_received',
-  'governance_announcement',
-  'governance_proposal_enacted',
-  'governance_coauthor_requested',
-  'governance_authored_proposal_finished',
-  'governance_voting_ended_voter',
-  'governance_new_comment_on_proposal',
-  'worlds_missing_resources',
-  'worlds_access_restricted',
-  'worlds_access_restored'
+  
 ] as const
-
-type DecentralandNotificationTypeTuple = typeof CURRENT_AVAILABLE_NOTIFICATIONS
-
-export type DecentralandNotificationType =
-  DecentralandNotificationTypeTuple[number]
 
 // Marketplace Notifications
 
@@ -68,22 +67,22 @@ type BidReceivedMetadata = CommonNFTNotificationMetadata & {
 }
 
 export type ItemSoldNotification = RawDecentralandNotification<
-  'item_sold',
+  DecentralandNotificationType.ITEM_SOLD,
   ItemSoldMetadata
 >
 
 export type RoyalitesEarnedNotification = RawDecentralandNotification<
-  'royalties_earned',
+  DecentralandNotificationType.ROYALTIES_EARNED,
   RoyalitesEarnedMetadata
 >
 
 export type BidAcceptedNotification = RawDecentralandNotification<
-  'bid_accepted',
+  DecentralandNotificationType.BID_ACCEPTED,
   BidAcceptedMetadata
 >
 
 export type BidReceivedNotification = RawDecentralandNotification<
-  'bid_received',
+  DecentralandNotificationType.BID_RECEIVED,
   BidReceivedMetadata
 >
 
@@ -104,31 +103,31 @@ type CommonGovernanceNotificationMetadata = {
 }
 
 export type GovernanceAnnouncementNotification = RawDecentralandNotification<
-  'governance_announcement',
+  DecentralandNotificationType.GOVERNANCE_ANNOUNCEMENT,
   Omit<CommonGovernanceNotificationMetadata, 'proposalId' | 'proposalTitle'>
 >
 export type GovernanceProposalEnactedNotification = RawDecentralandNotification<
-  'governance_proposal_enacted',
+  DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED,
   CommonGovernanceNotificationMetadata
 >
 export type GovernanceCoauthorRequestedNotification =
   RawDecentralandNotification<
-    'governance_coauthor_requested',
+    DecentralandNotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceAuthoredProposalFinishedNotification =
   RawDecentralandNotification<
-    'governance_authored_proposal_finished',
+    DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceVotingEndedVoterNotification =
   RawDecentralandNotification<
-    'governance_voting_ended_voter',
+    DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceNewCommentOnProposalNotification =
   RawDecentralandNotification<
-    'governance_new_comment_on_proposal',
+    DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
     CommonGovernanceNotificationMetadata
   >
 
@@ -153,17 +152,17 @@ type WorldsNotificationMetadataWithWhen = CommonWolrdsNotificationMetadata & {
 }
 
 export type WorldsMissingResourcesNotification = RawDecentralandNotification<
-  'worlds_missing_resources',
+  DecentralandNotificationType.WORLDS_MISSING_RESOURCES,
   WorldsNotificationMetadataWithWhen
 >
 
 export type WorldsAccessRestrictedNotification = RawDecentralandNotification<
-  'worlds_access_restricted',
+  DecentralandNotificationType.WORLDS_ACCESS_RESTRICTED,
   WorldsNotificationMetadataWithWhen
 >
 
 export type WorldsAccessRestoredNotification = RawDecentralandNotification<
-  'worlds_access_restored',
+  DecentralandNotificationType.WORLDS_ACCESS_RESTORED,
   CommonWolrdsNotificationMetadata
 >
 

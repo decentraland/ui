@@ -56,7 +56,7 @@ const GovernanceCoauthorRequestedNotification = ({
     image={{ image: <CoauthorIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}
     isNew={!notification.read}
-    locale="en"
+    locale={locale}
   >
     <p className="dcl notification-item__content-title">
       {i18N[locale].title}{' '}
