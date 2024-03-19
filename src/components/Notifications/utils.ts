@@ -2,7 +2,7 @@ import { Rarity } from '@dcl/schemas'
 import {
   CommonNotificationProps,
   DCLNotification,
-  DecentralandNotificationType,
+  DecentralandNotificationType
 } from './types'
 
 import {
