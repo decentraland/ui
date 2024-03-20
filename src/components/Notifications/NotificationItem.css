@@ -32,3 +32,12 @@
   font-size: 12px;
   font-weight: 600;
 }
+
+.dcl.notification-text-highlighted {
+  color: var(--primary);
+}
+
+.dcl.notification-link {
+  color: var(--primary);
+  text-decoration: underline;
+}

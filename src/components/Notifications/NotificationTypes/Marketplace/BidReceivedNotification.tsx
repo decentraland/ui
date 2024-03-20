@@ -1,17 +1,12 @@
 import React from 'react'
 
-import { BidAcceptedNotification, NotificationLocale } from '../types'
-import NotificationItem from '../NotificationItem'
-import BidAccepted from '../../Icons/Notifications/BidAccepted'
+import { BidReceivedNotification, CommonNotificationProps } from '../../types'
+import NotificationItem from '../../NotificationItem'
+import BidAccepted from '../../../Icons/Notifications/BidAccepted'
 import { Network } from '@dcl/schemas'
-import { formatMana } from '../utils'
-import { Mana } from '../../Mana/Mana'
-import NotificationItemNFTLink from '../NotificationItemNFTLink'
-
-interface BidAcceptedNotificationProps {
-  notification: BidAcceptedNotification
-  locale: NotificationLocale
-}
+import { formatMana, getBGColorByRarity } from '../../utils'
+import { Mana } from '../../../Mana/Mana'
+import NotificationItemNFTLink from '../../NotificationItemNFTLink'
 
 const i18N = {
   en: {
@@ -20,10 +15,10 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Your offer of {mana} was accepted for {nftName}
+        You received an offer of {mana} for {nftName}
       </>
     ),
-    title: 'Offer Accepted'
+    title: 'Offer Received'
   },
   es: {
     description: (
@@ -31,10 +26,10 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        Tu oferta de {mana} fue aceptada para {nftName}
+        Recibiste una oferta de {mana} para {nftName}
       </>
     ),
-    title: 'Oferta aceptada'
+    title: 'Oferta recibida'
   },
   zh: {
     description: (
@@ -42,22 +37,22 @@ const i18N = {
       nftName: React.ReactNode
     ): React.ReactNode => (
       <>
-        您的出价 {mana} 已被接受 {nftName}
+        您为 {nftName} 出价 {mana} 已被接受
       </>
     ),
-    title: '接受报价'
+    title: '收到报价'
   }
 }
 
-const BidAcceptedNotification = ({
+const BidReceivedNotification = ({
   notification,
   locale
-}: BidAcceptedNotificationProps) => {
+}: CommonNotificationProps<BidReceivedNotification>) => {
   return (
     <NotificationItem
       image={{
-        url: notification.metadata.image,
-        rarity: notification.metadata.rarity,
+        image: notification.metadata.image,
+        backgroundColor: getBGColorByRarity(notification.metadata.rarity),
         icon: <BidAccepted />
       }}
       timestamp={notification.timestamp}
@@ -90,4 +85,4 @@ const BidAcceptedNotification = ({
   )
 }
 
-export default BidAcceptedNotification
+export default BidReceivedNotification

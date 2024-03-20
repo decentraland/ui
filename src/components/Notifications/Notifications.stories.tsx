@@ -4,7 +4,14 @@ import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
 import { NFTCategory, Rarity } from '@dcl/schemas'
 import BidReceived from '../Icons/Notifications/BidReceived'
-import { NotificationActiveTab } from './types'
+import { DecentralandNotificationType, NotificationActiveTab } from './types'
+import { getBGColorByRarity } from './utils'
+import GovernanceAnnouncementNotification from './NotificationTypes/Governance/GovernanceAnnouncementNotification'
+import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
+import GovernanceCoauthorRequestedNotification from './NotificationTypes/Governance/GovernanceCoauthorRequestedNotification'
+import GovernanceNewCommentOnProposalNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProposalNotification'
+import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governance/GovernanceVotingEndedVoterNotification'
+import GovernanceProposalEnactedNotification from './NotificationTypes/Governance/GovernanceProposalEnactedNotification'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -36,7 +43,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -74,7 +81,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -112,9 +119,25 @@ storiesOf('Notifications Toggle', module)
           locale="en"
           items={[
             {
+              id: 'AA',
+              read: true,
+              type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
+              address: '0xA',
+              timestamp: new Date().getTime(),
+              metadata: {
+                link: 'https://decentraland.org/governance',
+                title: 'Test Governance Announcement',
+                description: 'Test description',
+                proposalId: 'AAA_PROPOSAL_111',
+                proposalTitle: 'Open Source all code using DAO funds'
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
               id: 'B',
-              read: false,
-              type: 'royalties_earned',
+              read: true,
+              type: DecentralandNotificationType.ROYALTIES_EARNED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -134,7 +157,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -155,7 +178,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -176,7 +199,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -197,280 +220,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
-              address: '0xA',
-              timestamp: new Date(
-                new Date().setHours(new Date().getHours() - 19)
-              ).getTime(),
-              metadata: {
-                link: 'https://market.decentraland.org/contracts/0xa8ee490e4c4da48cc1653502c1a77479d4d818de/tokens/590',
-                image:
-                  'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail',
-                rarity: 'epic' as Rarity,
-                seller: '0x6b347a82fcac4e6a38d1fc40e3631bd8f9495e9f',
-                nftName: 'Exclusive Binance Hoodie',
-                network: 'ethereum',
-                category: 'wearable' as NFTCategory
-              },
-              created_at: '2023-11-29T12:51:00.600Z',
-              updated_at: '2023-11-29T12:51:00.600Z'
-            },
-            {
-              id: 'A',
-              read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -491,7 +241,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AC',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -510,7 +260,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AS',
               read: true,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -576,9 +326,127 @@ storiesOf('Notifications Toggle', module)
     return (
       <div>
         <NotificationItemImage
-          rarity={Rarity.EPIC}
-          url="https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail"
+          backgroundColor={getBGColorByRarity(Rarity.EPIC)}
+          image="https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:binance_us_collection:binance_us_upper_body/thumbnail"
           icon={<BidReceived />}
+        />
+      </div>
+    )
+  })
+  .add('Governance Notifications', () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <GovernanceAnnouncementNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_ANNOUNCEMENT,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <GovernanceAuthoredProposalFinishedNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceCoauthorRequestedNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceNewCommentOnProposalNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceProposalEnactedNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceVotingEndedVoterNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
         />
       </div>
     )

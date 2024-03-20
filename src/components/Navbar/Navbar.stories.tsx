@@ -8,7 +8,10 @@ import { NavbarPages } from './Navbar.types'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
-import { NotificationActiveTab } from '../Notifications/types'
+import {
+  DecentralandNotificationType,
+  NotificationActiveTab
+} from '../Notifications/types'
 
 import './Navbar.stories.css'
 
@@ -131,7 +134,7 @@ storiesOf('Navbar', module)
               {
                 id: 'A',
                 read: true,
-                type: 'item_sold',
+                type: DecentralandNotificationType.ITEM_SOLD,
                 address: '0xA',
                 timestamp: 1680108689 * 1000,
                 metadata: {
@@ -181,7 +184,7 @@ storiesOf('Navbar', module)
               {
                 id: 'A',
                 read: false,
-                type: 'item_sold',
+                type: DecentralandNotificationType.ITEM_SOLD,
                 address: '0xA',
                 timestamp: 1680108689 * 1000,
                 metadata: {

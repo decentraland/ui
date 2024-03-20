@@ -7,10 +7,6 @@ import {
   NotificationLocale
 } from './types'
 
-import ItemSoldNotification from './NotificationTypes/ItemSoldNotification'
-import RoyaltiesEarnedNotification from './NotificationTypes/RoyaltiesEarnedNotification'
-import BidAcceptedNotification from './NotificationTypes/BidAcceptedNotification'
-import BidReceivedNotification from './NotificationTypes/BidReceivedNotification'
 import EmptyInbox from '../Icons/Notifications/EmptyInbox'
 import { Tabs } from '../Tabs/Tabs'
 import { Button } from '../Button/Button'
@@ -21,6 +17,7 @@ import { Close } from '../Close/Close'
 import History from '../Icons/Notifications/History'
 
 import './NotificationsFeed.css'
+import { NotificationComponentByType } from './utils'
 
 interface NotificationsFeedProps {
   items: DCLNotification[]
@@ -120,29 +117,8 @@ const NotificationHandler = ({
   notification: DCLNotification
   locale: NotificationLocale
 }) => {
-  switch (notification.type) {
-    case 'item_sold':
-      return (
-        <ItemSoldNotification notification={notification} locale={locale} />
-      )
-    case 'royalties_earned':
-      return (
-        <RoyaltiesEarnedNotification
-          notification={notification}
-          locale={locale}
-        />
-      )
-    case 'bid_accepted':
-      return (
-        <BidAcceptedNotification notification={notification} locale={locale} />
-      )
-    case 'bid_received':
-      return (
-        <BidReceivedNotification notification={notification} locale={locale} />
-      )
-    default:
-      return null
-  }
+  const NotificationComponent = NotificationComponentByType[notification.type]
+  return <NotificationComponent notification={notification} locale={locale} />
 }
 
 export default function NotificationsFeed({

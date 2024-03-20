@@ -1,18 +1,16 @@
 import React from 'react'
 
-import { NotificationLocale, RoyalitesEarnedNotification } from '../types'
-import NotificationItem from '../NotificationItem'
-import ManaMainnet from '../../Icons/Notifications/ManaMainnet'
-import ManaPolygon from '../../Icons/Notifications/ManaPoly'
+import {
+  CommonNotificationProps,
+  RoyalitesEarnedNotification
+} from '../../types'
+import NotificationItem from '../../NotificationItem'
+import ManaMainnet from '../../../Icons/Notifications/ManaMainnet'
+import ManaPolygon from '../../../Icons/Notifications/ManaPoly'
 import { Network } from '@dcl/schemas'
-import { formatMana } from '../utils'
-import { Mana } from '../../Mana/Mana'
-import NotificationItemNFTLink from '../NotificationItemNFTLink'
-
-interface RoyaltiesEarnedNotificationProps {
-  notification: RoyalitesEarnedNotification
-  locale: NotificationLocale
-}
+import { formatMana, getBGColorByRarity } from '../../utils'
+import { Mana } from '../../../Mana/Mana'
+import NotificationItemNFTLink from '../../NotificationItemNFTLink'
 
 const i18N = {
   en: {
@@ -53,12 +51,12 @@ const i18N = {
 const RoyaltiesEarnedNotification = ({
   notification,
   locale
-}: RoyaltiesEarnedNotificationProps) => {
+}: CommonNotificationProps<RoyalitesEarnedNotification>) => {
   return (
     <NotificationItem
       image={{
-        url: notification.metadata.image,
-        rarity: notification.metadata.rarity,
+        image: notification.metadata.image,
+        backgroundColor: getBGColorByRarity(notification.metadata.rarity),
         icon:
           notification.metadata.network === 'ethereum' ? (
             <ManaMainnet />

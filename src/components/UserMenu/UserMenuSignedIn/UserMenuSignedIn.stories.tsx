@@ -5,7 +5,10 @@ import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 
 import { UserMenuSignedIn } from './UserMenuSignedIn'
-import { NotificationActiveTab } from '../../Notifications/types'
+import {
+  DecentralandNotificationType,
+  NotificationActiveTab
+} from '../../Notifications/types'
 import { avatar } from '../../../data/avatar'
 
 import '../UserMenu.stories.css'
@@ -80,7 +83,7 @@ storiesOf('UserMenuSignedIn', module)
             {
               id: 'A',
               read: false,
-              type: 'item_sold',
+              type: DecentralandNotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
