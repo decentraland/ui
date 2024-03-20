@@ -12,6 +12,10 @@ import GovernanceCoauthorRequestedNotification from './NotificationTypes/Governa
 import GovernanceNewCommentOnProposalNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProposalNotification'
 import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governance/GovernanceVotingEndedVoterNotification'
 import GovernanceProposalEnactedNotification from './NotificationTypes/Governance/GovernanceProposalEnactedNotification'
+import {
+  LandRentalEndedNotification,
+  LandRentedNotification
+} from './NotificationTypes'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -447,6 +451,62 @@ storiesOf('Notifications Toggle', module)
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'
           }}
+        />
+      </div>
+    )
+  })
+  .add('Land Notifications', () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <LandRentedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.LAND_RENTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              description: 'The rent of your LAND at 5,48 has ended.',
+              link: 'https://marketplace-url/contracts/0x42f4ba48791e2de32f5fbf553441c2672864bb33/tokens/random-token-id/manage',
+              title: 'Rent Period Ending',
+              contract: '0x42f4ba48791e2de32f5fbf553441c2672864bb33',
+              lessor: '0x24e5f44999c151f08609f8e27b2238c773c4d020',
+              tenant: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+              operator: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+              startedAt: '1710447420',
+              endedAt: '1710533820',
+              tokenId: 'random-token-id',
+              land: '5,48'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <LandRentalEndedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.LAND_RENTAL_ENDED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              description: 'The rent of your LAND at 5,48 has ended.',
+              link: 'https://marketplace-url/contracts/0x42f4ba48791e2de32f5fbf553441c2672864bb33/tokens/random-token-id/manage',
+              title: 'Rent Period Ending',
+              contract: '0x42f4ba48791e2de32f5fbf553441c2672864bb33',
+              lessor: '0x24e5f44999c151f08609f8e27b2238c773c4d020',
+              tenant: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+              operator: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+              startedAt: '1710447420',
+              endedAt: '1710533820',
+              tokenId: 'random-token-id',
+              land: '5,48'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
         />
       </div>
     )

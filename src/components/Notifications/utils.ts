@@ -15,6 +15,8 @@ import {
   GovernanceProposalEnactedNotification,
   GovernanceVotingEndedVoterNotification,
   ItemSoldNotification,
+  LandRentalEndedNotification,
+  LandRentedNotification,
   RoyaltiesEarnedNotification,
   WorldsAccessRestoredNotification,
   WorldsAccessRestrictedNotification,
@@ -66,7 +68,10 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [DecentralandNotificationType.WORLDS_ACCESS_RESTORED]:
       WorldsAccessRestoredNotification,
     [DecentralandNotificationType.WORLDS_ACCESS_RESTRICTED]:
-      WorldsAccessRestrictedNotification
+      WorldsAccessRestrictedNotification,
+    [DecentralandNotificationType.LAND_RENTED]: LandRentedNotification,
+    [DecentralandNotificationType.LAND_RENTAL_ENDED]:
+      LandRentalEndedNotification
   }
 
 export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(

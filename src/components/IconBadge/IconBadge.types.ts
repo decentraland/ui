@@ -30,6 +30,7 @@ export type Props = {
     | 'sound'
     | 'props'
     | 'sparkles'
+    | 'places'
   text: string
   onClick?: () => void
   children?: React.ReactNode

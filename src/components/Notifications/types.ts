@@ -34,7 +34,9 @@ export enum DecentralandNotificationType {
   GOVERNANCE_NEW_COMMENT_ON_PROPOSAL = 'governance_new_comment_on_proposal',
   WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
-  WORLDS_ACCESS_RESTORED = 'worlds_access_restored'
+  WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
+  LAND_RENTED = 'rental_started',
+  LAND_RENTAL_ENDED = 'rental_ended'
 }
 
 // Marketplace Notifications
@@ -165,15 +167,42 @@ export type WorldsAccessRestoredNotification = RawDecentralandNotification<
   CommonWolrdsNotificationMetadata
 >
 
+type LandNotificationMetadata = {
+  description: string
+  link: string
+  title: string
+  contract: string
+  lessor: string
+  tenant: string
+  operator: string
+  startedAt: string
+  endedAt: string
+  tokenId: string
+  land: string
+}
+
+export type LandRentedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.LAND_RENTED,
+  LandNotificationMetadata
+>
+
+export type LandRentalEndedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.LAND_RENTAL_ENDED,
+  LandNotificationMetadata
+>
+
 type WorldsNotifications =
   | WorldsMissingResourcesNotification
   | WorldsAccessRestrictedNotification
   | WorldsAccessRestoredNotification
 
+type LandNotifications = LandRentedNotification | LandRentalEndedNotification
+
 export type DCLNotification =
   | MarketplaceNotifications
   | GovernanceNotifications
   | WorldsNotifications
+  | LandNotifications
 
 export type CommonNotificationProps<N> = {
   notification: N
