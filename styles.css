@@ -3564,66 +3564,6 @@ a.ui.card:hover,
   transform: rotateZ(180deg);
 }
 
-.dcl.notification-image__container {
-  height: 48px;
-  width: 48px;
-}
-
-.dcl.notification-image {
-  border-radius: 100%;
-  background-color: rgba(var(--bluish-steel-raw), 0.4);
-  height: 48px;
-  width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dcl.notification-image img {
-  width: 80%;
-}
-
-.dcl.notification-icon {
-  position: relative;
-  top: -20px;
-  left: -8px;
-}
-
-.dcl.notification-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  justify-content: space-between;
-}
-
-.dcl.notification-item__image {
-  margin-left: 16px;
-}
-
-.dcl.notification-item__content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin-left: 16px;
-}
-
-.dcl.notification-item__content-title {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.dcl.notification-item__content-description {
-  color: #a09ba8;
-  margin: 4px 0;
-}
-
-.dcl.notification-item__content-timestamp {
-  font-size: 12px;
-  font-weight: 600;
-}
-
 .dcl.tabs {
   display: flex;
   align-items: center;
@@ -3845,6 +3785,75 @@ a.ui.card:hover,
   width: 120px;
   height: 120px;
   margin-top: 10px;
+}
+
+.dcl.notification-image__container {
+  height: 48px;
+  width: 48px;
+}
+
+.dcl.notification-image {
+  border-radius: 100%;
+  background-color: rgba(var(--bluish-steel-raw), 0.4);
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dcl.notification-image img {
+  width: 80%;
+}
+
+.dcl.notification-icon {
+  position: relative;
+  top: -20px;
+  left: -8px;
+}
+
+.dcl.notification-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.dcl.notification-item__image {
+  margin-left: 16px;
+}
+
+.dcl.notification-item__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 16px;
+}
+
+.dcl.notification-item__content-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.dcl.notification-item__content-description {
+  color: #a09ba8;
+  margin: 4px 0;
+}
+
+.dcl.notification-item__content-timestamp {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dcl.notification-text-highlighted {
+  color: var(--primary);
+}
+
+.dcl.notification-link {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 .dcl.notifications {
