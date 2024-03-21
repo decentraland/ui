@@ -32,6 +32,10 @@
   align-items: center;
 }
 
+.dcl.notification-item__content-description .ui.header.mana.inline {
+  margin-bottom: 0;
+}
+
 .dcl.notification-item__content-timestamp {
   font-size: 12px;
   font-weight: 600;

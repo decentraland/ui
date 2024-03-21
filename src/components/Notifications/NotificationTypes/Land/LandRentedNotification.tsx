@@ -4,11 +4,10 @@ import { CommonNotificationProps, LandRentedNotification } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import LandRentedIcon from '../../../Icons/Notifications/LandRented'
 import { IconBadge } from '../../../IconBadge'
-import { useNotificationUI } from '../../NotificationUIContext'
 
 const i18N = {
   en: {
-    description: (coords: string, tenant: JSX.Element): React.ReactNode => (
+    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
       <>
         Your land
         <IconBadge icon="places" text={coords} />
@@ -18,7 +17,7 @@ const i18N = {
     title: 'LAND Rented'
   },
   es: {
-    description: (coords: string, tenant: JSX.Element): React.ReactNode => (
+    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
       <>
         Tu LAND
         <IconBadge icon="places" text={coords} />
@@ -28,7 +27,7 @@ const i18N = {
     title: 'LAND alquilada'
   },
   zh: {
-    description: (coords: string, tenant: JSX.Element): React.ReactNode => (
+    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
       <>
         你的土地
         <IconBadge icon="places" text={coords} />
@@ -41,10 +40,9 @@ const i18N = {
 
 export default function LandRentedNotificationCmp({
   notification,
-  locale
+  locale,
+  renderProfile
 }: CommonNotificationProps<LandRentedNotification>) {
-  const { ProfileCmp } = useNotificationUI()
-
   return (
     <NotificationItem
       image={{ image: <LandRentedIcon width="48" height="48" /> }}
@@ -58,7 +56,9 @@ export default function LandRentedNotificationCmp({
       <p className="dcl notification-item__content-description">
         {i18N[locale].description(
           notification.metadata.land,
-          <ProfileCmp address={notification.metadata.tenant} />
+          renderProfile
+            ? renderProfile(notification.metadata.tenant)
+            : notification.metadata.tenant
         )}
       </p>
     </NotificationItem>

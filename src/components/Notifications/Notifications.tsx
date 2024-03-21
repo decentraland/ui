@@ -22,6 +22,7 @@ export interface NotificationsProps {
   locale: NotificationLocale
   isOnboarding: boolean
   activeTab: NotificationActiveTab
+  renderProfile?: (address: string) => JSX.Element | string | null
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -41,6 +42,7 @@ export default function Notifications({
   locale,
   isOnboarding,
   activeTab,
+  renderProfile,
   onClick,
   onChangeTab,
   onBegin,
@@ -78,6 +80,7 @@ export default function Notifications({
           onChangeTab={onChangeTab}
           onBegin={onBegin}
           onClose={onClose}
+          renderProfile={renderProfile}
         />
       )}
     </div>

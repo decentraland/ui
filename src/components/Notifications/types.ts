@@ -36,7 +36,8 @@ export enum DecentralandNotificationType {
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
   LAND_RENTED = 'rental_started',
-  LAND_RENTAL_ENDED = 'rental_ended'
+  LAND_RENTAL_ENDED = 'rental_ended',
+  REWARD_ASSIGNED = 'reward_assignation'
 }
 
 // Marketplace Notifications
@@ -167,6 +168,12 @@ export type WorldsAccessRestoredNotification = RawDecentralandNotification<
   CommonWolrdsNotificationMetadata
 >
 
+type WorldsNotifications =
+  | WorldsMissingResourcesNotification
+  | WorldsAccessRestrictedNotification
+  | WorldsAccessRestoredNotification
+
+// Land Notifications
 type LandNotificationMetadata = {
   description: string
   link: string
@@ -191,20 +198,33 @@ export type LandRentalEndedNotification = RawDecentralandNotification<
   LandNotificationMetadata
 >
 
-type WorldsNotifications =
-  | WorldsMissingResourcesNotification
-  | WorldsAccessRestrictedNotification
-  | WorldsAccessRestoredNotification
-
 type LandNotifications = LandRentedNotification | LandRentalEndedNotification
+
+// Reward Notifications
+
+export type RewardAssignedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.REWARD_ASSIGNED,
+  {
+    image: string
+    category: string
+    rarity: Rarity
+    link: string
+    nftName: string
+    title: string
+    description: string
+    network: string
+  }
+>
 
 export type DCLNotification =
   | MarketplaceNotifications
   | GovernanceNotifications
   | WorldsNotifications
   | LandNotifications
+  | RewardAssignedNotification
 
 export type CommonNotificationProps<N> = {
   notification: N
   locale: NotificationLocale
+  renderProfile?: (address: string) => JSX.Element | string | null
 }

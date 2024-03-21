@@ -26,6 +26,7 @@ interface NotificationsFeedProps {
   isOnboarding: boolean
   activeTab: NotificationActiveTab
   isOpen: boolean
+  renderProfile?: (address: string) => JSX.Element | string | null
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     newActiveTab: NotificationActiveTab
@@ -112,13 +113,15 @@ const i18N = {
 
 const NotificationHandler = ({
   locale,
-  notification
+  notification,
+  renderProfile
 }: {
   notification: DCLNotification
   locale: NotificationLocale
+  renderProfile?: (address: string) => JSX.Element | string | null
 }) => {
   const NotificationComponent = NotificationComponentByType[notification.type]
-  return <NotificationComponent notification={notification} locale={locale} />
+  return <NotificationComponent notification={notification} locale={locale} renderProfile={renderProfile} />
 }
 
 export default function NotificationsFeed({
@@ -128,6 +131,7 @@ export default function NotificationsFeed({
   isOnboarding,
   activeTab,
   isOpen,
+  renderProfile,
   onChangeTab,
   onBegin,
   onClose
@@ -220,6 +224,7 @@ export default function NotificationsFeed({
               onChangeTab={onChangeTab}
               activeTab={activeTab}
               isModal
+              renderProfile={renderProfile}
             />
           </div>
         </Modal>
@@ -238,6 +243,7 @@ export default function NotificationsFeed({
               unreadNotifications={unreadNotifications}
               onChangeTab={onChangeTab}
               activeTab={activeTab}
+              renderProfile={renderProfile}
             />
           )}
         </div>
@@ -302,6 +308,7 @@ const Feed = ({
   readNotifications,
   activeTab,
   isModal,
+  renderProfile,
   onChangeTab
 }: {
   unreadNotifications: DCLNotification[]
@@ -310,6 +317,7 @@ const Feed = ({
   locale: NotificationLocale
   activeTab: NotificationActiveTab
   isModal?: boolean
+  renderProfile?: (address: string) => JSX.Element | string | null
   onChangeTab: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     newActiveTab: NotificationActiveTab
@@ -354,6 +362,7 @@ const Feed = ({
                         key={notification.id}
                         notification={notification}
                         locale={locale}
+                        renderProfile={renderProfile}
                       />
                     ))}
                   </div>
@@ -367,6 +376,7 @@ const Feed = ({
                           key={notification.id}
                           notification={notification}
                           locale={locale}
+                          renderProfile={renderProfile}
                         />
                       ))}
                     </div>

@@ -23,6 +23,7 @@ import {
   WorldsMissingResourcesNotification
 } from './NotificationTypes'
 import { FunctionComponent } from 'react'
+import RewardAssignedNotification from './NotificationTypes/Reward/RewardAssignedNotification'
 
 export const MAXIMUM_FRACTION_DIGITS = 2
 
@@ -71,7 +72,8 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       WorldsAccessRestrictedNotification,
     [DecentralandNotificationType.LAND_RENTED]: LandRentedNotification,
     [DecentralandNotificationType.LAND_RENTAL_ENDED]:
-      LandRentalEndedNotification
+      LandRentalEndedNotification,
+    [DecentralandNotificationType.REWARD_ASSIGNED]: RewardAssignedNotification
   }
 
 export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(

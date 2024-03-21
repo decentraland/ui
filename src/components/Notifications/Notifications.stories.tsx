@@ -14,8 +14,10 @@ import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governan
 import GovernanceProposalEnactedNotification from './NotificationTypes/Governance/GovernanceProposalEnactedNotification'
 import {
   LandRentalEndedNotification,
-  LandRentedNotification
+  LandRentedNotification,
+  RewardAssignedNotification
 } from './NotificationTypes'
+import { shorten } from '../AddressField/utils'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -279,6 +281,28 @@ storiesOf('Notifications Toggle', module)
               },
               created_at: '2023-11-29T12:51:00.600Z',
               updated_at: '2023-11-29T12:51:00.600Z'
+            },
+            {
+              id: 'AA',
+              read: true,
+              type: DecentralandNotificationType.LAND_RENTED,
+              address: '0xA',
+              timestamp: new Date().getTime(),
+              metadata: {
+                description: 'The rent of your LAND at 5,48 has ended.',
+                link: 'https://marketplace-url/contracts/0x42f4ba48791e2de32f5fbf553441c2672864bb33/tokens/random-token-id/manage',
+                title: 'Rent Period Ending',
+                contract: '0x42f4ba48791e2de32f5fbf553441c2672864bb33',
+                lessor: '0x24e5f44999c151f08609f8e27b2238c773c4d020',
+                tenant: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+                operator: '0xd5359E309c47c8920C277d078d5F3c3DBeA1ef84',
+                startedAt: '1710447420',
+                endedAt: '1710533820',
+                tokenId: 'random-token-id',
+                land: '5,48'
+              },
+              created_at: '2023-11-29T12:51:00.600Z',
+              updated_at: '2023-11-29T12:51:00.600Z'
             }
           ]}
           activeTab={tab as NotificationActiveTab}
@@ -286,6 +310,7 @@ storiesOf('Notifications Toggle', module)
           onClick={() => console.log('Toggle button')}
           onBegin={() => console.log('Begin')}
           onClose={(_, m) => console.log(m)}
+          renderProfile={(address: string) => shorten(address)}
         />
       </div>
     )
@@ -482,6 +507,7 @@ storiesOf('Notifications Toggle', module)
             updated_at: '2023-11-29T12:51:00.600Z'
           }}
           locale="en"
+          renderProfile={(address: string) => shorten(address)}
         />
         <LandRentalEndedNotification
           notification={{
@@ -502,6 +528,36 @@ storiesOf('Notifications Toggle', module)
               endedAt: '1710533820',
               tokenId: 'random-token-id',
               land: '5,48'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+          renderProfile={(address: string) => shorten(address)}
+        />
+      </div>
+    )
+  })
+  .add('Reward Notifications', () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <RewardAssignedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.REWARD_ASSIGNED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              description: 'A reward was assigned to you',
+              link: 'https://marketplace-url/contracts/0x42f4ba48791e2de32f5fbf553441c2672864bb33/tokens/random-token-id/manage',
+              title: 'Rent Period Ending',
+              category: 'wearable' as NFTCategory,
+              image:
+                'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
+              rarity: 'epic' as Rarity,
+              nftName: 'Green Atari Tee',
+              network: 'ethereum'
             },
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'
