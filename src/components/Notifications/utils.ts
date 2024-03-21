@@ -8,6 +8,7 @@ import {
 import {
   BidAcceptedNotification,
   BidReceivedNotification,
+  EventsCancelledNotification,
   GovernanceAnnouncementNotification,
   GovernanceAuthoredProposalFinishedNotification,
   GovernanceCoauthorRequestedNotification,
@@ -21,6 +22,7 @@ import {
   WorldsMissingResourcesNotification
 } from './NotificationTypes'
 import { FunctionComponent } from 'react'
+import EventsStartsSoonNotification from './NotificationTypes/Events/EventStartsSoonNotification'
 
 export const MAXIMUM_FRACTION_DIGITS = 2
 
@@ -66,7 +68,11 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [DecentralandNotificationType.WORLDS_ACCESS_RESTORED]:
       WorldsAccessRestoredNotification,
     [DecentralandNotificationType.WORLDS_ACCESS_RESTRICTED]:
-      WorldsAccessRestrictedNotification
+      WorldsAccessRestrictedNotification,
+    [DecentralandNotificationType.EVENTS_STARTS_SOON]:
+      EventsStartsSoonNotification,
+    [DecentralandNotificationType.EVENTS_STARTED]: EventsStartsSoonNotification,
+    [DecentralandNotificationType.EVENTS_CANCELLED]: EventsCancelledNotification
   }
 
 export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(

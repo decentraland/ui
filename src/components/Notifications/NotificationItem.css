@@ -28,6 +28,10 @@
   margin: 4px 0;
 }
 
+.dcl.notification-item__content-description a {
+  text-decoration: underline;
+}
+
 .dcl.notification-item__content-timestamp {
   font-size: 12px;
   font-weight: 600;
@@ -40,4 +44,13 @@
 .dcl.notification-link {
   color: var(--primary);
   text-decoration: underline;
+}
+
+.notification-item__countdown {
+  padding: 2px 10px;
+  background-color: #37333d;
+  width: fit-content;
+  color: white;
+  border-radius: 20px;
+  display: flex;
 }
