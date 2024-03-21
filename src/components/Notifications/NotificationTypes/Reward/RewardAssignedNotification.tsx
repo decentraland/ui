@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ItemAirdropped from '../../../Icons/Notifications/ItemAirdropped'
+import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
   RewardAssignedNotification
@@ -11,7 +11,9 @@ import NotificationItemNFTLink from '../../NotificationItemNFTLink'
 
 const i18N = {
   en: {
-    description: (reward: RewardAssignedNotification['metadata']): React.ReactNode => (
+    description: (
+      reward: RewardAssignedNotification['metadata']
+    ): React.ReactNode => (
       <>
         This
         <NotificationItemNFTLink
@@ -19,13 +21,15 @@ const i18N = {
           name={reward.nftName}
           link={reward.link}
         />
-        was gifted to you
+        is already in your backpack
       </>
     ),
-    title: 'Item Airdropped'
+    title: 'New Item Received'
   },
   es: {
-    description: (reward: RewardAssignedNotification['metadata']): React.ReactNode => (
+    description: (
+      reward: RewardAssignedNotification['metadata']
+    ): React.ReactNode => (
       <>
         El item
         <NotificationItemNFTLink
@@ -33,13 +37,15 @@ const i18N = {
           name={reward.nftName}
           link={reward.link}
         />
-        fue regalado para ti
+        ya esta disponible en tu backpack
       </>
     ),
-    title: 'Regalo enviado'
+    title: 'Nuevo artículo recibido'
   },
   zh: {
-    description: (reward: RewardAssignedNotification['metadata']): React.ReactNode => (
+    description: (
+      reward: RewardAssignedNotification['metadata']
+    ): React.ReactNode => (
       <>
         这
         <NotificationItemNFTLink
@@ -47,24 +53,23 @@ const i18N = {
           name={reward.nftName}
           link={reward.link}
         />
-        被天赋
+        已经在您的背包里
       </>
     ),
-    title: '物品空调'
+    title: '收到的新项目'
   }
 }
 
 export default function RewardAssignedNotification({
   notification,
-  locale,
-  renderProfile
+  locale
 }: CommonNotificationProps<RewardAssignedNotification>) {
   return (
     <NotificationItem
       image={{
         image: notification.metadata.image,
         backgroundColor: getBGColorByRarity(notification.metadata.rarity),
-        icon: <ItemAirdropped />
+        icon: <Reward />
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}

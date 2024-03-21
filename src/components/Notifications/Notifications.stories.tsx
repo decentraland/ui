@@ -533,7 +533,6 @@ storiesOf('Notifications Toggle', module)
             updated_at: '2023-11-29T12:51:00.600Z'
           }}
           locale="en"
-          renderProfile={(address: string) => shorten(address)}
         />
       </div>
     )

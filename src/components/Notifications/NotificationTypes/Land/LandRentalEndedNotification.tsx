@@ -10,36 +10,27 @@ import { IconBadge } from '../../../IconBadge'
 
 const i18N = {
   en: {
-    description: (
-      coords: string,
-      tenant: JSX.Element | string
-    ): React.ReactNode => (
+    description: (coords: string): React.ReactNode => (
       <>
-        The rent on your LAND <IconBadge icon="places" text={coords} /> has
-        ended {tenant}
+        The rent on your LAND at <IconBadge icon="places" text={coords} /> has
+        ended
       </>
     ),
     title: 'Rent Period Ended'
   },
   es: {
-    description: (
-      coords: string,
-      tenant: JSX.Element | string
-    ): React.ReactNode => (
+    description: (coords: string): React.ReactNode => (
       <>
-        El alquiler de su LAND <IconBadge icon="places" text={coords} /> ha
-        terminado {tenant}
+        El alquiler de su LAND en <IconBadge icon="places" text={coords} /> ha
+        terminado
       </>
     ),
     title: 'Período de alquiler finalizado'
   },
   zh: {
-    description: (
-      coords: string,
-      tenant: JSX.Element | string
-    ): React.ReactNode => (
+    description: (coords: string): React.ReactNode => (
       <>
-        土地上的租金 <IconBadge icon="places" text={coords} /> 结束了 {tenant}
+        土地上的租金 <IconBadge icon="places" text={coords} /> 结束了
       </>
     ),
     title: '租金期结束'
@@ -48,8 +39,7 @@ const i18N = {
 
 export default function LandRentalEndedNotificationCmp({
   notification,
-  locale,
-  renderProfile
+  locale
 }: CommonNotificationProps<LandRentalEndedNotification>) {
   return (
     <NotificationItem
@@ -62,12 +52,7 @@ export default function LandRentalEndedNotificationCmp({
         {i18N[locale].title}
       </p>
       <p className="dcl notification-item__content-description">
-        {i18N[locale].description(
-          notification.metadata.land,
-          renderProfile
-            ? renderProfile(notification.metadata.tenant)
-            : notification.metadata.tenant
-        )}
+        {i18N[locale].description(notification.metadata.land)}
       </p>
     </NotificationItem>
   )

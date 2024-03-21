@@ -121,7 +121,13 @@ const NotificationHandler = ({
   renderProfile?: (address: string) => JSX.Element | string | null
 }) => {
   const NotificationComponent = NotificationComponentByType[notification.type]
-  return <NotificationComponent notification={notification} locale={locale} renderProfile={renderProfile} />
+  return (
+    <NotificationComponent
+      notification={notification}
+      locale={locale}
+      renderProfile={renderProfile}
+    />
+  )
 }
 
 export default function NotificationsFeed({

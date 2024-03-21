@@ -7,9 +7,12 @@ import { IconBadge } from '../../../IconBadge'
 
 const i18N = {
   en: {
-    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
+    description: (
+      coords: string,
+      tenant: JSX.Element | string
+    ): React.ReactNode => (
       <>
-        Your land
+        Your LAND at
         <IconBadge icon="places" text={coords} />
         was rented by {tenant}
       </>
@@ -17,9 +20,12 @@ const i18N = {
     title: 'LAND Rented'
   },
   es: {
-    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
+    description: (
+      coords: string,
+      tenant: JSX.Element | string
+    ): React.ReactNode => (
       <>
-        Tu LAND
+        Tu LAND en
         <IconBadge icon="places" text={coords} />
         fue alquilada por {tenant}
       </>
@@ -27,7 +33,10 @@ const i18N = {
     title: 'LAND alquilada'
   },
   zh: {
-    description: (coords: string, tenant: JSX.Element | string): React.ReactNode => (
+    description: (
+      coords: string,
+      tenant: JSX.Element | string
+    ): React.ReactNode => (
       <>
         你的土地
         <IconBadge icon="places" text={coords} />
