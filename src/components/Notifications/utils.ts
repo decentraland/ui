@@ -24,6 +24,7 @@ import {
 } from './NotificationTypes'
 import { FunctionComponent } from 'react'
 import RewardAssignedNotification from './NotificationTypes/Reward/RewardAssignedNotification'
+import EventsStartsSoonNotification from './NotificationTypes/Events/EventStartsSoonNotification'
 
 export const MAXIMUM_FRACTION_DIGITS = 2
 
@@ -73,7 +74,10 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [DecentralandNotificationType.LAND_RENTED]: LandRentedNotification,
     [DecentralandNotificationType.LAND_RENTAL_ENDED]:
       LandRentalEndedNotification,
-    [DecentralandNotificationType.REWARD_ASSIGNED]: RewardAssignedNotification
+    [DecentralandNotificationType.REWARD_ASSIGNED]: RewardAssignedNotification,
+    [DecentralandNotificationType.EVENTS_STARTS_SOON]:
+      EventsStartsSoonNotification,
+    [DecentralandNotificationType.EVENTS_STARTED]: EventsStartsSoonNotification
   }
 
 export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(

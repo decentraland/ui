@@ -37,7 +37,9 @@ export enum DecentralandNotificationType {
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
   LAND_RENTED = 'rental_started',
   LAND_RENTAL_ENDED = 'rental_ended',
-  REWARD_ASSIGNED = 'rewards_assignment'
+  REWARD_ASSIGNED = 'rewards_assignment',
+  EVENTS_STARTS_SOON = 'events_starts_soon',
+  EVENTS_STARTED = 'events_started'
 }
 
 // Marketplace Notifications
@@ -210,6 +212,29 @@ export type RewardAssignedNotification = RawDecentralandNotification<
     tokenRarity: Rarity
   }
 >
+type CommonEventsMetadata = {
+  image: string
+  link: string
+  name: string
+}
+
+// events notifications
+export type EventsStartsSoonNotification = RawDecentralandNotification<
+  DecentralandNotificationType.EVENTS_STARTS_SOON,
+  CommonEventsMetadata & {
+    startsAt: string
+    endsAt: string
+  }
+>
+
+export type EventsStartedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.EVENTS_STARTED,
+  CommonEventsMetadata
+>
+
+type EventsNotificatiosn =
+  | EventsStartsSoonNotification
+  | EventsStartedNotification
 
 export type DCLNotification =
   | MarketplaceNotifications
@@ -217,6 +242,7 @@ export type DCLNotification =
   | WorldsNotifications
   | LandNotifications
   | RewardAssignedNotification
+  | EventsNotificatiosn
 
 export type CommonNotificationProps<N> = {
   notification: N

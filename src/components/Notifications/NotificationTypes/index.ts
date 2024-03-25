@@ -14,6 +14,8 @@ import GovernanceVotingEndedVoterNotification from './Governance/GovernanceVotin
 import LandRentedNotification from './Land/LandRentedNotification'
 import LandRentalEndedNotification from './Land/LandRentalEndedNotification'
 import RewardAssignedNotification from './Reward/RewardAssignedNotification'
+import EventsStartsSoonNotification from './Events/EventStartsSoonNotification'
+import EventsStartedNotification from './Events/EventStartedNotification'
 
 export {
   WorldsAccessRestoredNotification,
@@ -31,5 +33,7 @@ export {
   GovernanceVotingEndedVoterNotification,
   LandRentalEndedNotification,
   LandRentedNotification,
-  RewardAssignedNotification
+  RewardAssignedNotification,
+  EventsStartsSoonNotification,
+  EventsStartedNotification
 }
