@@ -62,7 +62,7 @@ const GovernanceNewCommentOnProposalNotification = ({
       </span>
     </p>
     <p className="dcl notification-item__content-description">
-      {i18N[locale].description(notification.metadata.link)}.
+      {i18N[locale].description(notification.metadata.link)}
     </p>
   </NotificationItem>
 )
