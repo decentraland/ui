@@ -3838,7 +3838,7 @@ a.ui.card:hover,
 }
 
 .dcl.notification-item__content-description {
-  display: flex;
+  display: inline;
   color: #a09ba8;
   margin: 4px 0;
   gap: 5px;
@@ -3852,6 +3852,11 @@ a.ui.card:hover,
 
 .dcl.notification-item__content-description a {
   text-decoration: underline;
+  margin: 0 3px;
+}
+
+.dcl.notification-item__content-description .dui-icon-badge {
+  margin: 0 3px;
 }
 
 .dcl.notification-item__content-timestamp {
@@ -3875,7 +3880,7 @@ a.ui.card:hover,
   width: fit-content;
   color: white;
   border-radius: 20px;
-  display: flex;
+  display: inline;
 }
 
 .dui-icon-badge {
