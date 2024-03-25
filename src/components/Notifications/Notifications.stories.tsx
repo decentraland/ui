@@ -514,7 +514,7 @@ storiesOf('Notifications Toggle', module)
         <LandRentalEndedNotification
           notification={{
             id: 'AA',
-            read: true,
+            read: false,
             type: DecentralandNotificationType.LAND_RENTAL_ENDED,
             address: '0xA',
             timestamp: new Date().getTime(),

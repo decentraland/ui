@@ -9,11 +9,16 @@ const i18N = {
   en: {
     description: (
       coords: string,
-      tenant: JSX.Element | string
+      tenant: JSX.Element | string,
+      link: string
     ): React.ReactNode => (
       <>
         Your LAND at
-        <IconBadge icon="places" text={coords} />
+        <IconBadge
+          icon="places"
+          text={coords}
+          onClick={() => window.open(link, '_blank')}
+        />
         was rented by {tenant}
       </>
     ),
@@ -22,11 +27,16 @@ const i18N = {
   es: {
     description: (
       coords: string,
-      tenant: JSX.Element | string
+      tenant: JSX.Element | string,
+      link: string
     ): React.ReactNode => (
       <>
         Tu LAND en
-        <IconBadge icon="places" text={coords} />
+        <IconBadge
+          icon="places"
+          text={coords}
+          onClick={() => window.open(link, '_blank')}
+        />
         fue alquilada por {tenant}
       </>
     ),
@@ -35,11 +45,16 @@ const i18N = {
   zh: {
     description: (
       coords: string,
-      tenant: JSX.Element | string
+      tenant: JSX.Element | string,
+      link: string
     ): React.ReactNode => (
       <>
         你的土地
-        <IconBadge icon="places" text={coords} />
+        <IconBadge
+          icon="places"
+          text={coords}
+          onClick={() => window.open(link, '_blank')}
+        />
         租了 {tenant}
       </>
     ),
@@ -67,7 +82,8 @@ export default function LandRentedNotificationCmp({
           notification.metadata.land,
           renderProfile
             ? renderProfile(notification.metadata.tenant)
-            : notification.metadata.tenant
+            : notification.metadata.tenant,
+          notification.metadata.link
         )}
       </p>
     </NotificationItem>
