@@ -3818,6 +3818,7 @@ a.ui.card:hover,
   align-items: center;
   padding: 16px;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .dcl.notification-item__image {
@@ -3828,7 +3829,6 @@ a.ui.card:hover,
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-left: 16px;
 }
 
 .dcl.notification-item__content-title {
