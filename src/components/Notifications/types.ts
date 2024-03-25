@@ -36,8 +36,7 @@ export enum DecentralandNotificationType {
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
   EVENTS_STARTS_SOON = 'events_starts_soon',
-  EVENTS_STARTED = 'events_started',
-  EVENTS_CANCELLED = 'events_cancelled'
+  EVENTS_STARTED = 'events_started'
 }
 
 // Marketplace Notifications
@@ -174,18 +173,18 @@ type WorldsNotifications =
   | WorldsAccessRestoredNotification
 
 type CommonEventsMetadata = {
-  title: string
-  description: string
   image: string
   link: string
   name: string
-  startsAt: string
-  endsAt: string
 }
+
 // events notifications
 export type EventsStartsSoonNotification = RawDecentralandNotification<
   DecentralandNotificationType.EVENTS_STARTS_SOON,
-  CommonEventsMetadata
+  CommonEventsMetadata & {
+    startsAt: string
+    endsAt: string
+  }
 >
 
 export type EventsStartedNotification = RawDecentralandNotification<
@@ -193,15 +192,9 @@ export type EventsStartedNotification = RawDecentralandNotification<
   CommonEventsMetadata
 >
 
-export type EventsCancelledNotification = RawDecentralandNotification<
-  DecentralandNotificationType.EVENTS_CANCELLED,
-  CommonEventsMetadata
->
-
 type EventsNotificatiosn =
   | EventsStartsSoonNotification
   | EventsStartedNotification
-  | EventsCancelledNotification
 
 export type DCLNotification =
   | MarketplaceNotifications

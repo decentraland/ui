@@ -8,7 +8,6 @@ import {
 import {
   BidAcceptedNotification,
   BidReceivedNotification,
-  EventsCancelledNotification,
   GovernanceAnnouncementNotification,
   GovernanceAuthoredProposalFinishedNotification,
   GovernanceCoauthorRequestedNotification,
@@ -71,8 +70,7 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       WorldsAccessRestrictedNotification,
     [DecentralandNotificationType.EVENTS_STARTS_SOON]:
       EventsStartsSoonNotification,
-    [DecentralandNotificationType.EVENTS_STARTED]: EventsStartsSoonNotification,
-    [DecentralandNotificationType.EVENTS_CANCELLED]: EventsCancelledNotification
+    [DecentralandNotificationType.EVENTS_STARTED]: EventsStartsSoonNotification
   }
 
 export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(

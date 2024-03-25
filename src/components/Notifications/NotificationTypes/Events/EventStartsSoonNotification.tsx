@@ -59,7 +59,7 @@ const i18N = {
         in <Countdown startDate={metadata.startsAt} />
       </>
     ),
-    title: 'Event cancelled'
+    title: 'Event starts soon'
   },
   es: {
     description: (
@@ -70,7 +70,7 @@ const i18N = {
         en
       </>
     ),
-    title: 'Evento cancelado'
+    title: 'Evento empieza pronto'
   },
   zh: {
     description: (
@@ -80,7 +80,7 @@ const i18N = {
         事件 <a href={metadata.link}>{metadata.name}</a> 即将开始 在
       </>
     ),
-    title: '事件取消了'
+    title: '事件即将开始'
   }
 }
 
