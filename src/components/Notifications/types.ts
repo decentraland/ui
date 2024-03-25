@@ -34,7 +34,9 @@ export enum DecentralandNotificationType {
   GOVERNANCE_NEW_COMMENT_ON_PROPOSAL = 'governance_new_comment_on_proposal',
   WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
-  WORLDS_ACCESS_RESTORED = 'worlds_access_restored'
+  WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
+  EVENTS_STARTS_SOON = 'events_starts_soon',
+  EVENTS_STARTED = 'events_started'
 }
 
 // Marketplace Notifications
@@ -170,10 +172,35 @@ type WorldsNotifications =
   | WorldsAccessRestrictedNotification
   | WorldsAccessRestoredNotification
 
+type CommonEventsMetadata = {
+  image: string
+  link: string
+  name: string
+}
+
+// events notifications
+export type EventsStartsSoonNotification = RawDecentralandNotification<
+  DecentralandNotificationType.EVENTS_STARTS_SOON,
+  CommonEventsMetadata & {
+    startsAt: string
+    endsAt: string
+  }
+>
+
+export type EventsStartedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.EVENTS_STARTED,
+  CommonEventsMetadata
+>
+
+type EventsNotificatiosn =
+  | EventsStartsSoonNotification
+  | EventsStartedNotification
+
 export type DCLNotification =
   | MarketplaceNotifications
   | GovernanceNotifications
   | WorldsNotifications
+  | EventsNotificatiosn
 
 export type CommonNotificationProps<N> = {
   notification: N

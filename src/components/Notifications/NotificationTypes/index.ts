@@ -11,6 +11,8 @@ import GovernanceCoauthorRequestedNotification from './Governance/GovernanceCoau
 import GovernanceNewCommentOnProposalNotification from './Governance/GovernanceNewCommentOnProposalNotification'
 import GovernanceProposalEnactedNotification from './Governance/GovernanceProposalEnactedNotification'
 import GovernanceVotingEndedVoterNotification from './Governance/GovernanceVotingEndedVoterNotification'
+import EventsStartsSoonNotification from './Events/EventStartsSoonNotification'
+import EventsStartedNotification from './Events/EventStartedNotification'
 
 export {
   WorldsAccessRestoredNotification,
@@ -25,5 +27,7 @@ export {
   GovernanceCoauthorRequestedNotification,
   GovernanceNewCommentOnProposalNotification,
   GovernanceProposalEnactedNotification,
-  GovernanceVotingEndedVoterNotification
+  GovernanceVotingEndedVoterNotification,
+  EventsStartsSoonNotification,
+  EventsStartedNotification
 }
