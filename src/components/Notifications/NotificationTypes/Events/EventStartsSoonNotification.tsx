@@ -11,8 +11,8 @@ import EventStartsSoon from '../../../Icons/Notifications/EventStartsSoon'
 let interval: NodeJS.Timeout
 
 function Countdown({ startDate }: { startDate: string }) {
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
+  const [minutes, setMinutes] = useState(undefined)
+  const [seconds, setSeconds] = useState(undefined)
 
   useEffect(() => {
     interval = setInterval(() => {
@@ -32,14 +32,20 @@ function Countdown({ startDate }: { startDate: string }) {
     return () => clearInterval(interval)
   }, [setMinutes, setSeconds])
 
-  const minutesString = minutes.toLocaleString('en-US', {
-    minimumIntegerDigits: 2,
-    useGrouping: false
-  })
-  const secondsString = seconds.toLocaleString('en-US', {
-    minimumIntegerDigits: 2,
-    useGrouping: false
-  })
+  const minutesString =
+    minutes !== undefined
+      ? minutes.toLocaleString('en-US', {
+          minimumIntegerDigits: 2,
+          useGrouping: false
+        })
+      : '--'
+  const secondsString =
+    seconds !== undefined
+      ? seconds.toLocaleString('en-US', {
+          minimumIntegerDigits: 2,
+          useGrouping: false
+        })
+      : '--'
 
   return (
     <div className="notification-item__countdown">
@@ -53,33 +59,51 @@ const i18N = {
   en: {
     description: (
       metadata: EventsStartsSoonNotification['metadata']
-    ): React.ReactNode => (
-      <>
-        The event <a href={metadata.link}>{metadata.name}</a> is about to start
-        in <Countdown startDate={metadata.startsAt} />
-      </>
-    ),
+    ): React.ReactNode =>
+      new Date(metadata.startsAt).getTime() > Date.now() ? (
+        <>
+          The event <a href={metadata.link}>{metadata.name}</a> is about to
+          start in <Countdown startDate={metadata.startsAt} />
+        </>
+      ) : (
+        <>
+          The event <a href={metadata.link}>{metadata.name}</a> starts in an
+          hour
+        </>
+      ),
     title: 'Event starts soon'
   },
   es: {
     description: (
       metadata: EventsStartsSoonNotification['metadata']
-    ): React.ReactNode => (
-      <>
-        El evento <a href={metadata.link}>{metadata.name}</a> esta por empezar
-        en
-      </>
-    ),
+    ): React.ReactNode =>
+      new Date(metadata.startsAt).getTime() > Date.now() ? (
+        <>
+          El evento <a href={metadata.link}>{metadata.name}</a> esta por empezar
+          en <Countdown startDate={metadata.startsAt} />
+        </>
+      ) : (
+        <>
+          El evento <a href={metadata.link}>{metadata.name}</a> empieza en una
+          hora
+        </>
+      ),
     title: 'Evento empieza pronto'
   },
   zh: {
     description: (
       metadata: EventsStartsSoonNotification['metadata']
-    ): React.ReactNode => (
-      <>
-        事件 <a href={metadata.link}>{metadata.name}</a> 即将开始 在
-      </>
-    ),
+    ): React.ReactNode =>
+      new Date(metadata.startsAt).getTime() > Date.now() ? (
+        <>
+          事件 <a href={metadata.link}>{metadata.name}</a> 即将开始 在{' '}
+          <Countdown startDate={metadata.startsAt} />
+        </>
+      ) : (
+        <>
+          事件 <a href={metadata.link}>{metadata.name}</a> 从一个开始 小时
+        </>
+      ),
     title: '事件即将开始'
   }
 }

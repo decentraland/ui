@@ -456,8 +456,11 @@ storiesOf('Notifications Toggle', module)
     )
   })
   .add('Events Notifications', () => {
-    const startDate = new Date()
-    startDate.setSeconds(startDate.getSeconds() + 50)
+    const futureStartDate = new Date()
+    futureStartDate.setSeconds(futureStartDate.getSeconds() + 50)
+
+    const pastStartDate = new Date()
+    pastStartDate.setSeconds(pastStartDate.getSeconds() - 50)
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <EventsStartsSoonNotification
@@ -469,7 +472,27 @@ storiesOf('Notifications Toggle', module)
             timestamp: new Date().getTime(),
             metadata: {
               link: 'https://decentraland.org/events/event/?id=0f91b470-2d4a-4ecc-a619-8c682d872685',
-              startsAt: startDate.toString(),
+              startsAt: futureStartDate.toString(),
+              endsAt: '2023-11-29T12:51:00.600Z',
+              image:
+                'https://events-assets-099ac00.decentraland.org/poster/b9c4b26365d32607.jpg4',
+              name: 'Decentraland Art Week'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <EventsStartsSoonNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.EVENTS_STARTS_SOON,
+            address: '0xA',
+            timestamp: new Date('2023-11-29T12:51:00.600Z').getTime(),
+            metadata: {
+              link: 'https://decentraland.org/events/event/?id=0f91b470-2d4a-4ecc-a619-8c682d872685',
+              startsAt: pastStartDate.toString(),
               endsAt: '2023-11-29T12:51:00.600Z',
               image:
                 'https://events-assets-099ac00.decentraland.org/poster/b9c4b26365d32607.jpg4',
