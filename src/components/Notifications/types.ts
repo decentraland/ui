@@ -35,6 +35,9 @@ export enum DecentralandNotificationType {
   WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
+  LAND_RENTED = 'rental_started',
+  LAND_RENTAL_ENDED = 'rental_ended',
+  REWARD_ASSIGNED = 'rewards_assignment',
   EVENTS_STARTS_SOON = 'events_starts_soon',
   EVENTS_STARTED = 'events_started'
 }
@@ -172,6 +175,43 @@ type WorldsNotifications =
   | WorldsAccessRestrictedNotification
   | WorldsAccessRestoredNotification
 
+// Land Notifications
+type LandNotificationMetadata = {
+  description: string
+  link: string
+  title: string
+  contract: string
+  lessor: string
+  tenant: string
+  operator: string
+  startedAt: string
+  endedAt: string
+  tokenId: string
+  land: string
+}
+
+export type LandRentedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.LAND_RENTED,
+  LandNotificationMetadata
+>
+
+export type LandRentalEndedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.LAND_RENTAL_ENDED,
+  LandNotificationMetadata
+>
+
+type LandNotifications = LandRentedNotification | LandRentalEndedNotification
+
+// Reward Notifications
+
+export type RewardAssignedNotification = RawDecentralandNotification<
+  DecentralandNotificationType.REWARD_ASSIGNED,
+  {
+    tokenName: string
+    tokenImage: string
+    tokenRarity: Rarity
+  }
+>
 type CommonEventsMetadata = {
   image: string
   link: string
@@ -200,9 +240,12 @@ export type DCLNotification =
   | MarketplaceNotifications
   | GovernanceNotifications
   | WorldsNotifications
+  | LandNotifications
+  | RewardAssignedNotification
   | EventsNotificatiosn
 
 export type CommonNotificationProps<N> = {
   notification: N
   locale: NotificationLocale
+  renderProfile?: (address: string) => JSX.Element | string | null
 }

@@ -145,3 +145,8 @@
   background-image: url(../../images/sparkles.svg);
   background-size: cover;
 }
+
+.dui-icon-badge .places {
+  background-image: url(../../images/places.svg);
+  background-size: contain;
+}

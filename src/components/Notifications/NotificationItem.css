@@ -24,8 +24,16 @@
 }
 
 .dcl.notification-item__content-description {
+  display: flex;
   color: #a09ba8;
   margin: 4px 0;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dcl.notification-item__content-description .ui.header.mana.inline {
+  margin-bottom: 0;
 }
 
 .dcl.notification-item__content-description a {
