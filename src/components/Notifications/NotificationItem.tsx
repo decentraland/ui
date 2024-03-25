@@ -34,7 +34,7 @@ export default function NotificationItem({
           {Time(timestamp).locale(locale).fromNow()}
         </p>
       </div>
-      {isNew && <NewNotification width="8px" height="8px" />}
+      {isNew && <NewNotification width="12px" height="12px" />}
     </div>
   )
 }
