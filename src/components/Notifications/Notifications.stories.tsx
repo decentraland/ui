@@ -548,15 +548,10 @@ storiesOf('Notifications Toggle', module)
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
-              description: 'A reward was assigned to you',
-              link: 'https://marketplace-url/contracts/0x42f4ba48791e2de32f5fbf553441c2672864bb33/tokens/random-token-id/manage',
-              title: 'Rent Period Ending',
-              category: 'wearable' as NFTCategory,
-              image:
+              tokenImage:
                 'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
-              rarity: 'epic' as Rarity,
-              nftName: 'Green Atari Tee',
-              network: 'ethereum'
+              tokenRarity: 'epic' as Rarity,
+              tokenName: 'Green Atari Tee'
             },
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'

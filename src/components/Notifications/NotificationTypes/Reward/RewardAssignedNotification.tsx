@@ -8,6 +8,7 @@ import {
 import NotificationItem from '../../NotificationItem'
 import { getBGColorByRarity } from '../../utils'
 import NotificationItemNFTLink from '../../NotificationItemNFTLink'
+import { config } from '../../../../config'
 
 const i18N = {
   en: {
@@ -17,9 +18,9 @@ const i18N = {
       <>
         This
         <NotificationItemNFTLink
-          rarity={reward.rarity}
-          name={reward.nftName}
-          link={reward.link}
+          rarity={reward.tokenRarity}
+          name={reward.tokenName}
+          link={config.get('EXPLORER_URL')}
         />
         is already in your backpack
       </>
@@ -33,9 +34,9 @@ const i18N = {
       <>
         El item
         <NotificationItemNFTLink
-          rarity={reward.rarity}
-          name={reward.nftName}
-          link={reward.link}
+          rarity={reward.tokenRarity}
+          name={reward.tokenName}
+          link={config.get('EXPLORER_URL')}
         />
         ya esta disponible en tu backpack
       </>
@@ -49,9 +50,9 @@ const i18N = {
       <>
         这
         <NotificationItemNFTLink
-          rarity={reward.rarity}
-          name={reward.nftName}
-          link={reward.link}
+          rarity={reward.tokenRarity}
+          name={reward.tokenName}
+          link={config.get('EXPLORER_URL')}
         />
         已经在您的背包里
       </>
@@ -67,8 +68,8 @@ export default function RewardAssignedNotification({
   return (
     <NotificationItem
       image={{
-        image: notification.metadata.image,
-        backgroundColor: getBGColorByRarity(notification.metadata.rarity),
+        image: notification.metadata.tokenImage,
+        backgroundColor: getBGColorByRarity(notification.metadata.tokenRarity),
         icon: <Reward />
       }}
       timestamp={notification.timestamp}

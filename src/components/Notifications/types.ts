@@ -205,14 +205,9 @@ type LandNotifications = LandRentedNotification | LandRentalEndedNotification
 export type RewardAssignedNotification = RawDecentralandNotification<
   DecentralandNotificationType.REWARD_ASSIGNED,
   {
-    image: string
-    category: string
-    rarity: Rarity
-    link: string
-    nftName: string
-    title: string
-    description: string
-    network: string
+    tokenName: string
+    tokenImage: string
+    tokenRarity: Rarity
   }
 >
 
