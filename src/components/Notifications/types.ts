@@ -37,7 +37,7 @@ export enum DecentralandNotificationType {
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
   LAND_RENTED = 'rental_started',
   LAND_RENTAL_ENDED = 'rental_ended',
-  REWARD_ASSIGNED = 'reward_assignation'
+  REWARD_ASSIGNED = 'rewards_assignment'
 }
 
 // Marketplace Notifications
