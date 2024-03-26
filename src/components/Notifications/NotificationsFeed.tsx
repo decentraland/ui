@@ -398,6 +398,7 @@ const Feed = ({
                     key={notification.id}
                     notification={notification}
                     locale={locale}
+                    renderProfile={renderProfile}
                   />
                 ))
               ) : (
