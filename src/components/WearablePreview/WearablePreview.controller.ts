@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { EventEmitter } from 'events'
+import mitt, { Emitter } from 'mitt'
 import future, { IFuture } from 'fp-future'
 import {
+  EmoteEvents,
   IPreviewController,
   PreviewMessagePayload,
   PreviewMessageType,
@@ -10,7 +11,7 @@ import {
 import { Metrics } from '@dcl/schemas/dist/platform/item/metrics'
 
 const promises = new Map<string, IFuture<any>>()
-const emoteEvents = new Map<MessageEventSource, EventEmitter>()
+const emoteEvents = new Map<MessageEventSource, Emitter<EmoteEvents>>()
 
 window.onmessage = function handleMessage(event: MessageEvent) {
   if (event.data && event.data.type) {
@@ -84,7 +85,7 @@ export function createController(id: string): IPreviewController {
     throw new Error(`Could not find an iframe with id="${id}"`)
   }
 
-  const events = emoteEvents.get(iframe.contentWindow) ?? new EventEmitter()
+  const events = emoteEvents.get(iframe.contentWindow) ?? mitt()
   emoteEvents.set(iframe.contentWindow, events)
 
   const sendRequest = createSendRequest(id)
