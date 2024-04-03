@@ -19,13 +19,13 @@ export default React.memo(function LoadingText(props: LoadingTextProps) {
         <div
           key={index}
           className={classNames([
-            'loading-text',
+            'dui-loading-text',
             classNameProps,
             type,
-            size === 'small' && 'loading-text__small',
-            size === 'medium' && 'loading-text__medium',
-            size === 'large' && 'loading-text__large',
-            size === 'full' && 'loading-text__full'
+            size === 'small' && 'dui-loading-text__small',
+            size === 'medium' && 'dui-loading-text__medium',
+            size === 'large' && 'dui-loading-text__large',
+            size === 'full' && 'dui-loading-text__full'
           ])}
         />
       ))}
