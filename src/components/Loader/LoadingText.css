@@ -1,0 +1,57 @@
+.loading-text.loading-text__small,
+.loading-text.loading-text__medium,
+.loading-text.loading-text__large,
+.loading-text.loading-text__full {
+  background: linear-gradient(
+    110deg,
+    var(--secondary-hover) 8%,
+    var(--secondary) 18%,
+    var(--secondary-hover) 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s loading-text linear infinite;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.loading-text.span {
+  height: 15px;
+}
+
+.loading-text.h1 {
+  height: 2em;
+}
+
+.loading-text.h2 {
+  height: 1.71em;
+}
+
+.loading-text.h3 {
+  height: 1.29em;
+}
+
+.loading-text.p {
+  height: 1em;
+}
+
+.loading-text.loading-text__small {
+  width: 20%;
+}
+
+.loading-text.loading-text__medium {
+  width: 45%;
+}
+
+.loading-text.loading-text__large {
+  width: 75%;
+}
+
+.loading-text.loading-text__full {
+  width: 100%;
+}
+
+@keyframes loading-text {
+  to {
+    background-position-x: -200%;
+  }
+}
