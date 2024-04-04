@@ -9,6 +9,7 @@ import GovernanceAnnouncementNotification from './Governance/GovernanceAnnouncem
 import GovernanceAuthoredProposalFinishedNotification from './Governance/GovernanceAuthoredProposalFinishedNotification'
 import GovernanceCoauthorRequestedNotification from './Governance/GovernanceCoauthorRequestedNotification'
 import GovernanceNewCommentOnProposalNotification from './Governance/GovernanceNewCommentOnProposalNotification'
+import GovernanceNewCommentOnProjectUpdateNotification from './Governance/GovernanceNewCommentOnProjectUpdateNotification'
 import GovernanceProposalEnactedNotification from './Governance/GovernanceProposalEnactedNotification'
 import GovernanceVotingEndedVoterNotification from './Governance/GovernanceVotingEndedVoterNotification'
 import LandRentedNotification from './Land/LandRentedNotification'
@@ -29,6 +30,7 @@ export {
   GovernanceAuthoredProposalFinishedNotification,
   GovernanceCoauthorRequestedNotification,
   GovernanceNewCommentOnProposalNotification,
+  GovernanceNewCommentOnProjectUpdateNotification,
   GovernanceProposalEnactedNotification,
   GovernanceVotingEndedVoterNotification,
   LandRentalEndedNotification,
