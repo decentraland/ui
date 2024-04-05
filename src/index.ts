@@ -100,6 +100,7 @@ export * from './components/SmartIcon'
 export * from './components/CommunityBubble'
 export * from './components/AddressField'
 export * from './components/Loader/LoadingText'
+export * from './components/RarityBadge'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'

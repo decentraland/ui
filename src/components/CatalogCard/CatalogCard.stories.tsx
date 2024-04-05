@@ -6,6 +6,17 @@ import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { CatalogCard, CatalogCardProps } from './CatalogCard'
 import { Rarity, Network } from '@dcl/schemas'
 
+const i18n = {
+  rarities: Rarity.getRarities().reduce((acc, rarity) => {
+    acc[rarity as string] = rarity
+    return acc
+  }, {}) as unknown as Record<Rarity, string>,
+  rarities_description: Rarity.getRarities().reduce((acc, rarity) => {
+    acc[rarity as string] = `This is the ${rarity} rarity`
+    return acc
+  }, {}) as unknown as Record<Rarity, string>
+}
+
 const props: CatalogCardProps = {
   asset: {
     id: '0x10cd9f15bb7d58ac0c8f4ec5e1b77c0f5df0b652-0',
@@ -22,7 +33,8 @@ const props: CatalogCardProps = {
   extraInformation: <span>1 listing</span>,
   notForSale: false,
   price: '10',
-  owners: '3 owners'
+  owners: '3 owners',
+  i18n
 }
 
 storiesOf('CatalogCard', module).add('Catalog', () => (

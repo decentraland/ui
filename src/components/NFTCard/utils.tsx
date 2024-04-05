@@ -1,13 +1,20 @@
 import React from 'react'
 import { BodyShape, NFT, NFTCategory, Rarity } from '@dcl/schemas'
+import { hex2rgb } from '../../lib/colors'
 import { Profile } from '../Profile/Profile'
 import { Badge, NFTCardI18N } from './NFTCard.types'
 
 const DEFAULT_BADGE_COLOR = '#37333d'
 
 function _getEmoteBadges(emote: NFT['data']['emote'], i18n: NFTCardI18N) {
+  const [lightColor, regularColor] = Rarity.getGradient(emote.rarity)
+  const hexColor = hex2rgb(regularColor)
   return [
-    { color: Rarity.getColor(emote.rarity), label: emote.rarity },
+    {
+      color: `rgb(${hexColor.r} ${hexColor.g} ${hexColor.b} / 20%)`,
+      label: emote.rarity,
+      textColor: lightColor
+    },
     {
       color: DEFAULT_BADGE_COLOR,
       label: emote.loop ? i18n.playMode.loop : i18n.playMode.once,
@@ -39,8 +46,14 @@ function _getWearableBadges(
       : wearable.bodyShapes[0] === BodyShape.MALE
       ? 'male'
       : 'female'
+  const [lightColor, regularColor] = Rarity.getGradient(wearable.rarity)
+  const hexColor = hex2rgb(regularColor)
   return [
-    { color: Rarity.getColor(wearable.rarity), label: wearable.rarity },
+    {
+      color: `rgb(${hexColor.r} ${hexColor.g} ${hexColor.b} / 20%)`,
+      label: wearable.rarity,
+      textColor: lightColor
+    },
     {
       color: DEFAULT_BADGE_COLOR,
       label: i18n.category[wearable.category],

@@ -21,16 +21,6 @@
 }
 
 .CatalogCard .badge {
-  display: inline-flex;
-  align-items: center;
-  text-transform: uppercase;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 3px 6px;
-  height: 24px;
-  font-size: 13px;
-  color: white;
-  width: fit-content;
   margin-top: 10px;
 }
 
