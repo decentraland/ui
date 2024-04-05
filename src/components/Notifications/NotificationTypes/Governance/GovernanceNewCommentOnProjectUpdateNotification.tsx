@@ -1,4 +1,3 @@
-
 import React from 'react'
 
 import NotificationItem from '../../NotificationItem'
@@ -33,16 +32,16 @@ const i18N = {
     ),
     title: 'Nuevo comentario en la actualización de'
   },
-  zh: { // TODO: update chinese translation
+  zh: {
     description: (link: string): React.ReactNode => (
       <>
         <a href={link} className="dcl notification-link">
-          回复此评论
+          通过回复此评论
         </a>
-        ，参与富有成效的对话
+        ，参与到富有成效的对话中。
       </>
     ),
-    title: '就提案发表的新评论'
+    title: '您的更新收到了新评论'
   }
 }
 
