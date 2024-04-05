@@ -1896,6 +1896,49 @@ a.ui.card:hover,
   height: 180px;
 }
 
+.dui-asset-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+}
+
+.dui-asset-image__image {
+  margin: auto;
+  max-height: 100%;
+  z-index: 0;
+}
+
+.dui-rarity-badge {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--background);
+}
+
+.dui-rarity-badge .wrapper {
+  border-radius: 5px;
+}
+
+.dui-rarity-badge .wrapper.medium {
+  padding: 4px 12px;
+}
+.dui-rarity-badge .wrapper.medium .text {
+  font-size: 15px;
+}
+
+.dui-rarity-badge .wrapper.small {
+  padding: 3px 6px;
+  height: 24px;
+}
+.dui-rarity-badge .wrapper.small .text {
+  font-size: 13px;
+}
+
 .CatalogCard {
   height: 360px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -1919,17 +1962,6 @@ a.ui.card:hover,
 }
 
 .CatalogCard .badge {
-  display: inline-flex;
-  align-items: center;
-  text-transform: uppercase;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 3px 6px;
-  height: 24px;
-  font-size: 13px;
-  color: white;
-  width: -moz-fit-content;
-  width: fit-content;
   margin-top: 10px;
 }
 
@@ -2118,20 +2150,6 @@ a.ui.card:hover,
   .dui-asset-image__image {
     height: 123px;
   }
-}
-
-.dui-asset-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: inherit;
-  height: inherit;
-}
-
-.dui-asset-image__image {
-  margin: auto;
-  max-height: 100%;
-  z-index: 0;
 }
 
 .dui-loading-text.dui-loading-text__small,
