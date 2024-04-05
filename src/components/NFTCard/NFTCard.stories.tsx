@@ -66,7 +66,7 @@ Emote.args = {
         bodyShapes: ['BaseMale', 'BaseFemale'],
         category: 'greetings',
         description: '',
-        rarity: 'common',
+        rarity: 'unique',
         loop: false,
         hasSound: true,
         hasGeometry: true

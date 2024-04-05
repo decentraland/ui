@@ -1,11 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Network, Rarity, Item } from '@dcl/schemas'
+import { Network, Item } from '@dcl/schemas'
 import { Mana } from '../Mana/Mana'
 import { Card } from '../Card/Card'
 import { Profile } from '../Profile/Profile'
-import './CatalogCard.css'
 import { AssetImage } from '../AssetImage/AssetImage'
+import { RarityBadge, RarityBadgeProps } from '../RarityBadge'
+import './CatalogCard.css'
 
 export type CatalogCardProps = {
   asset: Pick<Item, 'id' | 'url' | 'name' | 'rarity' | 'network' | 'creator'>
@@ -16,11 +17,12 @@ export type CatalogCardProps = {
   notForSale: boolean
   price?: string
   owners?: string
-}
+} & Pick<RarityBadgeProps, 'i18n'>
 
 export const CatalogCard = (props: CatalogCardProps) => {
   const {
     action,
+    i18n,
     actionIcon,
     asset,
     extraInformation,
@@ -79,15 +81,7 @@ export const CatalogCard = (props: CatalogCardProps) => {
                 <span className={'extraInformation'}>{extraInformation}</span>
               )}
             </div>
-            <div
-              className={'badge'}
-              style={{
-                backgroundColor: Rarity.getColor(asset.rarity)
-              }}
-              title={asset.rarity}
-            >
-              <span className={'text'}>{asset.rarity}</span>
-            </div>
+            <RarityBadge i18n={i18n} rarity={asset.rarity} className="badge" />
           </Card.Content>
         </>
       ) : null}

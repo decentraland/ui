@@ -1,0 +1,22 @@
+.dui-rarity-badge {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.dui-rarity-badge.medium {
+  padding: 4px 12px;
+}
+.dui-rarity-badge.medium .text {
+  font-size: 15px;
+}
+
+.dui-rarity-badge.small {
+  padding: 3px 6px;
+  height: 24px;
+}
+.dui-rarity-badge.small .text {
+  font-size: 13px;
+}
