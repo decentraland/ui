@@ -81,7 +81,12 @@ export const CatalogCard = (props: CatalogCardProps) => {
                 <span className={'extraInformation'}>{extraInformation}</span>
               )}
             </div>
-            <RarityBadge i18n={i18n} rarity={asset.rarity} className="badge" />
+            <RarityBadge
+              i18n={i18n}
+              rarity={asset.rarity}
+              withTooltip={false}
+              className="badge"
+            />
           </Card.Content>
         </>
       ) : null}

@@ -19,17 +19,23 @@ const RarityBadge = ({
 
   const trigger = (
     <div
-      className={classnames('dui-rarity-badge', size, className)}
+      className={classnames('dui-rarity-badge', className)}
       style={{
-        backgroundColor: `rgb(${hexColor.r} ${hexColor.g} ${hexColor.b} / 20%)`,
         cursor: onClick ? 'pointer' : 'default'
       }}
       title={!withTooltip ? i18n.rarities_description[rarity] : ''}
       onClick={onClick}
     >
-      <span className="text" style={{ color: lightColor }}>
-        {i18n.rarities[rarity]}
-      </span>
+      <div
+        className={classnames('wrapper', size)}
+        style={{
+          backgroundColor: `rgb(${hexColor.r} ${hexColor.g} ${hexColor.b} / 20%)`
+        }}
+      >
+        <span className="text" style={{ color: lightColor }}>
+          {i18n.rarities[rarity]}
+        </span>
+      </div>
     </div>
   )
 
