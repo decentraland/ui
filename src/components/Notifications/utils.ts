@@ -12,6 +12,7 @@ import {
   GovernanceAuthoredProposalFinishedNotification,
   GovernanceCoauthorRequestedNotification,
   GovernanceNewCommentOnProposalNotification,
+  GovernanceNewCommentOnProjectUpdateNotification,
   GovernanceProposalEnactedNotification,
   GovernanceVotingEndedVoterNotification,
   ItemSoldNotification,
@@ -62,6 +63,8 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       GovernanceAuthoredProposalFinishedNotification,
     [DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL]:
       GovernanceNewCommentOnProposalNotification,
+    [DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE]:
+      GovernanceNewCommentOnProjectUpdateNotification,
     [DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED]:
       GovernanceProposalEnactedNotification,
     [DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER]:

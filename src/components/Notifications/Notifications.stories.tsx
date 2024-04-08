@@ -10,6 +10,7 @@ import GovernanceAnnouncementNotification from './NotificationTypes/Governance/G
 import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
 import GovernanceCoauthorRequestedNotification from './NotificationTypes/Governance/GovernanceCoauthorRequestedNotification'
 import GovernanceNewCommentOnProposalNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProposalNotification'
+import GovernanceNewCommentOnProjectUpdateNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProjectUpdateNotification'
 import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governance/GovernanceVotingEndedVoterNotification'
 import GovernanceProposalEnactedNotification from './NotificationTypes/Governance/GovernanceProposalEnactedNotification'
 import {
@@ -428,6 +429,25 @@ storiesOf('Notifications Toggle', module)
             id: 'AA',
             read: true,
             type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceNewCommentOnProjectUpdateNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {

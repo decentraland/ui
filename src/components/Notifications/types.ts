@@ -32,6 +32,7 @@ export enum DecentralandNotificationType {
   GOVERNANCE_AUTHORED_PROPOSAL_FINISHED = 'governance_authored_proposal_finished',
   GOVERNANCE_VOTING_ENDED_VOTER = 'governance_voting_ended_voter',
   GOVERNANCE_NEW_COMMENT_ON_PROPOSAL = 'governance_new_comment_on_proposal',
+  GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE = 'governance_new_comment_on_project_update',
   WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
   WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
   WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
@@ -134,6 +135,11 @@ export type GovernanceNewCommentOnProposalNotification =
     DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
     CommonGovernanceNotificationMetadata
   >
+export type GovernanceNewCommentOnProjectUpdateNotification =
+  RawDecentralandNotification<
+    DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
+    CommonGovernanceNotificationMetadata
+  >
 
 type GovernanceNotifications =
   | GovernanceAnnouncementNotification
@@ -142,6 +148,7 @@ type GovernanceNotifications =
   | GovernanceAuthoredProposalFinishedNotification
   | GovernanceVotingEndedVoterNotification
   | GovernanceNewCommentOnProposalNotification
+  | GovernanceNewCommentOnProjectUpdateNotification
 
 // Worlds Notifications
 
