@@ -8,6 +8,9 @@
 }
 
 .dui-rarity-badge .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px;
 }
 
@@ -24,4 +27,8 @@
 }
 .dui-rarity-badge .wrapper.small .text {
   font-size: 13px;
+}
+
+.dui-rarity-badge .text {
+  line-height: normal;
 }
