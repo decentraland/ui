@@ -1,10 +1,22 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Container } from '../Container/Container'
-import { Header } from '../Header/Header'
-import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { CatalogCard, CatalogCardProps } from './CatalogCard'
 import { Rarity, Network } from '@dcl/schemas'
+export default {
+  title: 'CatalogCard',
+  component: CatalogCard
+} as ComponentMeta<typeof CatalogCard>
+
+const i18n = {
+  rarities: Rarity.getRarities().reduce((acc, rarity) => {
+    acc[rarity as string] = rarity
+    return acc
+  }, {}) as unknown as Record<Rarity, string>,
+  rarities_description: Rarity.getRarities().reduce((acc, rarity) => {
+    acc[rarity as string] = `This is the ${rarity} rarity`
+    return acc
+  }, {}) as unknown as Record<Rarity, string>
+}
 
 const props: CatalogCardProps = {
   asset: {
@@ -22,18 +34,13 @@ const props: CatalogCardProps = {
   extraInformation: <span>1 listing</span>,
   notForSale: false,
   price: '10',
-  owners: '3 owners'
+  owners: '3 owners',
+  i18n
 }
 
-storiesOf('CatalogCard', module).add('Catalog', () => (
-  <Container>
-    <HeaderMenu>
-      <HeaderMenu.Left>
-        <Header>Asset Cards for Catalog Items</Header>
-      </HeaderMenu.Left>
-    </HeaderMenu>
-    <div>
-      <CatalogCard {...props} />
-    </div>
-  </Container>
-))
+const Template: ComponentStory<typeof CatalogCard> = (args) => (
+  <CatalogCard {...args} />
+)
+
+export const Wearable = Template.bind({})
+Wearable.args = props

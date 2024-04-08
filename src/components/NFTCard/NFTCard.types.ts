@@ -4,6 +4,7 @@ import { StrictCardProps } from '../Card/Card'
 export type Badge = {
   label: string
   color: string
+  textColor?: string
   icon?: string
   hideLabel?: boolean
 }

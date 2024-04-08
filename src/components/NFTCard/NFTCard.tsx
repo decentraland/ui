@@ -8,6 +8,47 @@ import { getBadges, getSubtitle } from './utils'
 import { Badge, Props } from './NFTCard.types'
 import './NFTCard.css'
 
+const Badge = ({ badge }: { badge: Badge }) => {
+  if (badge.icon && badge.hideLabel) {
+    return (
+      <Popup
+        key={badge.label}
+        content={badge.label}
+        trigger={
+          <span
+            className="dui-nft-card__badge--only-icon"
+            style={{
+              background: badge.color,
+              color: badge.textColor ?? 'var(--text)'
+            }}
+          >
+            <i
+              className={classNames('dui-nft-card__badge-icon', badge.icon)}
+              aria-label={badge.label}
+            />
+          </span>
+        }
+      />
+    )
+  }
+
+  return (
+    <span
+      className="dui-nft-card__badge"
+      style={{
+        background: badge.color,
+        color: badge.textColor ?? 'var(--text)'
+      }}
+      key={badge.label}
+    >
+      {badge.icon && (
+        <i className={classNames('dui-nft-card__badge-icon', badge.icon)} />
+      )}
+      {badge.label}
+    </span>
+  )
+}
+
 export const NFTCard = (props: Props) => {
   const {
     nft,
@@ -47,41 +88,6 @@ export const NFTCard = (props: Props) => {
     return subtitle
   }, [subtitle])
 
-  const renderBadge = useCallback((badge: Badge) => {
-    if (badge.icon && badge.hideLabel) {
-      return (
-        <Popup
-          key={badge.label}
-          content={badge.label}
-          trigger={
-            <span
-              className="dui-nft-card__badge--only-icon"
-              style={{ background: badge.color }}
-            >
-              <i
-                className={classNames('dui-nft-card__badge-icon', badge.icon)}
-                aria-label={badge.label}
-              />
-            </span>
-          }
-        />
-      )
-    }
-
-    return (
-      <span
-        className="dui-nft-card__badge"
-        style={{ background: badge.color }}
-        key={badge.label}
-      >
-        {badge.icon && (
-          <i className={classNames('dui-nft-card__badge-icon', badge.icon)} />
-        )}
-        {badge.label}
-      </span>
-    )
-  }, [])
-
   const renderBadges = useCallback(() => {
     if (badges) {
       return badges
@@ -94,7 +100,9 @@ export const NFTCard = (props: Props) => {
 
     return (
       <div className="dui-nft-card__badges">
-        {nftBadges.map((badge) => renderBadge(badge))}
+        {nftBadges.map((badge) => (
+          <Badge key={badge.label} badge={badge} />
+        ))}
       </div>
     )
   }, [])
