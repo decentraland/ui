@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Container } from '../Container/Container'
-import { Header } from '../Header/Header'
-import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { CatalogCard, CatalogCardProps } from './CatalogCard'
 import { Rarity, Network } from '@dcl/schemas'
+export default {
+  title: 'CatalogCard',
+  component: CatalogCard
+} as ComponentMeta<typeof CatalogCard>
 
 const i18n = {
   rarities: Rarity.getRarities().reduce((acc, rarity) => {
@@ -37,15 +38,9 @@ const props: CatalogCardProps = {
   i18n
 }
 
-storiesOf('CatalogCard', module).add('Catalog', () => (
-  <Container>
-    <HeaderMenu>
-      <HeaderMenu.Left>
-        <Header>Asset Cards for Catalog Items</Header>
-      </HeaderMenu.Left>
-    </HeaderMenu>
-    <div>
-      <CatalogCard {...props} />
-    </div>
-  </Container>
-))
+const Template: ComponentStory<typeof CatalogCard> = (args) => (
+  <CatalogCard {...args} />
+)
+
+export const Wearable = Template.bind({})
+Wearable.args = props
