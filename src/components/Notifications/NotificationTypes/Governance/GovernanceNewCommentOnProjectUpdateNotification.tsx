@@ -18,7 +18,7 @@ const i18N = {
         .
       </>
     ),
-    title: 'New comment on your update for'
+    title: 'New comment on your update for your project'
   },
   es: {
     description: (link: string): React.ReactNode => (
@@ -30,7 +30,7 @@ const i18N = {
         .
       </>
     ),
-    title: 'Nuevo comentario en la actualización de'
+    title: 'Nuevo comentario en la actualización del proyecto'
   },
   zh: {
     description: (link: string): React.ReactNode => (
