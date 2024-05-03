@@ -6,6 +6,7 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: #37333d;
+  min-height: 24px;
 }
 
 .dui-icon-badge .text {
@@ -16,13 +17,12 @@
 .dui-icon-badge .dui-icon-badge__icon {
   width: 13px;
   height: 13px;
-  margin-right: 10px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.dui-icon-badge .dui-icon-badge__custom-icon {
-  margin-right: 10px;
+.dui-icon-badge > span:nth-child(2) {
+  margin-left: 10px;
 }
 
 /* Icons */
@@ -110,6 +110,10 @@
 .dui-icon-badge .hands_wear {
   background-size: contain;
   background-image: url(../../images/wearables/HandsIcon.svg);
+}
+
+.dui-icon-badge .utility {
+  background-image: url(../../images/wearables/utility.svg);
 }
 
 .dui-icon-badge .play-once {
