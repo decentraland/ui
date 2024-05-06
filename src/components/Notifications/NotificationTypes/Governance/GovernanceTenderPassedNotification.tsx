@@ -1,5 +1,8 @@
 import React from 'react'
-import { CommonNotificationProps, GovernanceTenderPassedNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  GovernanceTenderPassedNotification
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import TenderIcon from '../../../Icons/Notifications/TenderIcon'
 
@@ -7,7 +10,8 @@ const i18N = {
   en: {
     description: (link: string): React.ReactNode => (
       <>
-        If think you can tackle this solution, propose a Project and get funding from the DAO{' '}
+        If think you can tackle this solution, propose a Project and get funding
+        from the DAO{' '}
         <a href={link} className="dcl notification-link">
           here
         </a>
@@ -27,7 +31,8 @@ const i18N = {
   es: {
     description: (link: string): React.ReactNode => (
       <>
-        Si crees que puedes abordar esta solución, propón un proyecto y obtén financiación del DAO{' '}
+        Si crees que puedes abordar esta solución, propón un proyecto y obtén
+        financiación del DAO{' '}
         <a href={link} className="dcl notification-link">
           aquí
         </a>

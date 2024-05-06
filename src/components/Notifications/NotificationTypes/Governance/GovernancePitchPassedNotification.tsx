@@ -1,5 +1,8 @@
 import React from 'react'
-import { CommonNotificationProps, GovernancePitchPassedNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  GovernancePitchPassedNotification
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import PitchIcon from '../../../Icons/Notifications/PitchIcon'
 
@@ -49,7 +52,7 @@ const i18N = {
       <>
         通过提出可能的解决方案来帮助推进这个想法{' '}
         <a href={link} className="dcl notification-link">
-        这里
+          这里
         </a>
         .
       </>
