@@ -5,6 +5,7 @@ import TextArea, {
 } from 'semantic-ui-react/dist/commonjs/addons/TextArea/TextArea'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { getInputValueLength } from '../../lib/input'
+import { InfoTooltip, InfoTooltipProps } from '../InfoTooltip'
 import './TextAreaField.css'
 
 export type TextAreaFieldProps = TextAreaProps & {
@@ -13,6 +14,7 @@ export type TextAreaFieldProps = TextAreaProps & {
   error?: string
   warning?: string
   info?: string
+  tooltip?: InfoTooltipProps
 }
 
 function renderMessage(props: TextAreaFieldProps) {
@@ -58,6 +60,9 @@ export const TextAreaField = (props: TextAreaFieldProps): JSX.Element => {
       {props.label || props.maxLength !== undefined ? (
         <div className="title">
           {props.label ? <label>{props.label}</label> : null}
+          {props.label && props.tooltip ? (
+            <InfoTooltip {...props.tooltip} />
+          ) : null}
           {props.maxLength ? (
             <span className="maxLength">
               {getInputValueLength(props.value)}/{props.maxLength}

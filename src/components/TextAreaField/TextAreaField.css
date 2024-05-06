@@ -9,6 +9,11 @@
   font-family: var(--font-family);
   color: var(--secondary-text);
   display: flex;
+  align-items: center;
+}
+
+.dcl.text-area > .title > .dui-info-tooltip__trigger {
+  margin-left: 7px;
 }
 
 .dcl.text-area > .title > .maxLength {
