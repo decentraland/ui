@@ -15,6 +15,8 @@ import {
   GovernanceNewCommentOnProjectUpdateNotification,
   GovernanceProposalEnactedNotification,
   GovernanceVotingEndedVoterNotification,
+  GovernancePitchPassedNotification,
+  GovernanceTenderPassedNotification,
   ItemSoldNotification,
   LandRentalEndedNotification,
   LandRentedNotification,
@@ -69,6 +71,10 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       GovernanceProposalEnactedNotification,
     [DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER]:
       GovernanceVotingEndedVoterNotification,
+    [DecentralandNotificationType.GOVERNANCE_PITCH_PASSED]:
+      GovernancePitchPassedNotification,
+    [DecentralandNotificationType.GOVERNANCE_TENDER_PASSED]:
+      GovernanceTenderPassedNotification,
     [DecentralandNotificationType.WORLDS_MISSING_RESOURCES]:
       WorldsMissingResourcesNotification,
     [DecentralandNotificationType.WORLDS_ACCESS_RESTORED]:
