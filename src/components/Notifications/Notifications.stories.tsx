@@ -2,9 +2,9 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
-import { NFTCategory, Rarity } from '@dcl/schemas'
+import { NFTCategory, Rarity, NotificationType } from '@dcl/schemas'
 import BidReceived from '../Icons/Notifications/BidReceived'
-import { DecentralandNotificationType, NotificationActiveTab } from './types'
+import { NotificationActiveTab } from './types'
 import { getBGColorByRarity } from './utils'
 import GovernanceAnnouncementNotification from './NotificationTypes/Governance/GovernanceAnnouncementNotification'
 import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
@@ -20,7 +20,9 @@ import {
   EventsStartedNotification,
   EventsStartsSoonNotification,
   GovernancePitchPassedNotification,
-  GovernanceTenderPassedNotification
+  GovernanceTenderPassedNotification,
+  WorldsPermissionGrantedNotification,
+  WorldsPermissionRevokedNotification
 } from './NotificationTypes'
 import { shorten } from '../AddressField/utils'
 
@@ -54,7 +56,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -92,7 +94,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: false,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {
@@ -132,7 +134,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AA',
               read: true,
-              type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
+              type: NotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -148,7 +150,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'B',
               read: true,
-              type: DecentralandNotificationType.ROYALTIES_EARNED,
+              type: NotificationType.ROYALTIES_EARNED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -168,7 +170,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -189,7 +191,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -210,7 +212,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -231,7 +233,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'A',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: new Date(
                 new Date().setHours(new Date().getHours() - 19)
@@ -252,7 +254,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AC',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -271,7 +273,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AS',
               read: true,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1701123003 * 1000,
               metadata: {
@@ -290,7 +292,7 @@ storiesOf('Notifications Toggle', module)
             {
               id: 'AA',
               read: true,
-              type: DecentralandNotificationType.LAND_RENTED,
+              type: NotificationType.LAND_RENTED,
               address: '0xA',
               timestamp: new Date().getTime(),
               metadata: {
@@ -374,7 +376,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_ANNOUNCEMENT,
+            type: NotificationType.GOVERNANCE_ANNOUNCEMENT,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -392,7 +394,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
+            type: NotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -411,7 +413,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
+            type: NotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -430,7 +432,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
+            type: NotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -449,7 +451,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
+            type: NotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -468,7 +470,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED,
+            type: NotificationType.GOVERNANCE_PROPOSAL_ENACTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -487,7 +489,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
+            type: NotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -506,7 +508,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_PITCH_PASSED,
+            type: NotificationType.GOVERNANCE_PITCH_PASSED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -525,7 +527,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.GOVERNANCE_TENDER_PASSED,
+            type: NotificationType.GOVERNANCE_TENDER_PASSED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -549,7 +551,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.LAND_RENTED,
+            type: NotificationType.LAND_RENTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -575,7 +577,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.LAND_RENTAL_ENDED,
+            type: NotificationType.LAND_RENTAL_ENDED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -606,7 +608,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.REWARD_ASSIGNED,
+            type: NotificationType.REWARD_ASSIGNED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -635,7 +637,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.EVENTS_STARTS_SOON,
+            type: NotificationType.EVENTS_STARTS_SOON,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -655,7 +657,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.EVENTS_STARTS_SOON,
+            type: NotificationType.EVENTS_STARTS_SOON,
             address: '0xA',
             timestamp: new Date('2023-11-29T12:51:00.600Z').getTime(),
             metadata: {
@@ -676,7 +678,7 @@ storiesOf('Notifications Toggle', module)
           notification={{
             id: 'AA',
             read: true,
-            type: DecentralandNotificationType.EVENTS_STARTED,
+            type: NotificationType.EVENTS_STARTED,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
@@ -688,6 +690,121 @@ storiesOf('Notifications Toggle', module)
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'
           }}
+        />
+      </div>
+    )
+  })
+  .add('Worlds Notifications', () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <WorldsPermissionGrantedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_GRANTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['deployment'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <WorldsPermissionRevokedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_REVOKED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['deployment'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <WorldsPermissionGrantedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_GRANTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['access'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <WorldsPermissionRevokedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_REVOKED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['access'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+
+        <WorldsPermissionGrantedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_GRANTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['streaming'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <WorldsPermissionRevokedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.WORLDS_PERMISSION_REVOKED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              title: 'World notification',
+              description: 'Wolrd description',
+              permissions: ['streaming'],
+              world: 'meelrossi.dcl.eth'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
         />
       </div>
     )

@@ -1,6 +1,8 @@
 import WorldsAccessRestoredNotification from './Worlds/WorldsAcessRestoredNotification'
 import WorldsAccessRestrictedNotification from './Worlds/WorldsAccessRestrictedNotification'
 import WorldsMissingResourcesNotification from './Worlds/WorldsMissingResourcesNotification'
+import WorldsPermissionGrantedNotification from './Worlds/WorldsPermissionGrantedNotification'
+import WorldsPermissionRevokedNotification from './Worlds/WorldsPermissionRevokedNotification'
 import BidAcceptedNotification from './Marketplace/BidAcceptedNotification'
 import BidReceivedNotification from './Marketplace/BidReceivedNotification'
 import ItemSoldNotification from './Marketplace/ItemSoldNotification'
@@ -41,5 +43,7 @@ export {
   LandRentedNotification,
   RewardAssignedNotification,
   EventsStartsSoonNotification,
-  EventsStartedNotification
+  EventsStartedNotification,
+  WorldsPermissionGrantedNotification,
+  WorldsPermissionRevokedNotification
 }

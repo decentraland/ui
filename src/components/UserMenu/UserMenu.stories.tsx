@@ -1,14 +1,12 @@
 import * as React from 'react'
+import { NotificationType } from '@dcl/schemas'
 import { storiesOf } from '@storybook/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 
 import { avatar } from '../../data/avatar'
-import {
-  DecentralandNotificationType,
-  NotificationActiveTab
-} from '../Notifications/types'
+import { NotificationActiveTab } from '../Notifications/types'
 import { UserMenu } from './UserMenu'
 import { i18n } from './UserMenu.i18n'
 
@@ -129,7 +127,7 @@ storiesOf('UserMenu', module)
             {
               id: 'A',
               read: false,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {

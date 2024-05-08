@@ -1,4 +1,4 @@
-import { NFTCategory, Rarity } from '@dcl/schemas'
+import { NFTCategory, NotificationType, Rarity } from '@dcl/schemas'
 
 export enum NotificationActiveTab {
   NEWEST = 'newest',
@@ -7,10 +7,7 @@ export enum NotificationActiveTab {
 
 export type NotificationLocale = 'en' | 'es' | 'zh'
 
-export type RawDecentralandNotification<
-  T extends DecentralandNotificationType,
-  M
-> = {
+export type RawDecentralandNotification<T extends NotificationType, M> = {
   id: string
   type: T
   address: string
@@ -19,30 +16,6 @@ export type RawDecentralandNotification<
   created_at: string
   updated_at: string
   metadata: M
-}
-
-export enum DecentralandNotificationType {
-  ITEM_SOLD = 'item_sold',
-  ROYALTIES_EARNED = 'royalties_earned',
-  BID_ACCEPTED = 'bid_accepted',
-  BID_RECEIVED = 'bid_received',
-  GOVERNANCE_ANNOUNCEMENT = 'governance_announcement',
-  GOVERNANCE_PROPOSAL_ENACTED = 'governance_proposal_enacted',
-  GOVERNANCE_COAUTHOR_REQUESTED = 'governance_coauthor_requested',
-  GOVERNANCE_AUTHORED_PROPOSAL_FINISHED = 'governance_authored_proposal_finished',
-  GOVERNANCE_VOTING_ENDED_VOTER = 'governance_voting_ended_voter',
-  GOVERNANCE_NEW_COMMENT_ON_PROPOSAL = 'governance_new_comment_on_proposal',
-  GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE = 'governance_new_comment_on_project_update',
-  GOVERNANCE_PITCH_PASSED = 'governance_pitch_passed',
-  GOVERNANCE_TENDER_PASSED = 'governance_tender_passed',
-  WORLDS_MISSING_RESOURCES = 'worlds_missing_resources',
-  WORLDS_ACCESS_RESTRICTED = 'worlds_access_restricted',
-  WORLDS_ACCESS_RESTORED = 'worlds_access_restored',
-  LAND_RENTED = 'rental_started',
-  LAND_RENTAL_ENDED = 'rental_ended',
-  REWARD_ASSIGNED = 'rewards_assignment',
-  EVENTS_STARTS_SOON = 'events_starts_soon',
-  EVENTS_STARTED = 'events_started'
 }
 
 // Marketplace Notifications
@@ -74,22 +47,22 @@ type BidReceivedMetadata = CommonNFTNotificationMetadata & {
 }
 
 export type ItemSoldNotification = RawDecentralandNotification<
-  DecentralandNotificationType.ITEM_SOLD,
+  NotificationType.ITEM_SOLD,
   ItemSoldMetadata
 >
 
 export type RoyalitesEarnedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.ROYALTIES_EARNED,
+  NotificationType.ROYALTIES_EARNED,
   RoyalitesEarnedMetadata
 >
 
 export type BidAcceptedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.BID_ACCEPTED,
+  NotificationType.BID_ACCEPTED,
   BidAcceptedMetadata
 >
 
 export type BidReceivedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.BID_RECEIVED,
+  NotificationType.BID_RECEIVED,
   BidReceivedMetadata
 >
 
@@ -110,46 +83,46 @@ type CommonGovernanceNotificationMetadata = {
 }
 
 export type GovernanceAnnouncementNotification = RawDecentralandNotification<
-  DecentralandNotificationType.GOVERNANCE_ANNOUNCEMENT,
+  NotificationType.GOVERNANCE_ANNOUNCEMENT,
   Omit<CommonGovernanceNotificationMetadata, 'proposalId' | 'proposalTitle'>
 >
 export type GovernanceProposalEnactedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.GOVERNANCE_PROPOSAL_ENACTED,
+  NotificationType.GOVERNANCE_PROPOSAL_ENACTED,
   CommonGovernanceNotificationMetadata
 >
 export type GovernanceCoauthorRequestedNotification =
   RawDecentralandNotification<
-    DecentralandNotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
+    NotificationType.GOVERNANCE_COAUTHOR_REQUESTED,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceAuthoredProposalFinishedNotification =
   RawDecentralandNotification<
-    DecentralandNotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
+    NotificationType.GOVERNANCE_AUTHORED_PROPOSAL_FINISHED,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceVotingEndedVoterNotification =
   RawDecentralandNotification<
-    DecentralandNotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
+    NotificationType.GOVERNANCE_VOTING_ENDED_VOTER,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceNewCommentOnProposalNotification =
   RawDecentralandNotification<
-    DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
+    NotificationType.GOVERNANCE_NEW_COMMENT_ON_PROPOSAL,
     CommonGovernanceNotificationMetadata
   >
 export type GovernanceNewCommentOnProjectUpdateNotification =
   RawDecentralandNotification<
-    DecentralandNotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
+    NotificationType.GOVERNANCE_NEW_COMMENT_ON_PROJECT_UPDATE,
     CommonGovernanceNotificationMetadata
   >
 
 export type GovernancePitchPassedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.GOVERNANCE_PITCH_PASSED,
+  NotificationType.GOVERNANCE_PITCH_PASSED,
   CommonGovernanceNotificationMetadata
 >
 
 export type GovernanceTenderPassedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.GOVERNANCE_TENDER_PASSED,
+  NotificationType.GOVERNANCE_TENDER_PASSED,
   CommonGovernanceNotificationMetadata
 >
 
@@ -166,35 +139,54 @@ type GovernanceNotifications =
 
 // Worlds Notifications
 
-type CommonWolrdsNotificationMetadata = {
+type CommonWorldsNotificationMetadata = {
   title: string
   description: string
   url: string
 }
 
-type WorldsNotificationMetadataWithWhen = CommonWolrdsNotificationMetadata & {
+type WorldsNotificationMetadataWithWhen = CommonWorldsNotificationMetadata & {
   when: number
 }
 
 export type WorldsMissingResourcesNotification = RawDecentralandNotification<
-  DecentralandNotificationType.WORLDS_MISSING_RESOURCES,
+  NotificationType.WORLDS_MISSING_RESOURCES,
   WorldsNotificationMetadataWithWhen
 >
 
 export type WorldsAccessRestrictedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.WORLDS_ACCESS_RESTRICTED,
+  NotificationType.WORLDS_ACCESS_RESTRICTED,
   WorldsNotificationMetadataWithWhen
 >
 
 export type WorldsAccessRestoredNotification = RawDecentralandNotification<
-  DecentralandNotificationType.WORLDS_ACCESS_RESTORED,
-  CommonWolrdsNotificationMetadata
+  NotificationType.WORLDS_ACCESS_RESTORED,
+  CommonWorldsNotificationMetadata
+>
+
+type WorldPermissionMetadata = {
+  title: string
+  description: string
+  world: string
+  permissions: string[]
+}
+
+export type WorldsPermissionGrantedNotification = RawDecentralandNotification<
+  NotificationType.WORLDS_PERMISSION_GRANTED,
+  WorldPermissionMetadata
+>
+
+export type WorldsPermissionRevokedNotification = RawDecentralandNotification<
+  NotificationType.WORLDS_PERMISSION_REVOKED,
+  WorldPermissionMetadata
 >
 
 type WorldsNotifications =
   | WorldsMissingResourcesNotification
   | WorldsAccessRestrictedNotification
   | WorldsAccessRestoredNotification
+  | WorldsPermissionGrantedNotification
+  | WorldsPermissionRevokedNotification
 
 // Land Notifications
 type LandNotificationMetadata = {
@@ -212,12 +204,12 @@ type LandNotificationMetadata = {
 }
 
 export type LandRentedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.LAND_RENTED,
+  NotificationType.LAND_RENTED,
   LandNotificationMetadata
 >
 
 export type LandRentalEndedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.LAND_RENTAL_ENDED,
+  NotificationType.LAND_RENTAL_ENDED,
   LandNotificationMetadata
 >
 
@@ -226,7 +218,7 @@ type LandNotifications = LandRentedNotification | LandRentalEndedNotification
 // Reward Notifications
 
 export type RewardAssignedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.REWARD_ASSIGNED,
+  NotificationType.REWARD_ASSIGNED,
   {
     tokenName: string
     tokenImage: string
@@ -241,7 +233,7 @@ type CommonEventsMetadata = {
 
 // events notifications
 export type EventsStartsSoonNotification = RawDecentralandNotification<
-  DecentralandNotificationType.EVENTS_STARTS_SOON,
+  NotificationType.EVENTS_STARTS_SOON,
   CommonEventsMetadata & {
     startsAt: string
     endsAt: string
@@ -249,7 +241,7 @@ export type EventsStartsSoonNotification = RawDecentralandNotification<
 >
 
 export type EventsStartedNotification = RawDecentralandNotification<
-  DecentralandNotificationType.EVENTS_STARTED,
+  NotificationType.EVENTS_STARTED,
   CommonEventsMetadata
 >
 
