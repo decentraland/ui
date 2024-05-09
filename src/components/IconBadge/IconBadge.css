@@ -25,10 +25,11 @@
 }
 
 .dui-icon-badge .dui-icon-badge__icon {
-  width: 13px;
-  height: 13px;
+  width: 18px;
+  height: 18px;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .dui-icon-badge > span:nth-child(2) {
@@ -123,7 +124,7 @@
 }
 
 .dui-icon-badge .utility {
-  background-image: url(../../images/wearables/utility.svg);
+  background-image: url(../../images/utility.svg);
 }
 
 .dui-icon-badge .play-once {
@@ -140,8 +141,6 @@
 
 .dui-icon-badge .smart-wearable {
   background-image: url(../../images/wearables/smart.svg);
-  width: 14px;
-  height: 14px;
 }
 
 .dui-icon-badge .sound {
