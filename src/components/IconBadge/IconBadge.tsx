@@ -8,8 +8,10 @@ export const IconBadge = ({
   text,
   onClick,
   className,
-  children
+  children,
+  inline
 }: Props) => {
+  const inlined = inline === undefined ? 'boxed' : 'inlined'
   const childrenInt = React.useMemo(
     () => (
       <>
@@ -29,7 +31,8 @@ export const IconBadge = ({
       className={classNames(
         'dui-icon-badge',
         className,
-        onClick && 'clickable'
+        onClick && 'clickable',
+        inlined
       )}
       onClick={onClick}
     >

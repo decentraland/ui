@@ -33,6 +33,7 @@ export type Props = {
     | 'places'
     | 'utility'
   text?: string
+  inline?: boolean
   onClick?: () => void
   children?: React.ReactNode
 }

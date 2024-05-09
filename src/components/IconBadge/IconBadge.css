@@ -1,11 +1,18 @@
 .dui-icon-badge {
-  display: inline-flex;
   align-items: center;
   text-transform: uppercase;
   padding: 2px 8px;
   border-radius: 5px;
   background-color: #37333d;
-  min-height: 24px;
+  min-height: 22px;
+}
+
+.dui-icon-badge.inlined {
+  display: inline-flex;
+}
+
+.dui-icon-badge.boxed {
+  display: flex;
 }
 
 .dui-icon-badge.clickable {
