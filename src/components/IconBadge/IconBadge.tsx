@@ -25,7 +25,14 @@ export const IconBadge = ({
   )
 
   return (
-    <span className={classNames('dui-icon-badge', className)} onClick={onClick}>
+    <span
+      className={classNames(
+        'dui-icon-badge',
+        className,
+        onClick && 'clickable'
+      )}
+      onClick={onClick}
+    >
       {childrenInt}
     </span>
   )
