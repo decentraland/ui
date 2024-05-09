@@ -11,7 +11,7 @@ export const IconBadge = ({
   children,
   inline
 }: Props) => {
-  const inlined = inline === undefined ? 'boxed' : 'inlined'
+  const inlined = inline ? 'inlined' : 'boxed'
   const childrenInt = React.useMemo(
     () => (
       <>
