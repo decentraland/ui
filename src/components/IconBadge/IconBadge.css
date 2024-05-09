@@ -4,9 +4,12 @@
   text-transform: uppercase;
   padding: 2px 8px;
   border-radius: 5px;
-  cursor: pointer;
   background-color: #37333d;
   min-height: 24px;
+}
+
+.dui-icon-badge.clickable {
+  cursor: pointer;
 }
 
 .dui-icon-badge .text {
