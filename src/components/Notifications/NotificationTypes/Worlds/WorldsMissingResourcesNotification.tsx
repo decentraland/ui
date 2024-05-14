@@ -11,7 +11,7 @@ const i18N = {
   en: {
     description: (link: string): React.ReactNode => (
       <>
-        WORLDS access at risk in 24hs.{' '}
+        WORLDS access at risk in 48hs.{' '}
         <a href={link} className="dcl notification-link">
           Rectify now
         </a>{' '}
@@ -23,7 +23,7 @@ const i18N = {
   es: {
     description: (link: string): React.ReactNode => (
       <>
-        El acceso a tus Mundos sera restringido en 24 horas.{' '}
+        El acceso a tus Mundos sera restringido en 48 horas.{' '}
         <a href={link} className="dcl notification-link">
           Rectifique ahora
         </a>{' '}
@@ -35,7 +35,7 @@ const i18N = {
   zh: {
     description: (link: string): React.ReactNode => (
       <>
-        世界接入在 24 小时内面临风险.{' '}
+        世界接入在 48 小时内面临风险.{' '}
         <a href={link} className="dcl notification-link">
           立即纠正
         </a>
