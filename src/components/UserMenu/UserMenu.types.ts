@@ -19,26 +19,26 @@ export type UserMenuProps = Omit<
 
 export type UserMenuI18N = Record<
   | 'myAssets'
-  | 'settings'
+  | 'account'
   | 'account'
   | 'viewProfile'
   | 'signIn'
   | 'signOut'
   | 'guest'
-  | 'wallet'
+  | 'marketplaceAuthorizations'
   | 'jumpIn',
   string
 >
 
 export enum UserMenuEventId {
   ACTIVITY = 'activity',
+  ACCOUNT = 'account',
   MY_ASSETS = 'my_assets',
-  SETTINGS = 'settings',
   PROFILE = 'profile',
   SIGN_IN = 'sign_in',
   SIGN_OUT = 'sign_out',
   GUEST = 'guest',
-  WALLET = 'wallet',
+  MARKETPLACE_AUTHORIZATION = 'marketplace_authorization',
   JUMP_IN = 'jump_in',
   BALANCE = 'balance'
 }
