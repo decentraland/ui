@@ -77,7 +77,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -90,7 +90,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -115,7 +115,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
