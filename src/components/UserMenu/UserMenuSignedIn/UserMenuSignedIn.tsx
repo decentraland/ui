@@ -26,7 +26,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     trackingId,
     notifications,
     i18n,
-    onClickAccountSettings,
+    onClickMarketplaceAuthorization,
     onClickActivity,
     onClickBalance,
     onClickClose,
@@ -35,7 +35,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     onClickProfile,
     onClickSignOut,
     onClickToggle,
-    onClickWallet
+    onClickAccount
   } = props
 
   const isTabletAndBelow = useTabletAndBelowMediaQuery()
@@ -89,18 +89,18 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     [onClickMyAssets, onClickUserMenuItem, trackingId]
   )
 
-  const handleClickAccountSettings = useCallback(
+  const handleClickMarketplaceAuthorization = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.SETTINGS,
+          eventTrackingName: UserMenuEventId.MARKETPLACE_AUTHORIZATIONS,
           trackingId,
           url: config.get('MARKETPLACE_SETTINGS_URL')
         })
       setTimeout(
         () => {
-          onClickAccountSettings
-            ? onClickAccountSettings(event)
+          onClickMarketplaceAuthorization
+            ? onClickMarketplaceAuthorization(event)
             : window.open(
                 `${config.get('MARKETPLACE_SETTINGS_URL')}`,
                 '_blank',
@@ -110,7 +110,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
         onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickAccountSettings, onClickUserMenuItem, trackingId]
+    [onClickMarketplaceAuthorization, onClickUserMenuItem, trackingId]
   )
 
   const handleClickProfile = useCallback(
@@ -134,25 +134,25 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     [onClickProfile, onClickUserMenuItem, trackingId]
   )
 
-  const handleClickWallet = useCallback(
+  const handleClickAccount = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.WALLET,
+          eventTrackingName: UserMenuEventId.ACCOUNT,
           trackingId,
           url: config.get('ACCOUNT_URL')
         })
 
       setTimeout(
         () => {
-          onClickWallet
-            ? onClickWallet(event)
+          onClickAccount
+            ? onClickAccount(event)
             : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
         },
         onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickWallet, onClickUserMenuItem, trackingId]
+    [onClickAccount, onClickUserMenuItem, trackingId]
   )
 
   const handleClickSignOut = useCallback(
@@ -238,14 +238,14 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
               </div>
             </li>
             <li>
-              <div onClick={handleClickWallet}>
-                {i18n.wallet}
+              <div onClick={handleClickAccount}>
+                {i18n.account}
                 <ArrowIcon />
               </div>
             </li>
             <li>
-              <div onClick={handleClickAccountSettings}>
-                {i18n.settings}
+              <div onClick={handleClickMarketplaceAuthorization}>
+                {i18n.marketplaceAuthorizations}
                 <ArrowIcon />
               </div>
             </li>
