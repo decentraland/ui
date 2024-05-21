@@ -4215,6 +4215,12 @@ a.ui.card:hover,
   outline: none;
 }
 
+.dcl .user-menu-loader {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .dcl .user-menu__jump-in {
   padding: 14px 32px;
   margin-left: 24px;
