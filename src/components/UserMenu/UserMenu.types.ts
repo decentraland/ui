@@ -7,6 +7,7 @@ export type UserMenuProps = Omit<
 > & {
   isSignedIn?: boolean
   isSigningIn?: boolean
+  isDisconnecting?: boolean
   isActivity?: boolean
   i18n?: UserMenuI18N
   onClickSignIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
