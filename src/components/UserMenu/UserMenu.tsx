@@ -8,6 +8,7 @@ import { i18n as i18nUserMenu } from './UserMenu.i18n'
 import { UserMenuProps, UserMenuEventId } from './UserMenu.types'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
+import { Loader } from '../Loader/Loader'
 import { config } from '../../config'
 import { Row } from '../Row/Row'
 
@@ -18,6 +19,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
     isSignedIn,
     isSigningIn,
+    isDisconnecting,
     manaBalances,
     i18n = i18nUserMenu,
     onClickSignIn,
@@ -132,34 +134,48 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
           onBlur={handleClose}
           tabIndex={0}
         >
-          {isSignedIn && (
-            <UserMenuSignedIn
-              {...signInProps}
-              manaBalances={manaBalances}
-              trackingId={trackingId}
-              isOpen={isOpen}
-              i18n={i18n}
-              onClickToggle={handleToggle}
-              onClickClose={handleClose}
-              onClickUserMenuItem={onClickUserMenuItem}
-              onClickBalance={handleClickBalance}
-            />
+          {isDisconnecting ? (
+            <div className="dcl user-menu-loader">
+              <Loader inline active size="medium" />
+            </div>
+          ) : (
+            <>
+              {isSignedIn && (
+                <UserMenuSignedIn
+                  {...signInProps}
+                  manaBalances={manaBalances}
+                  trackingId={trackingId}
+                  isOpen={isOpen}
+                  i18n={i18n}
+                  onClickToggle={handleToggle}
+                  onClickClose={handleClose}
+                  onClickUserMenuItem={onClickUserMenuItem}
+                  onClickBalance={handleClickBalance}
+                />
+              )}
+              {!isSignedIn ? (
+                <Button
+                  inverted
+                  disabled={isSigningIn}
+                  loading={isSigningIn}
+                  onClick={handleClickSignIn}
+                >
+                  {i18n.signIn}
+                </Button>
+              ) : null}
+              {isSignedIn && (
+                <Button
+                  className="user-menu__jump-in"
+                  primary
+                  onClick={handleClickJumpIn}
+                  as={'a'}
+                  href={config.get('EXPLORER_URL')}
+                >
+                  {i18n.jumpIn}
+                </Button>
+              )}
+            </>
           )}
-          {!isSignedIn && (
-            <Button inverted disabled={isSigningIn} onClick={handleClickSignIn}>
-              {i18n.signIn}
-            </Button>
-          )}
-          <Button
-            className="user-menu__jump-in"
-            primary
-            disabled={isSigningIn}
-            onClick={handleClickJumpIn}
-            as={'a'}
-            href={config.get('EXPLORER_URL')}
-          >
-            {i18n.jumpIn}
-          </Button>
         </div>
       </Row>
     </Column>

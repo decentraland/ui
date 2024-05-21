@@ -23,6 +23,16 @@ storiesOf('UserMenu', module)
       <UserMenu i18n={i18n} isSignedIn avatar={avatar} />
     </div>
   ))
+  .add('Signing in', () => (
+    <div className="usermenu-story-container">
+      <UserMenu i18n={i18n} isSigningIn />
+    </div>
+  ))
+  .add('Disconnecting', () => (
+    <div className="usermenu-story-container">
+      <UserMenu i18n={i18n} isDisconnecting />
+    </div>
+  ))
   .add('Guest', () => (
     <div className="usermenu-story-container">
       <UserMenu
