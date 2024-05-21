@@ -20,7 +20,6 @@ export type UserMenuProps = Omit<
 export type UserMenuI18N = Record<
   | 'myAssets'
   | 'account'
-  | 'account'
   | 'viewProfile'
   | 'signIn'
   | 'signOut'
