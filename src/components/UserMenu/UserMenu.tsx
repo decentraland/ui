@@ -71,8 +71,8 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.JUMP_IN,
-          trackingId,
+          type: UserMenuEventId.JUMP_IN,
+          track_uuid: trackingId,
           url: config.get('EXPLORER_URL')
         })
 
@@ -93,8 +93,8 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.SIGN_IN,
-          trackingId,
+          type: UserMenuEventId.SIGN_IN,
+          track_uuid: trackingId,
           url: config.get('MARKETPLACE_URL')
         })
 
@@ -111,7 +111,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.BALANCE
+          type: UserMenuEventId.BALANCE
         })
 
       setTimeout(
