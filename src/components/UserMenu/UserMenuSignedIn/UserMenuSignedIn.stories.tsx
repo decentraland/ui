@@ -19,13 +19,13 @@ storiesOf('UserMenuSignedIn', module)
         avatar={{ ...avatar, hasClaimedName: false }}
         trackingId=""
         isOpen
-        onClickAccountSettings={console.log}
+        onClickMarketplaceAuthorization={console.log}
         onClickActivity={console.log}
         onClickMyAssets={console.log}
         onClickProfile={console.log}
         onClickSignOut={console.log}
         onClickToggle={console.log}
-        onClickWallet={console.log}
+        onClickAccount={console.log}
         i18n={i18n}
       />
     </div>
@@ -36,13 +36,13 @@ storiesOf('UserMenuSignedIn', module)
         trackingId=""
         address={avatar.ethAddress}
         isOpen
-        onClickAccountSettings={console.log}
+        onClickMarketplaceAuthorization={console.log}
         onClickActivity={console.log}
         onClickMyAssets={console.log}
         onClickProfile={console.log}
         onClickSignOut={console.log}
         onClickToggle={console.log}
-        onClickWallet={console.log}
+        onClickAccount={console.log}
         i18n={i18n}
       />
     </div>
@@ -54,13 +54,13 @@ storiesOf('UserMenuSignedIn', module)
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         trackingId=""
         isOpen
-        onClickAccountSettings={console.log}
+        onClickMarketplaceAuthorization={console.log}
         onClickActivity={console.log}
         onClickMyAssets={console.log}
         onClickProfile={console.log}
         onClickSignOut={console.log}
         onClickToggle={console.log}
-        onClickWallet={console.log}
+        onClickAccount={console.log}
         i18n={i18n}
       />
     </div>
@@ -105,13 +105,13 @@ storiesOf('UserMenuSignedIn', module)
           onClick: console.log,
           onClose: console.log
         }}
-        onClickAccountSettings={console.log}
+        onClickMarketplaceAuthorization={console.log}
         onClickActivity={console.log}
         onClickMyAssets={console.log}
         onClickProfile={console.log}
         onClickSignOut={console.log}
         onClickToggle={console.log}
-        onClickWallet={console.log}
+        onClickAccount={console.log}
         i18n={i18n}
       />
     </div>
