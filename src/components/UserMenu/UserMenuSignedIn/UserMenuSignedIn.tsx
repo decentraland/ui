@@ -93,7 +93,7 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.MARKETPLACE_AUTHORIZATION,
+          eventTrackingName: UserMenuEventId.MARKETPLACE_AUTHORIZATIONS,
           trackingId,
           url: config.get('MARKETPLACE_SETTINGS_URL')
         })

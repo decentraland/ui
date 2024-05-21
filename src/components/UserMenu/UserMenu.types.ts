@@ -37,7 +37,7 @@ export enum UserMenuEventId {
   SIGN_IN = 'sign_in',
   SIGN_OUT = 'sign_out',
   GUEST = 'guest',
-  MARKETPLACE_AUTHORIZATION = 'marketplace_authorization',
+  MARKETPLACE_AUTHORIZATIONS = 'marketplace_authorizations',
   JUMP_IN = 'jump_in',
   BALANCE = 'balance'
 }
