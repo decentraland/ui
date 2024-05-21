@@ -44,8 +44,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.ACTIVITY,
-          trackingId,
+          type: UserMenuEventId.ACTIVITY,
+          track_uuid: trackingId,
           url: `${config.get('MARKETPLACE_URL')}/activity`
         })
       setTimeout(
@@ -68,8 +68,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.MY_ASSETS,
-          trackingId,
+          type: UserMenuEventId.MY_ASSETS,
+          track_uuid: trackingId,
           url: config.get('MARKETPLACE_MY_ASSETS_URL')
         })
 
@@ -93,8 +93,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.MARKETPLACE_AUTHORIZATIONS,
-          trackingId,
+          type: UserMenuEventId.MARKETPLACE_AUTHORIZATIONS,
+          track_uuid: trackingId,
           url: config.get('MARKETPLACE_SETTINGS_URL')
         })
       setTimeout(
@@ -117,8 +117,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.PROFILE,
-          trackingId,
+          type: UserMenuEventId.PROFILE,
+          track_uuid: trackingId,
           url: config.get('PROFILE_URL')
         })
 
@@ -138,8 +138,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.ACCOUNT,
-          trackingId,
+          type: UserMenuEventId.ACCOUNT,
+          track_uuid: trackingId,
           url: config.get('ACCOUNT_URL')
         })
 
@@ -159,8 +159,8 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          eventTrackingName: UserMenuEventId.SIGN_OUT,
-          trackingId
+          type: UserMenuEventId.SIGN_OUT,
+          track_uuid: trackingId
         })
       onClickSignOut(event, trackingId)
     },
