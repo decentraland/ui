@@ -30,6 +30,12 @@ export const MenuItem = (props: MenuItemProps) => {
           onClick={(e: React.MouseEvent) => {
             onToggleShowSubMenu(e, true, section)
           }}
+          onMouseEnter={(e: React.MouseEvent) =>
+            !isMobile && onToggleShowSubMenu(e, true, section)
+          }
+          onMouseLeave={(e: React.MouseEvent) =>
+            !isMobile && onToggleShowSubMenu(e, false, section)
+          }
         >
           <ChevronIcon down={true} />
         </div>
