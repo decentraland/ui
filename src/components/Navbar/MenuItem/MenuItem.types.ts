@@ -9,5 +9,6 @@ export type MenuItemProps = {
     show: boolean,
     section?: NavbarPages
   ) => void
+  mainUrl?: string
   isMobile?: boolean
 }

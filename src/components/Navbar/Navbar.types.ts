@@ -12,6 +12,14 @@ export enum NavbarPages {
   GOVERNANCE = 'governance'
 }
 
+export enum NavbarPagesUrls {
+  MARKETPLACE = 'https://decentraland.org/marketplace',
+  CREATE = 'https://decentraland.org/create/',
+  EXPLORE = 'https://decentraland.org/events/',
+  LEARN = 'https://docs.decentraland.org/player/',
+  GOVERNANCE = 'https://decentraland.org/governance/'
+}
+
 export type NavbarMenuI18nProps = Record<NavbarPages, NavbarPages>
 
 export type NavbarSubMenuItemsProps = {
