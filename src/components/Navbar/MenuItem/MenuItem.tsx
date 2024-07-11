@@ -3,7 +3,6 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
 import classNames from 'classnames'
 
 import ArrowIcon from '../../Icons/ArrowIcon'
-import ChevronIcon from '../../Icons/ChevronIcon'
 import { MenuItemProps } from './MenuItem.types'
 
 import './MenuItem.css'
@@ -20,26 +19,17 @@ export const MenuItem = (props: MenuItemProps) => {
     <Menu.Item
       active={activePage === section}
       onClick={(e: React.MouseEvent) => {
-        isMobile && onToggleShowSubMenu(e, true, section)
+        isMobile ? onToggleShowSubMenu(e, true, section) : mainRedirect()
       }}
+      onMouseEnter={(e: React.MouseEvent) =>
+        !isMobile && onToggleShowSubMenu(e, true, section)
+      }
+      onMouseLeave={(e: React.MouseEvent) =>
+        !isMobile && onToggleShowSubMenu(e, false, section)
+      }
       className={classNames('dui-menu-item', section, isMobile && 'mobile')}
     >
-      <div onClick={mainRedirect}>{title}</div>
-      {!isMobile && (
-        <div
-          onClick={(e: React.MouseEvent) => {
-            onToggleShowSubMenu(e, true, section)
-          }}
-          onMouseEnter={(e: React.MouseEvent) =>
-            !isMobile && onToggleShowSubMenu(e, true, section)
-          }
-          onMouseLeave={(e: React.MouseEvent) =>
-            !isMobile && onToggleShowSubMenu(e, false, section)
-          }
-        >
-          <ChevronIcon down={true} />
-        </div>
-      )}
+      {title}
       {isMobile && <ArrowIcon />}
     </Menu.Item>
   )
