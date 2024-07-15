@@ -13,11 +13,11 @@ export enum NavbarPages {
 }
 
 export enum NavbarPagesUrls {
-  MARKETPLACE = 'https://decentraland.org/marketplace',
-  CREATE = 'https://decentraland.org/create/',
-  EXPLORE = 'https://decentraland.org/events/',
-  LEARN = 'https://docs.decentraland.org/player/',
-  GOVERNANCE = 'https://decentraland.org/governance/'
+  MARKETPLACE = 'MARKETPLACE_URL',
+  CREATE = 'LANDING_CREATORS_URL',
+  EXPLORE = 'EVENTS_URL',
+  LEARN = 'DOCS_ABOUT_URL',
+  GOVERNANCE = 'GOVERNANCE_URL'
 }
 
 export type NavbarMenuI18nProps = Record<NavbarPages, NavbarPages>
