@@ -4142,19 +4142,14 @@ a.ui.card:hover,
   position: relative;
 }
 
-.dcl.notifications > div:first-child {
-  width: 32px;
-  height: 32px;
-}
-
 .dcl.notifications-bell {
   display: flex;
   background: none;
   border: none;
   padding: 0;
   margin: 0;
-  transition: filter 0.2s ease;
   cursor: pointer;
+  align-items: center;
   position: relative;
 }
 
@@ -4167,8 +4162,7 @@ a.ui.card:hover,
   width: 16px;
   height: 16px;
   position: relative;
-  top: -24px;
-  left: 19px;
+  left: -13px;
   cursor: pointer;
 }
 
