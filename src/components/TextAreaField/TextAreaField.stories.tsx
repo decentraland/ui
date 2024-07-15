@@ -28,6 +28,19 @@ storiesOf('TextArea', module)
       cols="50"
     />
   ))
+  .add('With tooltip', () => (
+    <TextAreaField
+      value={textAreaValue}
+      label="Description"
+      rows="10"
+      cols="50"
+      maxLength={300}
+      tooltip={{
+        content: 'This is a tooltip',
+        position: 'top center'
+      }}
+    />
+  ))
   .add('Without label and max length', () => (
     <TextAreaField maxLength={300} value={textAreaValue} rows="10" cols="50" />
   ))

@@ -28,6 +28,7 @@ import './components/Table/Table.css'
 import './components/Checkbox/Checkbox'
 import './components/CatalogCard/CatalogCard'
 import './components/AssetImage/AssetImage'
+import './components/Loader/LoadingText.css'
 
 // Decentraland components
 export * from './components/Address/Address'
@@ -98,6 +99,8 @@ export * from './components/SmartBadge'
 export * from './components/SmartIcon'
 export * from './components/CommunityBubble'
 export * from './components/AddressField'
+export * from './components/Loader/LoadingText'
+export * from './components/RarityBadge'
 // Semantic components
 /* eslint-disable no-restricted-imports */
 export * from 'semantic-ui-react'

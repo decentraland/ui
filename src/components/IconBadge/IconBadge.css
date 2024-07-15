@@ -1,11 +1,22 @@
 .dui-icon-badge {
-  display: inline-flex;
   align-items: center;
   text-transform: uppercase;
   padding: 2px 8px;
   border-radius: 5px;
-  cursor: pointer;
   background-color: #37333d;
+  height: 24px;
+}
+
+.dui-icon-badge.inlined {
+  display: inline-flex;
+}
+
+.dui-icon-badge.boxed {
+  display: flex;
+}
+
+.dui-icon-badge.clickable {
+  cursor: pointer;
 }
 
 .dui-icon-badge .text {
@@ -14,15 +25,15 @@
 }
 
 .dui-icon-badge .dui-icon-badge__icon {
-  width: 13px;
-  height: 13px;
-  margin-right: 10px;
+  width: 18px;
+  height: 18px;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.dui-icon-badge .dui-icon-badge__custom-icon {
-  margin-right: 10px;
+.dui-icon-badge > span:nth-child(2) {
+  margin-left: 10px;
 }
 
 /* Icons */
@@ -112,6 +123,10 @@
   background-image: url(../../images/wearables/HandsIcon.svg);
 }
 
+.dui-icon-badge .utility {
+  background-image: url(../../images/utility.svg);
+}
+
 .dui-icon-badge .play-once {
   background-image: url(../../images/emotes/play-once.svg);
   width: 19px;
@@ -126,8 +141,6 @@
 
 .dui-icon-badge .smart-wearable {
   background-image: url(../../images/wearables/smart.svg);
-  width: 14px;
-  height: 14px;
 }
 
 .dui-icon-badge .sound {

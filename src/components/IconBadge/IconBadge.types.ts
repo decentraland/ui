@@ -31,7 +31,9 @@ export type Props = {
     | 'props'
     | 'sparkles'
     | 'places'
-  text: string
+    | 'utility'
+  text?: string
+  inline?: boolean
   onClick?: () => void
   children?: React.ReactNode
 }

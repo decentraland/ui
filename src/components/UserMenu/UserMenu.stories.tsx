@@ -1,14 +1,12 @@
 import * as React from 'react'
+import { NotificationType } from '@dcl/schemas'
 import { storiesOf } from '@storybook/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 
 import { avatar } from '../../data/avatar'
-import {
-  DecentralandNotificationType,
-  NotificationActiveTab
-} from '../Notifications/types'
+import { NotificationActiveTab } from '../Notifications/types'
 import { UserMenu } from './UserMenu'
 import { i18n } from './UserMenu.i18n'
 
@@ -23,6 +21,16 @@ storiesOf('UserMenu', module)
   .add('Signed in', () => (
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isSignedIn avatar={avatar} />
+    </div>
+  ))
+  .add('Signing in', () => (
+    <div className="usermenu-story-container">
+      <UserMenu i18n={i18n} isSigningIn />
+    </div>
+  ))
+  .add('Disconnecting', () => (
+    <div className="usermenu-story-container">
+      <UserMenu i18n={i18n} isDisconnecting />
     </div>
   ))
   .add('Guest', () => (
@@ -79,7 +87,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -92,7 +100,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -117,7 +125,7 @@ storiesOf('UserMenu', module)
         i18n={i18n}
         isSignedIn
         avatar={avatar}
-        onClickAccountSettings={() => undefined}
+        onClickMarketplaceAuthorization={() => undefined}
         onClickActivity={() => undefined}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
@@ -129,7 +137,7 @@ storiesOf('UserMenu', module)
             {
               id: 'A',
               read: false,
-              type: DecentralandNotificationType.ITEM_SOLD,
+              type: NotificationType.ITEM_SOLD,
               address: '0xA',
               timestamp: 1680108689 * 1000,
               metadata: {

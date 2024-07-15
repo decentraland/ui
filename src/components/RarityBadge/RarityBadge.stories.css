@@ -1,0 +1,5 @@
+.dui-rarity-badge-story-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

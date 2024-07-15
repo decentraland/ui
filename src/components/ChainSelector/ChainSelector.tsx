@@ -14,6 +14,7 @@ const ChainNameIconMap = {
   [ChainId.ETHEREUM_SEPOLIA]: 'ethereum',
   [ChainId.MATIC_MAINNET]: 'polygon',
   [ChainId.MATIC_MUMBAI]: 'polygon',
+  [ChainId.MATIC_AMOY]: 'polygon',
   [ChainId.ARBITRUM_MAINNET]: 'arbitrum',
   [ChainId.OPTIMISM_MAINNET]: 'optimism',
   [ChainId.FANTOM_MAINNET]: 'fantom',

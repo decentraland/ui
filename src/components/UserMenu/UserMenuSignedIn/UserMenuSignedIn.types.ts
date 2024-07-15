@@ -11,7 +11,7 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
   hasActivity?: boolean
   notifications?: NotificationsProps
   i18n: UserMenuI18N
-  onClickAccountSettings?: (
+  onClickMarketplaceAuthorization?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>
   ) => void
   onClickActivity?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
@@ -23,9 +23,9 @@ export type UserMenuSignedInProps = ManaBalancesProps & {
     trackingId: string
   ) => void
   onClickToggle?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onClickWallet?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickAccount?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onClickUserMenuItem?: (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
-    options: { eventTrackingName: string; url?: string; trackingId?: string }
+    options: { type: string; url?: string; track_uuid?: string }
   ) => void
 }

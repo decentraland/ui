@@ -8,25 +8,35 @@ export const IconBadge = ({
   text,
   onClick,
   className,
-  children
+  children,
+  inline
 }: Props) => {
+  const inlined = inline ? 'inlined' : 'boxed'
   const childrenInt = React.useMemo(
     () => (
       <>
-        {children ? (
+        {children && icon ? (
           <span className="dui-icon-badge__custom-icon">{children}</span>
-        ) : (
+        ) : icon ? (
           <span className={classNames(icon && 'dui-icon-badge__icon', icon)} />
-        )}
-        <span className="text">{text}</span>
+        ) : null}
+        {text ? <span className="text">{text}</span> : null}
       </>
     ),
     [children, icon, text]
   )
 
   return (
-    <div className={classNames('dui-icon-badge', className)} onClick={onClick}>
+    <span
+      className={classNames(
+        'dui-icon-badge',
+        className,
+        onClick && 'clickable',
+        inlined
+      )}
+      onClick={onClick}
+    >
       {childrenInt}
-    </div>
+    </span>
   )
 }

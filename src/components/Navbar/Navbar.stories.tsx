@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ChainId } from '@dcl/schemas'
+import { ChainId, NotificationType } from '@dcl/schemas'
 import { avatar } from '../../data/avatar'
 
 import { Navbar } from './Navbar'
@@ -8,10 +8,7 @@ import { NavbarPages } from './Navbar.types'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
-import {
-  DecentralandNotificationType,
-  NotificationActiveTab
-} from '../Notifications/types'
+import { NotificationActiveTab } from '../Notifications/types'
 
 import './Navbar.stories.css'
 
@@ -134,7 +131,7 @@ storiesOf('Navbar', module)
               {
                 id: 'A',
                 read: true,
-                type: DecentralandNotificationType.ITEM_SOLD,
+                type: NotificationType.ITEM_SOLD,
                 address: '0xA',
                 timestamp: 1680108689 * 1000,
                 metadata: {
@@ -184,7 +181,7 @@ storiesOf('Navbar', module)
               {
                 id: 'A',
                 read: false,
-                type: DecentralandNotificationType.ITEM_SOLD,
+                type: NotificationType.ITEM_SOLD,
                 address: '0xA',
                 timestamp: 1680108689 * 1000,
                 metadata: {

@@ -7,7 +7,7 @@
   border-radius: 0px;
   border: none;
   border-bottom: 2px solid var(--divider);
-  padding: 2px 0px 12px 0px;
+  padding: 2px 0px 0px 0px;
   width: 100%;
   margin-top: 8px;
   min-height: 40px;
@@ -37,7 +37,7 @@
   font-size: 20px;
   font-weight: 500;
   font-family: var(--font-family);
-  line-height: 18px;
+  line-height: 30px;
 }
 
 .dcl.select-field .ui.dropdown > .default.text {
@@ -57,7 +57,7 @@
 
 .dcl.select-field .ui.dropdown .dropdown.icon {
   padding-right: 0px;
-  padding-top: 4px;
+  padding-bottom: 0px;
   color: var(--text);
 }
 
