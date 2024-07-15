@@ -54,21 +54,19 @@ export default function Notifications({
 
   return (
     <div className="dcl notifications">
-      <div>
-        <button
-          className={classNames('dcl notifications-bell', {
-            'notifications-active': newNotificationsCount > 0
-          })}
-          onClick={onClick}
-        >
-          {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
-        </button>
+      <button
+        className={classNames('dcl notifications-bell', {
+          'notifications-active': newNotificationsCount > 0
+        })}
+        onClick={onClick}
+      >
+        {!isOpen ? <NotificationBell /> : <NotificationBellActive />}
         {!isOpen && newNotificationsCount > 0 && (
           <div className="dcl notifications-counter">
             <Counter count={newNotificationsCount} />
           </div>
         )}
-      </div>
+      </button>
       {isOpen && (
         <NotificationsFeed
           isOpen={isOpen}
