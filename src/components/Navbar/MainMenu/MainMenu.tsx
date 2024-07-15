@@ -2,8 +2,9 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { MenuItem } from '../MenuItem/MenuItem'
-import { NavbarPages, NavbarPagesUrl } from '../Navbar.types'
+import { NavbarPages } from '../Navbar.types'
 import { MainMenuProps } from './MainMenu.types'
+import { NavbarPagesUrl } from '../utils'
 
 import './MainMenu.css'
 
@@ -22,31 +23,31 @@ export const MainMenu = (props: MainMenuProps) => {
         {...menuItemProps}
         section={NavbarPages.MARKETPLACE}
         title={i18n.marketplace}
-        mainUrl={NavbarPagesUrl[NavbarPages.MARKETPLACE]}
+        mainUrl={NavbarPagesUrl(NavbarPages.MARKETPLACE)}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.CREATE}
         title={i18n.create}
-        mainUrl={NavbarPagesUrl[NavbarPages.CREATE]}
+        mainUrl={NavbarPagesUrl(NavbarPages.CREATE)}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.EXPLORE}
         title={i18n.explore}
-        mainUrl={NavbarPagesUrl[NavbarPages.EXPLORE]}
+        mainUrl={NavbarPagesUrl(NavbarPages.EXPLORE)}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.LEARN}
         title={i18n.learn}
-        mainUrl={NavbarPagesUrl[NavbarPages.LEARN]}
+        mainUrl={NavbarPagesUrl(NavbarPages.LEARN)}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.GOVERNANCE}
         title={i18n.governance}
-        mainUrl={NavbarPagesUrl[NavbarPages.GOVERNANCE]}
+        mainUrl={NavbarPagesUrl(NavbarPages.GOVERNANCE)}
       />
     </div>
   )
