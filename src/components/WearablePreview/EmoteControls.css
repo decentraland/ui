@@ -16,6 +16,23 @@
   background: rgba(0, 0, 0, 0.64) !important;
 }
 
+.EmoteControls .ui.button.sound-control {
+  margin-left: 20px;
+  min-width: 25px;
+  background: none;
+  padding: 0;
+}
+
+.EmoteControls .ui.button.sound-control::after {
+  content: url('../../assets/volume.svg');
+  width: fit-content;
+  height: fit-content;
+}
+
+.EmoteControls .ui.button.sound-control.muted::after {
+  content: url('../../assets/mute.svg');
+}
+
 .EmoteControls input {
   flex: 1;
 }

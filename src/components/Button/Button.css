@@ -161,7 +161,9 @@
   box-shadow: none !important;
 }
 
-.ui.button.inverted:hover {
+.ui.button.inverted:hover,
+.ui.button.inverted:focus,
+.ui.button.inverted:active {
   background-color: transparent;
   color: var(--text);
   border: 1px solid var(--text);
@@ -175,7 +177,9 @@
   box-shadow: none !important;
 }
 
-.ui.button.inverted.primary:hover {
+.ui.button.inverted.primary:hover,
+.ui.button.inverted.primary:focus,
+.ui.button.inverted.primary:active {
   background-color: transparent;
   color: var(--primary);
   border: 1px solid var(--primary);

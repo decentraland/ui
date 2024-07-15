@@ -1,0 +1,46 @@
+.dui-side-menu-item {
+  position: relative;
+  padding: 9px 16px 9px;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.2;
+  cursor: pointer;
+  text-transform: capitalize;
+  min-width: 280px;
+  margin-bottom: 8px;
+}
+
+.dui-side-menu-item--level-1 {
+  padding-left: 24px;
+  color: white;
+}
+
+.dui-side-menu-item--level-2 {
+  padding-left: 32px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item--level-3 {
+  padding-left: 48px;
+  color: #9791a3;
+}
+
+.dui-side-menu-item:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.dui-side-menu-item--active {
+  font-weight: 600;
+  color: white;
+  background-color: #37333d;
+}
+
+.dui-side-menu-item__caret {
+  position: absolute;
+  right: 16px;
+}
+
+.dui-side-menu-item__caret--open {
+  transform: rotate(180deg) translateY(-10px);
+}

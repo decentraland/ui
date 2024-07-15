@@ -1,0 +1,57 @@
+.dui-loading-text.dui-loading-text__small,
+.dui-loading-text.dui-loading-text__medium,
+.dui-loading-text.dui-loading-text__large,
+.dui-loading-text.dui-loading-text__full {
+  background: linear-gradient(
+    110deg,
+    var(--secondary-hover) 8%,
+    var(--secondary) 18%,
+    var(--secondary-hover) 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s dui-loading-text linear infinite;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.dui-loading-text.span {
+  height: 15px;
+}
+
+.dui-loading-text.h1 {
+  height: 2em;
+}
+
+.dui-loading-text.h2 {
+  height: 1.71em;
+}
+
+.dui-loading-text.h3 {
+  height: 1.29em;
+}
+
+.dui-loading-text.p {
+  height: 1em;
+}
+
+.dui-loading-text.dui-loading-text__small {
+  width: 20%;
+}
+
+.dui-loading-text.dui-loading-text__medium {
+  width: 45%;
+}
+
+.dui-loading-text.dui-loading-text__large {
+  width: 75%;
+}
+
+.dui-loading-text.dui-loading-text__full {
+  width: 100%;
+}
+
+@keyframes dui-loading-text {
+  to {
+    background-position-x: -200%;
+  }
+}

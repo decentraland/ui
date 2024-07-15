@@ -1,0 +1,14 @@
+.dui-submenu-container {
+  background-color: transparent;
+  height: 0;
+  opacity: 0;
+  transition: height 200ms ease-in-out 1ms, opacity 100ms ease-in-out 50ms,
+    background-color 100ms ease-in-out 0ms;
+}
+
+@media (max-width: 991px) {
+  .dui-submenu-container.mobile {
+    position: absolute;
+    z-index: 0;
+  }
+}

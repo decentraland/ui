@@ -43,18 +43,34 @@ const LIGHT_THEME = `
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
+  --text-area-border: #67637033;
+  --clear-divider: #a09ba8;
+  --navbar-icons: #000;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
   --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
   --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.16);
+  --shadow-4: 0px 8px 16px 12px rgba(0, 0, 0, 0.1);
 
   --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
   --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
   --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.24);
 
   /* svgs */
-  --brightness: brightness(0.1); /* black svgs */
+  --brightness: brightness(0.1);
+  /* black svgs */
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-light.png);
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #a09ba8;
+  --navbar-menu-hover: #000;
+  --navbar-item-text-enabled: #716b7c;
+  --navbar-item-text-hover: #000;
+  --navbar-item-border-enabled: #cfcdd4;
+  --navbar-item-border-hover: #000;
+  --usermenu-item-text-enabled: #43404a;
+  --usermenu-item-border-enabled: #43404a;
 }
 `
 
@@ -84,7 +100,7 @@ const DARK_THEME = `
 
   /* ui */
   --divider: #67637033;
-  --dropdown: #676370;
+  --dropdown: #716b7c;
   --dropdown-hover: #24212933;
   --popup: #676370;
   --popup-text: #ffffff;
@@ -96,18 +112,35 @@ const DARK_THEME = `
   --toast-text: #ffffff;
   --modal: #242129;
   --dimmer: #000000dd;
+  --text-area-border: #676370;
+  --clear-divider: #a09ba8;
+  --navbar-icons: #fff;
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
   --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.24);
   --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.32);
+  --shadow-4: 0px 8px 16px 12px rgba(0, 0, 0, 0.8);
 
   --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
   --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.24);
   --shadow-color-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.32);
 
   /* svgs */
-  --brightness: brightness(100); /* black svgs */
+  --brightness: brightness(100);
+  /* black svgs */
+
+  --notification-onboarding-bell: url(../../assets/bell-onboarding-dark.png);
+
+  /* Navbar2 */
+  --navbar-menu-enabled: #ecebed;
+  --navbar-menu-hover: #fff;
+  --navbar-item-text-enabled: #cfcdd4;
+  --navbar-item-text-hover: #fff;
+  --navbar-item-border-enabled: #716b7c;
+  --navbar-item-border-hover: #cfcdd4;
+  --usermenu-item-text-enabled: #cfcdd4;
+  --usermenu-item-border-enabled: #cfcdd4;
 }
 `
 

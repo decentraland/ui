@@ -21,23 +21,31 @@
 .ui.bottom.center.popup:before,
 .ui.bottom.left.popup:before,
 .ui.bottom.right.popup:before,
+.ui.left.center.popup:before,
+.ui.right.center.popup:before,
 .ui.inverted.bottom.center.popup:before,
 .ui.inverted.bottom.left.popup:before,
-.ui.inverted.bottom.right.popup:before {
+.ui.inverted.bottom.right.popup:before,
+.ui.inverted.left.center.popup:before,
+.ui.inverted.right.center.popup:before {
   box-shadow: none;
 }
 
 .ui.bottom.popup:before,
 .ui.top.popup:before,
+.ui.left.center.popup:before,
+.ui.right.center.popup:before,
 .ui.inverted.bottom.popup:before,
-.ui.inverted.top.popup:before {
+.ui.inverted.top.popup:before,
+.ui.inverted.left.center.popup:before,
+.ui.inverted.right.center.popup:before {
   background-color: var(--popup);
 }
 
 .ui.popup,
 .ui.inverted.popup {
   box-shadow: var(--shadow-1);
-  height: 32px;
+  height: auto;
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -70,5 +78,19 @@
 .ui.inverted.bottom.right.popup:before {
   top: -6px;
   border-top: var(--popup-outline);
+  border-left: var(--popup-outline);
+}
+
+.ui.center.left.popup:before,
+.ui.inverted.center.left.popup:before {
+  right: -5.5px;
+  border-top: var(--popup-outline);
+  border-right: var(--popup-outline);
+}
+
+.ui.center.right.popup:before,
+.ui.inverted.center.right.popup:before {
+  left: -5.5px;
+  border-bottom: var(--popup-outline);
   border-left: var(--popup-outline);
 }

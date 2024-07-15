@@ -6,7 +6,12 @@ export type NetworksNames = {
 
 export const networksNames: NetworksNames = {
   [Network.ETHEREUM]: 'Ethereum',
-  [Network.MATIC]: 'Polygon'
+  [Network.MATIC]: 'Polygon',
+  [Network.ARBITRUM]: 'Arbitrum',
+  [Network.AVALANCHE]: 'Avalanche',
+  [Network.FANTOM]: 'Fantom',
+  [Network.BSC]: 'Binance Smart Chain',
+  [Network.OPTIMISM]: 'Optimism'
 }
 
 export const getNetworkName = (network: Network): string | undefined =>

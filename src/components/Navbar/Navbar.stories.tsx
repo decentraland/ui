@@ -1,21 +1,22 @@
 import * as React from 'react'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../Button/Button'
-import { Hero } from '../Hero/Hero'
-import { Parallax } from '../Parallax/Parallax'
-import { UserMenu } from '../UserMenu/UserMenu'
+import { ChainId, NotificationType } from '@dcl/schemas'
 import { avatar } from '../../data/avatar'
 
 import { Navbar } from './Navbar'
+import { NavbarPages } from './Navbar.types'
+import { Network } from '@dcl/schemas/dist/dapps/network'
+import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
+import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
+import { NotificationActiveTab } from '../Notifications/types'
+
 import './Navbar.stories.css'
 
 storiesOf('Navbar', module)
-  .add('DAO', () => {
+  .add('Marketplace', () => {
     return (
       <div className="Navbar-story-container">
-        <Navbar activePage="dao" />
+        <Navbar activePage={NavbarPages.MARKETPLACE} />
       </div>
     )
   })
@@ -23,217 +24,188 @@ storiesOf('Navbar', module)
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          onSignIn={() => console.log('Clicked on sign in')}
+          activePage={NavbarPages.MARKETPLACE}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
   })
-
-  .add('Sign In Page', () => {
+  .add('Signed in', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isSignIn
-          onSignIn={() => console.log('Clicked on sign in')}
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
   })
-  .add('Connecting', () => {
+  .add('Signed in', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          onSignIn={() => console.log('Clicked on sign in')}
-          isConnecting
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
   })
-  .add('Connected', () => {
+  .add('With Chain Selector', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          chains={[
+            ChainId.ETHEREUM_MAINNET,
+            ChainId.MATIC_MAINNET,
+            ChainId.ARBITRUM_MAINNET,
+            ChainId.OPTIMISM_MAINNET,
+            ChainId.BSC_MAINNET,
+            ChainId.FANTOM_MAINNET,
+            ChainId.AVALANCHE_MAINNET
+          ]}
+          chainBeingConfirmed={ChainId.MATIC_MAINNET}
+          selectedChain={ChainId.ETHEREUM_MAINNET}
+          onSelectChain={(chain) => console.log('Selected chain', chain)}
+          avatar={avatar}
+          onClickSignIn={() => console.log('Clicked on sign in')}
         />
       </div>
     )
   })
-  .add('On click account', () => {
+  .add('With Balance', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickSignOut={(e) => console.log('Clicked on sign in', e)}
         />
       </div>
     )
   })
-
-  .add('Fullscreen', () => {
-    return (
-      <div className="Navbar-story-container">
-        <div className="background" />
-        <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          isFullscreen
-        />
-      </div>
-    )
-  })
-  .add('With hero', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar activePage="dao" isFullscreen />
-        <Hero height={442} centered>
-          <Hero.Header>Help us build Decentraland</Hero.Header>
-          <Hero.Description>Join the discussion</Hero.Description>
-          <Hero.Content>
-            <Parallax>
-              <Parallax.Layer depth={0.3}>
-                <div className="homepage-pyramid small" />
-              </Parallax.Layer>
-              <Parallax.Layer depth={1.5}>
-                <div className="homepage-pyramid large" />
-              </Parallax.Layer>
-            </Parallax>
-          </Hero.Content>
-        </Hero>
-      </div>
-    )
-  })
-  .add('With Overlay over Hero', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar activePage="dao" isFullscreen isOverlay />
-        <Hero className="over-gradient" height={442} centered>
-          <Hero.Header>Help us build Decentraland</Hero.Header>
-          <Hero.Description>Join the discussion</Hero.Description>
-          <Hero.Content>
-            <div className="color-layer" />
-          </Hero.Content>
-        </Hero>
-      </div>
-    )
-  })
-  .add('Custom middle menu', () => {
+  .add('Width Activity pending', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          middleMenu={
-            <Menu.Item>
-              <Icon
-                name="bell"
-                onClick={() => console.log('Clicked on notification bell')}
-              />
-            </Menu.Item>
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickBalance={(e, network) =>
+            console.log('Clicked on balance ', e, network)
           }
+          onClickActivity={(e) => console.log('Clicked on activity ', e)}
+          hasActivity
         />
       </div>
     )
   })
-  .add('Custom left menu', () => {
+  .add('With Notification', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          leftMenu={
-            <>
-              <Menu.Item>Home</Menu.Item>
-              <Menu.Item>About</Menu.Item>
-              <Menu.Item>Contact Us</Menu.Item>
-            </>
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickBalance={(e, network) =>
+            console.log('Clicked on balance ', e, network)
           }
-        />
-      </div>
-    )
-  })
-  .add('With Left Menu Decorator', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          leftMenuDecorator={(props: { children: React.ReactNode }) => {
-            return (
-              <>
-                <Menu.Item>LEFT</Menu.Item>
-                {props.children}
-                <Menu.Item>RIGHT</Menu.Item>
-              </>
-            )
+          onClickActivity={(e) => console.log('Clicked on activity ', e)}
+          hasActivity
+          notifications={{
+            isOnboarding: false,
+            isOpen: false,
+            isLoading: false,
+            items: [
+              {
+                id: 'A',
+                read: true,
+                type: NotificationType.ITEM_SOLD,
+                address: '0xA',
+                timestamp: 1680108689 * 1000,
+                metadata: {
+                  link: 'https://market.decentraland.org/contracts/0x4c290f486bae507719c562b6b524bdb71a2570c9/tokens/1020',
+                  image:
+                    'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
+                  rarity: 'epic' as Rarity,
+                  seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
+                  nftName: 'Green Atari Tee',
+                  network: 'ethereum',
+                  category: 'wearable' as NFTCategory
+                },
+                created_at: '2023-11-29T12:51:00.600Z',
+                updated_at: '2023-11-30T12:51:00.600Z'
+              }
+            ],
+            locale: 'en',
+            activeTab: NotificationActiveTab.NEWEST,
+            onBegin: console.log,
+            onChangeTab: console.log,
+            onClick: console.log,
+            onClose: console.log
           }}
         />
       </div>
     )
   })
-  .add('Custom right menu', () => {
+  .add('With Notification pending', () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          rightMenu={
-            <Button primary size="small" style={{ minWidth: 100 }}>
-              Get Started
-            </Button>
+          activePage={NavbarPages.MARKETPLACE}
+          isSignedIn
+          avatar={avatar}
+          onClickSignOut={(e) => console.log('Clicked on sign in ', e)}
+          manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
+          onClickBalance={(e, network) =>
+            console.log('Clicked on balance ', e, network)
           }
+          onClickActivity={(e) => console.log('Clicked on activity ', e)}
+          hasActivity
+          notifications={{
+            isOnboarding: false,
+            isOpen: false,
+            isLoading: false,
+            items: [
+              {
+                id: 'A',
+                read: false,
+                type: NotificationType.ITEM_SOLD,
+                address: '0xA',
+                timestamp: 1680108689 * 1000,
+                metadata: {
+                  link: 'https://market.decentraland.org/contracts/0x4c290f486bae507719c562b6b524bdb71a2570c9/tokens/1020',
+                  image:
+                    'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
+                  rarity: 'epic' as Rarity,
+                  seller: '0x8bc619e7f9ca9949b8440245fd9d8c4c002edf02',
+                  nftName: 'Green Atari Tee',
+                  network: 'ethereum',
+                  category: 'wearable' as NFTCategory
+                },
+                created_at: '2023-11-29T12:51:00.600Z',
+                updated_at: '2023-11-29T12:51:00.600Z'
+              }
+            ],
+            locale: 'en',
+            activeTab: NotificationActiveTab.NEWEST,
+            onBegin: console.log,
+            onChangeTab: console.log,
+            onClick: console.log,
+            onClose: console.log
+          }}
         />
-      </div>
-    )
-  })
-  .add('With UserMenu', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar
-          activePage="dao"
-          isConnected
-          address="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
-          mana={200000}
-          onClickAccount={() => console.log('Clicked on account menu')}
-          rightMenu={<UserMenu avatar={avatar} isSignedIn />}
-        />
-      </div>
-    )
-  })
-  .add('Full width inner container', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar isFullWidth activePage="dao" />
-      </div>
-    )
-  })
-  .add('With default submenus', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar enableSubMenuSection activePage="dao" />
       </div>
     )
   })

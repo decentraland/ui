@@ -1,252 +1,187 @@
-import * as React from 'react'
+import React, { useState, useCallback } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
-import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
-import { AvatarFace } from '../AvatarFace/AvatarFace'
-import { Mobile } from '../Media'
-import { Mana } from '../Mana/Mana'
+
+import { UserMenuSignedIn } from './UserMenuSignedIn/UserMenuSignedIn'
+import { i18n as i18nUserMenu } from './UserMenu.i18n'
+import { UserMenuProps, UserMenuEventId } from './UserMenu.types'
 import { Button } from '../Button/Button'
 import { Column } from '../Column/Column'
+import { Loader } from '../Loader/Loader'
+import { config } from '../../config'
 import { Row } from '../Row/Row'
-import { WalletIcon } from '../WalletIcon/WalletIcon'
+
 import './UserMenu.css'
+import { useTabletAndBelowMediaQuery } from '../Media'
 
-export type UserMenuI18N = {
-  signIn: React.ReactNode
-  signOut: React.ReactNode
-  guest: React.ReactNode
-  settings: React.ReactNode
-  wallet: React.ReactNode
-  profile: React.ReactNode
-  account: React.ReactNode
-}
+export const UserMenu = React.memo((props: UserMenuProps) => {
+  const {
+    isSignedIn,
+    isSigningIn,
+    isDisconnecting,
+    manaBalances,
+    i18n = i18nUserMenu,
+    onClickSignIn,
+    onClickBalance,
+    onClickOpen,
+    onClickJumpIn,
+    onClickUserMenuItem,
+    ...signInProps
+  } = props
 
-export type UserMenuProps = {
-  isSignedIn: boolean
-  isSigningIn: boolean
-  isActivity: boolean
-  hasActivity: boolean
-  address?: string
-  manaBalances?: Partial<Record<Network, number>>
-  avatar?: Avatar
-  menuItems?: React.ReactNode
-  i18n: UserMenuI18N
-  newMenu?: boolean
-  onSignOut: () => void
-  onSignIn: () => void
-  onClickProfile: () => void
-  onClickActivity: () => void
-  onClickSettings: () => void
-  onClickBalance: (network: Network) => void
-}
+  const isTabletAndBelow = useTabletAndBelowMediaQuery()
 
-export type UserMenuState = {
-  isOpen: boolean
-  isClickable: boolean
-}
+  const [isOpen, setIsOpen] = useState(false)
+  const [trackingId, setTrackingId] = useState<string | null>(null)
+  const handleToggle = useCallback(
+    (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+      const trackId = uuidv4()
+      setIsOpen((prev) => {
+        if (!prev) {
+          setTrackingId(trackId)
+        }
+        if (!prev && onClickOpen) {
+          onClickOpen(event, trackId)
+        }
 
-export class UserMenu extends React.Component<UserMenuProps, UserMenuState> {
-  static defaultProps: Partial<UserMenuProps> = {
-    manaBalances: {},
-    i18n: {
-      signIn: 'Sign In',
-      signOut: 'Sign Out',
-      guest: 'Guest',
-      settings: 'Settings',
-      wallet: 'Wallet',
-      profile: 'Profile',
-      account: 'Account'
+        if (isTabletAndBelow) {
+          if (!prev) {
+            window.addEventListener('scroll', noScroll)
+          } else {
+            window.removeEventListener('scroll', noScroll)
+          }
+        }
+
+        return !prev
+      })
+    },
+    [setIsOpen, onClickOpen]
+  )
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false)
+    if (isTabletAndBelow) {
+      window.removeEventListener('scroll', noScroll)
     }
-  }
+  }, [setIsOpen])
 
-  state: UserMenuState = {
-    isOpen: false,
-    isClickable: false
-  }
+  const handleClickJumpIn = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault()
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          type: UserMenuEventId.JUMP_IN,
+          track_uuid: trackingId,
+          url: config.get('EXPLORER_URL')
+        })
 
-  mounted = false
+      setTimeout(
+        () => {
+          onClickJumpIn
+            ? onClickJumpIn(event)
+            : window.open(config.get('EXPLORER_URL'), '_blank', 'noopener')
+        },
+        onClickUserMenuItem ? 300 : 0
+      )
+    },
+    [onClickJumpIn, onClickUserMenuItem, trackingId]
+  )
 
-  ref: HTMLElement | null = null
+  const handleClickSignIn = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault()
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          type: UserMenuEventId.SIGN_IN,
+          track_uuid: trackingId,
+          url: config.get('MARKETPLACE_URL')
+        })
 
-  handleClose = (): void => {
-    this.toggle(false)
-  }
+      onClickSignIn(event)
+    },
+    [onClickSignIn, onClickUserMenuItem, trackingId]
+  )
 
-  handleToggle = (): void => {
-    this.toggle(!this.state.isOpen)
-  }
+  const handleClickBalance = useCallback(
+    (
+      event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+      network: Network
+    ) => {
+      event.preventDefault()
+      onClickUserMenuItem &&
+        onClickUserMenuItem(event, {
+          type: UserMenuEventId.BALANCE
+        })
 
-  toggle(value: boolean): void {
-    this.setState({ isOpen: value })
-    setTimeout(() => {
-      if (this.mounted) {
-        this.setState({ isClickable: value })
-      }
-    }, 250)
-  }
+      setTimeout(
+        () => {
+          onClickBalance
+            ? onClickBalance(event, network)
+            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+        },
+        onClickUserMenuItem ? 300 : 0
+      )
+    },
+    [onClickBalance, onClickUserMenuItem, trackingId]
+  )
 
-  componentDidMount(): void {
-    this.mounted = true
-  }
-
-  componentWillUnmount(): void {
-    this.mounted = false
-  }
-
-  renderManaBalances = (): React.ReactNode => {
-    const { manaBalances, onClickBalance } = this.props
-
-    return (
-      <span className="dcl account-wrapper">
-        {Object.keys(manaBalances).map((network) => (
-          <Mana
-            key={network}
-            network={network as Network}
-            size="small"
-            className={onClickBalance ? 'clickable' : undefined}
-            title={`${manaBalances[network].toLocaleString()} MANA`}
-            href="https://account.decentraland.org"
-          >
-            {Number(manaBalances[network].toFixed(2)).toLocaleString()}
-          </Mana>
-        ))}
-      </span>
-    )
-  }
-
-  renderOldMenuOptions() {
-    const { i18n } = this.props
-    return (
-      <a href="https://account.decentraland.org">
-        <li>
-          <Icon name="user" />
-          {i18n.account}
-        </li>
-      </a>
-    )
-  }
-
-  renderNewMenuOptions() {
-    const { i18n } = this.props
-    return (
-      <>
-        <a href="https://profile.decentraland.org">
-          <li>
-            <Icon name="user" />
-            {i18n.profile}
-          </li>
-        </a>
-        <a href="https://account.decentraland.org">
-          <li>
-            <WalletIcon />
-            {i18n.wallet}
-          </li>
-        </a>
-      </>
-    )
-  }
-
-  render(): JSX.Element {
-    const {
-      avatar,
-      manaBalances,
-      isSignedIn,
-      isSigningIn,
-      isActivity,
-      hasActivity,
-      newMenu,
-      onSignOut,
-      onSignIn,
-      onClickProfile,
-      onClickActivity,
-      onClickSettings,
-      i18n,
-      menuItems
-    } = this.props
-
-    const { isOpen, isClickable } = this.state
-
-    const name = avatar ? avatar.name : null
-
-    const isSomeBalanceTooHigh = Object.values(manaBalances).some(
-      (balance) => Number(balance.toFixed(2)).toLocaleString().length > 5
-    )
-
-    return (
-      <Column align="right">
-        <Row className="dcl user-menu-wrapper">
-          <Menu.Item
-            className={isActivity ? 'activity-bell active' : 'activity-bell'}
-          >
-            {onClickActivity ? (
-              <Icon
-                className={hasActivity ? 'pending' : ''}
-                name="bell"
-                onClick={onClickActivity}
-              />
-            ) : null}
-          </Menu.Item>
-          <div className="dcl user-menu" onBlur={this.handleClose} tabIndex={0}>
-            {isSignedIn && (
-              <>
-                {this.renderManaBalances()}
-                <div className="toggle" onClick={this.handleToggle}>
-                  <AvatarFace size="medium" avatar={avatar} />
-                </div>
-                <div
-                  className={`menu ${isOpen ? 'open' : ''} ${
-                    isClickable ? 'clickable' : ''
-                  }`}
+  return (
+    <Column align="right">
+      <Row className={classNames('dcl', 'user-menu-wrapper')}>
+        <div
+          className={classNames('dcl', 'user-menu')}
+          onBlur={handleClose}
+          tabIndex={0}
+        >
+          {isDisconnecting ? (
+            <div className="dcl user-menu-loader">
+              <Loader inline active size="medium" />
+            </div>
+          ) : (
+            <>
+              {isSignedIn && (
+                <UserMenuSignedIn
+                  {...signInProps}
+                  manaBalances={manaBalances}
+                  trackingId={trackingId}
+                  isOpen={isOpen}
+                  i18n={i18n}
+                  onClickToggle={handleToggle}
+                  onClickClose={handleClose}
+                  onClickUserMenuItem={onClickUserMenuItem}
+                  onClickBalance={handleClickBalance}
+                />
+              )}
+              {!isSignedIn ? (
+                <Button
+                  inverted
+                  disabled={isSigningIn}
+                  loading={isSigningIn}
+                  onClick={handleClickSignIn}
                 >
-                  <div
-                    className={`info ${onClickProfile ? 'clickable' : ''}`}
-                    onClick={onClickProfile}
-                  >
-                    <div className="image">
-                      <AvatarFace size="small" avatar={avatar} />
-                    </div>
-                    <div>
-                      <div className="name">{name || i18n.guest}</div>
-                    </div>
-                  </div>
-                  <ul className="actions">
-                    {/* TODO: Remove this prop after profile dApps release and leave only the new menu */}
-                    {newMenu
-                      ? this.renderNewMenuOptions()
-                      : this.renderOldMenuOptions()}
-                    {menuItems}
-                    {onClickSettings ? (
-                      <li onClick={onClickSettings}>
-                        <Icon name="cog"></Icon>
-                        {i18n.settings}
-                      </li>
-                    ) : null}
-                    {onSignOut ? (
-                      <li onClick={onSignOut}>
-                        <i className="sign-out-icon" />
-                        {i18n.signOut}
-                      </li>
-                    ) : null}
-                  </ul>
-                </div>
-              </>
-            )}
-            {!isSignedIn && (
-              <Button primary disabled={isSigningIn} onClick={onSignIn}>
-                {i18n.signIn}
-              </Button>
-            )}
-          </div>
-        </Row>
-        {isSignedIn && isSomeBalanceTooHigh && (
-          <Mobile>
-            <Row className="dcl mobile-user-balances-wrapper" align="right">
-              {this.renderManaBalances()}
-            </Row>
-          </Mobile>
-        )}
-      </Column>
-    )
-  }
+                  {i18n.signIn}
+                </Button>
+              ) : null}
+              {isSignedIn && (
+                <Button
+                  className="user-menu__jump-in"
+                  primary
+                  onClick={handleClickJumpIn}
+                  as={'a'}
+                  href={config.get('EXPLORER_URL')}
+                >
+                  {i18n.jumpIn}
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      </Row>
+    </Column>
+  )
+})
+
+function noScroll() {
+  window.scrollTo(0, 0)
 }

@@ -1,0 +1,8 @@
+.dui-info-tooltip__trigger {
+  cursor: pointer;
+  display: inline-flex;
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../images/info.svg');
+}

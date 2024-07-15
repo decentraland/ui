@@ -1,0 +1,16 @@
+.usermenu-story-container {
+  width: 500px;
+  padding: 10px;
+  border: 2px solid #7c7777;
+  border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+  .usermenu-story-container {
+    position: absolute;
+    height: 400px;
+    width: 100vw;
+    top: 100px;
+    left: 0;
+  }
+}

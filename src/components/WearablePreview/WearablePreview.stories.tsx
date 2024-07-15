@@ -269,7 +269,7 @@ UsingOnErrorCallback.storyName = 'Using onError callback'
 
 export const UseAsHero: ComponentStory<typeof WearablePreview> = () => (
   <div className="WearablePreview-story-container">
-    <Navbar isFullscreen activePage="marketplace" />
+    <Navbar activePage="marketplace" />
     <Tabs isFullscreen>
       <Tabs.Tab active>Atlas</Tabs.Tab>
       <Tabs.Tab>Market</Tabs.Tab>
@@ -478,6 +478,27 @@ export const WithEmoteControls: ComponentStory<typeof WearablePreview> = () => {
   )
 }
 WithEmoteControls.storyName = 'With emote controls'
+
+export const WithSound: ComponentStory<typeof WearablePreview> = () => {
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        id="some-id"
+        profile="default"
+        contractAddress="0x8d8a55def3df0f3979819e52d67047e77c12aaaa"
+        itemId="0"
+        dev
+        disableBackground
+        disableAutoRotate
+        disableFace
+        disableDefaultWearables
+        skin="000000"
+      />
+      <EmoteControls wearablePreviewId="some-id" />
+    </div>
+  )
+}
+WithSound.storyName = 'With sound'
 
 export const EmoteEvents: ComponentStory<typeof WearablePreview> = () => {
   const [goTo, setGoTo] = React.useState('0')

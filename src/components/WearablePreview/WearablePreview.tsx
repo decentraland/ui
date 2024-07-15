@@ -17,6 +17,7 @@ import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
 import { createController } from './WearablePreview.controller'
 import './WearablePreview.css'
+import { config } from '../../config'
 
 const debounce = createDebounce()
 
@@ -81,7 +82,7 @@ type WearablePreviewState = {
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
     dev: false,
-    baseUrl: 'https://wearable-preview.decentraland.org',
+    baseUrl: config.get('WEARABLE_PREVIEW_URL'),
     onLoad: () => {},
     onError: () => {},
     onUpdate: () => {}
@@ -385,6 +386,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         height="100%"
         frameBorder="0"
         ref={this.refIframe}
+        allow="autoplay"
       ></iframe>
     )
   }

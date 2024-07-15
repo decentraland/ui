@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Dropdown, DropdownProps } from '../Dropdown/Dropdown'
 import { Header } from '../Header/Header'
 import './SelectField.css'
@@ -8,19 +9,31 @@ export type SelectFieldProps = DropdownProps & {
   error?: boolean
   message?: string
   header?: JSX.Element
+  border?: boolean
 }
 
 export class SelectField extends React.PureComponent<SelectFieldProps> {
   render(): JSX.Element {
-    const { label, header, options, message, error, ...rest } = this.props
-    let classes = 'dcl select-field'
-
-    if (error) {
-      classes += ' error warning circle'
-    }
+    const {
+      label,
+      header,
+      options,
+      message,
+      error,
+      border,
+      className,
+      ...rest
+    } = this.props
 
     return (
-      <div className={classes}>
+      <div
+        className={classNames(
+          'dcl',
+          'select-field',
+          { error: error, warning: error, circle: error, border: border },
+          className
+        )}
+      >
         {label ? <Header sub>{label}</Header> : null}
 
         <Dropdown search selection options={options} {...rest}>

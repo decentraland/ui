@@ -1,0 +1,7 @@
+.radio-options-story {
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #242129;
+  display: flex;
+  flex-direction: column;
+}

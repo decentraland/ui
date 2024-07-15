@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import { Mobile, NotMobile } from '../Media'
 import { Container } from '../Container/Container'
 import './Tabs.css'
@@ -6,6 +7,7 @@ import './Tabs.css'
 export type TabsProps = {
   isFullscreen?: boolean
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  className: string
 }
 
 export class Tabs extends React.PureComponent<TabsProps> {
@@ -36,10 +38,15 @@ export class Tabs extends React.PureComponent<TabsProps> {
   )
 
   render(): JSX.Element {
-    const { children, isFullscreen, onClick } = this.props
+    const { children, isFullscreen, onClick, className } = this.props
     return (
       <div
-        className={`dcl tabs ${isFullscreen ? 'fullscreen' : ''}`}
+        className={classNames(
+          'dcl',
+          'tabs',
+          isFullscreen && 'fullscreen',
+          className
+        )}
         onClick={onClick}
       >
         <NotMobile>

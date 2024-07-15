@@ -1,0 +1,24 @@
+.dui-navbar__menu.dui-navbar__menu-desktop {
+  display: flex;
+  height: 100%;
+}
+
+.dui-navbar__menu.dui-navbar__menu-mobile {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--background);
+  width: 100vw;
+  height: 100vh;
+  top: -150vh;
+  left: 0;
+  transition: top 200ms ease-in-out;
+}
+
+@media (max-width: 991px) {
+  .dui-navbar__menu.dui-navbar__menu-mobile {
+    display: flex;
+  }
+}

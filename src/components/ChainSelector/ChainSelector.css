@@ -1,0 +1,127 @@
+.dui-chain-icon {
+  min-width: 28px;
+  height: 28px;
+}
+
+.dui-chain-selector__modal .ethereum,
+.dui-chain-selector__button .ethereum {
+  background-image: url('../../assets/chains/ethereum.svg');
+}
+
+.dui-chain-selector__modal .bsc,
+.dui-chain-selector__button .bsc {
+  background-image: url('../../assets/chains/bsc.svg');
+}
+
+.dui-chain-selector__modal .optimism,
+.dui-chain-selector__button .optimism {
+  background-image: url('../../assets/chains/optimism.svg');
+}
+
+.dui-chain-selector__modal .polygon,
+.dui-chain-selector__button .polygon {
+  background-image: url('../../assets/chains/polygon.svg');
+}
+
+.dui-chain-selector__modal .fantom,
+.dui-chain-selector__button .fantom {
+  background-image: url('../../assets/chains/fantom.svg');
+}
+
+.dui-chain-selector__modal .arbitrum,
+.dui-chain-selector__button .arbitrum {
+  background-image: url('../../assets/chains/arbitrum.svg');
+}
+
+.dui-chain-selector__modal .avalanche,
+.dui-chain-selector__button .avalanche {
+  background-image: url('../../assets/chains/avalanche.svg');
+}
+
+.ui.button.dui-chain-selector__button {
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  padding: 8px 10px;
+}
+
+.dui-chain-selector__element.dui-chain-selector__element-selected {
+  background-color: var(--navbar-popup-hover);
+}
+
+.ui.button.dui-chain-selector__button .dui-chain-icon {
+  margin-right: 8px;
+}
+
+.dui-chain-selector__list {
+  padding-left: 0;
+}
+
+.dui-chain-selector__element {
+  background: none;
+  border-radius: 12px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin: 8px 0;
+  height: 40px;
+  padding: 6px 8px;
+  border: none;
+  color: white;
+  width: 100%;
+  text-wrap: nowrap;
+}
+
+.dui-chain-selector__element:hover {
+  background-color: var(--navbar-popup-hover);
+}
+
+.dui-chain-selector__element .dui-chain-icon {
+  margin-right: 8px;
+}
+
+.dui-chain-selector__modal.ui.modal {
+  width: 360px;
+}
+
+.dui-chain-selector__modal.ui.modal .content {
+  margin: 20px;
+}
+
+.selector__button-connected {
+  font-size: 14px;
+  margin-left: auto;
+  text-wrap: wrap;
+}
+
+.selector__button-connected-circle {
+  min-width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--rare);
+  margin-left: 8px;
+}
+
+.selector__button-confirm-circle {
+  min-width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--unique);
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 991px) {
+  .ui.button.dui-chain-selector__button {
+    min-width: 50px;
+  }
+
+  .ui.button.dui-chain-selector__button .dui-chain-icon {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dui-chain-selector__modal.ui.modal .content {
+    margin: 0;
+  }
+}

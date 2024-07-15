@@ -1,9 +1,10 @@
 .Navbar-story-container {
-  position: relative;
-  border: 1px solid var(--divider);
+  position: absolute;
   overflow: hidden;
-  width: 1196px;
-  height: 450px;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
 }
 
 .Navbar-story-container .color-layer {
@@ -39,7 +40,7 @@
   filter: var(--pyramid-large-brightness);
 }
 
-.Navbar-story-container .dcl.navbar .dcl.hero {
+.Navbar-story-container .dcl.Navbar .dcl.hero {
   background-color: #f2f2f5;
 }
 

@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const postcssAssets = require('postcss-assets')
+const postcssCopy = require('postcss-copy')
+const postcss = require('postcss')
 const path = require('path')
 
 module.exports = {
@@ -75,6 +77,25 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new CopyWebpackPlugin([{ from: 'src/themes/alternative', to: '.' }])
+    new CopyWebpackPlugin([{ 
+        from: 'src/themes/alternative', 
+        to: './',
+        // transform themes file because now they contain a relative path to the assets
+        transform: (content, path) => {
+            return postcss([
+              postcssPresetEnv({
+                stage: 4
+              }),
+              postcssAssets(),
+              postcssCopy({
+                dest: './lib/'
+              })
+            ])
+            .process(content, { from: path })
+            .then(result => {
+              return result.css
+            })
+        }}
+    ])
   ]
 }

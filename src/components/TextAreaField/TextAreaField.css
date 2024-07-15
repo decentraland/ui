@@ -4,11 +4,16 @@
 }
 
 .dcl.text-area > .title {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   font-size: 13px;
   font-family: var(--font-family);
   color: var(--secondary-text);
   display: flex;
+  align-items: center;
+}
+
+.dcl.text-area > .title > .dui-info-tooltip__trigger {
+  margin-left: 7px;
 }
 
 .dcl.text-area > .title > .maxLength {
@@ -23,18 +28,42 @@
 .dcl.text-area > textarea {
   font-family: var(--font-family);
   resize: none;
-  border: 1px solid var(--text-area-border);
+  border: 2px solid var(--text-area-border);
   border-radius: 6px;
   padding: 10px;
   color: var(--text);
   background: none;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 24px;
+}
+
+.ui.form textarea::placeholder {
+  color: #c7c7c7;
+}
+
+.ui.form textarea:-ms-input-placeholder {
+  color: #c7c7c7;
+}
+
+.ui.form textarea::-webkit-input-placeholder {
+  color: #c7c7c7;
+}
+
+.dcl.text-area > textarea::placeholder {
+  color: #c7c7c7;
+}
+
+.dcl.text-area > textarea:-ms-input-placeholder {
+  color: #c7c7c7;
+}
+
+.dcl.text-area > textarea::-webkit-input-placeholder {
+  color: #c7c7c7;
 }
 
 .ui.form textarea:focus,
 .dcl.text-area > textarea:focus {
-  border: 1px solid var(--text);
+  border: 2px solid var(--text);
   background: none;
   color: var(--text);
   outline: none !important;

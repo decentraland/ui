@@ -9,15 +9,18 @@ const textAreaValue =
   ', when an unknown printer took a galley of type and scrambled'
 
 storiesOf('TextArea', module)
-  .add('Text area without label', () => (
+  .add('Placeholder', () => (
+    <TextAreaField placeholder={textAreaValue} rows="10" cols="50" />
+  ))
+  .add('Without label', () => (
     <TextAreaField value={textAreaValue} rows="10" cols="50" />
   ))
-  .add('Text area without label in form', () => (
+  .add('Without label in form', () => (
     <Form>
       <TextAreaField value={textAreaValue} rows="10" cols="50" />
     </Form>
   ))
-  .add('Text area with label', () => (
+  .add('With label', () => (
     <TextAreaField
       value={textAreaValue}
       label="Description"
@@ -25,10 +28,23 @@ storiesOf('TextArea', module)
       cols="50"
     />
   ))
-  .add('Text area without label and max length', () => (
+  .add('With tooltip', () => (
+    <TextAreaField
+      value={textAreaValue}
+      label="Description"
+      rows="10"
+      cols="50"
+      maxLength={300}
+      tooltip={{
+        content: 'This is a tooltip',
+        position: 'top center'
+      }}
+    />
+  ))
+  .add('Without label and max length', () => (
     <TextAreaField maxLength={300} value={textAreaValue} rows="10" cols="50" />
   ))
-  .add('Text area with label and max length', () => (
+  .add('With label and max length', () => (
     <TextAreaField
       maxLength={300}
       label="Description"
@@ -37,7 +53,7 @@ storiesOf('TextArea', module)
       cols="50"
     />
   ))
-  .add('Text area with label in form', () => (
+  .add('With label in form', () => (
     <Form>
       <TextAreaField
         value={textAreaValue}
@@ -47,7 +63,7 @@ storiesOf('TextArea', module)
       />
     </Form>
   ))
-  .add('Text area with error, warning or info', () => (
+  .add('With error, warning or info', () => (
     <>
       <TextAreaField
         value={textAreaValue}

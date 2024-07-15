@@ -1,0 +1,30 @@
+.dui-rarity-filter {
+  padding: 21px 24px;
+  background: #242129;
+  border: none;
+}
+
+.dui-rarity-filter__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
+  .dui-rarity-filter__header {
+    gap: 5px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .dui-rarity-filter__header {
+    justify-content: space-between;
+    text-transform: none;
+    font-size: 17px;
+  }
+
+  .dui-rarity-filter__name {
+    color: #fff;
+  }
+}

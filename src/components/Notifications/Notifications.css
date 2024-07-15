@@ -1,0 +1,73 @@
+.dcl.notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.dcl.notifications > div:first-child {
+  width: 32px;
+  height: 32px;
+}
+
+.dcl.notifications-bell {
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: filter 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.dcl.notifications-bell.notifications-active {
+  animation: shake 0.8s;
+  animation-iteration-count: 4;
+}
+
+.dcl.notifications-counter {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: -24px;
+  left: 19px;
+  cursor: pointer;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-2px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}

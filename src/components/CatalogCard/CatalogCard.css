@@ -13,7 +13,7 @@
   color: var(--text);
 }
 
-.CatalogCard .AssetImage {
+.CatalogCard .dui-asset-image {
   border-radius: 8px 0px 8px 0px;
   height: 209px;
   transition: height 0.3s;
@@ -21,16 +21,6 @@
 }
 
 .CatalogCard .badge {
-  display: inline-flex;
-  align-items: center;
-  text-transform: uppercase;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 3px 6px;
-  height: 24px;
-  font-size: 13px;
-  color: white;
-  width: fit-content;
   margin-top: 10px;
 }
 
@@ -102,7 +92,7 @@
   border: none !important;
 }
 
-.CatalogCard:hover .AssetImage {
+.CatalogCard:hover .dui-asset-image {
   height: 161px;
 }
 
@@ -166,8 +156,8 @@
     opacity: 1;
   }
 
-  .AssetImage.catalog,
-  .AssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 
@@ -215,8 +205,8 @@
     display: block;
   }
 
-  .AssetImage.catalog,
-  .AssetImage .image {
+  .dui-asset-image.catalog,
+  .dui-asset-image__image {
     height: 123px;
   }
 }

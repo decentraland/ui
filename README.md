@@ -117,11 +117,14 @@ Or you can create your own theme like this:
   --toast-text: #ffffff;
   --modal: #ffffff;
   --dimmer: #ffffffdd;
+  --clear-divider: #a09ba8;
+
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
   --shadow-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
   --shadow-3: 0px 16px 32px 0px rgba(0, 0, 0, 0.16);
+  --shadow-4: 0px 8px 16px 12px rgba(0, 0, 0, 0.1);
 
   --shadow-color-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
   --shadow-color-2: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
@@ -133,6 +136,8 @@ Or you can create your own theme like this:
 ```
 
 ## Development
+
+Prerequisites: Node.js v16 (or compatible)
 
 Install dependencies and start Storybook:
 

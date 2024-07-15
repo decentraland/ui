@@ -1,0 +1,204 @@
+.dui-nft-card.ui.card {
+  margin: 0;
+  height: fit-content;
+}
+
+.ui.cards > .dui-nft-card.ui.card.link:hover,
+.dui-nft-card.ui.card.link:hover {
+  border: 0 !important; /** override Card important style */
+}
+
+.dui-nft-card.ui.link.card:hover,
+.dui-nft-card.a.ui.card:hover {
+  background-color: var(--card);
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 6px rgba(255, 255, 255, 0.37);
+  border-color: transparent;
+}
+
+.dui-nft-card .dui-nft-card__image {
+  height: 200px;
+}
+
+.dui-nft-card__information {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dui-nft-card > .dui-nft-card__information::after {
+  content: unset !important;
+}
+
+.dui-nft-card__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dui-nft-card__price.ui.header {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+.dui-nft-card__title {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  flex: 1;
+}
+
+.dui-nft-card__subtitle {
+  color: var(--gray-4, #cfcdd4);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dui-nft-card__badges {
+  display: flex;
+  gap: 5px;
+}
+
+.dui-nft-card__badge {
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dui-nft-card__badge--only-icon {
+  padding: 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  min-width: 30px;
+}
+
+.dui-nft-card__badge--only-icon .dui-nft-card__badge-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.dui-nft-card__badge .dui-nft-card__badge-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.dui-nft-card__badge-icon {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.dui-nft-card__badge-icon--parcel {
+  background-image: url('../../assets/pin-land.svg');
+}
+
+.dui-nft-card__badge-icon--male {
+  background-image: url(../../assets/wearables/MaleIcon.svg);
+}
+
+.dui-nft-card__badge-icon--female {
+  background-image: url(../../assets/wearables/FemaleIcon.svg);
+}
+
+.dui-nft-card__badge-icon--unisex {
+  background-image: url(../../assets/wearables/UnisexIcon.svg);
+}
+
+.dui-nft-card__badge-icon--body_shape {
+  background-image: url(../../assets/wearables/BodyShapeIcon.svg);
+}
+
+.dui-nft-card__badge-icon--earring {
+  background-image: url(../../assets/wearables/EarringsIcon.svg);
+}
+
+.dui-nft-card__badge-icon--eyebrows {
+  background-image: url(../../assets/wearables/EyebrowIcon.svg);
+}
+
+.dui-nft-card__badge-icon--eyes {
+  background-image: url(../../assets/wearables/EyesIcon.svg);
+}
+
+.dui-nft-card__badge-icon--eyewear {
+  background-image: url(../../assets/wearables/EyewearIcon.svg);
+}
+
+.dui-nft-card__badge-icon--facial_hair {
+  background-image: url(../../assets/wearables/FacilHairIcon.svg);
+}
+
+.dui-nft-card__badge-icon--feet {
+  background-image: url(../../assets/wearables/FeetIcon.svg);
+}
+
+.dui-nft-card__badge-icon--hair {
+  background-image: url(../../assets/wearables/HairIcon.svg);
+}
+
+.dui-nft-card__badge-icon--hat {
+  background-image: url(../../assets/wearables/HatIcon.svg);
+}
+
+.dui-nft-card__badge-icon--helmet {
+  background-image: url(../../assets/wearables/HelmetIcon.svg);
+}
+
+.dui-nft-card__badge-icon--lower_body {
+  background-image: url(../../assets/wearables/LowerBodyIcon.svg);
+}
+
+.dui-nft-card__badge-icon--mask {
+  background-image: url(../../assets/wearables/MaskIcon.svg);
+}
+
+.dui-nft-card__badge-icon--mouth {
+  background-image: url(../../assets/wearables/MouthIcon.svg);
+}
+
+.dui-nft-card__badge-icon--tiara {
+  background-image: url(../../assets/wearables/TiaraIcon.svg);
+}
+
+.dui-nft-card__badge-icon--top_head {
+  background-image: url(../../assets/wearables/TopHeadIcon.svg);
+}
+
+.dui-nft-card__badge-icon--upper_body {
+  background-image: url(../../assets/wearables/UpperBodyIcon.svg);
+}
+
+.dui-nft-card__badge-icon--skin {
+  background-image: url(../../assets/wearables/SkinIcon.svg);
+}
+
+.dui-nft-card__badge-icon--hands_wear {
+  background-image: url(../../assets/wearables/HandsIcon.svg);
+}
+
+.dui-nft-card__badge-icon--once {
+  background-image: url(../../assets/emotes/play-once.svg);
+  filter: brightness(0) invert(1);
+}
+
+.dui-nft-card__badge-icon--loop {
+  background-image: url(../../assets/emotes/play-loop.svg);
+  filter: brightness(0) invert(1);
+}
+
+.dui-nft-card__badge-icon--sound {
+  background-image: url(../../assets/emotes/sound.svg);
+}

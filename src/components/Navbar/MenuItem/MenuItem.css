@@ -1,0 +1,33 @@
+.dui-menu-item .dui-icon-container.centered {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.dui-menu-item .dui-icon-container.centered svg path:nth-child(2) {
+  fill: var(--navbar-item-text-enabled);
+}
+
+.dui-menu-item.active .dui-icon-container.centered svg path:nth-child(2),
+.dui-menu-item:hover .dui-icon-container.centered svg path:nth-child(2) {
+  fill: var(--text);
+}
+
+@media (max-width: 991px) {
+  .item.dui-menu-item.mobile {
+    cursor: pointer;
+    text-transform: capitalize;
+    padding: 40px 0 23.66px;
+    display: flex;
+    align-items: center;
+    border-bottom-color: var(--navbar-menu-hover);
+    color: var(--navbar-menu-hover);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    border-bottom-style: solid;
+    width: calc(100% - 50px);
+    margin: 0 25px;
+    justify-content: space-between;
+  }
+}

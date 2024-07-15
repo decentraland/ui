@@ -1,7 +1,7 @@
 .dcl.smart-icon {
   position: relative;
   display: inline-block;
-  background-image: url(./smart.svg);
+  background-image: url(../../images/wearables/smart.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
