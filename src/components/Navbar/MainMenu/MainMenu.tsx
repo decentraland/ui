@@ -1,9 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import { config } from '../../../config'
 import { MenuItem } from '../MenuItem/MenuItem'
-import { NavbarPages, NavbarPagesUrls } from '../Navbar.types'
+import { NavbarPages, NavbarPagesUrl } from '../Navbar.types'
 import { MainMenuProps } from './MainMenu.types'
 
 import './MainMenu.css'
@@ -23,35 +22,31 @@ export const MainMenu = (props: MainMenuProps) => {
         {...menuItemProps}
         section={NavbarPages.MARKETPLACE}
         title={i18n.marketplace}
-        mainUrl={config.get(
-          NavbarPagesUrls[NavbarPages.MARKETPLACE.toUpperCase()]
-        )}
+        mainUrl={NavbarPagesUrl[NavbarPages.MARKETPLACE]}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.CREATE}
         title={i18n.create}
-        mainUrl={config.get(NavbarPagesUrls[NavbarPages.CREATE.toUpperCase()])}
+        mainUrl={NavbarPagesUrl[NavbarPages.CREATE]}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.EXPLORE}
         title={i18n.explore}
-        mainUrl={config.get(NavbarPagesUrls[NavbarPages.EXPLORE.toUpperCase()])}
+        mainUrl={NavbarPagesUrl[NavbarPages.EXPLORE]}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.LEARN}
         title={i18n.learn}
-        mainUrl={config.get(NavbarPagesUrls[NavbarPages.LEARN.toUpperCase()])}
+        mainUrl={NavbarPagesUrl[NavbarPages.LEARN]}
       />
       <MenuItem
         {...menuItemProps}
         section={NavbarPages.GOVERNANCE}
         title={i18n.governance}
-        mainUrl={config.get(
-          NavbarPagesUrls[NavbarPages.GOVERNANCE.toUpperCase()]
-        )}
+        mainUrl={NavbarPagesUrl[NavbarPages.GOVERNANCE]}
       />
     </div>
   )

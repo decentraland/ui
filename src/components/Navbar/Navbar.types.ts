@@ -3,6 +3,7 @@ import {
   ChainSelectorProps,
   ChainSelectori18n
 } from '../ChainSelector/ChainSelector.props'
+import { config } from '../../config'
 
 export enum NavbarPages {
   MARKETPLACE = 'marketplace',
@@ -12,12 +13,12 @@ export enum NavbarPages {
   GOVERNANCE = 'governance'
 }
 
-export enum NavbarPagesUrls {
-  MARKETPLACE = 'MARKETPLACE_URL',
-  CREATE = 'LANDING_CREATORS_URL',
-  EXPLORE = 'EVENTS_URL',
-  LEARN = 'DOCS_ABOUT_URL',
-  GOVERNANCE = 'GOVERNANCE_URL'
+export const NavbarPagesUrl: Record<NavbarPages, string> = {
+  [NavbarPages.MARKETPLACE]: config.get('MARKETPLACE_URL'),
+  [NavbarPages.CREATE]: config.get('LANDING_CREATORS_URL'),
+  [NavbarPages.EXPLORE]: config.get('EVENTS_URL'),
+  [NavbarPages.LEARN]: config.get('DOCS_ABOUT_URL'),
+  [NavbarPages.GOVERNANCE]: config.get('GOVERNANCE_URL')
 }
 
 export type NavbarMenuI18nProps = Record<NavbarPages, NavbarPages>
