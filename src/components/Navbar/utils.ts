@@ -6,7 +6,7 @@ export const getNavbarPagesUrls = () => {
     [NavbarPages.MARKETPLACE]: config.get('MARKETPLACE_URL'),
     [NavbarPages.CREATE]: config.get('LANDING_CREATORS_URL'),
     [NavbarPages.EXPLORE]: config.get('EVENTS_URL'),
-    [NavbarPages.LEARN]: config.get('DOCS_ABOUT_URL'),
+    [NavbarPages.LEARN]: config.get('DOCS_URL'),
     [NavbarPages.GOVERNANCE]: config.get('GOVERNANCE_URL')
   }
 }
