@@ -1,6 +1,6 @@
 import { config } from '../../config'
 import { ChainSelectori18n } from '../ChainSelector/ChainSelector.props'
-import { NavbarSubmenuProps, NavbarMenuI18nProps } from './Navbar.types'
+import { NavbarMenuI18nProps, NavbarSubmenuProps } from './Navbar.types'
 
 export const navbarMainTitlesI18N = {
   marketplace: 'marketplace',
@@ -180,8 +180,9 @@ export const navbarSubmenu = {
     column1: [
       {
         title: 'Overview',
-        description: 'The latest in Decentraland governance',
-        url: config.get('GOVERNANCE_URL'),
+        description:
+          'Learn more about the DAO and what it does for the Decentraland ecosystem',
+        url: config.get('DAO_URL'),
         eventTrackingName: 'governance_overview'
       },
       {
@@ -215,7 +216,7 @@ export const navbarSubmenu = {
       },
       {
         title: 'DAO Docs',
-        description: 'Learn about the DAO & how to participate',
+        description: 'Read more about how the DAO works and how to participate',
         url: config.get('DOCS_DAO_URL'),
         eventTrackingName: 'docs_dao'
       }
