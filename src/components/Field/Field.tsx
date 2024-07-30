@@ -21,7 +21,7 @@ export type FieldProps = InputProps & {
   label?: string
   /** Boolean flag to show an error, default on false*/
   error?: boolean
-  /** Message to display below the input*/
+  /** Message to display below the input */
   message?: React.ReactNode
   /** Button text to display before input to dispatch an action*/
   action?: string
@@ -114,6 +114,7 @@ export class Field extends React.PureComponent<FieldProps> {
       label,
       error,
       warning,
+      message,
       info,
       type,
       loading,
@@ -129,7 +130,7 @@ export class Field extends React.PureComponent<FieldProps> {
     } = this.props
 
     const isAddress = this.isAddress()
-    const icon = error && !isAddress ? 'warning circle' : void 0
+    const icon = error && !message && !isAddress ? 'warning circle' : void 0
     const classes = classnames('dcl field', kind, {
       error,
       warning: !error && warning,
