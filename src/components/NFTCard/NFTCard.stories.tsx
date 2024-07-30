@@ -15,7 +15,7 @@ export const Wearable = Template.bind({})
 Wearable.args = {
   price: '10',
   nft: {
-    id: 'wearable-test',
+    id: 'wearable-test-1',
     tokenId: '1',
     contractAddress: '0xaa40af0b4a18e0555ff3c87beab1d5b591947add',
     category: 'wearable',
