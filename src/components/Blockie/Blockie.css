@@ -5,6 +5,10 @@
   margin-left: 0.1em;
 }
 
+.dcl.blockie.circle {
+  border-radius: 50% !important;
+}
+
 .dcl.blockie.small {
   border-radius: 4px;
 }
