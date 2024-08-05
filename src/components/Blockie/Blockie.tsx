@@ -82,7 +82,7 @@ export class Blockie extends React.PureComponent<BlockieProps> {
           'dcl blockie',
           className,
           shape === 'circle' && 'circle',
-          scaleClass
+          shape !== 'circle' && scaleClass
         )}
         ref={this.canvas}
       />
