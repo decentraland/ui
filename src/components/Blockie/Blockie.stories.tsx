@@ -18,6 +18,7 @@ storiesOf('Blockie', module)
       <Blockie seed={address} scale={21} />
     </>
   ))
+  .add('Circular shape', () => <Blockie seed={address} shape="circle" />)
   .add('In a paragraph', () => (
     <p>
       You've transfered <Mana inline>1,000</Mana> to{' '}

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as blockies from 'ethereum-blockies/blockies'
 import './Blockie.css'
+import classNames from 'classnames'
 
 export type BlockieProps = {
   seed: string
@@ -9,6 +10,7 @@ export type BlockieProps = {
   bgcolor?: string
   size?: number
   scale?: number
+  shape?: 'circle' | 'square'
   className?: string
   children?: React.ReactNode
 }
@@ -63,18 +65,28 @@ export class Blockie extends React.PureComponent<BlockieProps> {
   }
 
   render(): JSX.Element {
-    const { size, scale, children, className } = this.props
+    const { size, scale, shape, children, className } = this.props
 
-    let classes = `dcl blockie ${className}`.trim()
+    let scaleClass = ''
     if (scale * size <= 16) {
-      classes += ' mini'
+      scaleClass += ' mini'
     } else if (scale * size <= 24) {
-      classes += ' tiny'
+      scaleClass += ' tiny'
     } else if (scale * size <= 36) {
-      classes += ' small'
+      scaleClass += ' small'
     }
 
-    const canvas = <canvas className={classes} ref={this.canvas} />
+    const canvas = (
+      <canvas
+        className={classNames(
+          'dcl blockie',
+          className,
+          shape === 'circle' && 'circle',
+          shape !== 'circle' && scaleClass
+        )}
+        ref={this.canvas}
+      />
+    )
 
     if (children) {
       return (
