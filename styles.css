@@ -1819,6 +1819,10 @@ a.ui.card:hover,
   margin-left: 0.1em;
 }
 
+.dcl.blockie.circle {
+  border-radius: 50%;
+}
+
 .dcl.blockie.small {
   border-radius: 4px;
 }
