@@ -86,6 +86,8 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [NotificationType.LAND_RENTED]: LandRentedNotification,
     [NotificationType.LAND_RENTAL_ENDED]: LandRentalEndedNotification,
     [NotificationType.REWARD_ASSIGNED]: RewardAssignedNotification,
+    [NotificationType.REWARD_IN_PROGRESS]: null,
+    [NotificationType.BADGE_GRANTED]: null,
     [NotificationType.EVENTS_STARTS_SOON]: EventsStartsSoonNotification,
     [NotificationType.EVENTS_STARTED]: EventsStartedNotification,
     [NotificationType.WORLDS_PERMISSION_GRANTED]:
