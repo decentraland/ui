@@ -126,6 +126,16 @@ export type GovernanceTenderPassedNotification = RawDecentralandNotification<
   CommonGovernanceNotificationMetadata
 >
 
+export type GovernanceVotedOnBehalfNotification = RawDecentralandNotification<
+  NotificationType.GOVERNANCE_VOTED_ON_BEHALF,
+  CommonGovernanceNotificationMetadata
+>
+
+export type GovernanceWhaleVoteNotification = RawDecentralandNotification<
+  NotificationType.GOVERNANCE_WHALE_VOTE,
+  CommonGovernanceNotificationMetadata
+>
+
 type GovernanceNotifications =
   | GovernanceAnnouncementNotification
   | GovernanceProposalEnactedNotification
@@ -136,6 +146,8 @@ type GovernanceNotifications =
   | GovernanceNewCommentOnProjectUpdateNotification
   | GovernancePitchPassedNotification
   | GovernanceTenderPassedNotification
+  | GovernanceVotedOnBehalfNotification
+  | GovernanceWhaleVoteNotification
 
 // Worlds Notifications
 

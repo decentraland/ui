@@ -22,7 +22,9 @@ import {
   GovernancePitchPassedNotification,
   GovernanceTenderPassedNotification,
   WorldsPermissionGrantedNotification,
-  WorldsPermissionRevokedNotification
+  WorldsPermissionRevokedNotification,
+  GovernanceWhaleVoteNotification,
+  GovernanceVotedOnBehalfNotification
 } from './NotificationTypes'
 import { shorten } from '../AddressField/utils'
 
@@ -528,6 +530,44 @@ storiesOf('Notifications Toggle', module)
             id: 'AA',
             read: true,
             type: NotificationType.GOVERNANCE_TENDER_PASSED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceWhaleVoteNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.GOVERNANCE_WHALE_VOTE,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceVotedOnBehalfNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.GOVERNANCE_VOTED_ON_BEHALF,
             address: '0xA',
             timestamp: new Date().getTime(),
             metadata: {
