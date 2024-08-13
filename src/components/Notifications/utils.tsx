@@ -25,7 +25,9 @@ import {
   EventsStartsSoonNotification,
   RewardAssignedNotification,
   WorldsPermissionGrantedNotification,
-  WorldsPermissionRevokedNotification
+  WorldsPermissionRevokedNotification,
+  GovernanceWhaleVoteNotification,
+  GovernanceVotedOnBehalfNotification
 } from './NotificationTypes'
 import { FunctionComponent } from 'react'
 
@@ -73,6 +75,9 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       GovernancePitchPassedNotification,
     [NotificationType.GOVERNANCE_TENDER_PASSED]:
       GovernanceTenderPassedNotification,
+    [NotificationType.GOVERNANCE_WHALE_VOTE]: GovernanceWhaleVoteNotification,
+    [NotificationType.GOVERNANCE_VOTED_ON_BEHALF]:
+      GovernanceVotedOnBehalfNotification,
     [NotificationType.WORLDS_MISSING_RESOURCES]:
       WorldsMissingResourcesNotification,
     [NotificationType.WORLDS_ACCESS_RESTORED]: WorldsAccessRestoredNotification,
@@ -81,6 +86,8 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [NotificationType.LAND_RENTED]: LandRentedNotification,
     [NotificationType.LAND_RENTAL_ENDED]: LandRentalEndedNotification,
     [NotificationType.REWARD_ASSIGNED]: RewardAssignedNotification,
+    [NotificationType.REWARD_IN_PROGRESS]: null,
+    [NotificationType.BADGE_GRANTED]: null,
     [NotificationType.EVENTS_STARTS_SOON]: EventsStartsSoonNotification,
     [NotificationType.EVENTS_STARTED]: EventsStartedNotification,
     [NotificationType.WORLDS_PERMISSION_GRANTED]:
