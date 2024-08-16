@@ -18,6 +18,7 @@ import GovernanceTenderPassedNotification from './Governance/GovernanceTenderPas
 import GovernancePitchPassedNotification from './Governance/GovernancePitchPassedNotification'
 import GovernanceVotedOnBehalfNotification from './Governance/GovernanceVotedOnBehalfNotification'
 import GovernanceWhaleVoteNotification from './Governance/GovernanceWhaleVoteNotification'
+import GovernanceCliffEndedNotification from './Governance/GovernanceCliffEndedNotification'
 import LandRentedNotification from './Land/LandRentedNotification'
 import LandRentalEndedNotification from './Land/LandRentalEndedNotification'
 import RewardAssignedNotification from './Reward/RewardAssignedNotification'
@@ -43,6 +44,7 @@ export {
   GovernanceTenderPassedNotification,
   GovernanceVotedOnBehalfNotification,
   GovernanceWhaleVoteNotification,
+  GovernanceCliffEndedNotification,
   LandRentalEndedNotification,
   LandRentedNotification,
   RewardAssignedNotification,
