@@ -8,6 +8,7 @@ import {
   GovernanceAnnouncementNotification,
   GovernanceAuthoredProposalFinishedNotification,
   GovernanceCoauthorRequestedNotification,
+  GovernanceCliffEndedNotification,
   GovernanceNewCommentOnProposalNotification,
   GovernanceNewCommentOnProjectUpdateNotification,
   GovernanceProposalEnactedNotification,
@@ -76,6 +77,7 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [NotificationType.GOVERNANCE_TENDER_PASSED]:
       GovernanceTenderPassedNotification,
     [NotificationType.GOVERNANCE_WHALE_VOTE]: GovernanceWhaleVoteNotification,
+    [NotificationType.GOVERNANCE_CLIFF_ENDED]: GovernanceCliffEndedNotification,
     [NotificationType.GOVERNANCE_VOTED_ON_BEHALF]:
       GovernanceVotedOnBehalfNotification,
     [NotificationType.WORLDS_MISSING_RESOURCES]:

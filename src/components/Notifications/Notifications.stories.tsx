@@ -9,6 +9,7 @@ import { getBGColorByRarity } from './utils'
 import GovernanceAnnouncementNotification from './NotificationTypes/Governance/GovernanceAnnouncementNotification'
 import GovernanceAuthoredProposalFinishedNotification from './NotificationTypes/Governance/GovernanceAuthoredProposalFinishedNotification'
 import GovernanceCoauthorRequestedNotification from './NotificationTypes/Governance/GovernanceCoauthorRequestedNotification'
+import GovernanceCliffEndedNotification from './NotificationTypes/Governance/GovernanceCliffEndedNotification'
 import GovernanceNewCommentOnProposalNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProposalNotification'
 import GovernanceNewCommentOnProjectUpdateNotification from './NotificationTypes/Governance/GovernanceNewCommentOnProjectUpdateNotification'
 import GovernanceVotingEndedVoterNotification from './NotificationTypes/Governance/GovernanceVotingEndedVoterNotification'
@@ -572,6 +573,25 @@ storiesOf('Notifications Toggle', module)
             timestamp: new Date().getTime(),
             metadata: {
               link: 'https://decentraland.org/governance',
+              title: 'Test Governance Announcement',
+              description: 'Test description',
+              proposalId: 'AAA_PROPOSAL_111',
+              proposalTitle: 'Open Source all code using DAO funds'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+        />
+        <GovernanceCliffEndedNotification
+          locale="en"
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.GOVERNANCE_CLIFF_ENDED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              link: 'https://decentraland.org/vesting/#/0xa85f9e1369031d52d14d13d346cb9bdc6ae7baec',
               title: 'Test Governance Announcement',
               description: 'Test description',
               proposalId: 'AAA_PROPOSAL_111',

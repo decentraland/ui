@@ -136,10 +136,16 @@ export type GovernanceWhaleVoteNotification = RawDecentralandNotification<
   CommonGovernanceNotificationMetadata
 >
 
+export type GovernanceCliffEndedNotification = RawDecentralandNotification<
+  NotificationType.GOVERNANCE_CLIFF_ENDED,
+  CommonGovernanceNotificationMetadata
+>
+
 type GovernanceNotifications =
   | GovernanceAnnouncementNotification
   | GovernanceProposalEnactedNotification
   | GovernanceCoauthorRequestedNotification
+  | GovernanceCliffEndedNotification
   | GovernanceAuthoredProposalFinishedNotification
   | GovernanceVotingEndedVoterNotification
   | GovernanceNewCommentOnProposalNotification
