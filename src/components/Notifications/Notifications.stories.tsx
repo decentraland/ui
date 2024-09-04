@@ -28,6 +28,11 @@ import {
   GovernanceVotedOnBehalfNotification
 } from './NotificationTypes'
 import { shorten } from '../AddressField/utils'
+import RewardInProgressNotification from './NotificationTypes/Reward/RewardInProgressNotification'
+import RewardDelayedNotification from './NotificationTypes/Reward/RewardDelayedNotification'
+import CampaignOutOfStockNotification from './NotificationTypes/Reward/CampaignOutOfStockNotification'
+import CampaignOutOfFundsNotification from './NotificationTypes/Reward/CampaignOutOfFundsNotification'
+import CampaignGasPriceHigherThanExpectedNotification from './NotificationTypes/Reward/CampaignGasPriceHigherThanExpectedNotification'
 
 storiesOf('Notifications Toggle', module)
   .add('Without new notifications', () => {
@@ -676,6 +681,97 @@ storiesOf('Notifications Toggle', module)
                 'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
               tokenRarity: 'epic' as Rarity,
               tokenName: 'Green Atari Tee'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <RewardInProgressNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.REWARD_IN_PROGRESS,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              tokenImage:
+                'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
+              tokenRarity: 'epic' as Rarity,
+              tokenName: 'Green Atari Tee'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+
+        <RewardDelayedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.REWARD_DELAYED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              tokenImage:
+                'https://peer.decentraland.org/lambdas/collections/contents/urn:decentraland:ethereum:collections-v1:atari_launch:atari_green_upper_body/thumbnail',
+              tokenRarity: 'epic' as Rarity,
+              tokenName: 'Green Atari Tee'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+      </div>
+    )
+  })
+  .add('Campaign Notifications', () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <CampaignOutOfStockNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.REWARD_CAMPAIGN_OUT_OF_STOCK,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              campaignName: 'Cool Campaign',
+              link: 'https://decentraland.zone/rewards/campaign/?id=e9b39fdb-1bf1-490a-855e-f5e6c63a4525'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <CampaignOutOfFundsNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.REWARD_CAMPAIGN_OUT_OF_FUNDS,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              campaignName: 'Cool Campaign',
+              link: 'https://decentraland.zone/rewards/campaign/?id=e9b39fdb-1bf1-490a-855e-f5e6c63a4525'
+            },
+            created_at: '2023-11-29T12:51:00.600Z',
+            updated_at: '2023-11-29T12:51:00.600Z'
+          }}
+          locale="en"
+        />
+        <CampaignGasPriceHigherThanExpectedNotification
+          notification={{
+            id: 'AA',
+            read: true,
+            type: NotificationType.REWARD_CAMPAIGN_GAS_PRICE_HIGHER_THAN_EXPECTED,
+            address: '0xA',
+            timestamp: new Date().getTime(),
+            metadata: {
+              campaignName: 'Cool Campaign',
+              link: 'https://decentraland.zone/rewards/campaign/?id=e9b39fdb-1bf1-490a-855e-f5e6c63a4525'
             },
             created_at: '2023-11-29T12:51:00.600Z',
             updated_at: '2023-11-29T12:51:00.600Z'
