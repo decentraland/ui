@@ -52,8 +52,7 @@ export default function CampaignGasPriceHigherThanExpectedNotification({
   return (
     <NotificationItem
       image={{
-        // image: TODO maybe using a common image for all campaign related notifications
-        image: <Reward /> // This should be the icon
+        image: <Reward width="48" height="48" />
       }}
       timestamp={notification.timestamp}
       isNew={!notification.read}
