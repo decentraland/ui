@@ -235,21 +235,55 @@ type LandNotifications = LandRentedNotification | LandRentalEndedNotification
 
 // Reward Notifications
 
+type CommonRewardsMetadata = {
+  tokenName: string
+  tokenImage: string
+  tokenRarity: Rarity
+}
+
+type CommonCampaignMetadata = {
+  link?: string
+  campaignName: string
+}
+
 export type RewardAssignedNotification = RawDecentralandNotification<
   NotificationType.REWARD_ASSIGNED,
-  {
-    tokenName: string
-    tokenImage: string
-    tokenRarity: Rarity
-  }
+  CommonRewardsMetadata
 >
+
+export type RewardInProgressNotification = RawDecentralandNotification<
+  NotificationType.REWARD_IN_PROGRESS,
+  CommonRewardsMetadata
+>
+
+export type RewardDelayedNotification = RawDecentralandNotification<
+  NotificationType.REWARD_DELAYED,
+  CommonRewardsMetadata
+>
+
+export type CampaignOutOfStockNotification = RawDecentralandNotification<
+  NotificationType.REWARD_CAMPAIGN_OUT_OF_STOCK,
+  CommonCampaignMetadata
+>
+
+export type CampaignOutOfFundsNotification = RawDecentralandNotification<
+  NotificationType.REWARD_CAMPAIGN_OUT_OF_FUNDS,
+  CommonCampaignMetadata
+>
+
+export type CampaignGasPriceHigherThanExpectedNotification =
+  RawDecentralandNotification<
+    NotificationType.REWARD_CAMPAIGN_GAS_PRICE_HIGHER_THAN_EXPECTED,
+    CommonCampaignMetadata
+  >
+
+// events notifications
 type CommonEventsMetadata = {
   image: string
   link: string
   name: string
 }
 
-// events notifications
 export type EventsStartsSoonNotification = RawDecentralandNotification<
   NotificationType.EVENTS_STARTS_SOON,
   CommonEventsMetadata & {

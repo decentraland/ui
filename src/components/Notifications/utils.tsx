@@ -31,6 +31,11 @@ import {
   GovernanceVotedOnBehalfNotification
 } from './NotificationTypes'
 import { FunctionComponent } from 'react'
+import RewardInProgressNotification from './NotificationTypes/Reward/RewardInProgressNotification'
+import CampaignOutOfStockNotification from './NotificationTypes/Reward/CampaignOutOfStockNotification'
+import CampaignGasPriceHigherThanExpectedNotification from './NotificationTypes/Reward/CampaignGasPriceHigherThanExpectedNotification'
+import CampaignOutOfFundsNotification from './NotificationTypes/Reward/CampaignOutOfFundsNotification'
+import RewardDelayedNotification from './NotificationTypes/Reward/RewardDelayedNotification'
 
 export const MAXIMUM_FRACTION_DIGITS = 2
 
@@ -88,7 +93,14 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
     [NotificationType.LAND_RENTED]: LandRentedNotification,
     [NotificationType.LAND_RENTAL_ENDED]: LandRentalEndedNotification,
     [NotificationType.REWARD_ASSIGNED]: RewardAssignedNotification,
-    [NotificationType.REWARD_IN_PROGRESS]: null,
+    [NotificationType.REWARD_IN_PROGRESS]: RewardInProgressNotification,
+    [NotificationType.REWARD_DELAYED]: RewardDelayedNotification,
+    [NotificationType.REWARD_CAMPAIGN_OUT_OF_FUNDS]:
+      CampaignOutOfFundsNotification,
+    [NotificationType.REWARD_CAMPAIGN_OUT_OF_STOCK]:
+      CampaignOutOfStockNotification,
+    [NotificationType.REWARD_CAMPAIGN_GAS_PRICE_HIGHER_THAN_EXPECTED]:
+      CampaignGasPriceHigherThanExpectedNotification,
     [NotificationType.BADGE_GRANTED]: null,
     [NotificationType.EVENTS_STARTS_SOON]: EventsStartsSoonNotification,
     [NotificationType.EVENTS_STARTED]: EventsStartedNotification,
