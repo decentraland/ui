@@ -261,11 +261,6 @@ export type RewardDelayedNotification = RawDecentralandNotification<
   CommonRewardsMetadata
 >
 
-export type RewardCampaignOutOfFundsNotification = RawDecentralandNotification<
-  NotificationType.REWARD_CAMPAIGN_OUT_OF_FUNDS,
-  CommonCampaignMetadata
->
-
 export type CampaignOutOfStockNotification = RawDecentralandNotification<
   NotificationType.REWARD_CAMPAIGN_OUT_OF_STOCK,
   CommonCampaignMetadata
