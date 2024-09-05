@@ -111,7 +111,9 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       WorldsPermissionRevokedNotification
   }
 
-export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(NotificationType)
+export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.keys(
+  NotificationComponentByType
+)
 
 export const replaceWithValues = (
   str: string,
