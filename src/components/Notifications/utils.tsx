@@ -50,12 +50,14 @@ export function getBGColorByRarity(rarity: Rarity) {
   return Rarity.getGradient(rarity).join()
 }
 
-export type DecentralandNotificationComponentByType<T> = {
-  [k in NotificationType]: T extends DCLNotification
-    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      FunctionComponent<CommonNotificationProps<any>>
-    : never
-}
+export type DecentralandNotificationComponentByType<T> = Partial<
+  {
+    [k in NotificationType]: T extends DCLNotification
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        FunctionComponent<CommonNotificationProps<any>>
+      : never
+  }
+>
 
 export const NotificationComponentByType: DecentralandNotificationComponentByType<DCLNotification> =
   {
@@ -101,7 +103,6 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       CampaignOutOfStockNotification,
     [NotificationType.REWARD_CAMPAIGN_GAS_PRICE_HIGHER_THAN_EXPECTED]:
       CampaignGasPriceHigherThanExpectedNotification,
-    [NotificationType.BADGE_GRANTED]: null,
     [NotificationType.EVENTS_STARTS_SOON]: EventsStartsSoonNotification,
     [NotificationType.EVENTS_STARTED]: EventsStartedNotification,
     [NotificationType.WORLDS_PERMISSION_GRANTED]:
@@ -110,7 +111,9 @@ export const NotificationComponentByType: DecentralandNotificationComponentByTyp
       WorldsPermissionRevokedNotification
   }
 
-export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.values(NotificationType)
+export const CURRENT_AVAILABLE_NOTIFICATIONS = Object.keys(
+  NotificationComponentByType
+)
 
 export const replaceWithValues = (
   str: string,
