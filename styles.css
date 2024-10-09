@@ -6321,7 +6321,7 @@ a.ui.card:hover,
   border-bottom: 2px solid var(--divider);
   padding: 2px 0px 0px 0px;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 6px;
   min-height: 40px;
 }
 
@@ -6349,7 +6349,7 @@ a.ui.card:hover,
   font-size: 20px;
   font-weight: 500;
   font-family: var(--font-family);
-  line-height: 30px;
+  line-height: 24px;
 }
 
 .dcl.select-field .ui.dropdown > .default.text {
@@ -6371,6 +6371,7 @@ a.ui.card:hover,
   padding-right: 0px;
   padding-bottom: 0px;
   color: var(--text);
+  top: 0.4em;
 }
 
 .dcl.select-field.border .ui.dropdown .dropdown.icon {
@@ -6460,8 +6461,6 @@ a.ui.card:hover,
 }
 
 .dcl.select-field.error .ui.selection.dropdown > i.icon:before {
-  /* content: '';
-  display: none; */
   color: var(--error);
 }
 
