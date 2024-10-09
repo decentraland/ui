@@ -2,6 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Header } from '../Header/Header'
 import { SelectField } from './SelectField'
+import { Field } from '../Field/Field'
 
 storiesOf('SelectField', module)
   .add('Basic', () => (
@@ -154,4 +155,21 @@ storiesOf('SelectField', module)
         ]}
       />
     </>
+  ))
+  .add('Select field aligned with input field', () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: '10px',
+        width: '500px'
+      }}
+    >
+      <SelectField
+        placeholder="Placeholder"
+        options={[{ key: 1, text: 'Choice 1', value: 1 }]}
+      />
+      <Field placeholder="Placeholder" value="A value" />
+    </div>
   ))
