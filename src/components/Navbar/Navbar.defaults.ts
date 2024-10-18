@@ -3,11 +3,11 @@ import { ChainSelectori18n } from '../ChainSelector/ChainSelector.props'
 import { NavbarMenuI18nProps, NavbarSubmenuProps } from './Navbar.types'
 
 export const navbarMainTitlesI18N = {
-  marketplace: 'marketplace',
+  marketplace: 'shop',
   create: 'create',
-  explore: 'explore',
   learn: 'learn',
-  governance: 'governance'
+  governance: 'vote',
+  explore: 'events'
 } as NavbarMenuI18nProps
 
 export const i18nChainSelectorDefault = {

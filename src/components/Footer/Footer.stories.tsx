@@ -13,3 +13,4 @@ storiesOf('Footer', module)
       <Footer isFullWidth />
     </div>
   ))
+  .add('Without the social links', () => <Footer hideSocialLinks />)

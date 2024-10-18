@@ -35,12 +35,6 @@ export const MainMenu = (props: MainMenuProps) => {
       />
       <MenuItem
         {...menuItemProps}
-        section={NavbarPages.EXPLORE}
-        title={i18n.explore}
-        mainUrl={urls[NavbarPages.EXPLORE]}
-      />
-      <MenuItem
-        {...menuItemProps}
         section={NavbarPages.LEARN}
         title={i18n.learn}
         mainUrl={urls[NavbarPages.LEARN]}
@@ -50,6 +44,12 @@ export const MainMenu = (props: MainMenuProps) => {
         section={NavbarPages.GOVERNANCE}
         title={i18n.governance}
         mainUrl={urls[NavbarPages.GOVERNANCE]}
+      />
+      <MenuItem
+        {...menuItemProps}
+        section={NavbarPages.EXPLORE}
+        title={i18n.explore}
+        mainUrl={urls[NavbarPages.EXPLORE]}
       />
     </div>
   )
