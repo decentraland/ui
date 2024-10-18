@@ -26,7 +26,7 @@ export type UserMenuI18N = Record<
   | 'signOut'
   | 'guest'
   | 'marketplaceAuthorizations'
-  | 'jumpIn',
+  | 'download',
   string
 >
 

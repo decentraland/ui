@@ -170,7 +170,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
                 as={'a'}
                 href={config.get('DOWNLOAD_URL')}
               >
-                {i18n.jumpIn}
+                {i18n.download}
               </Button>
             </>
           )}
