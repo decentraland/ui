@@ -4219,13 +4219,22 @@ a.ui.card:hover,
   height: 100%;
 }
 
-.dcl .user-menu__jump-in {
+.dcl .user-menu__download {
   padding: 14px 32px;
   margin-left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
+}
+
+.dcl .user-menu__download svg g path {
+  fill: var(--text-on-primary);
 }
 
 @media (max-width: 991px) {
-  .dcl .user-menu__jump-in {
+  .dcl .user-menu__download {
     display: none;
   }
 }
