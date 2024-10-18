@@ -30,6 +30,7 @@ export type FooterProps = {
   isFullscreen?: boolean
   className?: string
   isFullWidth?: boolean
+  hideSocialLinks?: boolean
 }
 
 export class Footer extends React.PureComponent<FooterProps> {
@@ -62,7 +63,8 @@ export class Footer extends React.PureComponent<FooterProps> {
       i18n,
       isFullscreen,
       className,
-      isFullWidth
+      isFullWidth,
+      hideSocialLinks
     } = this.props
 
     let classes = 'dcl footer'
@@ -97,20 +99,22 @@ export class Footer extends React.PureComponent<FooterProps> {
           </div>
         </div>
         <div className="secondary-footer">
-          <div className="social-links">
-            <a href="https://dcl.gg/discord">
-              <i className="social-icon discord" />
-            </a>
-            <a href="https://reddit.com/r/decentraland">
-              <i className="social-icon reddit" />
-            </a>
-            <a href="https://github.com/decentraland">
-              <i className="social-icon github" />
-            </a>
-            <a href="https://twitter.com/decentraland">
-              <i className="social-icon twitter" />
-            </a>
-          </div>
+          {!hideSocialLinks ? (
+            <div className="social-links">
+              <a href="https://dcl.gg/discord">
+                <i className="social-icon discord" />
+              </a>
+              <a href="https://reddit.com/r/decentraland">
+                <i className="social-icon reddit" />
+              </a>
+              <a href="https://github.com/decentraland">
+                <i className="social-icon github" />
+              </a>
+              <a href="https://twitter.com/decentraland">
+                <i className="social-icon twitter" />
+              </a>
+            </div>
+          ) : null}
           <div className="copyright">
             © {new Date().getFullYear()} Decentraland
           </div>
