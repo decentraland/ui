@@ -15,7 +15,7 @@ export type UserMenuProps = Omit<
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     trackingId: string
   ) => void
-  onClickJumpIn?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  onClickDownload?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 }
 
 export type UserMenuI18N = Record<
@@ -39,6 +39,6 @@ export enum UserMenuEventId {
   SIGN_OUT = 'sign_out',
   GUEST = 'guest',
   MARKETPLACE_AUTHORIZATIONS = 'marketplace_authorizations',
-  JUMP_IN = 'jump_in',
+  DOWNLOAD = 'download',
   BALANCE = 'balance'
 }
