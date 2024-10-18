@@ -14,6 +14,7 @@ import { Row } from '../Row/Row'
 
 import './UserMenu.css'
 import { useTabletAndBelowMediaQuery } from '../Media'
+import DownloadIcon from '../Icons/DownloadIcon'
 
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
@@ -164,12 +165,13 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
                 </Button>
               ) : null}
               <Button
-                className="user-menu__jump-in"
+                className="user-menu__download"
                 primary
                 onClick={handleDownload}
                 as={'a'}
                 href={config.get('DOWNLOAD_URL')}
               >
+                <DownloadIcon />
                 {i18n.download}
               </Button>
             </>
