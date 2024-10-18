@@ -12,7 +12,7 @@ export enum NavbarPages {
   GOVERNANCE = 'governance'
 }
 
-export type NavbarMenuI18nProps = Record<NavbarPages, NavbarPages>
+export type NavbarMenuI18nProps = Record<NavbarPages, string>
 
 export type NavbarSubMenuItemsProps = {
   column1Title?: string
