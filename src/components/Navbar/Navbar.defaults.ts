@@ -89,7 +89,7 @@ export const navbarSubmenu = {
       {
         title: 'Scenes',
         description: 'Create & publish scenes to LAND or Worlds',
-        url: config.get('CREATORS_HUB_URL'),
+        url: config.get('CREATOR_HUB_URL'),
         eventTrackingName: 'builder_scenes'
       }
     ],
