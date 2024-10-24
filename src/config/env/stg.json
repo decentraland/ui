@@ -11,7 +11,7 @@
   "MARKETPLACE_SETTINGS_URL": "https://decentraland.zone/marketplace/settings",
   "BUILDER_URL": "https://decentraland.today/builder",
   "BUILDER_WEARABLE_EMOTES_URL": "https://decentraland.today/builder/collections",
-  "BUILDER_SCENES_URL": "https://decentraland.today/builder/scenes",
+  "CREATOR_HUB_URL": "https://decentraland.today/download/creator-hub/",
   "BUILDER_NAMES_URL": "https://decentraland.today/builder/names",
   "BUILDER_WORLDS_URL": "https://decentraland.today/builder/worlds?tab=dcl",
   "BUILDER_LAND_URL": "https://decentraland.today/builder/land",
