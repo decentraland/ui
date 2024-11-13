@@ -18,9 +18,28 @@ export type NavbarExtraButton = {
   textColor?: `#${string}`
   backgroundColor?: `#${string}`
   id?: string
+  ttl: number
+}
+
+export type LocalStorageNavbarExtraButton = {
+  button: NavbarExtraButton
+  expiresAt: number
 }
 
 export const getExtraButton = async () => {
+  const cachedExtraButton = localStorage.getItem('navbarExtraButton')
+  if (cachedExtraButton) {
+    try {
+      const parsed = JSON.parse(
+        cachedExtraButton
+      ) as LocalStorageNavbarExtraButton
+      if (parsed.expiresAt > Date.now()) {
+        return parsed.button
+      }
+    } catch (error) {
+      // error parsing cached data, ignore and fetch from Contentful
+    }
+  }
   try {
     const SPACE_ID = 'ea2ybdmmn1kv'
     const ENV = 'master'
@@ -30,7 +49,10 @@ export const getExtraButton = async () => {
     const response = await fetch(CONTENTFUL_URL)
     const entry = await response.json()
     const button = entry.fields as NavbarExtraButton
-    console.log('button', button)
+    localStorage.setItem(
+      'navbarExtraButton',
+      JSON.stringify({ button, expiresAt: Date.now() + button.ttl * 1000 })
+    )
     return button
   } catch (error) {
     console.error(error)
