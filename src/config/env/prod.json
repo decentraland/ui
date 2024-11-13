@@ -34,5 +34,9 @@
   "DOCS_DAO_URL": "https://docs.decentraland.org/player/general/dao/overview/what-is-the-dao/",
   "BLOG_URL": "https://decentraland.org/blog/",
   "LANDING_CREATORS_URL": "https://decentraland.org/create/",
-  "DOWNLOAD_URL": "https://decentraland.org/download/"
+  "DOWNLOAD_URL": "https://decentraland.org/download/",
+  "CONTENTFUL_SPACE_ID": "ea2ybdmmn1kv",
+  "CONTENTFUL_ENV": "master",
+  "CONTENTFUL_NAVBAR_ACCESS_TOKEN": "9dieh3AHS6uwb_YNMjxlO6FCibAFFJVdg2YzA5t6U-Y",
+  "CONTENTFUL_NAVBAR_ENTRY_ID": "18g1DzIyBxvu0steSwKyQr"
 }

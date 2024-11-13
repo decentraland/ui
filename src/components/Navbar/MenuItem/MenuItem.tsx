@@ -8,8 +8,16 @@ import { MenuItemProps } from './MenuItem.types'
 import './MenuItem.css'
 
 export const MenuItem = (props: MenuItemProps) => {
-  const { activePage, section, title, onToggleShowSubMenu, isMobile, mainUrl } =
-    props
+  const {
+    activePage,
+    section,
+    title,
+    onToggleShowSubMenu,
+    isMobile,
+    mainUrl,
+    textColor,
+    backgroundColor
+  } = props
 
   const mainRedirect = useCallback(() => {
     mainUrl && window.open(mainUrl, '_self')
@@ -27,7 +35,13 @@ export const MenuItem = (props: MenuItemProps) => {
       onMouseLeave={(e: React.MouseEvent) =>
         !isMobile && onToggleShowSubMenu(e, false, section)
       }
-      className={classNames('dui-menu-item', section, isMobile && 'mobile')}
+      className={classNames(
+        'dui-menu-item',
+        section,
+        isMobile && 'mobile',
+        backgroundColor && 'has-background'
+      )}
+      style={{ color: textColor, backgroundColor }}
     >
       {title}
       {isMobile && <ArrowIcon />}

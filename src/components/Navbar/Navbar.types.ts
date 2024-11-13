@@ -9,7 +9,8 @@ export enum NavbarPages {
   CREATE = 'create',
   EXPLORE = 'explore',
   LEARN = 'learn',
-  GOVERNANCE = 'governance'
+  GOVERNANCE = 'governance',
+  EXTRA = 'extra'
 }
 
 export type NavbarMenuI18nProps = Record<NavbarPages, string>
