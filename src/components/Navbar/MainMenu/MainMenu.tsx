@@ -75,6 +75,7 @@ export const MainMenu = (props: MainMenuProps) => {
           mainUrl={extraButton.link}
           textColor={extraButton.textColor}
           backgroundColor={extraButton.backgroundColor}
+          isExtraButton
         />
       ) : null}
     </div>
