@@ -16,7 +16,8 @@ export const MenuItem = (props: MenuItemProps) => {
     isMobile,
     mainUrl,
     textColor,
-    backgroundColor
+    backgroundColor,
+    isExtraButton
   } = props
 
   const mainRedirect = useCallback(() => {
@@ -27,7 +28,9 @@ export const MenuItem = (props: MenuItemProps) => {
     <Menu.Item
       active={activePage === section}
       onClick={(e: React.MouseEvent) => {
-        isMobile ? onToggleShowSubMenu(e, true, section) : mainRedirect()
+        isMobile && !isExtraButton
+          ? onToggleShowSubMenu(e, true, section)
+          : mainRedirect()
       }}
       onMouseEnter={(e: React.MouseEvent) =>
         !isMobile && onToggleShowSubMenu(e, true, section)
