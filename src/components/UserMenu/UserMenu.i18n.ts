@@ -4,7 +4,7 @@ export const i18n = {
   account: 'Account Settings',
   activity: 'Activity',
   guest: 'Guest',
-  jumpIn: 'Jump In',
+  download: 'Download',
   marketplaceAuthorizations: 'Marketplace Authorizations',
   myAssets: 'My Assets',
   myLists: 'My Lists',

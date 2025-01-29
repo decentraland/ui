@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 
 import { MenuItem } from '../MenuItem/MenuItem'
 import { NavbarPages } from '../Navbar.types'
 import { MainMenuProps } from './MainMenu.types'
-import { getNavbarPagesUrls } from '../utils'
+import { getExtraButton, getNavbarPagesUrls, NavbarExtraButton } from '../utils'
 
 import './MainMenu.css'
 
@@ -12,6 +12,22 @@ export const MainMenu = (props: MainMenuProps) => {
   const { i18n, ...menuItemProps } = props
 
   const urls = getNavbarPagesUrls()
+
+  // load extra button
+  const isMounted = useRef(false)
+  const [extraButton, setExtraButton] = useState<NavbarExtraButton | null>(null)
+  useEffect(() => {
+    isMounted.current = true
+    if (!extraButton) {
+      getExtraButton().then((button) => {
+        if (!isMounted.current) return
+        setExtraButton(button)
+      })
+    }
+    return () => {
+      isMounted.current = false
+    }
+  }, [extraButton, isMounted, setExtraButton])
 
   return (
     <div
@@ -35,12 +51,6 @@ export const MainMenu = (props: MainMenuProps) => {
       />
       <MenuItem
         {...menuItemProps}
-        section={NavbarPages.EXPLORE}
-        title={i18n.explore}
-        mainUrl={urls[NavbarPages.EXPLORE]}
-      />
-      <MenuItem
-        {...menuItemProps}
         section={NavbarPages.LEARN}
         title={i18n.learn}
         mainUrl={urls[NavbarPages.LEARN]}
@@ -51,6 +61,23 @@ export const MainMenu = (props: MainMenuProps) => {
         title={i18n.governance}
         mainUrl={urls[NavbarPages.GOVERNANCE]}
       />
+      <MenuItem
+        {...menuItemProps}
+        section={NavbarPages.EXPLORE}
+        title={i18n.explore}
+        mainUrl={urls[NavbarPages.EXPLORE]}
+      />
+      {extraButton && extraButton.visible ? (
+        <MenuItem
+          {...menuItemProps}
+          section={NavbarPages.EXTRA}
+          title={extraButton.text}
+          mainUrl={extraButton.link}
+          textColor={extraButton.textColor}
+          backgroundColor={extraButton.backgroundColor}
+          isExtraButton
+        />
+      ) : null}
     </div>
   )
 }

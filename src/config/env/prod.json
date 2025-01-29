@@ -11,7 +11,7 @@
   "MARKETPLACE_SETTINGS_URL": "https://decentraland.org/marketplace/settings",
   "BUILDER_URL": "https://decentraland.org/builder",
   "BUILDER_WEARABLE_EMOTES_URL": "https://decentraland.org/builder/collections",
-  "BUILDER_SCENES_URL": "https://decentraland.org/builder/scenes",
+  "CREATOR_HUB_URL": "https://decentraland.org/download/creator-hub/",
   "BUILDER_NAMES_URL": "https://decentraland.org/builder/names",
   "BUILDER_WORLDS_URL": "https://decentraland.org/builder/worlds?tab=dcl",
   "BUILDER_LAND_URL": "https://decentraland.org/builder/land",
@@ -33,5 +33,10 @@
   "DOCS_CONTRIBUTOR_URL": "https://docs.decentraland.org/contributor/",
   "DOCS_DAO_URL": "https://docs.decentraland.org/player/general/dao/overview/what-is-the-dao/",
   "BLOG_URL": "https://decentraland.org/blog/",
-  "LANDING_CREATORS_URL": "https://decentraland.org/create/"
+  "LANDING_CREATORS_URL": "https://decentraland.org/create/",
+  "DOWNLOAD_URL": "https://decentraland.org/download/",
+  "CONTENTFUL_SPACE_ID": "ea2ybdmmn1kv",
+  "CONTENTFUL_ENV": "master",
+  "CONTENTFUL_NAVBAR_ACCESS_TOKEN": "9dieh3AHS6uwb_YNMjxlO6FCibAFFJVdg2YzA5t6U-Y",
+  "CONTENTFUL_NAVBAR_ENTRY_ID": "18g1DzIyBxvu0steSwKyQr"
 }

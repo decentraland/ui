@@ -14,6 +14,7 @@ import { Row } from '../Row/Row'
 
 import './UserMenu.css'
 import { useTabletAndBelowMediaQuery } from '../Media'
+import DownloadIcon from '../Icons/DownloadIcon'
 
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
@@ -25,7 +26,7 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     onClickSignIn,
     onClickBalance,
     onClickOpen,
-    onClickJumpIn,
+    onClickDownload,
     onClickUserMenuItem,
     ...signInProps
   } = props
@@ -66,26 +67,26 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
     }
   }, [setIsOpen])
 
-  const handleClickJumpIn = useCallback(
+  const handleDownload = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault()
       onClickUserMenuItem &&
         onClickUserMenuItem(event, {
-          type: UserMenuEventId.JUMP_IN,
+          type: UserMenuEventId.DOWNLOAD,
           track_uuid: trackingId,
-          url: config.get('EXPLORER_URL')
+          url: config.get('DOWNLOAD_URL')
         })
 
       setTimeout(
         () => {
-          onClickJumpIn
-            ? onClickJumpIn(event)
-            : window.open(config.get('EXPLORER_URL'), '_blank', 'noopener')
+          onClickDownload
+            ? onClickDownload(event)
+            : window.open(config.get('DOWNLOAD_URL'), '_blank', 'noopener')
         },
         onClickUserMenuItem ? 300 : 0
       )
     },
-    [onClickJumpIn, onClickUserMenuItem, trackingId]
+    [onClickDownload, onClickUserMenuItem, trackingId]
   )
 
   const handleClickSignIn = useCallback(
@@ -163,17 +164,16 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
                   {i18n.signIn}
                 </Button>
               ) : null}
-              {isSignedIn && (
-                <Button
-                  className="user-menu__jump-in"
-                  primary
-                  onClick={handleClickJumpIn}
-                  as={'a'}
-                  href={config.get('EXPLORER_URL')}
-                >
-                  {i18n.jumpIn}
-                </Button>
-              )}
+              <Button
+                className="user-menu__download"
+                primary
+                onClick={handleDownload}
+                as={'a'}
+                href={config.get('DOWNLOAD_URL')}
+              >
+                <DownloadIcon />
+                {i18n.download}
+              </Button>
             </>
           )}
         </div>

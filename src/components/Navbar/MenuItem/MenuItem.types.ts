@@ -11,4 +11,7 @@ export type MenuItemProps = {
   ) => void
   mainUrl?: string
   isMobile?: boolean
+  isExtraButton?: boolean
+  textColor?: string
+  backgroundColor?: string
 }

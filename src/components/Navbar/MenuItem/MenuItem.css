@@ -12,6 +12,27 @@
   fill: var(--text);
 }
 
+.dui-navbar
+  .dui-navbar-wrapper
+  .item:not(.mobile).dui-menu-item.extra.has-background {
+  height: calc(100% - 24px);
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.item.mobile.dui-menu-item.extra.has-background {
+  margin-top: 40px;
+  padding: 20px;
+  width: calc(100% - 50px - 40px);
+  border-radius: 8px;
+  justify-content: center;
+  border-bottom: none;
+}
+
+.item.mobile.dui-menu-item.extra.has-background .dui-icon-container.centered {
+  display: none;
+}
+
 @media (max-width: 991px) {
   .item.dui-menu-item.mobile {
     cursor: pointer;
