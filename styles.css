@@ -7447,3 +7447,56 @@ a.ui.card:hover,
   z-index: 9999;
 }
 
+.dcl.web2-transaction-modal-content > p {
+  padding: 0;
+  margin: 0;
+}
+
+.dcl.web2-transaction-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+}
+
+.dcl.web2-transaction-modal-content-transaction-cost {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #67637033;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.dcl.web2-transaction-modal-content-transaction-cost-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .dcl.web2-transaction-modal-content-container {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .dcl.web2-transaction-modal-content {
+    padding: 0;
+  }
+
+  .ui.modal > .dcl.web2-transaction-modal-actions.actions .button {
+    margin: 0;
+  }
+
+  .ui.modal > .dcl.web2-transaction-modal-actions.actions {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .dcl.web2-transaction-modal-content-transaction-cost-row {
+    flex-direction: column;
+  }
+}
+
