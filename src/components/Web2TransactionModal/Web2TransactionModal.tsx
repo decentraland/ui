@@ -8,11 +8,10 @@ import './Web2TransactionModal.css'
 import { getNetwork } from '@dcl/schemas/dist/dapps/chain-id'
 
 export type Web2TransactionModalProps = {
-  isBalanceEnough: boolean
   /* The transaction cost in ether */
-  transactionCostAmount: string
+  transactionCostAmount: string | number
   /* The user balance in ether */
-  userBalanceAmount: string
+  userBalanceAmount: string | number
   chainId: ChainId
   isOpen?: boolean
   onAccept: () => void
@@ -39,7 +38,6 @@ export const Web2TransactionModal = (props: Web2TransactionModalProps) => {
     onReject,
     i18n,
     isOpen,
-    isBalanceEnough,
     transactionCostAmount,
     userBalanceAmount
   } = props
@@ -99,7 +97,7 @@ export const Web2TransactionModal = (props: Web2TransactionModalProps) => {
               </div>
             </div>
           </div>
-          {!isBalanceEnough && (
+          {Number(transactionCostAmount) > Number(userBalanceAmount) && (
             <Message
               size="tiny"
               visible

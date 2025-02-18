@@ -14,7 +14,6 @@ const Template: ComponentStory<typeof Web2TransactionModal> = (args) => (
 
 export const Basic = Template.bind({})
 Basic.args = {
-  isBalanceEnough: false,
   transactionCostAmount: '0.005',
   userBalanceAmount: '1',
   chainId: ChainId.ETHEREUM_MAINNET,
