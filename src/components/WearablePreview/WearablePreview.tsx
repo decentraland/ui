@@ -67,6 +67,7 @@ export type WearablePreviewProps = {
   peerUrl?: string
   nftServerUrl?: string
   type?: PreviewType
+  unity?: boolean
   onLoad?: () => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -83,6 +84,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
     dev: false,
     baseUrl: config.get('WEARABLE_PREVIEW_URL'),
+    unity: false,
     onLoad: () => {},
     onError: () => {},
     onUpdate: () => {}
@@ -144,7 +146,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       baseUrl,
       peerUrl,
       nftServerUrl,
-      type
+      type,
+      unity
     } = this.props
 
     const contractParam = contractAddress ? `contract=${contractAddress}` : ''
@@ -204,6 +207,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const lockBetaParam = lockBeta ? 'lockBeta=true' : ''
     const lockRadiusParam = lockRadius ? 'lockRadius=true' : ''
     const envParam = dev ? `env=dev` : ''
+    const unityParam = unity ? `unity=true` : ''
     const url =
       baseUrl +
       '?' +
@@ -249,7 +253,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         lockAlphaParam,
         lockBetaParam,
         lockRadiusParam,
-        envParam
+        envParam,
+        unityParam
       ]
         .filter((param) => !!param)
         .join('&')
