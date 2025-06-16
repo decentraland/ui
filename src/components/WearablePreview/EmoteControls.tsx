@@ -15,6 +15,27 @@ export type EmoteControlsProps = {
   hidePlayButton?: boolean
   hideSoundButton?: boolean
   wearablePreviewController?: IPreviewController
+  renderPlayButton?: (props: {
+    isPlaying: boolean
+    onPlay: () => Promise<void>
+    onPause: () => Promise<void>
+    onToggle: () => Promise<void>
+  }) => React.ReactNode
+  renderSoundButton?: (props: {
+    isSoundEnabled: boolean
+    hasSound: boolean
+    onToggle: () => void
+  }) => React.ReactNode
+  renderProgressBar?: (props: {
+    frame: number
+    length: number
+    onChange: (value: number) => Promise<void>
+    onMouseUp: () => Promise<void>
+  }) => React.ReactNode
+  renderFrameInput?: (props: {
+    frame: number
+    onChange: (value: number) => Promise<void>
+  }) => React.ReactNode
 }
 
 type EmoteControlsState = {
@@ -108,12 +129,20 @@ export class EmoteControls extends React.PureComponent<
     this.previewController = previewController
   }
 
+  handlePlay = async () => {
+    await this.previewController?.emote.play()
+  }
+
+  handlePause = async () => {
+    await this.previewController?.emote.pause()
+  }
+
   handlePlayPause = async () => {
     const { isPlaying } = this.state
     if (isPlaying) {
-      await this.previewController?.emote.pause()
+      await this.handlePause()
     } else {
-      await this.previewController?.emote.play()
+      await this.handlePlay()
     }
   }
 
@@ -167,39 +196,75 @@ export class EmoteControls extends React.PureComponent<
       hideFrameInput,
       hidePlayButton,
       hideSoundButton,
-      hideProgressInput
+      hideProgressInput,
+      renderPlayButton,
+      renderSoundButton,
+      renderProgressBar,
+      renderFrameInput
     } = this.props
     const { frame, isPlaying, length, hasSound, isSoundEnabled } = this.state
 
     return (
       <div className={`EmoteControls ${className}`}>
-        {hidePlayButton ? null : (
+        {hidePlayButton ? null : renderPlayButton ? (
+          renderPlayButton({
+            isPlaying,
+            onPlay: this.handlePlay,
+            onPause: this.handlePause,
+            onToggle: this.handlePlayPause
+          })
+        ) : (
           <Button className="play-control" onClick={this.handlePlayPause}>
             <Icon name={isPlaying ? 'pause' : 'play'} />
           </Button>
         )}
+
         {!hideProgressInput ? (
-          <input
-            type="range"
-            value={frame}
-            max={Math.ceil((length ?? 0) * 100)}
-            min={0}
-            step="1"
-            onChange={(e) => this.handleFrameChange(Number(e.target.value))}
-            onMouseUp={this.handleMouseUp}
-          />
+          renderProgressBar ? (
+            renderProgressBar({
+              frame,
+              length: length ?? 0,
+              onChange: this.handleFrameChange,
+              onMouseUp: this.handleMouseUp
+            })
+          ) : (
+            <input
+              type="range"
+              value={frame}
+              max={Math.ceil((length ?? 0) * 100)}
+              min={0}
+              step="1"
+              onChange={(e) => this.handleFrameChange(Number(e.target.value))}
+              onMouseUp={this.handleMouseUp}
+            />
+          )
         ) : null}
+
         {hideFrameInput ? null : (
           <div className="frame-control">
-            <input
-              value={Math.round(frame / 100)}
-              onChange={(e) =>
-                this.handleFrameChange(Number(e.target.value) * 100)
-              }
-            ></input>
+            {renderFrameInput ? (
+              renderFrameInput({
+                frame: Math.round(frame / 100),
+                onChange: (value) => this.handleFrameChange(value * 100)
+              })
+            ) : (
+              <input
+                value={Math.round(frame / 100)}
+                onChange={(e) =>
+                  this.handleFrameChange(Number(e.target.value) * 100)
+                }
+              />
+            )}
           </div>
         )}
-        {hideSoundButton || !hasSound ? null : (
+
+        {hideSoundButton || !hasSound ? null : renderSoundButton ? (
+          renderSoundButton({
+            isSoundEnabled,
+            hasSound,
+            onToggle: this.handleSoundToggle
+          })
+        ) : (
           <Button
             className={classNames('sound-control', {
               ['muted']: !isSoundEnabled
