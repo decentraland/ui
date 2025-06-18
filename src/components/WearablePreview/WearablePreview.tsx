@@ -21,7 +21,7 @@ import { config } from '../../config'
 
 const debounce = createDebounce()
 
-const safeEncodeParam = (key: string, value: any): string => {
+const safeEncodeParam = (key: string, value: unknown): string => {
   if (value === undefined || value === null || value === '') {
     return ''
   }
