@@ -21,6 +21,30 @@ import { config } from '../../config'
 
 const debounce = createDebounce()
 
+const safeEncodeParam = (key: string, value: unknown): string => {
+  if (value === undefined || value === null || value === '') {
+    return ''
+  }
+
+  // Handle arrays
+  if (Array.isArray(value)) {
+    return value.length > 0
+      ? value
+          .map((item) => `${key}=${encodeURIComponent(String(item))}`)
+          .join('&')
+      : ''
+  }
+
+  // Handle all other values (strings, numbers, booleans, objects, etc.)
+  return `${key}=${encodeURIComponent(String(value))}`
+}
+
+export type PreviewUnityMode =
+  | 'authentication'
+  | 'builder'
+  | 'marketplace'
+  | 'profile'
+
 export type WearablePreviewProps = {
   id?: string
   contractAddress?: string
@@ -67,6 +91,7 @@ export type WearablePreviewProps = {
   peerUrl?: string
   nftServerUrl?: string
   type?: PreviewType
+  unityMode?: PreviewUnityMode
   unity?: boolean
   onLoad?: () => void
   onError?: (error: Error) => void
@@ -147,67 +172,81 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       peerUrl,
       nftServerUrl,
       type,
-      unity
+      unity,
+      unityMode
     } = this.props
 
-    const contractParam = contractAddress ? `contract=${contractAddress}` : ''
-    const tokenParam = tokenId ? `token=${tokenId}` : ''
-    const itemParam = itemId ? `item=${itemId}` : ''
-    const profileParam = profile ? `profile=${profile}` : ''
-    const urnParams =
-      urns && urns.length > 0 ? urns.map((urn) => `urn=${urn}`).join('&') : ''
-    const urlsParams =
-      urls && urls.length > 0 ? urls.map((url) => `url=${url}`).join('&') : ''
-    const base64sParams =
-      base64s && base64s.length > 0
-        ? base64s.map((base64) => `base64=${base64}`).join('&')
-        : ''
-    const skinParam = skin ? `skin=${skin}` : ''
-    const hairParam = hair ? `hair=${hair}` : ''
-    const eyesParam = eyes ? `eyes=${eyes}` : ''
-    const bodyShapeParam = bodyShape ? `bodyShape=${bodyShape}` : ''
-    const emoteParam = emote ? `emote=${emote}` : ''
-    const cameraParam = camera ? `camera=${camera}` : ''
-    const projectionParam = projection ? `projection=${projection}` : ''
-    const zoomParam = !isNaN(zoom) ? `zoom=${zoom}` : ''
-    const backgroundParam = background ? `background=${background}` : ''
-    const offsetXParam = !isNaN(offsetX) ? `offsetX=${offsetX}` : ''
-    const offsetYParam = !isNaN(offsetY) ? `offsetY=${offsetY}` : ''
-    const offsetZParam = !isNaN(offsetZ) ? `offsetZ=${offsetZ}` : ''
-    const cameraXParam = !isNaN(cameraX) ? `cameraX=${cameraX}` : ''
-    const cameraYParam = !isNaN(cameraY) ? `cameraY=${cameraY}` : ''
-    const cameraZParam = !isNaN(cameraZ) ? `cameraZ=${cameraZ}` : ''
-    const wheelZoomParam = !isNaN(wheelZoom) ? `wheelZoom=${wheelZoom}` : ''
-    const wheelPrecisionParam = !isNaN(wheelPrecision)
-      ? `wheelPrecision=${wheelPrecision}`
-      : ''
-    const wheelStartParam = !isNaN(wheelStart) ? `wheelStart=${wheelStart}` : ''
-    const disableBackgroundParam = disableBackground ? `disableBackground` : ''
-    const disableAutoRotateParam = disableAutoRotate ? `disableAutoRotate` : ''
-    const disableAutoCenterParam = disableAutoCenter ? `disableAutoCenter` : ''
-    const disableFaceParam = disableFace ? `disableFace` : ''
-    const disableDefaultWearablesParam = disableDefaultWearables
-      ? `disableDefaultWearables`
-      : ''
-    const disableDefaultEmotesParam = disableDefaultEmotes
-      ? `disableDefaultEmotes`
-      : ''
-    const disableFadeEffectParam = disableFadeEffect ? `disableFadeEffect` : ''
-    const showSceneBoundariesParam = showSceneBoundaries
-      ? `showSceneBoundaries`
-      : ''
-    const showThumbnailBoundariesParam = showThumbnailBoundaries
-      ? `showThumbnailBoundaries`
-      : ''
-    const peerUrlParam = peerUrl ? `peerUrl=${peerUrl}` : ''
-    const nftServerUrlParam = nftServerUrl ? `nftServerUrl=${nftServerUrl}` : ''
-    const typeParam = type ? `type=${type}` : ''
-    const panningParam = panning === false ? 'panning=false' : ''
-    const lockAlphaParam = lockAlpha ? 'lockAlpha=true' : ''
-    const lockBetaParam = lockBeta ? 'lockBeta=true' : ''
-    const lockRadiusParam = lockRadius ? 'lockRadius=true' : ''
-    const envParam = dev ? `env=dev` : ''
-    const unityParam = unity ? `unity=true` : ''
+    const contractParam = safeEncodeParam('contract', contractAddress)
+    const tokenParam = safeEncodeParam('token', tokenId)
+    const itemParam = safeEncodeParam('item', itemId)
+    const profileParam = safeEncodeParam('profile', profile)
+    const urnParams = safeEncodeParam('urn', urns)
+    const urlsParams = safeEncodeParam('url', urls)
+    const base64sParams = safeEncodeParam('base64', base64s)
+    const skinParam = safeEncodeParam('skin', skin)
+    const hairParam = safeEncodeParam('hair', hair)
+    const eyesParam = safeEncodeParam('eyes', eyes)
+    const bodyShapeParam = safeEncodeParam('bodyShape', bodyShape)
+    const emoteParam = safeEncodeParam('emote', emote)
+    const cameraParam = safeEncodeParam('camera', camera)
+    const projectionParam = safeEncodeParam('projection', projection)
+    const zoomParam = safeEncodeParam('zoom', zoom)
+    const backgroundParam = safeEncodeParam('background', background)
+    const offsetXParam = safeEncodeParam('offsetX', offsetX)
+    const offsetYParam = safeEncodeParam('offsetY', offsetY)
+    const offsetZParam = safeEncodeParam('offsetZ', offsetZ)
+    const cameraXParam = safeEncodeParam('cameraX', cameraX)
+    const cameraYParam = safeEncodeParam('cameraY', cameraY)
+    const cameraZParam = safeEncodeParam('cameraZ', cameraZ)
+    const wheelZoomParam = safeEncodeParam('wheelZoom', wheelZoom)
+    const wheelPrecisionParam = safeEncodeParam(
+      'wheelPrecision',
+      wheelPrecision
+    )
+    const wheelStartParam = safeEncodeParam('wheelStart', wheelStart)
+    const disableBackgroundParam = safeEncodeParam(
+      'disableBackground',
+      disableBackground
+    )
+    const disableAutoRotateParam = safeEncodeParam(
+      'disableAutoRotate',
+      disableAutoRotate
+    )
+    const disableAutoCenterParam = safeEncodeParam(
+      'disableAutoCenter',
+      disableAutoCenter
+    )
+    const disableFaceParam = safeEncodeParam('disableFace', disableFace)
+    const disableDefaultWearablesParam = safeEncodeParam(
+      'disableDefaultWearables',
+      disableDefaultWearables
+    )
+    const disableDefaultEmotesParam = safeEncodeParam(
+      'disableDefaultEmotes',
+      disableDefaultEmotes
+    )
+    const disableFadeEffectParam = safeEncodeParam(
+      'disableFadeEffect',
+      disableFadeEffect
+    )
+    const showSceneBoundariesParam = safeEncodeParam(
+      'showSceneBoundaries',
+      showSceneBoundaries
+    )
+    const showThumbnailBoundariesParam = safeEncodeParam(
+      'showThumbnailBoundaries',
+      showThumbnailBoundaries
+    )
+    const peerUrlParam = safeEncodeParam('peerUrl', peerUrl)
+    const nftServerUrlParam = safeEncodeParam('nftServerUrl', nftServerUrl)
+    const typeParam = safeEncodeParam('type', type)
+    const panningParam = safeEncodeParam('panning', panning)
+    const lockAlphaParam = safeEncodeParam('lockAlpha', lockAlpha)
+    const lockBetaParam = safeEncodeParam('lockBeta', lockBeta)
+    const lockRadiusParam = safeEncodeParam('lockRadius', lockRadius)
+    const envParam = safeEncodeParam('env', dev ? 'dev' : undefined)
+    const unityParam = safeEncodeParam('unity', unity)
+    const unityModeParam = safeEncodeParam('unityMode', unityMode)
     const url =
       baseUrl +
       '?' +
@@ -254,7 +293,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         lockBetaParam,
         lockRadiusParam,
         envParam,
-        unityParam
+        unityParam,
+        unityModeParam
       ]
         .filter((param) => !!param)
         .join('&')
