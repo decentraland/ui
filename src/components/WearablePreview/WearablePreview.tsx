@@ -26,24 +26,16 @@ const safeEncodeParam = (key: string, value: unknown): string => {
     return ''
   }
 
-  // Handle boolean flags
-  if (typeof value === 'boolean') {
-    return `${key}=${String(value)}`
-  }
-
-  // Handle numbers
-  if (typeof value === 'number' && !isNaN(value)) {
-    return `${key}=${String(value)}`
-  }
-
   // Handle arrays
   if (Array.isArray(value)) {
     return value.length > 0
-      ? value.map((item) => safeEncodeParam(key, item)).join('&')
+      ? value
+          .map((item) => `${key}=${encodeURIComponent(String(item))}`)
+          .join('&')
       : ''
   }
 
-  // Handle strings and other values
+  // Handle all other values (strings, numbers, booleans, objects, etc.)
   return `${key}=${encodeURIComponent(String(value))}`
 }
 
