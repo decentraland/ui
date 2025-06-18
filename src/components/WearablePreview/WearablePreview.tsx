@@ -246,7 +246,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const lockRadiusParam = safeEncodeParam('lockRadius', lockRadius)
     const envParam = safeEncodeParam('env', dev ? 'dev' : undefined)
     const unityParam = safeEncodeParam('unity', unity)
-    const unityModeParam = safeEncodeParam('unityMode', unityMode)
+    const unityModeParam = safeEncodeParam('mode', unityMode)
     const url =
       baseUrl +
       '?' +
