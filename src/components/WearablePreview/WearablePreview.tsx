@@ -94,7 +94,7 @@ export type WearablePreviewProps = {
   type?: PreviewType
   unityMode?: PreviewUnityMode
   unity?: boolean
-  onLoad?: (renderer: PreviewRenderer | null) => void
+  onLoad?: (renderer?: PreviewRenderer) => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
 }
@@ -327,7 +327,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
           case PreviewMessageType.LOAD: {
             const payload = event.data
               .payload as PreviewMessagePayload<PreviewMessageType.LOAD>
-            onLoad(payload?.renderer || null)
+            onLoad(payload?.renderer)
             break
           }
           case PreviewMessageType.ERROR: {
