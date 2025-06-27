@@ -11,7 +11,8 @@ import {
   sendMessage,
   WearableWithBlobs,
   EmoteWithBlobs,
-  PreviewType
+  PreviewType,
+  PreviewRenderer
 } from '@dcl/schemas/dist/dapps/preview'
 import { BodyShape } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
@@ -93,7 +94,7 @@ export type WearablePreviewProps = {
   type?: PreviewType
   unityMode?: PreviewUnityMode
   unity?: boolean
-  onLoad?: () => void
+  onLoad?: (renderer?: PreviewRenderer) => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
 }
@@ -324,7 +325,9 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         const type: PreviewMessageType = event.data.type
         switch (type) {
           case PreviewMessageType.LOAD: {
-            onLoad()
+            const payload = event.data
+              .payload as PreviewMessagePayload<PreviewMessageType.LOAD>
+            onLoad(payload?.renderer)
             break
           }
           case PreviewMessageType.ERROR: {
