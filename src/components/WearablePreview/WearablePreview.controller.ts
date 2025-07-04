@@ -57,6 +57,7 @@ function createSendRequest(id: string) {
       | 'changeZoom'
       | 'panCamera'
       | 'changeCameraPosition'
+      | 'cleanup'
       | 'isPlaying'
       | 'goTo'
       | 'play'
@@ -106,6 +107,9 @@ export function createController(id: string): IPreviewController {
       },
       changeCameraPosition: function (position) {
         return sendRequest('scene', 'changeCameraPosition', [position])
+      },
+      cleanup() {
+        return sendRequest<void>('scene', 'cleanup', [])
       }
     },
     emote: {
