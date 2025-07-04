@@ -85,7 +85,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^16.13.0",
+    "@dcl/schemas": "^16.14.0",
     "@dcl/ui-env": "^1.5.1",
     "balloon-css": "^0.5.0",
     "classnames": "^2.3.2",
