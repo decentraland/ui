@@ -14,7 +14,6 @@ export type LinksI18N = {
   terms: React.ReactNode
   content: React.ReactNode
   ethics: React.ReactNode
-  feature: React.ReactNode
 }
 
 export type FooterI18N = {
