@@ -1,32 +1,54 @@
-const webpackConfig = require('../webpack.config.js');
-const cssRule = webpackConfig.module.rules[0]
-
 module.exports = {
   webpackFinal: async (config) => {
-    config.externals = ["react-dom/client"]
-    config.module.rules = [
+    // Remove conflicting externals that cause issues
+    delete config.externals
+
+    // Add custom rules for our project
+    config.module.rules.push(
       {
         test: [/\.stories\.(jsx?$|tsx?$)/],
-        enforce: "pre",
-        use:[{ loader: require.resolve('@storybook/source-loader')}]
-     },
-      // replace mini-css-extract-plugin with style-loader
-      {
-        test: /\.css$/,
-        use: ['style-loader', ...cssRule.use.slice(1)]
+        enforce: 'pre',
+        use: [{ loader: require.resolve('@storybook/source-loader') }]
       },
-      ...webpackConfig.module.rules.slice(1)
-    ]
-    return { ...config, module: { ...config.module, rules: config.module.rules } };
+      {
+        test: /\.tsx?$/,
+        use: ['ts-loader']
+      }
+    )
+
+    // Ensure webpack 5 compatibility
+    config.resolve = config.resolve || {}
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+      os: false
+    }
+
+    return config
   },
-  stories: [
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
+
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-a11y',
     '@storybook/addon-essentials'
   ],
-  framework: "@storybook/react"
-}
 
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {
+      builder: '@storybook/builder-webpack5'
+    }
+  },
+
+  features: {
+    buildStoriesJson: true,
+    storyStoreV7: false
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen'
+  }
+}
