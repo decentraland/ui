@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Center.css'
 
 export type CenterProps = {
+  children?: React.ReactNode
   screen?: boolean
   className?: string
 }

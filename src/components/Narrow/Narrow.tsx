@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Narrow.css'
 
 export type NarrowProps = {
+  children?: React.ReactNode
   className?: string
 }
 

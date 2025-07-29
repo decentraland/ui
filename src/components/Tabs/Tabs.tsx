@@ -5,6 +5,7 @@ import { Container } from '../Container/Container'
 import './Tabs.css'
 
 export type TabsProps = {
+  children?: React.ReactNode
   isFullscreen?: boolean
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   className: string

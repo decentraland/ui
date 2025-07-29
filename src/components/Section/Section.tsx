@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Section.css'
 
 export type SectionProps = {
+  children?: React.ReactNode
   className?: string
   size?: 'tiny' | 'small' | 'medium' | 'large'
 }

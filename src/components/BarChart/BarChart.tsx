@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useEffect, useState, useCallback, useRef, useMemo } from 'react'
 import classNames from 'classnames'
+import { CategoricalChartState } from 'recharts/types/chart/types'
 import {
   BarChart as RechartBartChart,
   Bar,
@@ -187,7 +188,8 @@ export const BarChart = ({
   )
 
   const handleRangeChange = useCallback(
-    (_, [min, max]) => {
+    (_: unknown, data: number | readonly [number, number]) => {
+      const [min, max] = Array.isArray(data) ? data : [data, data]
       if (
         rangeMax !== undefined &&
         rangeMin !== undefined &&
@@ -227,7 +229,9 @@ export const BarChart = ({
   }, [])
 
   const handleBarChartClick = useCallback(
-    ({ activePayload }) => {
+    (state: CategoricalChartState) => {
+      const { activePayload } = state
+      if (!activePayload || !activePayload[0]) return
       const values = activePayload[0].payload.values
       const isUpperBoundRange = values[0] === values[1]
 

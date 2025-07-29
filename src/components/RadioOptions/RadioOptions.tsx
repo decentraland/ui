@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import classNames from 'classnames'
 import { Radio } from '../Radio/Radio'
 import { InfoTooltip } from '../InfoTooltip'
+import { CheckboxProps } from '../Checkbox/Checkbox'
 import { RadioOptionsProps } from './RadioOptions.types'
 import './RadioOptions.css'
 
@@ -11,8 +12,10 @@ export const RadioOptions = <T extends string | number | undefined>(
   const { onChange, value, options, className } = props
 
   const handleChange = useCallback(
-    (_evt, { value }) => {
-      return onChange(value)
+    (_: React.FormEvent<HTMLInputElement>, data: CheckboxProps) => {
+      if (data && data.value !== undefined) {
+        return onChange(data.value as T)
+      }
     },
     [onChange]
   )

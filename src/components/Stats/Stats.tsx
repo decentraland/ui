@@ -3,6 +3,7 @@ import { Header } from '../Header/Header'
 import './Stats.css'
 
 export type StatsProps = {
+  children?: React.ReactNode
   title: string
   className?: string
 }

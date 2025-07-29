@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Empty.css'
 
 export type EmptyProps = {
+  children?: React.ReactNode
   height?: number
   expand?: boolean
   className?: string
