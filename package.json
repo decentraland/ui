@@ -73,7 +73,7 @@
     "postcss-preset-env": "^6.6.0",
     "postcss-svg": "^3.0.0",
     "prettier": "^2.3.1",
-    "rimraf": "^2.7.1",
+    "rimraf": "^5.0.5",
     "semantic-release": "^15.13.24",
     "storybook": "^6.5.16",
     "style-loader": "^0.23.1",
@@ -107,7 +107,7 @@
     "uuid": "^9.0.1"
   },
   "engines": {
-    "node": "18"
+    "node": "22.x"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
