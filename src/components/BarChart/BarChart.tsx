@@ -187,7 +187,8 @@ export const BarChart = ({
   )
 
   const handleRangeChange = useCallback(
-    (_, [min, max]) => {
+    (_: React.ChangeEvent<HTMLInputElement>, data: readonly [number, number]) => {
+      const [min, max] = data
       if (
         rangeMax !== undefined &&
         rangeMin !== undefined &&
@@ -218,7 +219,7 @@ export const BarChart = ({
   )
 
   // Bar chart handlers
-  const handleBarChartMouseMove = useCallback((e) => {
+  const handleBarChartMouseMove = useCallback((e: { activeTooltipIndex?: number }) => {
     setActiveBar(e.activeTooltipIndex)
   }, [])
 
@@ -227,7 +228,10 @@ export const BarChart = ({
   }, [])
 
   const handleBarChartClick = useCallback(
-    ({ activePayload }) => {
+    (data: { activePayload?: Array<{ payload: { values: number[] } }> }) => {
+      const { activePayload } = data
+      if (!activePayload || !activePayload[0]) return
+      
       const values = activePayload[0].payload.values
       const isUpperBoundRange = values[0] === values[1]
 
@@ -268,13 +272,13 @@ export const BarChart = ({
   )
 
   // disables the behavior of chanhing value while scrolling on top of the input
-  const onRangeWheel = useCallback((e) => {
+  const onRangeWheel = useCallback((e: React.WheelEvent<HTMLInputElement>) => {
     // Prevent the input value change
-    e.target.blur()
+    e.currentTarget.blur()
     // Prevent the page/container scrolling
     e.stopPropagation()
     timeout.current = setTimeout(() => {
-      e.target.focus()
+      e.currentTarget.focus()
     }, 0) as unknown as NodeJS.Timeout
   }, [])
 

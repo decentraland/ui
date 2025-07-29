@@ -3,6 +3,7 @@ import './HeaderMenu.css'
 
 export type HeaderMenuProps = {
   stackable?: boolean
+  children?: React.ReactNode
 }
 
 export class HeaderMenu extends React.PureComponent<HeaderMenuProps> {

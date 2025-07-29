@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import classNames from 'classnames'
+import { CheckboxProps } from 'semantic-ui-react'
 import { Radio } from '../Radio/Radio'
 import { InfoTooltip } from '../InfoTooltip'
 import { RadioOptionsProps } from './RadioOptions.types'
@@ -11,8 +12,8 @@ export const RadioOptions = <T extends string | number | undefined>(
   const { onChange, value, options, className } = props
 
   const handleChange = useCallback(
-    (_evt, { value }) => {
-      return onChange(value)
+    (_evt: React.FormEvent<HTMLInputElement>, data: CheckboxProps) => {
+      return onChange(data.value as T)
     },
     [onChange]
   )
