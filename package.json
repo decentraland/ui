@@ -107,7 +107,7 @@
     "uuid": "^9.0.1"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=18.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
