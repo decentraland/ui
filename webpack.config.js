@@ -2,7 +2,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
+const postcssAssets = require('postcss-assets')
+const postcssCopy = require('postcss-copy')
+const postcss = require('postcss')
 const path = require('path')
+
+const srcPath = path.resolve(__dirname, 'src')
 
 module.exports = {
   mode: 'production',
@@ -10,10 +15,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
-    library: {
-      name: 'decentralandUI',
-      type: 'umd'
-    },
+    library: 'decentralandUI',
+    libraryTarget: 'umd',
     clean: true
   },
   resolve: {
@@ -31,16 +34,9 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              url: false
-            }
-          },
+          { loader: 'css-loader', options: { importLoaders: 1 } },
           {
             loader: 'postcss-loader',
             options: {
@@ -51,19 +47,6 @@ module.exports = {
                   })
                 ]
               }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.css$/,
-        include: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              url: false
             }
           }
         ]
@@ -99,7 +82,27 @@ module.exports = {
         },
         {
           from: 'src/themes/alternative',
-          to: './'
+          to: './',
+          // transform themes file because now they contain a relative path to the assets
+          transform: (content, path) => {
+            return postcss([
+              postcssPresetEnv({
+                stage: 4
+              }),
+              postcssAssets({
+                loadPaths: ['src/assets', 'src/images'],
+                basePath: srcPath,
+                baseUrl: 'assets/'
+              }),
+              postcssCopy({
+                dest: './lib/'
+              })
+            ])
+              .process(content, { from: path })
+              .then((result) => {
+                return result.css
+              })
+          }
         }
       ]
     })

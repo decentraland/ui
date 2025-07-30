@@ -1,17 +1,16 @@
 {
   "name": "decentraland-ui",
-  "version": "0.0.0-development",
+  "version": "0.0.1-development",
   "description": "Decentraland's UI components and styles",
-  "main": "lib/index.js",
   "module": "dist/index.js",
-  "typings": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "storybook dev -p 6006",
     "build": "npm run build:lib && npm run build:dist ",
     "build:lib": "rimraf lib && webpack --config webpack.config.js",
     "build:storybook": "storybook build && cp ./static/* ./storybook-static && node postbuild",
-    "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css'",
+    "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css' && cp -r src/images dist/ && cp -r src/assets dist/",
     "check:prettier": "prettier -c 'src/**/*.{js,ts,json,yml,md,tsx,html,css}'",
     "check:code": "eslint . --max-warnings=0",
     "fix:code": "npm run check:code -- --fix",
@@ -20,6 +19,9 @@
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/decentraland/ui.git"
