@@ -93,7 +93,7 @@ const TableContent = (props: Props) => {
               }
               firstItem={null}
               lastItem={null}
-              />
+            />
           </div>
         ) : null}
       </>

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import classNames from 'classnames'
-import { CheckboxProps } from 'semantic-ui-react'
+import { CheckboxProps } from '../Checkbox/Checkbox'
 import { Radio } from '../Radio/Radio'
 import { InfoTooltip } from '../InfoTooltip'
 import { RadioOptionsProps } from './RadioOptions.types'

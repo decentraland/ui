@@ -187,7 +187,10 @@ export const BarChart = ({
   )
 
   const handleRangeChange = useCallback(
-    (_: React.ChangeEvent<HTMLInputElement>, data: readonly [number, number]) => {
+    (
+      _: React.ChangeEvent<HTMLInputElement>,
+      data: readonly [number, number]
+    ) => {
       const [min, max] = data
       if (
         rangeMax !== undefined &&
@@ -219,9 +222,12 @@ export const BarChart = ({
   )
 
   // Bar chart handlers
-  const handleBarChartMouseMove = useCallback((e: { activeTooltipIndex?: number }) => {
-    setActiveBar(e.activeTooltipIndex)
-  }, [])
+  const handleBarChartMouseMove = useCallback(
+    (e: { activeTooltipIndex?: number }) => {
+      setActiveBar(e.activeTooltipIndex)
+    },
+    []
+  )
 
   const handleBarChartMouseLeave = useCallback(() => {
     setActiveBar(undefined)
@@ -231,7 +237,7 @@ export const BarChart = ({
     (data: { activePayload?: Array<{ payload: { values: number[] } }> }) => {
       const { activePayload } = data
       if (!activePayload || !activePayload[0]) return
-      
+
       const values = activePayload[0].payload.values
       const isUpperBoundRange = values[0] === values[1]
 
