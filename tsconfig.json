@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "stripInternal": true,
     "pretty": true,
-    "rootDirs": ["src", ".storybook"],
+    "rootDirs": ["src", ".storybook", "test"],
     "declaration": true,
     "declarationDir": "lib",
     "forceConsistentCasingInFileNames": true,
@@ -24,8 +24,9 @@
     "jsx": "react",
     "plugins": [{ "name": "tslint-language-service" }],
     "baseUrl": "./packages",
-    "lib": ["es2017", "dom", "esnext.asynciterable"]
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "types": ["@testing-library/jest-dom"]
   },
   "exclude": ["node_modules", "lib"],
-  "include": ["src/**/*", ".storybook"]
+  "include": ["src/**/*", ".storybook", "test/**/*"]
 }
