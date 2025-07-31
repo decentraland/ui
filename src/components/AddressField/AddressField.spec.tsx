@@ -25,7 +25,7 @@ describe('when user inputs an address', () => {
       onChange: onChangeMock
     })
     const addressInput = screen.getByPlaceholderText('test address')
-    userEvent.type(addressInput, address)
+    await userEvent.type(addressInput, address)
     await waitFor(() =>
       expect(screen.getByTestId('check-icon')).toBeInTheDocument()
     )
@@ -62,7 +62,7 @@ describe('when user inputs a name', () => {
         onChange: onChangeMock
       })
       const addressInput = screen.getByPlaceholderText('test address')
-      userEvent.type(addressInput, name)
+      await userEvent.type(addressInput, name)
       await waitFor(() =>
         expect(screen.getByTestId('check-icon')).toBeInTheDocument()
       )
@@ -98,7 +98,7 @@ describe('when user inputs a name', () => {
         onChange: onChangeMock
       })
       const addressInput = screen.getByPlaceholderText('test address')
-      userEvent.type(addressInput, name)
+      await userEvent.type(addressInput, name)
     })
 
     it('should keep the name as the input value', () => {
@@ -137,7 +137,7 @@ describe('when there is an error resolving the name', () => {
       onChange: onChangeMock
     })
     const addressInput = screen.getByPlaceholderText('test address')
-    userEvent.type(addressInput, name)
+    await userEvent.type(addressInput, name)
   })
 
   it('should show an error', async () => {

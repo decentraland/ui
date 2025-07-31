@@ -17,6 +17,7 @@ export enum LoginModalOptionType {
 }
 
 export type LoginModalProps = {
+  children?: React.ReactNode
   className?: string
   message?: React.ReactNode
   hasError?: boolean

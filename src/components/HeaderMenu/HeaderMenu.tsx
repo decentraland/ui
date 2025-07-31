@@ -2,6 +2,7 @@ import * as React from 'react'
 import './HeaderMenu.css'
 
 export type HeaderMenuProps = {
+  children?: React.ReactNode
   stackable?: boolean
 }
 

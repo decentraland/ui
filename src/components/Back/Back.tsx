@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Back.css'
 
 export type BackProps = {
+  children?: React.ReactNode
   className?: string
   absolute?: boolean
   onClick?: (e: React.MouseEvent) => void
