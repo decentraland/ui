@@ -794,3 +794,52 @@ export const WithLockedRadius: ComponentStory<typeof WearablePreview> = () => (
   </div>
 )
 WithLockedRadius.storyName = 'With locked radius'
+
+export const UnityModes: ComponentStory<typeof WearablePreview> = () => {
+  const [unityMode, setUnityMode] = React.useState<'marketplace' | 'profile' | 'authentication' | 'builder'>('marketplace')
+
+  const getPreviewProps = () => {
+    switch (unityMode) {
+      case 'marketplace':
+      case 'builder':
+        return {
+          contractAddress: "0xee8ae4c668edd43b34b98934d6d2ff82e41e6488",
+          itemId: "5"
+        }
+      case 'profile':
+        return {
+          profile: "0x2A39D4F68133491F0442496f601cde2a945b6D31"
+        }
+      case 'authentication':
+        return {
+          profile: "default"
+        }
+      default:
+        return {}
+    }
+  }
+
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        key={unityMode}
+        {...getPreviewProps()}
+        unity={true}
+        unityMode={unityMode}
+      />
+      <Row className="controls">
+        <select 
+          value={unityMode} 
+          onChange={(e) => setUnityMode(e.target.value as 'marketplace' | 'profile' | 'authentication' | 'builder')}
+          style={{ padding: '8px', marginTop: '16px' }}
+        >
+          <option value="marketplace">Marketplace</option>
+          <option value="profile">Profile</option>
+          <option value="authentication">Authentication</option>
+          <option value="builder">Builder</option>
+        </select>
+      </Row>
+    </div>
+  )
+}
+UnityModes.storyName = 'Unity modes'
