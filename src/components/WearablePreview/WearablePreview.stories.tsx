@@ -37,7 +37,7 @@ const getRandomHex = () => {
 }
 
 const getRandomProfile = () => {
-  return 'default' + ((Math.random() * 50) | 0)
+  return `default${Math.floor(Math.random() * 160) + 1}`
 }
 
 const RandomConfigProvider = (props: {
@@ -794,3 +794,71 @@ export const WithLockedRadius: ComponentStory<typeof WearablePreview> = () => (
   </div>
 )
 WithLockedRadius.storyName = 'With locked radius'
+
+export const UnityModes: ComponentStory<typeof WearablePreview> = () => {
+  const [unityMode, setUnityMode] = React.useState<
+    'marketplace' | 'profile' | 'authentication' | 'builder'
+  >('marketplace')
+
+  const getPreviewProps = () => {
+    switch (unityMode) {
+      case 'marketplace':
+      case 'builder':
+        return {
+          contractAddress: '0xee8ae4c668edd43b34b98934d6d2ff82e41e6488',
+          itemId: '5'
+        }
+      case 'profile':
+        return {
+          profile: getRandomProfile()
+        }
+      case 'authentication':
+        return {
+          profile: getRandomProfile()
+        }
+      default:
+        return {}
+    }
+  }
+
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        key={unityMode}
+        {...getPreviewProps()}
+        unity={true}
+        unityMode={unityMode}
+        onLoad={() =>
+          console.log(`WearablePreview loaded with mode: ${unityMode}`)
+        }
+        onError={(error) =>
+          console.error(`WearablePreview error with mode ${unityMode}:`, error)
+        }
+      />
+      <Row className="controls">
+        <div style={{ marginBottom: '16px', fontSize: '12px', color: '#666' }}>
+          Debug: Check browser console for generated URL
+        </div>
+        <select
+          value={unityMode}
+          onChange={(e) => {
+            const newMode = e.target.value as
+              | 'marketplace'
+              | 'profile'
+              | 'authentication'
+              | 'builder'
+            console.log(`Switching to mode: ${newMode}`)
+            setUnityMode(newMode)
+          }}
+          style={{ padding: '8px', marginTop: '16px' }}
+        >
+          <option value="marketplace">Marketplace</option>
+          <option value="profile">Profile</option>
+          <option value="authentication">Authentication</option>
+          <option value="builder">Builder</option>
+        </select>
+      </Row>
+    </div>
+  )
+}
+UnityModes.storyName = 'Unity modes'
