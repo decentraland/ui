@@ -10,6 +10,7 @@ export type HeroProps = {
   height?: number
   centered?: boolean
   className?: string
+  children?: React.ReactNode
 }
 
 export class Hero extends React.PureComponent<HeroProps> {

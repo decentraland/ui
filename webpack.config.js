@@ -50,7 +50,13 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: ['ts-loader']
+        use: [{
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            configFile: 'tsconfig.json'
+          }
+        }]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,

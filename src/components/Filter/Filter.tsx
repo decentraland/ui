@@ -3,6 +3,7 @@ import './Filter.css'
 
 export type FilterProps = {
   active?: boolean
+  children?: React.ReactNode
 }
 
 export class Filter extends React.PureComponent<FilterProps> {

@@ -11,7 +11,7 @@ export type ManaProps = {
   inline?: boolean
   network?: Network
   className?: string
-  children?: React.ReactChild
+  children?: React.ReactNode
   primary?: boolean
   showTooltip?: boolean
 }

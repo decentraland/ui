@@ -3,6 +3,7 @@ import './Narrow.css'
 
 export type NarrowProps = {
   className?: string
+  children?: React.ReactNode
 }
 
 export class Narrow extends React.PureComponent<NarrowProps> {

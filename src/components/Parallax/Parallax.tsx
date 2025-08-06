@@ -1,8 +1,12 @@
 import * as React from 'react'
 import * as ParallaxJS from 'parallax-js'
 
-export class Parallax extends React.PureComponent {
-  scene: React.ReactNode
+export type ParallaxProps = {
+  children?: React.ReactNode
+}
+
+export class Parallax extends React.PureComponent<ParallaxProps> {
+  scene: HTMLDivElement | null = null
   // Simple fix for parallax not having types
   parallax: { disable(): void }
 

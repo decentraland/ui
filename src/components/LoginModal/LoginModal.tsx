@@ -24,6 +24,7 @@ export type LoginModalProps = {
   loading?: boolean
   i18n?: LoginModalI18N
   onClose?: () => void
+  children?: React.ReactNode
 }
 
 export type LoginModalOptionProps = {

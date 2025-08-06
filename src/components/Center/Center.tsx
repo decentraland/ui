@@ -4,6 +4,7 @@ import './Center.css'
 export type CenterProps = {
   screen?: boolean
   className?: string
+  children?: React.ReactNode
 }
 
 export class Center extends React.PureComponent<CenterProps> {

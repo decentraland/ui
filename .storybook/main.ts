@@ -2,6 +2,9 @@ const webpackConfig = require('../webpack.config.js');
 const cssRule = webpackConfig.module.rules[0]
 
 module.exports = {
+  typescript: {
+    reactDocgen: false, // Disable problematic TypeScript docgen plugin
+  },
   webpackFinal: async (config) => {
     config.externals = ["react-dom/client"]
     config.module.rules = [
