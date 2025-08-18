@@ -45,6 +45,7 @@ export type PreviewUnityMode =
   | 'builder'
   | 'marketplace'
   | 'profile'
+  | 'configurator'
 
 export type WearablePreviewProps = {
   id?: string
@@ -94,6 +95,7 @@ export type WearablePreviewProps = {
   type?: PreviewType
   unityMode?: PreviewUnityMode
   unity?: boolean
+  username?: string
   onLoad?: (renderer?: PreviewRenderer) => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -106,6 +108,9 @@ type WearablePreviewState = {
   lastOptions: PreviewOptions | null
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
   static defaultProps = {
     dev: false,
