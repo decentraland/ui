@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useMemo } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import {
   EmoteWithBlobs,
@@ -797,10 +797,10 @@ WithLockedRadius.storyName = 'With locked radius'
 
 export const UnityModes: ComponentStory<typeof WearablePreview> = () => {
   const [unityMode, setUnityMode] = React.useState<
-    'marketplace' | 'profile' | 'authentication' | 'builder'
+    'marketplace' | 'profile' | 'authentication' | 'builder' | 'configurator'
   >('marketplace')
 
-  const getPreviewProps = () => {
+  const previewProps = useMemo(() => {
     switch (unityMode) {
       case 'marketplace':
       case 'builder':
@@ -816,16 +816,20 @@ export const UnityModes: ComponentStory<typeof WearablePreview> = () => {
         return {
           profile: getRandomProfile()
         }
+      case 'configurator':
+        return {
+          username: 'DclUsername'
+        }
       default:
         return {}
     }
-  }
+  }, [unityMode])
 
   return (
     <div className="WearablePreview-story-container">
       <WearablePreview
         key={unityMode}
-        {...getPreviewProps()}
+        {...previewProps}
         unity={true}
         unityMode={unityMode}
         onLoad={() =>
@@ -856,6 +860,7 @@ export const UnityModes: ComponentStory<typeof WearablePreview> = () => {
           <option value="profile">Profile</option>
           <option value="authentication">Authentication</option>
           <option value="builder">Builder</option>
+          <option value="configurator">Configurator</option>
         </select>
       </Row>
     </div>
