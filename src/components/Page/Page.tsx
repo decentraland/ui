@@ -3,6 +3,7 @@ import { Container } from '../Container/Container'
 import './Page.css'
 
 export type PageProps = {
+  children?: React.ReactNode
   className?: string
   isFullscreen?: boolean
 }

@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Column.css'
 
 export type ColumnProps = {
+  children?: React.ReactNode
   align: 'left' | 'center' | 'right'
   center?: boolean
   grow?: boolean

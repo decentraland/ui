@@ -6,7 +6,7 @@ export type Props = {
   isLoading: boolean
   setPage?: (page: number) => void
   totalPages?: number | null
-  empty: () => void
+  empty: () => React.ReactNode
   total: number | null
   rowsPerPage?: number
   mobileTableBody?: React.ReactNode

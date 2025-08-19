@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Filter.css'
 
 export type FilterProps = {
+  children?: React.ReactNode
   active?: boolean
 }
 

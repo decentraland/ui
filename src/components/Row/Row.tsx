@@ -2,6 +2,7 @@ import * as React from 'react'
 import './Row.css'
 
 export type RowProps = {
+  children?: React.ReactNode
   center?: boolean
   align?: 'left' | 'center' | 'right'
   width?: number
