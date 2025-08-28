@@ -19,6 +19,9 @@ export type CanvasStateStore = {
   canvas?: HTMLCanvasElement
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class Blockie extends React.PureComponent<BlockieProps> {
   static defaultProps = {
     color: '#e449c2',

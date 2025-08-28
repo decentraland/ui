@@ -7,6 +7,9 @@ import { ManaBalancesProps } from './ManaBalances.types'
 import { Mana } from '../../Mana/Mana'
 import { config } from '../../../config'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const ManaBalances = (props: ManaBalancesProps) => {
   const { manaBalances, onClickBalance } = props
 

@@ -22,6 +22,9 @@ const ChainNameIconMap = {
   [ChainId.AVALANCHE_MAINNET]: 'avalanche'
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const ChainSelector = (props: ChainSelectorProps) => {
   const { chains, selectedChain, chainBeingConfirmed, i18n, onSelectChain } =
     props

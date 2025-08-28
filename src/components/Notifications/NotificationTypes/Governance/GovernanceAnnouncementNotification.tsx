@@ -7,6 +7,9 @@ import {
 import NotificationItem from '../../NotificationItem'
 import GovernanceIcon from '../../../Icons/Notifications/GovernanceIcon'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 const GovernanceAnnouncementNotification = ({
   notification,
   locale
