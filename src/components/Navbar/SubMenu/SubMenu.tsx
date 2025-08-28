@@ -10,6 +10,9 @@ import { SubMenuItem } from '../SubMenuItem/SubMenuItem'
 
 import './SubMenu.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const SubMenu = (props: SubMenuProps) => {
   const {
     selectedMenu,

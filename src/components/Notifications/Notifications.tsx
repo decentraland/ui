@@ -35,6 +35,9 @@ export interface NotificationsProps {
   ) => void
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function Notifications({
   isOpen,
   items,

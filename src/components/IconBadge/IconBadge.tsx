@@ -3,6 +3,9 @@ import classNames from 'classnames'
 import { Props } from './IconBadge.types'
 import './IconBadge.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const IconBadge = ({
   icon,
   text,

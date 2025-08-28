@@ -8,6 +8,9 @@ import { getExtraButton, getNavbarPagesUrls, NavbarExtraButton } from '../utils'
 
 import './MainMenu.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const MainMenu = (props: MainMenuProps) => {
   const { i18n, ...menuItemProps } = props
 

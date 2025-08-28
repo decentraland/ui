@@ -37,6 +37,9 @@ export const i18N = {
   }
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 const WorldsPermissionRevokedNotification = ({
   notification,
   locale

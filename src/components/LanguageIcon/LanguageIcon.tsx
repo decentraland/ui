@@ -9,6 +9,9 @@ export type LanguageIconProps = {
   label?: React.ReactNode
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class LanguageIcon extends React.PureComponent<LanguageIconProps> {
   renderIcon(): JSX.Element {
     return <i className={`dcl language-icon ${this.props.locale}`} />

@@ -59,16 +59,19 @@ const i18N = {
     ),
     title: (proposalTitle: string): React.ReactNode => (
       <>
-        一位鲸鱼对您的提案“
+        一位鲸鱼对您的提案"
         <span className="dcl notification-text-highlighted">
           {proposalTitle}
         </span>
-        ”进行了投票
+        "进行了投票
       </>
     )
   }
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 const GovernanceWhaleVoteNotification = ({
   notification,
   locale

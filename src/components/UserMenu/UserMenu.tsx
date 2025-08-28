@@ -16,6 +16,9 @@ import './UserMenu.css'
 import { useTabletAndBelowMediaQuery } from '../Media'
 import DownloadIcon from '../Icons/DownloadIcon'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const UserMenu = React.memo((props: UserMenuProps) => {
   const {
     isSignedIn,

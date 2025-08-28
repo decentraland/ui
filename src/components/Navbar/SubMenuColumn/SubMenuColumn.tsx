@@ -5,6 +5,9 @@ import { SubMenuColumnProps } from './SubMenuColumn.types'
 
 import './SubMenuColumn.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const SubMenuColumn = (props: SubMenuColumnProps) => {
   const { children, title, className } = props
   return (

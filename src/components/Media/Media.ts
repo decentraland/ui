@@ -33,6 +33,7 @@ const useMobileMediaQuery = (): boolean => useMediaQuery({ maxWidth: 767 })
 const useNotMobileMediaQuery = (): boolean => useMediaQuery({ minWidth: 768 })
 
 /**
+ * @deprecated Should start using the same component migrated to UI2.
  * Renders a component if the screen suits the desktop size.
  */
 const Desktop = ({ children }) => {
@@ -41,6 +42,7 @@ const Desktop = ({ children }) => {
 }
 
 /**
+ * @deprecated Should start using the same component migrated to UI2.
  * Renders a component if the screen suits the tablet size.
  */
 const Tablet = ({ children }) => {
@@ -49,6 +51,7 @@ const Tablet = ({ children }) => {
 }
 
 /**
+ * @deprecated Should start using the same component migrated to UI2.
  * Renders a component if the screen suits the tablet or mobile size.
  */
 const TabletAndBelow = ({ children }) => {
@@ -57,6 +60,7 @@ const TabletAndBelow = ({ children }) => {
 }
 
 /**
+ * @deprecated Should start using the same component migrated to UI2.
  * Renders a component if the screen suits the mobile size.
  */
 const Mobile = ({ children }) => {
@@ -65,6 +69,7 @@ const Mobile = ({ children }) => {
 }
 
 /**
+ * @deprecated Should start using the same component migrated to UI2.
  * Renders a component if the screen doesn't have the size of a mobile device.
  */
 const NotMobile = ({ children }) => {

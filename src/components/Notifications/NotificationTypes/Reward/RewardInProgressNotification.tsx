@@ -16,7 +16,7 @@ const i18N = {
       reward: RewardInProgressNotification['metadata']
     ): React.ReactNode => (
       <>
-        You’ve received a
+        You've received a
         <NotificationItemNFTLink
           rarity={reward.tokenRarity}
           name={reward.tokenName}
@@ -61,6 +61,9 @@ const i18N = {
   }
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function RewardInProgressNotification({
   notification,
   locale

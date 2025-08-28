@@ -7,6 +7,9 @@ import { MenuItemProps } from './MenuItem.types'
 
 import './MenuItem.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const MenuItem = (props: MenuItemProps) => {
   const {
     activePage,

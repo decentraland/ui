@@ -6,6 +6,9 @@ import ExternalIcon from '../../Icons/ExternalIcon'
 
 import './SubMenuItem.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const SubMenuItem = (props: SubMenuItemProps) => {
   const {
     title,
