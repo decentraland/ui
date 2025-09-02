@@ -7,6 +7,9 @@ interface NotificationItemNFTLinkProps {
   name: string
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 const NotificationItemNFTLink = ({
   link,
   rarity,

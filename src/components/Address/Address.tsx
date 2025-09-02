@@ -9,6 +9,9 @@ export type AddressProps = {
   className?: string
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class Address extends React.Component<AddressProps> {
   static defaultProps = {
     className: '',

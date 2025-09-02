@@ -16,6 +16,9 @@ export type ManaProps = {
   showTooltip?: boolean
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class Mana extends React.Component<ManaProps & HeaderProps> {
   static defaultProps = {
     className: '',

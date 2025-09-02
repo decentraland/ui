@@ -44,6 +44,9 @@ const COLOR_BY_TYPE = Object.freeze({
   14: '#0d0b0e' // loading even
 })
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
   static defaultProps = {
     ...TileMap.defaultProps,

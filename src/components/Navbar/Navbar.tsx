@@ -18,6 +18,9 @@ import { i18n as i18nUserMenuDefault } from '../UserMenu/UserMenu.i18n'
 
 import './Navbar.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const Navbar = React.memo((props: NavbarProps) => {
   const {
     chains,

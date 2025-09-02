@@ -9,6 +9,9 @@ import { shorten, isValid } from './utils'
 import { AddressFieldErrors, Props } from './AddressField.types'
 import './AddressField.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function AddressField(props: Props) {
   const {
     className,

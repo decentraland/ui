@@ -65,7 +65,8 @@ function createSendRequest(id: string) {
       | 'stop'
       | 'enableSound'
       | 'disableSound'
-      | 'hasSound',
+      | 'hasSound'
+      | 'setUsername',
     params: any[]
   ) {
     const iframe = document.getElementById(id) as HTMLIFrameElement
@@ -107,6 +108,9 @@ export function createController(id: string): IPreviewController {
       },
       changeCameraPosition: function (position) {
         return sendRequest('scene', 'changeCameraPosition', [position])
+      },
+      setUsername(username: string) {
+        return sendRequest<void>('scene', 'setUsername', [username])
       },
       cleanup() {
         return sendRequest<void>('scene', 'cleanup', [])

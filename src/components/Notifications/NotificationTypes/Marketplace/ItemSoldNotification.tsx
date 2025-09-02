@@ -12,6 +12,9 @@ const i18N = {
   zh: { description: '有人刚买了你的 ', title: '已售商品' }
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 const ItemSoldNotification = ({
   notification,
   locale

@@ -8,6 +8,9 @@ export interface NotificationItemImageProps {
   icon?: ReactNode
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function NotificationItemImage({
   image,
   backgroundColor,
