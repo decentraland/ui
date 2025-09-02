@@ -16,6 +16,9 @@ import { useTabletAndBelowMediaQuery } from '../../Media'
 import '../UserMenu.css'
 import './UserMenuSignedIn.css'
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
   const {
     manaBalances,

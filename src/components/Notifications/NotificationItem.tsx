@@ -16,6 +16,9 @@ interface NotificationItemProps {
   locale: NotificationLocale
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function NotificationItem({
   image,
   timestamp,

@@ -9,6 +9,9 @@ export type AvatarFaceProps = {
   className?: string
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
   static defaultProps: Partial<AvatarFaceProps> = {
     size: 'medium'

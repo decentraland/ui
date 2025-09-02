@@ -13,7 +13,7 @@ const i18N = {
       reward: RewardDelayedNotification['metadata']
     ): React.ReactNode => (
       <>
-        We’re working on delivering your
+        We're working on delivering your
         <NotificationItemNFTLink
           rarity={reward.tokenRarity}
           name={reward.tokenName}
@@ -58,6 +58,9 @@ const i18N = {
   }
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default function RewardDelayedNotification({
   notification,
   locale
