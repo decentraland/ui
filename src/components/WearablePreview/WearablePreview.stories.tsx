@@ -143,27 +143,29 @@ export const PreviewAToken: ComponentStory<typeof WearablePreview> = () => (
 )
 PreviewAToken.storyName = 'Preview a token'
 
-export const PreviewATokenFromMumbai: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        contractAddress="0xf88951ddd9ff334ae98901e26042edbb8f6d52e5"
-        tokenId="1"
-        dev
-      />
-    </div>
-  )
+export const PreviewATokenFromMumbai: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      contractAddress="0xf88951ddd9ff334ae98901e26042edbb8f6d52e5"
+      tokenId="1"
+      dev
+    />
+  </div>
+)
 PreviewATokenFromMumbai.storyName = 'Preview a token from mumbai'
 
-export const PreviewATextureWearable: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        contractAddress="0xfeb52cbf71b9adac957c6f948a6cf9980ac8c907"
-        tokenId="3073"
-      />
-    </div>
-  )
+export const PreviewATextureWearable: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      contractAddress="0xfeb52cbf71b9adac957c6f948a6cf9980ac8c907"
+      tokenId="3073"
+    />
+  </div>
+)
 PreviewATextureWearable.storyName = 'Preview a texture wearable'
 
 export const UsingCustomSkin: ComponentStory<typeof WearablePreview> = () => (
@@ -207,15 +209,16 @@ export const UsingAProfile: ComponentStory<typeof WearablePreview> = () => (
 )
 UsingAProfile.storyName = 'Using a profile'
 
-export const UsingAProfileEmote: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
-        emote={PreviewEmote.FASHION}
-      />
-    </div>
-  )
+export const UsingAProfileEmote: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      profile="0xc85a0a34d5f9f2239ab0622a41a2c2560ff119c6"
+      emote={PreviewEmote.FASHION}
+    />
+  </div>
+)
 UsingAProfileEmote.storyName = 'Using a profile + emote'
 
 export const UsingAWearablePreviewProfileEmote: ComponentStory<
@@ -243,28 +246,30 @@ export const UsingStaticCamera: ComponentStory<typeof WearablePreview> = () => (
 )
 UsingStaticCamera.storyName = 'Using static camera'
 
-export const UsingOnLoadCallback: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        contractAddress="0xee8ae4c668edd43b34b98934d6d2ff82e41e6488"
-        itemId="5"
-        onLoad={() => console.log('loaded!')}
-      />
-    </div>
-  )
+export const UsingOnLoadCallback: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      contractAddress="0xee8ae4c668edd43b34b98934d6d2ff82e41e6488"
+      itemId="5"
+      onLoad={() => console.log('loaded!')}
+    />
+  </div>
+)
 UsingOnLoadCallback.storyName = 'Using onLoad callback'
 
-export const UsingOnErrorCallback: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        contractAddress="invalidAddress"
-        itemId="invalidItem"
-        onError={(error) => console.error(error.message)}
-      />
-    </div>
-  )
+export const UsingOnErrorCallback: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      contractAddress="invalidAddress"
+      itemId="invalidItem"
+      onError={(error) => console.error(error.message)}
+    />
+  </div>
+)
 UsingOnErrorCallback.storyName = 'Using onError callback'
 
 export const UseAsHero: ComponentStory<typeof WearablePreview> = () => (
@@ -330,12 +335,13 @@ export const FromBase64: ComponentStory<typeof WearablePreview> = () => (
 )
 FromBase64.storyName = 'From base64'
 
-export const WithoutAutoRotation: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview profile="default" disableAutoRotate />
-    </div>
-  )
+export const WithoutAutoRotation: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview profile="default" disableAutoRotate />
+  </div>
+)
 WithoutAutoRotation.storyName = 'Without auto Rotation'
 
 export const WithoutBackgroundOrTransparentBackground: ComponentStory<
@@ -348,95 +354,98 @@ export const WithoutBackgroundOrTransparentBackground: ComponentStory<
 WithoutBackgroundOrTransparentBackground.storyName =
   'Without background or transparent background'
 
-export const WithCustomBackgroundColor: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview profile="default" background="ff0000" />
-    </div>
-  )
+export const WithCustomBackgroundColor: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview profile="default" background="ff0000" />
+  </div>
+)
 WithCustomBackgroundColor.storyName = 'With custom background color'
 
-export const TakeScreenshotAndMetrics: ComponentStory<typeof WearablePreview> =
-  () => {
-    const [screenshot, setScreenshot] = React.useState('')
-    const [metrics, setMetrics] = React.useState<Metrics | null>(null)
-    const ref = React.useRef<IPreviewController | null>(null)
-    const onLoad = React.useCallback(() => {
-      ref.current = ref.current ?? WearablePreview.createController('some-id')
-    }, [])
-    return (
-      <div className="WearablePreview-story-container">
-        <WearablePreview
-          id="some-id"
-          contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
-          itemId="0"
-          disableAutoRotate
-          disableBackground
-          onLoad={onLoad}
-        />
-        <Row className="controls">
-          <Button
-            primary
-            onClick={() =>
-              ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
-            }
-          >
-            Screenshot
-          </Button>
-          {screenshot && <img src={screenshot} />}
-          <Button
-            primary
-            onClick={() => ref.current.scene.getMetrics().then(setMetrics)}
-          >
-            Metrics
-          </Button>
-          {metrics && <p>{JSON.stringify(metrics)}</p>}
-        </Row>
-      </div>
-    )
-  }
+export const TakeScreenshotAndMetrics: ComponentStory<
+  typeof WearablePreview
+> = () => {
+  const [screenshot, setScreenshot] = React.useState('')
+  const [metrics, setMetrics] = React.useState<Metrics | null>(null)
+  const ref = React.useRef<IPreviewController | null>(null)
+  const onLoad = React.useCallback(() => {
+    ref.current = ref.current ?? WearablePreview.createController('some-id')
+  }, [])
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        id="some-id"
+        contractAddress="0x186c788f9c172934b790b868faf3b78b84e34e89"
+        itemId="0"
+        disableAutoRotate
+        disableBackground
+        onLoad={onLoad}
+      />
+      <Row className="controls">
+        <Button
+          primary
+          onClick={() =>
+            ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
+          }
+        >
+          Screenshot
+        </Button>
+        {screenshot && <img src={screenshot} />}
+        <Button
+          primary
+          onClick={() => ref.current.scene.getMetrics().then(setMetrics)}
+        >
+          Metrics
+        </Button>
+        {metrics && <p>{JSON.stringify(metrics)}</p>}
+      </Row>
+    </div>
+  )
+}
 TakeScreenshotAndMetrics.storyName = 'Take screenshot and metrics'
 
-export const WithTranslationControls: ComponentStory<typeof WearablePreview> =
-  () => {
-    const [verticalPosition, setVerticalPosition] = React.useState(
-      VerticalPosition.LEFT
-    )
+export const WithTranslationControls: ComponentStory<
+  typeof WearablePreview
+> = () => {
+  const [verticalPosition, setVerticalPosition] = React.useState(
+    VerticalPosition.LEFT
+  )
 
-    const togglePosition =
-      verticalPosition === VerticalPosition.LEFT
-        ? VerticalPosition.RIGHT
-        : VerticalPosition.LEFT
+  const togglePosition =
+    verticalPosition === VerticalPosition.LEFT
+      ? VerticalPosition.RIGHT
+      : VerticalPosition.LEFT
 
-    return (
-      <div className="WearablePreview-story-container">
-        <WearablePreview
-          id="some-id"
-          profile="default"
-          emote={PreviewEmote.DANCE}
-          disableBackground
-          disableAutoRotate
-          disableFace
-          disableDefaultWearables
-          skin="000000"
+  return (
+    <div className="WearablePreview-story-container">
+      <WearablePreview
+        id="some-id"
+        profile="default"
+        emote={PreviewEmote.DANCE}
+        disableBackground
+        disableAutoRotate
+        disableFace
+        disableDefaultWearables
+        skin="000000"
+      />
+      <TranslationControls
+        vertical
+        verticalPosition={verticalPosition}
+        wearablePreviewId="some-id"
+      />
+      <Row className="controls">
+        <Radio
+          toggle
+          checked={verticalPosition === VerticalPosition.LEFT}
+          label={`${verticalPosition} side`}
+          onClick={() => setVerticalPosition(togglePosition)}
+          style={{ textTransform: 'capitalize' }}
         />
-        <TranslationControls
-          vertical
-          verticalPosition={verticalPosition}
-          wearablePreviewId="some-id"
-        />
-        <Row className="controls">
-          <Radio
-            toggle
-            checked={verticalPosition === VerticalPosition.LEFT}
-            label={`${verticalPosition} side`}
-            onClick={() => setVerticalPosition(togglePosition)}
-            style={{ textTransform: 'capitalize' }}
-          />
-        </Row>
-      </div>
-    )
-  }
+      </Row>
+    </div>
+  )
+}
 WithTranslationControls.storyName = 'With translation controls'
 
 export const WithZoomControls: ComponentStory<typeof WearablePreview> = () => {
@@ -596,75 +605,74 @@ export const PreviewFromAFile: ComponentStory<typeof WearablePreview> = () => {
 }
 PreviewFromAFile.storyName = 'Preview from a file'
 
-export const EmoteThumbnailPicker: ComponentStory<typeof WearablePreview> =
-  () => {
-    const inputRef = React.useRef<HTMLInputElement>()
-    const [file, setFile] = React.useState<File | null>(null)
-    const [screenshot, setScreenshot] = React.useState('')
-    const [length, setLength] = React.useState(0)
-    const ref = React.useRef<IPreviewController | null>(null)
-    const onLoad = React.useCallback(async () => {
-      ref.current =
-        ref.current ?? WearablePreview.createController('thumbnail-picker')
-      setLength(await ref.current.emote.getLength())
-    }, [])
-    return (
-      <div className="WearablePreview-story-container">
-        {file ? (
-          <>
-            <WearablePreview
-              id="thumbnail-picker"
-              blob={file ? toEmoteWithBlobs(file) : undefined}
-              profile="default"
-              disableBackground
-              disableAutoRotate
-              disableFace
-              disableDefaultWearables
-              skin="000000"
-              wheelZoom={2}
-              onLoad={onLoad}
-              disableDefaultEmotes
-            />
-            <Row className="controls">
-              <Button
-                primary
-                onClick={() =>
-                  ref.current.scene
-                    .getScreenshot(1024, 1024)
-                    .then(setScreenshot)
-                }
-              >
-                Screenshot
-              </Button>
-              {screenshot && <img src={screenshot} />}
-              {length > 0 && (
-                <span className="slider">
-                  <SliderField
-                    header=""
-                    min={0}
-                    max={length * 100}
-                    onChange={async (_, value) => {
-                      await ref.current.emote.pause()
-                      await ref.current.emote.goTo(value / 100)
-                    }}
-                  />
-                </span>
-              )}
-            </Row>
-            <EmoteControls wearablePreviewId="thumbnail-picker" />
-          </>
-        ) : (
-          <Center>
-            <input
-              type="file"
-              ref={inputRef}
-              onChange={() => setFile(inputRef.current.files[0])}
-            />
-          </Center>
-        )}
-      </div>
-    )
-  }
+export const EmoteThumbnailPicker: ComponentStory<
+  typeof WearablePreview
+> = () => {
+  const inputRef = React.useRef<HTMLInputElement>()
+  const [file, setFile] = React.useState<File | null>(null)
+  const [screenshot, setScreenshot] = React.useState('')
+  const [length, setLength] = React.useState(0)
+  const ref = React.useRef<IPreviewController | null>(null)
+  const onLoad = React.useCallback(async () => {
+    ref.current =
+      ref.current ?? WearablePreview.createController('thumbnail-picker')
+    setLength(await ref.current.emote.getLength())
+  }, [])
+  return (
+    <div className="WearablePreview-story-container">
+      {file ? (
+        <>
+          <WearablePreview
+            id="thumbnail-picker"
+            blob={file ? toEmoteWithBlobs(file) : undefined}
+            profile="default"
+            disableBackground
+            disableAutoRotate
+            disableFace
+            disableDefaultWearables
+            skin="000000"
+            wheelZoom={2}
+            onLoad={onLoad}
+            disableDefaultEmotes
+          />
+          <Row className="controls">
+            <Button
+              primary
+              onClick={() =>
+                ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
+              }
+            >
+              Screenshot
+            </Button>
+            {screenshot && <img src={screenshot} />}
+            {length > 0 && (
+              <span className="slider">
+                <SliderField
+                  header=""
+                  min={0}
+                  max={length * 100}
+                  onChange={async (_, value) => {
+                    await ref.current.emote.pause()
+                    await ref.current.emote.goTo(value / 100)
+                  }}
+                />
+              </span>
+            )}
+          </Row>
+          <EmoteControls wearablePreviewId="thumbnail-picker" />
+        </>
+      ) : (
+        <Center>
+          <input
+            type="file"
+            ref={inputRef}
+            onChange={() => setFile(inputRef.current.files[0])}
+          />
+        </Center>
+      )}
+    </div>
+  )
+}
 EmoteThumbnailPicker.storyName = 'Emote thumbnail picker'
 
 export const WithOffset: ComponentStory<typeof WearablePreview> = () => (
@@ -674,19 +682,20 @@ export const WithOffset: ComponentStory<typeof WearablePreview> = () => (
 )
 WithOffset.storyName = 'With offset'
 
-export const CameraFromTheFront: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <WearablePreview
-        contractAddress="0x9449bc0ef0108d2af6f1031aa5a51a3a830d59c2"
-        itemId="0"
-        cameraX={0}
-        cameraY={0}
-        cameraZ={3}
-        disableAutoRotate
-      />
-    </div>
-  )
+export const CameraFromTheFront: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <WearablePreview
+      contractAddress="0x9449bc0ef0108d2af6f1031aa5a51a3a830d59c2"
+      itemId="0"
+      cameraX={0}
+      cameraY={0}
+      cameraZ={3}
+      disableAutoRotate
+    />
+  </div>
+)
 CameraFromTheFront.storyName = 'Camera from the front'
 
 export const CameraFromTheTop: ComponentStory<typeof WearablePreview> = () => (
@@ -703,36 +712,37 @@ export const CameraFromTheTop: ComponentStory<typeof WearablePreview> = () => (
 )
 CameraFromTheTop.storyName = 'Camera from the top'
 
-export const DifferentProjections: ComponentStory<typeof WearablePreview> =
-  () => (
-    <div className="WearablePreview-story-container">
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%'
-        }}
-      >
-        <div style={{ width: 512, height: 512, display: 'inline-block' }}>
-          <WearablePreview
-            contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
-            itemId="2"
-            projection={PreviewProjection.ORTHOGRAPHIC}
-            disableAutoRotate
-          />
-        </div>
-        <div style={{ width: 512, height: 512, display: 'inline-block' }}>
-          <WearablePreview
-            contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
-            itemId="2"
-            projection={PreviewProjection.PERSPECTIVE}
-            disableAutoRotate
-          />
-        </div>
+export const DifferentProjections: ComponentStory<
+  typeof WearablePreview
+> = () => (
+  <div className="WearablePreview-story-container">
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%'
+      }}
+    >
+      <div style={{ width: 512, height: 512, display: 'inline-block' }}>
+        <WearablePreview
+          contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
+          itemId="2"
+          projection={PreviewProjection.ORTHOGRAPHIC}
+          disableAutoRotate
+        />
+      </div>
+      <div style={{ width: 512, height: 512, display: 'inline-block' }}>
+        <WearablePreview
+          contractAddress="0xf3eb38b1649bdccc8761f3a0526b3173597a0363"
+          itemId="2"
+          projection={PreviewProjection.PERSPECTIVE}
+          disableAutoRotate
+        />
       </div>
     </div>
-  )
+  </div>
+)
 DifferentProjections.storyName = 'Different projections'
 
 export const CustomPeerUrl: ComponentStory<typeof WearablePreview> = () => (

@@ -50,14 +50,12 @@ export function getBGColorByRarity(rarity: Rarity) {
   return Rarity.getGradient(rarity).join()
 }
 
-export type DecentralandNotificationComponentByType<T> = Partial<
-  {
-    [k in NotificationType]: T extends DCLNotification
-      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        FunctionComponent<CommonNotificationProps<any>>
-      : never
-  }
->
+export type DecentralandNotificationComponentByType<T> = Partial<{
+  [k in NotificationType]: T extends DCLNotification
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      FunctionComponent<CommonNotificationProps<any>>
+    : never
+}>
 
 export const NotificationComponentByType: DecentralandNotificationComponentByType<DCLNotification> =
   {
