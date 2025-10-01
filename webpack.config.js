@@ -1,4 +1,5 @@
 /*eslint-env node*/
+/* eslint-disable @typescript-eslint/no-require-imports */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
@@ -17,7 +18,14 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      'semantic-ui-react': require.resolve('semantic-ui-react')
+    },
+    fallback: {
+      fs: false,
+      path: false
+    }
   },
   externals: {
     react: {
@@ -33,36 +41,48 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              url: false
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                postcssPresetEnv({
-                  stage: 4
-                }),
-                postcssAssets()
-              ]
+              postcssOptions: {
+                plugins: [
+                  postcssPresetEnv({
+                    stage: 4
+                  }),
+                  postcssAssets()
+                ]
+              }
             }
           }
         ]
       },
       {
         test: /\.tsx?$/,
-        use: [{
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-            configFile: 'tsconfig.json'
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              configFile: 'tsconfig.json'
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: {
           loader: 'file-loader',
-          options: { esModule: false }
+          options: {
+            esModule: false,
+            name: '[name].[ext]'
+          }
         }
       },
       {
@@ -83,11 +103,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new CopyWebpackPlugin([{ 
-        from: 'src/themes/alternative', 
-        to: './',
-        // transform themes file because now they contain a relative path to the assets
-        transform: (content, path) => {
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/themes/alternative',
+          to: './',
+          // transform themes file because now they contain a relative path to the assets
+          transform: (content, path) => {
             return postcss([
               postcssPresetEnv({
                 stage: 4
@@ -97,11 +119,13 @@ module.exports = {
                 dest: './lib/'
               })
             ])
-            .process(content, { from: path })
-            .then(result => {
-              return result.css
-            })
-        }}
-    ])
+              .process(content, { from: path })
+              .then((result) => {
+                return result.css
+              })
+          }
+        }
+      ]
+    })
   ]
 }

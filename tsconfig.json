@@ -23,7 +23,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "plugins": [{ "name": "tslint-language-service" }],
-    "baseUrl": "./packages",
+    "baseUrl": ".",
     "lib": ["es2017", "dom", "esnext.asynciterable"]
   },
   "exclude": ["node_modules", "lib"],
