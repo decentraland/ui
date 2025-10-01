@@ -36,10 +36,6 @@ module.exports = {
     '@storybook/addon-essentials'
   ],
 
-  core: {
-    disableTelemetry: true
-  },
-
   framework: {
     name: '@storybook/react-webpack5',
     options: {
@@ -49,8 +45,7 @@ module.exports = {
 
   features: {
     buildStoriesJson: true,
-    storyStoreV7: false,
-    legacyMdx1: true
+    storyStoreV7: false
   },
 
   typescript: {
