@@ -6,6 +6,7 @@ import { Header } from '../Header/Header'
 import './Hero.css'
 
 export type HeroProps = {
+  children?: React.ReactNode
   width?: number
   height?: number
   centered?: boolean

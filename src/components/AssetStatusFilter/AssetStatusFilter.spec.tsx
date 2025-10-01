@@ -43,9 +43,9 @@ describe.each(Object.keys(i18n.status))(
       renderedComponent = renderAssetStatusFilter({ onChange })
     })
 
-    it(`should call the onChange callback prop with the ${i18n.status[status]} value`, () => {
+    it(`should call the onChange callback prop with the ${i18n.status[status]} value`, async () => {
       const { getByText } = renderedComponent
-      userEvent.click(getByText(i18n.status[status]))
+      await userEvent.click(getByText(i18n.status[status]))
       expect(onChange).toHaveBeenCalledWith(status)
     })
   }

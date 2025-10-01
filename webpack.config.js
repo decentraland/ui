@@ -7,6 +7,8 @@ const postcssCopy = require('postcss-copy')
 const postcss = require('postcss')
 const path = require('path')
 
+const srcPath = path.resolve(__dirname, 'src')
+
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
@@ -14,7 +16,8 @@ module.exports = {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
     library: 'decentralandUI',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    clean: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -37,13 +40,13 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                postcssPresetEnv({
-                  stage: 4
-                }),
-                postcssAssets()
-              ]
+              postcssOptions: {
+                plugins: [
+                  postcssPresetEnv({
+                    stage: 4
+                  })
+                ]
+              }
             }
           }
         ]
@@ -54,22 +57,16 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: {
-          loader: 'file-loader',
-          options: { esModule: false }
-        }
+        type: 'asset/resource'
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              esModule: false
-            }
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8192
           }
-        ]
+        }
       }
     ]
   },
@@ -77,25 +74,37 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new CopyWebpackPlugin([{ 
-        from: 'src/themes/alternative', 
-        to: './',
-        // transform themes file because now they contain a relative path to the assets
-        transform: (content, path) => {
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets',
+          to: 'assets'
+        },
+        {
+          from: 'src/themes/alternative',
+          to: './',
+          // transform themes file because now they contain a relative path to the assets
+          transform: (content, path) => {
             return postcss([
               postcssPresetEnv({
                 stage: 4
               }),
-              postcssAssets(),
+              postcssAssets({
+                loadPaths: ['src/assets', 'src/images'],
+                basePath: srcPath,
+                baseUrl: 'assets/'
+              }),
               postcssCopy({
                 dest: './lib/'
               })
             ])
-            .process(content, { from: path })
-            .then(result => {
-              return result.css
-            })
-        }}
-    ])
+              .process(content, { from: path })
+              .then((result) => {
+                return result.css
+              })
+          }
+        }
+      ]
+    })
   ]
 }
