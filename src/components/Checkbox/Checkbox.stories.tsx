@@ -1,8 +1,23 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Checkbox } from './Checkbox'
 
-storiesOf('Checkbox', module)
-  .add('Checked', () => <Checkbox checked={true} label="Yes" />)
-  .add('Unchecked', () => <Checkbox checked={false} label="Yes" />)
-  .add('Toggle', () => <Checkbox toggle label="ON SALE" />)
+const meta: Meta<typeof Checkbox> = {
+  title: 'Checkbox',
+  component: Checkbox,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+  export const Checked: Story = {
+  render: () => <Checkbox checked={true} label="Yes" />
+}
+  export const Unchecked: Story = {
+  render: () => <Checkbox checked={false} label="Yes" />
+}
+  export const Toggle: Story = {
+  render: () => <Checkbox toggle label="ON SALE" />
+}

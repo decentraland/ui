@@ -1,16 +1,31 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { LanguageDropdown } from './LanguageDropdown'
 
-storiesOf('LanguageDropdown', module)
-  .add('Uncontrolled left downward', () => (
+const meta: Meta<typeof LanguageDropdown> = {
+  title: 'LanguageDropdown',
+  component: LanguageDropdown,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const UncontrolledLeftDownward: Story = {
+  render: () => (
     <LanguageDropdown locales={['en', 'es', 'fr', 'zh', 'ko', 'ja']} />
-  ))
-  .add('Controlled right upward', () => (
+  )
+}
+
+export const ControlledRightUpward: Story = {
+  render: () => (
     <LanguageDropdown
       locale="zh"
       direction="right"
       upward
       locales={['zh', 'ko', 'ja']}
     />
-  ))
+  )
+}

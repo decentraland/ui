@@ -1,9 +1,26 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { SignIn } from './SignIn'
 
-storiesOf('SignIn', module)
-  .add('Connect', () => <SignIn />)
-  .add('Connecting', () => <SignIn isConnecting />)
-  .add('Connected', () => <SignIn isConnected />)
-  .add('Error', () => <SignIn hasError />)
+const meta: Meta<typeof SignIn> = {
+  title: 'SignIn',
+  component: SignIn,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+  export const Connect: Story = {
+  render: () => <SignIn />
+}
+  export const Connecting: Story = {
+  render: () => <SignIn isConnecting />
+}
+  export const Connected: Story = {
+  render: () => <SignIn isConnected />
+}
+  export const Error: Story = {
+  render: () => <SignIn hasError />
+}

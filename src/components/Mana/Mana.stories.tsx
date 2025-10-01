@@ -1,19 +1,39 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header } from '../Header/Header'
 import { Mana } from './Mana'
 
-storiesOf('Mana', module)
-  .add('Symbol', () => <Mana />)
-  .add('Symbol + MANA', () => <Mana>MANA</Mana>)
-  .add('Total voted', () => (
+const meta: Meta<typeof Mana> = {
+  title: 'Mana',
+  component: Mana,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Symbol: Story = {
+  render: () => <Mana />
+}
+
+export const SymbolAndMANA: Story = {
+  render: () => <Mana>MANA</Mana>
+}
+
+export const TotalVoted: Story = {
+  render: () => (
     <>
       <Header sub>Total voted</Header>
       <Mana>1,235,345</Mana>
     </>
-  ))
-  .add('Sizes', () => (
+  )
+}
+
+export const Sizes: Story = {
+  render: () => (
     <>
       <Mana size="huge">1,000</Mana>
       <Mana size="large">1,000</Mana>
@@ -21,13 +41,19 @@ storiesOf('Mana', module)
       <Mana size="small">1,000</Mana>
       <Mana size="tiny">1,000</Mana>
     </>
-  ))
-  .add('In a paragraph', () => (
+  )
+}
+
+export const InAParagraph: Story = {
+  render: () => (
     <p>
       You've voted with <Mana inline>1,000</Mana>.
     </p>
-  ))
-  .add('Matic', () => (
+  )
+}
+
+export const Matic: Story = {
+  render: () => (
     <p>
       You deposited{' '}
       <Mana inline network={Network.MATIC}>
@@ -35,8 +61,11 @@ storiesOf('Mana', module)
       </Mana>{' '}
       into Matic Network.
     </p>
-  ))
-  .add('Matic primary', () => (
+  )
+}
+
+export const MaticPrimary: Story = {
+  render: () => (
     <p>
       You deposited{' '}
       <Mana inline network={Network.MATIC} primary>
@@ -44,8 +73,11 @@ storiesOf('Mana', module)
       </Mana>{' '}
       into Matic Network.
     </p>
-  ))
-  .add('Matic Sizes', () => (
+  )
+}
+
+export const MaticSizes: Story = {
+  render: () => (
     <>
       <Mana network={Network.MATIC} size="huge">
         1,000
@@ -63,11 +95,15 @@ storiesOf('Mana', module)
         1,000
       </Mana>
     </>
-  ))
-  .add('Mana + Tooltip', () => (
+  )
+}
+
+export const ManaAndTooltip: Story = {
+  render: () => (
     <>
       <Mana showTooltip={true} network={Network.MATIC} size="small">
         1,000
       </Mana>
     </>
-  ))
+  )
+}

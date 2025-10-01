@@ -1,16 +1,37 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Footer } from './Footer'
 import './Footer.stories.css'
 
-storiesOf('Footer', module)
-  .add('Uncontrolled', () => <Footer />)
-  .add('Controlled', () => (
+const meta: Meta<typeof Footer> = {
+  title: 'Footer',
+  component: Footer,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Uncontrolled: Story = {
+  render: () => <Footer />
+}
+
+export const Controlled: Story = {
+  render: () => (
     <Footer locale="en" locales={['en', 'es', 'fr', 'ja', 'ko', 'zh']} />
-  ))
-  .add('Full width inner container', () => (
+  )
+}
+
+export const FullWidthInnerContainer: Story = {
+  render: () => (
     <div className="Footer-fullwidth-container">
       <Footer isFullWidth />
     </div>
-  ))
-  .add('Without the social links', () => <Footer hideSocialLinks />)
+  )
+}
+
+export const WithoutTheSocialLinks: Story = {
+  render: () => <Footer hideSocialLinks />
+}

@@ -1,16 +1,26 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Button } from '../Button/Button'
 import { Field } from '../Field/Field'
 import { Header } from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
-import { Button } from '../Button/Button'
-import { Radio } from '../Radio/Radio'
-
+import { Radio } from 'semantic-ui-react'
 import { Segment } from './Segment'
 import './Segment.stories.css'
 
-storiesOf('Segment', module)
-  .add('Single segment', () => (
+const meta: Meta<typeof Segment> = {
+  title: 'Segment',
+  component: Segment,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const SingleSegment: Story = {
+  render: () => (
     <Segment style={{ width: 400 }}>
       <Header>Decentraland</Header>
       <p className="secondary-text">A virtual world built on open standards</p>
@@ -24,8 +34,11 @@ storiesOf('Segment', module)
         mollit anim id est laborum.
       </p>
     </Segment>
-  ))
-  .add('With field', () => (
+  )
+}
+
+export const WithField: Story = {
+  render: () => (
     <Segment style={{ width: 800 }}>
       <HeaderMenu>
         <HeaderMenu.Left>
@@ -43,8 +56,11 @@ storiesOf('Segment', module)
       />
       <Button primary>Invite</Button>
     </Segment>
-  ))
-  .add('With field disabled', () => (
+  )
+}
+
+export const WithFieldDisabled: Story = {
+  render: () => (
     <Segment style={{ width: 800 }}>
       <HeaderMenu>
         <HeaderMenu.Left>
@@ -62,8 +78,11 @@ storiesOf('Segment', module)
         You don't have any invites left.
       </span>
     </Segment>
-  ))
-  .add('With radios', () => (
+  )
+}
+
+export const WithRadios: Story = {
+  render: () => (
     <Segment style={{ width: 800 }}>
       <Header>Authorizations</Header>
       <div className="Segment-radio-row">
@@ -79,11 +98,15 @@ storiesOf('Segment', module)
         <Radio label="Authorize marketplace to operate Estates on my behalf" />
       </div>
     </Segment>
-  ))
-  .add('With buttons', () => (
+  )
+}
+
+export const WithButtons: Story = {
+  render: () => (
     <Segment style={{ width: 800 }}>
       <Header>Some buttons</Header>
       <Button>Hello</Button>
       <Button disabled>Disabled</Button>
     </Segment>
-  ))
+  )
+}

@@ -1,21 +1,36 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Pagination } from './Pagination'
 
-storiesOf('Pagination', module)
-  .add('5 pages', () => (
+const meta: Meta<typeof Pagination> = {
+  title: 'Pagination',
+  component: Pagination,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const FivePages: Story = {
+  render: () => (
     <Pagination
       defaultActivePage={2}
       totalPages={5}
       firstItem={null}
       lastItem={null}
     />
-  ))
-  .add('1000 pages', () => (
+  )
+}
+
+export const ThousandPages: Story = {
+  render: () => (
     <Pagination
       defaultActivePage={77}
       totalPages={1000}
       firstItem={null}
       lastItem={null}
     />
-  ))
+  )
+}

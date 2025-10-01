@@ -1,10 +1,21 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { ChainSelector } from './ChainSelector'
 import { ChainId } from '@dcl/schemas'
 
-storiesOf('ChainSelector', module)
-  .add('Basic', () => (
+const meta: Meta<typeof ChainSelector> = {
+  title: 'ChainSelector',
+  component: ChainSelector,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  render: () => (
     <ChainSelector
       chains={[
         ChainId.ETHEREUM_MAINNET,
@@ -23,8 +34,11 @@ storiesOf('ChainSelector', module)
         confirmInWallet: 'Confirm in wallet'
       }}
     />
-  ))
-  .add('With chain being confirmed', () => (
+  )
+}
+
+export const WithChainBeingConfirmed: Story = {
+  render: () => (
     <ChainSelector
       chains={[
         ChainId.ETHEREUM_MAINNET,
@@ -41,4 +55,5 @@ storiesOf('ChainSelector', module)
         confirmInWallet: 'Confirm in wallet'
       }}
     />
-  ))
+  )
+}

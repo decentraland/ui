@@ -1,14 +1,25 @@
 import * as React from 'react'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
-import { storiesOf } from '@storybook/react'
+import { Icon } from 'semantic-ui-react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Button/Button'
 import { Container } from '../Container/Container'
 import { Dropdown } from '../Dropdown/Dropdown'
 import { Header } from '../Header/Header'
 import { HeaderMenu } from './HeaderMenu'
 
-storiesOf('HeaderMenu', module)
-  .add('With Button', () => (
+const meta: Meta<typeof HeaderMenu> = {
+  title: 'HeaderMenu',
+  component: HeaderMenu,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const WithButton: Story = {
+  render: () => (
     <Container>
       <HeaderMenu>
         <HeaderMenu.Left>
@@ -22,8 +33,11 @@ storiesOf('HeaderMenu', module)
         </HeaderMenu.Right>
       </HeaderMenu>
     </Container>
-  ))
-  .add('With Dropdown and stacked', () => (
+  )
+}
+
+export const WithDropdownAndStacked: Story = {
+  render: () => (
     <Container>
       <HeaderMenu stackable>
         <HeaderMenu.Left>
@@ -48,4 +62,5 @@ storiesOf('HeaderMenu', module)
         </HeaderMenu.Right>
       </HeaderMenu>
     </Container>
-  ))
+  )
+}

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { AuthorizationModal } from './AuthorizationModal'
 import { AuthorizationStep } from './AuthorizationModal.types'
@@ -19,11 +19,24 @@ const steps: AuthorizationStep[] = [
   }
 ]
 
-storiesOf('AuthorizationModal', module).add('Basic with error', () => (
-  <AuthorizationModal
-    header="Authorization action"
-    currentStep={0}
-    steps={steps}
-    onClose={() => console.log('Close')}
-  />
-))
+const meta: Meta<typeof AuthorizationModal> = {
+  title: 'AuthorizationModal',
+  component: AuthorizationModal,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const BasicWithError: Story = {
+  render: () => (
+    <AuthorizationModal
+      header="Authorization action"
+      currentStep={0}
+      steps={steps}
+      onClose={() => console.log('Close')}
+    />
+  )
+}

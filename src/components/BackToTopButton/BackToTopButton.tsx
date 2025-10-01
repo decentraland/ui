@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import classNames from 'classnames'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import { Icon } from 'semantic-ui-react'
 import { useNotMobileMediaQuery } from '../Media'
 import { Button } from '../Button/Button'
 import { Props } from './BackToTopButton.types'

@@ -1,11 +1,20 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Header } from '../Header/Header'
+import type { Meta, StoryObj } from '@storybook/react'
 import { SelectField } from './SelectField'
-import { Field } from '../Field/Field'
 
-storiesOf('SelectField', module)
-  .add('Basic', () => (
+const meta: Meta<typeof SelectField> = {
+  title: 'SelectField',
+  component: SelectField,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -18,8 +27,11 @@ storiesOf('SelectField', module)
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ))
-  .add('Message', () => (
+  )
+}
+
+export const Message: Story = {
+  render: () => (
     <SelectField
       label="Label"
       placeholder="Placeholder"
@@ -31,8 +43,11 @@ storiesOf('SelectField', module)
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ))
-  .add('Error', () => (
+  )
+}
+
+export const Error: Story = {
+  render: () => (
     <SelectField
       label="Label"
       placeholder="Placeholder"
@@ -45,8 +60,11 @@ storiesOf('SelectField', module)
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ))
-  .add('Disabled options', () => (
+  )
+}
+
+export const DisabledOptions: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -60,8 +78,11 @@ storiesOf('SelectField', module)
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ))
-  .add('Disabled field', () => (
+  )
+}
+
+export const DisabledField: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -75,8 +96,11 @@ storiesOf('SelectField', module)
         disabled
       />
     </>
-  ))
-  .add('Default option', () => (
+  )
+}
+
+export const DefaultOption: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -90,86 +114,23 @@ storiesOf('SelectField', module)
         defaultValue={8}
       />
     </>
-  ))
-  .add('With header', () => (
+  )
+}
+
+export const WithHeader: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
         placeholder="Placeholder"
-        header={<Header size="small">Small header</Header>}
+        header="Header"
         options={[
           { key: 1, text: 'Choice 1', value: 1 },
-          { key: 1, text: 'Choice 2', value: 2, disabled: true },
-          { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true },
-          { key: 5, text: 'Choice 5', value: 5 },
-          { key: 6, text: 'Choice 6', value: 5 },
-          { key: 7, text: 'Choice 7', value: 5 },
-          { key: 8, text: 'Choice 8', value: 5 },
-          { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
+          { key: 2, text: 'Choice 2', value: 2 },
+          { key: 3, text: 'Choice 3', value: 3 }
         ]}
+        onChange={(_, a) => console.log(a)}
       />
     </>
-  ))
-  .add('With borders', () => (
-    <>
-      <SelectField
-        label="Label"
-        placeholder="Placeholder"
-        border
-        options={[
-          { key: 1, text: 'Choice 1', value: 1 },
-          { key: 1, text: 'Choice 2', value: 2, disabled: true },
-          { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true },
-          { key: 5, text: 'Choice 5', value: 5 },
-          { key: 6, text: 'Choice 6', value: 5 },
-          { key: 7, text: 'Choice 7', value: 5 },
-          { key: 8, text: 'Choice 8', value: 5 },
-          { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
-        ]}
-      />
-    </>
-  ))
-  .add('With borders and error', () => (
-    <>
-      <SelectField
-        label="Label"
-        placeholder="Placeholder"
-        border
-        message="Some warning"
-        error
-        options={[
-          { key: 1, text: 'Choice 1', value: 1 },
-          { key: 1, text: 'Choice 2', value: 2, disabled: true },
-          { key: 3, text: 'Choice 3', value: 3 },
-          { key: 4, text: 'Choice 4', value: 4, disabled: true },
-          { key: 5, text: 'Choice 5', value: 5 },
-          { key: 6, text: 'Choice 6', value: 5 },
-          { key: 7, text: 'Choice 7', value: 5 },
-          { key: 8, text: 'Choice 8', value: 5 },
-          { key: 9, text: 'Choice 9', value: 5 },
-          { key: 10, text: 'Choice 10', value: 5 }
-        ]}
-      />
-    </>
-  ))
-  .add('Select field aligned with input field', () => (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: '10px',
-        width: '500px'
-      }}
-    >
-      <SelectField
-        placeholder="Placeholder"
-        options={[{ key: 1, text: 'Choice 1', value: 1 }]}
-      />
-      <Field placeholder="Placeholder" value="A value" />
-    </div>
-  ))
+  )
+}

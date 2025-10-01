@@ -1,17 +1,56 @@
 import React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import AddressField from './AddressField'
 
-export default {
+const meta: Meta<typeof AddressField> = {
   title: 'AddressField',
-  component: AddressField
-} as ComponentMeta<typeof AddressField>
+  component: AddressField,
+  parameters: {
+    layout: 'centered'
+  }
+}
 
-const Template: ComponentStory<typeof AddressField> = (args) => (
-  <AddressField {...args} />
-)
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Basic = Template.bind({})
-Basic.args = {
-  resolveName: () => '0xtestaddresstestaddresstestaddresstestadd'
+export const Basic: Story = {
+  render: () => (
+    <>
+      <AddressField
+        label="Address"
+        placeholder="0x..."
+        value="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+        resolveName={async (address: string) => address}
+      />
+    </>
+  )
+}
+
+export const Error: Story = {
+  render: () => (
+    <>
+      <AddressField
+        label="Address"
+        placeholder="0x..."
+        value="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+        error={true}
+        message="Invalid address"
+        resolveName={async (address: string) => address}
+      />
+    </>
+  )
+}
+
+export const Loading: Story = {
+  render: () => (
+    <>
+      <AddressField
+        label="Address"
+        placeholder="0x..."
+        value="0x68FFc53C43C65C8Dd778969320e21B85b10363cE"
+        loading={true}
+        resolveName={async (address: string) => address}
+      />
+    </>
+  )
 }

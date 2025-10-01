@@ -1,8 +1,19 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from '../Header/Header'
 import { LoginModal, LoginModalOptionType } from '../LoginModal/LoginModal'
 import './LoginModal.stories.css'
+
+const meta: Meta<typeof LoginModal> = {
+  title: 'LoginModal',
+  component: LoginModal,
+  parameters: {
+    layout: 'fullscreen'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
 
 const lipsum = (
   <>
@@ -44,8 +55,8 @@ const lipsum = (
   </>
 )
 
-storiesOf('LoginModal', module)
-  .add('Login options', () => (
+export const LoginOptions: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open onClose={() => undefined}>
@@ -58,8 +69,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Login persisent message', () => (
+  )
+}
+
+export const LoginPersisentMessage: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal
@@ -76,8 +90,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Login error', () => (
+  )
+}
+
+export const LoginError: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open hasError onClose={() => undefined}>
@@ -90,37 +107,18 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Loading', () => (
+  )
+}
+
+export const Loading: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open loading onClose={() => undefined}>
         <LoginModal.Option type={LoginModalOptionType.METAMASK} />
         <LoginModal.Option type={LoginModalOptionType.DAPPER} />
         <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
-        <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Full example', () => (
-    <div className="LoginModal-story">
-      {lipsum}
-      <LoginModal
-        open
-        message="This is a custom persistent message"
-        hasError
-        loading
-        onClose={() => undefined}
-      >
-        <LoginModal.Option type={LoginModalOptionType.METAMASK} />
-        <LoginModal.Option type={LoginModalOptionType.DAPPER} />
-        <LoginModal.Option type={LoginModalOptionType.COINBASE} />
-        <LoginModal.Option type={LoginModalOptionType.SAMSUNG} />
-        <LoginModal.Option type={LoginModalOptionType.FORTMATIC} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} />
-        <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
-      </LoginModal>
-    </div>
-  ))
+  )
+}

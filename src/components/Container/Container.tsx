@@ -1,5 +1,5 @@
 export {
-  default as Container,
+  Container,
   ContainerProps
-} from 'semantic-ui-react/dist/commonjs/elements/Container/Container'
+} from 'semantic-ui-react'
 import './Container.css'

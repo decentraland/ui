@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Container } from '../Container/Container'
-import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
-import { Header } from '../Header/Header'
 import { Dropdown } from '../Dropdown/Dropdown'
+import { Header } from '../Header/Header'
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { Mana } from '../Mana/Mana'
-
 import { Table } from './Table'
 import './Table.stories.css'
 
@@ -47,51 +46,64 @@ const rows = [
   }
 ]
 
-storiesOf('Table', module).add('Polls', () => (
-  <Container>
-    <HeaderMenu>
-      <HeaderMenu.Left>
-        <Header size="large">District polls</Header>
-      </HeaderMenu.Left>
-      <HeaderMenu.Right>
-        <Dropdown text="Newest" direction="left" />
-        <Dropdown text="All polls" direction="left" />
-      </HeaderMenu.Right>
-    </HeaderMenu>
-    <Table basic="very">
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>Poll</Table.HeaderCell>
-          <Table.HeaderCell>Weight</Table.HeaderCell>
-          <Table.HeaderCell>Voters</Table.HeaderCell>
-          <Table.HeaderCell>Status</Table.HeaderCell>
-          <Table.HeaderCell>Outcome</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
+const meta: Meta<typeof Table> = {
+  title: 'Table',
+  component: Table,
+  parameters: {
+    layout: 'centered'
+  }
+}
 
-      <Table.Body>
-        {rows.map(({ poll, weight, voters, status, outcome }, index) => {
-          const isClosed = status === 'Closed'
-          const linkClass = isClosed ? 'link-closed' : null
-          const noLinkClass = isClosed ? 'closed' : null
-          return (
-            <Table.Row key={index}>
-              <Table.Cell>
-                <a className={linkClass} href="#">
-                  {poll}
-                </a>
-              </Table.Cell>
-              <Table.Cell className={noLinkClass}>
-                <Mana inline />
-                {weight}
-              </Table.Cell>
-              <Table.Cell className={noLinkClass}>{voters}</Table.Cell>
-              <Table.Cell className={noLinkClass}>{status}</Table.Cell>
-              <Table.Cell className={noLinkClass}>{outcome}</Table.Cell>
-            </Table.Row>
-          )
-        })}
-      </Table.Body>
-    </Table>
-  </Container>
-))
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Polls: Story = {
+  render: () => (
+    <Container>
+      <HeaderMenu>
+        <HeaderMenu.Left>
+          <Header size="large">District polls</Header>
+        </HeaderMenu.Left>
+        <HeaderMenu.Right>
+          <Dropdown text="Newest" direction="left" />
+          <Dropdown text="All polls" direction="left" />
+        </HeaderMenu.Right>
+      </HeaderMenu>
+      <Table basic="very">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Poll</Table.HeaderCell>
+            <Table.HeaderCell>Weight</Table.HeaderCell>
+            <Table.HeaderCell>Voters</Table.HeaderCell>
+            <Table.HeaderCell>Status</Table.HeaderCell>
+            <Table.HeaderCell>Outcome</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {rows.map(({ poll, weight, voters, status, outcome }, index) => {
+            const isClosed = status === 'Closed'
+            const linkClass = isClosed ? 'link-closed' : null
+            const noLinkClass = isClosed ? 'closed' : null
+            return (
+              <Table.Row key={index}>
+                <Table.Cell>
+                  <a className={linkClass} href="#">
+                    {poll}
+                  </a>
+                </Table.Cell>
+                <Table.Cell className={noLinkClass}>
+                  <Mana inline />
+                  {weight}
+                </Table.Cell>
+                <Table.Cell className={noLinkClass}>{voters}</Table.Cell>
+                <Table.Cell className={noLinkClass}>{status}</Table.Cell>
+                <Table.Cell className={noLinkClass}>{outcome}</Table.Cell>
+              </Table.Row>
+            )
+          })}
+        </Table.Body>
+      </Table>
+    </Container>
+  )
+}

@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas'
 import { BarChart } from './BarChart'
 
@@ -323,15 +323,20 @@ const data = {
   '199998.0': 1,
   '200000.0': 4,
   '250000.0': 1,
-  '399399.0': 1,
-  '499000.0': 1,
+  '300000.0': 3,
+  '350000.0': 2,
+  '400000.0': 1,
+  '450000.0': 3,
   '500000.0': 2,
-  '588888.0': 1,
-  '599500.0': 1,
-  '750000.0': 1,
-  '777777.0': 1,
-  '800000.0': 1,
-  '831300.0': 1,
+  '550000.0': 1,
+  '600000.0': 3,
+  '650000.0': 2,
+  '700000.0': 1,
+  '750000.0': 3,
+  '800000.0': 2,
+  '850000.0': 1,
+  '900000.0': 3,
+  '950000.0': 2,
   '998000.0': 1,
   '1000000.0': 3,
   '1888888.0': 1,
@@ -340,13 +345,23 @@ const data = {
   '6969696.0': 1,
   '10000000.0': 1
 }
-
 const onChange = (values) => {
   console.log('values:', values)
 }
 
-storiesOf('BarChart ', module)
-  .add('Loading data', () => (
+const meta: Meta<typeof BarChart> = {
+  title: 'BarChart',
+  component: BarChart,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const LoadingData: Story = {
+  render: () => (
     <BarChart
       width={250}
       loading
@@ -355,8 +370,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('No upperBound', () => (
+  )
+}
+
+export const NoUpperBound: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -365,8 +383,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('With a 5M upperBound', () => (
+  )
+}
+
+export const WithA5MUpperBound: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -376,8 +397,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('With minPrice and maxPrice defined', () => (
+  )
+}
+
+export const WithMinPriceAndMaxPriceDefined: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -386,8 +410,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('with MANA currency', () => (
+  )
+}
+
+export const withMANACurrency: Story = {
+  render: () => (
     <BarChart
       isMana
       width={250}
@@ -397,8 +424,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('with no decimals for small ranges', () => (
+  )
+}
+
+export const withNoDecimalsForSmallRanges: Story = {
+  render: () => (
     <BarChart
       isMana
       rangeDecimals={0}
@@ -409,4 +439,5 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
+  )
+}

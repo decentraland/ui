@@ -1,13 +1,30 @@
 import * as React from 'react'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Loader } from './Loader'
-import Grid from 'semantic-ui-react/dist/commonjs/collections/Grid'
+import { Grid } from 'semantic-ui-react'
 
-storiesOf('Loader', module)
-  .add('Main Loader', () => <Loader active size="massive" />)
-  .add('Tiny Loader', () => <Loader active size="mini" />)
-  .add('With Provider', () => (
+const meta: Meta<typeof Loader> = {
+  title: 'Loader',
+  component: Loader,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const MainLoader: Story = {
+  render: () => <Loader active size="massive" />
+}
+
+export const TinyLoader: Story = {
+  render: () => <Loader active size="mini" />
+}
+
+export const WithProvider: Story = {
+  render: () => (
     <Grid stackable container centered>
       <Grid.Row>
         <Grid.Column tablet={4}>
@@ -28,4 +45,5 @@ storiesOf('Loader', module)
         </Grid.Column>
       </Grid.Row>
     </Grid>
-  ))
+  )
+}

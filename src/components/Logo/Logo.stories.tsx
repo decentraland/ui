@@ -1,5 +1,18 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Logo } from './Logo'
 
-storiesOf('Logo', module).add('Decentraland', () => <Logo />)
+const meta: Meta<typeof Logo> = {
+  title: 'Logo',
+  component: Logo,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Decentraland: Story = {
+  render: () => <Logo />
+}

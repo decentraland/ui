@@ -1,11 +1,15 @@
 import * as React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { CatalogCard, CatalogCardProps } from './CatalogCard'
 import { Rarity, Network } from '@dcl/schemas'
-export default {
+
+const meta: Meta<typeof CatalogCard> = {
   title: 'CatalogCard',
   component: CatalogCard
-} as ComponentMeta<typeof CatalogCard>
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
 
 const i18n = {
   rarities: Rarity.getRarities().reduce((acc, rarity) => {
@@ -38,9 +42,6 @@ const props: CatalogCardProps = {
   i18n
 }
 
-const Template: ComponentStory<typeof CatalogCard> = (args) => (
-  <CatalogCard {...args} />
-)
-
-export const Wearable = Template.bind({})
-Wearable.args = props
+export const Wearable: Story = {
+  args: props
+}

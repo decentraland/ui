@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Icon } from 'semantic-ui-react'
 import { Button } from '../Button/Button'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
@@ -46,30 +46,43 @@ const cards = [
   }
 ]
 
-storiesOf('Card', module).add('Polls', () => (
-  <Container>
-    <HeaderMenu>
-      <HeaderMenu.Left>
-        <Header>District polls</Header>
-      </HeaderMenu.Left>
-      <HeaderMenu.Right>
-        <Button basic size="small">
-          View More
-          <Icon name="chevron right" />
-        </Button>
-      </HeaderMenu.Right>
-    </HeaderMenu>
-    <Card.Group>
-      {cards.map((card, index) => (
-        <Card link key={index}>
-          <Card.Content>
-            <Card.Header>{card.poll}</Card.Header>
-            <Card.Meta>
-              Weight {card.weight} <Mana inline />
-            </Card.Meta>
-          </Card.Content>
-        </Card>
-      ))}
-    </Card.Group>
-  </Container>
-))
+const meta: Meta<typeof Card> = {
+  title: 'Card',
+  component: Card,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Polls: Story = {
+  render: () => (
+    <Container>
+      <HeaderMenu>
+        <HeaderMenu.Left>
+          <Header>District polls</Header>
+        </HeaderMenu.Left>
+        <HeaderMenu.Right>
+          <Button basic size="small">
+            View More
+            <Icon name="chevron right" />
+          </Button>
+        </HeaderMenu.Right>
+      </HeaderMenu>
+      <Card.Group>
+        {cards.map((card, index) => (
+          <Card link key={index}>
+            <Card.Content>
+              <Card.Header>{card.poll}</Card.Header>
+              <Card.Meta>
+                Weight {card.weight} <Mana inline />
+              </Card.Meta>
+            </Card.Content>
+          </Card>
+        ))}
+      </Card.Group>
+    </Container>
+  )
+}
