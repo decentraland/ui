@@ -121,6 +121,9 @@ export function getSubtitle(nft: NFT, i18n: NFTCardI18N) {
     case NFTCategory.ENS:
     case NFTCategory.ESTATE:
     case NFTCategory.PARCEL:
-      return i18n.network[nft.network as keyof typeof i18n.network] || i18n.network.ETHEREUM
+      return (
+        i18n.network[nft.network as keyof typeof i18n.network] ||
+        i18n.network.ETHEREUM
+      )
   }
 }

@@ -17,7 +17,11 @@ type Story = StoryObj<typeof meta>
 export const SelectOptions: Story = {
   render: () => {
     const options = [
-      { name: 'First option', info: 'This is the first option', value: 'first' },
+      {
+        name: 'First option',
+        info: 'This is the first option',
+        value: 'first'
+      },
       {
         name: 'Second option',
         info: 'This is the second option',
@@ -29,7 +33,11 @@ export const SelectOptions: Story = {
 
     return (
       <div className="radio-options-story">
-        <RadioOptions value={value} options={options} onChange={onValueChange} />
+        <RadioOptions
+          value={value}
+          options={options}
+          onChange={onValueChange}
+        />
       </div>
     )
   }

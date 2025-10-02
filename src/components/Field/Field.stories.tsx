@@ -26,7 +26,11 @@ export const Basic: Story = {
 export const WithIcon: Story = {
   render: () => (
     <>
-      <Field label="Label" placeholder="Placeholder" icon={<Icon name="search" />} />
+      <Field
+        label="Label"
+        placeholder="Placeholder"
+        icon={<Icon name="search" />}
+      />
     </>
   )
 }
@@ -50,7 +54,11 @@ export const Error: Story = {
 export const Warning: Story = {
   render: () => (
     <>
-      <Field label="Label" placeholder="Placeholder" warning="This is a warning" />
+      <Field
+        label="Label"
+        placeholder="Placeholder"
+        warning="This is a warning"
+      />
     </>
   )
 }

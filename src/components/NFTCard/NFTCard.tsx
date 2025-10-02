@@ -165,4 +165,3 @@ export const NFTCard = (props: Props) => {
     </Card>
   )
 }
-

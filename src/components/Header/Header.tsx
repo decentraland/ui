@@ -1,5 +1,2 @@
-export {
-  default as Header,
-  HeaderProps
-} from 'semantic-ui-react'
+export { default as Header, HeaderProps } from 'semantic-ui-react'
 import './Header.css'

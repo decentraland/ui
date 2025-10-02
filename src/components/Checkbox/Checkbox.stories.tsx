@@ -12,12 +12,12 @@ const meta: Meta<typeof Checkbox> = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-  export const Checked: Story = {
+export const Checked: Story = {
   render: () => <Checkbox checked={true} label="Yes" />
 }
-  export const Unchecked: Story = {
+export const Unchecked: Story = {
   render: () => <Checkbox checked={false} label="Yes" />
 }
-  export const Toggle: Story = {
+export const Toggle: Story = {
   render: () => <Checkbox toggle label="ON SALE" />
 }

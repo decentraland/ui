@@ -105,5 +105,4 @@ const TableContent = (props: Props) => {
   )
 }
 
-
 export default React.memo(TableContent)

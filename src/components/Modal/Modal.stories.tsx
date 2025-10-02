@@ -20,9 +20,9 @@ const lipsum = (
       luctus. Aliquam libero lacus, faucibus ac neque ut, hendrerit pulvinar
       quam. Nunc porta porttitor nulla et dignissim. Aenean lobortis libero
       vitae nisi ultricies, vitae aliquam nunc ultricies. Sed euismod, nisl
-      vitae ultricies ultricies, nisl nisl aliquam nunc, vitae aliquam nunc
-      nisl vitae nisl. Sed euismod, nisl vitae ultricies ultricies, nisl nisl
-      aliquam nunc, vitae aliquam nunc nisl vitae nisl.
+      vitae ultricies ultricies, nisl nisl aliquam nunc, vitae aliquam nunc nisl
+      vitae nisl. Sed euismod, nisl vitae ultricies ultricies, nisl nisl aliquam
+      nunc, vitae aliquam nunc nisl vitae nisl.
     </p>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in
@@ -32,9 +32,9 @@ const lipsum = (
       luctus. Aliquam libero lacus, faucibus ac neque ut, hendrerit pulvinar
       quam. Nunc porta porttitor nulla et dignissim. Aenean lobortis libero
       vitae nisi ultricies, vitae aliquam nunc ultricies. Sed euismod, nisl
-      vitae ultricies ultricies, nisl nisl aliquam nunc, vitae aliquam nunc
-      nisl vitae nisl. Sed euismod, nisl vitae ultricies ultricies, nisl nisl
-      aliquam nunc, vitae aliquam nunc nisl vitae nisl.
+      vitae ultricies ultricies, nisl nisl aliquam nunc, vitae aliquam nunc nisl
+      vitae nisl. Sed euismod, nisl vitae ultricies ultricies, nisl nisl aliquam
+      nunc, vitae aliquam nunc nisl vitae nisl.
     </p>
   </>
 )

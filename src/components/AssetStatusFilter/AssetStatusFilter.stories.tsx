@@ -28,7 +28,8 @@ export const StatusOptions: Story = {
       tooltips: {
         [AssetStatus.NOT_FOR_SALE]:
           'Only includes items that are not being available for minting (buying directly from the creators) nor with available listings.',
-        [AssetStatus.ONLY_LISTING]: 'Only includes items that are being resold.',
+        [AssetStatus.ONLY_LISTING]:
+          'Only includes items that are being resold.',
         [AssetStatus.ONLY_MINTING]:
           'Only includes items that are available for minting (buying directly from the creators).',
         [AssetStatus.ON_SALE]:

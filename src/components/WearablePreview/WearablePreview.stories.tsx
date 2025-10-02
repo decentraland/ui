@@ -644,7 +644,9 @@ export const EmoteThumbnailPicker: Story = {
               <Button
                 primary
                 onClick={() =>
-                  ref.current.scene.getScreenshot(1024, 1024).then(setScreenshot)
+                  ref.current.scene
+                    .getScreenshot(1024, 1024)
+                    .then(setScreenshot)
                 }
               >
                 Screenshot
@@ -858,11 +860,16 @@ export const UnityModes: Story = {
             console.log(`WearablePreview loaded with mode: ${unityMode}`)
           }
           onError={(error) =>
-            console.error(`WearablePreview error with mode ${unityMode}:`, error)
+            console.error(
+              `WearablePreview error with mode ${unityMode}:`,
+              error
+            )
           }
         />
         <Row className="controls">
-          <div style={{ marginBottom: '16px', fontSize: '12px', color: '#666' }}>
+          <div
+            style={{ marginBottom: '16px', fontSize: '12px', color: '#666' }}
+          >
             Debug: Check browser console for generated URL
           </div>
           <select

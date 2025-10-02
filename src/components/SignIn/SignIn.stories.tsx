@@ -12,15 +12,15 @@ const meta: Meta<typeof SignIn> = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-  export const Connect: Story = {
+export const Connect: Story = {
   render: () => <SignIn />
 }
-  export const Connecting: Story = {
+export const Connecting: Story = {
   render: () => <SignIn isConnecting />
 }
-  export const Connected: Story = {
+export const Connected: Story = {
   render: () => <SignIn isConnected />
 }
-  export const Error: Story = {
+export const Error: Story = {
   render: () => <SignIn hasError />
 }

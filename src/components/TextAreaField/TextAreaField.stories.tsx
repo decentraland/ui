@@ -23,9 +23,7 @@ export const Placeholder: Story = {
 }
 
 export const WithoutLabel: Story = {
-  render: () => (
-    <TextAreaField value={textAreaValue} rows="10" cols="50" />
-  )
+  render: () => <TextAreaField value={textAreaValue} rows="10" cols="50" />
 }
 
 export const WithoutLabelInForm: Story = {
