@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import { Icon } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
+import Button from 'semantic-ui-react'
 import './Box.css'
 
 export type BoxProps = {

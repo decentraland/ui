@@ -9,10 +9,10 @@ import {
 
 import EmptyInbox from '../Icons/Notifications/EmptyInbox'
 import { Tabs } from '../Tabs/Tabs'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import Time from '../../lib/time'
 import { Mobile, NotMobile } from '../Media'
-import { Modal, ModalProps } from '../Modal/Modal'
+import Modal, { ModalProps } from '../Modal/Modal'
 import { Close } from '../Close/Close'
 import History from '../Icons/Notifications/History'
 

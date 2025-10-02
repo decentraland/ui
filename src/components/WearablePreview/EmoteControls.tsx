@@ -3,7 +3,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { PreviewEmoteEventType } from '@dcl/schemas/dist/dapps/preview/preview-emote-event-type'
 import { IPreviewController } from '@dcl/schemas/dist/dapps/preview'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import { Icon, WearablePreview } from '../..'
 import './EmoteControls.css'
 

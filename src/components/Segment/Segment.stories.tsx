@@ -1,11 +1,11 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import { Field } from '../Field/Field'
-import { Header } from '../Header/Header'
+import Header from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { Radio } from 'semantic-ui-react'
-import { Segment } from './Segment'
+import Segment from './Segment'
 import './Segment.stories.css'
 
 const meta: Meta<typeof Segment> = {

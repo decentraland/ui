@@ -1,5 +1,5 @@
 import React from 'react'
-import { Popup } from 'semantic-ui-react'
+import Popup from 'semantic-ui-react'
 import { InfoTooltipProps } from './InfoTooltip.types'
 import './InfoTooltip.css'
 

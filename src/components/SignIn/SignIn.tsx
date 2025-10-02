@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Button } from '../Button/Button'
-import { Header } from '../Header/Header'
+import Button from '../Button/Button'
+import Header from '../Header/Header'
 import { StarWalletIcon } from '../StarWalletIcon/StarWalletIcon'
 import './SignIn.css'
 

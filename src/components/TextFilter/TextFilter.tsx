@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Header } from '../Header/Header'
+import Header from '../Header/Header'
 import { useInput } from '../../hooks/input'
 import './TextFilter.css'
 

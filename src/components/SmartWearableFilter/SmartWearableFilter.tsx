@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react'
 import classNames from 'classnames'
-import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox'
+import Checkbox, { CheckboxProps } from '../Checkbox/Checkbox'
 import { SmartBadge } from '../SmartBadge'
 import { Box } from '../Box'
 import { useTabletAndBelowMediaQuery } from '../Media'

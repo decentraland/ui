@@ -2,6 +2,8 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas'
 import { UserMenu } from './UserMenu'
+import { avatar } from '../../data/avatar'
+import { NotificationActiveTab } from '../Notifications/types'
 import './UserMenu.stories.css'
 
 const i18n = {
@@ -17,25 +19,6 @@ const i18n = {
   viewProfile: 'View Profile',
   marketplaceAuthorizations: 'Marketplace Authorizations',
   download: 'Download'
-}
-
-const avatar = {
-  userId: 'userId',
-  name: 'User Name',
-  hasClaimedName: true,
-  description: 'User description',
-  ethAddress: '0x1234567890123456789012345678901234567890',
-  version: 1,
-  avatar: {
-    snapshots: {
-      face: 'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:off-chain:base-avatars:base-avatar/thumbnail',
-      face256:
-        'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:off-chain:base-avatars:base-avatar/thumbnail',
-      face128:
-        'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:off-chain:base-avatars:base-avatar/thumbnail',
-      body: 'https://peer.decentraland.zone/lambdas/collections/contents/urn:decentraland:off-chain:base-avatars:base-avatar/thumbnail'
-    }
-  }
 }
 
 const meta: Meta<typeof UserMenu> = {
@@ -166,7 +149,18 @@ export const Notification: Story = {
         avatar={avatar}
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
         hasActivity
-        hasNotification
+        notifications={{
+          isOpen: false,
+          items: [],
+          isLoading: false,
+          locale: 'en',
+          isOnboarding: false,
+          activeTab: NotificationActiveTab.NEWEST,
+          onClick: () => undefined,
+          onChangeTab: () => undefined,
+          onBegin: () => undefined,
+          onClose: () => undefined
+        }}
       />
     </div>
   )

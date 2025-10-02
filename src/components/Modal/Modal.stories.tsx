@@ -1,13 +1,13 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import { Center } from '../Center/Center'
 import { Close } from '../Close/Close'
 import { Field } from '../Field/Field'
-import { Header } from '../Header/Header'
+import Header from '../Header/Header'
 import { Mana } from '../Mana/Mana'
 import { Radio } from 'semantic-ui-react'
-import { Modal } from './Modal'
+import Modal from './Modal'
 import './Modal.stories.css'
 
 const lipsum = (

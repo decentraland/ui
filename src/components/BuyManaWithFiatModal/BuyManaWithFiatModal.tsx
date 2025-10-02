@@ -3,7 +3,7 @@ import ModalContent from 'semantic-ui-react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import { getNetworkMANADescription } from '../../lib/network'
-import { Modal } from '../Modal/Modal'
+import Modal from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
 import {

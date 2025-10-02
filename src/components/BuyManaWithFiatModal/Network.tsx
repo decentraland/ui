@@ -2,7 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import { getNetworkMANADescription } from '../../lib/network'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import './Network.css'
 
 export enum NetworkGatewayType {

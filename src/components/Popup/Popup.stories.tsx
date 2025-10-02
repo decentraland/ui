@@ -2,7 +2,7 @@ import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Close } from '../Close/Close'
 import { Row } from '../Row/Row'
-import { Popup } from './Popup'
+import Popup from './Popup'
 import './Popup.stories.css'
 
 const meta: Meta<typeof Popup> = {

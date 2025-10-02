@@ -1,9 +1,9 @@
 import React from 'react'
 import { ChainId, getChainName, Network } from '@dcl/schemas'
-import { Button } from '../Button/Button'
-import { Modal } from '../Modal/Modal'
+import Button from '../Button/Button'
+import Modal from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
-import { Message } from '../Message/Message'
+import Message from '../Message/Message'
 import './Web2TransactionModal.css'
 import { getNetwork } from '@dcl/schemas/dist/dapps/chain-id'
 

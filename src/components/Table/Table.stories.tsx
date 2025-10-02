@@ -2,10 +2,10 @@ import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Container } from '../Container/Container'
 import { Dropdown } from '../Dropdown/Dropdown'
-import { Header } from '../Header/Header'
+import Header from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { Mana } from '../Mana/Mana'
-import { Table } from './Table'
+import Table from './Table'
 import './Table.stories.css'
 
 const rows = [

@@ -1,4 +1,4 @@
-import SemanticTable, { TableProps } from 'semantic-ui-react'
+import { Table as SemanticTable, TableProps } from 'semantic-ui-react'
 import './Table.css'
 
 export default SemanticTable

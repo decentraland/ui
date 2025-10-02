@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Icon } from 'semantic-ui-react'
-import { Button } from './Button'
+import Button from './Button'
 import { Row } from '../Row/Row'
 import './Button.stories.css'
 

@@ -1,4 +1,4 @@
-import SemanticPopup, { PopupProps } from 'semantic-ui-react'
+import { Popup as SemanticPopup, PopupProps } from 'semantic-ui-react'
 import './Popup.css'
 
 export default SemanticPopup

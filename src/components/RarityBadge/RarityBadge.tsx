@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import { Rarity } from '@dcl/schemas'
 import { hex2rgb } from '../../lib/colors'
-import { Popup } from 'semantic-ui-react'
+import Popup from 'semantic-ui-react'
 import { RarityBadgeProps } from './RarityBadge.types'
 import './RarityBadge.css'
 
