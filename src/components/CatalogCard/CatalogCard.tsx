@@ -2,10 +2,10 @@ import React from 'react'
 import classNames from 'classnames'
 import { Network, Item } from '@dcl/schemas'
 import { Mana } from '../Mana/Mana'
-import { Card } from '../Card/Card'
+import { Card } from 'semantic-ui-react'
 import { Profile } from '../Profile/Profile'
 import { AssetImage } from '../AssetImage/AssetImage'
-import { RarityBadge, RarityBadgeProps } from '../RarityBadge'
+import RarityBadge, { RarityBadgeProps } from '../RarityBadge'
 import './CatalogCard.css'
 
 export type CatalogCardProps = {

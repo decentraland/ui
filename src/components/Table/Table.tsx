@@ -1,2 +1,5 @@
-export { default as Table, TableProps } from 'semantic-ui-react'
+import SemanticTable, { TableProps } from 'semantic-ui-react'
 import './Table.css'
+
+export default SemanticTable
+export type { TableProps }

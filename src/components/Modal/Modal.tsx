@@ -1,5 +1,8 @@
 /**
  * @deprecated Should start using the same component migrated to UI2.
  */
-export { default as Modal, ModalProps } from 'semantic-ui-react'
+import SemanticModal, { ModalProps } from 'semantic-ui-react'
 import './Modal.css'
+
+export default SemanticModal
+export type { ModalProps }

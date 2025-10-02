@@ -1,2 +1,5 @@
-export { default as Message, MessageProps } from 'semantic-ui-react'
+import SemanticMessage, { MessageProps } from 'semantic-ui-react'
 import './Message.css'
+
+export default SemanticMessage
+export type { MessageProps }
