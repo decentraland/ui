@@ -1,10 +1,36 @@
 import * as React from 'react'
-import {
-  eventStack,
-  getElementType,
-  isBrowser
-} from 'semantic-ui-react/dist/commonjs/lib'
 import { ResponsiveProps } from './Responsive.types'
+
+// Local implementations of semantic-ui-react utilities
+const isBrowser = () => typeof window !== 'undefined'
+
+const eventStack = {
+  sub: (
+    event: string,
+    handler: (e: Event) => void,
+    options: { target: string }
+  ) => {
+    if (isBrowser() && options.target === 'window') {
+      window.addEventListener(event, handler)
+    }
+  },
+  unsub: (
+    event: string,
+    handler: (e: Event) => void,
+    options: { target: string }
+  ) => {
+    if (isBrowser() && options.target === 'window') {
+      window.removeEventListener(event, handler)
+    }
+  }
+}
+
+const getElementType = (
+  Component: React.ComponentType<unknown>,
+  props: { as?: string }
+) => {
+  return props.as || 'div'
+}
 
 const isNil = (value) => value == null
 
@@ -110,7 +136,7 @@ export default class Responsive extends React.Component<ResponsiveProps> {
     const ElementType = getElementType(Responsive, this.props)
     const rest = this.cleanProps(this.props)
 
-    if (visible) return <ElementType {...rest}>{children}</ElementType>
+    if (visible) return React.createElement(ElementType, rest, children)
     return null
   }
 }
