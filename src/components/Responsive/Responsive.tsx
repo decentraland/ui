@@ -1,5 +1,9 @@
 import * as React from 'react'
-import { eventStack, getElementType, isBrowser } from 'semantic-ui-react/dist/commonjs/lib'
+import {
+  eventStack,
+  getElementType,
+  isBrowser
+} from 'semantic-ui-react/dist/commonjs/lib'
 import { ResponsiveProps } from './Responsive.types'
 
 const isNil = (value) => value == null
