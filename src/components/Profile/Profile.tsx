@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Avatar } from '@dcl/schemas/dist/platform/profile/avatar'
 import { Logo } from '../Logo/Logo'
-import { Popup } from '../Popup/Popup'
+import { Popup } from 'semantic-ui-react'
 import { AvatarFace } from '../AvatarFace/AvatarFace'
 import { Blockie } from '../Blockie/Blockie'
 import './Profile.css'
 
-type Props<T extends React.ElementType> = {
+type Props = {
   address: string
   avatar?: Avatar | null
   textOnly?: boolean
@@ -19,15 +19,11 @@ type Props<T extends React.ElementType> = {
   i18n?: {
     defaultName: string
   }
-  as?: T
 }
 
-export type ProfileProps<T extends React.ElementType> = Props<T> &
-  Omit<React.ComponentPropsWithRef<T>, keyof Props<T>>
+export type ProfileProps = Props
 
-export const Profile = function <T extends React.ElementType>(
-  props: ProfileProps<T>
-) {
+export const Profile = function (props: ProfileProps) {
   const {
     address,
     avatar,
@@ -38,7 +34,6 @@ export const Profile = function <T extends React.ElementType>(
     size = 'normal',
     sliceAddressBy = 6,
     isDecentraland,
-    as = React.Fragment,
     ...rest
   } = props
 
@@ -56,7 +51,7 @@ export const Profile = function <T extends React.ElementType>(
     return avatar.name.endsWith(lastPart) ? avatar.name : avatar.name + lastPart
   }, [avatar, address, sliceLimit])
 
-  const Wrapper = as
+  const Wrapper = React.Fragment
 
   if (isDecentraland) {
     return (
@@ -116,7 +111,6 @@ export const Profile = function <T extends React.ElementType>(
                       ? 21
                       : 3
                   }
-                  as={as}
                   {...rest}
                 />
               </Wrapper>
@@ -132,3 +126,5 @@ export const Profile = function <T extends React.ElementType>(
     )
   }
 }
+
+export default Profile

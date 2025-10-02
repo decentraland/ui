@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ContainerProps } from 'semantic-ui-react/dist/commonjs/elements/Container/Container'
-import { HeaderProps } from 'semantic-ui-react/dist/commonjs/elements/Header/Header'
+import { HeaderProps } from 'semantic-ui-react'
 import { Container } from '../Container/Container'
 import { Header } from '../Header/Header'
 import './Hero.css'

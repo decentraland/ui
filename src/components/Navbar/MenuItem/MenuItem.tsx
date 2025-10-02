@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
+import Menu from 'semantic-ui-react'
 import classNames from 'classnames'
 
 import ArrowIcon from '../../Icons/ArrowIcon'

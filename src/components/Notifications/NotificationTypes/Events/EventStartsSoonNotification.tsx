@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import Icon from 'semantic-ui-react'
 
 import {
   CommonNotificationProps,

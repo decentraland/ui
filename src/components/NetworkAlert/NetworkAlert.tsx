@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
+import Icon from 'semantic-ui-react'
 import { Button } from '../Button/Button'
 import { Header } from '../Header/Header'
 import { Props } from './NetworkAlert.types'

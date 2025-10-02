@@ -1,5 +1,5 @@
 export {
   default as Table,
   TableProps
-} from 'semantic-ui-react/dist/commonjs/collections/Table/Table'
+} from 'semantic-ui-react'
 import './Table.css'

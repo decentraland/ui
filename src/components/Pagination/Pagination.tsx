@@ -1,5 +1,5 @@
 export {
   default as Pagination,
   PaginationProps
-} from 'semantic-ui-react/dist/commonjs/addons/Pagination/Pagination'
+} from 'semantic-ui-react'
 import './Pagination.css'

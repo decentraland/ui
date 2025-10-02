@@ -1,8 +1,7 @@
 import React from 'react'
 import { useMobileMediaQuery } from '../../../Media'
-import { Table } from '../../../Table/Table'
+import { Table, Pagination } from 'semantic-ui-react'
 import { Loader } from '../../../Loader/Loader'
-import { Pagination } from '../../../Pagination/Pagination'
 import { Props, DataTableType } from './TableContent.types'
 import './TableContent.css'
 
@@ -22,7 +21,12 @@ const TableContent = (props: Props) => {
     rowsPerPage = ROWS_PER_PAGE,
     hasHeaders = false,
     customHeaders = {},
-    i18n
+    i18n = {
+      sortBy: {
+        showing: 'Showing',
+        of: 'of'
+      }
+    }
   } = props
 
   const isMobile = useMobileMediaQuery()
@@ -101,13 +105,5 @@ const TableContent = (props: Props) => {
   )
 }
 
-TableContent.defaultProps = {
-  i18n: {
-    sortBy: {
-      showing: 'Showing',
-      of: 'of'
-    }
-  }
-}
 
 export default React.memo(TableContent)

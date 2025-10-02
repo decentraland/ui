@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react'
 import classNames from 'classnames'
-import { Card } from '../Card/Card'
-import { Popup } from '../Popup/Popup'
+import { Card, Popup } from 'semantic-ui-react'
 import { Mana } from '../Mana/Mana'
 import { NFTImage } from '../NFTImage'
 import { getBadges, getSubtitle } from './utils'
-import { Badge, Props } from './NFTCard.types'
+import { Badge, Props, NFTCardI18N } from './NFTCard.types'
 import './NFTCard.css'
 
 const Badge = ({ badge }: { badge: Badge }) => {
@@ -49,10 +48,53 @@ const Badge = ({ badge }: { badge: Badge }) => {
   )
 }
 
+const DEFAULT_I18N: NFTCardI18N = {
+  network: {
+    ETHEREUM: 'Ethereum',
+    MATIC: 'Matic',
+    AVALANCHE: 'Avalanche',
+    BSC: 'BSC',
+    OPTIMISM: 'Optimism',
+    ARBITRUM: 'Arbitrum',
+    FANTOM: 'Fantom'
+  },
+  bodyShape: {
+    male: 'Male',
+    female: 'Female',
+    unisex: 'Unisex'
+  },
+  playMode: {
+    loop: 'Loop',
+    once: 'Once'
+  },
+  category: {
+    body_shape: 'Body Shape',
+    earring: 'Earring',
+    eyebrows: 'Eyebrows',
+    eyes: 'Eyes',
+    eyewear: 'Eyewear',
+    facial_hair: 'Facial Hair',
+    feet: 'Feet',
+    hair: 'Hair',
+    hat: 'Hat',
+    helmet: 'Helmet',
+    lower_body: 'Lower Body',
+    mask: 'Mask',
+    mouth: 'Mouth',
+    tiara: 'Tiara',
+    top_head: 'Top Head',
+    upper_body: 'Upper Body',
+    skin: 'Skin',
+    hands_wear: 'Handwear'
+  },
+  withSound: 'With sound',
+  smart: 'Smart'
+}
+
 export const NFTCard = (props: Props) => {
   const {
     nft,
-    i18n,
+    i18n = DEFAULT_I18N,
     header,
     subtitle,
     badges,
@@ -124,43 +166,3 @@ export const NFTCard = (props: Props) => {
   )
 }
 
-NFTCard.defaultProps = {
-  i18n: {
-    network: {
-      ethereum: 'Ethereum',
-      matic: 'Matic'
-    },
-    bodyShape: {
-      male: 'Male',
-      female: 'Female',
-      unisex: 'Unisex'
-    },
-    playMode: {
-      loop: 'Loop',
-      once: 'Once'
-    },
-    category: {
-      body_shape: 'Body Shape',
-      earring: 'Earring',
-      eyebrows: 'Eyebrows',
-      eyes: 'Eyes',
-      eyewear: 'Eyewear',
-      facial_hair: 'Facial Hair',
-      feet: 'Feet',
-      head: 'Head',
-      hair: 'Hair',
-      hat: 'Hat',
-      helmet: 'Helmet',
-      lower_body: 'Lower Body',
-      mask: 'Mask',
-      mouth: 'Mouth',
-      tiara: 'Tiara',
-      top_head: 'Top Head',
-      upper_body: 'Upper Body',
-      skin: 'Skin',
-      hands_wear: 'Handwear'
-    },
-    withSound: 'With sound',
-    smart: 'Smart'
-  }
-}

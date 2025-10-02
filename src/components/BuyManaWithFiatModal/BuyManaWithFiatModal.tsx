@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
+import ModalContent from 'semantic-ui-react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import { getNetworkMANADescription } from '../../lib/network'

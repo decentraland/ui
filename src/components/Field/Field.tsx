@@ -1,17 +1,18 @@
 import * as React from 'react'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+import {
+  Icon,
+  Input,
+  Button,
+  Header,
+  InputOnChangeData,
+  InputProps
+} from 'semantic-ui-react'
 import SemanticDatepicker from 'react-semantic-ui-datepickers'
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css'
 
-import Input, {
-  InputOnChangeData,
-  InputProps
-} from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
 import classnames from 'classnames'
 import { getInputValueLength } from '../../lib/input'
 import { Blockie } from '../Blockie/Blockie'
-import { Button } from '../Button/Button'
-import { Header } from '../Header/Header'
 import './Field.css'
 
 const DATE_TYPE = 'date'
@@ -105,7 +106,9 @@ export class Field extends React.PureComponent<FieldProps> {
       ...this.props,
       value: newValue
     }
-    this.props.onChange && this.props.onChange(e, inputProps)
+    if (this.props.onChange) {
+      this.props.onChange(e, inputProps)
+    }
   }
 
   render(): JSX.Element {

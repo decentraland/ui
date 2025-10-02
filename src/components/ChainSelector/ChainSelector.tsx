@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button'
-import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
+import Button from 'semantic-ui-react'
+import ModalContent from 'semantic-ui-react'
 import classNames from 'classnames'
 import { ChainId, getChainName } from '@dcl/schemas'
 import { useTabletAndBelowMediaQuery } from '../Media'

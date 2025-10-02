@@ -1,40 +1,90 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { SliderField } from './SliderField'
 
-storiesOf('SliderField', module)
-  .add('Slider Simple', () => <SliderField header="SliderField Simple" />)
-  .add('Range Simple', () => (
-    <SliderField header="SliderField Simple Range" range={true} />
-  ))
-  .add('With Label', () => (
+const meta: Meta<typeof SliderField> = {
+  title: 'SliderField',
+  component: SliderField,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof SliderField>
+
+export const SimpleRange: Story = {
+  args: { header: 'SliderField Simple Range', range: true },
+  render: () => <SliderField header="SliderField Simple Range" range={true} />
+}
+
+export const WithLabel: Story = {
+  args: {
+    header: 'SliderField Label',
+    label: 'This is a label',
+    min: 0,
+    max: 100
+  },
+  render: () => (
     <SliderField
       header="SliderField Label"
       label="This is a label"
       min={0}
       max={100}
     />
-  ))
-  .add('With Max and Min set', () => (
+  )
+}
+
+export const WithMaxAndMinSet: Story = {
+  args: { header: 'Min set at 200 and Max at 500', min: 200, max: 500 },
+  render: () => (
     <SliderField header="Min set at 200 and Max at 500" min={200} max={500} />
-  ))
-  .add('Range with Max and Min set', () => (
+  )
+}
+
+export const RangeWithMaxAndMinSet: Story = {
+  args: {
+    header: 'Min set at 200 and Max at 500',
+    min: 200,
+    max: 500,
+    range: true
+  },
+  render: () => (
     <SliderField
       header="Min set at 200 and Max at 500"
       min={200}
       max={500}
       range={true}
     />
-  ))
-  .add('Default value', () => (
+  )
+}
+
+export const DefaultValue: Story = {
+  args: {
+    header: 'Default value set to 70',
+    min: 0,
+    max: 100,
+    defaultValue: 70
+  },
+  render: () => (
     <SliderField
       header="Default value set to 70"
       min={0}
       max={100}
       defaultValue={70}
     />
-  ))
-  .add('Range default value', () => (
+  )
+}
+
+export const RangeDefaultValue: Story = {
+  args: {
+    header: 'Default value set to 20 - 70',
+    min: 0,
+    max: 100,
+    defaultValue: [20, 70],
+    range: true
+  },
+  render: () => (
     <SliderField
       header="Default value set to 20 - 70"
       min={0}
@@ -42,16 +92,24 @@ storiesOf('SliderField', module)
       defaultValue={[20, 70]}
       range={true}
     />
-  ))
-  .add('With onMouseUp', () => (
+  )
+}
+
+export const WithOnMouseUp: Story = {
+  args: { header: 'SliderField Header', min: 0, max: 100 },
+  render: () => (
     <SliderField
       header="SliderField Header"
       min={0}
       max={100}
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
     />
-  ))
-  .add('Range with onMouseUp', () => (
+  )
+}
+
+export const RangeWithOnMouseUp: Story = {
+  args: { header: 'SliderField Header', min: 0, max: 100, range: true },
+  render: () => (
     <SliderField
       header="SliderField Header"
       min={0}
@@ -59,16 +117,24 @@ storiesOf('SliderField', module)
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
       range
     />
-  ))
-  .add('With onChange', () => (
+  )
+}
+
+export const WithOnChange: Story = {
+  args: { header: 'Shown on console', min: 0, max: 100 },
+  render: () => (
     <SliderField
       header="Shown on console"
       min={0}
       max={100}
       onChange={(_, data) => console.log(data)}
     />
-  ))
-  .add('Range with onChange', () => (
+  )
+}
+
+export const RangeWithOnChange: Story = {
+  args: { header: 'Shown on console', min: 0, max: 100, range: true },
+  render: () => (
     <SliderField
       header="Shown on console"
       min={0}
@@ -76,31 +142,21 @@ storiesOf('SliderField', module)
       onChange={(_, data) => console.log(data)}
       range
     />
-  ))
-  .add('with state', () => {
+  )
+}
+
+export const WithState: Story = {
+  args: { header: 'Shown on console', min: 0, max: 10 },
+  render: () => {
     const [value, setRange] = React.useState<number>(10)
     return (
       <SliderField
         header="Shown on console"
         min={0}
         max={10}
-        valueFrom={0}
         valueTo={value}
-        onChange={(_, data) => setRange(data[1])}
+        onChange={(_, data) => setRange(data as number)}
       />
     )
-  })
-  .add('range with state', () => {
-    const [range, setRange] = React.useState<readonly [number, number]>([5, 10])
-    return (
-      <SliderField
-        header="Shown on console"
-        min={0}
-        max={10}
-        valueFrom={range[0]}
-        valueTo={range[1]}
-        onChange={(_, data) => setRange(data)}
-        range
-      />
-    )
-  })
+  }
+}

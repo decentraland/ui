@@ -1,164 +1,206 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { avatar } from '../../data/avatar'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Mana } from '../Mana/Mana'
-import { Profile } from './Profile'
+import Profile from './Profile'
 import './Profile.stories.css'
 
-storiesOf('Profile', module)
-  .add('No avatar', () => (
+const avatar = {
+  name: 'Braian',
+  description: 'My avatar',
+  ethAddress: '0x1234567890123456789012345678901234567890',
+  version: 3,
+  userId: 'user123',
+  tutorialStep: 0,
+  hasClaimedName: true,
+  avatar: {
+    bodyShape: 'urn:decentraland:off-chain:base-avatars:BaseMale',
+    snapshots: {
+      face: 'https://peer.decentraland.org/content/contents/QmYJpDfYcjtVJrHmF8X5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5',
+      face256:
+        'https://peer.decentraland.org/content/contents/QmYJpDfYcjtVJrHmF8X5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5',
+      face128:
+        'https://peer.decentraland.org/content/contents/QmYJpDfYcjtVJrHmF8X5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5',
+      body: 'https://peer.decentraland.org/content/contents/QmYJpDfYcjtVJrHmF8X5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5Yz6bJ5'
+    },
+    eyes: { color: { r: 0.23046875, g: 0.625, b: 0.3125 } },
+    hair: { color: { r: 0.35546875, g: 0.19140625, b: 0.05859375 } },
+    skin: { color: { r: 0.94921875, g: 0.76171875, b: 0.6484375 } },
+    wearables: [
+      'urn:decentraland:off-chain:base-avatars:eyes-01',
+      'urn:decentraland:off-chain:base-avatars:eyebrows-00',
+      'urn:decentraland:off-chain:base-avatars:nose-00',
+      'urn:decentraland:off-chain:base-avatars:mouth-00',
+      'urn:decentraland:off-chain:base-avatars:beard',
+      'urn:decentraland:off-chain:base-avatars:blue_tshirt',
+      'urn:decentraland:off-chain:base-avatars:brown_shoes',
+      'urn:decentraland:off-chain:base-avatars:casual_hair_01',
+      'urn:decentraland:off-chain:base-avatars:standard_male'
+    ]
+  }
+}
+
+const meta: Meta<typeof Profile> = {
+  title: 'Profile',
+  component: Profile
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const NoAvatar: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" />
     </>
-  ))
-  .add('Avatar', () => (
+  )
+}
+
+export const Avatar: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} />
     </>
-  ))
-  .add('Avatar without name', () => (
-    <>
-      <Profile address="0xdeadbeef" avatar={{ ...avatar, name: null }} />
-    </>
-  ))
-  .add('Avatar with an unclaimed name', () => (
+  )
+}
+
+export const NoClaimedName: Story = {
+  render: () => (
     <>
       <Profile
         address="0xdeadbeef"
         avatar={{ ...avatar, hasClaimedName: false }}
       />
     </>
-  ))
-  .add('Image only', () => (
+  )
+}
+
+export const ImageOnly: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} imageOnly />
     </>
-  ))
-  .add('Text only', () => (
+  )
+}
+
+export const TextOnly: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} textOnly />
     </>
-  ))
-  .add('Inline', () => (
+  )
+}
+
+export const Inline: Story = {
+  render: () => (
     <>
       You sent <Mana inline>1,000</Mana> to{' '}
-      <Profile address="0xdeadbeef" avatar={avatar} inline />
+      <Profile address="0xdeadbeef" avatar={avatar} inline />{' '}
+      <strong>cazala</strong>
     </>
-  ))
-  .add('Decentraland', () => (
+  )
+}
+
+export const InlineNoClaimedName: Story = {
+  render: () => (
     <>
       You sent <Mana inline>1,000</Mana> to{' '}
-      <Profile address="0xdeadbeef" avatar={avatar} inline isDecentraland />
-    </>
-  ))
-  .add('Sliced address', () => (
-    <div className="ProfileList">
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        sliceAddressBy={10}
-      />
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        sliceAddressBy={20}
-      />
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        sliceAddressBy={30}
-      />
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        sliceAddressBy={40}
-      />
-    </div>
-  ))
-  .add('Sizes', () => (
-    <>
       <Profile
         address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="normal"
-        imageOnly
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="large"
-        imageOnly
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="huge"
-        imageOnly
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="massive"
-        imageOnly
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="normal"
-        imageOnly
-        isDecentraland
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="large"
-        imageOnly
-        isDecentraland
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="huge"
-        imageOnly
-        isDecentraland
-      />
-      <Profile
-        address="0xdeadbeef"
-        avatar={avatar}
-        inline={false}
-        size="massive"
-        imageOnly
-        isDecentraland
-      />
-      <Profile address="0xdeadbeef" inline={false} size="normal" imageOnly />
-      <Profile address="0xdeadbeef" inline={false} size="large" imageOnly />
-      <Profile address="0xdeadbeef" inline={false} size="huge" imageOnly />
-      <Profile address="0xdeadbeef" inline={false} size="massive" imageOnly />
-    </>
-  ))
-  .add('Profile with avatar and content linked to another site', () => (
-    <>
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        avatar={avatar}
+        avatar={{ ...avatar, hasClaimedName: false }}
         inline
-        as="a"
-        href="https://decentraland.zone/marketplace/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        target="_blank"
-      />
+      />{' '}
+      <strong>cazala</strong>
     </>
-  ))
-  .add('Profile with blockie and content linked to another site', () => (
+  )
+}
+
+export const InlineImageOnly: Story = {
+  render: () => (
     <>
-      <Profile
-        address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        inline
-        as={'a'}
-        href="https://decentraland.zone/marketplace/accounts/0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
-        target="_blank"
-      />
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile address="0xdeadbeef" avatar={avatar} inline imageOnly />{' '}
+      <strong>cazala</strong>
     </>
-  ))
+  )
+}
+
+export const InlineTextOnly: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile address="0xdeadbeef" avatar={avatar} inline textOnly />{' '}
+      <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatar: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile address="0xdeadbeef" inline /> <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatarNoClaimedName: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile
+        address="0xdeadbeef"
+        avatar={{ ...avatar, hasClaimedName: false }}
+        inline
+      />{' '}
+      <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatarImageOnly: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile address="0xdeadbeef" inline imageOnly /> <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatarTextOnly: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile address="0xdeadbeef" inline textOnly /> <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatarNoClaimedNameImageOnly: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile
+        address="0xdeadbeef"
+        avatar={{ ...avatar, hasClaimedName: false }}
+        inline
+        imageOnly
+      />{' '}
+      <strong>cazala</strong>
+    </>
+  )
+}
+
+export const InlineNoAvatarNoClaimedNameTextOnly: Story = {
+  render: () => (
+    <>
+      You sent <Mana inline>1,000</Mana> to{' '}
+      <Profile
+        address="0xdeadbeef"
+        avatar={{ ...avatar, hasClaimedName: false }}
+        inline
+        textOnly
+      />{' '}
+      <strong>cazala</strong>
+    </>
+  )
+}

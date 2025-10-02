@@ -3,7 +3,7 @@ import {
   eventStack,
   getElementType,
   isBrowser
-} from 'semantic-ui-react/dist/commonjs/lib'
+} from 'semantic-ui-react'
 import { ResponsiveProps } from './Responsive.types'
 
 const isNil = (value) => value == null

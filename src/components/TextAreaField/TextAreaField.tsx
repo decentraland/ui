@@ -2,8 +2,8 @@ import * as React from 'react'
 import classNames from 'classnames'
 import TextArea, {
   TextAreaProps
-} from 'semantic-ui-react/dist/commonjs/addons/TextArea/TextArea'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
+} from 'semantic-ui-react'
+import Icon from 'semantic-ui-react'
 import { getInputValueLength } from '../../lib/input'
 import { InfoTooltip, InfoTooltipProps } from '../InfoTooltip'
 import './TextAreaField.css'

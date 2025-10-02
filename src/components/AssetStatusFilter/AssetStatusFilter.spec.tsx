@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
 import { AssetStatusFilter } from './AssetStatusFilter'
 import { AssetStatusFilterProps } from './AssetStatusFilter.types'
 import { i18n } from './constants'
@@ -43,9 +44,9 @@ describe.each(Object.keys(i18n.status))(
       renderedComponent = renderAssetStatusFilter({ onChange })
     })
 
-    it(`should call the onChange callback prop with the ${i18n.status[status]} value`, () => {
+    it(`should call the onChange callback prop with the ${i18n.status[status]} value`, async () => {
       const { getByText } = renderedComponent
-      userEvent.click(getByText(i18n.status[status]))
+      await userEvent.click(getByText(i18n.status[status]))
       expect(onChange).toHaveBeenCalledWith(status)
     })
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu'
+import Menu from 'semantic-ui-react'
 
 import { Back } from '../../Back/Back'
 import { NavbarPages } from '../Navbar.types'

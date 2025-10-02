@@ -1,5 +1,5 @@
 export {
   default as Message,
   MessageProps
-} from 'semantic-ui-react/dist/commonjs/collections/Message/Message'
+} from 'semantic-ui-react'
 import './Message.css'
