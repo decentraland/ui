@@ -24,23 +24,31 @@ export const MenuItem = (props: MenuItemProps) => {
   } = props
 
   const mainRedirect = useCallback(() => {
-    mainUrl && window.open(mainUrl, '_self')
+    if (mainUrl) {
+      window.open(mainUrl, '_self')
+    }
   }, [mainUrl])
 
   return (
     <Menu.Item
       active={activePage === section}
       onClick={(e: React.MouseEvent) => {
-        isMobile && !isExtraButton
-          ? onToggleShowSubMenu(e, true, section)
-          : mainRedirect()
+        if (isMobile && !isExtraButton) {
+          onToggleShowSubMenu(e, true, section)
+        } else {
+          mainRedirect()
+        }
       }}
-      onMouseEnter={(e: React.MouseEvent) =>
-        !isMobile && onToggleShowSubMenu(e, true, section)
-      }
-      onMouseLeave={(e: React.MouseEvent) =>
-        !isMobile && onToggleShowSubMenu(e, false, section)
-      }
+      onMouseEnter={(e: React.MouseEvent) => {
+        if (!isMobile) {
+          onToggleShowSubMenu(e, true, section)
+        }
+      }}
+      onMouseLeave={(e: React.MouseEvent) => {
+        if (!isMobile) {
+          onToggleShowSubMenu(e, false, section)
+        }
+      }}
       className={classNames(
         'dui-menu-item',
         section,

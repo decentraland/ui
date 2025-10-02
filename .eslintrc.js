@@ -2,7 +2,12 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['lib/**/*', 'dist/**/*'],
+  ignorePatterns: [
+    'lib/**/*',
+    'dist/**/*',
+    'node_modules/**/*',
+    'storybook-static/**/*'
+  ],
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',

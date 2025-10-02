@@ -45,21 +45,24 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickActivity = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.ACTIVITY,
           track_uuid: trackingId,
           url: `${config.get('MARKETPLACE_URL')}/activity`
         })
+      }
       setTimeout(
         () => {
-          onClickActivity
-            ? onClickActivity(event)
-            : window.open(
-                `${config.get('MARKETPLACE_URL')}/activity`,
-                '_blank',
-                'noopener'
-              )
+          if (onClickActivity) {
+            onClickActivity(event)
+          } else {
+            window.open(
+              `${config.get('MARKETPLACE_URL')}/activity`,
+              '_blank',
+              'noopener'
+            )
+          }
         },
         onClickActivity ? 300 : 0
       )
@@ -69,22 +72,25 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickMyAssets = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.MY_ASSETS,
           track_uuid: trackingId,
           url: config.get('MARKETPLACE_MY_ASSETS_URL')
         })
+      }
 
       setTimeout(
         () => {
-          onClickMyAssets
-            ? onClickMyAssets(event)
-            : window.open(
-                `${config.get('MARKETPLACE_MY_ASSETS_URL')}`,
-                '_blank',
-                'noopener'
-              )
+          if (onClickMyAssets) {
+            onClickMyAssets(event)
+          } else {
+            window.open(
+              `${config.get('MARKETPLACE_MY_ASSETS_URL')}`,
+              '_blank',
+              'noopener'
+            )
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )
@@ -94,21 +100,24 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickMarketplaceAuthorization = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.MARKETPLACE_AUTHORIZATIONS,
           track_uuid: trackingId,
           url: config.get('MARKETPLACE_SETTINGS_URL')
         })
+      }
       setTimeout(
         () => {
-          onClickMarketplaceAuthorization
-            ? onClickMarketplaceAuthorization(event)
-            : window.open(
-                `${config.get('MARKETPLACE_SETTINGS_URL')}`,
-                '_blank',
-                'noopener'
-              )
+          if (onClickMarketplaceAuthorization) {
+            onClickMarketplaceAuthorization(event)
+          } else {
+            window.open(
+              `${config.get('MARKETPLACE_SETTINGS_URL')}`,
+              '_blank',
+              'noopener'
+            )
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )
@@ -118,18 +127,21 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickProfile = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.PROFILE,
           track_uuid: trackingId,
           url: config.get('PROFILE_URL')
         })
+      }
 
       setTimeout(
         () => {
-          onClickProfile
-            ? onClickProfile(event)
-            : window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
+          if (onClickProfile) {
+            onClickProfile(event)
+          } else {
+            window.open(config.get('PROFILE_URL'), '_blank', 'noopener')
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )
@@ -139,18 +151,21 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickAccount = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.ACCOUNT,
           track_uuid: trackingId,
           url: config.get('ACCOUNT_URL')
         })
+      }
 
       setTimeout(
         () => {
-          onClickAccount
-            ? onClickAccount(event)
-            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+          if (onClickAccount) {
+            onClickAccount(event)
+          } else {
+            window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )
@@ -160,11 +175,12 @@ export const UserMenuSignedIn = (props: UserMenuSignedInProps) => {
 
   const handleClickSignOut = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.SIGN_OUT,
           track_uuid: trackingId
         })
+      }
       onClickSignOut(event, trackingId)
     },
     [onClickSignOut, onClickUserMenuItem, trackingId]

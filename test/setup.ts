@@ -8,22 +8,21 @@ const originalError = console.error
 const originalWarn = console.warn
 
 beforeAll(() => {
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     const message = args[0]
     if (
       typeof message === 'string' &&
-      (
-        message.includes('Support for defaultProps will be removed') ||
+      (message.includes('Support for defaultProps will be removed') ||
         message.includes('findDOMNode is deprecated') ||
-        message.includes('An update to') && message.includes('inside a test was not wrapped in act')
-      )
+        (message.includes('An update to') &&
+          message.includes('inside a test was not wrapped in act')))
     ) {
       return
     }
     originalError.call(console, ...args)
   }
-  
-  console.warn = (...args: any[]) => {
+
+  console.warn = (...args: unknown[]) => {
     const message = args[0]
     if (
       typeof message === 'string' &&

@@ -23,8 +23,9 @@ export const SubMenuItem = (props: SubMenuItemProps) => {
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       event.preventDefault()
-      onClickMenuOption &&
+      if (onClickMenuOption) {
         onClickMenuOption(event, { eventTrackingName, url: href, isExternal })
+      }
       setTimeout(
         () => {
           window.open(href, isExternal ? '_blank' : '_self', 'noopener')

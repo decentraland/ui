@@ -73,18 +73,21 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   const handleDownload = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault()
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.DOWNLOAD,
           track_uuid: trackingId,
           url: config.get('DOWNLOAD_URL')
         })
+      }
 
       setTimeout(
         () => {
-          onClickDownload
-            ? onClickDownload(event)
-            : window.open(config.get('DOWNLOAD_URL'), '_blank', 'noopener')
+          if (onClickDownload) {
+            onClickDownload(event)
+          } else {
+            window.open(config.get('DOWNLOAD_URL'), '_blank', 'noopener')
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )
@@ -95,12 +98,13 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
   const handleClickSignIn = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault()
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.SIGN_IN,
           track_uuid: trackingId,
           url: config.get('MARKETPLACE_URL')
         })
+      }
 
       onClickSignIn(event)
     },
@@ -113,16 +117,19 @@ export const UserMenu = React.memo((props: UserMenuProps) => {
       network: Network
     ) => {
       event.preventDefault()
-      onClickUserMenuItem &&
+      if (onClickUserMenuItem) {
         onClickUserMenuItem(event, {
           type: UserMenuEventId.BALANCE
         })
+      }
 
       setTimeout(
         () => {
-          onClickBalance
-            ? onClickBalance(event, network)
-            : window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+          if (onClickBalance) {
+            onClickBalance(event, network)
+          } else {
+            window.open(config.get('ACCOUNT_URL'), '_blank', 'noopener')
+          }
         },
         onClickUserMenuItem ? 300 : 0
       )

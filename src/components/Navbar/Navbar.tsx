@@ -46,7 +46,9 @@ export const Navbar = React.memo((props: NavbarProps) => {
   const handleToggle = useCallback(
     (e: React.MouseEvent, show: boolean, section: NavbarPages) => {
       setToggle(show)
-      show && setSelectedMenu(section)
+      if (show) {
+        setSelectedMenu(section)
+      }
     },
     [setToggle, setSelectedMenu]
   )
@@ -69,7 +71,9 @@ export const Navbar = React.memo((props: NavbarProps) => {
       event: React.MouseEvent<HTMLElement, MouseEvent>,
       options: { eventTrackingName: string; url?: string; isExternal?: boolean }
     ) => {
-      onClickNavbarItem && onClickNavbarItem(event, options)
+      if (onClickNavbarItem) {
+        onClickNavbarItem(event, options)
+      }
     },
     [onClickNavbarItem]
   )
