@@ -1,12 +1,11 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Card } from 'semantic-ui-react'
 import Button from '../Button/Button'
 import { Container } from '../Container/Container'
 import Header from '../Header/Header'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { Mana } from '../Mana/Mana'
-import { Card } from './Card'
 
 const cards = [
   {

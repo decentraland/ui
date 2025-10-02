@@ -1,6 +1,5 @@
 import * as React from 'react'
-import ModalContent from 'semantic-ui-react'
-import Icon from 'semantic-ui-react'
+import { ModalContent, Icon } from 'semantic-ui-react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas'
 import Modal from '../Modal/Modal'

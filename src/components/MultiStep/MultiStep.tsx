@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import Icon from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import Button from '../Button/Button'
 import { Loader } from '../Loader/Loader'
 import { Props } from './MultiStep.types'

@@ -46,7 +46,7 @@ export const InsideAForm: Story = {
 export const Error: Story = {
   render: () => (
     <>
-      <Field label="Label" placeholder="Placeholder" error="This is an error" />
+      <Field label="Label" placeholder="Placeholder" error={true} />
     </>
   )
 }
