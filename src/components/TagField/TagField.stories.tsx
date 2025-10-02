@@ -1,17 +1,31 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TagField } from './TagField'
 
-storiesOf('TagField', module)
-  .add('Basic', () => (
+const meta: Meta<typeof TagField> = {
+  title: 'TagField',
+  component: TagField,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  render: () => (
     <>
       <TagField
         label="Tags (optional)"
         placeholder="e.g. (outdoors furniture floor)"
       />
     </>
-  ))
-  .add('On Change', () => (
+  )
+}
+
+export const OnChange: Story = {
+  render: () => (
     <>
       <TagField
         label="Tags (optional)"
@@ -19,9 +33,11 @@ storiesOf('TagField', module)
         onChange={(_, props) => alert(JSON.stringify(props.value))}
       />
     </>
-  ))
+  )
+}
 
-  .add('Error', () => (
+export const Error: Story = {
+  render: () => (
     <>
       <TagField
         label="Tags (optional)"
@@ -30,9 +46,11 @@ storiesOf('TagField', module)
         error
       />
     </>
-  ))
+  )
+}
 
-  .add('Default values', () => (
+export const DefaultValues: Story = {
+  render: () => (
     <>
       <TagField
         label="Tags (optional)"
@@ -40,4 +58,5 @@ storiesOf('TagField', module)
         value={['genesis', 'city', 'town']}
       />
     </>
-  ))
+  )
+}

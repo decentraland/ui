@@ -2,8 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { getNetworkMANADescription } from '../../lib/network'
-import { Header, HeaderProps } from '../Header/Header'
-import { Popup } from '../Popup/Popup'
+import { Header, HeaderProps, Popup } from 'semantic-ui-react'
 import './Mana.css'
 
 export type ManaProps = {
@@ -11,7 +10,7 @@ export type ManaProps = {
   inline?: boolean
   network?: Network
   className?: string
-  children?: React.ReactChild
+  children?: React.ReactNode
   primary?: boolean
   showTooltip?: boolean
 }

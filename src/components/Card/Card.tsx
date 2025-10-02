@@ -1,5 +1,2 @@
-export {
-  default as Card,
-  StrictCardProps
-} from 'semantic-ui-react/dist/commonjs/views/Card/Card'
+export { default as Card, StrictCardProps } from 'semantic-ui-react'
 import './Card.css'

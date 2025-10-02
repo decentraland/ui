@@ -1,5 +1,2 @@
-export {
-  default as Dropdown,
-  DropdownProps
-} from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown'
+export { Dropdown, DropdownProps } from 'semantic-ui-react'
 import './Dropdown.css'

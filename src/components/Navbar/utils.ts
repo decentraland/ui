@@ -36,7 +36,7 @@ export const getExtraButton = async () => {
       if (parsed.expiresAt > Date.now()) {
         return parsed.button
       }
-    } catch (error) {
+    } catch {
       // error parsing cached data, ignore and fetch from Contentful
     }
   }

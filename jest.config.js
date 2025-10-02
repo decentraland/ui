@@ -13,5 +13,9 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/test/__mocks__/styleMock.ts'
   },
   setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
-  collectCoverageFrom: ['src/components/**/*.(ts|tsx|js)']
+  collectCoverageFrom: ['src/components/**/*.(ts|tsx|js)'],
+  // React 18 configurations
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons']
+  }
 }

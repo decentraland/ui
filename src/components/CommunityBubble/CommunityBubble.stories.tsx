@@ -1,6 +1,19 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { CommunityBubble } from './CommunityBubble'
 
-storiesOf('CommunityBubble', module).add('Base', () => <CommunityBubble />)
+const meta: Meta<typeof CommunityBubble> = {
+  title: 'CommunityBubble',
+  component: CommunityBubble,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Base: Story = {
+  render: () => <CommunityBubble />
+}

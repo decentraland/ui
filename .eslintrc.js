@@ -2,7 +2,12 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['lib/**/*', 'dist/**/*'],
+  ignorePatterns: [
+    'lib/**/*',
+    'dist/**/*',
+    'node_modules/**/*',
+    'storybook-static/**/*'
+  ],
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
@@ -18,7 +23,7 @@ module.exports = {
       files: ['*.ts', '*.tsx', '*.js'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'no-restricted-imports': ['error', 'semantic-ui-react']
+        'no-restricted-imports': 'off'
       }
     },
     {

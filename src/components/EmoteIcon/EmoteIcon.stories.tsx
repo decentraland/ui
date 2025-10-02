@@ -1,5 +1,18 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { EmoteIcon } from './EmoteIcon'
 
-storiesOf('EmoteIcon', module).add('Icon', () => <EmoteIcon />)
+const meta: Meta<typeof EmoteIcon> = {
+  title: 'EmoteIcon',
+  component: EmoteIcon,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Icon: Story = {
+  render: () => <EmoteIcon />
+}

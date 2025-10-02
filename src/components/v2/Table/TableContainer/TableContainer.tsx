@@ -27,7 +27,9 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
                   key={tab.value}
                   active={activeTab === tab.value}
                   onClick={() => {
-                    handleTabChange && handleTabChange(tab.value)
+                    if (handleTabChange) {
+                      handleTabChange(tab.value)
+                    }
                   }}
                 >
                   <div className="dui-table-container__tabs">
@@ -44,7 +46,9 @@ const TableContainer = forwardRef<HTMLDivElement, Props>((props, ref) => {
               value={sortBy}
               onChange={(_event, data) => {
                 const value = data.value.toString()
-                handleSortByChange && handleSortByChange(value)
+                if (handleSortByChange) {
+                  handleSortByChange(value)
+                }
               }}
               options={sortbyList}
             />

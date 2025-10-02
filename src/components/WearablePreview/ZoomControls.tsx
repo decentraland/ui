@@ -2,7 +2,7 @@ import { IPreviewController } from '@dcl/schemas'
 import React, { useCallback, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Icon, WearablePreview } from '../..'
-import { Button } from '../Button/Button'
+import Button from '../Button/Button'
 import './ZoomControls.css'
 
 export type ZoomControlsProp = {

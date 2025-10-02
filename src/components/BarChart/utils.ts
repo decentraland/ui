@@ -110,7 +110,7 @@ export const getBarChartRanges = (
     }
 
     return final
-  } catch (error) {
+  } catch {
     throw Error('Error generating bar chart')
   }
 }

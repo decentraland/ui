@@ -1,5 +1,5 @@
-export {
-  default as Popup,
-  PopupProps
-} from 'semantic-ui-react/dist/commonjs/modules/Popup/Popup'
+import { Popup as SemanticPopup, PopupProps } from 'semantic-ui-react'
 import './Popup.css'
+
+export default SemanticPopup
+export type { PopupProps }

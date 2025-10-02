@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { Dropdown, DropdownProps } from '../Dropdown/Dropdown'
-import { Header } from '../Header/Header'
+import Header from '../Header/Header'
 import './SelectField.css'
 
 export type SelectFieldProps = DropdownProps & {

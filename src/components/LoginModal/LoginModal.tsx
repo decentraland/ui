@@ -1,6 +1,6 @@
 import * as React from 'react'
-import ModalContent from 'semantic-ui-react/dist/commonjs/modules/Modal/ModalContent'
-import { Modal } from '../Modal/Modal'
+import { ModalContent } from 'semantic-ui-react'
+import Modal from '../Modal/Modal'
 import { ModalNavigation } from '../ModalNavigation/ModalNavigation'
 import { Loader } from '../Loader/Loader'
 import './LoginModal.css'
@@ -24,6 +24,7 @@ export type LoginModalProps = {
   loading?: boolean
   i18n?: LoginModalI18N
   onClose?: () => void
+  children?: React.ReactNode
 }
 
 export type LoginModalOptionProps = {

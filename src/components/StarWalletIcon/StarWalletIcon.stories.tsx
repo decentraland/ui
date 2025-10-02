@@ -1,5 +1,18 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { StarWalletIcon } from './StarWalletIcon'
 
-storiesOf('StarWalletIcon', module).add('Icon', () => <StarWalletIcon />)
+const meta: Meta<typeof StarWalletIcon> = {
+  title: 'StarWalletIcon',
+  component: StarWalletIcon,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Icon: Story = {
+  render: () => <StarWalletIcon />
+}

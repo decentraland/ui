@@ -1,11 +1,22 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Tabs } from './Tabs'
 import './Tabs.stories.css'
 
-storiesOf('Tabs', module)
-  .add('Basic', () => (
+const meta: Meta<typeof Tabs> = {
+  title: 'Tabs',
+  component: Tabs,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  render: () => (
     <div className="Tabs-story-container">
       <Tabs>
         <Tabs.Tab active>Atlas</Tabs.Tab>
@@ -13,8 +24,11 @@ storiesOf('Tabs', module)
         <Tabs.Tab>My Assets</Tabs.Tab>
       </Tabs>
     </div>
-  ))
-  .add('Fullscreen', () => (
+  )
+}
+
+export const Fullscreen: Story = {
+  render: () => (
     <div className="Tabs-story-container">
       <Tabs isFullscreen>
         <Tabs.Tab active>Atlas</Tabs.Tab>
@@ -22,4 +36,5 @@ storiesOf('Tabs', module)
         <Tabs.Tab>My Assets</Tabs.Tab>
       </Tabs>
     </div>
-  ))
+  )
+}

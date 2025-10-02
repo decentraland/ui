@@ -62,11 +62,11 @@ describe('when clicking on an option', () => {
       renderedComponent = renderRadioOptions({ options, value, onChange })
     })
 
-    it('should not call the onChange callback', () => {
+    it('should not call the onChange callback', async () => {
       const { getByText } = renderedComponent
 
       const radio = getByText(options[0].name)
-      userEvent.click(radio)
+      await userEvent.click(radio)
 
       expect(onChange).not.toHaveBeenCalledWith(value)
     })
@@ -78,11 +78,11 @@ describe('when clicking on an option', () => {
       renderedComponent = renderRadioOptions({ options, value, onChange })
     })
 
-    it('should call the onChange callback with the new value', () => {
+    it('should call the onChange callback with the new value', async () => {
       const { getByText } = renderedComponent
 
       const radio = getByText(options[0].name)
-      userEvent.click(radio)
+      await userEvent.click(radio)
 
       expect(onChange).toHaveBeenCalledWith(options[0].value)
     })

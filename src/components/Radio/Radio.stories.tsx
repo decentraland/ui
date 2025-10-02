@@ -1,28 +1,49 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Radio } from './Radio'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Radio } from 'semantic-ui-react'
 import { Row } from '../Row/Row'
 
-storiesOf('Radio', module)
-  .add('Checked', () => (
+const meta: Meta<typeof Radio> = {
+  title: 'Radio',
+  component: Radio,
+  parameters: {
+    layout: 'centered'
+  }
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Checked: Story = {
+  render: () => (
     <>
       <Radio checked={true} label="Yes" />
     </>
-  ))
-  .add('Unchecked', () => (
+  )
+}
+
+export const Unchecked: Story = {
+  render: () => (
     <>
       <Radio checked={false} label="No" />
     </>
-  ))
-  .add('Options', () => (
+  )
+}
+
+export const Options: Story = {
+  render: () => (
     <Row stacked>
       <Radio checked={true} label="Yes" />
       <Radio checked={false} label="No" />
       <Radio label="Abstain" />
     </Row>
-  ))
-  .add('Toggle', () => (
+  )
+}
+
+export const Toggle: Story = {
+  render: () => (
     <>
       <Radio toggle label="ON SALE" />
     </>
-  ))
+  )
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Header } from '../Header/Header'
+import { Header } from 'semantic-ui-react'
 import { ArrayFilterProps } from './ArrayFilter.types'
 import './ArrayFilter.css'
 

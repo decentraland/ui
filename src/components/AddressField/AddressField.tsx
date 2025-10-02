@@ -1,9 +1,7 @@
 import React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
-import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input'
-import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup'
+import { Icon, Popup, InputOnChangeData } from 'semantic-ui-react'
 import { Field } from '../Field/Field'
 import { shorten, isValid } from './utils'
 import { AddressFieldErrors, Props } from './AddressField.types'
@@ -61,7 +59,7 @@ export default function AddressField(props: Props) {
               setValid(false)
               error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
             }
-          } catch (e) {
+          } catch {
             error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
             setValid(false)
           }

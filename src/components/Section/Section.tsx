@@ -4,6 +4,7 @@ import './Section.css'
 export type SectionProps = {
   className?: string
   size?: 'tiny' | 'small' | 'medium' | 'large'
+  children?: React.ReactNode
 }
 
 export class Section extends React.PureComponent<SectionProps> {

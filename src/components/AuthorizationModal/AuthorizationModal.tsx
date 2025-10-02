@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../Button/Button'
-import { Modal } from '../Modal/Modal'
+import Button from '../Button/Button'
+import Modal from '../Modal/Modal'
 import { MultiStep } from '../MultiStep'
 import { Props } from './AuthorizationModal.types'
 import './AuthorizationModal.css'
