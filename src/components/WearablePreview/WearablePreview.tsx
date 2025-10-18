@@ -14,7 +14,7 @@ import {
   PreviewType,
   PreviewRenderer
 } from '@dcl/schemas/dist/dapps/preview'
-import { BodyShape } from '@dcl/schemas'
+import { ArmatureId, BodyShape, EmoteClip } from '@dcl/schemas'
 import { createDebounce } from '../../lib/debounce'
 import { createController } from './WearablePreview.controller'
 import './WearablePreview.css'
@@ -96,6 +96,11 @@ export type WearablePreviewProps = {
   unityMode?: PreviewUnityMode
   unity?: boolean
   username?: string
+  socialEmote?: Partial<Record<ArmatureId, EmoteClip>> & {
+    loop: boolean
+    audio?: string
+    startAnimation: boolean
+  }
   onLoad?: (renderer?: PreviewRenderer) => void
   onError?: (error: Error) => void
   onUpdate?: (options: PreviewOptions) => void
@@ -178,6 +183,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       peerUrl,
       nftServerUrl,
       type,
+      socialEmote,
       unity,
       unityMode
     } = this.props
@@ -253,6 +259,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     const envParam = safeEncodeParam('env', dev ? 'dev' : undefined)
     const unityParam = safeEncodeParam('unity', unity)
     const unityModeParam = safeEncodeParam('mode', unityMode)
+    const socialEmoteParam = safeEncodeParam('socialEmote', socialEmote)
     const url =
       baseUrl +
       '?' +
@@ -300,7 +307,8 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         lockRadiusParam,
         envParam,
         unityParam,
-        unityModeParam
+        unityModeParam,
+        socialEmoteParam
       ]
         .filter((param) => !!param)
         .join('&')
