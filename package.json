@@ -85,7 +85,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^18.1.0",
+    "@dcl/schemas": "https://sdk-team-cdn.decentraland.org/@dcl/schemas/branch/fix/add-validation-to-schema/dcl-schemas-19.4.1-18535538910.commit-7d5099f.tgz",
     "@dcl/ui-env": "^1.5.1",
     "balloon-css": "^0.5.0",
     "classnames": "^2.3.2",
