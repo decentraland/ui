@@ -32,6 +32,9 @@ export type FooterProps = {
   hideSocialLinks?: boolean
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export class Footer extends React.PureComponent<FooterProps> {
   static defaultProps: Partial<FooterProps> = {
     i18n: {

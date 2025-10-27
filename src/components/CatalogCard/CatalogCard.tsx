@@ -19,6 +19,9 @@ export type CatalogCardProps = {
   owners?: string
 } & Pick<RarityBadgeProps, 'i18n'>
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const CatalogCard = (props: CatalogCardProps) => {
   const {
     action,

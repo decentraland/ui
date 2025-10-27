@@ -55,4 +55,7 @@ RarityBadge.defaultProps = {
   withTooltip: true
 }
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export default React.memo(RarityBadge)

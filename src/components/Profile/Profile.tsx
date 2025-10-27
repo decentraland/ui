@@ -25,6 +25,9 @@ type Props<T extends React.ElementType> = {
 export type ProfileProps<T extends React.ElementType> = Props<T> &
   Omit<React.ComponentPropsWithRef<T>, keyof Props<T>>
 
+/**
+ * @deprecated Should start using the same component migrated to UI2.
+ */
 export const Profile = function <T extends React.ElementType>(
   props: ProfileProps<T>
 ) {
