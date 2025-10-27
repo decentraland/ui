@@ -85,7 +85,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "@dcl/schemas": "^18.1.0",
+    "@dcl/schemas": "^19.4.1",
     "@dcl/ui-env": "^1.5.1",
     "balloon-css": "^0.5.0",
     "classnames": "^2.3.2",
@@ -107,7 +107,7 @@
     "uuid": "^9.0.1"
   },
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
