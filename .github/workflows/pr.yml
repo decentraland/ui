@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js 18.x
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 18.x
+          node-version: 22.x
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
