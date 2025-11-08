@@ -28,6 +28,7 @@ export type Props = {
     | 'play-loop'
     | 'smart-wearable'
     | 'sound'
+    | 'social'
     | 'props'
     | 'sparkles'
     | 'places'
