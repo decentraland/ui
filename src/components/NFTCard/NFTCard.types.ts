@@ -25,6 +25,7 @@ export type NFTCardI18N = {
   }
   withSound: string
   smart: string
+  social: string
 }
 
 export type Props = StrictCardProps & {

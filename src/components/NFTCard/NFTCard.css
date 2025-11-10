@@ -202,3 +202,7 @@
 .dui-nft-card__badge-icon--sound {
   background-image: url(../../assets/emotes/sound.svg);
 }
+
+.dui-nft-card__badge-icon--social {
+  background-image: url(../../assets/emotes/social.svg);
+}

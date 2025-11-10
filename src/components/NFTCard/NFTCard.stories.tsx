@@ -69,7 +69,8 @@ Emote.args = {
         rarity: 'unique',
         loop: false,
         hasSound: true,
-        hasGeometry: true
+        hasGeometry: true,
+        outcomeType: 'single_outcome'
       }
     },
     issuedId: '2',

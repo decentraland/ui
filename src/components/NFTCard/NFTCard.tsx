@@ -161,6 +161,7 @@ NFTCard.defaultProps = {
       hands_wear: 'Handwear'
     },
     withSound: 'With sound',
-    smart: 'Smart'
+    smart: 'Smart',
+    social: 'Social'
   }
 }

@@ -32,6 +32,16 @@ function _getEmoteBadges(emote: NFT['data']['emote'], i18n: NFTCardI18N) {
             hideLabel: true
           }
         ]
+      : []),
+    ...(emote.outcomeType
+      ? [
+          {
+            color: DEFAULT_BADGE_COLOR,
+            label: i18n.social,
+            icon: 'dui-nft-card__badge-icon--social',
+            hideLabel: true
+          }
+        ]
       : [])
   ]
 }

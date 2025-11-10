@@ -148,6 +148,11 @@
   width: 19px;
 }
 
+.dui-icon-badge .social {
+  background-image: url(../../images/emotes/social.svg);
+  width: 19px;
+}
+
 .dui-icon-badge .props {
   background-image: url(../../images/emotes/props.svg);
   background-size: contain;
