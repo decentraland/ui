@@ -7,10 +7,10 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "start": "node --openssl-legacy-provider ./node_modules/.bin/start-storybook -p 6006",
+    "start": "./node_modules/.bin/start-storybook -p 6006",
     "build": "npm run build:lib && npm run build:dist ",
     "build:lib": "rimraf lib && node --openssl-legacy-provider ./node_modules/.bin/webpack --config webpack.config.js",
-    "build:storybook": "node --openssl-legacy-provider ./node_modules/.bin/build-storybook && cp ./static/* ./storybook-static && node postbuild",
+    "build:storybook": "./node_modules/.bin/build-storybook && cp ./static/* ./storybook-static && node postbuild",
     "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css'",
     "check:prettier": "prettier -c 'src/**/*.{js,ts,json,yml,md,tsx,html,css}'",
     "check:code": "eslint . --max-warnings=0",
@@ -40,12 +40,12 @@
   },
   "homepage": "https://github.com/decentraland/ui#readme",
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-storysource": "^6.5.16",
-    "@storybook/builder-webpack4": "^6.5.16",
-    "@storybook/react": "^6.5.16",
-    "@storybook/source-loader": "^6.5.16",
+    "@storybook/addon-a11y": "^7.6.20",
+    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-storysource": "^7.6.20",
+    "@storybook/builder-webpack5": "^7.6.20",
+    "@storybook/react-webpack5": "^7.6.20",
+    "@storybook/source-loader": "^7.6.20",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -75,7 +75,7 @@
     "prettier": "^2.3.1",
     "rimraf": "^2.7.1",
     "semantic-release": "^15.13.24",
-    "storybook": "^6.5.16",
+    "storybook": "^7.6.20",
     "style-loader": "^0.23.1",
     "ts-jest": "^28.0.8",
     "ts-loader": "^6.0.2",
@@ -96,8 +96,8 @@
     "fp-future": "^1.0.1",
     "mitt": "^3.0.1",
     "parallax-js": "^3.1.0",
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-responsive": "^9.0.0-beta.3",
     "react-semantic-ui-datepickers": "^2.17.2",
     "react-tile-map": "^0.4.1",
@@ -110,8 +110,8 @@
     "node": "22"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
