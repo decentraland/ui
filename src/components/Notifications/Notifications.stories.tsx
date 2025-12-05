@@ -391,7 +391,7 @@ export const OpenLoading: Story = {
   }
 }
 
-export const NotificationItemImage: Story = {
+export const NotificationItemImageStory: Story = {
   render: () => {
     return (
       <div>

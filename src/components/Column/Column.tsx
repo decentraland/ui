@@ -10,6 +10,7 @@ export type ColumnProps = {
   height?: number
   className?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  children?: React.ReactNode
 }
 
 export class Column extends React.PureComponent<ColumnProps> {
