@@ -1,5 +1,14 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { WearableIcon } from './WearableIcon'
 
-storiesOf('WearableIcon', module).add('Icon', () => <WearableIcon />)
+const meta: Meta<typeof WearableIcon> = {
+  title: 'WearableIcon',
+  component: WearableIcon,
+}
+
+export default meta
+type Story = StoryObj<typeof WearableIcon>
+
+export const Icon: Story = {
+  render: () => <WearableIcon />,
+}

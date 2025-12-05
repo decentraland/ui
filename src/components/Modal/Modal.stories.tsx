@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Button/Button'
 import { Center } from '../Center/Center'
 import { Close } from '../Close/Close'
@@ -52,8 +51,16 @@ const lipsum = (
   </>
 )
 
-storiesOf('Modal', module)
-  .add('Simple', () => (
+const meta: Meta<typeof Modal> = {
+  title: 'Modal',
+  component: Modal,
+}
+
+export default meta
+type Story = StoryObj<typeof Modal>
+
+export const Simple: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal open={true}>
@@ -68,8 +75,11 @@ storiesOf('Modal', module)
         </Modal.Actions>
       </Modal>
     </div>
-  ))
-  .add('Small', () => (
+  ),
+}
+
+export const Small: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal size="small" open={true}>
@@ -84,8 +94,11 @@ storiesOf('Modal', module)
         </Modal.Actions>
       </Modal>
     </div>
-  ))
-  .add('Tiny', () => (
+  ),
+}
+
+export const Tiny: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal size="tiny" open={true}>
@@ -100,8 +113,11 @@ storiesOf('Modal', module)
         </Modal.Actions>
       </Modal>
     </div>
-  ))
-  .add('Custom Header', () => (
+  ),
+}
+
+export const CustomHeader: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal size="small" open={true}>
@@ -122,8 +138,11 @@ storiesOf('Modal', module)
         </Modal.Actions>
       </Modal>
     </div>
-  ))
-  .add('Form', () => (
+  ),
+}
+
+export const Form: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal size="small" open={true}>
@@ -139,8 +158,11 @@ storiesOf('Modal', module)
         </Modal.Actions>
       </Modal>
     </div>
-  ))
-  .add('Closable', () => (
+  ),
+}
+
+export const Closable: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal size="small" open={true} closeIcon={<Close />}>
@@ -151,8 +173,11 @@ storiesOf('Modal', module)
         </Modal.Content>
       </Modal>
     </div>
-  ))
-  .add('Navigation', () => (
+  ),
+}
+
+export const Navigation: Story = {
+  render: () => (
     <div className="Modal-story">
       {lipsum}
       <Modal open={true}>
@@ -165,4 +190,5 @@ storiesOf('Modal', module)
         <Modal.Content>Bla bla bla</Modal.Content>
       </Modal>
     </div>
-  ))
+  ),
+}

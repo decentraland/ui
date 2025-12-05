@@ -1,57 +1,87 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { avatar } from '../../data/avatar'
 import { Mana } from '../Mana/Mana'
 import { Profile } from './Profile'
 import './Profile.stories.css'
 
-storiesOf('Profile', module)
-  .add('No avatar', () => (
+const meta: Meta<typeof Profile> = {
+  title: 'Profile',
+  component: Profile,
+}
+
+export default meta
+type Story = StoryObj<typeof Profile>
+export const NoAvatar: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" />
     </>
-  ))
-  .add('Avatar', () => (
+  ),
+}
+
+export const Avatar: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} />
     </>
-  ))
-  .add('Avatar without name', () => (
+  ),
+}
+
+export const AvatarWithoutName: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={{ ...avatar, name: null }} />
     </>
-  ))
-  .add('Avatar with an unclaimed name', () => (
+  ),
+}
+
+export const AvatarWithAnUnclaimedName: Story = {
+  render: () => (
     <>
       <Profile
         address="0xdeadbeef"
         avatar={{ ...avatar, hasClaimedName: false }}
       />
     </>
-  ))
-  .add('Image only', () => (
+  ),
+}
+
+export const ImageOnly: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} imageOnly />
     </>
-  ))
-  .add('Text only', () => (
+  ),
+}
+
+export const TextOnly: Story = {
+  render: () => (
     <>
       <Profile address="0xdeadbeef" avatar={avatar} textOnly />
     </>
-  ))
-  .add('Inline', () => (
+  ),
+}
+
+export const Inline: Story = {
+  render: () => (
     <>
       You sent <Mana inline>1,000</Mana> to{' '}
       <Profile address="0xdeadbeef" avatar={avatar} inline />
     </>
-  ))
-  .add('Decentraland', () => (
+  ),
+}
+
+export const Decentraland: Story = {
+  render: () => (
     <>
       You sent <Mana inline>1,000</Mana> to{' '}
       <Profile address="0xdeadbeef" avatar={avatar} inline isDecentraland />
     </>
-  ))
-  .add('Sliced address', () => (
+  ),
+}
+
+export const SlicedAddress: Story = {
+  render: () => (
     <div className="ProfileList">
       <Profile
         address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
@@ -70,8 +100,11 @@ storiesOf('Profile', module)
         sliceAddressBy={40}
       />
     </div>
-  ))
-  .add('Sizes', () => (
+  ),
+}
+
+export const Sizes: Story = {
+  render: () => (
     <>
       <Profile
         address="0xdeadbeef"
@@ -138,8 +171,11 @@ storiesOf('Profile', module)
       <Profile address="0xdeadbeef" inline={false} size="huge" imageOnly />
       <Profile address="0xdeadbeef" inline={false} size="massive" imageOnly />
     </>
-  ))
-  .add('Profile with avatar and content linked to another site', () => (
+  ),
+}
+
+export const ProfileWithAvatarAndContentLinkedToAnotherSite: Story = {
+  render: () => (
     <>
       <Profile
         address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
@@ -150,8 +186,11 @@ storiesOf('Profile', module)
         target="_blank"
       />
     </>
-  ))
-  .add('Profile with blockie and content linked to another site', () => (
+  ),
+}
+
+export const ProfileWithBlockieAndContentLinkedToAnotherSite: Story = {
+  render: () => (
     <>
       <Profile
         address="0x89805E5f0698Cb4dB57f0E389f2a75259f78CCF6"
@@ -161,4 +200,5 @@ storiesOf('Profile', module)
         target="_blank"
       />
     </>
-  ))
+  ),
+}

@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas'
 import { BarChart } from './BarChart'
 
@@ -345,8 +344,16 @@ const onChange = (values) => {
   console.log('values:', values)
 }
 
-storiesOf('BarChart ', module)
-  .add('Loading data', () => (
+const meta: Meta<typeof BarChart> = {
+  title: 'BarChart ',
+  component: BarChart,
+}
+
+export default meta
+type Story = StoryObj<typeof BarChart>
+
+export const LoadingData: Story = {
+  render: () => (
     <BarChart
       width={250}
       loading
@@ -355,8 +362,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('No upperBound', () => (
+  ),
+}
+
+export const NoUpperBound: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -365,8 +375,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('With a 5M upperBound', () => (
+  ),
+}
+
+export const WithA5MUpperBound: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -376,8 +389,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('With minPrice and maxPrice defined', () => (
+  ),
+}
+
+export const WithMinPriceAndMaxPriceDefined: Story = {
+  render: () => (
     <BarChart
       width={250}
       data={data}
@@ -386,8 +402,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('with MANA currency', () => (
+  ),
+}
+
+export const WithMANACurrency: Story = {
+  render: () => (
     <BarChart
       isMana
       width={250}
@@ -397,8 +416,11 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
-  .add('with no decimals for small ranges', () => (
+  ),
+}
+
+export const WithNoDecimalsForSmallRanges: Story = {
+  render: () => (
     <BarChart
       isMana
       rangeDecimals={0}
@@ -409,4 +431,5 @@ storiesOf('BarChart ', module)
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ))
+  ),
+}

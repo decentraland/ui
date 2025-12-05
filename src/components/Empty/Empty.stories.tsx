@@ -1,15 +1,25 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Empty } from './Empty'
 import { Page } from '../Page/Page'
 
-storiesOf('Empty', module)
-  .add('Example', () => (
+const meta: Meta<typeof Empty> = {
+  title: 'Empty',
+  component: Empty,
+}
+
+export default meta
+type Story = StoryObj<typeof Empty>
+
+export const Example: Story = {
+  render: () => (
     <Page>
       <Empty>No results...</Empty>
     </Page>
-  ))
-  .add('With link', () => (
+  ),
+}
+
+export const WithLink: Story = {
+  render: () => (
     <Page>
       <Empty>
         <span>
@@ -18,16 +28,23 @@ storiesOf('Empty', module)
         </span>
       </Empty>
     </Page>
-  ))
-  .add('Fixed height', () => (
+  ),
+}
+
+export const FixedHeight: Story = {
+  render: () => (
     <Page>
       <Empty height={100}>This has a fixed height.</Empty>
     </Page>
-  ))
-  .add('Expand', () => (
+  ),
+}
+
+export const Expand: Story = {
+  render: () => (
     <Page>
       <Empty expand>
         <span>This expands to fill the parent.</span>
       </Empty>
     </Page>
-  ))
+  ),
+}

@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TextAreaField } from './TextAreaField'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form/Form'
 
@@ -8,27 +7,46 @@ const textAreaValue =
   "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" +
   ', when an unknown printer took a galley of type and scrambled'
 
-storiesOf('TextArea', module)
-  .add('Placeholder', () => (
+const meta: Meta<typeof TextAreaField> = {
+  title: 'TextArea',
+  component: TextAreaField,
+}
+
+export default meta
+type Story = StoryObj<typeof TextAreaField>
+export const Placeholder: Story = {
+  render: () => (
     <TextAreaField placeholder={textAreaValue} rows="10" cols="50" />
-  ))
-  .add('Without label', () => (
+  ),
+}
+
+export const WithoutLabel: Story = {
+  render: () => (
     <TextAreaField value={textAreaValue} rows="10" cols="50" />
-  ))
-  .add('Without label in form', () => (
+  ),
+}
+
+export const WithoutLabelInForm: Story = {
+  render: () => (
     <Form>
       <TextAreaField value={textAreaValue} rows="10" cols="50" />
     </Form>
-  ))
-  .add('With label', () => (
+  ),
+}
+
+export const WithLabel: Story = {
+  render: () => (
     <TextAreaField
       value={textAreaValue}
       label="Description"
       rows="10"
       cols="50"
     />
-  ))
-  .add('With tooltip', () => (
+  ),
+}
+
+export const WithTooltip: Story = {
+  render: () => (
     <TextAreaField
       value={textAreaValue}
       label="Description"
@@ -40,11 +58,17 @@ storiesOf('TextArea', module)
         position: 'top center'
       }}
     />
-  ))
-  .add('Without label and max length', () => (
+  ),
+}
+
+export const WithoutLabelAndMaxLength: Story = {
+  render: () => (
     <TextAreaField maxLength={300} value={textAreaValue} rows="10" cols="50" />
-  ))
-  .add('With label and max length', () => (
+  ),
+}
+
+export const WithLabelAndMaxLength: Story = {
+  render: () => (
     <TextAreaField
       maxLength={300}
       label="Description"
@@ -52,8 +76,11 @@ storiesOf('TextArea', module)
       rows="10"
       cols="50"
     />
-  ))
-  .add('With label in form', () => (
+  ),
+}
+
+export const WithLabelInForm: Story = {
+  render: () => (
     <Form>
       <TextAreaField
         value={textAreaValue}
@@ -62,8 +89,11 @@ storiesOf('TextArea', module)
         cols="50"
       />
     </Form>
-  ))
-  .add('With error, warning or info', () => (
+  ),
+}
+
+export const WithErrorWarningOrInfo: Story = {
+  render: () => (
     <>
       <TextAreaField
         value={textAreaValue}
@@ -93,4 +123,5 @@ storiesOf('TextArea', module)
       />
       <br />
     </>
-  ))
+  ),
+}
