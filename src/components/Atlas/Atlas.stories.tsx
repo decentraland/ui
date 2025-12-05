@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Footer } from '../Footer/Footer'
 import { Navbar } from '../Navbar/Navbar'
 import { Page } from '../Page/Page'
@@ -101,23 +100,40 @@ const App = ({ children }) => (
   </>
 )
 
-storiesOf('Atlas', module)
-  .add('Uncontrolled', () => (
+const meta: Meta<typeof Atlas> = {
+  title: 'Atlas',
+  component: Atlas,
+}
+
+export default meta
+type Story = StoryObj<typeof Atlas>
+
+export const Uncontrolled: Story = {
+  render: () => (
     <App>
       <Atlas />
     </App>
-  ))
-  .add('Controlled', () => (
+  ),
+}
+
+export const Controlled: Story = {
+  render: () => (
     <App>
       <Atlas tiles={tiles} />
     </App>
-  ))
-  .add('For Sale', () => (
+  ),
+}
+
+export const ForSale: Story = {
+  render: () => (
     <App>
       <Atlas tiles={tiles} layers={[forSaleLayer]} />
     </App>
-  ))
-  .add('Click to select', () => (
+  ),
+}
+
+export const ClickToSelect: Story = {
+  render: () => (
     <App>
       <Atlas
         tiles={tiles}
@@ -125,8 +141,11 @@ storiesOf('Atlas', module)
         onClick={handleClick}
       />
     </App>
-  ))
-  .add('Hover to highlight', () => (
+  ),
+}
+
+export const HoverToHighlight: Story = {
+  render: () => (
     <App>
       <Atlas
         tiles={tiles}
@@ -134,8 +153,11 @@ storiesOf('Atlas', module)
         onHover={handleHover}
       />
     </App>
-  ))
-  .add('With zoom controls', () => (
+  ),
+}
+
+export const WithZoomControls: Story = {
+  render: () => (
     <App>
       <Atlas
         tiles={tiles}
@@ -144,4 +166,5 @@ storiesOf('Atlas', module)
         withZoomControls
       />
     </App>
-  ))
+  ),
+}

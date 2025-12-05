@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Container } from '../Container/Container'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'
 import { Header } from '../Header/Header'
@@ -47,7 +46,16 @@ const rows = [
   }
 ]
 
-storiesOf('Table', module).add('Polls', () => (
+const meta: Meta<typeof Table> = {
+  title: 'Table',
+  component: Table,
+}
+
+export default meta
+type Story = StoryObj<typeof Table>
+
+export const Polls: Story = {
+  render: () => (
   <Container>
     <HeaderMenu>
       <HeaderMenu.Left>
@@ -94,4 +102,5 @@ storiesOf('Table', module).add('Polls', () => (
       </Table.Body>
     </Table>
   </Container>
-))
+  ),
+}

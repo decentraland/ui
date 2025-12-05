@@ -1,12 +1,22 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { LanguageIcon } from './LanguageIcon'
 import './LanguageIcon.stories.css'
 
-storiesOf('LanguageIcon', module)
-  .add('Single', () => <LanguageIcon locale="en" />)
-  .add('Options', () => (
+const meta: Meta<typeof LanguageIcon> = {
+  title: 'LanguageIcon',
+  component: LanguageIcon,
+}
+
+export default meta
+type Story = StoryObj<typeof LanguageIcon>
+
+export const Single: Story = {
+  render: () => <LanguageIcon locale="en" />,
+}
+
+export const Options: Story = {
+  render: () => (
     <div className="LanguageIcon-story">
       <LanguageIcon locale="en" label="English" />
       <LanguageIcon locale="es" label="Spanish" />
@@ -15,4 +25,5 @@ storiesOf('LanguageIcon', module)
       <LanguageIcon locale="zh" label="Chinese" />
       <LanguageIcon locale="ko" label="Korean" />
     </div>
-  ))
+  ),
+}

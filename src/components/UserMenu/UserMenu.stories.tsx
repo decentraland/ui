@@ -1,6 +1,5 @@
-import * as React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { NotificationType } from '@dcl/schemas'
-import { storiesOf } from '@storybook/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { NFTCategory } from '@dcl/schemas/dist/dapps/nft-category'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
@@ -12,28 +11,47 @@ import { i18n } from './UserMenu.i18n'
 
 import './UserMenu.stories.css'
 
-storiesOf('UserMenu', module)
-  .add('Signed out', () => (
+const meta: Meta<typeof UserMenu> = {
+  title: 'UserMenu',
+  component: UserMenu,
+}
+
+export default meta
+type Story = StoryObj<typeof UserMenu>
+export const SignedOut: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} />
     </div>
-  ))
-  .add('Signed in', () => (
+  ),
+}
+
+export const SignedIn: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isSignedIn avatar={avatar} />
     </div>
-  ))
-  .add('Signing in', () => (
+  ),
+}
+
+export const SigningIn: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isSigningIn />
     </div>
-  ))
-  .add('Disconnecting', () => (
+  ),
+}
+
+export const Disconnecting: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isDisconnecting />
     </div>
-  ))
-  .add('Guest', () => (
+  ),
+}
+
+export const Guest: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -50,8 +68,11 @@ storiesOf('UserMenu', module)
         ) => console.log(event, network)}
       />
     </div>
-  ))
-  .add('Clickable profile', () => (
+  ),
+}
+
+export const ClickableProfile: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -60,8 +81,11 @@ storiesOf('UserMenu', module)
         onClickProfile={() => undefined}
       />
     </div>
-  ))
-  .add('Mana', () => (
+  ),
+}
+
+export const Mana: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -70,8 +94,11 @@ storiesOf('UserMenu', module)
         manaBalances={{ [Network.ETHEREUM]: 1000 }}
       />
     </div>
-  ))
-  .add('Mana L2', () => (
+  ),
+}
+
+export const ManaL2: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -80,8 +107,11 @@ storiesOf('UserMenu', module)
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       />
     </div>
-  ))
-  .add('Has activity', () => (
+  ),
+}
+
+export const HasActivity: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -93,8 +123,11 @@ storiesOf('UserMenu', module)
         hasActivity
       />
     </div>
-  ))
-  .add('Notification', () => (
+  ),
+}
+
+export const Notification: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -118,8 +151,11 @@ storiesOf('UserMenu', module)
         }}
       />
     </div>
-  ))
-  .add('Notification pending', () => (
+  ),
+}
+
+export const NotificationPending: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenu
         i18n={i18n}
@@ -163,4 +199,5 @@ storiesOf('UserMenu', module)
         }}
       />
     </div>
-  ))
+  ),
+}

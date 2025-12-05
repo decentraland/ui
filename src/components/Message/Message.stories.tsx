@@ -1,24 +1,38 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Message } from './Message'
 
-storiesOf('Message', module)
-  .add('Error message', () => (
+const meta: Meta<typeof Message> = {
+  title: 'Message',
+  component: Message,
+}
+
+export default meta
+type Story = StoryObj<typeof Message>
+
+export const ErrorMessage: Story = {
+  render: () => (
     <Message
       error
       visible
       content={'An error occured!'}
       header={'Metamask error'}
     />
-  ))
-  .add('Warning message', () => (
+  ),
+}
+
+export const WarningMessage: Story = {
+  render: () => (
     <Message
       warning
       visible
       content={'An warning!'}
       header={'Metamask warning'}
     />
-  ))
-  .add('Success message', () => (
+  ),
+}
+
+export const SuccessMessage: Story = {
+  render: () => (
     <Message success visible content={'Success!'} header={'Metamask success'} />
-  ))
+  ),
+}

@@ -1,6 +1,5 @@
-import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Rarity } from '@dcl/schemas'
-import { storiesOf } from '@storybook/react'
 import RarityBadge from './RarityBadge'
 import './RarityBadge.stories.css'
 
@@ -15,8 +14,16 @@ const i18n = {
   }, {}) as unknown as Record<Rarity, string>
 }
 
-storiesOf('RarityBadge', module)
-  .add('Small size badges', () => {
+const meta: Meta<typeof RarityBadge> = {
+  title: 'RarityBadge',
+  component: RarityBadge,
+}
+
+export default meta
+type Story = StoryObj<typeof RarityBadge>
+
+export const SmallSizeBadges: Story = {
+  render: () => {
     return (
       <div className="dui-rarity-badge-story-wrapper">
         {Rarity.getRarities().map((rarity) => (
@@ -30,8 +37,11 @@ storiesOf('RarityBadge', module)
         ))}
       </div>
     )
-  })
-  .add('Medium size badges', () => {
+  },
+}
+
+export const MediumSizeBadges: Story = {
+  render: () => {
     return (
       <div className="dui-rarity-badge-story-wrapper">
         {Rarity.getRarities().map((rarity) => (
@@ -44,4 +54,5 @@ storiesOf('RarityBadge', module)
         ))}
       </div>
     )
-  })
+  },
+}

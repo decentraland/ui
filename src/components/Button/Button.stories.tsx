@@ -1,35 +1,50 @@
-import * as React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
-import { storiesOf } from '@storybook/react'
 
 import { Button } from './Button'
 import './Button.stories.css'
 import { Row } from '../Row/Row'
 
-storiesOf('Button', module)
-  .add('Primary', () => (
+const meta: Meta<typeof Button> = {
+  title: 'Button',
+  component: Button,
+}
+
+export default meta
+type Story = StoryObj<typeof Button>
+export const Primary: Story = {
+  render: () => (
     <Row>
       <Button primary>Vote Now</Button>
       <Button primary disabled>
         Vote Now
       </Button>
     </Row>
-  ))
-  .add('Secondary', () => (
+  ),
+}
+
+export const Secondary: Story = {
+  render: () => (
     <Row>
       <Button>Cancel</Button>
       <Button disabled>Cancel</Button>
     </Row>
-  ))
-  .add('Basic', () => (
+  ),
+}
+
+export const Basic: Story = {
+  render: () => (
     <Row>
       <Button basic>Download</Button>
       <Button basic disabled>
         Download
       </Button>
     </Row>
-  ))
-  .add('Inverted', () => (
+  ),
+}
+
+export const Inverted: Story = {
+  render: () => (
     <Row>
       <Button inverted>Download</Button>
       <Button inverted disabled>
@@ -42,23 +57,32 @@ storiesOf('Button', module)
         Download
       </Button>
     </Row>
-  ))
-  .add('Link', () => (
+  ),
+}
+
+export const Link: Story = {
+  render: () => (
     <>
       <Button href="https://google.com" primary>
         google.com
       </Button>
     </>
-  ))
-  .add('Icon', () => (
+  ),
+}
+
+export const IconStory: Story = {
+  render: () => (
     <>
       <Button basic>
         <Icon name="edit" />
         Edit
       </Button>
     </>
-  ))
-  .add('Sizes', () => (
+  ),
+}
+
+export const Sizes: Story = {
+  render: () => (
     <>
       <Row className="button-story-row">
         <Button primary size="large">
@@ -127,12 +151,16 @@ storiesOf('Button', module)
         </Button>
       </Row>
     </>
-  ))
-  .add('Actions', () => (
+  ),
+}
+
+export const Actions: Story = {
+  render: () => (
     <Row>
       <Button primary style={{ minWidth: 190 }}>
         Vote Now
       </Button>
       <Button style={{ minWidth: 190 }}>Cancel</Button>
     </Row>
-  ))
+  ),
+}

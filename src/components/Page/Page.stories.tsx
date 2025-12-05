@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Table from 'semantic-ui-react/dist/commonjs/collections/Table'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import { Atlas, Layer, Coord } from '../Atlas/Atlas'
@@ -41,8 +40,15 @@ const selectedFillLayer: Layer = (x, y) => {
   return isSelected(x, y) ? { color: '#ff9990', scale: 1.2 } : null
 }
 
-storiesOf('Page', module)
-  .add('Regular page', () => {
+const meta: Meta<typeof Page> = {
+  title: 'Page',
+  component: Page,
+}
+
+export default meta
+type Story = StoryObj<typeof Page>
+export const RegularPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -53,8 +59,11 @@ storiesOf('Page', module)
         <Footer />
       </div>
     )
-  })
-  .add('Menu page', () => {
+  },
+}
+
+export const MenuPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -70,8 +79,11 @@ storiesOf('Page', module)
         <Footer />
       </div>
     )
-  })
-  .add('Menu and submenu page', () => {
+  },
+}
+
+export const MenuAndSubmenuPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -106,8 +118,11 @@ storiesOf('Page', module)
         <Footer />
       </div>
     )
-  })
-  .add('Menu and fullscreen page', () => {
+  },
+}
+
+export const MenuAndFullscreenPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -122,8 +137,11 @@ storiesOf('Page', module)
         <Footer isFullscreen />
       </div>
     )
-  })
-  .add('Hero page', () => {
+  },
+}
+
+export const HeroPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -140,8 +158,11 @@ storiesOf('Page', module)
         <Footer />
       </div>
     )
-  })
-  .add('Fullscreen page', () => {
+  },
+}
+
+export const FullscreenPage: Story = {
+  render: () => {
     return (
       <div className="Page-story-container">
         <Navbar activePage="marketplace" />
@@ -154,8 +175,11 @@ storiesOf('Page', module)
         <Footer isFullscreen />
       </div>
     )
-  })
-  .add('Detail page', () => (
+  },
+}
+
+export const DetailPage: Story = {
+  render: () => (
     <>
       <Navbar activePage="marketplace"></Navbar>
       <Page>
@@ -227,8 +251,11 @@ storiesOf('Page', module)
       </Page>
       <Footer />
     </>
-  ))
-  .add('Table page', () => (
+  ),
+}
+
+export const TablePage: Story = {
+  render: () => (
     <>
       <Navbar activePage="marketplace" />
       <Tabs>
@@ -407,4 +434,5 @@ storiesOf('Page', module)
       </Page>
       <Footer />
     </>
-  ))
+  ),
+}
