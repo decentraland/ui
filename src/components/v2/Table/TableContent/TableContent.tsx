@@ -44,29 +44,31 @@ const TableContent = (props: Props) => {
           <Table.Body
             className={isLoading ? 'dui-table-content__table--loading' : ''}
           >
-            <Table.Row>
-              {attributes.map((attr) => (
-                <Table.HeaderCell key={attr}>
-                  <span>
-                    {customHeaders[attr] ? customHeaders[attr] : attr}
-                  </span>
-                </Table.HeaderCell>
-              ))}
-            </Table.Row>
-            {data?.map((data: unknown, index) => (
-              <Table.Row key={index}>
-                {attributes.map((attr: string) => (
-                  <Table.Cell
-                    style={{
-                      width: `${100 / attributes.length}%`
-                    }}
-                    key={attr}
-                  >
-                    {data[attr]}
-                  </Table.Cell>
+            <>
+              <Table.Row>
+                {attributes.map((attr) => (
+                  <Table.HeaderCell key={attr}>
+                    <span>
+                      {customHeaders[attr] ? customHeaders[attr] : attr}
+                    </span>
+                  </Table.HeaderCell>
                 ))}
               </Table.Row>
-            ))}
+              {data?.map((data: unknown, index) => (
+                <Table.Row key={index}>
+                  {attributes.map((attr: string) => (
+                    <Table.Cell
+                      style={{
+                        width: `${100 / attributes.length}%`
+                      }}
+                      key={attr}
+                    >
+                      {data[attr]}
+                    </Table.Cell>
+                  ))}
+                </Table.Row>
+              ))}
+            </>
           </Table.Body>
         </Table>
       ) : (
