@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'

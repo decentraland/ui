@@ -5,6 +5,7 @@ import './Page.css'
 export type PageProps = {
   className?: string
   isFullscreen?: boolean
+  children?: React.ReactNode
 }
 
 export class Page extends React.PureComponent<PageProps> {

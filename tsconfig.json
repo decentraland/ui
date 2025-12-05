@@ -24,7 +24,8 @@
     "jsx": "react",
     "plugins": [{ "name": "tslint-language-service" }],
     "baseUrl": "./packages",
-    "lib": ["es2017", "dom", "esnext.asynciterable"]
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "exclude": ["node_modules", "lib", "test"],
   "include": ["src/**/*", ".storybook"]

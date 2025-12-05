@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ChainId, NotificationType } from '@dcl/schemas'
 import { avatar } from '../../data/avatar'

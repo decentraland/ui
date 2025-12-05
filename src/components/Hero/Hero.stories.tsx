@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Button/Button'
 import { Parallax } from '../Parallax/Parallax'

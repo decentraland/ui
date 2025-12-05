@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
