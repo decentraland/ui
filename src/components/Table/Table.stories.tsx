@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Container } from '../Container/Container'
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu'

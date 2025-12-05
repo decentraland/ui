@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { Button } from '../Button/Button'

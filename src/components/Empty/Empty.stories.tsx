@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Empty } from './Empty'
 import { Page } from '../Page/Page'

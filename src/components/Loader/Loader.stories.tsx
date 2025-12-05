@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
 import { Loader } from './Loader'

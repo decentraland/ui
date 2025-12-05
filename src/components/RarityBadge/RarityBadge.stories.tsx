@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Rarity } from '@dcl/schemas'
 import RarityBadge from './RarityBadge'

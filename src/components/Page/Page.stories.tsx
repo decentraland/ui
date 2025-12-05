@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Table from 'semantic-ui-react/dist/commonjs/collections/Table'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'

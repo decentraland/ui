@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Header } from '../Header/Header'
