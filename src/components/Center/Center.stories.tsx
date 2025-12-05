@@ -6,7 +6,7 @@ import './Center.stories.css'
 
 const meta: Meta<typeof Center> = {
   title: 'Center',
-  component: Center,
+  component: Center
 }
 
 export default meta
@@ -22,7 +22,7 @@ export const OnParent: Story = {
         </Center>
       </div>
     </>
-  ),
+  )
 }
 
 export const OnScreen: Story = {
@@ -35,5 +35,5 @@ export const OnScreen: Story = {
         </Center>
       </div>
     </>
-  ),
+  )
 }

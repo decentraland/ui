@@ -4,7 +4,7 @@ import { Header } from './Header'
 
 const meta: Meta<typeof Header> = {
   title: 'Header',
-  component: Header,
+  component: Header
 }
 
 export default meta
@@ -16,7 +16,7 @@ export const SubheaderHeader: Story = {
       <Header sub>Votes</Header>
       <Header>20,212</Header>
     </>
-  ),
+  )
 }
 
 export const Sizes: Story = {
@@ -28,5 +28,5 @@ export const Sizes: Story = {
       <Header size="small">Small</Header>
       <Header size="tiny">Tiny</Header>
     </>
-  ),
+  )
 }

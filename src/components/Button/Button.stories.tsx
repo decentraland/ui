@@ -8,7 +8,7 @@ import { Row } from '../Row/Row'
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
-  component: Button,
+  component: Button
 }
 
 export default meta
@@ -21,7 +21,7 @@ export const Primary: Story = {
         Vote Now
       </Button>
     </Row>
-  ),
+  )
 }
 
 export const Secondary: Story = {
@@ -30,7 +30,7 @@ export const Secondary: Story = {
       <Button>Cancel</Button>
       <Button disabled>Cancel</Button>
     </Row>
-  ),
+  )
 }
 
 export const Basic: Story = {
@@ -41,7 +41,7 @@ export const Basic: Story = {
         Download
       </Button>
     </Row>
-  ),
+  )
 }
 
 export const Inverted: Story = {
@@ -58,7 +58,7 @@ export const Inverted: Story = {
         Download
       </Button>
     </Row>
-  ),
+  )
 }
 
 export const Link: Story = {
@@ -68,7 +68,7 @@ export const Link: Story = {
         google.com
       </Button>
     </>
-  ),
+  )
 }
 
 export const IconStory: Story = {
@@ -79,7 +79,7 @@ export const IconStory: Story = {
         Edit
       </Button>
     </>
-  ),
+  )
 }
 
 export const Sizes: Story = {
@@ -152,7 +152,7 @@ export const Sizes: Story = {
         </Button>
       </Row>
     </>
-  ),
+  )
 }
 
 export const Actions: Story = {
@@ -163,5 +163,5 @@ export const Actions: Story = {
       </Button>
       <Button style={{ minWidth: 190 }}>Cancel</Button>
     </Row>
-  ),
+  )
 }

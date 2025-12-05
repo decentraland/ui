@@ -14,7 +14,7 @@ import { i18n } from '../UserMenu.i18n'
 
 const meta: Meta<typeof UserMenuSignedIn> = {
   title: 'UserMenuSignedIn',
-  component: UserMenuSignedIn,
+  component: UserMenuSignedIn
 }
 
 export default meta
@@ -36,7 +36,7 @@ export const Guest: Story = {
         i18n={i18n}
       />
     </div>
-  ),
+  )
 }
 
 export const WithoutProfile: Story = {
@@ -56,7 +56,7 @@ export const WithoutProfile: Story = {
         i18n={i18n}
       />
     </div>
-  ),
+  )
 }
 
 export const SignedIn: Story = {
@@ -77,7 +77,7 @@ export const SignedIn: Story = {
         i18n={i18n}
       />
     </div>
-  ),
+  )
 }
 
 export const Complete: Story = {
@@ -131,5 +131,5 @@ export const Complete: Story = {
         i18n={i18n}
       />
     </div>
-  ),
+  )
 }

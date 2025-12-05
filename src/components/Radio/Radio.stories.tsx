@@ -5,7 +5,7 @@ import { Row } from '../Row/Row'
 
 const meta: Meta<typeof Radio> = {
   title: 'Radio',
-  component: Radio,
+  component: Radio
 }
 
 export default meta
@@ -16,7 +16,7 @@ export const Checked: Story = {
     <>
       <Radio checked={true} label="Yes" />
     </>
-  ),
+  )
 }
 
 export const Unchecked: Story = {
@@ -24,7 +24,7 @@ export const Unchecked: Story = {
     <>
       <Radio checked={false} label="No" />
     </>
-  ),
+  )
 }
 
 export const Options: Story = {
@@ -34,7 +34,7 @@ export const Options: Story = {
       <Radio checked={false} label="No" />
       <Radio label="Abstain" />
     </Row>
-  ),
+  )
 }
 
 export const Toggle: Story = {
@@ -42,5 +42,5 @@ export const Toggle: Story = {
     <>
       <Radio toggle label="ON SALE" />
     </>
-  ),
+  )
 }

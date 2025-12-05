@@ -6,14 +6,14 @@ import './LanguageIcon.stories.css'
 
 const meta: Meta<typeof LanguageIcon> = {
   title: 'LanguageIcon',
-  component: LanguageIcon,
+  component: LanguageIcon
 }
 
 export default meta
 type Story = StoryObj<typeof LanguageIcon>
 
 export const Single: Story = {
-  render: () => <LanguageIcon locale="en" />,
+  render: () => <LanguageIcon locale="en" />
 }
 
 export const Options: Story = {
@@ -26,5 +26,5 @@ export const Options: Story = {
       <LanguageIcon locale="zh" label="Chinese" />
       <LanguageIcon locale="ko" label="Korean" />
     </div>
-  ),
+  )
 }

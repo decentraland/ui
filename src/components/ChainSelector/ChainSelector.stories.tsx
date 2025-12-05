@@ -5,7 +5,7 @@ import { ChainId } from '@dcl/schemas'
 
 const meta: Meta<typeof ChainSelector> = {
   title: 'ChainSelector',
-  component: ChainSelector,
+  component: ChainSelector
 }
 
 export default meta
@@ -31,7 +31,7 @@ export const Basic: Story = {
         confirmInWallet: 'Confirm in wallet'
       }}
     />
-  ),
+  )
 }
 
 export const WithChainBeingConfirmed: Story = {
@@ -52,5 +52,5 @@ export const WithChainBeingConfirmed: Story = {
         confirmInWallet: 'Confirm in wallet'
       }}
     />
-  ),
+  )
 }

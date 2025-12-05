@@ -48,7 +48,7 @@ const cards = [
 
 const meta: Meta<typeof Card> = {
   title: 'Card',
-  component: Card,
+  component: Card
 }
 
 export default meta
@@ -81,5 +81,5 @@ export const Polls: Story = {
         ))}
       </Card.Group>
     </Container>
-  ),
+  )
 }

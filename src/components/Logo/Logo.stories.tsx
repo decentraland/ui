@@ -4,12 +4,12 @@ import { Logo } from './Logo'
 
 const meta: Meta<typeof Logo> = {
   title: 'Logo',
-  component: Logo,
+  component: Logo
 }
 
 export default meta
 type Story = StoryObj<typeof Logo>
 
 export const Decentraland: Story = {
-  render: () => <Logo />,
+  render: () => <Logo />
 }

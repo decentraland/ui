@@ -4,12 +4,12 @@ import { WalletIcon } from './WalletIcon'
 
 const meta: Meta<typeof WalletIcon> = {
   title: 'WalletIcon',
-  component: WalletIcon,
+  component: WalletIcon
 }
 
 export default meta
 type Story = StoryObj<typeof WalletIcon>
 
 export const Icon: Story = {
-  render: () => <WalletIcon />,
+  render: () => <WalletIcon />
 }

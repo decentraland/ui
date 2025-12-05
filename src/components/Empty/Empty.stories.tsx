@@ -5,7 +5,7 @@ import { Page } from '../Page/Page'
 
 const meta: Meta<typeof Empty> = {
   title: 'Empty',
-  component: Empty,
+  component: Empty
 }
 
 export default meta
@@ -16,7 +16,7 @@ export const Example: Story = {
     <Page>
       <Empty>No results...</Empty>
     </Page>
-  ),
+  )
 }
 
 export const WithLink: Story = {
@@ -29,7 +29,7 @@ export const WithLink: Story = {
         </span>
       </Empty>
     </Page>
-  ),
+  )
 }
 
 export const FixedHeight: Story = {
@@ -37,7 +37,7 @@ export const FixedHeight: Story = {
     <Page>
       <Empty height={100}>This has a fixed height.</Empty>
     </Page>
-  ),
+  )
 }
 
 export const Expand: Story = {
@@ -47,5 +47,5 @@ export const Expand: Story = {
         <span>This expands to fill the parent.</span>
       </Empty>
     </Page>
-  ),
+  )
 }

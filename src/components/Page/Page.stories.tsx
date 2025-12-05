@@ -43,7 +43,7 @@ const selectedFillLayer: Layer = (x, y) => {
 
 const meta: Meta<typeof Page> = {
   title: 'Page',
-  component: Page,
+  component: Page
 }
 
 export default meta
@@ -60,7 +60,7 @@ export const RegularPage: Story = {
         <Footer />
       </div>
     )
-  },
+  }
 }
 
 export const MenuPage: Story = {
@@ -80,7 +80,7 @@ export const MenuPage: Story = {
         <Footer />
       </div>
     )
-  },
+  }
 }
 
 export const MenuAndSubmenuPage: Story = {
@@ -119,7 +119,7 @@ export const MenuAndSubmenuPage: Story = {
         <Footer />
       </div>
     )
-  },
+  }
 }
 
 export const MenuAndFullscreenPage: Story = {
@@ -138,7 +138,7 @@ export const MenuAndFullscreenPage: Story = {
         <Footer isFullscreen />
       </div>
     )
-  },
+  }
 }
 
 export const HeroPage: Story = {
@@ -159,7 +159,7 @@ export const HeroPage: Story = {
         <Footer />
       </div>
     )
-  },
+  }
 }
 
 export const FullscreenPage: Story = {
@@ -176,7 +176,7 @@ export const FullscreenPage: Story = {
         <Footer isFullscreen />
       </div>
     )
-  },
+  }
 }
 
 export const DetailPage: Story = {
@@ -252,7 +252,7 @@ export const DetailPage: Story = {
       </Page>
       <Footer />
     </>
-  ),
+  )
 }
 
 export const TablePage: Story = {
@@ -435,5 +435,5 @@ export const TablePage: Story = {
       </Page>
       <Footer />
     </>
-  ),
+  )
 }

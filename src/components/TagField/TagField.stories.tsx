@@ -4,7 +4,7 @@ import { TagField } from './TagField'
 
 const meta: Meta<typeof TagField> = {
   title: 'TagField',
-  component: TagField,
+  component: TagField
 }
 
 export default meta
@@ -18,7 +18,7 @@ export const Basic: Story = {
         placeholder="e.g. (outdoors furniture floor)"
       />
     </>
-  ),
+  )
 }
 
 export const OnChange: Story = {
@@ -30,7 +30,7 @@ export const OnChange: Story = {
         onChange={(_, props) => alert(JSON.stringify(props.value))}
       />
     </>
-  ),
+  )
 }
 
 export const Error: Story = {
@@ -43,7 +43,7 @@ export const Error: Story = {
         error
       />
     </>
-  ),
+  )
 }
 
 export const DefaultValues: Story = {
@@ -55,5 +55,5 @@ export const DefaultValues: Story = {
         value={['genesis', 'city', 'town']}
       />
     </>
-  ),
+  )
 }

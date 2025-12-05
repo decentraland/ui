@@ -89,7 +89,7 @@ export const BuyManaWithFiatOptionsWithDefaultValues: Story = {
         onInfo={() => undefined}
       />
     </div>
-  ),
+  )
 }
 
 export const BuyManaWithFiatOptionsWithCustomTexts: Story = {
@@ -144,7 +144,7 @@ export const BuyManaWithFiatOptionsWithCustomTexts: Story = {
         onInfo={() => undefined}
       />
     </div>
-  ),
+  )
 }
 
 export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story = {
@@ -170,7 +170,6 @@ export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story =
         />
       </div>
     )
-  ),
 }
 
 export const BuyManaWithFiatWithEthereumAlreadySelected: Story = {
@@ -200,7 +199,7 @@ export const BuyManaWithFiatWithEthereumAlreadySelected: Story = {
         onInfo={() => undefined}
       />
     </div>
-  ),
+  )
 }
 
 export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story = {
@@ -215,7 +214,6 @@ export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story 
         />
       </div>
     )
-  ),
 }
 
 export const BuyManaWithFiatSuccessModalWithLinkToTransactionExplorer: Story = {
@@ -231,7 +229,6 @@ export const BuyManaWithFiatSuccessModalWithLinkToTransactionExplorer: Story = {
         />
       </div>
     )
-  ),
 }
 
 export const BuyManaWithFiatPendingTxInMoonPay: Story = {
@@ -256,7 +253,6 @@ export const BuyManaWithFiatPendingTxInMoonPay: Story = {
         />
       </div>
     )
-  ),
 }
 
 export const BuyManaWithFiatTxFailedInMoonPay: Story = {
@@ -284,7 +280,7 @@ export const BuyManaWithFiatTxFailedInMoonPay: Story = {
         onClickSecondaryCta={() => undefined}
       />
     </div>
-  ),
+  )
 }
 
 export const BuyManaWithFiatPersisentMessage: Story = {
@@ -302,7 +298,7 @@ export const BuyManaWithFiatPersisentMessage: Story = {
         ]}
       />
     </div>
-  ),
+  )
 }
 
 export const BuyManaWithFiatError: Story = {
@@ -320,7 +316,7 @@ export const BuyManaWithFiatError: Story = {
         ]}
       />
     </div>
-  ),
+  )
 }
 
 export const Loading: Story = {
@@ -338,7 +334,7 @@ export const Loading: Story = {
         ]}
       />
     </div>
-  ),
+  )
 }
 
 export const FullExample: Story = {
@@ -358,5 +354,5 @@ export const FullExample: Story = {
         ]}
       />
     </div>
-  ),
+  )
 }

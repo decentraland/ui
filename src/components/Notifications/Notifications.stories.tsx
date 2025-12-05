@@ -37,7 +37,7 @@ import CampaignGasPriceHigherThanExpectedNotification from './NotificationTypes/
 
 const meta: Meta<typeof Notifications> = {
   title: 'Notifications Toggle',
-  component: Notifications,
+  component: Notifications
 }
 
 export default meta
@@ -60,7 +60,7 @@ export const WithoutNewNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WithNewNotificatitons: Story = {
@@ -101,7 +101,7 @@ export const WithNewNotificatitons: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const Onboarding: Story = {
@@ -142,7 +142,7 @@ export const Onboarding: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const OpenNotLoading: Story = {
@@ -346,7 +346,7 @@ export const OpenNotLoading: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const OpenNotLoadingButEmpty: Story = {
@@ -367,7 +367,7 @@ export const OpenNotLoadingButEmpty: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const OpenLoading: Story = {
@@ -388,7 +388,7 @@ export const OpenLoading: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const NotificationItemImage: Story = {
@@ -402,7 +402,7 @@ export const NotificationItemImage: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const GovernanceNotifications: Story = {
@@ -637,7 +637,7 @@ export const GovernanceNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const LandNotifications: Story = {
@@ -697,7 +697,7 @@ export const LandNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const RewardNotifications: Story = {
@@ -761,7 +761,7 @@ export const RewardNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const CampaignNotifications: Story = {
@@ -818,7 +818,7 @@ export const CampaignNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const EventsNotifications: Story = {
@@ -890,7 +890,7 @@ export const EventsNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WorldsNotifications: Story = {
@@ -1008,5 +1008,5 @@ export const WorldsNotifications: Story = {
         />
       </div>
     )
-  },
+  }
 }

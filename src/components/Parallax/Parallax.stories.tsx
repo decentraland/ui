@@ -6,7 +6,7 @@ import './Parallax.stories.css'
 
 const meta: Meta<typeof Parallax> = {
   title: 'Parallax',
-  component: Parallax,
+  component: Parallax
 }
 
 export default meta
@@ -27,5 +27,5 @@ export const Depth: Story = {
         </Parallax.Layer>
       </Parallax>
     </div>
-  ),
+  )
 }

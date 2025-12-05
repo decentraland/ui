@@ -4,7 +4,7 @@ import { ToggleBox } from './ToggleBox'
 
 const meta: Meta<typeof ToggleBox> = {
   title: 'ToggleBox',
-  component: ToggleBox,
+  component: ToggleBox
 }
 
 export default meta
@@ -20,7 +20,7 @@ export const Simple: Story = {
         { title: 'Item 3', description: 'Description of the item 3' }
       ]}
     />
-  ),
+  )
 }
 
 export const WithActiveItem: Story = {
@@ -46,7 +46,7 @@ export const WithActiveItem: Story = {
         }
       ]}
     />
-  ),
+  )
 }
 
 export const WithDisableItems: Story = {
@@ -75,7 +75,7 @@ export const WithDisableItems: Story = {
         }
       ]}
     />
-  ),
+  )
 }
 
 export const WithoutBorderBorderless: Story = {
@@ -105,5 +105,5 @@ export const WithoutBorderBorderless: Story = {
         }
       ]}
     />
-  ),
+  )
 }

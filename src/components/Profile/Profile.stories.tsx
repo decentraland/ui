@@ -7,7 +7,7 @@ import './Profile.stories.css'
 
 const meta: Meta<typeof Profile> = {
   title: 'Profile',
-  component: Profile,
+  component: Profile
 }
 
 export default meta
@@ -17,7 +17,7 @@ export const NoAvatar: Story = {
     <>
       <Profile address="0xdeadbeef" />
     </>
-  ),
+  )
 }
 
 export const Avatar: Story = {
@@ -25,7 +25,7 @@ export const Avatar: Story = {
     <>
       <Profile address="0xdeadbeef" avatar={avatar} />
     </>
-  ),
+  )
 }
 
 export const AvatarWithoutName: Story = {
@@ -33,7 +33,7 @@ export const AvatarWithoutName: Story = {
     <>
       <Profile address="0xdeadbeef" avatar={{ ...avatar, name: null }} />
     </>
-  ),
+  )
 }
 
 export const AvatarWithAnUnclaimedName: Story = {
@@ -44,7 +44,7 @@ export const AvatarWithAnUnclaimedName: Story = {
         avatar={{ ...avatar, hasClaimedName: false }}
       />
     </>
-  ),
+  )
 }
 
 export const ImageOnly: Story = {
@@ -52,7 +52,7 @@ export const ImageOnly: Story = {
     <>
       <Profile address="0xdeadbeef" avatar={avatar} imageOnly />
     </>
-  ),
+  )
 }
 
 export const TextOnly: Story = {
@@ -60,7 +60,7 @@ export const TextOnly: Story = {
     <>
       <Profile address="0xdeadbeef" avatar={avatar} textOnly />
     </>
-  ),
+  )
 }
 
 export const Inline: Story = {
@@ -69,7 +69,7 @@ export const Inline: Story = {
       You sent <Mana inline>1,000</Mana> to{' '}
       <Profile address="0xdeadbeef" avatar={avatar} inline />
     </>
-  ),
+  )
 }
 
 export const Decentraland: Story = {
@@ -78,7 +78,7 @@ export const Decentraland: Story = {
       You sent <Mana inline>1,000</Mana> to{' '}
       <Profile address="0xdeadbeef" avatar={avatar} inline isDecentraland />
     </>
-  ),
+  )
 }
 
 export const SlicedAddress: Story = {
@@ -101,7 +101,7 @@ export const SlicedAddress: Story = {
         sliceAddressBy={40}
       />
     </div>
-  ),
+  )
 }
 
 export const Sizes: Story = {
@@ -172,7 +172,7 @@ export const Sizes: Story = {
       <Profile address="0xdeadbeef" inline={false} size="huge" imageOnly />
       <Profile address="0xdeadbeef" inline={false} size="massive" imageOnly />
     </>
-  ),
+  )
 }
 
 export const ProfileWithAvatarAndContentLinkedToAnotherSite: Story = {
@@ -187,7 +187,7 @@ export const ProfileWithAvatarAndContentLinkedToAnotherSite: Story = {
         target="_blank"
       />
     </>
-  ),
+  )
 }
 
 export const ProfileWithBlockieAndContentLinkedToAnotherSite: Story = {
@@ -201,5 +201,5 @@ export const ProfileWithBlockieAndContentLinkedToAnotherSite: Story = {
         target="_blank"
       />
     </>
-  ),
+  )
 }

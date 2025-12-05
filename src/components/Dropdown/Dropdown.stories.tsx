@@ -4,7 +4,7 @@ import { Dropdown } from './Dropdown'
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Dropdown',
-  component: Dropdown,
+  component: Dropdown
 }
 
 export default meta
@@ -19,5 +19,5 @@ export const Filters: Story = {
         <Dropdown.Item text="Closed polls" />
       </Dropdown.Menu>
     </Dropdown>
-  ),
+  )
 }

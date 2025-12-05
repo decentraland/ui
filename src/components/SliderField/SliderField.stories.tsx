@@ -5,19 +5,17 @@ import { SliderField } from './SliderField'
 
 const meta: Meta<typeof SliderField> = {
   title: 'SliderField',
-  component: SliderField,
+  component: SliderField
 }
 
 export default meta
 type Story = StoryObj<typeof SliderField>
 export const SliderSimple: Story = {
-  render: () => <SliderField header="SliderField Simple" />,
+  render: () => <SliderField header="SliderField Simple" />
 }
 
 export const RangeSimple: Story = {
-  render: () => (
-    <SliderField header="SliderField Simple Range" range={true} />
-  ),
+  render: () => <SliderField header="SliderField Simple Range" range={true} />
 }
 
 export const WithLabel: Story = {
@@ -28,13 +26,13 @@ export const WithLabel: Story = {
       min={0}
       max={100}
     />
-  ),
+  )
 }
 
 export const WithMaxAndMinSet: Story = {
   render: () => (
     <SliderField header="Min set at 200 and Max at 500" min={200} max={500} />
-  ),
+  )
 }
 
 export const RangeWithMaxAndMinSet: Story = {
@@ -45,7 +43,7 @@ export const RangeWithMaxAndMinSet: Story = {
       max={500}
       range={true}
     />
-  ),
+  )
 }
 
 export const DefaultValue: Story = {
@@ -56,7 +54,7 @@ export const DefaultValue: Story = {
       max={100}
       defaultValue={70}
     />
-  ),
+  )
 }
 
 export const RangeDefaultValue: Story = {
@@ -68,7 +66,7 @@ export const RangeDefaultValue: Story = {
       defaultValue={[20, 70]}
       range={true}
     />
-  ),
+  )
 }
 
 export const WithOnMouseUp: Story = {
@@ -79,7 +77,7 @@ export const WithOnMouseUp: Story = {
       max={100}
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
     />
-  ),
+  )
 }
 
 export const RangeWithOnMouseUp: Story = {
@@ -91,7 +89,7 @@ export const RangeWithOnMouseUp: Story = {
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
       range
     />
-  ),
+  )
 }
 
 export const WithOnChange: Story = {
@@ -102,7 +100,7 @@ export const WithOnChange: Story = {
       max={100}
       onChange={(_, data) => console.log(data)}
     />
-  ),
+  )
 }
 
 export const RangeWithOnChange: Story = {
@@ -114,7 +112,7 @@ export const RangeWithOnChange: Story = {
       onChange={(_, data) => console.log(data)}
       range
     />
-  ),
+  )
 }
 
 export const WithState: Story = {
@@ -130,7 +128,7 @@ export const WithState: Story = {
         onChange={(_, data) => setRange(data[1])}
       />
     )
-  },
+  }
 }
 
 export const RangeWithState: Story = {
@@ -147,5 +145,5 @@ export const RangeWithState: Story = {
         range
       />
     )
-  },
+  }
 }

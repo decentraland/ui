@@ -5,7 +5,7 @@ import { RangeField } from './RangeField'
 
 const meta: Meta<typeof RangeField> = {
   title: 'RangeField',
-  component: RangeField,
+  component: RangeField
 }
 
 export default meta
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof RangeField>
 export const Simple: Story = {
   render: () => (
     <RangeField value={[]} onChange={(params) => console.log(params)} />
-  ),
+  )
 }
 
 export const CustomLabels: Story = {
@@ -25,7 +25,7 @@ export const CustomLabels: Story = {
       onChange={(params) => console.log(params)}
       value={['2', '4']}
     />
-  ),
+  )
 }
 
 export const WithMinMaxLimits: Story = {
@@ -36,7 +36,7 @@ export const WithMinMaxLimits: Story = {
       onChange={(params) => console.log(params)}
       value={['2', '4']}
     />
-  ),
+  )
 }
 
 export const WithCustomProps: Story = {
@@ -48,5 +48,5 @@ export const WithCustomProps: Story = {
       value={['2', '4']}
       minProps={{ icon: <Icon name="search" />, iconPosition: 'left' }}
     />
-  ),
+  )
 }

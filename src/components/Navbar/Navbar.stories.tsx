@@ -14,7 +14,7 @@ import './Navbar.stories.css'
 
 const meta: Meta<typeof Navbar> = {
   title: 'Navbar',
-  component: Navbar,
+  component: Navbar
 }
 
 export default meta
@@ -26,7 +26,7 @@ export const Marketplace: Story = {
         <Navbar activePage={NavbarPages.MARKETPLACE} />
       </div>
     )
-  },
+  }
 }
 
 export const SignIn: Story = {
@@ -39,7 +39,7 @@ export const SignIn: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const SignedIn: Story = {
@@ -54,7 +54,7 @@ export const SignedIn: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WithChainSelector: Story = {
@@ -81,7 +81,7 @@ export const WithChainSelector: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WithBalance: Story = {
@@ -97,7 +97,7 @@ export const WithBalance: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WidthActivityPending: Story = {
@@ -118,7 +118,7 @@ export const WidthActivityPending: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WithNotification: Story = {
@@ -171,7 +171,7 @@ export const WithNotification: Story = {
         />
       </div>
     )
-  },
+  }
 }
 
 export const WithNotificationPending: Story = {
@@ -224,5 +224,5 @@ export const WithNotificationPending: Story = {
         />
       </div>
     )
-  },
+  }
 }

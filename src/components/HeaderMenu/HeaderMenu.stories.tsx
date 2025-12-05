@@ -9,7 +9,7 @@ import { HeaderMenu } from './HeaderMenu'
 
 const meta: Meta<typeof HeaderMenu> = {
   title: 'HeaderMenu',
-  component: HeaderMenu,
+  component: HeaderMenu
 }
 
 export default meta
@@ -30,7 +30,7 @@ export const WithButton: Story = {
         </HeaderMenu.Right>
       </HeaderMenu>
     </Container>
-  ),
+  )
 }
 
 export const WithDropdownAndStacked: Story = {
@@ -59,5 +59,5 @@ export const WithDropdownAndStacked: Story = {
         </HeaderMenu.Right>
       </HeaderMenu>
     </Container>
-  ),
+  )
 }

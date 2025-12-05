@@ -10,7 +10,7 @@ const textAreaValue =
 
 const meta: Meta<typeof TextAreaField> = {
   title: 'TextArea',
-  component: TextAreaField,
+  component: TextAreaField
 }
 
 export default meta
@@ -18,13 +18,11 @@ type Story = StoryObj<typeof TextAreaField>
 export const Placeholder: Story = {
   render: () => (
     <TextAreaField placeholder={textAreaValue} rows="10" cols="50" />
-  ),
+  )
 }
 
 export const WithoutLabel: Story = {
-  render: () => (
-    <TextAreaField value={textAreaValue} rows="10" cols="50" />
-  ),
+  render: () => <TextAreaField value={textAreaValue} rows="10" cols="50" />
 }
 
 export const WithoutLabelInForm: Story = {
@@ -32,7 +30,7 @@ export const WithoutLabelInForm: Story = {
     <Form>
       <TextAreaField value={textAreaValue} rows="10" cols="50" />
     </Form>
-  ),
+  )
 }
 
 export const WithLabel: Story = {
@@ -43,7 +41,7 @@ export const WithLabel: Story = {
       rows="10"
       cols="50"
     />
-  ),
+  )
 }
 
 export const WithTooltip: Story = {
@@ -59,13 +57,13 @@ export const WithTooltip: Story = {
         position: 'top center'
       }}
     />
-  ),
+  )
 }
 
 export const WithoutLabelAndMaxLength: Story = {
   render: () => (
     <TextAreaField maxLength={300} value={textAreaValue} rows="10" cols="50" />
-  ),
+  )
 }
 
 export const WithLabelAndMaxLength: Story = {
@@ -77,7 +75,7 @@ export const WithLabelAndMaxLength: Story = {
       rows="10"
       cols="50"
     />
-  ),
+  )
 }
 
 export const WithLabelInForm: Story = {
@@ -90,7 +88,7 @@ export const WithLabelInForm: Story = {
         cols="50"
       />
     </Form>
-  ),
+  )
 }
 
 export const WithErrorWarningOrInfo: Story = {
@@ -124,5 +122,5 @@ export const WithErrorWarningOrInfo: Story = {
       />
       <br />
     </>
-  ),
+  )
 }

@@ -4,24 +4,24 @@ import { SignIn } from './SignIn'
 
 const meta: Meta<typeof SignIn> = {
   title: 'SignIn',
-  component: SignIn,
+  component: SignIn
 }
 
 export default meta
 type Story = StoryObj<typeof SignIn>
 
 export const Connect: Story = {
-  render: () => <SignIn />,
+  render: () => <SignIn />
 }
 
 export const Connecting: Story = {
-  render: () => <SignIn isConnecting />,
+  render: () => <SignIn isConnecting />
 }
 
 export const Connected: Story = {
-  render: () => <SignIn isConnected />,
+  render: () => <SignIn isConnected />
 }
 
 export const Error: Story = {
-  render: () => <SignIn hasError />,
+  render: () => <SignIn hasError />
 }

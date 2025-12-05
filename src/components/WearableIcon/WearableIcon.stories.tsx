@@ -4,12 +4,12 @@ import { WearableIcon } from './WearableIcon'
 
 const meta: Meta<typeof WearableIcon> = {
   title: 'WearableIcon',
-  component: WearableIcon,
+  component: WearableIcon
 }
 
 export default meta
 type Story = StoryObj<typeof WearableIcon>
 
 export const Icon: Story = {
-  render: () => <WearableIcon />,
+  render: () => <WearableIcon />
 }

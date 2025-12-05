@@ -4,7 +4,7 @@ import { Filter } from './Filter'
 
 const meta: Meta<typeof Filter> = {
   title: 'Filter',
-  component: Filter,
+  component: Filter
 }
 
 export default meta
@@ -18,5 +18,5 @@ export const OneActive: Story = {
       <Filter>1 Contributions</Filter>
       <Filter>1 Mortgage</Filter>
     </>
-  ),
+  )
 }

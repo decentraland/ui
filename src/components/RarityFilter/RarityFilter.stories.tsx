@@ -7,7 +7,7 @@ import './RarityFilter.stories.css'
 
 const meta: Meta<typeof RarityFilter> = {
   title: 'RarityFilter',
-  component: RarityFilter,
+  component: RarityFilter
 }
 
 export default meta
@@ -23,11 +23,14 @@ export const SelectRarities: Story = {
       title: 'Rarities',
       all_rarities: 'All rarities',
       count_rarities: (count: number) => `${count} rarities`,
-      tooltip: 'The Rarity determines the total number of NFTs that can be minted'
+      tooltip:
+        'The Rarity determines the total number of NFTs that can be minted'
     }
 
     const [rarities, setRarities] = useState([])
 
-    return <RarityFilter i18n={i18n} rarities={rarities} onChange={setRarities} />
-  },
+    return (
+      <RarityFilter i18n={i18n} rarities={rarities} onChange={setRarities} />
+    )
+  }
 }

@@ -46,7 +46,7 @@ const lipsum = (
 
 const meta: Meta<typeof LoginModal> = {
   title: 'LoginModal',
-  component: LoginModal,
+  component: LoginModal
 }
 
 export default meta
@@ -66,7 +66,7 @@ export const LoginOptions: Story = {
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ),
+  )
 }
 
 export const LoginPersisentMessage: Story = {
@@ -87,7 +87,7 @@ export const LoginPersisentMessage: Story = {
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ),
+  )
 }
 
 export const LoginError: Story = {
@@ -104,7 +104,7 @@ export const LoginError: Story = {
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ),
+  )
 }
 
 export const Loading: Story = {
@@ -120,7 +120,7 @@ export const Loading: Story = {
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ),
+  )
 }
 
 export const FullExample: Story = {
@@ -143,5 +143,5 @@ export const FullExample: Story = {
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ),
+  )
 }

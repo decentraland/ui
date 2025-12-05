@@ -4,7 +4,7 @@ import { IconBadge } from './IconBadge'
 
 const meta: Meta<typeof IconBadge> = {
   title: 'IconBadge',
-  component: IconBadge,
+  component: IconBadge
 }
 
 export default meta
@@ -17,7 +17,7 @@ export const WithIcon: Story = {
       text="Utility"
       onClick={() => console.log('Clicked!')}
     />
-  ),
+  )
 }
 
 export const WithCustomIcon: Story = {
@@ -25,17 +25,17 @@ export const WithCustomIcon: Story = {
     <IconBadge text="Custom Icon">
       <div>Custom Icon Component</div>
     </IconBadge>
-  ),
+  )
 }
 
 export const WithoutText: Story = {
   render: () => (
     <IconBadge icon="BaseFemale" onClick={() => console.log('Clicked!')} />
-  ),
+  )
 }
 
 export const WithoutIcon: Story = {
   render: () => (
     <IconBadge text="No Icon" onClick={() => console.log('Clicked!')} />
-  ),
+  )
 }
