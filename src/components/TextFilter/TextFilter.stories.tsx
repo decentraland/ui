@@ -19,7 +19,7 @@ const firstExample = generateValueAndChangeFunction()
 
 const meta: Meta<typeof TextFilter> = {
   title: 'TextFilter',
-  component: TextFilter,
+  component: TextFilter
 }
 
 export default meta
@@ -32,7 +32,7 @@ export const BasicFilter: Story = {
       value={firstExample.value}
       onChange={firstExample.onChange}
     />
-  ),
+  )
 }
 
 export const BasicFilterWithAName: Story = {
@@ -43,5 +43,5 @@ export const BasicFilterWithAName: Story = {
       value={firstExample.value}
       onChange={firstExample.onChange}
     />
-  ),
+  )
 }

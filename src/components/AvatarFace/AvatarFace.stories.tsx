@@ -6,14 +6,14 @@ import { avatar } from '../../data/avatar'
 
 const meta: Meta<typeof AvatarFace> = {
   title: 'AvatarFace',
-  component: AvatarFace,
+  component: AvatarFace
 }
 
 export default meta
 type Story = StoryObj<typeof AvatarFace>
 
 export const Single: Story = {
-  render: () => <AvatarFace size="large" avatar={avatar} />,
+  render: () => <AvatarFace size="large" avatar={avatar} />
 }
 
 export const Sizes: Story = {
@@ -24,7 +24,7 @@ export const Sizes: Story = {
       <AvatarFace size="medium" avatar={avatar} />
       <AvatarFace size="large" avatar={avatar} />
     </>
-  ),
+  )
 }
 
 export const InAParagraph: Story = {
@@ -33,5 +33,5 @@ export const InAParagraph: Story = {
       You've transferred <Mana inline>1,000</Mana> to{' '}
       <AvatarFace size="tiny" inline avatar={avatar} /> <strong>cazala</strong>
     </p>
-  ),
+  )
 }

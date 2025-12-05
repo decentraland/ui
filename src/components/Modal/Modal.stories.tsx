@@ -54,7 +54,7 @@ const lipsum = (
 
 const meta: Meta<typeof Modal> = {
   title: 'Modal',
-  component: Modal,
+  component: Modal
 }
 
 export default meta
@@ -76,7 +76,7 @@ export const Simple: Story = {
         </Modal.Actions>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const Small: Story = {
@@ -95,7 +95,7 @@ export const Small: Story = {
         </Modal.Actions>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const Tiny: Story = {
@@ -114,7 +114,7 @@ export const Tiny: Story = {
         </Modal.Actions>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const CustomHeader: Story = {
@@ -139,7 +139,7 @@ export const CustomHeader: Story = {
         </Modal.Actions>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const Form: Story = {
@@ -159,7 +159,7 @@ export const Form: Story = {
         </Modal.Actions>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const Closable: Story = {
@@ -174,7 +174,7 @@ export const Closable: Story = {
         </Modal.Content>
       </Modal>
     </div>
-  ),
+  )
 }
 
 export const Navigation: Story = {
@@ -191,5 +191,5 @@ export const Navigation: Story = {
         <Modal.Content>Bla bla bla</Modal.Content>
       </Modal>
     </div>
-  ),
+  )
 }

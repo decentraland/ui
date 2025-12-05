@@ -6,7 +6,7 @@ import { Toasts } from './Toasts'
 
 const meta: Meta<typeof Toasts> = {
   title: 'Toasts',
-  component: Toasts,
+  component: Toasts
 }
 
 export default meta
@@ -18,7 +18,7 @@ export const ListsToasts: Story = {
       <Toast title="Title 1" body="Body 1" />
       <Toast title="Title 2" body="Body 2" />
     </Toasts>
-  ),
+  )
 }
 
 export const TopLeft: Story = {
@@ -28,7 +28,7 @@ export const TopLeft: Story = {
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
-  ),
+  )
 }
 
 export const TopCenter: Story = {
@@ -38,7 +38,7 @@ export const TopCenter: Story = {
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
-  ),
+  )
 }
 
 export const BottomLeft: Story = {
@@ -48,7 +48,7 @@ export const BottomLeft: Story = {
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
-  ),
+  )
 }
 
 export const BottomRight: Story = {
@@ -58,7 +58,7 @@ export const BottomRight: Story = {
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
-  ),
+  )
 }
 
 export const BottomCenter: Story = {
@@ -68,5 +68,5 @@ export const BottomCenter: Story = {
       <Toast title="Title 2" body="Body 2" />
       <Toast title="Title 3" body="Body 3" />
     </Toasts>
-  ),
+  )
 }

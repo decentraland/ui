@@ -21,7 +21,7 @@ const steps: AuthorizationStep[] = [
 
 const meta: Meta<typeof AuthorizationModal> = {
   title: 'AuthorizationModal',
-  component: AuthorizationModal,
+  component: AuthorizationModal
 }
 
 export default meta
@@ -35,5 +35,5 @@ export const BasicWithError: Story = {
       steps={steps}
       onClose={() => console.log('Close')}
     />
-  ),
+  )
 }

@@ -347,7 +347,7 @@ const onChange = (values) => {
 
 const meta: Meta<typeof BarChart> = {
   title: 'BarChart ',
-  component: BarChart,
+  component: BarChart
 }
 
 export default meta
@@ -363,7 +363,7 @@ export const LoadingData: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }
 
 export const NoUpperBound: Story = {
@@ -376,7 +376,7 @@ export const NoUpperBound: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }
 
 export const WithA5MUpperBound: Story = {
@@ -390,7 +390,7 @@ export const WithA5MUpperBound: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }
 
 export const WithMinPriceAndMaxPriceDefined: Story = {
@@ -403,7 +403,7 @@ export const WithMinPriceAndMaxPriceDefined: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }
 
 export const WithMANACurrency: Story = {
@@ -417,7 +417,7 @@ export const WithMANACurrency: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }
 
 export const WithNoDecimalsForSmallRanges: Story = {
@@ -432,5 +432,5 @@ export const WithNoDecimalsForSmallRanges: Story = {
       network={Network.ETHEREUM}
       onChange={onChange}
     />
-  ),
+  )
 }

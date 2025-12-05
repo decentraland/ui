@@ -6,7 +6,7 @@ import { Field } from '../Field/Field'
 
 const meta: Meta<typeof SelectField> = {
   title: 'SelectField',
-  component: SelectField,
+  component: SelectField
 }
 
 export default meta
@@ -25,7 +25,7 @@ export const Basic: Story = {
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ),
+  )
 }
 
 export const Message: Story = {
@@ -41,7 +41,7 @@ export const Message: Story = {
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ),
+  )
 }
 
 export const Error: Story = {
@@ -58,7 +58,7 @@ export const Error: Story = {
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ),
+  )
 }
 
 export const DisabledOptions: Story = {
@@ -76,7 +76,7 @@ export const DisabledOptions: Story = {
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ),
+  )
 }
 
 export const DisabledField: Story = {
@@ -94,7 +94,7 @@ export const DisabledField: Story = {
         disabled
       />
     </>
-  ),
+  )
 }
 
 export const DefaultOption: Story = {
@@ -112,7 +112,7 @@ export const DefaultOption: Story = {
         defaultValue={8}
       />
     </>
-  ),
+  )
 }
 
 export const WithHeader: Story = {
@@ -136,7 +136,7 @@ export const WithHeader: Story = {
         ]}
       />
     </>
-  ),
+  )
 }
 
 export const WithBorders: Story = {
@@ -160,7 +160,7 @@ export const WithBorders: Story = {
         ]}
       />
     </>
-  ),
+  )
 }
 
 export const WithBordersAndError: Story = {
@@ -186,7 +186,7 @@ export const WithBordersAndError: Story = {
         ]}
       />
     </>
-  ),
+  )
 }
 
 export const SelectFieldAlignedWithInputField: Story = {
@@ -206,5 +206,5 @@ export const SelectFieldAlignedWithInputField: Story = {
       />
       <Field placeholder="Placeholder" value="A value" />
     </div>
-  ),
+  )
 }

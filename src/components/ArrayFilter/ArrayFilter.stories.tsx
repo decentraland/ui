@@ -5,7 +5,7 @@ import { ArrayFilter } from './ArrayFilter'
 
 const meta: Meta<typeof ArrayFilter> = {
   title: 'ArrayFilter',
-  component: ArrayFilter,
+  component: ArrayFilter
 }
 
 export default meta
@@ -27,5 +27,5 @@ export const MultipleSelectableValues: Story = {
         onChange={setValues}
       />
     )
-  },
+  }
 }

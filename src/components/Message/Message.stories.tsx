@@ -4,7 +4,7 @@ import { Message } from './Message'
 
 const meta: Meta<typeof Message> = {
   title: 'Message',
-  component: Message,
+  component: Message
 }
 
 export default meta
@@ -18,7 +18,7 @@ export const ErrorMessage: Story = {
       content={'An error occured!'}
       header={'Metamask error'}
     />
-  ),
+  )
 }
 
 export const WarningMessage: Story = {
@@ -29,11 +29,11 @@ export const WarningMessage: Story = {
       content={'An warning!'}
       header={'Metamask warning'}
     />
-  ),
+  )
 }
 
 export const SuccessMessage: Story = {
   render: () => (
     <Message success visible content={'Success!'} header={'Metamask success'} />
-  ),
+  )
 }

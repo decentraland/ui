@@ -5,7 +5,7 @@ import './InfoTooltip.stories.css'
 
 const meta: Meta<typeof InfoTooltip> = {
   title: 'InfoTooltip',
-  component: InfoTooltip,
+  component: InfoTooltip
 }
 
 export default meta
@@ -22,5 +22,5 @@ export const Tooltip: Story = {
         />
       </div>
     )
-  },
+  }
 }

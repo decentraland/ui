@@ -5,20 +5,20 @@ import './Footer.stories.css'
 
 const meta: Meta<typeof Footer> = {
   title: 'Footer',
-  component: Footer,
+  component: Footer
 }
 
 export default meta
 type Story = StoryObj<typeof Footer>
 
 export const Uncontrolled: Story = {
-  render: () => <Footer />,
+  render: () => <Footer />
 }
 
 export const Controlled: Story = {
   render: () => (
     <Footer locale="en" locales={['en', 'es', 'fr', 'ja', 'ko', 'zh']} />
-  ),
+  )
 }
 
 export const FullWidthInnerContainer: Story = {
@@ -26,9 +26,9 @@ export const FullWidthInnerContainer: Story = {
     <div className="Footer-fullwidth-container">
       <Footer isFullWidth />
     </div>
-  ),
+  )
 }
 
 export const WithoutTheSocialLinks: Story = {
-  render: () => <Footer hideSocialLinks />,
+  render: () => <Footer hideSocialLinks />
 }

@@ -17,7 +17,7 @@ const i18n = {
 
 const meta: Meta<typeof RarityBadge> = {
   title: 'RarityBadge',
-  component: RarityBadge,
+  component: RarityBadge
 }
 
 export default meta
@@ -38,7 +38,7 @@ export const SmallSizeBadges: Story = {
         ))}
       </div>
     )
-  },
+  }
 }
 
 export const MediumSizeBadges: Story = {
@@ -55,5 +55,5 @@ export const MediumSizeBadges: Story = {
         ))}
       </div>
     )
-  },
+  }
 }

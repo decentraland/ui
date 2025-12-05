@@ -103,7 +103,7 @@ const App = ({ children }) => (
 
 const meta: Meta<typeof Atlas> = {
   title: 'Atlas',
-  component: Atlas,
+  component: Atlas
 }
 
 export default meta
@@ -114,7 +114,7 @@ export const Uncontrolled: Story = {
     <App>
       <Atlas />
     </App>
-  ),
+  )
 }
 
 export const Controlled: Story = {
@@ -122,7 +122,7 @@ export const Controlled: Story = {
     <App>
       <Atlas tiles={tiles} />
     </App>
-  ),
+  )
 }
 
 export const ForSale: Story = {
@@ -130,7 +130,7 @@ export const ForSale: Story = {
     <App>
       <Atlas tiles={tiles} layers={[forSaleLayer]} />
     </App>
-  ),
+  )
 }
 
 export const ClickToSelect: Story = {
@@ -142,7 +142,7 @@ export const ClickToSelect: Story = {
         onClick={handleClick}
       />
     </App>
-  ),
+  )
 }
 
 export const HoverToHighlight: Story = {
@@ -154,7 +154,7 @@ export const HoverToHighlight: Story = {
         onHover={handleHover}
       />
     </App>
-  ),
+  )
 }
 
 export const WithZoomControls: Story = {
@@ -167,5 +167,5 @@ export const WithZoomControls: Story = {
         withZoomControls
       />
     </App>
-  ),
+  )
 }

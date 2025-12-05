@@ -8,7 +8,7 @@ import './Popup.stories.css'
 
 const meta: Meta<typeof Popup> = {
   title: 'Popup',
-  component: Popup,
+  component: Popup
 }
 
 export default meta
@@ -26,7 +26,7 @@ export const OnHover: Story = {
       />
       .
     </span>
-  ),
+  )
 }
 
 export const OnClick: Story = {
@@ -41,7 +41,7 @@ export const OnClick: Story = {
       />
       .
     </span>
-  ),
+  )
 }
 
 export const Positions: Story = {
@@ -102,7 +102,7 @@ export const Positions: Story = {
         />
       </div>
     </>
-  ),
+  )
 }
 
 export const Closable: Story = {
@@ -119,5 +119,5 @@ export const Closable: Story = {
       trigger={<b>Hello there</b>}
       on="hover"
     />
-  ),
+  )
 }

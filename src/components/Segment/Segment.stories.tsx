@@ -11,7 +11,7 @@ import './Segment.stories.css'
 
 const meta: Meta<typeof Segment> = {
   title: 'Segment',
-  component: Segment,
+  component: Segment
 }
 
 export default meta
@@ -31,7 +31,7 @@ export const SingleSegment: Story = {
         mollit anim id est laborum.
       </p>
     </Segment>
-  ),
+  )
 }
 
 export const WithField: Story = {
@@ -53,7 +53,7 @@ export const WithField: Story = {
       />
       <Button primary>Invite</Button>
     </Segment>
-  ),
+  )
 }
 
 export const WithFieldDisabled: Story = {
@@ -75,7 +75,7 @@ export const WithFieldDisabled: Story = {
         You don't have any invites left.
       </span>
     </Segment>
-  ),
+  )
 }
 
 export const WithRadios: Story = {
@@ -95,7 +95,7 @@ export const WithRadios: Story = {
         <Radio label="Authorize marketplace to operate Estates on my behalf" />
       </div>
     </Segment>
-  ),
+  )
 }
 
 export const WithButtons: Story = {
@@ -105,5 +105,5 @@ export const WithButtons: Story = {
       <Button>Hello</Button>
       <Button disabled>Disabled</Button>
     </Segment>
-  ),
+  )
 }

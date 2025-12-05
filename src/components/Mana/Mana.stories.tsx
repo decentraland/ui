@@ -6,17 +6,17 @@ import { Mana } from './Mana'
 
 const meta: Meta<typeof Mana> = {
   title: 'Mana',
-  component: Mana,
+  component: Mana
 }
 
 export default meta
 type Story = StoryObj<typeof Mana>
 export const Symbol: Story = {
-  render: () => <Mana />,
+  render: () => <Mana />
 }
 
 export const SymbolMANA: Story = {
-  render: () => <Mana>MANA</Mana>,
+  render: () => <Mana>MANA</Mana>
 }
 
 export const TotalVoted: Story = {
@@ -25,7 +25,7 @@ export const TotalVoted: Story = {
       <Header sub>Total voted</Header>
       <Mana>1,235,345</Mana>
     </>
-  ),
+  )
 }
 
 export const Sizes: Story = {
@@ -37,7 +37,7 @@ export const Sizes: Story = {
       <Mana size="small">1,000</Mana>
       <Mana size="tiny">1,000</Mana>
     </>
-  ),
+  )
 }
 
 export const InAParagraph: Story = {
@@ -45,7 +45,7 @@ export const InAParagraph: Story = {
     <p>
       You've voted with <Mana inline>1,000</Mana>.
     </p>
-  ),
+  )
 }
 
 export const Matic: Story = {
@@ -57,7 +57,7 @@ export const Matic: Story = {
       </Mana>{' '}
       into Matic Network.
     </p>
-  ),
+  )
 }
 
 export const MaticPrimary: Story = {
@@ -69,7 +69,7 @@ export const MaticPrimary: Story = {
       </Mana>{' '}
       into Matic Network.
     </p>
-  ),
+  )
 }
 
 export const MaticSizes: Story = {
@@ -91,7 +91,7 @@ export const MaticSizes: Story = {
         1,000
       </Mana>
     </>
-  ),
+  )
 }
 
 export const ManaTooltip: Story = {
@@ -101,5 +101,5 @@ export const ManaTooltip: Story = {
         1,000
       </Mana>
     </>
-  ),
+  )
 }

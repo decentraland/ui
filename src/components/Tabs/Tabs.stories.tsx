@@ -6,7 +6,7 @@ import './Tabs.stories.css'
 
 const meta: Meta<typeof Tabs> = {
   title: 'Tabs',
-  component: Tabs,
+  component: Tabs
 }
 
 export default meta
@@ -21,7 +21,7 @@ export const Basic: Story = {
         <Tabs.Tab>My Assets</Tabs.Tab>
       </Tabs>
     </div>
-  ),
+  )
 }
 
 export const Fullscreen: Story = {
@@ -33,5 +33,5 @@ export const Fullscreen: Story = {
         <Tabs.Tab>My Assets</Tabs.Tab>
       </Tabs>
     </div>
-  ),
+  )
 }

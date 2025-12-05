@@ -8,7 +8,7 @@ import './Hero.stories.css'
 
 const meta: Meta<typeof Hero> = {
   title: 'Hero',
-  component: Hero,
+  component: Hero
 }
 
 export default meta
@@ -22,7 +22,7 @@ export const TextOnly: Story = {
         <Hero.Description>Join the discussion</Hero.Description>
       </Hero>
     </div>
-  ),
+  )
 }
 
 export const LeftAlignment: Story = {
@@ -33,7 +33,7 @@ export const LeftAlignment: Story = {
         <Hero.Description>Join the discussion</Hero.Description>
       </Hero>
     </div>
-  ),
+  )
 }
 
 export const WithContent: Story = {
@@ -54,7 +54,7 @@ export const WithContent: Story = {
         </Hero.Content>
       </Hero>
     </div>
-  ),
+  )
 }
 
 export const WithActions: Story = {
@@ -68,5 +68,5 @@ export const WithActions: Story = {
         </Hero.Actions>
       </Hero>
     </div>
-  ),
+  )
 }

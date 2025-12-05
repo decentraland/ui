@@ -5,7 +5,7 @@ import { Header } from '../Header/Header'
 
 const meta: Meta<typeof Section> = {
   title: 'Section',
-  component: Section,
+  component: Section
 }
 
 export default meta
@@ -23,5 +23,5 @@ export const Example: Story = {
         This is another section
       </Section>
     </>
-  ),
+  )
 }

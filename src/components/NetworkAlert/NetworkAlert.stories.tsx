@@ -7,7 +7,7 @@ import '../Navbar/Navbar.stories.css'
 
 const meta: Meta<typeof NetworkAlert> = {
   title: 'NetworkAlert',
-  component: NetworkAlert,
+  component: NetworkAlert
 }
 
 export default meta
@@ -21,5 +21,5 @@ export const PartiallySupportedNetwork: Story = {
         <Navbar activePage="dao" />
       </div>
     )
-  },
+  }
 }

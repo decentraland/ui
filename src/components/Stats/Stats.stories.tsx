@@ -5,7 +5,7 @@ import { Stats } from './Stats'
 
 const meta: Meta<typeof Stats> = {
   title: 'Stats',
-  component: Stats,
+  component: Stats
 }
 
 export default meta
@@ -18,7 +18,7 @@ export const SingleResult: Story = {
         <Mana>1,235,345</Mana>
       </Stats>
     </>
-  ),
+  )
 }
 
 export const PollResults: Story = {
@@ -34,5 +34,5 @@ export const PollResults: Story = {
       <Stats title="Parcial Result">Yes</Stats>
       <Stats title="Time Left">1 week</Stats>
     </>
-  ),
+  )
 }

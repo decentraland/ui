@@ -7,15 +7,13 @@ import './Toast.stories.css'
 
 const meta: Meta<typeof Toast> = {
   title: 'Toast',
-  component: Toast,
+  component: Toast
 }
 
 export default meta
 type Story = StoryObj<typeof Toast>
 export const SimpleToastExample: Story = {
-  render: () => (
-    <Toast title="Toast title" body="Toast body" />
-  ),
+  render: () => <Toast title="Toast title" body="Toast body" />
 }
 
 export const JSXProps: Story = {
@@ -28,13 +26,11 @@ export const JSXProps: Story = {
         </p>
       }
     />
-  ),
+  )
 }
 
 export const Closable: Story = {
-  render: () => (
-    <Toast title="Toast title" body="Toast body" closable />
-  ),
+  render: () => <Toast title="Toast title" body="Toast body" closable />
 }
 
 export const Timeout: Story = {
@@ -46,25 +42,21 @@ export const Timeout: Story = {
       timeout={1000}
       onClose={() => console.log('I should be closing now')}
     />
-  ),
+  )
 }
 
 export const InfoToast: Story = {
-  render: () => (
-    <Toast type={ToastType.INFO} title="Info Toast" body="INFO" />
-  ),
+  render: () => <Toast type={ToastType.INFO} title="Info Toast" body="INFO" />
 }
 
 export const WarnToast: Story = {
-  render: () => (
-    <Toast type={ToastType.WARN} title="Warn toast" body="WARN" />
-  ),
+  render: () => <Toast type={ToastType.WARN} title="Warn toast" body="WARN" />
 }
 
 export const ErrorToast: Story = {
   render: () => (
     <Toast type={ToastType.ERROR} title="Error toast" body="ERROR" />
-  ),
+  )
 }
 
 export const ToastWithIcon: Story = {
@@ -75,7 +67,7 @@ export const ToastWithIcon: Story = {
       body="This toast has an icon"
       icon={<img src={Icon} />}
     />
-  ),
+  )
 }
 
 export const ToastWithExtraClasses: Story = {
@@ -86,5 +78,5 @@ export const ToastWithExtraClasses: Story = {
       body="This toast has a fixed height and width"
       className="height-200 width-300"
     />
-  ),
+  )
 }

@@ -4,7 +4,7 @@ import { Pagination } from './Pagination'
 
 const meta: Meta<typeof Pagination> = {
   title: 'Pagination',
-  component: Pagination,
+  component: Pagination
 }
 
 export default meta
@@ -18,7 +18,7 @@ export const Pages5: Story = {
       firstItem={null}
       lastItem={null}
     />
-  ),
+  )
 }
 
 export const Pages1000: Story = {
@@ -29,5 +29,5 @@ export const Pages1000: Story = {
       firstItem={null}
       lastItem={null}
     />
-  ),
+  )
 }

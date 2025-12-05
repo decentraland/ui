@@ -187,7 +187,10 @@ export const BarChart = ({
   )
 
   const handleRangeChange = useCallback(
-    (_: React.ChangeEvent<HTMLInputElement>, data: readonly [number, number]) => {
+    (
+      _: React.ChangeEvent<HTMLInputElement>,
+      data: readonly [number, number]
+    ) => {
       const [min, max] = data
       if (
         rangeMax !== undefined &&

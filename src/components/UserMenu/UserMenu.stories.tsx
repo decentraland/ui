@@ -14,7 +14,7 @@ import './UserMenu.stories.css'
 
 const meta: Meta<typeof UserMenu> = {
   title: 'UserMenu',
-  component: UserMenu,
+  component: UserMenu
 }
 
 export default meta
@@ -24,7 +24,7 @@ export const SignedOut: Story = {
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} />
     </div>
-  ),
+  )
 }
 
 export const SignedIn: Story = {
@@ -32,7 +32,7 @@ export const SignedIn: Story = {
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isSignedIn avatar={avatar} />
     </div>
-  ),
+  )
 }
 
 export const SigningIn: Story = {
@@ -40,7 +40,7 @@ export const SigningIn: Story = {
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isSigningIn />
     </div>
-  ),
+  )
 }
 
 export const Disconnecting: Story = {
@@ -48,7 +48,7 @@ export const Disconnecting: Story = {
     <div className="usermenu-story-container">
       <UserMenu i18n={i18n} isDisconnecting />
     </div>
-  ),
+  )
 }
 
 export const Guest: Story = {
@@ -69,7 +69,7 @@ export const Guest: Story = {
         ) => console.log(event, network)}
       />
     </div>
-  ),
+  )
 }
 
 export const ClickableProfile: Story = {
@@ -82,7 +82,7 @@ export const ClickableProfile: Story = {
         onClickProfile={() => undefined}
       />
     </div>
-  ),
+  )
 }
 
 export const Mana: Story = {
@@ -95,7 +95,7 @@ export const Mana: Story = {
         manaBalances={{ [Network.ETHEREUM]: 1000 }}
       />
     </div>
-  ),
+  )
 }
 
 export const ManaL2: Story = {
@@ -108,7 +108,7 @@ export const ManaL2: Story = {
         manaBalances={{ [Network.ETHEREUM]: 1000, [Network.MATIC]: 2500 }}
       />
     </div>
-  ),
+  )
 }
 
 export const HasActivity: Story = {
@@ -124,7 +124,7 @@ export const HasActivity: Story = {
         hasActivity
       />
     </div>
-  ),
+  )
 }
 
 export const Notification: Story = {
@@ -152,7 +152,7 @@ export const Notification: Story = {
         }}
       />
     </div>
-  ),
+  )
 }
 
 export const NotificationPending: Story = {
@@ -200,5 +200,5 @@ export const NotificationPending: Story = {
         }}
       />
     </div>
-  ),
+  )
 }

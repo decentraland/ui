@@ -6,7 +6,7 @@ import './LoadingText.stories.css'
 
 const meta: Meta<typeof LoadingText> = {
   title: 'LoadingText',
-  component: LoadingText,
+  component: LoadingText
 }
 
 export default meta
@@ -17,7 +17,7 @@ export const H1Small: Story = {
     <div className="loading-container">
       <LoadingText type="h1" size="small" />
     </div>
-  ),
+  )
 }
 
 export const H2Medium: Story = {
@@ -25,7 +25,7 @@ export const H2Medium: Story = {
     <div className="loading-container">
       <LoadingText type="h2" size="medium" />
     </div>
-  ),
+  )
 }
 
 export const H3Large: Story = {
@@ -33,7 +33,7 @@ export const H3Large: Story = {
     <div className="loading-container">
       <LoadingText type="h3" size="large" />
     </div>
-  ),
+  )
 }
 
 export const SpanFull: Story = {
@@ -41,7 +41,7 @@ export const SpanFull: Story = {
     <div className="loading-container">
       <LoadingText type="span" size="full" />
     </div>
-  ),
+  )
 }
 
 export const PFull2Lines: Story = {
@@ -49,5 +49,5 @@ export const PFull2Lines: Story = {
     <div className="loading-container">
       <LoadingText type="p" size="full" lines={2} />
     </div>
-  ),
+  )
 }

@@ -8,7 +8,7 @@ const address = '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942'
 
 const meta: Meta<typeof Box> = {
   title: 'Box',
-  component: Box,
+  component: Box
 }
 
 export default meta
@@ -21,7 +21,7 @@ export const WithoutHeader: Story = {
         <Address value={address} strong />
       </Blockie>
     </Box>
-  ),
+  )
 }
 
 export const WithHeader: Story = {
@@ -31,7 +31,7 @@ export const WithHeader: Story = {
         <Address value={address} strong />
       </Blockie>
     </Box>
-  ),
+  )
 }
 
 export const WithoutBorder: Story = {
@@ -41,7 +41,7 @@ export const WithoutBorder: Story = {
         <Address value={address} strong />
       </Blockie>
     </Box>
-  ),
+  )
 }
 
 export const Collapsible: Story = {
@@ -51,7 +51,7 @@ export const Collapsible: Story = {
         <Address value={address} strong />
       </Blockie>
     </Box>
-  ),
+  )
 }
 
 export const Collapsed: Story = {
@@ -61,5 +61,5 @@ export const Collapsed: Story = {
         <Address value={address} strong />
       </Blockie>
     </Box>
-  ),
+  )
 }

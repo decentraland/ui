@@ -5,7 +5,7 @@ import { SmartWearableFilter } from './SmartWearableFilter'
 
 const meta: Meta<typeof SmartWearableFilter> = {
   title: 'SmartWearableFilter',
-  component: SmartWearableFilter,
+  component: SmartWearableFilter
 }
 
 export default meta
@@ -27,5 +27,5 @@ export const SelectSW: Story = {
         onChange={(value) => setIsOnlySmart(value)}
       />
     )
-  },
+  }
 }

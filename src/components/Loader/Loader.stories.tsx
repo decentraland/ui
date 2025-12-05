@@ -6,18 +6,18 @@ import Grid from 'semantic-ui-react/dist/commonjs/collections/Grid'
 
 const meta: Meta<typeof Loader> = {
   title: 'Loader',
-  component: Loader,
+  component: Loader
 }
 
 export default meta
 type Story = StoryObj<typeof Loader>
 
 export const MainLoader: Story = {
-  render: () => <Loader active size="massive" />,
+  render: () => <Loader active size="massive" />
 }
 
 export const TinyLoader: Story = {
-  render: () => <Loader active size="mini" />,
+  render: () => <Loader active size="mini" />
 }
 
 export const WithProvider: Story = {
@@ -42,5 +42,5 @@ export const WithProvider: Story = {
         </Grid.Column>
       </Grid.Row>
     </Grid>
-  ),
+  )
 }
