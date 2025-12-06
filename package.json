@@ -7,16 +7,16 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "start": "./node_modules/.bin/start-storybook -p 6006",
+    "start": "./node_modules/.bin/storybook dev -p 6006",
     "build": "npm run build:lib && npm run build:dist ",
     "build:lib": "rimraf lib && NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/webpack --config webpack.config.js",
-    "build:storybook": "./node_modules/.bin/build-storybook && cp ./static/* ./storybook-static && node postbuild",
+    "build:storybook": "./node_modules/.bin/storybook build && cp ./static/* ./storybook-static && node postbuild",
     "build:dist": "rimraf dist && tsc -p . -d --outDir dist --declarationDir dist --sourceMap false --skipLibCheck && postcss --base src --dir dist 'src/**/*.css'",
     "check:prettier": "prettier -c 'src/**/*.{js,ts,json,yml,md,tsx,html,css}'",
     "check:code": "eslint . --max-warnings=0",
     "fix:code": "npm run check:code -- --fix",
     "fix:prettier": "prettier --write ./src",
-    "now-build": "build-storybook && cp ./static/* ./storybook-static && mv ./storybook-static ./public",
+    "now-build": "./node_modules/.bin/storybook build && cp ./static/* ./storybook-static && mv ./storybook-static ./public",
     "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
@@ -110,7 +110,7 @@
     "uuid": "^9.0.1"
   },
   "engines": {
-    "node": "22"
+    "node": "20"
   },
   "peerDependencies": {
     "react": "^18.0.0",
