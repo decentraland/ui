@@ -14,8 +14,21 @@ module.exports = {
     name: "@storybook/react-webpack5",
     options: {}
   },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
   webpackFinal: async (config) => {
     config.externals = ["react-dom/client"]
+
+    // Remove react-docgen-typescript-plugin to avoid Webpack version conflicts
+    config.plugins = config.plugins?.filter(
+      (plugin) => plugin?.constructor?.name !== 'ReactDocgenTypeScriptPlugin'
+    )
+
     config.module.rules = [
       {
         test: [/\.stories\.(jsx?$|tsx?$)/],
