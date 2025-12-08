@@ -49,7 +49,7 @@ const lipsum = (
 
 const meta: Meta<typeof BuyManaWithFiatModal> = {
   title: 'BuyManaWithFiatModal',
-  component: BuyManaWithFiatModal,
+  component: BuyManaWithFiatModal
 }
 
 export default meta
@@ -147,8 +147,9 @@ export const BuyManaWithFiatOptionsWithCustomTexts: Story = {
   )
 }
 
-export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story = {
-  render: () => (
+export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story =
+  {
+    render: () => (
       <div className="BuyManaWithFiatModal-story">
         {lipsum}
         <BuyManaWithFiatModal
@@ -170,7 +171,7 @@ export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story =
         />
       </div>
     )
-}
+  }
 
 export const BuyManaWithFiatWithEthereumAlreadySelected: Story = {
   render: () => (
@@ -202,8 +203,9 @@ export const BuyManaWithFiatWithEthereumAlreadySelected: Story = {
   )
 }
 
-export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story = {
-  render: () => (
+export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story =
+  {
+    render: () => (
       <div className="BuyManaWithFiatModal-story">
         {lipsum}
         <FeedbackModal
@@ -214,21 +216,21 @@ export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story 
         />
       </div>
     )
-}
+  }
 
 export const BuyManaWithFiatSuccessModalWithLinkToTransactionExplorer: Story = {
   render: () => (
-      <div className="BuyManaWithFiatModal-story">
-        {lipsum}
-        <FeedbackModal
-          open
-          status={TransactionStatus.SUCCESS}
-          transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
-          onClose={() => undefined}
-          onInfo={() => undefined}
-        />
-      </div>
-    )
+    <div className="BuyManaWithFiatModal-story">
+      {lipsum}
+      <FeedbackModal
+        open
+        status={TransactionStatus.SUCCESS}
+        transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
+        onClose={() => undefined}
+        onInfo={() => undefined}
+      />
+    </div>
+  )
 }
 
 export const BuyManaWithFiatPendingTxInMoonPay: Story = {
@@ -250,9 +252,9 @@ export const BuyManaWithFiatPendingTxInMoonPay: Story = {
         selectedGateway={NetworkGatewayType.MOON_PAY}
         onClose={() => undefined}
         onInfo={() => undefined}
-        />
-      </div>
-    )
+      />
+    </div>
+  )
 }
 
 export const BuyManaWithFiatTxFailedInMoonPay: Story = {

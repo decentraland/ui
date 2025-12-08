@@ -3,7 +3,7 @@ import React from 'react'
 import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
-  CampaignGasPriceHigherThanExpectedNotification
+  CampaignGasPriceHigherThanExpectedNotification as CampaignGasPriceHigherThanExpectedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import CampaignName from './CampaignName'
@@ -11,7 +11,7 @@ import CampaignName from './CampaignName'
 const i18N = {
   en: {
     description: (
-      metadata: CampaignGasPriceHigherThanExpectedNotification['metadata']
+      metadata: CampaignGasPriceHigherThanExpectedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         The gas price for the <CampaignName metadata={metadata} /> campaign is
@@ -22,7 +22,7 @@ const i18N = {
   },
   es: {
     description: (
-      metadata: CampaignGasPriceHigherThanExpectedNotification['metadata']
+      metadata: CampaignGasPriceHigherThanExpectedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         El precio del gas para la campaña <CampaignName metadata={metadata} />{' '}
@@ -34,7 +34,7 @@ const i18N = {
   },
   zh: {
     description: (
-      metadata: CampaignGasPriceHigherThanExpectedNotification['metadata']
+      metadata: CampaignGasPriceHigherThanExpectedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         <CampaignName metadata={metadata} />{' '}
@@ -51,7 +51,7 @@ const i18N = {
 export default function CampaignGasPriceHigherThanExpectedNotification({
   notification,
   locale
-}: CommonNotificationProps<CampaignGasPriceHigherThanExpectedNotification>) {
+}: CommonNotificationProps<CampaignGasPriceHigherThanExpectedNotificationType>) {
   return (
     <NotificationItem
       image={{

@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  LandRentalEndedNotification
+  LandRentalEndedNotification as LandRentalEndedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import RentPeriodEnding from '../../../Icons/Notifications/RentPeriodEnding'
@@ -59,7 +59,7 @@ const i18N = {
 export default function LandRentalEndedNotificationCmp({
   notification,
   locale
-}: CommonNotificationProps<LandRentalEndedNotification>) {
+}: CommonNotificationProps<LandRentalEndedNotificationType>) {
   return (
     <NotificationItem
       image={{ image: <RentPeriodEnding width="48" height="48" /> }}

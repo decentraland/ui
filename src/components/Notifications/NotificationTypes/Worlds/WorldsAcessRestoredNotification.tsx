@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  WorldsAccessRestoredNotification
+  WorldsAccessRestoredNotification as WorldsAccessRestoredNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import AccessRestored from '../../../Icons/Notifications/AccessRestoredIcon'
@@ -28,7 +28,7 @@ const i18N = {
 const WorldsAccessRestoredNotification = ({
   notification,
   locale
-}: CommonNotificationProps<WorldsAccessRestoredNotification>) => {
+}: CommonNotificationProps<WorldsAccessRestoredNotificationType>) => {
   return (
     <NotificationItem
       image={{ image: <AccessRestored width="48" height="48" /> }}

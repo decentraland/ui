@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  GovernanceAnnouncementNotification
+  GovernanceAnnouncementNotification as GovernanceAnnouncementNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import GovernanceIcon from '../../../Icons/Notifications/GovernanceIcon'
@@ -13,7 +13,7 @@ import GovernanceIcon from '../../../Icons/Notifications/GovernanceIcon'
 const GovernanceAnnouncementNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceAnnouncementNotification>) => (
+}: CommonNotificationProps<GovernanceAnnouncementNotificationType>) => (
   <NotificationItem
     image={{ image: <GovernanceIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

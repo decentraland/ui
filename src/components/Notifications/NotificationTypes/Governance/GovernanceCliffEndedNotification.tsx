@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   CommonNotificationProps,
-  GovernanceCliffEndedNotification
+  GovernanceCliffEndedNotification as GovernanceCliffEndedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import CliffEnded from '../../../Icons/Notifications/CliffEnded'
@@ -72,7 +72,7 @@ const i18N = {
 const GovernanceCliffEndedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceCliffEndedNotification>) => (
+}: CommonNotificationProps<GovernanceCliffEndedNotificationType>) => (
   <NotificationItem
     image={{ image: <CliffEnded /> }}
     timestamp={notification.timestamp}

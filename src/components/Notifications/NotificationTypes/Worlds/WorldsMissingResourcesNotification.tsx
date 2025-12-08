@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  WorldsMissingResourcesNotification
+  WorldsMissingResourcesNotification as WorldsMissingResourcesNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import MissingResourcesIcon from '../../../Icons/Notifications/MissingResourcesIcon'
@@ -52,7 +52,7 @@ const i18N = {
 const WorldsMissingResourcesNotification = ({
   notification,
   locale
-}: CommonNotificationProps<WorldsMissingResourcesNotification>) => {
+}: CommonNotificationProps<WorldsMissingResourcesNotificationType>) => {
   return (
     <NotificationItem
       image={{ image: <MissingResourcesIcon width="48" height="48" /> }}
