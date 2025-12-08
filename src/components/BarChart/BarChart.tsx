@@ -231,7 +231,7 @@ export const BarChart = ({
   }, [])
 
   const handleBarChartClick = useCallback(
-    (state: any) => {
+    (state: { activePayload?: Array<{ payload?: { values?: [number, number] } }> } | null) => {
       if (!state?.activePayload?.[0]?.payload?.values) {
         return
       }
