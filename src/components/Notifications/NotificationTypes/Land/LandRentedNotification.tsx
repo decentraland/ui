@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { CommonNotificationProps, LandRentedNotification as LandRentedNotificationType } from '../../types'
+import {
+  CommonNotificationProps,
+  LandRentedNotification as LandRentedNotificationType
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import LandRentedIcon from '../../../Icons/Notifications/LandRented'
 import { IconBadge } from '../../../IconBadge'

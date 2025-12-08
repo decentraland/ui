@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { CommonNotificationProps, EventsStartedNotification as EventsStartedNotificationType } from '../../types'
+import {
+  CommonNotificationProps,
+  EventsStartedNotification as EventsStartedNotificationType
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import EventStarted from '../../../Icons/Notifications/EventStarted'
 

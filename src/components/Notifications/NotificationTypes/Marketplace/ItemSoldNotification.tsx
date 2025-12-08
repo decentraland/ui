@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { CommonNotificationProps, ItemSoldNotification as ItemSoldNotificationType } from '../../types'
+import {
+  CommonNotificationProps,
+  ItemSoldNotification as ItemSoldNotificationType
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import ItemSold from '../../../Icons/Notifications/ItemSold'
 import NotificationItemNFTLink from '../../NotificationItemNFTLink'

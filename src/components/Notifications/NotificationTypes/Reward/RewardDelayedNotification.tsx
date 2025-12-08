@@ -1,7 +1,10 @@
 import React from 'react'
 
 import Reward from '../../../Icons/Notifications/Reward'
-import { CommonNotificationProps, RewardDelayedNotification as RewardDelayedNotificationType } from '../../types'
+import {
+  CommonNotificationProps,
+  RewardDelayedNotification as RewardDelayedNotificationType
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import { getBGColorByRarity } from '../../utils'
 import NotificationItemNFTLink from '../../NotificationItemNFTLink'

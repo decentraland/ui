@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { BidAcceptedNotification as BidAcceptedNotificationType, CommonNotificationProps } from '../../types'
+import {
+  BidAcceptedNotification as BidAcceptedNotificationType,
+  CommonNotificationProps
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import BidAccepted from '../../../Icons/Notifications/BidAccepted'
 import { Network } from '@dcl/schemas'
