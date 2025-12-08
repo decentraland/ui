@@ -8,6 +8,7 @@ export type TabsProps = {
   isFullscreen?: boolean
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   className: string
+  children?: React.ReactNode
 }
 
 export class Tabs extends React.PureComponent<TabsProps> {
