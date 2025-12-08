@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   CommonNotificationProps,
-  GovernancePitchPassedNotification
+  GovernancePitchPassedNotification as GovernancePitchPassedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import PitchIcon from '../../../Icons/Notifications/PitchIcon'
@@ -75,7 +75,7 @@ const i18N = {
 const GovernancePitchPassedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernancePitchPassedNotification>) => (
+}: CommonNotificationProps<GovernancePitchPassedNotificationType>) => (
   <NotificationItem
     image={{ image: <PitchIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

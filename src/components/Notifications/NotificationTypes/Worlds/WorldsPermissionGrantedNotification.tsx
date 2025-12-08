@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  WorldsPermissionGrantedNotification
+  WorldsPermissionGrantedNotification as WorldsPermissionGrantedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import PermissionGranted from '../../../Icons/Notifications/PermissionGranted'
@@ -46,7 +46,7 @@ export const i18N = {
 const WorldsPermissionGrantedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<WorldsPermissionGrantedNotification>) => {
+}: CommonNotificationProps<WorldsPermissionGrantedNotificationType>) => {
   const permission = notification.metadata.permissions[0] // for now only one permission is allowed per notification
   const isAccessNotification = permission === 'access'
   const world = notification.metadata.world

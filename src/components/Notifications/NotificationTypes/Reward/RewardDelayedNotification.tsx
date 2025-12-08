@@ -1,7 +1,10 @@
 import React from 'react'
 
 import Reward from '../../../Icons/Notifications/Reward'
-import { CommonNotificationProps, RewardDelayedNotification } from '../../types'
+import {
+  CommonNotificationProps,
+  RewardDelayedNotification as RewardDelayedNotificationType
+} from '../../types'
 import NotificationItem from '../../NotificationItem'
 import { getBGColorByRarity } from '../../utils'
 import NotificationItemNFTLink from '../../NotificationItemNFTLink'
@@ -10,7 +13,7 @@ import { config } from '../../../../config'
 const i18N = {
   en: {
     description: (
-      reward: RewardDelayedNotification['metadata']
+      reward: RewardDelayedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         We're working on delivering your
@@ -26,7 +29,7 @@ const i18N = {
   },
   es: {
     description: (
-      reward: RewardDelayedNotification['metadata']
+      reward: RewardDelayedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         Estamos trabajando en entregar tu
@@ -42,7 +45,7 @@ const i18N = {
   },
   zh: {
     description: (
-      reward: RewardDelayedNotification['metadata']
+      reward: RewardDelayedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         我们正在尽快交付您的
@@ -64,7 +67,7 @@ const i18N = {
 export default function RewardDelayedNotification({
   notification,
   locale
-}: CommonNotificationProps<RewardDelayedNotification>) {
+}: CommonNotificationProps<RewardDelayedNotificationType>) {
   return (
     <NotificationItem
       image={{

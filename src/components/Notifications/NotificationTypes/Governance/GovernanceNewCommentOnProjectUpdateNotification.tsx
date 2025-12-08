@@ -3,7 +3,7 @@ import React from 'react'
 import NotificationItem from '../../NotificationItem'
 import {
   CommonNotificationProps,
-  GovernanceNewCommentOnProjectUpdateNotification
+  GovernanceNewCommentOnProjectUpdateNotification as GovernanceNewCommentOnProjectUpdateNotificationType
 } from '../../types'
 import NewCommentIcon from '../../../Icons/Notifications/NewCommentIcon'
 
@@ -51,7 +51,7 @@ const i18N = {
 const GovernanceNewCommentOnProjectUpdateNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceNewCommentOnProjectUpdateNotification>) => (
+}: CommonNotificationProps<GovernanceNewCommentOnProjectUpdateNotificationType>) => (
   <NotificationItem
     image={{ image: <NewCommentIcon height="48" width="48" /> }}
     timestamp={notification.timestamp}
