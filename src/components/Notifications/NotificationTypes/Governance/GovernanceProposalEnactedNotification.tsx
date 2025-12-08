@@ -3,7 +3,7 @@ import React from 'react'
 import NotificationItem from '../../NotificationItem'
 import {
   CommonNotificationProps,
-  GovernanceProposalEnactedNotification
+  GovernanceProposalEnactedNotification as GovernanceProposalEnactedNotificationType
 } from '../../types'
 import ProjectEnactedIcon from '../../../Icons/Notifications/ProjectEnactedIcon'
 
@@ -53,7 +53,7 @@ const i18N = {
 const GovernanceProposalEnactedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceProposalEnactedNotification>) => (
+}: CommonNotificationProps<GovernanceProposalEnactedNotificationType>) => (
   <NotificationItem
     image={{ image: <ProjectEnactedIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BidReceivedNotification, CommonNotificationProps } from '../../types'
+import { BidReceivedNotification as BidReceivedNotificationType, CommonNotificationProps } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import BidAccepted from '../../../Icons/Notifications/BidAccepted'
 import { Network } from '@dcl/schemas'
@@ -50,7 +50,7 @@ const i18N = {
 const BidReceivedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<BidReceivedNotification>) => {
+}: CommonNotificationProps<BidReceivedNotificationType>) => {
   return (
     <NotificationItem
       image={{

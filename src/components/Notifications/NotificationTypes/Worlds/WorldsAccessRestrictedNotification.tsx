@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  WorldsAccessRestrictedNotification
+  WorldsAccessRestrictedNotification as WorldsAccessRestrictedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import AccessRestrictedIcon from '../../../Icons/Notifications/AccessRestrictedIcon'
@@ -52,7 +52,7 @@ const i18N = {
 const WorldsAccessRestrictedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<WorldsAccessRestrictedNotification>) => {
+}: CommonNotificationProps<WorldsAccessRestrictedNotificationType>) => {
   return (
     <NotificationItem
       image={{ image: <AccessRestrictedIcon width="48" height="48" /> }}

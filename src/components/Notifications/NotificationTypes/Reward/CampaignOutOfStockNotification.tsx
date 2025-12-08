@@ -3,7 +3,7 @@ import React from 'react'
 import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
-  CampaignOutOfStockNotification
+  CampaignOutOfStockNotification as CampaignOutOfStockNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import CampaignName from './CampaignName'
@@ -11,7 +11,7 @@ import CampaignName from './CampaignName'
 const i18N = {
   en: {
     description: (
-      metadata: CampaignOutOfStockNotification['metadata']
+      metadata: CampaignOutOfStockNotificationType['metadata']
     ): React.ReactNode => (
       <>
         The <CampaignName metadata={metadata} /> campaign has run out of stock.
@@ -21,7 +21,7 @@ const i18N = {
   },
   es: {
     description: (
-      metadata: CampaignOutOfStockNotification['metadata']
+      metadata: CampaignOutOfStockNotificationType['metadata']
     ): React.ReactNode => (
       <>
         La campaña <CampaignName metadata={metadata} /> se ha quedado sin stock.
@@ -31,7 +31,7 @@ const i18N = {
   },
   zh: {
     description: (
-      metadata: CampaignOutOfStockNotification['metadata']
+      metadata: CampaignOutOfStockNotificationType['metadata']
     ): React.ReactNode => (
       <>
         <CampaignName metadata={metadata} /> 活动库存不足。
@@ -47,7 +47,7 @@ const i18N = {
 export default function CampaignOutOfStockNotification({
   notification,
   locale
-}: CommonNotificationProps<CampaignOutOfStockNotification>) {
+}: CommonNotificationProps<CampaignOutOfStockNotificationType>) {
   return (
     <NotificationItem
       image={{

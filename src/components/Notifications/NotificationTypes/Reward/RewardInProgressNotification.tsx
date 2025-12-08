@@ -3,7 +3,7 @@ import React from 'react'
 import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
-  RewardInProgressNotification
+  RewardInProgressNotification as RewardInProgressNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import { getBGColorByRarity } from '../../utils'
@@ -13,7 +13,7 @@ import { config } from '../../../../config'
 const i18N = {
   en: {
     description: (
-      reward: RewardInProgressNotification['metadata']
+      reward: RewardInProgressNotificationType['metadata']
     ): React.ReactNode => (
       <>
         You've received a
@@ -29,7 +29,7 @@ const i18N = {
   },
   es: {
     description: (
-      reward: RewardInProgressNotification['metadata']
+      reward: RewardInProgressNotificationType['metadata']
     ): React.ReactNode => (
       <>
         Recibiste un
@@ -45,7 +45,7 @@ const i18N = {
   },
   zh: {
     description: (
-      reward: RewardInProgressNotification['metadata']
+      reward: RewardInProgressNotificationType['metadata']
     ): React.ReactNode => (
       <>
         您已免费收到一个
@@ -67,7 +67,7 @@ const i18N = {
 export default function RewardInProgressNotification({
   notification,
   locale
-}: CommonNotificationProps<RewardInProgressNotification>) {
+}: CommonNotificationProps<RewardInProgressNotificationType>) {
   return (
     <NotificationItem
       image={{

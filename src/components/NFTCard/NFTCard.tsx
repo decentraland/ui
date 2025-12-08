@@ -5,10 +5,10 @@ import { Popup } from '../Popup/Popup'
 import { Mana } from '../Mana/Mana'
 import { NFTImage } from '../NFTImage'
 import { getBadges, getSubtitle } from './utils'
-import { Badge, Props } from './NFTCard.types'
+import { Badge as BadgeType, Props } from './NFTCard.types'
 import './NFTCard.css'
 
-const Badge = ({ badge }: { badge: Badge }) => {
+const BadgeItem = ({ badge }: { badge: BadgeType }) => {
   if (badge.icon && badge.hideLabel) {
     return (
       <Popup
@@ -101,7 +101,7 @@ export const NFTCard = (props: Props) => {
     return (
       <div className="dui-nft-card__badges">
         {nftBadges.map((badge) => (
-          <Badge key={badge.label} badge={badge} />
+          <BadgeItem key={badge.label} badge={badge} />
         ))}
       </div>
     )

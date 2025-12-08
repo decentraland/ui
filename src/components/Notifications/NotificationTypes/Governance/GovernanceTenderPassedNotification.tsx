@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   CommonNotificationProps,
-  GovernanceTenderPassedNotification
+  GovernanceTenderPassedNotification as GovernanceTenderPassedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import TenderIcon from '../../../Icons/Notifications/TenderIcon'
@@ -77,7 +77,7 @@ const i18N = {
 const GovernanceTenderPassedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceTenderPassedNotification>) => (
+}: CommonNotificationProps<GovernanceTenderPassedNotificationType>) => (
   <NotificationItem
     image={{ image: <TenderIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

@@ -3,7 +3,7 @@ import React from 'react'
 import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
-  CampaignOutOfFundsNotification
+  CampaignOutOfFundsNotification as CampaignOutOfFundsNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import CampaignName from './CampaignName'
@@ -11,7 +11,7 @@ import CampaignName from './CampaignName'
 const i18N = {
   en: {
     description: (
-      metadata: CampaignOutOfFundsNotification['metadata']
+      metadata: CampaignOutOfFundsNotificationType['metadata']
     ): React.ReactNode => (
       <>
         The <CampaignName metadata={metadata} /> campaign has run out of funds.
@@ -21,7 +21,7 @@ const i18N = {
   },
   es: {
     description: (
-      metadata: CampaignOutOfFundsNotification['metadata']
+      metadata: CampaignOutOfFundsNotificationType['metadata']
     ): React.ReactNode => (
       <>
         La campaña <CampaignName metadata={metadata} /> se ha quedado sin
@@ -32,7 +32,7 @@ const i18N = {
   },
   zh: {
     description: (
-      metadata: CampaignOutOfFundsNotification['metadata']
+      metadata: CampaignOutOfFundsNotificationType['metadata']
     ): React.ReactNode => (
       <>
         <CampaignName metadata={metadata} /> 活动资金不足。
@@ -48,7 +48,7 @@ const i18N = {
 export default function CampaignOutOfFundsNotification({
   notification,
   locale
-}: CommonNotificationProps<CampaignOutOfFundsNotification>) {
+}: CommonNotificationProps<CampaignOutOfFundsNotificationType>) {
   return (
     <NotificationItem
       image={{

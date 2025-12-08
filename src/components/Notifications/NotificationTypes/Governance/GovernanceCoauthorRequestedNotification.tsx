@@ -3,7 +3,7 @@ import React from 'react'
 import NotificationItem from '../../NotificationItem'
 import {
   CommonNotificationProps,
-  GovernanceCoauthorRequestedNotification
+  GovernanceCoauthorRequestedNotification as GovernanceCoauthorRequestedNotificationType
 } from '../../types'
 import CoauthorIcon from '../../../Icons/Notifications/CoauthorIcon'
 
@@ -54,7 +54,7 @@ const i18N = {
 const GovernanceCoauthorRequestedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceCoauthorRequestedNotification>) => (
+}: CommonNotificationProps<GovernanceCoauthorRequestedNotificationType>) => (
   <NotificationItem
     image={{ image: <CoauthorIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

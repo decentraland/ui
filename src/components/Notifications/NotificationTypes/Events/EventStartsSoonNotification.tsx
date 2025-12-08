@@ -3,7 +3,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 
 import {
   CommonNotificationProps,
-  EventsStartsSoonNotification
+  EventsStartsSoonNotification as EventsStartsSoonNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import EventStartsSoon from '../../../Icons/Notifications/EventStartsSoon'
@@ -58,7 +58,7 @@ function Countdown({ startDate }: { startDate: string }) {
 const i18N = {
   en: {
     description: (
-      metadata: EventsStartsSoonNotification['metadata']
+      metadata: EventsStartsSoonNotificationType['metadata']
     ): React.ReactNode =>
       new Date(metadata.startsAt).getTime() > Date.now() ? (
         <>
@@ -75,7 +75,7 @@ const i18N = {
   },
   es: {
     description: (
-      metadata: EventsStartsSoonNotification['metadata']
+      metadata: EventsStartsSoonNotificationType['metadata']
     ): React.ReactNode =>
       new Date(metadata.startsAt).getTime() > Date.now() ? (
         <>
@@ -92,7 +92,7 @@ const i18N = {
   },
   zh: {
     description: (
-      metadata: EventsStartsSoonNotification['metadata']
+      metadata: EventsStartsSoonNotificationType['metadata']
     ): React.ReactNode =>
       new Date(metadata.startsAt).getTime() > Date.now() ? (
         <>
@@ -114,7 +114,7 @@ const i18N = {
 const EventsStartsSoonNotification = ({
   notification,
   locale
-}: CommonNotificationProps<EventsStartsSoonNotification>) => (
+}: CommonNotificationProps<EventsStartsSoonNotificationType>) => (
   <NotificationItem
     image={{ image: <EventStartsSoon width="48" height="48" /> }}
     timestamp={notification.timestamp}

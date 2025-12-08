@@ -3,7 +3,7 @@ import React from 'react'
 import Reward from '../../../Icons/Notifications/Reward'
 import {
   CommonNotificationProps,
-  RewardAssignedNotification
+  RewardAssignedNotification as RewardAssignedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import { getBGColorByRarity } from '../../utils'
@@ -13,7 +13,7 @@ import { config } from '../../../../config'
 const i18N = {
   en: {
     description: (
-      reward: RewardAssignedNotification['metadata']
+      reward: RewardAssignedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         This
@@ -29,7 +29,7 @@ const i18N = {
   },
   es: {
     description: (
-      reward: RewardAssignedNotification['metadata']
+      reward: RewardAssignedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         El item
@@ -45,7 +45,7 @@ const i18N = {
   },
   zh: {
     description: (
-      reward: RewardAssignedNotification['metadata']
+      reward: RewardAssignedNotificationType['metadata']
     ): React.ReactNode => (
       <>
         这
@@ -67,7 +67,7 @@ const i18N = {
 export default function RewardAssignedNotification({
   notification,
   locale
-}: CommonNotificationProps<RewardAssignedNotification>) {
+}: CommonNotificationProps<RewardAssignedNotificationType>) {
   return (
     <NotificationItem
       image={{

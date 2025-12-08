@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonNotificationProps, LandRentedNotification } from '../../types'
+import { CommonNotificationProps, LandRentedNotification as LandRentedNotificationType } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import LandRentedIcon from '../../../Icons/Notifications/LandRented'
 import { IconBadge } from '../../../IconBadge'
@@ -69,7 +69,7 @@ export default function LandRentedNotificationCmp({
   notification,
   locale,
   renderProfile
-}: CommonNotificationProps<LandRentedNotification>) {
+}: CommonNotificationProps<LandRentedNotificationType>) {
   return (
     <NotificationItem
       image={{ image: <LandRentedIcon width="48" height="48" /> }}
