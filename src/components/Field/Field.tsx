@@ -66,7 +66,7 @@ function renderMessage(props: FieldProps) {
 }
 
 export class Field extends React.PureComponent<FieldProps> {
-  static defaultProps = {
+  static defaultProps: Partial<FieldProps> = {
     kind: 'simple',
     fitContent: false
   }

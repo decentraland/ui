@@ -5,6 +5,7 @@ import './Stats.css'
 export type StatsProps = {
   title: string
   className?: string
+  children?: React.ReactNode
 }
 
 export class Stats extends React.Component<StatsProps> {

@@ -16,7 +16,7 @@ interface RangeSliderProps extends SliderBaseProps {
   range: true
   step?: number
   defaultValue?: readonly [number, number]
-  label?: string | React.PureComponent<{ value: readonly [number, number] }>
+  label?: React.ReactNode
   onChange?: (
     ev: React.ChangeEvent<HTMLInputElement>,
     data: readonly [number, number]
@@ -31,7 +31,7 @@ interface SimpleSliderProps extends SliderBaseProps {
   range?: false
   step?: undefined
   defaultValue?: number
-  label?: string | React.PureComponent<{ value: number }>
+  label?: React.ReactNode
   onChange?: (ev: React.ChangeEvent<HTMLInputElement>, data: number) => void
   onMouseUp?: (ev: React.MouseEvent<HTMLInputElement>, data: number) => void
 }
