@@ -1,0 +1,4 @@
+{
+  "buildCommand": "npm run build:lib && npm run build:storybook && cp ./lib/*.css ./storybook-static",
+  "outputDirectory": "storybook-static"
+}

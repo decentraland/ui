@@ -2,7 +2,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
-const postcssAssets = require('postcss-assets')
 const postcssCopy = require('postcss-copy')
 const postcss = require('postcss')
 const path = require('path')
@@ -13,8 +12,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
-    library: 'decentralandUI',
-    libraryTarget: 'umd'
+    library: {
+      name: 'decentralandUI',
+      type: 'umd'
+    }
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -31,19 +32,39 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              url: false // Let Webpack handle assets via rules, not css-loader
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                postcssPresetEnv({
-                  stage: 4
-                }),
-                postcssAssets()
-              ]
+              postcssOptions: {
+                plugins: [
+                  postcssPresetEnv({
+                    stage: 4
+                  })
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              url: false // Don't process URLs in node_modules CSS
             }
           }
         ]
@@ -54,22 +75,16 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: {
-          loader: 'file-loader',
-          options: { esModule: false }
-        }
+        type: 'asset/resource'
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              esModule: false
-            }
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8192
           }
-        ]
+        }
       }
     ]
   },
@@ -77,8 +92,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new CopyWebpackPlugin([{ 
-        from: 'src/themes/alternative', 
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: 'src/themes/alternative',
         to: './',
         // transform themes file because now they contain a relative path to the assets
         transform: (content, path) => {
@@ -86,7 +102,6 @@ module.exports = {
               postcssPresetEnv({
                 stage: 4
               }),
-              postcssAssets(),
               postcssCopy({
                 dest: './lib/'
               })
@@ -95,7 +110,8 @@ module.exports = {
             .then(result => {
               return result.css
             })
-        }}
-    ])
+        }
+      }]
+    })
   ]
 }
