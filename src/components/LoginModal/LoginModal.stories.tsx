@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from '../Header/Header'
 import { LoginModal, LoginModalOptionType } from '../LoginModal/LoginModal'
 import './LoginModal.stories.css'
@@ -44,8 +44,16 @@ const lipsum = (
   </>
 )
 
-storiesOf('LoginModal', module)
-  .add('Login options', () => (
+const meta: Meta<typeof LoginModal> = {
+  title: 'LoginModal',
+  component: LoginModal
+}
+
+export default meta
+type Story = StoryObj<typeof LoginModal>
+
+export const LoginOptions: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open onClose={() => undefined}>
@@ -58,8 +66,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Login persisent message', () => (
+  )
+}
+
+export const LoginPersisentMessage: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal
@@ -76,8 +87,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Login error', () => (
+  )
+}
+
+export const LoginError: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open hasError onClose={() => undefined}>
@@ -90,8 +104,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Loading', () => (
+  )
+}
+
+export const Loading: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal open loading onClose={() => undefined}>
@@ -103,8 +120,11 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
-  .add('Full example', () => (
+  )
+}
+
+export const FullExample: Story = {
+  render: () => (
     <div className="LoginModal-story">
       {lipsum}
       <LoginModal
@@ -123,4 +143,5 @@ storiesOf('LoginModal', module)
         <LoginModal.Option type={LoginModalOptionType.WALLET_LINK} />
       </LoginModal>
     </div>
-  ))
+  )
+}

@@ -1,11 +1,18 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from '../Header/Header'
 import { SelectField } from './SelectField'
 import { Field } from '../Field/Field'
 
-storiesOf('SelectField', module)
-  .add('Basic', () => (
+const meta: Meta<typeof SelectField> = {
+  title: 'SelectField',
+  component: SelectField
+}
+
+export default meta
+type Story = StoryObj<typeof SelectField>
+export const Basic: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -18,8 +25,11 @@ storiesOf('SelectField', module)
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ))
-  .add('Message', () => (
+  )
+}
+
+export const Message: Story = {
+  render: () => (
     <SelectField
       label="Label"
       placeholder="Placeholder"
@@ -31,8 +41,11 @@ storiesOf('SelectField', module)
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ))
-  .add('Error', () => (
+  )
+}
+
+export const Error: Story = {
+  render: () => (
     <SelectField
       label="Label"
       placeholder="Placeholder"
@@ -45,8 +58,11 @@ storiesOf('SelectField', module)
       ]}
       onChange={(_, a) => console.log(a)}
     />
-  ))
-  .add('Disabled options', () => (
+  )
+}
+
+export const DisabledOptions: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -60,8 +76,11 @@ storiesOf('SelectField', module)
         onChange={(_, a) => console.log(a)}
       />
     </>
-  ))
-  .add('Disabled field', () => (
+  )
+}
+
+export const DisabledField: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -75,8 +94,11 @@ storiesOf('SelectField', module)
         disabled
       />
     </>
-  ))
-  .add('Default option', () => (
+  )
+}
+
+export const DefaultOption: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -90,8 +112,11 @@ storiesOf('SelectField', module)
         defaultValue={8}
       />
     </>
-  ))
-  .add('With header', () => (
+  )
+}
+
+export const WithHeader: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -111,8 +136,11 @@ storiesOf('SelectField', module)
         ]}
       />
     </>
-  ))
-  .add('With borders', () => (
+  )
+}
+
+export const WithBorders: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -132,8 +160,11 @@ storiesOf('SelectField', module)
         ]}
       />
     </>
-  ))
-  .add('With borders and error', () => (
+  )
+}
+
+export const WithBordersAndError: Story = {
+  render: () => (
     <>
       <SelectField
         label="Label"
@@ -155,8 +186,11 @@ storiesOf('SelectField', module)
         ]}
       />
     </>
-  ))
-  .add('Select field aligned with input field', () => (
+  )
+}
+
+export const SelectFieldAlignedWithInputField: Story = {
+  render: () => (
     <div
       style={{
         display: 'flex',
@@ -172,4 +206,5 @@ storiesOf('SelectField', module)
       />
       <Field placeholder="Placeholder" value="A value" />
     </div>
-  ))
+  )
+}

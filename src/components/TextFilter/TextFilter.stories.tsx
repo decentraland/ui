@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TextFilter } from './TextFilter'
 
 function generateValueAndChangeFunction() {
@@ -17,19 +17,31 @@ function generateValueAndChangeFunction() {
 
 const firstExample = generateValueAndChangeFunction()
 
-storiesOf('TextFilter', module)
-  .add('Basic filter', () => (
+const meta: Meta<typeof TextFilter> = {
+  title: 'TextFilter',
+  component: TextFilter
+}
+
+export default meta
+type Story = StoryObj<typeof TextFilter>
+
+export const BasicFilter: Story = {
+  render: () => (
     <TextFilter
       placeholder="This is a placeholder"
       value={firstExample.value}
       onChange={firstExample.onChange}
     />
-  ))
-  .add('Basic filter with a name', () => (
+  )
+}
+
+export const BasicFilterWithAName: Story = {
+  render: () => (
     <TextFilter
       placeholder="This is a placeholder"
       label="This is a label"
       value={firstExample.value}
       onChange={firstExample.onChange}
     />
-  ))
+  )
+}

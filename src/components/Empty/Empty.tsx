@@ -5,6 +5,7 @@ export type EmptyProps = {
   height?: number
   expand?: boolean
   className?: string
+  children?: React.ReactNode
 }
 
 export class Empty extends React.PureComponent<EmptyProps> {

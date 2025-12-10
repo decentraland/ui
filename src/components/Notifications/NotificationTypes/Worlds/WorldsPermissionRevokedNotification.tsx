@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   CommonNotificationProps,
-  WorldsPermissionRevokedNotification
+  WorldsPermissionRevokedNotification as WorldsPermissionRevokedNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import PermissionRevoked from '../../../Icons/Notifications/PermissionRevoked'
@@ -43,7 +43,7 @@ export const i18N = {
 const WorldsPermissionRevokedNotification = ({
   notification,
   locale
-}: CommonNotificationProps<WorldsPermissionRevokedNotification>) => {
+}: CommonNotificationProps<WorldsPermissionRevokedNotificationType>) => {
   const permission = notification.metadata.permissions[0]
   const isAccessNotification = permission === 'access'
   const Icon = isAccessNotification ? AccessRestricted : PermissionRevoked

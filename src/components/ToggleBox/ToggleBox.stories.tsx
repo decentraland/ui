@@ -1,9 +1,17 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { ToggleBox } from './ToggleBox'
 
-storiesOf('ToggleBox', module)
-  .add('Simple', () => (
+const meta: Meta<typeof ToggleBox> = {
+  title: 'ToggleBox',
+  component: ToggleBox
+}
+
+export default meta
+type Story = StoryObj<typeof ToggleBox>
+
+export const Simple: Story = {
+  render: () => (
     <ToggleBox
       header="Header text"
       items={[
@@ -12,8 +20,11 @@ storiesOf('ToggleBox', module)
         { title: 'Item 3', description: 'Description of the item 3' }
       ]}
     />
-  ))
-  .add('With active item', () => (
+  )
+}
+
+export const WithActiveItem: Story = {
+  render: () => (
     <ToggleBox
       header="Header text"
       value={1}
@@ -35,8 +46,11 @@ storiesOf('ToggleBox', module)
         }
       ]}
     />
-  ))
-  .add('With disable items', () => (
+  )
+}
+
+export const WithDisableItems: Story = {
+  render: () => (
     <ToggleBox
       header="Header text with disabled items"
       value={3}
@@ -61,8 +75,11 @@ storiesOf('ToggleBox', module)
         }
       ]}
     />
-  ))
-  .add('Without border (borderless)', () => (
+  )
+}
+
+export const WithoutBorderBorderless: Story = {
+  render: () => (
     <ToggleBox
       header="Without border"
       borderless
@@ -88,4 +105,5 @@ storiesOf('ToggleBox', module)
         }
       ]}
     />
-  ))
+  )
+}

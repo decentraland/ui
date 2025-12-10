@@ -1,11 +1,19 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Center } from './Center'
 import './Center.stories.css'
 
-storiesOf('Center', module)
-  .add('On Parent', () => (
+const meta: Meta<typeof Center> = {
+  title: 'Center',
+  component: Center
+}
+
+export default meta
+type Story = StoryObj<typeof Center>
+
+export const OnParent: Story = {
+  render: () => (
     <>
       <div className="story-container" />
       <div className="story-container">
@@ -14,8 +22,11 @@ storiesOf('Center', module)
         </Center>
       </div>
     </>
-  ))
-  .add('On Screen', () => (
+  )
+}
+
+export const OnScreen: Story = {
+  render: () => (
     <>
       <div className="story-container" />
       <div className="story-container">
@@ -24,4 +35,5 @@ storiesOf('Center', module)
         </Center>
       </div>
     </>
-  ))
+  )
+}

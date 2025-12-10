@@ -5,6 +5,7 @@ export type BackProps = {
   className?: string
   absolute?: boolean
   onClick?: (e: React.MouseEvent) => void
+  children?: React.ReactNode
 }
 
 export class Back extends React.PureComponent<BackProps> {

@@ -1,40 +1,64 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import { SliderField } from './SliderField'
 
-storiesOf('SliderField', module)
-  .add('Slider Simple', () => <SliderField header="SliderField Simple" />)
-  .add('Range Simple', () => (
-    <SliderField header="SliderField Simple Range" range={true} />
-  ))
-  .add('With Label', () => (
+const meta: Meta<typeof SliderField> = {
+  title: 'SliderField',
+  component: SliderField
+}
+
+export default meta
+type Story = StoryObj<typeof SliderField>
+export const SliderSimple: Story = {
+  render: () => <SliderField header="SliderField Simple" />
+}
+
+export const RangeSimple: Story = {
+  render: () => <SliderField header="SliderField Simple Range" range={true} />
+}
+
+export const WithLabel: Story = {
+  render: () => (
     <SliderField
       header="SliderField Label"
       label="This is a label"
       min={0}
       max={100}
     />
-  ))
-  .add('With Max and Min set', () => (
+  )
+}
+
+export const WithMaxAndMinSet: Story = {
+  render: () => (
     <SliderField header="Min set at 200 and Max at 500" min={200} max={500} />
-  ))
-  .add('Range with Max and Min set', () => (
+  )
+}
+
+export const RangeWithMaxAndMinSet: Story = {
+  render: () => (
     <SliderField
       header="Min set at 200 and Max at 500"
       min={200}
       max={500}
       range={true}
     />
-  ))
-  .add('Default value', () => (
+  )
+}
+
+export const DefaultValue: Story = {
+  render: () => (
     <SliderField
       header="Default value set to 70"
       min={0}
       max={100}
       defaultValue={70}
     />
-  ))
-  .add('Range default value', () => (
+  )
+}
+
+export const RangeDefaultValue: Story = {
+  render: () => (
     <SliderField
       header="Default value set to 20 - 70"
       min={0}
@@ -42,16 +66,22 @@ storiesOf('SliderField', module)
       defaultValue={[20, 70]}
       range={true}
     />
-  ))
-  .add('With onMouseUp', () => (
+  )
+}
+
+export const WithOnMouseUp: Story = {
+  render: () => (
     <SliderField
       header="SliderField Header"
       min={0}
       max={100}
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
     />
-  ))
-  .add('Range with onMouseUp', () => (
+  )
+}
+
+export const RangeWithOnMouseUp: Story = {
+  render: () => (
     <SliderField
       header="SliderField Header"
       min={0}
@@ -59,16 +89,22 @@ storiesOf('SliderField', module)
       onMouseUp={(_, data) => alert(JSON.stringify(data))}
       range
     />
-  ))
-  .add('With onChange', () => (
+  )
+}
+
+export const WithOnChange: Story = {
+  render: () => (
     <SliderField
       header="Shown on console"
       min={0}
       max={100}
       onChange={(_, data) => console.log(data)}
     />
-  ))
-  .add('Range with onChange', () => (
+  )
+}
+
+export const RangeWithOnChange: Story = {
+  render: () => (
     <SliderField
       header="Shown on console"
       min={0}
@@ -76,9 +112,12 @@ storiesOf('SliderField', module)
       onChange={(_, data) => console.log(data)}
       range
     />
-  ))
-  .add('with state', () => {
-    const [value, setRange] = React.useState<number>(10)
+  )
+}
+
+export const WithState: Story = {
+  render: () => {
+    const [value, setRange] = useState<number>(10)
     return (
       <SliderField
         header="Shown on console"
@@ -89,9 +128,12 @@ storiesOf('SliderField', module)
         onChange={(_, data) => setRange(data[1])}
       />
     )
-  })
-  .add('range with state', () => {
-    const [range, setRange] = React.useState<readonly [number, number]>([5, 10])
+  }
+}
+
+export const RangeWithState: Story = {
+  render: () => {
+    const [range, setRange] = useState<readonly [number, number]>([5, 10])
     return (
       <SliderField
         header="Shown on console"
@@ -103,4 +145,5 @@ storiesOf('SliderField', module)
         range
       />
     )
-  })
+  }
+}

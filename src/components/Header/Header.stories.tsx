@@ -1,15 +1,26 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from './Header'
 
-storiesOf('Header', module)
-  .add('Subheader + Header', () => (
+const meta: Meta<typeof Header> = {
+  title: 'Header',
+  component: Header
+}
+
+export default meta
+type Story = StoryObj<typeof Header>
+
+export const SubheaderHeader: Story = {
+  render: () => (
     <>
       <Header sub>Votes</Header>
       <Header>20,212</Header>
     </>
-  ))
-  .add('Sizes', () => (
+  )
+}
+
+export const Sizes: Story = {
+  render: () => (
     <>
       <Header size="huge">Huge</Header>
       <Header size="large">Large</Header>
@@ -17,4 +28,5 @@ storiesOf('Header', module)
       <Header size="small">Small</Header>
       <Header size="tiny">Tiny</Header>
     </>
-  ))
+  )
+}

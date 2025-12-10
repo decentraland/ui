@@ -1,5 +1,15 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Back } from './Back'
 
-storiesOf('Back', module).add('Example', () => <Back />)
+const meta: Meta<typeof Back> = {
+  title: 'Back',
+  component: Back
+}
+
+export default meta
+type Story = StoryObj<typeof Back>
+
+export const Example: Story = {
+  render: () => <Back />
+}

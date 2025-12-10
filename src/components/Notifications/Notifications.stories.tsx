@@ -1,5 +1,6 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import Notifications from './Notifications'
 import NotificationItemImage from './NotificationItemImage'
 import { NFTCategory, Rarity, NotificationType } from '@dcl/schemas'
@@ -34,8 +35,15 @@ import CampaignOutOfStockNotification from './NotificationTypes/Reward/CampaignO
 import CampaignOutOfFundsNotification from './NotificationTypes/Reward/CampaignOutOfFundsNotification'
 import CampaignGasPriceHigherThanExpectedNotification from './NotificationTypes/Reward/CampaignGasPriceHigherThanExpectedNotification'
 
-storiesOf('Notifications Toggle', module)
-  .add('Without new notifications', () => {
+const meta: Meta<typeof Notifications> = {
+  title: 'Notifications Toggle',
+  component: Notifications
+}
+
+export default meta
+type Story = StoryObj<typeof Notifications>
+export const WithoutNewNotifications: Story = {
+  render: () => {
     return (
       <div>
         <Notifications
@@ -52,8 +60,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('With new notificatitons', () => {
+  }
+}
+
+export const WithNewNotificatitons: Story = {
+  render: () => {
     return (
       <div>
         <Notifications
@@ -90,8 +101,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Onboarding', () => {
+  }
+}
+
+export const Onboarding: Story = {
+  render: () => {
     return (
       <div>
         <Notifications
@@ -128,9 +142,12 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Open not loading', () => {
-    const [tab, setTab] = React.useState('newest')
+  }
+}
+
+export const OpenNotLoading: Story = {
+  render: () => {
+    const [tab, setTab] = useState('newest')
     return (
       <div>
         <Notifications
@@ -329,8 +346,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Open not loading but empty', () => {
+  }
+}
+
+export const OpenNotLoadingButEmpty: Story = {
+  render: () => {
     return (
       <div>
         <Notifications
@@ -347,8 +367,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Open loading', () => {
+  }
+}
+
+export const OpenLoading: Story = {
+  render: () => {
     return (
       <div>
         <Notifications
@@ -365,8 +388,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('NotificationItemImage', () => {
+  }
+}
+
+export const NotificationItemImageStory: Story = {
+  render: () => {
     return (
       <div>
         <NotificationItemImage
@@ -376,8 +402,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Governance Notifications', () => {
+  }
+}
+
+export const GovernanceNotifications: Story = {
+  render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <GovernanceAnnouncementNotification
@@ -608,8 +637,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Land Notifications', () => {
+  }
+}
+
+export const LandNotifications: Story = {
+  render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <LandRentedNotification
@@ -665,8 +697,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Reward Notifications', () => {
+  }
+}
+
+export const RewardNotifications: Story = {
+  render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <RewardAssignedNotification
@@ -726,8 +761,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Campaign Notifications', () => {
+  }
+}
+
+export const CampaignNotifications: Story = {
+  render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <CampaignOutOfStockNotification
@@ -780,8 +818,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Events Notifications', () => {
+  }
+}
+
+export const EventsNotifications: Story = {
+  render: () => {
     const futureStartDate = new Date()
     futureStartDate.setSeconds(futureStartDate.getSeconds() + 50)
 
@@ -849,8 +890,11 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
-  .add('Worlds Notifications', () => {
+  }
+}
+
+export const WorldsNotifications: Story = {
+  render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <WorldsPermissionGrantedNotification
@@ -964,4 +1008,5 @@ storiesOf('Notifications Toggle', module)
         />
       </div>
     )
-  })
+  }
+}

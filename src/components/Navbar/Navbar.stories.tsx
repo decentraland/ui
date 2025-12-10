@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { ChainId, NotificationType } from '@dcl/schemas'
 import { avatar } from '../../data/avatar'
 
@@ -12,15 +12,25 @@ import { NotificationActiveTab } from '../Notifications/types'
 
 import './Navbar.stories.css'
 
-storiesOf('Navbar', module)
-  .add('Marketplace', () => {
+const meta: Meta<typeof Navbar> = {
+  title: 'Navbar',
+  component: Navbar
+}
+
+export default meta
+type Story = StoryObj<typeof Navbar>
+export const Marketplace: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar activePage={NavbarPages.MARKETPLACE} />
       </div>
     )
-  })
-  .add('Sign In', () => {
+  }
+}
+
+export const SignIn: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -29,20 +39,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('Signed in', () => {
-    return (
-      <div className="Navbar-story-container">
-        <Navbar
-          activePage={NavbarPages.MARKETPLACE}
-          isSignedIn
-          avatar={avatar}
-          onClickSignIn={() => console.log('Clicked on sign in')}
-        />
-      </div>
-    )
-  })
-  .add('Signed in', () => {
+  }
+}
+
+export const SignedIn: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -53,8 +54,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('With Chain Selector', () => {
+  }
+}
+
+export const WithChainSelector: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -77,8 +81,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('With Balance', () => {
+  }
+}
+
+export const WithBalance: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -90,8 +97,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('Width Activity pending', () => {
+  }
+}
+
+export const WidthActivityPending: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -108,8 +118,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('With Notification', () => {
+  }
+}
+
+export const WithNotification: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -158,8 +171,11 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
-  .add('With Notification pending', () => {
+  }
+}
+
+export const WithNotificationPending: Story = {
+  render: () => {
     return (
       <div className="Navbar-story-container">
         <Navbar
@@ -208,4 +224,5 @@ storiesOf('Navbar', module)
         />
       </div>
     )
-  })
+  }
+}

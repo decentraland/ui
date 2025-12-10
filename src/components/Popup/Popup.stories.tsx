@@ -1,13 +1,21 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Close } from '../Close/Close'
 import { Row } from '../Row/Row'
 
 import { Popup } from './Popup'
 import './Popup.stories.css'
 
-storiesOf('Popup', module)
-  .add('On hover', () => (
+const meta: Meta<typeof Popup> = {
+  title: 'Popup',
+  component: Popup
+}
+
+export default meta
+type Story = StoryObj<typeof Popup>
+
+export const OnHover: Story = {
+  render: () => (
     <span>
       If you want to see it&nbsp;
       <Popup
@@ -18,8 +26,11 @@ storiesOf('Popup', module)
       />
       .
     </span>
-  ))
-  .add('On click', () => (
+  )
+}
+
+export const OnClick: Story = {
+  render: () => (
     <span>
       If you want to see it&nbsp;
       <Popup
@@ -30,8 +41,11 @@ storiesOf('Popup', module)
       />
       .
     </span>
-  ))
-  .add('Positions', () => (
+  )
+}
+
+export const Positions: Story = {
+  render: () => (
     <>
       <div className="Popup-story-row">
         <Popup
@@ -88,8 +102,11 @@ storiesOf('Popup', module)
         />
       </div>
     </>
-  ))
-  .add('Closable', () => (
+  )
+}
+
+export const Closable: Story = {
+  render: () => (
     <Popup
       open
       content={
@@ -102,4 +119,5 @@ storiesOf('Popup', module)
       trigger={<b>Hello there</b>}
       on="hover"
     />
-  ))
+  )
+}

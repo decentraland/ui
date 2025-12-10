@@ -2,7 +2,7 @@ import React from 'react'
 
 import NotificationItem from '../../NotificationItem'
 import {
-  GovernanceVotingEndedVoterNotification,
+  GovernanceVotingEndedVoterNotification as GovernanceVotingEndedVoterNotificationType,
   CommonNotificationProps
 } from '../../types'
 import VotingEndedIcon from '../../../Icons/Notifications/VotingEndedIcon'
@@ -50,7 +50,7 @@ const i18N = {
 const GovernanceVotingEndedVoterNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceVotingEndedVoterNotification>) => (
+}: CommonNotificationProps<GovernanceVotingEndedVoterNotificationType>) => (
   <NotificationItem
     image={{ image: <VotingEndedIcon width="48" height="48" /> }}
     timestamp={notification.timestamp}

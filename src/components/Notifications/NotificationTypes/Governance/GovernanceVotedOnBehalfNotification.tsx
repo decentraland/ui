@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   CommonNotificationProps,
-  GovernanceVotedOnBehalfNotification
+  GovernanceVotedOnBehalfNotification as GovernanceVotedOnBehalfNotificationType
 } from '../../types'
 import NotificationItem from '../../NotificationItem'
 import VotedOnBehalf from '../../../Icons/Notifications/VotedOnBehalf'
@@ -73,7 +73,7 @@ const i18N = {
 const GovernanceVotedOnBehalfNotification = ({
   notification,
   locale
-}: CommonNotificationProps<GovernanceVotedOnBehalfNotification>) => (
+}: CommonNotificationProps<GovernanceVotedOnBehalfNotificationType>) => (
   <NotificationItem
     image={{ image: <VotedOnBehalf /> }}
     timestamp={notification.timestamp}

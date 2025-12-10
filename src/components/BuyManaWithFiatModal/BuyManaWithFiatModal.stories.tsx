@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Network } from '@dcl/schemas'
 import { BuyManaWithFiatModal } from '../BuyManaWithFiatModal/BuyManaWithFiatModal'
 import { Header } from '../Header/Header'
@@ -47,8 +47,15 @@ const lipsum = (
   </>
 )
 
-storiesOf('BuyManaWithFiatModal', module)
-  .add('BuyManaWithFiat options with default values', () => (
+const meta: Meta<typeof BuyManaWithFiatModal> = {
+  title: 'BuyManaWithFiatModal',
+  component: BuyManaWithFiatModal
+}
+
+export default meta
+type Story = StoryObj<typeof BuyManaWithFiatModal>
+export const BuyManaWithFiatOptionsWithDefaultValues: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -82,8 +89,11 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
       />
     </div>
-  ))
-  .add('BuyManaWithFiat options with custom texts', () => (
+  )
+}
+
+export const BuyManaWithFiatOptionsWithCustomTexts: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -134,10 +144,12 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
       />
     </div>
-  ))
-  .add(
-    'BuyManaWithFiat with Polygon already selected and only one gateway',
-    () => (
+  )
+}
+
+export const BuyManaWithFiatWithPolygonAlreadySelectedAndOnlyOneGateway: Story =
+  {
+    render: () => (
       <div className="BuyManaWithFiatModal-story">
         {lipsum}
         <BuyManaWithFiatModal
@@ -159,8 +171,10 @@ storiesOf('BuyManaWithFiatModal', module)
         />
       </div>
     )
-  )
-  .add('BuyManaWithFiat with Ethereum already selected', () => (
+  }
+
+export const BuyManaWithFiatWithEthereumAlreadySelected: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -186,10 +200,12 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
       />
     </div>
-  ))
-  .add(
-    'BuyManaWithFiat success modal without link to transaction explorer',
-    () => (
+  )
+}
+
+export const BuyManaWithFiatSuccessModalWithoutLinkToTransactionExplorer: Story =
+  {
+    render: () => (
       <div className="BuyManaWithFiatModal-story">
         {lipsum}
         <FeedbackModal
@@ -200,23 +216,25 @@ storiesOf('BuyManaWithFiatModal', module)
         />
       </div>
     )
+  }
+
+export const BuyManaWithFiatSuccessModalWithLinkToTransactionExplorer: Story = {
+  render: () => (
+    <div className="BuyManaWithFiatModal-story">
+      {lipsum}
+      <FeedbackModal
+        open
+        status={TransactionStatus.SUCCESS}
+        transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
+        onClose={() => undefined}
+        onInfo={() => undefined}
+      />
+    </div>
   )
-  .add(
-    'BuyManaWithFiat success modal with link to transaction explorer',
-    () => (
-      <div className="BuyManaWithFiatModal-story">
-        {lipsum}
-        <FeedbackModal
-          open
-          status={TransactionStatus.SUCCESS}
-          transactionUrl="https://goerli.etherscan.io/tx/0xb4a0b25c6e9ef69ba4f643a40bba2e1ec220a68c7404bfb705ba04d34b52acfaa"
-          onClose={() => undefined}
-          onInfo={() => undefined}
-        />
-      </div>
-    )
-  )
-  .add('BuyManaWithFiat pending tx in Moon Pay', () => (
+}
+
+export const BuyManaWithFiatPendingTxInMoonPay: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <FeedbackModal
@@ -236,8 +254,11 @@ storiesOf('BuyManaWithFiatModal', module)
         onInfo={() => undefined}
       />
     </div>
-  ))
-  .add('BuyManaWithFiat tx failed in Moon Pay', () => (
+  )
+}
+
+export const BuyManaWithFiatTxFailedInMoonPay: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <FeedbackModal
@@ -261,8 +282,11 @@ storiesOf('BuyManaWithFiatModal', module)
         onClickSecondaryCta={() => undefined}
       />
     </div>
-  ))
-  .add('BuyManaWithFiat persisent message', () => (
+  )
+}
+
+export const BuyManaWithFiatPersisentMessage: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -276,8 +300,11 @@ storiesOf('BuyManaWithFiatModal', module)
         ]}
       />
     </div>
-  ))
-  .add('BuyManaWithFiat error', () => (
+  )
+}
+
+export const BuyManaWithFiatError: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -291,8 +318,11 @@ storiesOf('BuyManaWithFiatModal', module)
         ]}
       />
     </div>
-  ))
-  .add('Loading', () => (
+  )
+}
+
+export const Loading: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -306,8 +336,11 @@ storiesOf('BuyManaWithFiatModal', module)
         ]}
       />
     </div>
-  ))
-  .add('Full example', () => (
+  )
+}
+
+export const FullExample: Story = {
+  render: () => (
     <div className="BuyManaWithFiatModal-story">
       {lipsum}
       <BuyManaWithFiatModal
@@ -323,4 +356,5 @@ storiesOf('BuyManaWithFiatModal', module)
         ]}
       />
     </div>
-  ))
+  )
+}

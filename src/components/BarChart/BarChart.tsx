@@ -187,7 +187,11 @@ export const BarChart = ({
   )
 
   const handleRangeChange = useCallback(
-    (_, [min, max]) => {
+    (
+      _: React.ChangeEvent<HTMLInputElement>,
+      data: readonly [number, number]
+    ) => {
+      const [min, max] = data
       if (
         rangeMax !== undefined &&
         rangeMin !== undefined &&
@@ -227,14 +231,21 @@ export const BarChart = ({
   }, [])
 
   const handleBarChartClick = useCallback(
-    ({ activePayload }) => {
-      const values = activePayload[0].payload.values
+    (
+      state: {
+        activePayload?: Array<{ payload?: { values?: [number, number] } }>
+      } | null
+    ) => {
+      if (!state?.activePayload?.[0]?.payload?.values) {
+        return
+      }
+      const values = state.activePayload[0].payload.values
       const isUpperBoundRange = values[0] === values[1]
 
       handleChange(
         isUpperBoundRange
           ? [values[0].toString(), '']
-          : roundRange(activePayload[0].payload.values),
+          : roundRange(state.activePayload[0].payload.values),
         null,
         'chart'
       )

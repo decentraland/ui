@@ -11,6 +11,7 @@ export type RowProps = {
   shrink?: boolean
   className?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  children?: React.ReactNode
 }
 
 export class Row extends React.PureComponent<RowProps> {

@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Form from 'semantic-ui-react/dist/commonjs/collections/Form'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon'
 import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input/Input'
@@ -7,24 +7,51 @@ import { Field } from './Field'
 
 const address = '0x68FFc53C43C65C8Dd778969320e21B85b10363cE'
 
-storiesOf('Field', module)
-  .add('Placeholder', () => <Field label="Label" placeholder="Placeholder" />)
-  .add('Value', () => <Field label="Label" value="Input Value" />)
-  .add('Message', () => (
+const meta: Meta<typeof Field> = {
+  title: 'Field',
+  component: Field
+}
+
+export default meta
+type Story = StoryObj<typeof Field>
+export const Placeholder: Story = {
+  render: () => <Field label="Label" placeholder="Placeholder" />
+}
+
+export const Value: Story = {
+  render: () => <Field label="Label" value="Input Value" />
+}
+
+export const Message: Story = {
+  render: () => (
     <Field label="Label" value="Input Value" message="Additional comment" />
-  ))
-  .add('Error', () => (
+  )
+}
+
+export const Error: Story = {
+  render: () => (
     <Field label="Label" value="Input Value" message="Some warning" error />
-  ))
-  .add('Loading', () => <Field label="Label" value="Input Value" loading />)
-  .add('Address', () => <Field label="Label" value={address} type="address" />)
-  .add('Numeric', () => (
-    <Field label="Label" placeholder="1,000" type="number" />
-  ))
-  .add('Disabled', () => (
-    <Field label="Label" value="This is disabled" disabled />
-  ))
-  .add('Date', () => (
+  )
+}
+
+export const Loading: Story = {
+  render: () => <Field label="Label" value="Input Value" loading />
+}
+
+export const Address: Story = {
+  render: () => <Field label="Label" value={address} type="address" />
+}
+
+export const Numeric: Story = {
+  render: () => <Field label="Label" placeholder="1,000" type="number" />
+}
+
+export const Disabled: Story = {
+  render: () => <Field label="Label" value="This is disabled" disabled />
+}
+
+export const Date: Story = {
+  render: () => (
     <Form>
       <Field
         label="Date input"
@@ -48,16 +75,22 @@ storiesOf('Field', module)
         value={'1996-12-19'}
       />
     </Form>
-  ))
-  .add('Action', () => (
+  )
+}
+
+export const Action: Story = {
+  render: () => (
     <Field
       label="Label"
       value="Input value"
       action="submit"
       onAction={() => alert('Action triggered!')}
     />
-  ))
-  .add('with Icon', () => (
+  )
+}
+
+export const WithIcon: Story = {
+  render: () => (
     <Field
       label="Label"
       value="Input value"
@@ -66,8 +99,11 @@ storiesOf('Field', module)
       iconPosition="left"
       onAction={() => alert('Action triggered!')}
     />
-  ))
-  .add('Inside a Form', () => (
+  )
+}
+
+export const InsideAForm: Story = {
+  render: () => (
     <Form>
       <Field label="Label" placeholder="Placeholder" />
       <Field label="Label" value="Input Value" />
@@ -90,8 +126,11 @@ storiesOf('Field', module)
         onAction={() => alert('Action triggered!')}
       />
     </Form>
-  ))
-  .add('With borders', () => (
+  )
+}
+
+export const WithBorders: Story = {
+  render: () => (
     <Form>
       <Field label="Label" placeholder="Placeholder" kind="full" />
       <Field label="Label" value="Input Value" kind="full" />
@@ -121,17 +160,26 @@ storiesOf('Field', module)
         kind="full"
       />
     </Form>
-  ))
-  .add('With max length and label', () => (
+  )
+}
+
+export const WithMaxLengthAndLabel: Story = {
+  render: () => (
     <>
       <Field maxLength={20} value="A value" />
       <Field label="A label" maxLength={20} value="A value" />
     </>
-  ))
-  .add('With a react element as a message', () => (
+  )
+}
+
+export const WithAReactElementAsAMessage: Story = {
+  render: () => (
     <Field label="A label" value="A value" message={<label>A message</label>} />
-  ))
-  .add('With warning, info and error messages', () => (
+  )
+}
+
+export const WithWarningInfoAndErrorMessages: Story = {
+  render: () => (
     <>
       <Field
         label="A label"
@@ -155,4 +203,5 @@ storiesOf('Field', module)
         info={'This input can have at maximum 20 characters'}
       />
     </>
-  ))
+  )
+}

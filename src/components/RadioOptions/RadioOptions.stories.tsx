@@ -1,23 +1,42 @@
-import React, { useState } from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import { RadioOptions } from './RadioOptions'
 import './RadioOptions.stories.css'
 
-storiesOf('RadioOptions', module).add('Select options', () => {
-  const options = [
-    { name: 'First option', info: 'This is the first option', value: 'first' },
-    {
-      name: 'Second option',
-      info: 'This is the second option',
-      value: 'second'
-    },
-    { name: 'Third option', value: 'third' }
-  ]
-  const [value, onValueChange] = useState(undefined)
+const meta: Meta<typeof RadioOptions> = {
+  title: 'RadioOptions',
+  component: RadioOptions
+}
 
-  return (
-    <div className="radio-options-story">
-      <RadioOptions value={value} options={options} onChange={onValueChange} />
-    </div>
-  )
-})
+export default meta
+type Story = StoryObj<typeof RadioOptions>
+
+export const SelectOptions: Story = {
+  render: () => {
+    const options = [
+      {
+        name: 'First option',
+        info: 'This is the first option',
+        value: 'first'
+      },
+      {
+        name: 'Second option',
+        info: 'This is the second option',
+        value: 'second'
+      },
+      { name: 'Third option', value: 'third' }
+    ]
+    const [value, onValueChange] = useState(undefined)
+
+    return (
+      <div className="radio-options-story">
+        <RadioOptions
+          value={value}
+          options={options}
+          onChange={onValueChange}
+        />
+      </div>
+    )
+  }
+}

@@ -1,15 +1,23 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Icon from '../../assets/alert.svg'
 
 import { Toast, ToastType } from './Toast'
 import './Toast.stories.css'
 
-storiesOf('Toast', module)
-  .add('Simple toast example', () => (
-    <Toast title="Toast title" body="Toast body" />
-  ))
-  .add('JSX props', () => (
+const meta: Meta<typeof Toast> = {
+  title: 'Toast',
+  component: Toast
+}
+
+export default meta
+type Story = StoryObj<typeof Toast>
+export const SimpleToastExample: Story = {
+  render: () => <Toast title="Toast title" body="Toast body" />
+}
+
+export const JSXProps: Story = {
+  render: () => (
     <Toast
       title={<h1>Title</h1>}
       body={
@@ -18,11 +26,15 @@ storiesOf('Toast', module)
         </p>
       }
     />
-  ))
-  .add('Closable', () => (
-    <Toast title="Toast title" body="Toast body" closable />
-  ))
-  .add('Timeout', () => (
+  )
+}
+
+export const Closable: Story = {
+  render: () => <Toast title="Toast title" body="Toast body" closable />
+}
+
+export const Timeout: Story = {
+  render: () => (
     <Toast
       title="Timeout"
       body="I will call onClose after 1 second"
@@ -30,29 +42,41 @@ storiesOf('Toast', module)
       timeout={1000}
       onClose={() => console.log('I should be closing now')}
     />
-  ))
-  .add('Info toast', () => (
-    <Toast type={ToastType.INFO} title="Info Toast" body="INFO" />
-  ))
-  .add('Warn toast', () => (
-    <Toast type={ToastType.WARN} title="Warn toast" body="WARN" />
-  ))
-  .add('Error toast', () => (
+  )
+}
+
+export const InfoToast: Story = {
+  render: () => <Toast type={ToastType.INFO} title="Info Toast" body="INFO" />
+}
+
+export const WarnToast: Story = {
+  render: () => <Toast type={ToastType.WARN} title="Warn toast" body="WARN" />
+}
+
+export const ErrorToast: Story = {
+  render: () => (
     <Toast type={ToastType.ERROR} title="Error toast" body="ERROR" />
-  ))
-  .add('Toast with icon', () => (
+  )
+}
+
+export const ToastWithIcon: Story = {
+  render: () => (
     <Toast
       type={ToastType.INFO}
       title="Toast with icon"
       body="This toast has an icon"
       icon={<img src={Icon} />}
     />
-  ))
-  .add('Toast with extra classes', () => (
+  )
+}
+
+export const ToastWithExtraClasses: Story = {
+  render: () => (
     <Toast
       type={ToastType.INFO}
       title="Toast with fixed height and width"
       body="This toast has a fixed height and width"
       className="height-200 width-300"
     />
-  ))
+  )
+}

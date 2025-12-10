@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { NotificationType } from '@dcl/schemas'
 import { Network } from '@dcl/schemas/dist/dapps/network'
 import { Rarity } from '@dcl/schemas/dist/dapps/rarity'
@@ -12,8 +12,15 @@ import { avatar } from '../../../data/avatar'
 import '../UserMenu.stories.css'
 import { i18n } from '../UserMenu.i18n'
 
-storiesOf('UserMenuSignedIn', module)
-  .add('Guest', () => (
+const meta: Meta<typeof UserMenuSignedIn> = {
+  title: 'UserMenuSignedIn',
+  component: UserMenuSignedIn
+}
+
+export default meta
+type Story = StoryObj<typeof UserMenuSignedIn>
+export const Guest: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         avatar={{ ...avatar, hasClaimedName: false }}
@@ -29,8 +36,11 @@ storiesOf('UserMenuSignedIn', module)
         i18n={i18n}
       />
     </div>
-  ))
-  .add('Without profile', () => (
+  )
+}
+
+export const WithoutProfile: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         trackingId=""
@@ -46,8 +56,11 @@ storiesOf('UserMenuSignedIn', module)
         i18n={i18n}
       />
     </div>
-  ))
-  .add('Signed in', () => (
+  )
+}
+
+export const SignedIn: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         avatar={avatar}
@@ -64,8 +77,11 @@ storiesOf('UserMenuSignedIn', module)
         i18n={i18n}
       />
     </div>
-  ))
-  .add('Complete', () => (
+  )
+}
+
+export const Complete: Story = {
+  render: () => (
     <div className="usermenu-story-container">
       <UserMenuSignedIn
         avatar={avatar}
@@ -115,4 +131,5 @@ storiesOf('UserMenuSignedIn', module)
         i18n={i18n}
       />
     </div>
-  ))
+  )
+}
