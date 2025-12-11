@@ -91,7 +91,9 @@ export type WearablePreviewProps = {
   dev?: boolean
   baseUrl?: string
   peerUrl?: string
+  /** @deprecated Use marketplaceServerUrl instead. This prop will be removed in a future version. */
   nftServerUrl?: string
+  marketplaceServerUrl?: string
   type?: PreviewType
   unityMode?: PreviewUnityMode
   unity?: boolean
@@ -177,6 +179,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       baseUrl,
       peerUrl,
       nftServerUrl,
+      marketplaceServerUrl,
       type,
       unity,
       unityMode
@@ -244,7 +247,11 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
       showThumbnailBoundaries
     )
     const peerUrlParam = safeEncodeParam('peerUrl', peerUrl)
-    const nftServerUrlParam = safeEncodeParam('nftServerUrl', nftServerUrl)
+    const serverUrl = marketplaceServerUrl ?? nftServerUrl
+    const marketplaceServerUrlParam = safeEncodeParam(
+      'marketplaceServerUrl',
+      serverUrl
+    )
     const typeParam = safeEncodeParam('type', type)
     const panningParam = safeEncodeParam('panning', panning)
     const lockAlphaParam = safeEncodeParam('lockAlpha', lockAlpha)
@@ -292,7 +299,7 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
         showSceneBoundariesParam,
         showThumbnailBoundariesParam,
         peerUrlParam,
-        nftServerUrlParam,
+        marketplaceServerUrlParam,
         typeParam,
         panningParam,
         lockAlphaParam,
