@@ -248,7 +248,10 @@ export class WearablePreview extends React.PureComponent<WearablePreviewProps> {
     )
     const peerUrlParam = safeEncodeParam('peerUrl', peerUrl)
     const serverUrl = marketplaceServerUrl ?? nftServerUrl
-    const marketplaceServerUrlParam = safeEncodeParam('marketplaceServerUrl', serverUrl)
+    const marketplaceServerUrlParam = safeEncodeParam(
+      'marketplaceServerUrl',
+      serverUrl
+    )
     const typeParam = safeEncodeParam('type', type)
     const panningParam = safeEncodeParam('panning', panning)
     const lockAlphaParam = safeEncodeParam('lockAlpha', lockAlpha)
