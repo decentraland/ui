@@ -21,7 +21,7 @@ export class AvatarFace extends React.PureComponent<AvatarFaceProps> {
     const { avatar, size, inline, className } = this.props
     const classes = ['dcl', 'avatar-face', size, className]
     let face
-    if (avatar) {
+    if (avatar?.avatar?.snapshots?.face256) {
       face = <img src={avatar.avatar.snapshots.face256} alt="" />
     } else {
       face = <div className="guest-face" />
