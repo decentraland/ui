@@ -17,6 +17,7 @@ let onChangeMock: jest.Mock
 
 describe('when user inputs an address', () => {
   beforeEach(async () => {
+    const user = userEvent.setup({ delay: null })
     resolveNameMock = jest.fn()
     onChangeMock = jest.fn()
     screen = renderAddressField({
@@ -25,7 +26,7 @@ describe('when user inputs an address', () => {
       onChange: onChangeMock
     })
     const addressInput = screen.getByPlaceholderText('test address')
-    userEvent.type(addressInput, address)
+    await user.type(addressInput, address)
     await waitFor(() =>
       expect(screen.getByTestId('check-icon')).toBeInTheDocument()
     )
@@ -54,6 +55,7 @@ describe('when user inputs an address', () => {
 describe('when user inputs a name', () => {
   describe('and the name resolves correctly to an address', () => {
     beforeEach(async () => {
+      const user = userEvent.setup({ delay: null })
       resolveNameMock = jest.fn().mockResolvedValue(address)
       onChangeMock = jest.fn()
       screen = renderAddressField({
@@ -62,9 +64,10 @@ describe('when user inputs a name', () => {
         onChange: onChangeMock
       })
       const addressInput = screen.getByPlaceholderText('test address')
-      userEvent.type(addressInput, name)
-      await waitFor(() =>
-        expect(screen.getByTestId('check-icon')).toBeInTheDocument()
+      await user.type(addressInput, name)
+      await waitFor(
+        () => expect(screen.getByTestId('check-icon')).toBeInTheDocument(),
+        { timeout: 3000 }
       )
     })
 
@@ -90,6 +93,7 @@ describe('when user inputs a name', () => {
 
   describe("and the name doesn't resolve to an address", () => {
     beforeEach(async () => {
+      const user = userEvent.setup({ delay: null })
       resolveNameMock = jest.fn().mockResolvedValue(undefined)
       onChangeMock = jest.fn()
       screen = renderAddressField({
@@ -98,7 +102,7 @@ describe('when user inputs a name', () => {
         onChange: onChangeMock
       })
       const addressInput = screen.getByPlaceholderText('test address')
-      userEvent.type(addressInput, name)
+      await user.type(addressInput, name)
     })
 
     it('should keep the name as the input value', () => {
@@ -129,6 +133,7 @@ describe('when user inputs a name', () => {
 
 describe('when there is an error resolving the name', () => {
   beforeEach(async () => {
+    const user = userEvent.setup({ delay: null })
     resolveNameMock = jest.fn().mockRejectedValue(new Error('Some ERROR'))
     onChangeMock = jest.fn()
     screen = renderAddressField({
@@ -137,7 +142,7 @@ describe('when there is an error resolving the name', () => {
       onChange: onChangeMock
     })
     const addressInput = screen.getByPlaceholderText('test address')
-    userEvent.type(addressInput, name)
+    await user.type(addressInput, name)
   })
 
   it('should show an error', async () => {
