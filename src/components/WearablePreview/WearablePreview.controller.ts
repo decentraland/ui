@@ -8,6 +8,7 @@ import {
   PreviewMessageType,
   sendMessage
 } from '@dcl/schemas/dist/dapps/preview'
+import { SocialEmoteAnimation } from '@dcl/schemas/dist/dapps/preview/social-emote-animation'
 import { Metrics } from '@dcl/schemas/dist/platform/item/metrics'
 
 const promises = new Map<string, IFuture<any>>()
@@ -66,7 +67,10 @@ function createSendRequest(id: string) {
       | 'enableSound'
       | 'disableSound'
       | 'hasSound'
-      | 'setUsername',
+      | 'setUsername'
+      | 'isSocialEmote'
+      | 'getSocialEmoteAnimations'
+      | 'getPlayingSocialEmoteAnimation',
     params: any[]
   ) {
     const iframe = document.getElementById(id) as HTMLIFrameElement
@@ -75,7 +79,12 @@ function createSendRequest(id: string) {
     promises.set(messageId, promise)
     const type = PreviewMessageType.CONTROLLER_REQUEST
     const message = { id: messageId, namespace, method, params }
-    sendMessage(iframe.contentWindow, type, message)
+    // Cast needed: @dcl/schemas PreviewMessagePayload doesn't include new emote methods yet
+    sendMessage(
+      iframe.contentWindow,
+      type,
+      message as PreviewMessagePayload<typeof type>
+    )
     nonce++
     return promise
   }
@@ -144,6 +153,24 @@ export function createController(id: string): IPreviewController {
       hasSound() {
         return sendRequest<boolean>('emote', 'hasSound', [])
       },
+      isSocialEmote() {
+        return sendRequest<boolean>('emote', 'isSocialEmote', [])
+      },
+      getSocialEmoteAnimations() {
+        return sendRequest<SocialEmoteAnimation[] | null>(
+          'emote',
+          'getSocialEmoteAnimations',
+          []
+        )
+      },
+      getPlayingSocialEmoteAnimation() {
+        return sendRequest<SocialEmoteAnimation | null>(
+          'emote',
+          'getPlayingSocialEmoteAnimation',
+          []
+        )
+      },
+      emote: null,
       events
     }
   }
