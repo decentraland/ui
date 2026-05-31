@@ -15,7 +15,7 @@ jobs:
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 22.x
+          node-version: 24
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -51,7 +51,7 @@ jobs:
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 22.x
+          node-version: 24
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -100,7 +100,7 @@ jobs:
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 22.x
+          node-version: 24
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
