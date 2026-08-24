@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/decentraland/ui.git"
+    "url": "git+https://github.com/decentraland/ui.git"
   },
   "keywords": [
     "decentraland",
@@ -78,7 +78,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "rimraf": "^5.0.5",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^25.0.5",
     "storybook": "^7.6.20",
     "style-loader": "^3.3.3",
     "ts-jest": "^28.0.8",
