@@ -25,7 +25,7 @@ export default function AddressField(props: Props) {
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const requestId = useRef(0)
-  const pending = useRef(false)
+  const inFlight = useRef(false)
   const resolveNameRef = useRef(resolveName)
   const lastChange = useRef<{
     event: React.ChangeEvent<HTMLInputElement>
@@ -39,71 +39,76 @@ export default function AddressField(props: Props) {
     onChangeRef.current = onChange
   }, [onChange])
 
-  const handleChange = useCallback((evt, data: InputOnChangeData) => {
-    lastChange.current = { event: evt, data }
-    pending.current = true
+  const resolveInput = useCallback(async (evt, data: InputOnChangeData) => {
     const currentRequest = ++requestId.current
-    setLoading(false)
-    setInputValue(data.value)
-    setValid(undefined)
-    setAddress('')
-    if (timeout.current) {
-      clearTimeout(timeout.current)
+    inFlight.current = true
+    let address = data.value
+    let error = undefined
+
+    if (isValid(data.value)) {
+      setValid(true)
+    } else {
+      // If address is not valid try to resolve it as a name
+      setLoading(true)
+      try {
+        const resolvedAddress = await resolveNameRef.current(data.value)
+        if (currentRequest !== requestId.current) return
+        if (resolvedAddress) {
+          setValid(true)
+          setAddress(resolvedAddress)
+          address = resolvedAddress
+        } else {
+          setValid(false)
+          error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
+        }
+      } catch (e) {
+        if (currentRequest !== requestId.current) return
+        error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
+        setValid(false)
+      }
+      setLoading(false)
     }
 
-    timeout.current = setTimeout(async () => {
-      let address = data.value
-      let error = undefined
+    // Clear pending before notifying the parent: onChange may synchronously render
+    // a new inline resolver, but a completed request must never restart itself.
+    inFlight.current = false
+    evt.target.focus()
 
-      if (isValid(data.value)) {
-        setValid(true)
-      } else {
-        // If address is not valid try to resolve it as a name
-        setLoading(true)
-        try {
-          const resolvedAddress = await resolveNameRef.current(data.value)
-          if (currentRequest !== requestId.current) return
-          if (resolvedAddress) {
-            setValid(true)
-            setAddress(resolvedAddress)
-            address = resolvedAddress
-          } else {
-            setValid(false)
-            error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
-          }
-        } catch (e) {
-          if (currentRequest !== requestId.current) return
-          error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
-          setValid(false)
-        }
-        setLoading(false)
-      }
-
-      // Clear pending before notifying the parent: onChange may synchronously render
-      // a new inline resolver, but a completed request must never restart itself.
-      pending.current = false
-      evt.target.focus()
-
-      if (onChangeRef.current) {
-        onChangeRef.current(evt, { ...data, value: address, error })
-      }
-    }, 800)
+    if (onChangeRef.current) {
+      onChangeRef.current(evt, { ...data, value: address, error })
+    }
   }, [])
+
+  const handleChange = useCallback(
+    (evt, data: InputOnChangeData) => {
+      lastChange.current = { event: evt, data }
+      requestId.current++
+      inFlight.current = false
+      setLoading(false)
+      setInputValue(data.value)
+      setValid(undefined)
+      setAddress('')
+      clearTimeout(timeout.current)
+      timeout.current = setTimeout(() => resolveInput(evt, data), 800)
+    },
+    [resolveInput]
+  )
 
   useEffect(() => {
     if (resolveNameRef.current === resolveName) return
     resolveNameRef.current = resolveName
-    // Only replace outstanding work. A completed input must not replay on parent renders.
-    if (pending.current && lastChange.current) {
-      handleChange(lastChange.current.event, lastChange.current.data)
+    // The debounce reads the latest resolver without moving its deadline.
+    // Replace an active lookup immediately and invalidate its obsolete result.
+    if (inFlight.current && lastChange.current) {
+      void resolveInput(lastChange.current.event, lastChange.current.data)
     }
-  }, [handleChange, resolveName])
+  }, [resolveInput, resolveName])
 
   useEffect(() => {
     return () => {
       clearTimeout(timeout.current)
       requestId.current++
-      pending.current = false
+      inFlight.current = false
     }
   }, [])
 

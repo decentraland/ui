@@ -305,9 +305,6 @@ describe('when the resolver changes during a lookup', () => {
     screen.rerender(
       <AddressField resolveName={latestResolver} onChange={onChangeMock} />
     )
-    await act(async () => {
-      jest.advanceTimersByTime(800)
-    })
   })
 
   afterEach(() => {
@@ -315,7 +312,7 @@ describe('when the resolver changes during a lookup', () => {
     jest.resetAllMocks()
   })
 
-  it('should restart resolution of the current input', () => {
+  it('should immediately restart resolution of the current input', () => {
     expect(latestResolver).toHaveBeenCalledWith('alice.eth')
   })
 
@@ -521,6 +518,58 @@ describe.each([
     it('should leave the field enabled and preserve focus on the next field', () => {
       expect(screen.getByRole('textbox')).not.toBeDisabled()
       expect(nextField).toHaveFocus()
+    })
+  }
+)
+
+describe.each(['alice.eth', '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22'])(
+  'when a polling parent replaces the inline resolver every 500ms for %s',
+  (inputValue) => {
+    let user: ReturnType<typeof userEvent.setup>
+    let latestResolver: jest.Mock
+
+    beforeEach(async () => {
+      jest.useFakeTimers()
+      user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+      resolveNameMock = jest.fn().mockResolvedValue(address)
+      latestResolver = jest.fn().mockResolvedValue(address)
+      onChangeMock = jest.fn()
+      function PollingParent() {
+        const [tick, setTick] = React.useState(0)
+        React.useEffect(() => {
+          const interval = setInterval(() => setTick((value) => value + 1), 500)
+          return () => clearInterval(interval)
+        }, [])
+        return (
+          <AddressField
+            resolveName={(name) =>
+              (tick === 0 ? resolveNameMock : latestResolver)(name)
+            }
+            onChange={onChangeMock}
+          />
+        )
+      }
+      screen = render(<PollingParent />)
+      await user.type(screen.getByRole('textbox'), inputValue)
+      for (let cycle = 0; cycle < 100; cycle++) {
+        await act(async () => {
+          jest.advanceTimersByTime(100)
+        })
+      }
+    })
+
+    afterEach(() => {
+      jest.useRealTimers()
+      jest.resetAllMocks()
+    })
+
+    it('should complete once using the latest resolver without waiting for polling to stop', () => {
+      expect(onChangeMock).toHaveBeenCalledTimes(1)
+      expect(resolveNameMock).not.toHaveBeenCalled()
+      expect(latestResolver).toHaveBeenCalledTimes(
+        inputValue === 'alice.eth' ? 1 : 0
+      )
+      expect(screen.getByRole('textbox')).not.toBeDisabled()
     })
   }
 )
