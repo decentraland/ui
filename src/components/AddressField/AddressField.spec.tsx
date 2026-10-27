@@ -1,5 +1,11 @@
 import React from 'react'
-import { RenderResult, render, waitFor } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  RenderResult,
+  render,
+  waitFor
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { AddressFieldErrors, Props } from './AddressField.types'
 import AddressField from './AddressField'
@@ -163,5 +169,101 @@ describe('when there is an error resolving the name', () => {
         })
       )
     })
+  })
+})
+
+describe('when an input event supersedes a pending lookup', () => {
+  let finishFirst: (value: string) => void
+  let firstLookup: Promise<string>
+  let user: ReturnType<typeof userEvent.setup>
+  let input: HTMLElement
+  let latestAddress: string
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    latestAddress = '0x000000000000000000000000000000000000000b'
+    firstLookup = new Promise((resolve) => {
+      finishFirst = resolve
+    })
+    resolveNameMock = jest
+      .fn()
+      .mockReturnValueOnce(firstLookup)
+      .mockResolvedValueOnce(latestAddress)
+    onChangeMock = jest.fn()
+    screen = renderAddressField({
+      resolveName: resolveNameMock,
+      onChange: onChangeMock,
+      'aria-label': 'Recipient'
+    })
+    input = screen.getByRole('textbox')
+    await user.type(input, 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    // The input is disabled while loading, but stale/programmatic events must also be safe.
+    fireEvent.change(input, { target: { value: 'bob.eth' } })
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    await act(async () => {
+      finishFirst('0x000000000000000000000000000000000000000a')
+      await firstLookup
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should display the latest name', () => {
+    expect(input).toHaveValue('bob.eth')
+  })
+
+  it('should only emit the address from the latest lookup', () => {
+    expect(onChangeMock).toHaveBeenCalledTimes(1)
+    expect(onChangeMock).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({ value: latestAddress })
+    )
+  })
+})
+
+describe('when the field unmounts during resolution', () => {
+  let finish: (value: string) => void
+  let lookup: Promise<string>
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    lookup = new Promise((resolve) => {
+      finish = resolve
+    })
+    resolveNameMock = jest.fn().mockReturnValueOnce(lookup)
+    onChangeMock = jest.fn()
+    screen = renderAddressField({
+      resolveName: resolveNameMock,
+      onChange: onChangeMock
+    })
+    await user.type(screen.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    screen.unmount()
+    await act(async () => {
+      finish(address)
+      await lookup
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should not emit a recipient after unmounting', () => {
+    expect(onChangeMock).not.toHaveBeenCalled()
   })
 })

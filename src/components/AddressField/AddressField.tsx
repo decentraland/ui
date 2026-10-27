@@ -24,17 +24,21 @@ export default function AddressField(props: Props) {
   const [inputValue, setInputValue] = useState(props.value || '')
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
+  const requestId = useRef(0)
   const [valid, setValid] = useState<boolean>()
   const [loading, setLoading] = useState<boolean>()
 
   useEffect(() => {
     return () => {
       clearTimeout(timeout.current)
+      requestId.current++
     }
   }, [])
 
   const handleChange = useCallback(
     (evt, data: InputOnChangeData) => {
+      const currentRequest = ++requestId.current
+      setLoading(false)
       setInputValue(data.value)
       setValid(undefined)
       setAddress('')
@@ -53,6 +57,7 @@ export default function AddressField(props: Props) {
           setLoading(true)
           try {
             const resolvedAddress = await resolveName(data.value)
+            if (currentRequest !== requestId.current) return
             if (resolvedAddress) {
               setValid(true)
               setAddress(resolvedAddress)
@@ -62,6 +67,7 @@ export default function AddressField(props: Props) {
               error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
             }
           } catch (e) {
+            if (currentRequest !== requestId.current) return
             error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
             setValid(false)
           }
@@ -75,7 +81,7 @@ export default function AddressField(props: Props) {
         }
       }, 800)
     },
-    [onChange]
+    [onChange, resolveName]
   )
 
   const additionalProps = valid
