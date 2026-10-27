@@ -1005,3 +1005,89 @@ describe('when a recipient is prefilled before the first edit', () => {
     expect(resolveNameMock).not.toHaveBeenCalled()
   })
 })
+
+describe.each(['disabled', 'loading'] as const)(
+  'when the parent suppresses focus through %s during resolution',
+  (externalProp) => {
+    describe.each([
+      { outcome: 'success', releaseEarly: false },
+      { outcome: 'rejection', releaseEarly: false },
+      { outcome: 'success', releaseEarly: true },
+      { outcome: 'rejection', releaseEarly: true }
+    ] as const)(
+      'and the lookup ends with $outcome (external state removed before completion: $releaseEarly)',
+      ({ outcome, releaseEarly }) => {
+        let user: ReturnType<typeof userEvent.setup>
+        let lookup: Deferred<string>
+        let input: HTMLElement
+        let focus: jest.SpyInstance
+
+        beforeEach(async () => {
+          jest.useFakeTimers()
+          user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+          lookup = deferred<string>()
+          resolveNameMock = jest.fn().mockReturnValueOnce(lookup.promise)
+          onChangeMock = jest.fn()
+          screen = renderAddressField({
+            resolveName: resolveNameMock,
+            onChange: onChangeMock
+          })
+          input = screen.getByRole('textbox')
+          await user.type(input, 'alice.eth')
+          await act(async () => {
+            jest.advanceTimersByTime(800)
+          })
+          // Model the browser moving focus to the body when the input is disabled.
+          input.blur()
+          focus = jest.spyOn(input, 'focus')
+          screen.rerender(
+            <AddressField
+              resolveName={resolveNameMock}
+              onChange={onChangeMock}
+              {...{ [externalProp]: true }}
+            />
+          )
+          if (releaseEarly) {
+            screen.rerender(
+              <AddressField
+                resolveName={resolveNameMock}
+                onChange={onChangeMock}
+                {...{ [externalProp]: false }}
+              />
+            )
+          }
+          await act(async () => {
+            if (outcome === 'success') lookup.resolve(address)
+            else lookup.reject(new Error('Resolver unavailable'))
+            await lookup.promise.catch(() => undefined)
+          })
+        })
+
+        afterEach(() => {
+          jest.useRealTimers()
+          jest.restoreAllMocks()
+          jest.resetAllMocks()
+        })
+
+        describe('and the parent has removed its external state', () => {
+          beforeEach(() => {
+            if (releaseEarly) return
+            screen.rerender(
+              <AddressField
+                resolveName={resolveNameMock}
+                onChange={onChangeMock}
+                {...{ [externalProp]: false }}
+              />
+            )
+          })
+
+          it('should leave focus unchanged instead of restoring an obsolete focus request', () => {
+            expect(focus).not.toHaveBeenCalled()
+            expect(input).not.toHaveFocus()
+            expect(input).not.toBeDisabled()
+          })
+        })
+      }
+    )
+  }
+)

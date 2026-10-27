@@ -195,8 +195,14 @@ export default function AddressField<
   // Restore focus only after React has committed the enabled input. Do not steal
   // focus if the user moved to another control while resolution was pending.
   useResolverEffect(() => {
+    if (props.disabled || props.loading) {
+      // Parent-controlled suppression cancels this intent, even if lookup is pending.
+      // Re-enabling the field later must not replay an old request for focus.
+      focusAfterResolution.current = undefined
+      return
+    }
     const intent = focusAfterResolution.current
-    if (!intent?.ready || loading || props.disabled || props.loading) return
+    if (!intent?.ready || loading) return
     focusAfterResolution.current = undefined
     if (
       intent.request === requestId.current &&

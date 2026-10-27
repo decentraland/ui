@@ -29,6 +29,10 @@ export type AddressFieldChangeHandler<
 export type Props<
   D extends InputOnChangeData | AddressFieldChangeData = InputOnChangeData
 > = Without<FieldProps, 'onChange'> & {
+  /** Accept empty values to clear stored recipients on edits and resolver changes.
+   * Clearing emits an empty value without an error; submission requires a nonempty
+   * value with no error and pending !== true. Use AddressFieldChangeData for the runtime payload.
+   */
   onChange?: AddressFieldChangeHandler<D>
   fieldClassName?: string
   i18n?: { errorMessage: string }
