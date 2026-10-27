@@ -33,6 +33,33 @@ export class MyApp extends React.Component {
 }
 ```
 
+### AddressField recipient changes
+
+`AddressField` invalidates a previously resolved or prefilled recipient immediately
+when the user edits it. Changing `resolverKey` also invalidates a previously resolved
+name; raw addresses are unaffected by key changes. Its `onChange` callback receives
+`{ value: '', pending: true, error: undefined }`, followed by the resolution result
+with `pending: false`. Change `resolverKey` when the chain or resolver configuration
+changes; a new inline `resolveName` callback alone does not trigger a refresh.
+
+Clearing the field now emits `{ value: '', pending: false, error: undefined }`
+immediately. Previously it reported `INVALID_ADDRESS_OR_NAME` after the debounce.
+An absent error alone does **not** mean that a recipient is ready. Always clear
+stored recipients on empty values, including pending notifications; do not guard
+updates with `if (data.value)`, which would retain the previous recipient.
+
+Use `AddressFieldChangeData` for the actual callback payload (the legacy default
+callback type retains its boolean `error` annotation for source compatibility):
+
+```tsx
+import { AddressFieldChangeHandler } from 'decentraland-ui'
+
+const handleRecipientChange: AddressFieldChangeHandler = (_event, data) => {
+  setRecipient(data.pending || data.error || !data.value ? '' : data.value)
+}
+// Disable submission while recipient is empty.
+```
+
 ### Without React
 
 You can also use `decentraland-ui` as a CSS framework just by adding this tag in your `<head>`:
@@ -118,7 +145,6 @@ Or you can create your own theme like this:
   --modal: #ffffff;
   --dimmer: #ffffffdd;
   --clear-divider: #a09ba8;
-
 
   /* shadows */
   --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);

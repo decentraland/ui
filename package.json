@@ -7,6 +7,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
+    "test:types": "tsc -p tsconfig.types.json",
     "start": "./node_modules/.bin/storybook dev -p 6006",
     "build": "npm run build:lib && npm run build:dist ",
     "build:lib": "rimraf lib && ./node_modules/.bin/webpack --config webpack.config.js",
