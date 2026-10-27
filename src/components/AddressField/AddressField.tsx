@@ -26,6 +26,7 @@ export default function AddressField(props: Props) {
   const timeout = useRef<NodeJS.Timeout>()
   const requestId = useRef(0)
   const inFlight = useRef(false)
+  const restarted = useRef(false)
   const resolveNameRef = useRef(resolveName)
   const lastChange = useRef<{
     event: React.ChangeEvent<HTMLInputElement>
@@ -39,49 +40,56 @@ export default function AddressField(props: Props) {
     onChangeRef.current = onChange
   }, [onChange])
 
-  const resolveInput = useCallback(async (evt, data: InputOnChangeData) => {
-    const currentRequest = ++requestId.current
-    inFlight.current = true
-    let address = data.value
-    let error = undefined
+  const resolveInput = useCallback(
+    async (
+      evt: React.ChangeEvent<HTMLInputElement>,
+      data: InputOnChangeData
+    ) => {
+      const currentRequest = ++requestId.current
+      inFlight.current = true
+      let address = data.value
+      let error = undefined
 
-    if (isValid(data.value)) {
-      setValid(true)
-    } else {
-      // If address is not valid try to resolve it as a name
-      setLoading(true)
-      try {
-        const resolvedAddress = await resolveNameRef.current(data.value)
-        if (currentRequest !== requestId.current) return
-        if (resolvedAddress) {
-          setValid(true)
-          setAddress(resolvedAddress)
-          address = resolvedAddress
-        } else {
+      if (isValid(data.value)) {
+        setValid(true)
+      } else {
+        // If address is not valid try to resolve it as a name
+        setLoading(true)
+        try {
+          const resolvedAddress = await resolveNameRef.current(data.value)
+          if (currentRequest !== requestId.current) return
+          if (resolvedAddress) {
+            setValid(true)
+            setAddress(resolvedAddress)
+            address = resolvedAddress
+          } else {
+            setValid(false)
+            error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
+          }
+        } catch (e) {
+          if (currentRequest !== requestId.current) return
+          error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
           setValid(false)
-          error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
         }
-      } catch (e) {
-        if (currentRequest !== requestId.current) return
-        error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
-        setValid(false)
+        setLoading(false)
       }
-      setLoading(false)
-    }
 
-    // Clear pending before notifying the parent: onChange may synchronously render
-    // a new inline resolver, but a completed request must never restart itself.
-    inFlight.current = false
-    evt.target.focus()
+      // Clear inFlight before notifying the parent: onChange may synchronously render
+      // a new inline resolver, but a completed request must never restart itself.
+      inFlight.current = false
+      evt.target.focus()
 
-    if (onChangeRef.current) {
-      onChangeRef.current(evt, { ...data, value: address, error })
-    }
-  }, [])
+      if (onChangeRef.current) {
+        onChangeRef.current(evt, { ...data, value: address, error })
+      }
+    },
+    []
+  )
 
   const handleChange = useCallback(
-    (evt, data: InputOnChangeData) => {
+    (evt: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
       lastChange.current = { event: evt, data }
+      restarted.current = false
       requestId.current++
       inFlight.current = false
       setLoading(false)
@@ -100,7 +108,22 @@ export default function AddressField(props: Props) {
     // The debounce reads the latest resolver without moving its deadline.
     // Replace an active lookup immediately and invalidate its obsolete result.
     if (inFlight.current && lastChange.current) {
-      void resolveInput(lastChange.current.event, lastChange.current.data)
+      if (!restarted.current) {
+        restarted.current = true
+        void resolveInput(lastChange.current.event, lastChange.current.data)
+      } else {
+        // Repeated identities may be inline callbacks or real resolver changes.
+        // Stop safely rather than sending unbounded requests or accepting stale data.
+        requestId.current++
+        inFlight.current = false
+        setLoading(false)
+        setValid(false)
+        setAddress('')
+        onChangeRef.current?.(lastChange.current.event, {
+          ...lastChange.current.data,
+          error: new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
+        })
+      }
     }
   }, [resolveInput, resolveName])
 

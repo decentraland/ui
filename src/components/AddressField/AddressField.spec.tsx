@@ -573,3 +573,88 @@ describe.each(['alice.eth', '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22'])(
     })
   }
 )
+
+describe.each(['success', 'rejection'])(
+  'when a polling parent changes resolvers faster than a slow %s',
+  (outcome) => {
+    let user: ReturnType<typeof userEvent.setup>
+
+    beforeEach(async () => {
+      jest.useFakeTimers()
+      user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+      resolveNameMock = jest.fn().mockImplementation(
+        () =>
+          new Promise((resolve, reject) => {
+            setTimeout(
+              () =>
+                outcome === 'success'
+                  ? resolve(address)
+                  : reject(new Error('Obsolete failure')),
+              1000
+            )
+          })
+      )
+      onChangeMock = jest.fn()
+      function PollingParent() {
+        const [, setTick] = React.useState(0)
+        React.useEffect(() => {
+          const interval = setInterval(() => setTick((tick) => tick + 1), 500)
+          return () => clearInterval(interval)
+        }, [])
+        return (
+          <AddressField
+            resolveName={(name) => resolveNameMock(name)}
+            onChange={onChangeMock}
+          />
+        )
+      }
+      screen = render(<PollingParent />)
+      await user.type(screen.getByRole('textbox'), 'alice.eth')
+      for (let cycle = 0; cycle < 100; cycle++) {
+        await act(async () => {
+          jest.advanceTimersByTime(100)
+        })
+      }
+    })
+
+    afterEach(() => {
+      jest.useRealTimers()
+      jest.resetAllMocks()
+    })
+
+    it('should stop after one restart, report one error, and ignore both obsolete results', () => {
+      expect(resolveNameMock).toHaveBeenCalledTimes(2)
+      expect(onChangeMock).toHaveBeenCalledTimes(1)
+      expect(onChangeMock).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({
+          value: 'alice.eth',
+          error: new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
+        })
+      )
+      expect(screen.getByRole('textbox')).not.toBeDisabled()
+      expect(screen.queryByTestId('resolved-address')).not.toBeInTheDocument()
+    })
+
+    describe('and the user changes the input', () => {
+      beforeEach(async () => {
+        resolveNameMock.mockResolvedValue(address)
+        await user.type(screen.getByRole('textbox'), 'a')
+        for (let cycle = 0; cycle < 10; cycle++) {
+          await act(async () => {
+            jest.advanceTimersByTime(100)
+          })
+        }
+      })
+
+      it('should allow resolution again', () => {
+        expect(onChangeMock).toHaveBeenCalledTimes(2)
+        expect(onChangeMock).toHaveBeenLastCalledWith(
+          expect.anything(),
+          expect.objectContaining({ value: address, error: undefined })
+        )
+        expect(screen.getByRole('textbox')).not.toBeDisabled()
+      })
+    })
+  }
+)
