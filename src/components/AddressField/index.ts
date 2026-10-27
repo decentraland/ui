@@ -1,7 +1,13 @@
 import AddressField from './AddressField'
 import {
   Props as AddressFieldProps,
-  AddressFieldChangeData
+  AddressFieldChangeData,
+  AddressFieldChangeHandler
 } from './AddressField.types'
 
-export { AddressField, AddressFieldProps, AddressFieldChangeData }
+export {
+  AddressField,
+  AddressFieldProps,
+  AddressFieldChangeData,
+  AddressFieldChangeHandler
+}

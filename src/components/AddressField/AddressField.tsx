@@ -1,23 +1,40 @@
 import React from 'react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react'
 import classNames from 'classnames'
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon'
 import { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input'
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup'
 import { Field } from '../Field/Field'
 import { shorten, isValid } from './utils'
-import { AddressFieldErrors, Props } from './AddressField.types'
+import {
+  AddressFieldChangeData,
+  AddressFieldErrors,
+  Props
+} from './AddressField.types'
 import './AddressField.css'
+
+// Invalidate semantic resolver changes before paint, without a layout-effect warning during SSR.
+const useResolverEffect =
+  typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 /**
  * @deprecated Should start using the same component migrated to UI2.
  */
-export default function AddressField(props: Props) {
+export default function AddressField<
+  Data extends InputOnChangeData | AddressFieldChangeData = InputOnChangeData
+>(props: Props<Data>) {
   const {
     className,
     fieldClassName,
     i18n,
     resolveName,
+    resolverKey,
     onChange,
     ...otherProps
   } = props
@@ -25,30 +42,28 @@ export default function AddressField(props: Props) {
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const requestId = useRef(0)
-  const inFlight = useRef(false)
-  const restarted = useRef(false)
+  const previousResolverKey = useRef(resolverKey)
   const resolveNameRef = useRef(resolveName)
   const lastChange = useRef<{
     event: React.ChangeEvent<HTMLInputElement>
     data: InputOnChangeData
   }>()
-  const onChangeRef = useRef(onChange)
+  const onChangeRef =
+    useRef<Props<InputOnChangeData | AddressFieldChangeData>['onChange']>(
+      onChange
+    )
   const [valid, setValid] = useState<boolean>()
   const [loading, setLoading] = useState<boolean>()
-
-  useEffect(() => {
-    onChangeRef.current = onChange
-  }, [onChange])
 
   const resolveInput = useCallback(
     async (
       evt: React.ChangeEvent<HTMLInputElement>,
-      data: InputOnChangeData
+      data: InputOnChangeData,
+      focus = true
     ) => {
       const currentRequest = ++requestId.current
-      inFlight.current = true
       let address = data.value
-      let error = undefined
+      let error: Error | undefined
 
       if (isValid(data.value)) {
         setValid(true)
@@ -74,10 +89,7 @@ export default function AddressField(props: Props) {
         setLoading(false)
       }
 
-      // Clear inFlight before notifying the parent: onChange may synchronously render
-      // a new inline resolver, but a completed request must never restart itself.
-      inFlight.current = false
-      evt.target.focus()
+      if (focus) evt.target.focus()
 
       if (onChangeRef.current) {
         onChangeRef.current(evt, { ...data, value: address, error })
@@ -89,49 +101,44 @@ export default function AddressField(props: Props) {
   const handleChange = useCallback(
     (evt: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
       lastChange.current = { event: evt, data }
-      restarted.current = false
       requestId.current++
-      inFlight.current = false
       setLoading(false)
       setInputValue(data.value)
       setValid(undefined)
       setAddress('')
       clearTimeout(timeout.current)
-      timeout.current = setTimeout(() => resolveInput(evt, data), 800)
+      timeout.current = setTimeout(() => {
+        timeout.current = undefined
+        void resolveInput(evt, data)
+      }, 800)
     },
     [resolveInput]
   )
 
-  useEffect(() => {
-    if (resolveNameRef.current === resolveName) return
+  useResolverEffect(() => {
     resolveNameRef.current = resolveName
-    // The debounce reads the latest resolver without moving its deadline.
-    // Replace an active lookup immediately and invalidate its obsolete result.
-    if (inFlight.current && lastChange.current) {
-      if (!restarted.current) {
-        restarted.current = true
-        void resolveInput(lastChange.current.event, lastChange.current.data)
-      } else {
-        // Repeated identities may be inline callbacks or real resolver changes.
-        // Stop safely rather than sending unbounded requests or accepting stale data.
-        requestId.current++
-        inFlight.current = false
-        setLoading(false)
-        setValid(false)
-        setAddress('')
-        onChangeRef.current?.(lastChange.current.event, {
-          ...lastChange.current.data,
-          error: new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
-        })
-      }
-    }
-  }, [resolveInput, resolveName])
+    onChangeRef.current = onChange
+    if (Object.is(previousResolverKey.current, resolverKey)) return
+    previousResolverKey.current = resolverKey
 
-  useEffect(() => {
+    const change = lastChange.current
+    if (!change || isValid(change.data.value)) return
+
+    requestId.current++
+    setAddress('')
+    setValid(undefined)
+    setLoading(false)
+    // An existing debounce keeps its deadline and reads the latest resolver.
+    // Otherwise refresh immediately, including previously settled ENS names.
+    if (timeout.current === undefined) {
+      void resolveInput(change.event, change.data, false)
+    }
+  }, [onChange, resolveInput, resolveName, resolverKey])
+
+  useResolverEffect(() => {
     return () => {
       clearTimeout(timeout.current)
       requestId.current++
-      inFlight.current = false
     }
   }, [])
 
