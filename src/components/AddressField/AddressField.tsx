@@ -25,18 +25,21 @@ export default function AddressField(props: Props) {
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const requestId = useRef(0)
+  const lastChange = useRef<{
+    event: React.ChangeEvent<HTMLInputElement>
+    data: InputOnChangeData
+  }>()
+  const onChangeRef = useRef(onChange)
   const [valid, setValid] = useState<boolean>()
   const [loading, setLoading] = useState<boolean>()
 
   useEffect(() => {
-    return () => {
-      clearTimeout(timeout.current)
-      requestId.current++
-    }
-  }, [])
+    onChangeRef.current = onChange
+  }, [onChange])
 
   const handleChange = useCallback(
     (evt, data: InputOnChangeData) => {
+      lastChange.current = { event: evt, data }
       const currentRequest = ++requestId.current
       setLoading(false)
       setInputValue(data.value)
@@ -76,13 +79,25 @@ export default function AddressField(props: Props) {
 
         evt.target.focus()
 
-        if (onChange) {
-          onChange(evt, { ...data, value: address, error })
+        if (onChangeRef.current) {
+          onChangeRef.current(evt, { ...data, value: address, error })
         }
       }, 800)
     },
-    [onChange, resolveName]
+    [resolveName]
   )
+
+  useEffect(() => {
+    // A resolver change invalidates both debounce timers and promises already in flight.
+    // Re-run the current input so cancellation cannot leave the field stuck loading.
+    if (lastChange.current) {
+      handleChange(lastChange.current.event, lastChange.current.data)
+    }
+    return () => {
+      clearTimeout(timeout.current)
+      requestId.current++
+    }
+  }, [handleChange])
 
   const additionalProps = valid
     ? {

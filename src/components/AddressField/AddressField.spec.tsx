@@ -267,3 +267,193 @@ describe('when the field unmounts during resolution', () => {
     expect(onChangeMock).not.toHaveBeenCalled()
   })
 })
+
+describe('when the resolver changes during a lookup', () => {
+  let finishFirst: (value: string) => void
+  let rejectFirst: (error: Error) => void
+  let finishLatest: (value: string) => void
+  let firstLookup: Promise<string>
+  let latestLookup: Promise<string>
+  let latestResolver: jest.Mock
+  let latestAddress: string
+  let input: HTMLElement
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    latestAddress = '0x000000000000000000000000000000000000000b'
+    firstLookup = new Promise((resolve, reject) => {
+      finishFirst = resolve
+      rejectFirst = reject
+    })
+    latestLookup = new Promise((resolve) => {
+      finishLatest = resolve
+    })
+    resolveNameMock = jest.fn().mockReturnValueOnce(firstLookup)
+    latestResolver = jest.fn().mockReturnValueOnce(latestLookup)
+    onChangeMock = jest.fn()
+    screen = renderAddressField({
+      resolveName: resolveNameMock,
+      onChange: onChangeMock
+    })
+    input = screen.getByRole('textbox')
+    await user.type(input, 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    screen.rerender(
+      <AddressField resolveName={latestResolver} onChange={onChangeMock} />
+    )
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should restart resolution of the current input', () => {
+    expect(latestResolver).toHaveBeenCalledWith('alice.eth')
+  })
+
+  describe('and the obsolete lookup finishes first', () => {
+    beforeEach(async () => {
+      await act(async () => {
+        finishFirst(address)
+        await firstLookup
+      })
+    })
+
+    it('should not publish the obsolete result', () => {
+      expect(onChangeMock).not.toHaveBeenCalled()
+    })
+
+    it('should remain disabled while the current lookup is pending', () => {
+      expect(input).toBeDisabled()
+    })
+
+    describe('and the current lookup finishes', () => {
+      beforeEach(async () => {
+        await act(async () => {
+          finishLatest(latestAddress)
+          await latestLookup
+        })
+      })
+
+      it('should publish the current result and enable the field', () => {
+        expect(onChangeMock).toHaveBeenCalledWith(
+          expect.anything(),
+          expect.objectContaining({ value: latestAddress })
+        )
+        expect(input).not.toBeDisabled()
+      })
+    })
+  })
+
+  describe('and the obsolete lookup rejects after the current one finishes', () => {
+    beforeEach(async () => {
+      await act(async () => {
+        finishLatest(latestAddress)
+        await latestLookup
+      })
+      await act(async () => {
+        rejectFirst(new Error('Old resolver failed'))
+        await firstLookup.catch(() => undefined)
+      })
+    })
+
+    it('should retain the successful result without emitting an error', () => {
+      expect(onChangeMock).toHaveBeenCalledTimes(1)
+      expect(onChangeMock).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: latestAddress, error: undefined })
+      )
+      expect(input).not.toBeDisabled()
+    })
+  })
+})
+
+describe('when only the onChange callback changes during resolution', () => {
+  let finish: (value: string) => void
+  let lookup: Promise<string>
+  let latestOnChange: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    lookup = new Promise((resolve) => {
+      finish = resolve
+    })
+    resolveNameMock = jest.fn().mockReturnValueOnce(lookup)
+    onChangeMock = jest.fn()
+    latestOnChange = jest.fn()
+    screen = renderAddressField({
+      resolveName: resolveNameMock,
+      onChange: onChangeMock
+    })
+    await user.type(screen.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    screen.rerender(
+      <AddressField resolveName={resolveNameMock} onChange={latestOnChange} />
+    )
+    await act(async () => {
+      finish(address)
+      await lookup
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should notify the latest callback without restarting the lookup', () => {
+    expect(latestOnChange).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ value: address })
+    )
+    expect(onChangeMock).not.toHaveBeenCalled()
+    expect(resolveNameMock).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('when the resolver changes before the debounce finishes', () => {
+  let latestResolver: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    resolveNameMock = jest.fn()
+    latestResolver = jest.fn().mockResolvedValueOnce(address)
+    onChangeMock = jest.fn()
+    screen = renderAddressField({
+      resolveName: resolveNameMock,
+      onChange: onChangeMock
+    })
+    await user.type(screen.getByRole('textbox'), 'alice.eth')
+    screen.rerender(
+      <AddressField resolveName={latestResolver} onChange={onChangeMock} />
+    )
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should only call the latest resolver', () => {
+    expect(resolveNameMock).not.toHaveBeenCalled()
+    expect(latestResolver).toHaveBeenCalledWith('alice.eth')
+    expect(screen.getByRole('textbox')).not.toBeDisabled()
+  })
+})

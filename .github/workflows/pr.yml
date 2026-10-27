@@ -39,5 +39,7 @@ jobs:
         run: npm run check:prettier
       - name: Check linting
         run: npm run check:code
+      - name: Test address resolution lifecycle
+        run: npm test -- --runInBand src/components/AddressField/AddressField.spec.tsx
       - name: Build library
         run: npm run build
