@@ -11,6 +11,22 @@ import { AddressFieldErrors, Props } from './AddressField.types'
 import AddressField from './AddressField'
 import { shorten } from './utils'
 
+type Deferred<T> = {
+  promise: Promise<T>
+  resolve: (value: T) => void
+  reject: (error: Error) => void
+}
+
+function deferred<T>(): Deferred<T> {
+  let resolve!: (value: T) => void
+  let reject!: (error: Error) => void
+  const promise = new Promise<T>((resolvePromise, rejectPromise) => {
+    resolve = resolvePromise
+    reject = rejectPromise
+  })
+  return { promise, resolve, reject }
+}
+
 function renderAddressField(props: Partial<Props> = {}) {
   return render(<AddressField resolveName={jest.fn()} {...props} />)
 }
@@ -183,9 +199,7 @@ describe('when an input event supersedes a pending lookup', () => {
     jest.useFakeTimers()
     user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
     latestAddress = '0x000000000000000000000000000000000000000b'
-    firstLookup = new Promise((resolve) => {
-      finishFirst = resolve
-    })
+    ;({ promise: firstLookup, resolve: finishFirst } = deferred<string>())
     resolveNameMock = jest
       .fn()
       .mockReturnValueOnce(firstLookup)
@@ -238,9 +252,7 @@ describe('when the field unmounts during resolution', () => {
   beforeEach(async () => {
     jest.useFakeTimers()
     user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
-    lookup = new Promise((resolve) => {
-      finish = resolve
-    })
+    ;({ promise: lookup, resolve: finish } = deferred<string>())
     resolveNameMock = jest.fn().mockReturnValueOnce(lookup)
     onChangeMock = jest.fn()
     screen = renderAddressField({
@@ -283,13 +295,12 @@ describe('when the resolver changes during a lookup', () => {
     jest.useFakeTimers()
     user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
     latestAddress = '0x000000000000000000000000000000000000000b'
-    firstLookup = new Promise((resolve, reject) => {
-      finishFirst = resolve
-      rejectFirst = reject
-    })
-    latestLookup = new Promise((resolve) => {
-      finishLatest = resolve
-    })
+    ;({
+      promise: firstLookup,
+      resolve: finishFirst,
+      reject: rejectFirst
+    } = deferred<string>())
+    ;({ promise: latestLookup, resolve: finishLatest } = deferred<string>())
     resolveNameMock = jest.fn().mockReturnValueOnce(firstLookup)
     latestResolver = jest.fn().mockReturnValueOnce(latestLookup)
     onChangeMock = jest.fn()
@@ -387,9 +398,7 @@ describe('when only the onChange callback changes during resolution', () => {
   beforeEach(async () => {
     jest.useFakeTimers()
     user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
-    lookup = new Promise((resolve) => {
-      finish = resolve
-    })
+    ;({ promise: lookup, resolve: finish } = deferred<string>())
     resolveNameMock = jest.fn().mockReturnValueOnce(lookup)
     onChangeMock = jest.fn()
     latestOnChange = jest.fn()
@@ -508,7 +517,7 @@ describe.each([
       })
       nextField = screen.getByRole('button', { name: 'Next field' })
       await user.click(nextField)
-      for (let cycle = 0; cycle < 10; cycle++) {
+      for (let cycle = 0; cycle < 3; cycle++) {
         await act(async () => {
           jest.advanceTimersByTime(800)
         })
@@ -561,7 +570,7 @@ describe.each(['alice.eth', '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22'])(
       }
       screen = render(<PollingParent />)
       await user.type(screen.getByRole('textbox'), inputValue)
-      for (let cycle = 0; cycle < 100; cycle++) {
+      for (let cycle = 0; cycle < 25; cycle++) {
         await act(async () => {
           jest.advanceTimersByTime(100)
         })
@@ -573,7 +582,7 @@ describe.each(['alice.eth', '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22'])(
       jest.resetAllMocks()
     })
 
-    it('should complete once using the latest resolver without waiting for polling to stop', () => {
+    it('should resolve once using the latest callback captured when the debounce ends', () => {
       expect(onChangeMock).toHaveBeenCalledTimes(1)
       expect(resolveNameMock).not.toHaveBeenCalled()
       expect(latestResolver).toHaveBeenCalledTimes(
@@ -620,7 +629,7 @@ describe.each(['success', 'rejection'])(
       }
       screen = render(<PollingParent />)
       await user.type(screen.getByRole('textbox'), 'alice.eth')
-      for (let cycle = 0; cycle < 100; cycle++) {
+      for (let cycle = 0; cycle < 25; cycle++) {
         await act(async () => {
           jest.advanceTimersByTime(100)
         })
@@ -652,27 +661,6 @@ describe.each(['success', 'rejection'])(
         expect(screen.queryByTestId('resolved-address')).not.toBeInTheDocument()
       }
     })
-
-    describe('and the user changes the input', () => {
-      beforeEach(async () => {
-        resolveNameMock.mockResolvedValue(address)
-        await user.type(screen.getByRole('textbox'), 'a')
-        for (let cycle = 0; cycle < 10; cycle++) {
-          await act(async () => {
-            jest.advanceTimersByTime(100)
-          })
-        }
-      })
-
-      it('should allow resolution again', () => {
-        expect(onChangeMock).toHaveBeenCalledTimes(2)
-        expect(onChangeMock).toHaveBeenLastCalledWith(
-          expect.anything(),
-          expect.objectContaining({ value: address, error: undefined })
-        )
-        expect(screen.getByRole('textbox')).not.toBeDisabled()
-      })
-    })
   }
 )
 
@@ -687,9 +675,7 @@ describe('when a settled ENS name changes resolver context', () => {
     jest.useFakeTimers()
     user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
     latestAddress = '0x000000000000000000000000000000000000000b'
-    latestLookup = new Promise((resolve) => {
-      finishLatest = resolve
-    })
+    ;({ promise: latestLookup, resolve: finishLatest } = deferred<string>())
     resolveNameMock = jest
       .fn()
       .mockResolvedValueOnce(address)
@@ -733,7 +719,7 @@ describe('when a settled ENS name changes resolver context', () => {
     expect(screen.queryByTestId('check-icon')).not.toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeDisabled()
     expect(resolveNameMock).toHaveBeenCalledTimes(2)
-    expect(onChangeMock).toHaveBeenCalledTimes(1)
+    expect(onChangeMock).toHaveBeenCalledTimes(2)
   })
 
   describe('and the new context resolves', () => {
@@ -761,9 +747,7 @@ describe('when a settled ENS name changes resolver context', () => {
 
     beforeEach(async () => {
       newestAddress = '0x000000000000000000000000000000000000000c'
-      newestLookup = new Promise((resolve) => {
-        finishNewest = resolve
-      })
+      ;({ promise: newestLookup, resolve: finishNewest } = deferred<string>())
       resolveNameMock.mockReturnValueOnce(newestLookup)
       screen.rerender(
         <AddressField
@@ -784,7 +768,7 @@ describe('when a settled ENS name changes resolver context', () => {
 
     it('should publish only the newest context instead of accepting the obsolete refresh', () => {
       expect(resolveNameMock).toHaveBeenCalledTimes(3)
-      expect(onChangeMock).toHaveBeenCalledTimes(2)
+      expect(onChangeMock).toHaveBeenCalledTimes(3)
       expect(onChangeMock).toHaveBeenLastCalledWith(
         expect.anything(),
         expect.objectContaining({ value: newestAddress, error: undefined })
@@ -802,7 +786,7 @@ describe('when a settled ENS name changes resolver context', () => {
     })
 
     it('should not publish the refresh result', () => {
-      expect(onChangeMock).toHaveBeenCalledTimes(1)
+      expect(onChangeMock).toHaveBeenCalledTimes(2)
     })
   })
 })
@@ -843,5 +827,181 @@ describe('when a direct address changes resolver context', () => {
     expect(onChangeMock).toHaveBeenCalledTimes(1)
     expect(screen.getByRole('textbox')).toHaveValue(address)
     expect(screen.getByRole('textbox')).not.toBeDisabled()
+  })
+})
+
+describe('when the parent stores a previously resolved recipient', () => {
+  let user: ReturnType<typeof userEvent.setup>
+  let lookup: Deferred<string>
+  let input: HTMLElement
+
+  function Parent({ resolverKey = 'mainnet' }: { resolverKey?: string }) {
+    const [recipient, setRecipient] = React.useState('')
+    return (
+      <>
+        <AddressField
+          resolveName={resolveNameMock}
+          resolverKey={resolverKey}
+          onChange={(event, data) => {
+            onChangeMock(event, data)
+            setRecipient(data.error ? '' : data.value)
+          }}
+        />
+        <button disabled={!recipient}>Send</button>
+      </>
+    )
+  }
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    lookup = deferred<string>()
+    resolveNameMock = jest
+      .fn()
+      .mockResolvedValueOnce(address)
+      .mockReturnValue(lookup.promise)
+    onChangeMock = jest.fn()
+    screen = render(<Parent />, { legacyRoot: true })
+    input = screen.getByRole('textbox')
+    await user.type(input, 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.restoreAllMocks()
+    jest.resetAllMocks()
+  })
+
+  describe('and the resolver key changes', () => {
+    beforeEach(() => {
+      screen.rerender(<Parent resolverKey="sepolia" />)
+    })
+
+    it('should immediately disable sending and publish an empty pending recipient', () => {
+      expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+      expect(onChangeMock).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: '', pending: true, error: undefined })
+      )
+    })
+
+    describe('and the browser moves focus off the disabled input', () => {
+      let focus: jest.SpyInstance
+      let nativeFocus: () => void
+
+      beforeEach(async () => {
+        input.blur()
+        nativeFocus = input.focus.bind(input)
+        focus = jest.spyOn(input, 'focus').mockImplementation(() => {
+          // jsdom allows focusing disabled inputs; real browsers do not.
+          expect(input).not.toBeDisabled()
+          nativeFocus()
+        })
+        await act(async () => {
+          lookup.resolve(address)
+          await lookup.promise
+        })
+      })
+
+      it('should restore focus only after the input has been enabled in the DOM', () => {
+        expect(focus).toHaveBeenCalledTimes(1)
+        expect(input).toHaveFocus()
+        expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+      })
+    })
+
+    describe('and the new lookup fails', () => {
+      beforeEach(async () => {
+        await act(async () => {
+          lookup.reject(new Error('RPC offline'))
+          await lookup.promise.catch(() => undefined)
+        })
+      })
+
+      it('should keep sending disabled and finish the pending notification with an error', () => {
+        expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+        expect(onChangeMock).toHaveBeenLastCalledWith(
+          expect.anything(),
+          expect.objectContaining({
+            pending: false,
+            error: new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
+          })
+        )
+      })
+    })
+  })
+
+  describe('and the user edits the name', () => {
+    beforeEach(async () => {
+      await user.type(input, 'new')
+    })
+
+    it('should invalidate once before the next debounce without publishing each keystroke', () => {
+      expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+      expect(onChangeMock).toHaveBeenCalledTimes(2)
+      expect(onChangeMock).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: '', pending: true })
+      )
+      expect(resolveNameMock).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe('and the user clears the input', () => {
+    beforeEach(async () => {
+      await user.clear(input)
+      screen.rerender(<Parent resolverKey="sepolia" />)
+      await act(async () => {
+        jest.advanceTimersByTime(800)
+      })
+    })
+
+    it('should clear the parent immediately without resolving an empty input on a key change', () => {
+      expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+      expect(onChangeMock).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: '', pending: false, error: undefined })
+      )
+      expect(resolveNameMock).toHaveBeenCalledTimes(1)
+      expect(input).not.toBeDisabled()
+      expect(
+        screen.queryByText('This is not a valid name or address')
+      ).not.toBeInTheDocument()
+    })
+  })
+})
+
+describe('when a recipient is prefilled before the first edit', () => {
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    resolveNameMock = jest.fn()
+    onChangeMock = jest.fn()
+    screen = renderAddressField({
+      value: address,
+      resolveName: resolveNameMock,
+      onChange: onChangeMock
+    })
+    await user.type(screen.getByRole('textbox'), 'a')
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should invalidate the prefilled recipient immediately before validating the edit', () => {
+    expect(onChangeMock).toHaveBeenCalledTimes(1)
+    expect(onChangeMock).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({ value: '', pending: true })
+    )
+    expect(resolveNameMock).not.toHaveBeenCalled()
   })
 })

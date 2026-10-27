@@ -42,6 +42,15 @@ export default function AddressField<
   const [address, setAddress] = useState('')
   const timeout = useRef<NodeJS.Timeout>()
   const requestId = useRef(0)
+  const publishedRecipient = useRef(
+    typeof props.value === 'string' && isValid(props.value)
+  )
+  const focusAfterResolution = useRef<{
+    element: HTMLInputElement
+    request: number
+    restore: boolean
+    ready: boolean
+  }>()
   const previousResolverKey = useRef(resolverKey)
   const resolveNameRef = useRef(resolveName)
   const lastChange = useRef<{
@@ -58,41 +67,59 @@ export default function AddressField<
   const resolveInput = useCallback(
     async (
       evt: React.ChangeEvent<HTMLInputElement>,
-      data: InputOnChangeData,
-      focus = true
+      data: InputOnChangeData
     ) => {
       const currentRequest = ++requestId.current
+      const element = evt.target
+      const activeElement = document.activeElement
+      focusAfterResolution.current = {
+        element,
+        request: currentRequest,
+        restore:
+          activeElement === element ||
+          (activeElement === document.body &&
+            focusAfterResolution.current?.element === element &&
+            focusAfterResolution.current.restore),
+        ready: false
+      }
       let address = data.value
       let error: Error | undefined
+      let resolvedDisplay = ''
 
-      if (isValid(data.value)) {
-        setValid(true)
-      } else {
+      if (!isValid(data.value)) {
         // If address is not valid try to resolve it as a name
         setLoading(true)
         try {
           const resolvedAddress = await resolveNameRef.current(data.value)
           if (currentRequest !== requestId.current) return
           if (resolvedAddress) {
-            setValid(true)
-            setAddress(resolvedAddress)
+            resolvedDisplay = resolvedAddress
             address = resolvedAddress
           } else {
-            setValid(false)
             error = new Error(AddressFieldErrors.INVALID_ADDRESS_OR_NAME)
           }
         } catch (e) {
           if (currentRequest !== requestId.current) return
           error = new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
-          setValid(false)
         }
-        setLoading(false)
       }
 
-      if (focus) evt.target.focus()
+      publishedRecipient.current = !error && isValid(address)
+      if (focusAfterResolution.current?.request === currentRequest) {
+        focusAfterResolution.current.ready = true
+      }
 
+      // Set the focus intent before state commits: React 17 does not batch promise continuations.
+      setValid(!error)
+      setAddress(resolvedDisplay)
+      setLoading(false)
       if (onChangeRef.current) {
-        onChangeRef.current(evt, { ...data, value: address, error })
+        onChangeRef.current(evt, {
+          ...data,
+          value: address,
+          error,
+          pending: false
+        })
       }
     },
     []
@@ -107,10 +134,31 @@ export default function AddressField<
       setValid(undefined)
       setAddress('')
       clearTimeout(timeout.current)
+      timeout.current = undefined
+      focusAfterResolution.current = undefined
+      const invalidateRecipient = publishedRecipient.current
+      publishedRecipient.current = false
+      if (!data.value) {
+        onChangeRef.current?.(evt, {
+          ...data,
+          value: '',
+          error: undefined,
+          pending: false
+        })
+        return
+      }
       timeout.current = setTimeout(() => {
         timeout.current = undefined
         void resolveInput(evt, data)
       }, 800)
+      if (invalidateRecipient) {
+        onChangeRef.current?.(evt, {
+          ...data,
+          value: '',
+          error: undefined,
+          pending: true
+        })
+      }
     },
     [resolveInput]
   )
@@ -122,18 +170,44 @@ export default function AddressField<
     previousResolverKey.current = resolverKey
 
     const change = lastChange.current
-    if (!change || isValid(change.data.value)) return
+    if (!change || !change.data.value || isValid(change.data.value)) return
 
     requestId.current++
     setAddress('')
     setValid(undefined)
     setLoading(false)
+    if (publishedRecipient.current) {
+      publishedRecipient.current = false
+      onChangeRef.current?.(change.event, {
+        ...change.data,
+        value: '',
+        error: undefined,
+        pending: true
+      })
+    }
     // An existing debounce keeps its deadline and reads the latest resolver.
     // Otherwise refresh immediately, including previously settled ENS names.
     if (timeout.current === undefined) {
-      void resolveInput(change.event, change.data, false)
+      void resolveInput(change.event, change.data)
     }
   }, [onChange, resolveInput, resolveName, resolverKey])
+
+  // Restore focus only after React has committed the enabled input. Do not steal
+  // focus if the user moved to another control while resolution was pending.
+  useResolverEffect(() => {
+    const intent = focusAfterResolution.current
+    if (!intent?.ready || loading || props.disabled || props.loading) return
+    focusAfterResolution.current = undefined
+    if (
+      intent.request === requestId.current &&
+      intent.restore &&
+      intent.element.isConnected &&
+      (document.activeElement === document.body ||
+        document.activeElement === intent.element)
+    ) {
+      intent.element.focus()
+    }
+  })
 
   useResolverEffect(() => {
     return () => {

@@ -9,6 +9,8 @@ type Without<T, K extends PropertyKey> = {
 
 export type AddressFieldChangeData = Without<InputOnChangeData, 'error'> & {
   error?: Error
+  /** True when a previously emitted recipient is invalidated; value is empty until resolution completes. */
+  pending?: boolean
 }
 
 /**
@@ -33,7 +35,7 @@ export type Props<
   /** Resolve a name. Inline callbacks are supported; use resolverKey to signal a change of resolver semantics. */
   resolveName: (address: string) => Promise<string | undefined>
   /** Change this key when the chain or resolver configuration changes to refresh the entered name.
-   * Callers should also clear any recipient they cached for the previous context while revalidation runs.
+   * A previously emitted recipient is invalidated with value: empty string and pending: true during refresh.
    */
   resolverKey?: string | number
 }

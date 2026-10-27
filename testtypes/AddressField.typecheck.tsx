@@ -1,8 +1,11 @@
 // Compile-only regressions checked by tsc. These declarations generate no runtime tests.
 import React from 'react'
 import type { InputOnChangeData } from 'semantic-ui-react/dist/commonjs/elements/Input'
-import { AddressField } from './index'
-import type { AddressFieldProps, AddressFieldChangeData } from './index'
+import { AddressField } from '../src/components/AddressField'
+import type {
+  AddressFieldProps,
+  AddressFieldChangeData
+} from '../src/components/AddressField'
 
 type Assert<T extends true> = T
 type Assignable<From, To> = From extends To ? true : false
@@ -88,3 +91,11 @@ export function checkAddressFieldCallbacks(
     </>
   )
 }
+
+export type AcceptPendingMarker = Assert<
+  Assignable<boolean, AddressFieldChangeData['pending']>
+>
+export type RejectStringPendingMarker = Assert<
+  // @ts-expect-error Pending is a boolean marker, not arbitrary input metadata.
+  Assignable<string, AddressFieldChangeData['pending']>
+>
