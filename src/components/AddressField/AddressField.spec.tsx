@@ -457,3 +457,70 @@ describe('when the resolver changes before the debounce finishes', () => {
     expect(screen.getByRole('textbox')).not.toBeDisabled()
   })
 })
+
+describe.each([
+  { inputValue: 'alice.eth', expectedResolverCalls: 1 },
+  {
+    inputValue: '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22',
+    expectedResolverCalls: 0
+  }
+])(
+  'when a parent passes an inline resolver for $inputValue',
+  ({ inputValue, expectedResolverCalls }) => {
+    let user: ReturnType<typeof userEvent.setup>
+    let nextField: HTMLElement
+
+    beforeEach(async () => {
+      jest.useFakeTimers()
+      user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+      resolveNameMock = jest.fn().mockResolvedValue(address)
+      onChangeMock = jest.fn()
+
+      function InlineResolverParent() {
+        const [result, setResult] = React.useState({ value: '' })
+        return (
+          <>
+            <AddressField
+              resolveName={(name) => resolveNameMock(name)}
+              onChange={(event, data) => {
+                onChangeMock(event, data)
+                // Always create a fresh object, as a controlled form does on each result.
+                setResult({ value: data.value })
+              }}
+            />
+            <output>{result.value}</output>
+            <button>Next field</button>
+          </>
+        )
+      }
+
+      screen = render(<InlineResolverParent />)
+      await user.type(screen.getByRole('textbox'), inputValue)
+      await act(async () => {
+        jest.advanceTimersByTime(800)
+      })
+      nextField = screen.getByRole('button', { name: 'Next field' })
+      await user.click(nextField)
+      for (let cycle = 0; cycle < 10; cycle++) {
+        await act(async () => {
+          jest.advanceTimersByTime(800)
+        })
+      }
+    })
+
+    afterEach(() => {
+      jest.useRealTimers()
+      jest.resetAllMocks()
+    })
+
+    it('should emit the completed result once without restarting', () => {
+      expect(onChangeMock).toHaveBeenCalledTimes(1)
+      expect(resolveNameMock).toHaveBeenCalledTimes(expectedResolverCalls)
+    })
+
+    it('should leave the field enabled and preserve focus on the next field', () => {
+      expect(screen.getByRole('textbox')).not.toBeDisabled()
+      expect(nextField).toHaveFocus()
+    })
+  }
+)
