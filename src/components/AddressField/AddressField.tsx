@@ -51,6 +51,11 @@ export default function AddressField<
     restore: boolean
     ready: boolean
   }>()
+  const completedChange = useRef<{
+    request: number
+    event: React.ChangeEvent<HTMLInputElement>
+    data: AddressFieldChangeData
+  }>()
   const previousResolverKey = useRef(resolverKey)
   const resolveNameRef = useRef(resolveName)
   const lastChange = useRef<{
@@ -109,18 +114,16 @@ export default function AddressField<
         focusAfterResolution.current.ready = true
       }
 
-      // Set the focus intent before state commits: React 17 does not batch promise continuations.
+      completedChange.current = {
+        request: currentRequest,
+        event: evt,
+        data: { ...data, value: address, error, pending: false }
+      }
+
+      // Queue focus and notification before committing the enabled input.
       setValid(!error)
       setAddress(resolvedDisplay)
       setLoading(false)
-      if (onChangeRef.current) {
-        onChangeRef.current(evt, {
-          ...data,
-          value: address,
-          error,
-          pending: false
-        })
-      }
     },
     []
   )
@@ -212,6 +215,17 @@ export default function AddressField<
         document.activeElement === intent.element)
     ) {
       intent.element.focus()
+    }
+  })
+
+  // Notify after focus restoration so a consumer can deliberately blur the
+  // enabled input or move focus without a later internal effect undoing it.
+  useResolverEffect(() => {
+    if (loading) return
+    const change = completedChange.current
+    completedChange.current = undefined
+    if (change?.request === requestId.current) {
+      onChangeRef.current?.(change.event, change.data)
     }
   })
 

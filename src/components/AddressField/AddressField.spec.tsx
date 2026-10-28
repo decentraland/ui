@@ -1091,3 +1091,103 @@ describe.each(['disabled', 'loading'] as const)(
     )
   }
 )
+
+describe.each(['alice.eth', '0x89805E5f0698Cb4dB57f0E389f2a75259f78CC22'])(
+  'when the consumer blurs the input after resolving %s',
+  (value) => {
+    let user: ReturnType<typeof userEvent.setup>
+    let input: HTMLInputElement
+    let onChange: jest.Mock
+    let resolveName: jest.Mock
+    let result: RenderResult
+
+    beforeEach(async () => {
+      jest.useFakeTimers()
+      user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+      resolveName = jest.fn().mockResolvedValue(address)
+      onChange = jest.fn((event: React.ChangeEvent<HTMLInputElement>) => {
+        event.target.blur()
+      })
+      result = render(
+        <AddressField resolveName={resolveName} onChange={onChange} />
+      )
+      input = result.getByRole('textbox') as HTMLInputElement
+      await user.type(input, value)
+      await act(async () => {
+        jest.advanceTimersByTime(800)
+      })
+    })
+
+    afterEach(() => {
+      jest.useRealTimers()
+      jest.resetAllMocks()
+    })
+
+    it('should respect the consumer blur after the result is committed', () => {
+      expect(input).not.toHaveFocus()
+    })
+
+    it('should notify the consumer exactly once with the resolved address', () => {
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: address, pending: false })
+      )
+    })
+  }
+)
+
+describe('when the browser drops focus during a pending lookup', () => {
+  let user: ReturnType<typeof userEvent.setup>
+  let lookup: Deferred<string>
+  let input: HTMLInputElement
+  let onChange: jest.Mock
+  let result: RenderResult
+  let enabledAtNotification: boolean
+  let focusedAtNotification: boolean
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    lookup = deferred<string>()
+    enabledAtNotification = false
+    focusedAtNotification = false
+    onChange = jest.fn((event: React.ChangeEvent<HTMLInputElement>) => {
+      enabledAtNotification = !event.target.disabled
+      focusedAtNotification = document.activeElement === event.target
+      event.target.blur()
+    })
+    result = render(
+      <AddressField resolveName={() => lookup.promise} onChange={onChange} />
+    )
+    input = result.getByRole('textbox') as HTMLInputElement
+    await user.type(input, 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    // jsdom retains focus on disabled inputs, unlike the browser.
+    input.blur()
+    await act(async () => {
+      lookup.resolve(address)
+      await lookup.promise
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should restore the enabled input before notifying the consumer', () => {
+    expect(enabledAtNotification).toBe(true)
+    expect(focusedAtNotification).toBe(true)
+  })
+
+  it('should preserve the consumer blur through subsequent renders', () => {
+    result.rerender(
+      <AddressField resolveName={() => lookup.promise} onChange={onChange} />
+    )
+    expect(input).not.toHaveFocus()
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
+})
