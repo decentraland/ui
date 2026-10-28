@@ -1340,8 +1340,10 @@ describe('when a completed lookup is superseded before its result commits', () =
   })
 })
 
+// Concurrent roots exercise cleanup delivery; legacy roots guard against duplicates
+// because they commit the completion before the following unmount.
 describe.each(['concurrent', 'strict', 'legacy'] as const)(
-  'when a completed lookup unmounts before commit on a %s root',
+  'when lookup completion is followed by unmount on a %s root',
   (root) => {
     let result: RenderResult
     let lookup: Deferred<string>
@@ -1453,5 +1455,74 @@ describe('when the consumer throws during resolver-key invalidation', () => {
       expect.anything(),
       expect.objectContaining({ value: address, pending: false })
     )
+  })
+})
+
+describe('when Suspense hides a field with a completed result awaiting commit', () => {
+  let result: RenderResult
+  let lookup: Deferred<string>
+  let suspension: Deferred<void>
+  let resolver: jest.Mock
+  let onChange: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+  let Harness: React.FC<{ suspended: boolean }>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    lookup = deferred<string>()
+    suspension = deferred<void>()
+    resolver = jest.fn().mockReturnValueOnce(lookup.promise)
+    onChange = jest.fn()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    function Sibling({ suspended }: { suspended: boolean }) {
+      if (suspended) throw suspension.promise
+      return null
+    }
+    Harness = ({ suspended }) => (
+      <React.Suspense fallback={<span>Waiting</span>}>
+        <AddressField resolveName={resolver} onChange={onChange} />
+        <Sibling suspended={suspended} />
+      </React.Suspense>
+    )
+    result = render(<Harness suspended={false} />)
+    await user.type(result.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    await act(async () => {
+      lookup.resolve(address)
+      await lookup.promise
+      result.rerender(<Harness suspended />)
+    })
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should publish the completed address while the field is hidden', () => {
+    expect(result.getByText('Waiting')).toBeVisible()
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({ value: address, pending: false })
+    )
+  })
+
+  describe('and the field is shown and edited again', () => {
+    beforeEach(async () => {
+      result.rerender(<Harness suspended={false} />)
+      await user.type(result.getByRole('textbox'), 'x')
+    })
+
+    it('should invalidate the recipient published during cleanup', () => {
+      expect(onChange).toHaveBeenCalledTimes(2)
+      expect(onChange).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: '', pending: true })
+      )
+    })
   })
 })

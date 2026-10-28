@@ -88,6 +88,17 @@ export default function AddressField<
     []
   )
 
+  const publishRecipient = useCallback(
+    (
+      event: React.ChangeEvent<HTMLInputElement>,
+      data: AddressFieldChangeData
+    ) => {
+      publishedRecipient.current = !data.error && isValid(data.value)
+      notifyConsumer(event, data)
+    },
+    [notifyConsumer]
+  )
+
   const resolveInput = useCallback(
     async (
       evt: React.ChangeEvent<HTMLInputElement>,
@@ -161,7 +172,7 @@ export default function AddressField<
       const invalidateRecipient = publishedRecipient.current
       publishedRecipient.current = false
       if (!data.value) {
-        onChangeRef.current?.(evt, {
+        notifyConsumer(evt, {
           ...data,
           value: '',
           error: undefined,
@@ -174,7 +185,7 @@ export default function AddressField<
         void resolveInput(evt, data)
       }, 800)
       if (invalidateRecipient) {
-        onChangeRef.current?.(evt, {
+        notifyConsumer(evt, {
           ...data,
           value: '',
           error: undefined,
@@ -182,7 +193,7 @@ export default function AddressField<
         })
       }
     },
-    [resolveInput]
+    [notifyConsumer, resolveInput]
   )
 
   useResolverEffect(() => {
@@ -240,9 +251,7 @@ export default function AddressField<
     }
 
     // Restore focus before notifying so the consumer's blur or focus wins.
-    publishedRecipient.current =
-      !change.data.error && isValid(change.data.value)
-    notifyConsumer(change.event, change.data)
+    publishRecipient(change.event, change.data)
   })
 
   useResolverEffect(() => {
@@ -256,10 +265,10 @@ export default function AddressField<
       // A finished lookup may be awaiting a batched render that will never
       // commit. Deliver it once without focusing; still discard pending or stale work.
       if (change?.request === currentRequest) {
-        notifyConsumer(change.event, change.data)
+        publishRecipient(change.event, change.data)
       }
     }
-  }, [notifyConsumer])
+  }, [publishRecipient])
 
   const additionalProps = valid
     ? {
