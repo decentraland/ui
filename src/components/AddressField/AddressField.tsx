@@ -68,6 +68,7 @@ export default function AddressField<
     )
   const [valid, setValid] = useState<boolean>()
   const [loading, setLoading] = useState<boolean>()
+  const [completedRequest, setCompletedRequest] = useState<number>()
 
   const resolveInput = useCallback(
     async (
@@ -109,7 +110,6 @@ export default function AddressField<
         }
       }
 
-      publishedRecipient.current = !error && isValid(address)
       if (focusAfterResolution.current?.request === currentRequest) {
         focusAfterResolution.current.ready = true
       }
@@ -124,6 +124,7 @@ export default function AddressField<
       setValid(!error)
       setAddress(resolvedDisplay)
       setLoading(false)
+      setCompletedRequest(currentRequest)
     },
     []
   )
@@ -195,20 +196,23 @@ export default function AddressField<
     }
   }, [onChange, resolveInput, resolveName, resolverKey])
 
-  // Restore focus only after React has committed the enabled input. Do not steal
-  // focus if the user moved to another control while resolution was pending.
+  // Consume a completion only after its state has committed, including resolvers
+  // that throw synchronously during the resolver-key layout effect.
   useResolverEffect(() => {
     if (props.disabled || props.loading) {
-      // Parent-controlled suppression cancels this intent, even if lookup is pending.
-      // Re-enabling the field later must not replay an old request for focus.
+      // Re-enabling the field later must not replay an old focus request.
       focusAfterResolution.current = undefined
-      return
     }
+    const change = completedChange.current
+    if (!change || loading || change.request !== completedRequest) return
+    completedChange.current = undefined
+    if (change.request !== requestId.current) return
+
     const intent = focusAfterResolution.current
-    if (!intent?.ready || loading) return
     focusAfterResolution.current = undefined
     if (
-      intent.request === requestId.current &&
+      intent?.ready &&
+      intent.request === change.request &&
       intent.restore &&
       intent.element.isConnected &&
       (document.activeElement === document.body ||
@@ -216,16 +220,18 @@ export default function AddressField<
     ) {
       intent.element.focus()
     }
-  })
 
-  // Notify after focus restoration so a consumer can deliberately blur the
-  // enabled input or move focus without a later internal effect undoing it.
-  useResolverEffect(() => {
-    if (loading) return
-    const change = completedChange.current
-    completedChange.current = undefined
-    if (change?.request === requestId.current) {
+    // Restore focus before notifying so the consumer's blur or focus wins.
+    publishedRecipient.current =
+      !change.data.error && isValid(change.data.value)
+    try {
       onChangeRef.current?.(change.event, change.data)
+    } catch (error) {
+      // Keep consumer errors observable without tearing down the React tree
+      // just because completion is now delivered during the commit phase.
+      setTimeout(() => {
+        throw error
+      }, 0)
     }
   })
 

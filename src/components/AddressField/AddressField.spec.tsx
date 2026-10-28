@@ -1191,3 +1191,151 @@ describe('when the browser drops focus during a pending lookup', () => {
     expect(onChange).toHaveBeenCalledTimes(1)
   })
 })
+
+describe('when a completion callback throws', () => {
+  let callbackError: Error
+  let result: RenderResult
+  let onChange: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    callbackError = new Error('Consumer failure')
+    onChange = jest.fn(() => {
+      throw callbackError
+    })
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    result = render(
+      <AddressField resolveName={jest.fn()} onChange={onChange} />
+    )
+    await user.type(result.getByRole('textbox'), address)
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should keep the field mounted and report the consumer error asynchronously', () => {
+    expect(result.getByRole('textbox')).toBeEnabled()
+    expect(() => jest.runOnlyPendingTimers()).toThrow(callbackError)
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('when a resolver throws synchronously during a context refresh', () => {
+  let result: RenderResult
+  let onChange: jest.Mock
+  let resolver: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+  let errorWasCommitted: boolean
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    errorWasCommitted = false
+    resolver = jest
+      .fn()
+      .mockResolvedValueOnce(address)
+      .mockImplementationOnce(() => {
+        throw new Error('Synchronous resolver failure')
+      })
+    onChange = jest.fn((_event, data) => {
+      if (data.error) {
+        errorWasCommitted = !!result.queryByText(
+          'This is not a valid name or address'
+        )
+      }
+    })
+    result = render(
+      <AddressField
+        resolveName={resolver}
+        resolverKey="first"
+        onChange={onChange}
+      />
+    )
+    await user.type(result.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    result.rerender(
+      <AddressField
+        resolveName={resolver}
+        resolverKey="second"
+        onChange={onChange}
+      />
+    )
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should commit the error display before notifying the consumer', () => {
+    expect(errorWasCommitted).toBe(true)
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        error: new Error(AddressFieldErrors.ERROR_RESOLVING_NAME)
+      })
+    )
+  })
+})
+
+describe('when a completed lookup is superseded before its result commits', () => {
+  let result: RenderResult
+  let lookup: Deferred<string>
+  let nextLookup: Deferred<string>
+  let resolver: jest.Mock
+  let onChange: jest.Mock
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    lookup = deferred<string>()
+    nextLookup = deferred<string>()
+    resolver = jest
+      .fn()
+      .mockReturnValueOnce(lookup.promise)
+      .mockReturnValueOnce(nextLookup.promise)
+    onChange = jest.fn()
+    result = render(
+      <AddressField
+        resolveName={resolver}
+        resolverKey="first"
+        onChange={onChange}
+      />
+    )
+    await user.type(result.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    await act(async () => {
+      lookup.resolve(address)
+      await lookup.promise
+      result.rerender(
+        <AddressField
+          resolveName={resolver}
+          resolverKey="second"
+          onChange={onChange}
+        />
+      )
+    })
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should not invalidate a recipient that was never published', () => {
+    expect(onChange).not.toHaveBeenCalled()
+    expect(resolver).toHaveBeenCalledTimes(2)
+  })
+})
