@@ -1339,3 +1339,119 @@ describe('when a completed lookup is superseded before its result commits', () =
     expect(resolver).toHaveBeenCalledTimes(2)
   })
 })
+
+describe.each(['concurrent', 'strict', 'legacy'] as const)(
+  'when a completed lookup unmounts before commit on a %s root',
+  (root) => {
+    let result: RenderResult
+    let lookup: Deferred<string>
+    let user: ReturnType<typeof userEvent.setup>
+    let onChange: jest.Mock
+    let focus: jest.SpyInstance
+    let focusCallsBeforeUnmount: number
+
+    beforeEach(async () => {
+      jest.useFakeTimers()
+      lookup = deferred<string>()
+      user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+      onChange = jest.fn()
+      result = render(
+        <AddressField resolveName={() => lookup.promise} onChange={onChange} />,
+        {
+          legacyRoot: root === 'legacy',
+          wrapper: root === 'strict' ? React.StrictMode : React.Fragment
+        }
+      )
+      await user.type(result.getByRole('textbox'), 'alice.eth')
+      await act(async () => {
+        jest.advanceTimersByTime(800)
+      })
+      focus = jest.spyOn(result.getByRole('textbox'), 'focus')
+      await act(async () => {
+        lookup.resolve(address)
+        await lookup.promise
+        focusCallsBeforeUnmount = focus.mock.calls.length
+        result.unmount()
+      })
+    })
+
+    afterEach(() => {
+      jest.restoreAllMocks()
+      jest.useRealTimers()
+    })
+
+    it('should deliver the completed recipient exactly once', () => {
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({ value: address, pending: false })
+      )
+    })
+
+    it('should not restore focus during unmount', () => {
+      expect(focus).toHaveBeenCalledTimes(focusCallsBeforeUnmount)
+    })
+  }
+)
+
+describe('when the consumer throws during resolver-key invalidation', () => {
+  let result: RenderResult
+  let lookup: Deferred<string>
+  let resolver: jest.Mock
+  let onChange: jest.Mock
+  let callbackError: Error
+  let user: ReturnType<typeof userEvent.setup>
+
+  beforeEach(async () => {
+    jest.useFakeTimers()
+    lookup = deferred<string>()
+    resolver = jest
+      .fn()
+      .mockResolvedValueOnce(address)
+      .mockReturnValueOnce(lookup.promise)
+    callbackError = new Error('Invalidation callback failure')
+    onChange = jest.fn((_event, data) => {
+      if (data.pending) throw callbackError
+    })
+    user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+    result = render(
+      <AddressField
+        resolveName={resolver}
+        resolverKey="first"
+        onChange={onChange}
+      />
+    )
+    await user.type(result.getByRole('textbox'), 'alice.eth')
+    await act(async () => {
+      jest.advanceTimersByTime(800)
+    })
+    result.rerender(
+      <AddressField
+        resolveName={resolver}
+        resolverKey="second"
+        onChange={onChange}
+      />
+    )
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.resetAllMocks()
+  })
+
+  it('should report the error asynchronously and keep the refresh running', async () => {
+    expect(result.getByRole('textbox')).toBeDisabled()
+    expect(() => jest.runOnlyPendingTimers()).toThrow(callbackError)
+    await act(async () => {
+      lookup.resolve(address)
+      await lookup.promise
+    })
+    expect(result.getByRole('textbox')).toBeEnabled()
+    expect(onChange).toHaveBeenCalledTimes(3)
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({ value: address, pending: false })
+    )
+  })
+})

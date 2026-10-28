@@ -70,6 +70,24 @@ export default function AddressField<
   const [loading, setLoading] = useState<boolean>()
   const [completedRequest, setCompletedRequest] = useState<number>()
 
+  const notifyConsumer = useCallback(
+    (
+      event: React.ChangeEvent<HTMLInputElement>,
+      data: AddressFieldChangeData
+    ) => {
+      try {
+        onChangeRef.current?.(event, data)
+      } catch (error) {
+        // Keep consumer errors observable without tearing down the React tree
+        // when notifications run during a commit or unmount cleanup.
+        setTimeout(() => {
+          throw error
+        }, 0)
+      }
+    },
+    []
+  )
+
   const resolveInput = useCallback(
     async (
       evt: React.ChangeEvent<HTMLInputElement>,
@@ -182,7 +200,7 @@ export default function AddressField<
     setLoading(false)
     if (publishedRecipient.current) {
       publishedRecipient.current = false
-      onChangeRef.current?.(change.event, {
+      notifyConsumer(change.event, {
         ...change.data,
         value: '',
         error: undefined,
@@ -194,7 +212,7 @@ export default function AddressField<
     if (timeout.current === undefined) {
       void resolveInput(change.event, change.data)
     }
-  }, [onChange, resolveInput, resolveName, resolverKey])
+  }, [notifyConsumer, onChange, resolveInput, resolveName, resolverKey])
 
   // Consume a completion only after its state has committed, including resolvers
   // that throw synchronously during the resolver-key layout effect.
@@ -224,23 +242,24 @@ export default function AddressField<
     // Restore focus before notifying so the consumer's blur or focus wins.
     publishedRecipient.current =
       !change.data.error && isValid(change.data.value)
-    try {
-      onChangeRef.current?.(change.event, change.data)
-    } catch (error) {
-      // Keep consumer errors observable without tearing down the React tree
-      // just because completion is now delivered during the commit phase.
-      setTimeout(() => {
-        throw error
-      }, 0)
-    }
+    notifyConsumer(change.event, change.data)
   })
 
   useResolverEffect(() => {
     return () => {
       clearTimeout(timeout.current)
+      const change = completedChange.current
+      const currentRequest = requestId.current
+      completedChange.current = undefined
+      focusAfterResolution.current = undefined
       requestId.current++
+      // A finished lookup may be awaiting a batched render that will never
+      // commit. Deliver it once without focusing; still discard pending or stale work.
+      if (change?.request === currentRequest) {
+        notifyConsumer(change.event, change.data)
+      }
     }
-  }, [])
+  }, [notifyConsumer])
 
   const additionalProps = valid
     ? {
