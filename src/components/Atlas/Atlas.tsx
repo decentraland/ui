@@ -17,6 +17,17 @@ export type AtlasTile = {
 
 export { Layer, Coord }
 
+// Legacy tile types served by https://api.decentraland.org/v1/tiles
+const DISTRICT_TYPE = 5
+const OWNED_TYPE = 9
+const ON_SALE_TYPE = 10
+const UNOWNED_TYPE = 11
+
+const coordsToId = (x: number, y: number) => x + ',' + y
+
+const isSameEstate = (tile: AtlasTile, other?: AtlasTile) =>
+  !!tile.estate_id && !!other && other.estate_id === tile.estate_id
+
 export type AtlasProps = Omit<TileMapProps, 'layers'> & {
   layers?: Layer[]
   tiles?: Record<string, AtlasTile>
@@ -32,7 +43,7 @@ const COLOR_BY_TYPE = Object.freeze({
   2: '#ff9990', // my estates
   3: '#ff4053', // my estates on sale
   4: '#ffbd33', // parcels/estates where I have permissions
-  5: '#5054D4', // districts
+  5: '#3D3A46', // districts, drawn as owned LAND
   6: '#563db8', // contributions
   7: '#716C7A', // roads
   8: '#70AC76', // plazas
@@ -64,6 +75,21 @@ export class Atlas extends React.PureComponent<AtlasProps, AtlasState> {
     const id = x + ',' + y
     if (tiles && id in tiles) {
       const tile = tiles[id]
+      // Districts are drawn as the LAND they are, with borders recomputed per
+      // estate instead of tracing the district outline. Parcels on sale go
+      // through it too: the ones inside a district are reported as ON_SALE.
+      // See DAO proposal 9ee1965f-6a96-45f9-bb20-f60baa13607f.
+      if (tile.type === DISTRICT_TYPE || tile.type === ON_SALE_TYPE) {
+        return {
+          color:
+            tile.type === DISTRICT_TYPE
+              ? COLOR_BY_TYPE[tile.owner ? OWNED_TYPE : UNOWNED_TYPE]
+              : COLOR_BY_TYPE[tile.type],
+          top: isSameEstate(tile, tiles[coordsToId(x, y + 1)]),
+          left: isSameEstate(tile, tiles[coordsToId(x - 1, y)]),
+          topLeft: isSameEstate(tile, tiles[coordsToId(x - 1, y + 1)])
+        }
+      }
       return {
         color: COLOR_BY_TYPE[tile.type],
         top: !!tile.top,
